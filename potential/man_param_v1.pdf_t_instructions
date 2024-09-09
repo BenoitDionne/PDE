@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{potential/man_param_v1.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex man_param_v1.fig man_param_v1.pdf
+% fig2dev -L pdftex_t man_param_v1.fig man_param_v1.pdf_t
+

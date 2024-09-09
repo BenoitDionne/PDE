@@ -1,0 +1,3307 @@
+\chapter{Shock Waves} \label{ChapShock}
+
+In this chapter, we will consider equations of the form
+\begin{equation}\label{shock_burgers_G}
+\pdydx{u}{y} + \pdfdx{G(u)}{x} = 0 \ ,
+\end{equation}
+where $\displaystyle u:\RR\times [0,\infty[ \to \RR^n$
+\footnote{Systems of conservation laws with
+$\displaystyle u:\RR^k\times[0,\infty[ \to \RR^n$ and $k>1$ could also
+be studied.  However, except for an increase in the complexity of the
+analysis, there is no specific benefit or new inside gained in doing
+that at the present level.  See \cite{Lax}.} and
+$\displaystyle G:\RR^n \to \RR^n$. We
+also assume that an initial condition is given; namely, that $u(x,0)$
+is given for all $x\in \RR$.  Note that $y$ should be interpreted as
+the time \footnote{We should have used $t$ instead of $y$ as it is
+generally done in textbooks on this subject but we choose for
+consistency to use the same notation that we have used when
+introducing first order partial differential equations.}.
+
+Nonlinear partial differential equations of this type are called
+{\bfseries conservation laws}\index{Conservation Laws}.  To formally
+justify this name, we consider a long thin pipe filled with water
+to which a substance has been added.  Let $u$ be the concentration of
+this substance at time $t$ and position $x$ along the pipe, and let
+$G(u)$ be the flux of the substance in the selected positive direction
+of the pipe when the concentration is $u$.  The quantity of the
+substance in a tiny section $[x_1,x_2]$ of the pipe at time $y$ is
+$\displaystyle \int_{x_1}^{x_2} u(x,y) \dx{x}$.
+Assuming no external contribution, a conservation law states that the
+rate of change of this quantity is determined by the difference
+between the flux of the substance at each end of the tiny section of
+the pipe.  Mathematically, the law states that
+\[
+\pdfdx{ \int_{x_1}^{x_2} u(x,y) \dx{x} }{y}
+= -G(u(x_2,t)) + G(u(x_1,t)) \ .
+\]
+If we assume that $u$ and $G$ are sufficiently differentiable
+functions, we may rewrite this equation as
+\[
+\int_{x_1}^{x_2} \pdydx{u}{y}(x,y) \dx{x}
+= - \int_{x_1}^{x_2} \pdfdx{G(u(x,y))}{x} \dx{x} \ .
+\]
+Hence,
+\[
+\int_{x_1}^{x_2} \left( \pdydx{u}{y}(x,y) + \pdfdx{G(u(x,y))}{x}
+\right) \dx{x} \ .
+\]
+Since this is true for all tiny section $[x_1,x_2]$, we should have
+that
+\[
+  \pdydx{u}{y}(x,y) + \pdfdx{G(u(x,y))}{x} = 0
+\]
+for all $x$ and $y$.  This is (\ref{shock_burgers_G}) for $n=1$.
+
+One of the first reference to conservation laws was in physics to
+describe gas dynamics.  This type of equations are usually
+obtain as models from physical systems where the total amount of some
+quantity in a given region is constant; any internal variation is
+compensated by the flux across the boundary of the region.
+We only give a very brief introduction to the subject.  A good
+reference on this subject is \cite{Smo}.
+
+\section{Discontinuous Solutions} \label{sectShockIntro}
+
+We consider the nonlinear partial differential equation
+\begin{equation}\label{shock_burgers}
+\pdydx{u}{y} + g(u)\, \pdydx{u}{x} = 0 \ ,
+\end{equation}
+where $g:\RR\rightarrow \RR$ is a continuous function.
+(\ref{shock_burgers}) is of the form (\ref{shock_burgers_G}) where $G$
+is a primitive of $g$.  When $g(u)=u$, this partial differential
+equation is called the
+{\bfseries Burgers' equation}\index{Conservation Laws!Burgers' Equation}.
+It has been used as a simple model to explain turbulence, where $u$
+represents a concentration and $y$ is the time.
+
+We use the method of characteristics to solve
+(\ref{shock_burgers}) with the initial condition $u(x.0) = h(x)$.
+The characteristic equations are
+\[
+x'(t) = g(u(t)) \quad , \quad y'(t) = 1 \quad \text{and} \quad u'(t) = 0 \ .
+\]
+The initial condition is given by
+\[
+x(0) = s \quad , \quad y(0)=0 \quad \text{and} \quad u(0)=h(s)
+\]
+for $s \in \RR$.  From $u'(t)=0$ and $u(0)=h(s)$, we get
+$u = u(t,s) = h(s)$.  We have that $u$ does not depend on $t$.
+From $y'(t)=1$ and $y(0)=0$, we get
+$y = y(t,s) = t$.  Finally, from $x'(t)= g(u) = g(h(s))$ and
+$x(0)=s$, we get $x = x(t,s) = t\,g(h(s))+s$. 
+
+If we substitute $h(s) = u$ and $t=y$ in $x=t\,g(h(s))+s$, we get
+$s=x-g(u)\,y$.  Hence,
+\begin{equation}\label{shock_burgers_sol}
+u=h(x-g(u)\,y)
+\end{equation}
+is an implicit solution of the partial differential equation.
+This gives some information on the solution but not enough when the
+implicit equation for $u$ cannot be solved explicitly.
+
+It follows from the characteristic curves
+\[
+\left\{ (x,y,u) = \big(t\,g(h(s)) + s, t, h(s)\big) : t \in \RR \right\}
+\]
+for $s\in \RR$ that $u$ is constant to $h(s)$ along (sections of) the
+lines
+\[
+\Sigma_s = \left\{ (x,y) = \big(t\,g(h(s)) + s, t \big) : t\in \RR\right\} \ ;
+\]
+namely, along the lines $x = g(h(s))\,y + s$ in the $x,y$ plane.  Each
+line has a slope of $g(h(s))$ if we consider $x$ as a function of $y$.
+
+Since $\displaystyle \dydx{x}{y} = g(u(x,y))$ and $y$ represents the time,
+$g$ is called the
+{\bfseries (signal) speed}\index{Conservation Laws!Signal Speed} and
+$u$ is called the {\bfseries signal}\index{Conservation Laws!Signal}.
+In most textbooks, the curves $\Sigma_s$ are called characteristics.  However,
+we have already used this term when studying first order partial
+differential equations.  Since $\Sigma_s$ is the projection of a
+characteristic curve for each $s$, we will call $\Sigma_s$ an
+{\bfseries $\mathbf{x,y}$ characteristics}\index{Conservation
+Laws!$x,y$ Characteristics}.
+
+If $g(h(s_1)) > g(h(s_2))$ for $s_1 < s_2$, the lines
+$\displaystyle \Sigma_{s_i} = \left\{ (g(h(s_i))\,y + s_i,y) : y \geq 0
+\right\}$ for $i=1$ and $2$ intersect at the point
+\[
+\VEC{p} = \left( \frac{g(h(s_1)) s_2 - g(h(s_2))s_1}{g(h(s_1))-g(h(s_2))},
+\frac{s_2-s_1}{g(h(s_1))-g(h(s_2))}\right)
+\]
+(Figure~\ref{shock_fig1}).
+Thus, $u$ will be discontinuous at this point since
+$u=h(s_1)$ when we approach $\VEC{p}$ along $\Sigma_{s_1}$ and
+$u=h(s_2)$ when we approach $\VEC{p}$ along $\Sigma_{s_2}$ with 
+$h(s_1) \neq h(s_2)$.
+
+\pdfF{shock_waves/shock_fig1}{intersecting characteristic lines}
+{The two lines intersect if $g(h(s_1))>g(h(s_2))$.}{shock_fig1}
+
+When $g\circ h$ is a decreasing function, the solution $u$ is called a
+{\bfseries shock wave}\label{Shock Wave}.  The solution $u$ is
+discontinuous along the curve
+$\displaystyle \Gamma = \left\{ (\gamma(y),y) : y \geq 0 \right\}$ of
+class $\displaystyle C^1$
+(Figure~\ref{shock_fig2}) given by the points $\VEC{p}$ described
+above, and thus (\ref{shock_burgers}) does not
+have a classical solution.  It is important to note that we obtain a
+discontinuous solution independently of the smoothness of the initial
+condition.  We still get a discontinuous solution even if $h$ is
+$\displaystyle C^\infty$ or analytic.  The nonlinearity of the partial
+differential equation is to be blamed for this phenomena.
+
+\pdfF{shock_waves/shock_fig2}{Curve where the solution of a
+nonlinear partial differential equation is discontinuous}{$\Gamma$ is
+the curve along which the solution $u$ of (\ref{shock_burgers}) is
+discontinuous.}{shock_fig2}
+
+\section{Strong Solutions}
+
+We consider
+\begin{equation}\label{shock_burgers_g}
+\pdydx{u}{y} + \pdfdx{G(u)}{x} = 0
+\end{equation}
+with the initial condition $u(x,0) = h(x)$ for $x \in \RR$.
+
+\begin{defn}
+A {\bfseries strong solution}\index{Conservation Laws!Strong Solution}
+of (\ref{shock_burgers_g}) is a measurable function $u:\RR\times [0,\infty[
+\rightarrow \RR$ such that
+\begin{equation} \label{shock_strong}
+\int_{[0,\infty[} \int_{\RR}
+\left(u\,\pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x} \right) \dx{x}\dx{y}
++ \int_{\RR} h(x) \psi(x,0) \dx{x} = 0
+\end{equation}
+for all functions $\psi \in \DD(\RR \times [0,\infty[)$.
+\end{defn}
+
+To justify this definition, we assume that
+$\displaystyle u \in C^1(\RR \times ]0,\infty[) \cap C(\RR \times [0,\infty[)$.
+Since
+\[
+\pdfdx{(u\psi)}{y} + \pdfdx{( G(u) \psi)}{x}
+= \left( u \pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x} \right) +
+\left( \pdydx{u}{y} + \pdfdx{G(u)}{x}\right) \psi \ .
+\]
+we get from the divergence theorem that
+\begin{equation} \label{shock_strong_cons}
+\begin{split}
+\int_{\partial B} \left( G(u) \psi, u \psi\right)\cdot \VEC{\nu} \dx{s}
+&=\int_B \left( \pdfdx{(u\psi)}{y} + \pdfdx{( G(u) \psi)}{x} \right)
+\dx{x}\dx{y} \\
+&= \int_B \left( u \pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x}
+\right) \dx{x}\dx{y}
++ \int_B \left( \pdydx{u}{y} + \pdfdx{G(u)}{x}\right) \psi \dx{x}\dx{y}
+\end{split}
+\end{equation}
+for all bounded open set $B \subset \RR\times [0,\infty[$
+and $\psi \in \DD(\RR\times [0,\infty[)$,
+where $\displaystyle \VEC{\nu}(x,y)$ is the outward unit normal to
+$\partial B$ at $(x,y) \in \partial B$.  We assume that $\partial B$
+is of class $C^1$ almost everywhere.
+
+Suppose that
+$\displaystyle u \in C^1(\RR \times ]0,\infty[) \cap C(\RR \times [0,\infty[)$
+satisfies (\ref{shock_burgers_g}) in the classical
+sense in $\RR \times ]0,\infty[$ and $u(x,0) = h(x)$ for $x \in \RR$.
+Given $\psi \in \DD(\RR \times [0,\infty[)$,
+choose a box $B = ]-a,a[\times[0,b[$ such that $\supp \psi \subset B$.
+Since $\displaystyle \pdydx{u}{y} + \pdfdx{G(u)}{x} = 0$ in
+$\RR\times [0,\infty[$ and $u(x,0) = h(x)$ for $x\in \RR$, it follows
+from (\ref{shock_strong_cons}) that
+\begin{align*}
+-\int_{-a}^a h(x)\psi(x,0) \dx{x} &= -\int_{-a}^a u(x,0)\psi(x,0) \dx{x} \\
+&= \int_{-a}^a \int_0^b
+\left( u \pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x} \right) \dx{y}\dx{x}
++ \int_{-a}^a \int_0^b  \left( \pdydx{u}{y} + \pdfdx{G(u)}{x}\right)
+\psi \dx{y}\dx{x} \\
+&= \int_{-a}^a \int_0^b
+\left( u \pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x} \right) \dx{y}\dx{x} \ .
+\end{align*}
+We get the negative sign because $\VEC{\nu}(x,y) = (0,-1)$ on the segment
+$S = \{(x,0) : -a \leq x \leq a\}$.  The positive orientation along
+$\partial B$ is counterclockwise.  Note that
+$\psi(x,y) = 0$ for $(x,y) \in (\partial B) \setminus S$
+because $\supp \psi \subset B$.
+Therefore, (\ref{shock_strong}) is satisfied because
+$\psi(x,y) = 0$ for all $(x,y)\not\in B$ since $\supp \psi \subset B$.
+
+Suppose now that (\ref{shock_strong}) is satisfied
+and that $\displaystyle u \in C^1(\RR \times ]0,\infty[)
+\cap C(\RR \times [0,\infty[)$.
+Given $B = ]-a,a[ \times [0,b[ \subset \RR \times [0,\infty[$
+and any $\psi \in \DD(B)$, we get from
+(\ref{shock_strong}) and (\ref{shock_strong_cons}) that
+\begin{align*}
+-\int_{-a}^a u(x,0)\psi(x,0) \dx{x}
+&= \int_0^b \int_{-a}^a
+\left( u \pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x}
+\right) \dx{x}\dx{y}
++ \int_0^b \int_{-a}^a
+\left( \pdydx{u}{y} + \pdfdx{G(u)}{x}\right) \psi \dx{x}\dx{y} \\
+&= - \int_{-a}^a h(x)\psi(x,0) \dx{x} 
++ \int_0^b \int_{-a}^a
+ \left( \pdydx{u}{y} + \pdfdx{G(u)}{x}\right) \psi \dx{x}\dx{y} \ .
+\end{align*}
+Therefore,
+\[
+\int_0^b \int_{-a}^a
+\left( \pdydx{u}{y} + \pdfdx{G(u)}{x}\right) \psi \dx{x}\dx{y} 
++ \int_{-a}^a \left( u(x,0) - h(x) \right) \psi(x,0) \dx{x} = 0
+\]
+for all $\psi \in \DD(B)$.  We get that
+\[
+\int_0^b \int_{-a}^a \left(\pdydx{u}{y} + \pdfdx{G(u)}{x} \right)
+\mu \dx{x}\dx{y}  = 0
+\]
+for all $\mu \in \DD(]-a,a[\times ]0,b[) \subset \DD(B)$ because
+$\mu(x,0) = 0$ for $x\in \RR$.  since
+$\displaystyle \pdydx{u}{y} + \pdfdx{G(u)}{x}$ is
+continuous in $B$, we get that
+$\displaystyle \pdydx{u}{y} + \pdfdx{G(u)}{x} = 0$ in
+$]-a,a[\times]0,b[$ in the classical sense. 
+It then follows that
+\[
+\int_{-a}^a \left( h(x) - u(x,0) \right) \psi(x,0) \dx{x} = 0
+\]
+for all $\psi \in \DD(B)$ because
+$\displaystyle \pdydx{u}{y} + \pdfdx{G(u)}{x} = 0$ in $]-a,a[\times ]0,b[$.
+Since $\displaystyle \DD{B}\big|_{\{(x,0):-a < x <a\}} \equiv \DD(]-a,a[)$
+and $x\mapsto h(x) - u(x,0)$ is continuous, we get
+$u(x,0) = h(x)$ for $-a < x < a$.  Since this is true for all boxes
+$B \subset \RR\times ]0,\infty[$, we get that $u$
+satisfies (\ref{shock_burgers_g}) in the classical
+sense in $\RR \times ]0,\infty[$ and $u(x,0) = h(x)$ for $x \in \RR$.
+
+Considering strong solutions enlarges the set of possible solutions
+and increase the likeliness that a conservation law with an initial
+condition has a solution.  However, it also increase the possibility
+that there may be more than one solution.  This will be addressed by
+imposing additional conditions on the solutions to ensure that they
+have a physical meaning.
+
+\section{Rankine-Hugoniot Formula} \label{sectRankHugo}
+
+Not all shock waves are admissible.  They must satisfy a condition that
+we now deduce.
+
+As before, we assume that $u$ is solution of (\ref{shock_burgers_g})
+which is discontinuous along the curve
+$\displaystyle \Gamma = \left\{ (\gamma(y),y) : y \geq y_0 \right\}$ of
+class $\displaystyle C^1$ for some $y_0 \geq 0$.
+
+Let $V$ be a bounded open subset of $\RR \times [0,\infty[$ such that
+$V$ is split in two by $\Gamma$.  Given $\psi \in \DD(V)$, the first
+integral in (\ref{shock_strong}) can be split into two integrals and
+the second integral is null.  We get
+\begin{equation} \label{shock_split_w}
+\iint_{V_l}
+\left(u\,\pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x} \right) \dx{x}\dx{y} \\
++ \iint_{V_r}
+\left(u\,\pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x} \right) \dx{x}\dx{y} = 0 \ ,
+\end{equation}
+where the first integral is over the region
+$V_l = \left\{ (x,y) \in V : x < \gamma(y)  \right\}$
+to the ``left'' of $\Gamma$.  Similarly, the second integral
+is over the region $V_r = \left\{ (x,y) \in V : x > \gamma(y) \right\}$
+to the ``right'' of $\Gamma$.  In both regions, we
+assume that the function $u$ is of class $\displaystyle C^1$, can be
+extended continuously to the closure of the region, and
+satisfies (\ref{shock_burgers_g}) in the classical sense.
+
+We may use the Divergence Theorem to evaluate the first integral in
+(\ref{shock_split_w}).
+\begin{align}
+& \iint_{V_l}
+\left(u\,\pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x} \right) \dx{x}\dx{y}
+\nonumber \\
+&\qquad = \iint_{V_l} \left(
+-\left( \pdydx{u}{y}+ \pdfdx{G(u)}{x}\right)\,\psi
++ \left( \pdfdx{\left(u\,\psi\right)}{y} +
+\pdfdx{\big(G(u)\,\psi\big)}{x} \right) \right) \dx{x}\dx{y}
+\nonumber \\
+&\qquad = -\iint_{V_l}
+\left( \pdydx{u}{y} + \pdfdx{G(u)}{x} \right)\,\psi
+\dx{x}\dx{y}
++ \int_{\Gamma \cap \partial V_l} \left(G(u^-)\,\psi, u^-\,\psi \right)\cdot
+\VEC{\nu} \dx{s} \ , \label{shock_burgers_W1}
+\end{align}
+where $\displaystyle \VEC{\nu}(\VEC{p})$ is the unit normal to $\Gamma$
+at $\VEC{p} \in \Gamma$ pointing to the right of $\Gamma$, so outside
+$V_l$, and
+\[
+u^-(\VEC{p}) = \lim_{t\rightarrow 0^-}
+u\left(\VEC{p}+t\, \VEC{\nu}(\VEC{p})\right)
+\]
+for $\VEC{p} \in \Gamma$.
+We have replaced the domain of integration of the second integral from
+$\partial V_l$ to $\Gamma \cap \partial V_l$ because
+$\psi(\VEC{p}) = 0$ for all $\VEC{p} \in (\partial V_l) \setminus \Gamma$.
+The positive orientation of the contour integral along $\partial V_l$ is
+counterclockwise.
+
+It follows from (\ref{shock_burgers_g}) that, on the open
+domain of integration $V_l$ where $\displaystyle u \in C^1(V_1)$, the
+first integral in (\ref{shock_burgers_W1}) is null.  Thus,
+\begin{equation} \label{shock_burgers_W2}
+\iint_{V_l}
+\left(u\,\pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x} \right) \dx{x}\dx{y}
+= \int_{\Gamma\cap\partial V_l} \left(G(u^-)\,\psi, u^-\,\psi \right)\cdot
+\VEC{\nu} \dx{s} \ .
+\end{equation}
+Similarly, we have from the second integral in (\ref{shock_split_w}) that
+\begin{align}
+& \iint_{V_r}
+\left(u\,\pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x} \right) \dx{x}\dx{y}
+\nonumber \\
+&\qquad = -\iint_{V_r}
+\left( \pdydx{u}{y} + \pdfdx{G(u)}{x} \right)\,\psi  \dx{x}\dx{y}
++ \int_{\Gamma\cap\partial V_r}  \left(G(u^+)\,\psi, u^+\,\psi \right)\cdot
+\left(-\VEC{\nu} \right) \dx{s} \nonumber \\
+&\qquad = -\int_{\Gamma\cap\partial V_r}
+\left(G(u^+)\,\psi, u^+\,\psi \right)\cdot \VEC{\nu} \dx{s} \ ,
+\label{shock_burgers_W3}
+\end{align}
+where
+\[
+u^+(\VEC{p}) = \lim_{t\rightarrow 0^+}
+u\left(\VEC{p}+t \VEC{\nu}(\VEC{p})\right)
+\]
+for $\VEC{p} \in \Gamma$.
+The minus sign in front of the previous line integral comes from the
+counterclockwise direction of the contour integral along $\partial V_r$
+while the unit normal $\VEC{\nu}$ is pointing inside $V_r$.
+
+Hence, we get from (\ref{shock_split_w}), (\ref{shock_burgers_W2}) and
+(\ref{shock_burgers_W3}) that
+\begin{align}
+& \int_{\Gamma\cap \partial V_l} \left(G(u^-)\,\psi, u^-\,\psi \right)\cdot
+\VEC{\nu} \dx{s}
+- \int_{\Gamma\cap\partial V_r} \left(G(u^+)\,\psi, u^+\,\psi \right)\cdot
+\VEC{\nu} \dx{s} \nonumber \\
+&\qquad = \int_{\Gamma\cap \overline{V}} \psi\,
+\left(G(u^-)-G(u^+), u^- - u^+\right)
+\cdot \VEC{\nu} \dx{s} = 0 \label{shock_burgers_Vrl}
+\end{align}
+because
+\[
+\left\{ \VEC{p} \in \Gamma \cap \partial V_l : \psi(\VEC{p}) \neq 0 \right\}
+=\left\{ \VEC{p} \in \Gamma \cap \partial V_r : \psi(\VEC{p}) \neq 0 \right\}
+=\left\{ \VEC{p} \in \Gamma \cap \overline{V} : \psi(\VEC{p}) \neq 0 \right\}
+\ .
+\]
+Since (\ref{shock_burgers_Vrl}) is true for all
+$\psi \in \DD(V)$ and open sets $V$ which are split by $\Gamma$, we get
+\[
+\left(G(u^-)-G(u^+), u^- - u^+\right)\cdot \VEC{\nu} = 0
+\]
+on $\Gamma$.  If $\VEC{\nu} = (\nu_x, \nu_y)$, this gives
+\begin{equation}\label{shock_rank_hug}
+\frac{G(u^+(\VEC{p}))-G(u^-(\VEC{p}))}{u^+(\VEC{p}) - u^-(\VEC{p})}
+= -\frac{\nu_y(\VEC{p})}{\nu_x(\VEC{p})} = \dydx{\gamma}{y}(y)
+\end{equation}
+for all $\VEC{p}=(\gamma(y),y) \in \Gamma$.
+
+The relation (\ref{shock_rank_hug}) is known as the
+{\bfseries Rankine-Hugoniot formula}\index{Conservation
+Laws!Rankine-Hugoniot Formula}.
+All shock waves must satisfy this condition.
+$\displaystyle \dydx{\gamma}{y}(y)$ is the speed of the shock wave.
+
+\begin{egg}
+Consider the Burgers' equation
+\begin{equation} \label{shock_the_burgers}
+\pdydx{u}{y} + u\,\pdydx{u}{x} = 0
+\end{equation}
+with the initial condition
+\[
+u(x,0) = h(x) =
+\begin{cases} 1 & \quad \text{if} \quad x \leq 0 \\
+1-x & \quad \text{if} \quad 0<x\leq 1 \\
+0 & \quad \text{if} \quad 1 < x
+\end{cases}
+\]
+This equation is of the form (\ref{shock_burgers}) with
+$\displaystyle g(u) = u$.  We may expect a shock wave since $g\circ h$
+is a decreasing function on the interval $[0,1]$.
+
+We first use the method of characteristic to solve this partial
+differential equation.  The characteristic equations are
+\[
+x'(t) = u(t) \quad , \quad y'(t) = 1 \quad \text{and} \quad u'(t) = 0 \ .
+\]
+The initial condition is given by
+\[
+x(0) = s \quad , \quad y(0) = 0 \quad \text{and} \quad u(0) = h(s)
+\]
+for all $s$.  From $u'(t)=0$ and $u(0)=h(s)$, we get $u = u(t,s) = h(s)$.
+From $y'(t)=1$ and $y(0)=0$, we get $y = y(t,s) = t$.  Finally, from
+$x'(t) = u = h(s)$ and $x(0)=s$, we get $x = x(t,s) = t\,h(s) + s$.
+
+There are three cases to consider: $s<0$, $0<s<1$ and $s>1$.
+\begin{enumerate}
+\item For $s<0$, we have that $x = t+s$, $y=t$ and $u=1$.  Thus $u=1$ along the
+lines $x = y +s$.
+\item For $0<s<1$, we have that $x = (1-s)t+s$, $y=t$ and
+$u=1-s$.  Thus $\displaystyle u=\frac{x-1}{y-1}$ along the lines
+$x = (1-s)y +s$.
+\item Finally, for $s>1$, we have that $x = s$, $y=t$ and
+$u=0$.  Thus $u=0$ along the lines $x = s$.
+\end{enumerate}
+These results are summarized in Figure~\ref{shock_fig4}.
+
+\pdfF{shock_waves/shock_fig4}{The solution predicted by the method of
+characteristics}{The solution predicted by the method of
+characteristics.}{shock_fig4}
+
+To determine the curve $\Gamma = \{ (\gamma(y),y) : y \geq y_0 \}$, we use the
+Rankine-Hugoniot formula
+\begin{equation} \label{BERankHugForm}
+\begin{split}
+\dydx{\gamma}{y}(y) &= \frac{G(u^+(\VEC{p}))-G(u^-(\VEC{p}))}
+{u^+(\VEC{p}) - u^-(\VEC{p})} =
+\frac{1}{2} \, \frac{(u^+(\VEC{p}))^2 - (u^-(\VEC{p}))^2}
+{u^+(\VEC{p}) - u^-(\VEC{p})} \\
+&= \frac{1}{2} \, \left(u^+(\VEC{p}) + u^-(\VEC{p})\right)
+\end{split}
+\end{equation}
+for all $\VEC{p}=(\gamma(y),y) \in \Gamma$.  We have chosen $G$
+defined by $\displaystyle G(u) = \frac{u^2}{2}$ as the primitive of $g$.
+
+The curve $\Gamma$ is defined only for $y\geq y_0 = 1$.  Whatever the choice
+of $\Gamma$, we have that $\displaystyle u^+(\VEC{p}) = 1$ and
+$\displaystyle u^-(\VEC{p}) = 0$ for all
+$\VEC{p} \in \Gamma$.  Hence,
+$\displaystyle \dydx{\gamma}{y}(y) = \frac{1}{2}$ for all $y>1$.
+Thus $\displaystyle \gamma(y) = \frac{1}{2}\, y + \frac{1}{2}$
+for $y \geq 1$ because $\Gamma$ must contain the point $(1,1)$ since
+$u$ is discontinuous at $(1,1)$.
+
+The graph of $u(x,y)$ for some fixed values of $y$ can be found in
+Figure~\ref{shock_fig5}.  The shock wave travels at a speed of $1/2$.
+For the Burgers' equation, we have that
+\[
+\pdydx{x}{y}(x_l,y) = u(x_l,y) = \dydx{G}{u}(u(x_l,y))
+> \gamma'(y) > \dydx{G}{u}(u(x_r,y)) = u(x_r,y) = \pdydx{x}{y}(x_r,y) 
+\]
+for all $(x_l,y) \in R_l$ and $(x_r,y) \in R_u$.  Namely, the speed of
+the wave behind the shock wave is larger than the speed of the wave
+ahead of the shock wave.  This is the fundamental reason behind the
+existence of a shock wave.  This relation will also play a fundamental
+role in determining a physically valid solution as we will show in the
+next section.
+\end{egg}
+
+\pdfF{shock_waves/shock_fig5}{A shock Wave for the Burgers' equation}
+{A shock wave for the Burgers' equation travels at a speed of
+$1/2$.}{shock_fig5}
+
+The next example illustrates some unexpected consequence of the
+Rankine-Hugoniot formula.
+
+\begin{egg}
+We have seen that the solution of the Burgers' equation     \label{eggNonEquiv}
+$\displaystyle \pdydx{u}{y} + \pdfdx{\left(\frac{u^2}{2}\right)}{x} = 0$
+must satisfy the Rankine-Hugoniot formula
+$\displaystyle \dydx{\gamma}{y}(y)
+= \frac{1}{2} \, \left(u^+ + u^-\right)$, where
+$u^+ = u^+(\VEC{p})$, $u^- = u^-(\VEC{p})$
+and $\VEC{p}=(\gamma(y),y)$.
+
+If we consider instead the conservation law
+\[
+u \pdydx{u}{y} + u^2\,\pdydx{u}{x}
+= \pdydx{v}{y} + \pdfdx{\left(\frac{2\sqrt{2}}{3} v^{3/2}\right)}{x} = 0 \ ,
+\]
+where $v = u^2/2$.  This is simply the Burgers' equation multiplied by
+$u$.  Then, the solution $v$ must now satisfy the Rankine-Hugoniot formula
+\[
+\dydx{\gamma}{y}(y)
+= \frac{2\sqrt{2}}{3} \left( \frac{(v^+)^{3/2} - (v^-)^{3/2}} {v^+ - v^-}
+\right)
+= \frac{2}{3} \left(\frac{(u^+)^2 + u^+ u^- + (u^-)^2}{u^+ + u^-}\right)
+\]
+where $v^+ = (u^+)/2$ and $v^- = (u^-)/2$.  But this is clearly not
+possible for the same curve $\Gamma$.  The curve where the solution is
+discontinuous and where the shock wave is generated is not the same
+for both system.  The two shock waves travel at different speeds.
+We therefore get different solutions despite the fact that the second
+conservation law is just the first one multiplied by $u$.  This is
+certainly not what we have with ordinary differential equations.
+\end{egg}
+
+\section{Existence, Uniqueness and Asymptotic Behaviour of Solutions}
+
+When $g \circ h$ is a continuously increasing function, a classical
+solution $u$ of (\ref{shock_burgers}) exists (Figure~\ref{shock_fig3}).
+
+\pdfF{shock_waves/shock_fig3}{A rarefaction wave}{When $g \circ h$
+is continuously increasing, we get a nice travelling wave.}{shock_fig3}
+
+However, we may, and often have, many solutions when
+$g \circ h$ fails to be continuously increasing.
+
+\begin{egg}
+A simple example of non-uniqueness of the solution is given by the
+\label{egg_burgers_nu}
+Burgers' equation (\ref{shock_the_burgers}) with the initial condition
+\[
+u(x,0) = h(x) = \begin{cases}
+0 & \quad \text{if}\ x \leq 0 \\
+1 & \quad \text{if}\ x > 0
+\end{cases}
+\]
+
+It is easy to verify that
+\[
+u(x,y) = u_0(x,y) \equiv \begin{cases} 0 & \quad \text{if} \ x < t/2 \\
+1 & \quad \text{if} \ x \geq t/2
+\end{cases}
+\]
+and
+\[
+u(x,y) = u_1(x,y) \equiv \begin{cases} 0 & \quad \text{if} \ x \leq 0 \\
+x/y & \quad \text{if} \ 0 < x < y \\
+1 & \quad \text{if} \ x \geq y  
+\end{cases}
+\]
+are both strong solutions of the Burgers' equation with the initial condition.
+We have sketched these solutions in Figure~\ref{shock_fig6}.
+
+\pdfF{shock_waves/shock_fig6}{Several solutions of the Burgers' equation}
+{Several solutions of the Burgers' equation.  The solution on the
+right is called a rarefaction wave.}{shock_fig6}
+
+The solution $u_0$ represents a ``shock wave'' given by the
+Rankine-Hugoniot formula.
+More specifically, if the solution $u$ is discontinuous along a curve
+$\Gamma = \left\{ (\gamma(y),y) : y \geq y_0 \right\}$ for some
+$y_0 \geq 0$, then (\ref{BERankHugForm}) yields
+$\displaystyle \gamma'(y) = (u^+(\VEC{p})+u^-(\VEC{p}))/2$
+for all $\VEC{p}=(\gamma(y),y) \in \Gamma$.  If we set $u(x,y) = 0$
+for $(x,y)$ on the left side of $\Gamma$ and $1$ on the right side
+of $\Gamma$, we get $\displaystyle \gamma'(y) = 1/2$ and the solution
+$u_0$.  As we will see shortly, this type of ``shock waves'' is not
+physically acceptable.
+
+The solution $u_1$ represents an
+{\bfseries expansive wave}\index{Conservation Laws!Expansive Wave} or a
+{\bfseries rarefaction wave}\index{Conservation Laws!Rarefaction Wave}.
+
+There are in fact a continuum of solutions given by
+\[
+u_r(x,y) = \begin{cases}
+0 & \quad \text{if} \ x \leq 0 \\
+x/y & \quad \text{if} \ 0 < x \leq ry \\
+r & \quad \text{if} \ ry < x \leq (r+1)y/2 \\
+1 & \quad \text{if} \ x > (r+1)/2 
+\end{cases}
+\]
+for $0 \leq r \leq 1$.  This family of solutions is sketched in
+Figure~\ref{shock_fig7}.  Each member of the family is a combination
+of a shock wave and a rarefaction wave.
+\end{egg}
+
+\pdfF{shock_waves/shock_fig7}{Several solutions of the Burgers' equation}
+{Several solutions of the Burgers' equation.}{shock_fig7}
+
+\subsection{Rarefaction Waves} \label{subsectRarefW}
+
+We first address the issues related to rarefaction waves.
+We consider (\ref{shock_burgers_g}) with the initial condition
+$\displaystyle u(x,0) = h(x) = u^-$ for $x<0$ and
+$\displaystyle u(x,0) = h(x) = u^+$ for $x>0$.
+Conservation laws with such initial conditions are called
+{\bfseries Riemann problems}\index{Conservation Laws!Riemann Problem}
+in honour of Bernhard Riemann who was one of the first person to
+rigorously study (using mathematics) the gas dynamics experiment
+called ``shock tube''.  This experiment consists in a long tube
+separated in the middle my a membrane.  The tube is filled with a gas
+that has a different pressure and density on both sides of the
+membrane.  Then the membrane is removed.
+
+We assume that $\displaystyle \dydxn{G}{u}{2}(u) > 0$ for all $u\in
+\RR$ to simplify the discussion.  This is the situation that we have
+for the Burgers' equation for instance.
+
+We note that $u_\mu(x,y) \equiv u(\mu x, \mu y)$ is a solution of
+(\ref{shock_burgers_g}) for all $\mu >0$ \footnote{\ $u_\mu$ is in fact a
+solution of (\ref{shock_burgers_g}) for all $\mu \in \RR$ but the
+initial condition will not be satisfied for $\mu \leq 0$.}.
+Therefore, we seek a solution of the form $u(x,y) = w(x/y)$ where
+$\displaystyle w \in C^1(\RR)$.  If we set $z = x/y$ and
+substitute $u(x,y) = w(z)$ in (\ref{shock_burgers_g}), we get
+\begin{align*}
+0 &= \pdydx{u}{y}(x,y) + \pdfdx{G(u(x,y))}{x}
+= -\frac{x}{y^2}\, \dydx{w}{z}(z) + \frac{1}{y}\,\dydx{G}{w}(w(z))
+\, \dydx{w}{z}(z)  \\
+&= \frac{1}{y} \left( -z + \dydx{G}{w}(w(z)) \right) \dydx{w}{z}(z) \ .
+\end{align*}
+Thus
+\[
+\left(\dydx{G}{w}(w(z)) - z \right) \dydx{w}{z}(z) = 0 \ .
+\]
+If $\displaystyle \dydx{w}{z}(z) \neq 0$ for all $z$ in an open
+subset $V$ of $\RR$, then
+$\displaystyle \dydx{G}{w}(w(z)) = z$ for all $z\in V$.  In fact, the
+converse is also true.  If we derive $\displaystyle \dydx{G}{w}(w(z)) = z$
+with respect to $z$, we get
+$\displaystyle \dydxn{G}{w}{2}(w(z))\dydx{w}{z}(z) = 1$ for $z\in V$.  Since
+$\displaystyle \dydxn{G}{w}{2}(w) > 0$, we get that 
+$\displaystyle \dydx{w}{z}(z) \neq 0$ for $z \in V$.
+
+Since $\displaystyle \dydxn{G}{w}{2}(w) > 0$, we have that
+$\displaystyle \dydx{G}{w}(w) > 0$ is an increasing function.
+In particular, $\displaystyle \dydx{G}{w}$ is invertible.  The
+unique solution for $w$ in $V$ is therefore given by solving
+$\displaystyle \dydx{G}{w}(w(z)) = z$ for $z \in V$.
+Therefore, $\displaystyle u(x,y) = w(z) = \left(\dydx{G}{w}\right)^{-1}(z)$
+for $z \in V$ and $z = x/y$.
+
+\begin{defn} \label{ConnectRaref}
+We say that $\displaystyle u^+$ is {\bfseries connected} to
+$\displaystyle u^-$ by a rarefaction
+wave if $\displaystyle \dydx{G}{u}(u^+) > \dydx{G}{u}(u^-)$, and
+$\displaystyle \dydx{G}{w}(w(z)) = z$ for
+$\displaystyle \dydx{G}{u}(u^+) > z > \dydx{G}{u}(u^-)$.
+\end{defn}
+
+The last condition in the definition is used to defined $u$ in the
+wedge region where $u$ is not defined by the initial conditions.
+
+A rarefaction wave for the Burgers' equation satisfying
+definition~\ref{ConnectRaref} is sketched in Figure~\ref{shock_fig13}.
+The solution $u_1$ in Example~\ref{egg_burgers_nu} is an example of a
+rarefaction wave satisfying Definition~\ref{ConnectRaref} and
+connecting $0$ to $1$.
+
+\pdfF{shock_waves/shock_fig13}{Rarefaction wave}
+{Example of a rarefaction wave given by Definition~\ref{ConnectRaref}.
+We assume that $\displaystyle u(x,0) = h(x) = u^-$ for $x<0$ and
+$\displaystyle u(x,0) = h(x) = u^+$ for $x>0$, and
+$\displaystyle G'(u^-)>0$.  The lines where $u$
+is constant are given by $x= G'(u^-) y + s$ for $s\neq 0$ where $u = u^-$,
+$x= G'(u^+) y + s$ for $s\neq 0$ where $u = u^+$,
+and $x = G'(\tilde{u}) y$ where $u = \tilde{u}$ is between
+$\displaystyle u^+$ and $\displaystyle u^-$.}{shock_fig13}
+
+\subsection{Shock Waves}
+
+For mathematicians, there is no reason to reject any
+solution.  However, for physicists, the conservation laws represent
+real natural phenomena with only one physically relevant solution.  It
+is therefore natural to add an extra condition to conservation laws.
+Unfortunately, there is not a single condition that fits all the
+physical applications.  The condition that we present below, due to
+Peter Lax, best addresses the problems in gas dynamics.
+
+\begin{defn}[Lax Shock Condition] \label{LSCdef1}
+We consider the partial differential equation (\ref{shock_burgers_g}).
+Suppose that the strong solution $u$ is discontinuous along a curve
+$\Gamma = \left\{ (\gamma(y),y) : y \geq y_0\right\}$ of class
+$\displaystyle C^1$ for some $y_0 \geq 0$.  The solution $u$
+must satisfy the Rankine-Hugoniot formula (\ref{shock_rank_hug}) and
+\begin{equation} \label{entropy1}
+\dydx{G}{u}(u^-(\VEC{p})) > \pdydx{\gamma}{y}(y) > \dydx{G}{u}(u^+(\VEC{p}))
+\end{equation}
+for all $\VEC{p}=(\gamma(y),y) \in \Gamma$.
+\index{Conservation Laws!Lax Shock Condition}
+\end{defn}
+
+In Example~\ref{egg_burgers_nu}, the only solution satisfying Lax
+shock condition is $u_1$ since there is no discontinuity and so no
+shock wave.  The other solutions including shock waves do not satisfy
+\[
+G'(u^-(\VEC{p})) > \gamma'(y)
+= \frac{u^+(\VEC{p}) + u^-(\VEC{p})}{2} = \frac{1+r}{2} > G'(u^+(\VEC{p}))
+\]
+for all $\VEC{p}=(\gamma(y),y) \in \Gamma$, where
+$\displaystyle G(u) = u^2/2$.
+
+Suppose that $G''(u) > 0$ for all $u \in \RR$.  Then,
+$G'(u(x_l,y)) > G'(u(x_r,y))$ for $x_l < x_r$ only if
+$u(x_l,y) > u(x_r,y)$ for $x_l < x_r$.  This is the situation for
+$u_1$ in Example~\ref{egg_burgers_nu}.  It then follows that
+$\displaystyle G'(u^-(\VEC{p})) > G'(u^+(\VEC{p}))$ for all $\VEC{p} \in \Gamma$
+because $\displaystyle u^-(\VEC{p}) > u^+(\VEC{p})$.
+This is typical when $G''(u) > 0$ for all $u \in \RR$.  We leave it to
+the reader to deduce the typical case when $G''(u) < 0$ for all $u \in \RR$.
+Conservation laws that satisfy the condition $G''(u) \neq 0$ for all
+$u\in \RR$ are often called
+{\bfseries genuinely nonlinear}\index{Conservation Laws!Genuinely Nonlinear}.
+This is the one-dimensional version of what is called a
+{\bfseries genuinely nonlinear system of conservation
+laws}\index{Conservation Laws!Genuinely Linear} that we will see later.
+
+The relation (\ref{entropy1}) is called the
+{\bfseries entropy inequality}\index{Conservation Laws!Entropy Inequality}.
+There is a physical motivation for (\ref{entropy1}).  It is based on
+the notion from gas dynamics that entropy increases across a shock
+wave.  In other words, there is a loss of information across a shock
+wave.  Mathematically, this means that the solution representing the
+shock wave is not time reversible, you cannot determine the state
+leading to the shock wave from the form of the shock wave only. 
+This is illustrated in the following example from \cite{Smo}.
+
+\begin{egg}
+The functions defined by
+\[
+u_r(x,y) =
+\begin{cases}
+1 & \quad \text{if} \ x < y - r/2 \\
+(x-r/2)/(y-r) & \quad \text{if} \ y - r/2 \leq x < r/2 \\
+0 & \quad \text{if} \ x \geq r/2
+\end{cases}
+\]
+for $x \in \RR$ and $0 \leq y < r$, and by
+\[
+u_r(x,y) =
+\begin{cases}
+1 & \quad \text{if} \ x < y/2 \\
+0 & \quad \text{if} \ x \geq y/2
+\end{cases}
+\]
+for $x \in \RR$ and $y \geq r$, are all solutions of
+Burgers' equation (\ref{shock_the_burgers}) if $0 \leq r \leq 1$
+(Figure~\ref{shock_fig8}).  They are equal at $y = 1$.  In
+fact, they are equal for $y \geq 1$.  However, it is not possible to
+determine the form of the wave for $y <1$ from its form at $y=1$;
+namely, from which of the functions $u_r$ the shock wave comes from.
+\end{egg}
+
+\pdfF{shock_waves/shock_fig8}{Several solutions of the Burgers' equation
+satisfying the same condition at $y=1$}{Several solutions of the
+Burgers' equation satisfying the same condition at $y=1$.}{shock_fig8}
+
+In the systems of conservation laws with shock waves that we have studied, the
+physically relevant solution $u$ is defined along lines that start on
+the $x$ axis and end at the curve $\Gamma$ associated to the shock wave
+as in Figure~\ref{shock_fig4}; it is not the opposite as we have in
+Figure~\ref{shock_fig7}.  Such a situation
+is sometime expressed informally by saying that ``characteristic
+curves end on the shock wave but cannot emanate from the shock
+wave.'' \  This is called an {\bfseries entropy
+condition}\index{Conservation Laws!Entropy Condition} for
+systems of conservation laws.  This means that some ``information'' is
+lost at the front of a shock wave and none is created.
+
+\subsection{Existence and Uniqueness}
+
+In the rest of this section, we adopt the following convention.
+Given $g:\RR \times [0,\infty[ \to \RR$, then $g_x:[0,\infty[ \to \RR$
+and $g_y:\RR \to \RR$ denote the functions defined by
+$g_x(y) = g_y(x) \equiv g(x,y)$ for all $(x,y) \in \RR\times [0,\infty[$.
+
+\begin{theorem} \label{Shock_EUth}
+Suppose that $\displaystyle h \in L^\infty(\RR)$ and
+$\displaystyle G \in C^2(\RR)$.
+Let $\displaystyle H = \|h\|_\infty$,  $D = \{ u \in \RR : |u| \leq H\}$, and
+$\displaystyle M = \max_{u \in D} |G'(u)|$.  Assume that
+$\displaystyle m = \min_{u \in D} G''(u) > 0$.  Then, there exists a
+strong solution of (\ref{shock_burgers_g}) with the initial condition
+$u(x,0) = h(x)$ for $x \in \RR$ that satisfies.
+\begin{enumerate}
+\item $|u(x,y)|\leq H$ for all $(x,y) \in \RR \times [0,\infty[$.
+\item There exists a constant $C$ that depends on $H$, $m$ and $M$,
+such that
+\begin{equation} \label{entropy2}
+\frac{u(x+s,y)-u(x,y)}{s} \leq \frac{C}{y}
+\end{equation}
+for $(x,y) \in \RR \times ]0,\infty[$ and $s>0$.
+\end{enumerate}
+
+Moreover, suppose that $u_1$ and $u_2$ are two strong solutions
+satisfying (1) and (2), and $\displaystyle u_{i,y_1} \to u_{i,y_2}$ in
+$\displaystyle L^1(K)$ as $y_1 \to y_2$ for all compact sets
+$K \subset \RR$ and $y_1,y_2 \in [0,\infty[$ \footnotemark,
+then $u_1 = u_2$ almost everywhere in $\RR\times [0,\infty[$.
+\end{theorem}
+
+\footnotetext{This hypothesis is not in the original version of the
+theorem in \cite{Smo} but we do not see how the theorem can be proved
+without such type of statement.  This is not an unreasonable assumption.
+Similar discrete versions of this assumption ensure the
+convergence and stability of finite difference methods.}
+
+\begin{proof}
+A proof of this theorem can be found in \cite{Smo}.  A
+finite-difference method is used to prove the existence of the solution.
+It is a very long but elementary proof.  In fact, finite-difference
+methods are often used to prove the existence of solutions of partial
+differential equations.
+
+We will however proof the uniqueness of the solution.  It is an
+interesting proof.
+
+Suppose that $u_1$ and $u_2$ are the two strong solutions of
+(\ref{shock_burgers_g}) mentioned in the statement of the theorem.  We
+then have that
+\begin{equation} \label{shock_uniqueEq1}
+\int_{[0,\infty[} \int_{\RR}
+\left(u_i\,\pdydx{\psi}{y} + G(u_i)\,\pdydx{\psi}{x} \right) \dx{x}\dx{y}
++ \int_{\RR} h(x) \psi(x,0) \dx{x} = 0
+\end{equation}
+for $i \in \{1,2\}$, and all $\psi \in \DD(\RR\times [0,\infty[)$.
+If we subtract (\ref{shock_uniqueEq1}) with $i=1$
+from (\ref{shock_uniqueEq1}) with $i=2$, we get
+\begin{equation} \label{shock_uniqueEq2}
+\begin{split}
+0&= \int_{[0,\infty[} \int_{\RR}
+\left((u_2-u_1)\,\pdydx{\psi}{y} + \left(G(u_2)-G(u_1)\right)\,
+\pdydx{\psi}{x} \right) \dx{x}\dx{y} \\
+&\qquad =\int_{[0,\infty[} \int_{\RR}
+(u_2-u_1)\left( \pdydx{\psi}{y} + {\cal G}(u_1,u_2)\,\pdydx{\psi}{x} \right)
+\dx{x}\dx{y}
+\end{split}
+\end{equation}
+for all $\psi \in \DD(\RR\times [0,\infty[)$, where
+\[
+{\cal G}(p,q) =
+\begin{cases}
+\displaystyle \frac{G(q)-G(p)}{q-p} & \quad \text{if} \ p \neq q \\
+G'(p) & \quad \text{if} \ p = q
+\end{cases}
+\]
+We have that $\displaystyle {\cal G} \in C^1(\RR^2)$ with
+$\displaystyle \diff {\cal G}(p,p) =
+\begin{pmatrix} G''(p) & G''(p)\end{pmatrix}$ because
+$\displaystyle G \in C^2(\RR)$.
+Moreover, it follows from the hypothesis that
+$|{\cal G}(p,q)| \leq M$ for all
+$\displaystyle (p,q) \in D \times D$.
+
+To prove that $u_1 = u_2$ almost everywhere in
+$\RR\times ]0,\infty[$,  It would be nice if we could solve 
+\[
+\pdydx{\psi}{y} + {\cal G}(u_1,u_2)\,\pdydx{\psi}{x} = \phi
+\]
+for all $\phi \in \DD(\RR\times ]0,\infty[)$ because it would
+then follow from (\ref{shock_uniqueEq2}) that $u_1 = u_2$ almost
+everywhere.  Unfortunately, this is not always possible because
+${\cal G}(x,y) \equiv {\cal G}(u_1(x,y),u_2(x,y))$ for
+$(x,y) \in \RR \times [0,\infty[$ may be discontinuous when
+$u_1$ and $u_2$ are discontinuous functions.  To get around
+this difficulty, we define some functions
+$\displaystyle u_i^{[j]}\in C(\RR\times [0,\infty[)$ for
+$j \in \NN$ which are continuously differentiable with respect to
+their first variable.
+
+We then show that
+\begin{equation} \label{shock_uniqueEq3}
+\pdydx{\psi^{[j]}}{y} + {\cal G}^{[j]}\,\pdydx{\psi^{[j]}}{x} = \phi
+\end{equation}
+for $\phi \in \DD(\RR\times ]0,\infty[)$ can always be solved, where
+$\displaystyle {\cal G}^{[j]}(x,y) \equiv
+{\cal G}(u^{[j]}_1(x,y),u^{[j]}_2(x,y))$
+for $(x,y) \in \RR \times [0,\infty[$.
+
+Given $\phi \in \DD(\RR\times ]0,\infty[)$ and $\displaystyle \psi^{[j]}$
+satisfying (\ref{shock_uniqueEq3}), we have that
+\begin{align}
+&\int_{[0,\infty[} \int_{\RR}
+\left(u_2 - u_1 \right) \phi \dx{y} \dx{x} \nonumber \\
+&\qquad = \int_{[0,\infty[} \int_{\RR}
+\left(u_2 - u_1 \right) \pdydx{\psi^{[j]}}{y} \dx{y} \dx{x}
++ \int_{[0,\infty[} \int_{\RR}
+\left(u_2 - u_1 \right) {\cal G}^{[j]}\,\pdydx{\psi^{[j]}}{x}  \dx{y} \dx{x}
+\nonumber \\ 
+&\qquad = - \int_{[0,\infty[} \int_{\RR}
+\left(G(u_2) - G(u_1) \right) \pdydx{\psi^{[j]}}{x} \dx{y} \dx{x}
++ \int_{[0,\infty[} \int_{\RR}
+\left(u_2 - u_1 \right) {\cal G}^{[j]}\,\pdydx{\psi^{[j]}}{x}  \dx{y} \dx{x}
+\nonumber \\ 
+&\qquad = \int_{[0,\infty[} \int_{\RR}
+\left(u_2 - u_1 \right)\left({\cal G}^{[j]} - {\cal G}\right)
+\,\pdydx{\psi^{[j]}}{x} \dx{y} \dx{x} \ ,  \label{shock_uniqueEq12}
+\end{align}
+where (\ref{shock_uniqueEq2}) has been used to obtain the second
+equality.
+
+Finally, we show that the limit as $j\to \infty$ in
+(\ref{shock_uniqueEq12}) yields
+\[
+\int_{[0,\infty[} \int_{\RR} (u_2-u_1) \phi \dx{x}\dx{y} = 0 \ .
+\]
+Since $\phi \in \DD(\RR\times ]0,\infty[$ is arbitrary, this will
+implies that $u_1 = u_2$ almost everywhere.
+
+To glue all these arguments together will require several steps.
+
+\stage{i}  Choose $\displaystyle \eta \in \DD(\RR)$ such that
+$\eta(w) = 0$ for $|w|>1$, $\eta(w) \geq 0$ for all $w\in \RR$, and
+$\displaystyle \int_{\RR} \eta(w)\dx{w} = 1$.
+Let $\displaystyle \eta_j(w) = j \eta(j w)$ for
+$w \in \RR$ and $j \in \NN$.  The functions $\displaystyle u_i^{[j]}$
+are defined by $\displaystyle u_i^{[j]}(x,y) \equiv (u_{i,y} \ast \eta_j)(x)$
+for all $(x,y) \in \RR\times [0,\infty[$, $j\in \NN$ and $i \in \{1,2\}$.
+
+We have from Proposition~\ref{distr_smooth_convol} that
+$\displaystyle u_{i,y}^{[j]} \in C^\infty(\RR)$ for all $y \geq 0$,
+$j \in \NN$ and $i\in \{1,2\}$.  In particular, this implies that
+$\displaystyle u_{i}^{[j]}$ is continuous with respect to its first
+variable for all $j \in \NN$ and $i\in \{1,2\}$.
+
+We now show that, for any $y_1,y_2 \in [0,\infty[$,
+we have that $\displaystyle u_{i,y_1}^{[j]} \to u_{i,y_2}^{[j]}$
+uniformly of any compact set $K \subset \RR$ as $y_1 \to y_2$
+for all $j \in \NN$ and $i\in \{1,2\}$.  We have by hypothesis that
+\[
+\int_{K+[-1,1]} \left|u_{i,y_1}(x) - u_{i,y_2}(x)\right| \dx{x} \to 0
+\quad \text{as} \quad y_1 \to y_2
+\]
+because $K+[-1,1] = \{ x + y : x \in K \ \text{and} \ y \in [-1,1]\}$
+is a compact set.
+Therefore, given $\epsilon >0$, there exists $\delta > 0$ such that
+\[
+\int_{K+[-1,1]} \left|u_{i,y_1}(x) - u_{i,y_2}(x)\right| \dx{x} <
+\frac{\epsilon}{\displaystyle \max_{x\in\RR} \eta(x)} 
+\]
+for $|y_1-y_2| < \delta$.  It follows that
+\begin{align*}
+\left| u_{i,y_1}^{[j]}(x) - u_{i,y_2}^{[j]}(x)\right|
+&= \left| \int_{\RR} \left( u_i(x-s,y_1) - u_i(x-s,y_2)\right)
+\eta_j(s) \dx{s} \right| \\
+&= \left| \int_{\RR} \left(u_i(x-t/j,y_1) - u_i(x-t/j ,y_2)\right)
+\eta(t) \dx{t} \right| \\
+&= \left| \int_{|t|\leq 1} \left(u_i(x-t/j,y_1) - u_i(x-t/j,y_2)\right)
+\eta(t) \dx{t} \right| \\
+& \leq \max_{x\in\RR}\eta(x)
+\int_{|t|\leq 1} \left| u_i(x-t/j,y_1) - u_i(x-t/j ,y_2) \right|
+\dx{t} \\
+&\leq \max_{x\in\RR}\eta(x)
+\int_{K+[-1,1]} \left| u_i(s,y_1) - u_i(s,y_2) \right| \dx{s}
+< \epsilon
+\end{align*}
+for all $x \in K$ if $|y_1-y_2| < \delta$.  This obviously implies that
+$\displaystyle u_i^{[j]}$ is continuous with respect to its second
+variable for all $j \in \NN$ and $i\in \{1,2\}$.  But this extra
+uniform convergence on compact sets also ensures that
+$\displaystyle u_i^{[j]} \in C(\RR \times [0,\infty[)$.
+
+\stage{ii} We prove that
+$\displaystyle \left\{ u_i^{[j]} \right\}_{j=0}^\infty$
+converges to $u_i$ in $\displaystyle L^1(K)$ for all compact sets
+$\displaystyle K \subset \RR\times [0,\infty[$ and
+$i\in \{1,2\}$.
+
+We have from Proposition~\ref{distr_limit_convol} that
+$\displaystyle \{ u_{i,y}^{[j]} \}_{j=0}^\infty$ converges uniformly
+on compact sets to $u_{i,y}$ for all $y \geq 0$ and $i \in \{1,2\}$
+\footnote{To be precise, we have to slightly adapt the case for
+$\displaystyle L^\infty(\RR^n)$ in Proposition~\ref{distr_limit_convol}.
+We do not need $\displaystyle f \in L^\infty(\RR^n)$ as long as
+$f$ is uniformly continuous on compact sets and $\phi$ has a compact
+support.  In the proof, it suffices to take $W$ large enough to have
+$\supp \phi \subset W$.}.
+Moreover, it follows from Theorem~\ref{distr_sp_young} and hypothesis
+(1) that
+$\displaystyle \|u_{i,y}^{[j]} \|_\infty \leq \|u_{i,y}\|_\infty \, \|\eta\|_1
+= \|u_{i,y}\|_{\infty} \leq H$ for all $y\geq 0$, $j\in \NN$ and
+$i \in \{1,2\}$.
+
+Hence, we get from the Lebesgue Dominated Convergence Theorem that
+\begin{align*}
+\iint_K \left| u_i^{[j]}(x,y) - u_i(x,y)\right| \dx{x}\dx{y}
+\to 0 \quad \text{as} \quad  j \to \infty
+\end{align*}
+because
+$\displaystyle \left| u_{i,y}^{[j]}(x) - u_{i,y}(x) \right| \to 0$
+for all $(x,y) \in K \subset \RR\times [0,\infty[$ and
+$\displaystyle \left| u_{i,y}^{[j]}(x) - u_{i,y}(x) \right| \leq 
+g(x,y) \equiv 2 H$ for all $(x,y) \in K$ with
+$\displaystyle g \in L^1(K)$ since $K$ is bounded.
+
+\stage{iii} Given $\phi \in \DD(\RR\times ]0,\infty[)$, we choose a
+particular solution of (\ref{shock_uniqueEq3}).  Choose
+$Y>0$ large enough to have $\supp \phi \subset \RR\times ]0,Y[$.
+Let
+\begin{equation} \label{shock_uniqueEq5}
+  \psi^{[j]}(x,y) = \int_Y^y \phi(x^{[j]}(s,x,y),s) \dx{s} \ ,
+\end{equation}
+where $\displaystyle x^{[j]}$ is the solution of the ordinary
+differential equation
+\begin{equation} \label{shock_uniqueEq6}
+  \dydx{x^{[j]}}{s}(s,x,y) = {\cal G}^{[j]}\left(x^{[j]}(s,x,y),s\right)
+\end{equation}
+with $x^{[j]}(y,x,y) = x$.   Such a unique solution exists because
+$\displaystyle u_i^{[j]} \in C(\RR \times [0,\infty[)$
+and $\displaystyle u_{i,y}^{[j]} \in C^1(\RR)$ for all $y \geq 0$
+imply that $\displaystyle {\cal G}^{[j]} \in C(\RR \times [0,\infty[)$
+and $\displaystyle {\cal G}^{[j]}_y \in C^1(\RR)$ for all $y \geq 0$
+and $j \in \NN$.  Moreover, this
+implies that $\displaystyle (s,x,y) \mapsto x^{[j]}(s,x,y)$
+is differentiable on $\displaystyle ]0,\infty[\times \RR \times ]0,\infty[$
+(Theorems~3.1 and 3.3 in Chapter 1 of \cite{Ha}).
+
+To prove that $\displaystyle \psi^{[j]}$ is a solution of
+(\ref{shock_uniqueEq3}), we note that
+\begin{align*}
+&\pdydx{\psi^{[j]}}{y}(x,y) + {\cal G}^{[j]}(x,y)\,\pdydx{\psi^{[j]}}{x}(x,y) \\
+&\qquad = \phi\left(x^{[j]}(y,x,y),y\right)
++ \int_Y^y \pdydx{\phi}{x}\left(x^{[j]}(s,x,y),s\right)\,
+\pdydx{x^{[j]}}{y}(s,x,y) \dx{s} \\
+&\qquad \quad + {\cal G}^{[j]}(x,y)
+\int_Y^y \pdydx{\phi}{x}\left(x^{[j]}(s,x,y),s\right)\,
+\pdydx{x^{[j]}}{x}(s,x,y) \dx{s} \\
+&\qquad = \phi(x,y) + \int_Y^y \pdydx{\phi}{x}\left(x^{[j]}(s,x,y),s\right)\,
+\underbrace{\left( \pdydx{x^{[j]}}{y}(s,x,y) + {\cal G}^{[j]}(x,y)
+\pdydx{x^{[j]}}{x}(s,x,y) \right)}_{=0} \dx{s} \\
+&\qquad = \phi(x,y)
+\end{align*}
+for $(x,y) \in \RR\times ]0,\infty[$, where the fact that the
+integrant in the last integral is null comes from equation (3.6) in
+the statement of Theorem~3.3 in Chapter 1 of \cite{Ha}.
+
+\pdfF{shock_waves/shock_fig9}{Figure associated to part (iv) of the proof of
+Theorem~\ref{Shock_EUth}}{Figure associated to part (iv) of the proof of
+Theorem~\ref{Shock_EUth}.}{shock_fig9}
+
+\stage{iv} We prove that there exists a bounded set
+$R \subset \RR \times [0,\infty[$ such that
+$\displaystyle \supp \psi^{[j]} \subset R$ for all $j \in \NN$.
+
+Since $\displaystyle \|u_{i,y}^{[j]} \|_\infty \leq H$ for all
+$j \in \NN$ and $i \in \{1,2\}$, we get that
+\begin{equation} \label{shock_uniqueEq7}
+\left| {\cal G}^{[j]}(x,y) \right|
+= \left|{\cal G}(u^{[j]}_1(x,y),u^{[j]}_2(x,y))\right|
+\leq M
+\end{equation}
+for all $(x,y) \in \RR \times [0,\infty[$ and all $j \in \NN$.
+Let $S = \supp \phi$ for $\phi$ chosen initially.  Since $S$ is a
+compact, and so bounded, subset of $\RR\times ]0,\infty[$, we can find
+$a < b$ such that
+\[
+S \subset R = \left\{ (x,y) : 0 < y < Y \ \text{and} \
+y/M + a < x < -y/M + b \right\} \ .
+\]
+To prove that $\displaystyle \supp \psi^{[j]} \subset R$, we prove
+that $\displaystyle \psi^{[j]}(x,y) = 0$ for all $(x,y) \not\in R$.
+If $y \geq Y$, we have from (\ref{shock_uniqueEq5}) that
+$\displaystyle \psi^{[j]}(x,y) = 0$ for all $x \in \RR$
+because $\phi(x,y) =0$ for all $x\in \RR$ and $y \geq Y$.  We only have
+to consider $y<Y$.  It follows from (\ref{shock_uniqueEq7}) that
+any orbit
+$\displaystyle \Gamma_{(x,y)}^{[j]}
+\equiv \left\{ \left(x^{[j]}(s,x,y),s\right) : s > 0 \right\}$
+of (\ref{shock_uniqueEq6}) that starts at $(x,y) \not\in R$
+does not intersect $R$ and eventually crosses the line $y=Y$
+(Figure~\ref{shock_fig9}).  We
+therefore have that $\phi = 0$ along the orbits
+$\displaystyle \Gamma_{(x,y)}^{[j]}$ with $(x,y) \not\in R$.
+It then follows from (\ref{shock_uniqueEq3}) that
+\begin{align}
+&\pdfdx{\psi^{[j]}\left(x^{[j]}(s,x,y),s\right)}{s}
+= \pdydx{\psi^{[j]}}{y}\left(x^{[j]}(s,x,y),s\right)
++ \pdydx{\psi^{[j]}}{x}\left(x^{[j]}(s,x,y),s\right) \pdydx{x^{[j]}(s,x,y)}{s}
+\nonumber \\
+&\qquad = \pdydx{\psi^{[j]}}{y}\left(x^{[j]}(s,x,y),s\right)
++ {\cal G}^{[j]}\left(x^{[j]}(s,x,y),s\right)
+\pdydx{\psi^{[j]}}{x}\left(x^{[j]}(s,x,y),s\right) \nonumber \\
+&\qquad = \phi\left(x^{[j]}(s,x,y),s\right) = 0 \label{shock_uniqueEq11}
+\end{align}
+for $s \geq 0$.  Thus $\displaystyle \psi^{[j]}$ is constant along the
+orbits $\displaystyle \Gamma_{(x,y)}^{[j]}$ with $(x,y) \not\in R$.  Since\\
+$\displaystyle \psi^{[j]}\left(x^{[j]}(Y,x,y),Y\right) = 0$,
+we get that $\displaystyle \psi^{[j]} = 0$ along the orbits
+$\displaystyle \Gamma_{(x,y)}^{[j]}$ with $(x,y) \not\in R$.  Thus,
+$\displaystyle \psi^{[j]}\left(x^{[j]}(y,x,y),y\right) =
+\psi^{[j]}\left(x,y\right) = 0$ for $(x,y) \not\in R$.
+
+\stage{v}  We prove that $\displaystyle \{ {\cal G}^{[j]} \}_{j=0}^\infty$
+converges to ${\cal G}$ in $\displaystyle L^1(K)$ for all compact
+sets $K \subset \RR \times [0,\infty[$.
+
+We have that
+\begin{equation} \label{shock_uniqueEq9}
+{\cal G}(p,q) = \int_0^1 G'(t q + (1-t) p) \dx{t}
+\end{equation}
+because
+\[
+\int_0^1 G'(tq  + (1-t) p) \dx{t}
+= \frac{1}{q - p} \int_{p}^{q} G'(r) \dx{r} 
+= \frac{G(q) - G(p)}{q - p}
+\]
+for $p \neq q$ and
+\[
+\int_0^1 G'(t q + (1-t) p) \dx{t} = \int_0^1 G'(p) \dx{t} = G'(p)
+\]
+for $p = q$.  Hence,
+\begin{align*}
+&{\cal G}^{[j]}(x,y) - {\cal G}(x,y)
+= {\cal G}\left(u_1^{[j]}(x,y),u_2^{[j]}(x,y)\right)
+- {\cal G}(u_1(x,y),u_2(x,y)) \\
+&\qquad = \int_0^1 \left( G'\big(t u_2^{[j]}(x,y) + (1-t) u_1^{[j]}(x,y)\big)
+- G'\big(t u_2(x,y) + (1-t) u_1(x,y)\big) \right)) \dx{t} \\
+&\qquad = \int_0^1 \left( G''(\xi(x,y))
+(\left(t \left(u_2^{[j]}(x,y)-u_2(x,y)\right)
++ (1-t) \left( u_1^{[j]}(x,y)\right) - u_1(x,y)\right) \right) \dx{t}
+\end{align*}
+for $\xi(x,y)$ between
+$\displaystyle t u_2^{[j]}(x,y) + (1-t) u_1^{[j]}(x,y)$
+and $t u_2(x,y) + (1-t) u_1(x,y)$.  Since $|\xi(x,y)| \leq H$ for all
+$(x,y)$ because $\displaystyle \|u_i\|_\infty \leq H$ and
+$\displaystyle \|u_i^{[j]}\|_\infty \leq H$ for all $j\in \NN$
+and $i \in \{1,2\}$, we get that
+$\displaystyle |G''(\xi(x,y))| \leq \tilde{M} \equiv
+\max_{p \in D} G''(p) < \infty$ for all $(x,y)$.  The previous maximum
+is finite because $G''$ is continuous on the compact set $D$.
+Moreover, recall that
+$\displaystyle m = \min_{p \in D} G''(p) >0$ by hypothesis.
+Thus,
+\begin{align*}
+&\left| {\cal G}^{[j]}(x,y) - {\cal G}(x,y) \right|
+\leq \tilde{M} \int_0^1 \left(t \left|u_2^{[j]}(x,y)-u_2(x,y)\right|
++ (1-t) \left|u_1^{[j]}(x,y) - u_1(x,y)\right| \right) \dx{t} \\
+& \qquad = \frac{\tilde{M}}{2}\left( \left|u_2^{[j]}(x,y)-u_2(x,y)\right|
++ \left|u_1^{[j]}(x,y) - u_1(x,y)\right| \right) \ .
+\end{align*}
+Hence,
+\begin{align*}
+&\iint_K\left| {\cal G}^{[j]}(x,y) - {\cal G}(x,y) \right| \dx{x}\dx{y} \\
+&\qquad \leq \frac{\tilde{M}}{2}\left( \iint_K
+\left|u_2^{[j]}(x,y)-u_2(x,y)\right| \dx{x} \dx{y}
++ \iint_K \left|u_1^{[j]}(x,y) - u_1(x,y)\right| \dx{x} \dx{y} \right) \to 0  
+\end{align*}
+as $j \to \infty$ because of (ii) above.
+
+\stage{vi} We now address the convergence of the last integral in
+(\ref{shock_uniqueEq12}).  The major issue is the behaviour of
+$\displaystyle \pdydx{\psi^{[j]}}{x}$.
+
+\stage{vi.a}
+Given $\alpha > 0$, let $h_i(x,y) \equiv u_i(x,y) - (C/\alpha) g(x,y)$ where 
+$g(x,y) = x$ for all $(x,y) \in \RR^2$ and $i \in\{1,2\}$.  If follows from
+(\ref{entropy2}) that
+\begin{align*}
+h_i(x+s,y) - h_i(x,y)
+&= u_i(x+s,y) - \frac{C}{\alpha} g(x+s)
+- u_i(x,y) + \frac{C}{\alpha} g(x) \\
+&= s\left( \frac{u_i(x+s,y) - u_i(x,y)}{s}\right) - \frac{C s}{\alpha}
+\leq \frac{C s}{y} - \frac{C s}{\alpha}
+= C s\left( \frac{1}{y} - \frac{1}{\alpha}\right) \leq 0
+\end{align*}
+for $y\geq \alpha$ and $i \in \{1,2\}$.  Thus $h_i(x,y)$ is non-increasing
+with respect to $x$ for $y\geq \alpha$ and $i \in \{1,2\}$.  Hence,
+\[
+u_i^{[j]}(x,y) - \frac{C}{\alpha} (\eta_j \ast g)(x,y)
+= \left(\eta_i \ast ( u_i- \frac{C}{\alpha} g)\right)(x,y)
+= \left(\eta_i \ast h_i\right)(x,y)
+\]
+is non-increasing with respect to $x$ for $y \geq \alpha$ and
+$i \in \{1,2\}$ \footnote{
+Suppose that $p \in L^1(\RR)$ and $q \in L^m(\RR)$ for $m \geq 1$. 
+If $q$ is non-increasing then
+\[
+(p\ast q)(x_1) = \int_{-\infty}^\infty p(s) q(x_1-s) \dx{s}
+\leq \int_{-\infty}^\infty p(s) q(x_2-s) \dx{s}
+= (p\ast q)(x_2)
+\]
+for $x_1 \geq x_2$.}.
+Therefore,
+\[
+0 \geq \pdfdx{\left( u_{i,y}^{[j]}(x) - \frac{C}{\alpha} (\eta_j \ast g)(x)
+\right)}{x}
+= \pdydx{u_{i,y}^{[j]}}{x}(x) - \frac{C}{\alpha}
+\]
+for $x \in \RR$, $y\geq \alpha$ and $i \in \{1,2\}$.  Thus
+\begin{equation} \label{shock_uniqueEq8}
+ \dydx{u_{i,y}^{[j]}}{x}(x) \leq \frac{C}{\alpha}
+\end{equation}
+for $x \in \RR$, $y \geq \alpha$ and $i \in \{1,2\}$.
+
+It follows from (\ref{shock_uniqueEq9}) and (\ref{shock_uniqueEq8}) that
+\begin{align}
+&\pdydx{{\cal G}^{[j]}}{x}(x,y)
+= \pdfdx{ {\cal G}\left(u_1^{[j]}(x,y),u_2^{[j]}(x,y)\right)}{x} \nonumber \\
+&\qquad
+= \int_0^1 G''\left(t u_2^{[j]}(x,y) + (1-t) u_1^{[j]}(x,y)\right)
+\left(t \pdydx{u_2^{[j]}}{x}(x,y) + (1-t) \pdydx{u_1^{[j]}}{x}(x,y) \right)
+\dx{t} \nonumber \\
+&\qquad \leq \frac{C \tilde{M}}{\alpha}   \label{shock_uniqueEq13}
+\end{align}
+for $x\in \RR$, $y \geq \alpha$ and $j\in \NN$ because
+$t u_2^{[j]}(x,y) + (1-t) u_1^{[j]}(x,y) \in D$
+for all $(x,y) \in \RR \times[0,\infty[$ and $t \in [0,1]$, and
+$\displaystyle m = \min_{u \in D} G''(u) > 0$ by hypothesis.
+
+Let $\displaystyle w_j(s,x,y) = \pdydx{x^{[j]}}{x}(s,x,y)$ for
+$s\in ]0,\infty[$,
+$(x,y) \in \RR \times ]0,\infty[$ and $j \in \NN$.\\
+Since $x^{[j]}(y,x,y) = x$ for all $(x,y) \in \RR \times ]0,\infty[$ and
+$j \in \NN$, we get that
+$\displaystyle w_j(y,x,y) = 1$ for all $(x,y) \in \RR \times ]0,\infty[$
+and $j \in \NN$.  Moreover,
+\begin{align*}
+\pdydx{w_j}{s}(s,x,y) &= \pdfdx{\left(\pdydx{x^{[j]}}{x}(s,x,y)\right)}{s}
+= \pdfdx{\left(\pdydx{x^{[j]}}{s}(s,x,y)\right)}{x}
+= \pdfdx{\left({\cal G}^{[j]}\left(x^{[j]}(s,x,y),s\right)\right)}{x} \\
+&= \pdydx{{\cal G}^{[j]}}{x}\left(x^{[j]}(s,x,y),s\right)\,
+\pdydx{x^{[j]}}{x}(s,x,y)
+= \pdydx{{\cal G}^{[j]}}{x}\left(x^{[j]}(s,x,y),s\right)\,
+w_j(s,x,y)
+\end{align*}
+for all $(x,y) \in \RR \times ]0,\infty[$ and $j \in \NN$.  The
+solution of\\
+$\displaystyle \pdydx{w_j}{s}(s,x,y) =
+\pdydx{{\cal G}^{[j]}}{x}\left(x^{[j]}(s,x,y),s\right)\, w_j(s,x,y)$
+with the initial condition
+$\displaystyle w_j(y,x,y) = 1$ is
+\[
+w_j(s,x,y) = \text{exp}\left(
+\int_y^s \pdydx{{\cal G}^{[j]}}{x}\left(x^{[j]}(t,x,y),t\right) \dx{t}\right)
+\]
+for all $j \in \NN$.
+
+Since we are only interested in the values of
+$\displaystyle \psi^{[j]}(x,y)$ for
+$(x,y) \in R$.  We only need to consider $s \leq Y$.
+Moreover, we assume that $\alpha < Y$ and consider only
+$\alpha \leq s \leq Y$.  We then get from (\ref{shock_uniqueEq13}) that
+$\displaystyle |w_j(s,x,y)| \leq e^{C\tilde{M}|s-y|/\alpha}
+\leq e^{C\tilde{M}(Y-\alpha)/\alpha}$ for $\alpha \leq s,y \leq Y$.
+
+We get from (\ref{shock_uniqueEq5}) that
+\[
+\pdydx{\psi^{[j]}}{x}(x,y) =
+\int_Y^y \pdydx{\phi}{x}(x^{[j]}(s,x,y),s)\,
+\pdydx{x^{[j]}}{x}(s,x,y) \dx{s}
+=\int_Y^y \pdydx{\phi}{x}(x^{[j]}(s,x,y),s)\, w_j(s,x,y) \dx{s} \ .
+\]
+Thus, for $\alpha \leq y \leq Y$, we have that
+\begin{equation} \label{shock_uniqueEq10}
+\left| \pdydx{\psi^{[j]}}{x}(x,y) \right| \leq (Y-\alpha) P 
+e^{C\tilde{M}(Y-\alpha)/\alpha}
+\end{equation}
+for all $x\in \RR$ and $j \in \NN$, where
+$\displaystyle P = \max_{(x,y)\in \RR\times [0,\infty[}
+\left|\pdydx{\phi}{x}(x,y) \right|$.  Note that
+(\ref{shock_uniqueEq10}) is also true for $y>Y$ because
+$\displaystyle \psi^{[j]}(x,y) = 0$ for $(x,y) \in \RR\times [Y,\infty[$
+and $j \in \NN$.
+
+\stage{vi.b}
+We now consider $\displaystyle \pdydx{\psi^{[j]}}{x}(x,y)$ for
+$0 \leq y \leq \alpha$, $x\in \RR$ and $j \in \NN$.
+Let $\displaystyle V(f) \equiv \int_\RR |f'(x)|\dx{x}$ for all
+functions $f \in C^1(\RR)$.
+Since $\displaystyle \supp \psi^{[j]} \subset R$ for all $j \in \NN$,
+we have that $\displaystyle V(\psi^{[j]}_y) < \infty$
+for all $y \geq 0$ and $ j \in \NN$.
+
+We show that there exist a positive integer $N$ and a constant $Q$
+such that $\displaystyle V(\psi^{[j]}_y) \leq Q$ for all
+$0 < y \leq 1/N$ and $j \in \NN$.
+Since $\supp \phi \in \DD(\RR\times ]0,\infty[)$, there exists a
+positive integer $N$ such that $\phi(x,y) = 0$ for
+$(x,y) \in \RR \times ]0,1/N]$.  It then follows from
+(\ref{shock_uniqueEq3}) that
+\[
+\pdydx{\psi^{[j]}}{y}(x,y) + {\cal
+  G}^{[j]}(x,y)\,\pdydx{\psi^{[j]}}{x}(x,y) = 0
+\]
+for $(x,y) \in \RR \times ]0,1/N]$.  Proceeding as we did in
+(\ref{shock_uniqueEq11}), we find that
+$\displaystyle \psi^{[j]}$ is constant along the section
+$\left\{ \left(x^{[j]}(s,x,y),s\right) : 0 < s \leq 1/N \right\}$
+of the orbit $\Gamma_{(x,y)}^{[j]}$ of (\ref{shock_uniqueEq6}) for all
+$(x,y) \in \RR\times ]0,1/N]$ (Figure~\ref{shock_fig22}).
+
+\pdfF{shock_waves/shock_fig22}{Figure associated to part (vi.b) of the proof of
+Theorem~\ref{Shock_EUth}}{Figure associated to part (vi.b) of the proof of
+Theorem~\ref{Shock_EUth}.}{shock_fig22}
+
+We now show that $\displaystyle V(\psi^{[j]}_y) = V(\psi^{[j]}_{1/N})$ for all
+$0 < y < 1/N$.   Given any sequence
+$x_1 < x_2 < \ldots < x_n$ in $\RR$, we have that
+\[
+\sum_{i=1}^{n-1} \left|\psi^{[j]}_y(x_{i+1}) - \psi^{[j]}_y(x_i)\right|
+= \sum_{i=1}^{n-1} \left|\pdydx{\psi^{[j]}}{x}(z_i,y)\right|
+(x_{i+1}- x_i)
+\]
+for some $z_i \in ]x_i,x_{i+1}[$ for $1\leq i < N$.
+We also have that
+\begin{align*}
+\sum_{i=1}^{n-1} \left|\psi^{[j]}_y(x_{i+1}) - \psi^{[j]}_y(x_i)\right|
+&= \sum_{i=1}^{n-1} \left|\psi^{[j]}_y(x^{[j]}(1/N,x_{i+1},y))
+- \psi^{[j]}_y(x^{[j]}(1/N,x_i,y))\right| \\
+&= \sum_{i=1}^{n-1} \left|\pdydx{\psi^{[j]}}{x}(w_i,y)\right|
+\big(x^{[j]}(1/N,x_{i+1},y) - x^{[j]}(1/N,x_i,y)\big)
+\end{align*}
+for some
+$w_i \in ]x^{[j]}(s_{1/n,x_i,y},x_i,y),x^{[j]}(s_{1/n,x_{i+1},y},x_{i+1},y)[$
+for $1\leq i < N$.
+
+Taking the supremum over all possibles sequences
+$x_1 < x_2 < \ldots < x_n$ in $\RR$ in the two previous series, we
+find that $\displaystyle V(\psi^{[j]}_y) = V(\psi^{[j]}_{1/N})$ for $0<y<1/N$ by
+definition of the integral.
+
+We take $\alpha < 1/N$.  Let
+$R_{\alpha,+} = \{ (x,y) \in R : y \geq \alpha \}$ and
+$R_{\alpha,-} = \{ (x,y) \in R : y < \alpha \}$.  We have from
+(\ref{shock_uniqueEq12}) that
+\begin{align*}
+&\left| \int_0^\infty \int_{-\infty}^\infty
+\left(u_2 - u_1 \right) \phi \dx{y} \dx{x} \right|
+= \left|\int_0^\infty \int_{-\infty}^\infty
+\left(u_2 - u_1 \right)\left({\cal G}^{[j]} - {\cal G}\right)
+\,\pdydx{\psi^{[j]}}{x} \dx{y} \dx{x} \right| \\
+&\quad \leq \iint_{R_{\alpha,+}} \left|
+\left(u_2 - u_1 \right)\left({\cal G}^{[j]} - {\cal G}\right)
+\,\pdydx{\psi^{[j]}}{x} \right| \dx{y} \dx{x}
++ \iint_{R_{\alpha,-}} \left|
+\left(u_2 - u_1 \right)\left({\cal G}^{[j]} - {\cal G}\right)
+\,\pdydx{\psi^{[j]}}{x} \right|\dx{y} \dx{x}
+\end{align*}
+Given $\epsilon>0$, we can use (\ref{shock_uniqueEq10}) and (v) to
+choose a positive integer $J$ such that
+\[
+\iint_{R_{\alpha,+}} \left|
+\left(u_2 - u_1 \right)\left({\cal G}^{[j]} - {\cal G}\right)
+\,\pdydx{\psi^{[j]}}{x} \right| \dx{y} \dx{x}
+\leq 2 H (Y-\alpha) P e^{C\tilde{M}(Y-\alpha)}
+\iint_{R_{\alpha,+}} \left|{\cal G}^{[j]} - {\cal G}\right| \dx{x}\dx{y}
+< \frac{\epsilon}{2}
+\]
+for $j >J$.  Moreover,
+\begin{align*}
+&\iint_{R_{\alpha,-}} \left|
+\left(u_2 - u_1 \right)\left({\cal G}^{[j]} - {\cal G}\right)
+\,\pdydx{\psi^{[j]}}{x} \right|\dx{y} \dx{x}
+\leq 4 H M \iint_{R_{\alpha,-}} \left|\pdydx{\psi^{[j]}}{x}(x,y)
+\right|\dx{y} \dx{x} \\
+&\qquad \leq 4 H M \int_0^\alpha \left(\int_\RR \left|\pdydx{\psi^{[j]}_y}{x}(x)
+\right|\dx{x} \right)\dx{y}
+= 4 H M \int_0^\alpha V(\psi^{[j]}_y) \dx{y}
+\leq 4 H M \alpha V(\psi^{[j]}_{1/N}) \leq \frac{\epsilon}{2}
+\end{align*}
+if we assume that
+$\displaystyle \alpha < \min \{1/N, 1/(4 H M V(\psi^{[j]}_{1/N})) \}$.
+Thus,
+\[
+\left| \int_0^\infty \int_{-\infty}^\infty
+\left(u_2 - u_1 \right) \phi \dx{y} \dx{x} \right| < \epsilon \ .
+\]
+Since $\epsilon$ is arbitrary, we get that
+\[
+\int_0^\infty \int_{-\infty}^\infty
+\left(u_2 - u_1 \right) \phi \dx{y} \dx{x} = 0 \ .
+\]
+This finally completes the proof.
+\end{proof}
+
+Adding some conditions to those of the previous theorem, it is also
+possible to prove that the strong solution of (\ref{shock_burgers_g}) 
+depends continuously on the initial condition; namely,
+\[
+\int_{x_1}^{x_2} |u(x,y) - \tilde{u}(x,y)|\dx{x} 
+\leq \int_{x_1-My}^{x_2+My} |h(x) - \tilde{h}(x)|\dx{x}
+\]
+for $x_1 < x_2$ in $\RR$, where $\tilde{u}$ is the strong solution
+with the initial condition $\tilde{u}(x,0) = \tilde{h}(x)$ for $x\in \RR$.
+Consult \cite{Smo} for the full statement and the proof of this
+result.
+
+To motivate (\ref{entropy2}), we consider (\ref{shock_burgers}) with the
+initial condition $u(x,0) = h(x)$ for $x \in \RR$.  Its solution is
+given implicitly by (\ref{shock_burgers_sol}) as long as no $x$,$y$
+characteristics intersect.  If we assume that
+$\displaystyle u \in C^1(\RR\times]0,\infty[)$ and
+$\displaystyle g,h \in C^1(\RR)$ and derive both sides of
+(\ref{shock_burgers_sol}) with respect to $x$, we get
+\[
+\pdydx{u}{x} = h'(x-g(u)\,y) \left( 1 - y\,g'(u) \pdydx{u}{x}\right) \ .
+\]
+Solving for $\displaystyle \pdydx{u}{x}$, we find that
+\[
+\pdydx{u}{x} = \frac{h'(x-g(u)\,y)}{1 +y\, g'(u) h'(x-g(u)\,y)} \ .
+\]
+If $g'(u) \geq m > 0$ for all $u\in \RR$ and $h'(s) > 0$ for all $s
+\in \RR$, then $\displaystyle \pdydx{u}{x} \leq \frac{C}{y}$
+with $C = 1/m$.   Thus, (\ref{entropy2}) is certainly satisfied if $s$
+is small.
+
+(\ref{entropy2}) is an
+{\bfseries entropy condition}\index{Conservation Laws!Entropy Condition}.
+It ensures that as $x$ goes from $\infty$ to $\infty$ with $y$ fixed, $u$
+``drops'' at the points where $u$ is discontinuous.
+This is an important consequence of (\ref{entropy2}).  Suppose that
+$u$ is a strong solution which discontinuous along the curve
+$\Gamma = \{ (\gamma(y),y) : y \geq y_0 \}$ for some $y_0\geq 0$.
+Then
+$\displaystyle u^-(\VEC{p}) \equiv \lim_{x\to \gamma(y)} u(x,y) >
+\lim_{x\to \gamma(y)} u(x,y) \equiv u^+(\VEC{p})$, where
+$\VEC{p} = (\gamma(y),y)$.  If we assume that $G''(u) > 0$
+for all $u$, then $G'$ is increasing and
+\[
+G'(u^+(\VEC{p})) <
+\frac{G(u^+(\VEC{p})) - G(u^-(\VEC{p}))}{u^+(\VEC{p}) - u^-(\VEC{p})}
+< G'(u^-(\VEC{p})) \ .
+\]
+It follows from Rankine-Hugoniot formula (\ref{shock_rank_hug}) that
+\[
+G'(u^+(\VEC{p})) < \gamma'(\VEC{p}) < G'(u^-(\VEC{p})) \ ;
+\]
+namely, the Lax Shock Condition (\ref{entropy1}) is satisfied.
+
+(\ref{entropy2}) is necessary to prove the convergence of the finite
+difference scheme in the proof of existence of a solution in
+Theorem~\ref{Shock_EUth}.  As we also saw, it is necessary in the
+proof of the uniqueness of the solution.
+
+\subsection{Asymptotic Behaviour}
+
+This is an important topic that we initially did not plan to include
+because of the size of the material associated to this topic.
+However, we felt that we cannot at least state one of its most
+non-intuitive result.  The reader should consult \cite{Lax2,Smo} for
+more information on this subject.  We simply quote some results from
+\cite{Lax2}.
+
+\begin{theorem} \label{asymptBehTh1}
+Suppose that $\displaystyle G \in C^3(\RR)$ and $G''(u) >0$ for all $u\in \RR$.
+Moreover, suppose that $h$ has a compact support.
+If $u$ is a strong solution of (\ref{shock_burgers_g}) satisfying
+$u(x,0) = h(x)$ for all $x \in \RR$, and $u$ satisfies Lax Shock
+Condition, Definition~\ref{LSCdef1}, along all curves $\Gamma$ (if
+any) where it is discontinuous, then
+$\displaystyle \sup_{x\in\RR} |u(x,y)| = O(1/\sqrt{y})$ for all $y>0$.
+In fact, $\displaystyle \sqrt{y}\, \sup_{x\in\RR} |u(x,y)|$ converges to
+a constant as $y \to \infty$
+\end{theorem}
+
+If $u$ is a periodic solution of (\ref{shock_burgers_g}) of period
+$P$, we have that $\displaystyle \int_0^P u(x,y) \dx{x}$ is constant
+with respect to $y$ because the total variation of $x \mapsto u(x,y)$
+is constant on intervals of same length \footnote{In fact, this is the
+fundamental principle used to deduce the conservation law
+(\ref{shock_burgers_g}).  See \cite{Lax2}.}.  So, we may define the
+mean value of $u$ as
+$\displaystyle M_u = \frac{1}{P}\int_0^P u(x,y) \dx{x}$ whatever $y>0$.
+
+\begin{theorem} \label{asymptBehTh2}
+Suppose that $\displaystyle G \in C^3(\RR)$ and $G''(u) > k >0$
+for all $u\in \RR$ and some constant $k$.  If $u$ is a strong solution of
+(\ref{shock_burgers_g}) satisfies Lax Shock Condition,
+Definition~\ref{LSCdef1}, along all curves $\Gamma$ (if any) where it is
+discontinuous, and $x\mapsto u(x,y)$ is periodic of period $P$
+for all $y>0$, then
+$\displaystyle |u(x,y) - M_u| \leq 1/(ky)$ for all $y>0$.
+In fact, $|u(x,y) - M_u| \, |y| \to 1/k$ as $y \to \infty$.
+\end{theorem}
+
+Suppose that $u_1$ is the solution described in
+Theorem~\ref{asymptBehTh1}, where the compact support of $h$ is
+included in the interval $[0,P]$.
+Suppose that $u_2$ is the solution of period $P$ described in
+Theorem~\ref{asymptBehTh2}, where $u_2(x,0) = h(x)$ for $x\in[0,P]$.
+We have the surprising result that $u_2$ decays faster than $u_1$
+despite the fact that $u_2$ is subject to a much larger initial
+disturbance than $u_1$.
+
+\section{Systems of Conservation Laws}
+
+As the title suggests, we now consider systems of conservation laws.
+The following example is the simplest and standard example that still
+can illustrate all the complexity of solving systems of conservation
+laws.  As we say, it is a must-have.
+
+\begin{egg}[The $\mathbf{p}$-system]   \label{eggPsystem}
+Consider the system
+\begin{equation} \label{psystEq1}
+\begin{split}
+\pdydx{u_1}{y} - \pdydx{u_2}{x} &= 0 \\
+\pdydx{u_2}{y} + \pdfdx{p(u_1)}{x} &= 0
+\end{split}
+\end{equation}
+where $u_1,u_2: \RR\times[0,\infty[ \to \RR$ and
+$\displaystyle p(v) = kv^{-\beta}$ for some constants $k$ and
+$\beta$.  This is a model for isentropic \footnote{Isentropic means that the
+entropy is constant.  In gas dynamics, this concretely means that the
+pressure is an increasing function of the density.} gas dynamics in
+Lagrangian coordinates \footnote{In Euclidean coordinates, the origin
+is a fixed point in space.  In Lagragian coordinates, the origin is
+associated to the position of a particle as it moves in space.  We
+have a moving frame of coordinates.}.
+For the readers who know the full equations of conservation
+of mass, momentum and energy in gas dynamics, these two equations
+represent the conservation of mass and momentum only, while energy is added
+to the system and the temperature is held constant.
+$u_1$ is the specific volume (i.e.\ the inverse of the density),
+$u_2$ is the velocity and $\beta$ is the adiabatic gas constant which is
+generally between $1$ and $3$.
+
+We may also have initial conditions of the form
+$u_1(x,0) = h_1(x)$ and $u_2(x,0) = h_2(x)$ for $x \in\RR$, where
+$h_1,h_2:\RR\to\RR$ are given functions.
+
+Assuming that the functions are sufficiently differentiable, we may
+rewrite (\ref{psystEq1}) as a second order partial differential
+equation.  If we derive $\displaystyle \pdydx{u_2}{x} = \pdydx{u_1}{y}$
+with respect to $y$ and
+$\displaystyle \pdydx{u_2}{y} + \pdfdx{p(u_1)}{x} = 0$ with respect to
+$x$, we get $\displaystyle \pdydxnm{u_2}{x}{y}{2}{}{} = \pdydxn{u_1}{y}{2}$
+and
+$\displaystyle \pdydxnm{u_2}{y}{x}{2}{}{} + \pdfdxn{p(u_1)}{x}{2} = 0$
+respectively.  Thus
+$\displaystyle \pdydxn{u_1}{y}{2} + \pdfdxn{p(u_1)}{x}{2} = 0$ with
+$u_1(x,0) = h_1(x)$ and $\displaystyle \pdydx{u_1}{y}(x,0) = h_2'(x)$ for
+$x\in \RR$.  This is a highly nonlinear partial differential equation.
+
+Another way to reduce (\ref{psystEq1}) to second order partial differential
+equation is to realize that the equation
+$\displaystyle \pdydx{u_1}{y} = \pdydx{u_2}{x}$ implies that
+$\displaystyle u_2 = \pdydx{w}{y}$ and
+$\displaystyle u_1 = \pdydx{w}{x}$ for some function $w:\RR\times [0,\infty[$.
+If we substitute these expressions in (\ref{psystEq1}), we get
+$\displaystyle \pdydxn{w}{y}{2} +
+\pdfdx{p\left(\pdydx{w}{x}\right)}{x}
+= \pdydxn{w}{y}{2} + \dydx{p}{v}\left(\pdydx{w}{x}\right)
+\pdydxn{w}{x}{2} = 0$.
+This is a {\bfseries nonlinear wave equation}\index{Conservation
+Laws!Nonlinear Wave Equation}
+because the speed of the wave is determined by the square root of the
+nonlinear function $\displaystyle -\dydx{p}{v}\left(\pdydx{w}{x}\right)$.
+This is again a highly nonlinear partial differential equation.
+
+Transforming (\ref{psystEq1}) to second order partial differential
+equation does not really help us in solving (\ref{psystEq1}).
+Moreover, remember what happened to the Burgers' equation in
+Example~\ref{eggNonEquiv} after we multiplied it by $u$.  We should
+expect similar complications with the two transformations above.
+\end{egg}
+
+Before diving into the analysis of the $p$-system
+(\ref{psystEq1}), we need to expand the Rankine-Hugoniot formula
+and the Lax Shock Condition to systems of conservation laws.
+
+We consider the system
+\begin{equation} \label{systConLawEq1}
+\pdydx{u}{y} + \pdydx{G(u)}{x}
+= \pdydx{u}{y} + \diff G(u) \, \pdydx{u}{x} = \VEC{0} \ ,
+\end{equation}
+where $u:\RR\times [0,\infty[ \to \RR^n$ and $G:\RR^n \to \RR^n$
+are sufficiently differentiable functions.
+
+If we assume that $u$ is discontinuous along the curve
+$\displaystyle \Gamma = \left\{ (\gamma(y),y) : y \geq y_0 \right\}$
+of class $\displaystyle C^1$ for some $y_0 \geq 0$, we can proceed on
+each component of $u$ as we did in Section~\ref{sectRankHugo} to obtain the
+{\bfseries Rankine-Hugoniot formula}\index{Conservation
+Laws!Rankine-Hugoniot Formula}
+for systems of conservation laws
+\begin{equation}\label{shock_rank_hugND}
+G(u^+(\VEC{p}))-G(u^-(\VEC{p}))
+= \dydx{\gamma}{y}(y) \left(u^+(\VEC{p}) - u^-(\VEC{p}) \right)
+\end{equation}
+for all $\VEC{p}=(\gamma(y),y) \in \Gamma$.  This condition must be
+satisfied if we have a shock wave.
+
+We now turn our attention to generalizing the Lax Shock Condition
+to systems of conservation laws.
+
+From now on, we assume that (\ref{systConLawEq1}) is a
+{\bfseries strictly hyperbolic partial differential
+equation}\index{Strictly Hyperbolic Partial Differential Equation};
+namely, $\diff G(\VEC{u}) :\RR^n \to \RR^n$ has $n$ distinct eigenvalues
+$\lambda_1(\VEC{u}) < \lambda_2(\VEC{u}) < \ldots < \lambda_n(\VEC{u})$
+for all $\VEC{u} \in \RR^n$.
+
+\begin{defn}[Lax Shock Condition]  \label{LSCdef2}
+Suppose that the strong solution $u$ of (\ref{systConLawEq1}) is discontinuous
+along the curve
+$\displaystyle \Gamma = \left\{ (\gamma(y),y) : y \geq y_0 \right\}$
+of class $\displaystyle C^1$ for some $y_0 \geq 0$.  The strong solution $u$
+must satisfy the Rankine-Hugoniot formula (\ref{shock_rank_hugND}) and
+there must be a value $k \in \{1,2,\ldots,n\}$ such that
+\begin{equation} \label{entropy3}
+\begin{split}
+\lambda_{k-1}(u^-(\VEC{p})) &< \gamma'(y) < \lambda_k(u^-(\VEC{p})) \\
+\lambda_{k}(u^+(\VEC{p})) &< \gamma'(y) < \lambda_{k+1}(u^+(\VEC{p}))
+\end{split}
+\end{equation}
+for all $\VEC{p}=(\gamma(y),y) \in \Gamma$, where
+$\lambda_0(\VEC{w}) = -\infty$ and $\lambda_{n+1}(\VEC{w}) = \infty$
+for all $\VEC{w}$.  \index{Conservation Laws!Lax Shock Condition}
+
+A strong solution $u$ that satisfies the Rankine-Hugoniot formula and
+the Lax Shock Condition above is called a
+{\bfseries $\mathbf{k}$-shock}\index{Conservation Laws!$k$-Shock}.
+\end{defn}
+
+It follows from (\ref{entropy3}) that
+\begin{equation} \label{entropy4}
+\begin{split}
+\lambda_k(u^+(\VEC{p})) &< \gamma'(y) < \lambda_k(u^-(\VEC{p})) \\
+\lambda_{k-1}(u^-(\VEC{p})) &< \gamma'(y) < \lambda_{k+1}(u^+(\VEC{p}))
+\end{split}
+\end{equation}
+
+The first condition in (\ref{entropy4}) is the
+condition that we will expect from (\ref{entropy1}).
+In the case where $n=1$, we have that
+$\displaystyle \lambda_1(u) = \dydx{G}{u}(u)$.  Hence,
+the definition of the Lax Shock Condition given in Definition~\ref{LSCdef1}
+is included in the definition of the Lax Shock Condition given in
+Definition~\ref{LSCdef2}.  In particular, (\ref{entropy3}) yields
+$\displaystyle \gamma'(y) < \lambda_1(u^-(\VEC{p}))
+= \pdydx{G}{u}(u^-(\VEC{p}))$ and
+$\displaystyle \pdydx{G}{u}(u^+(\VEC{p})) = \lambda_1(u^+(\VEC{p}))
+< \gamma'(y)$ for all $\VEC{p}=(\gamma(y),y) \in \Gamma$.
+
+To motivate the Lax Shock Condition above, one needs to use the fact that
+(\ref{systConLawEq1}) is a strictly hyperbolic partial differential equation.
+Let us first consider a system of decoupled conservation laws
+\begin{equation} \label{systConLawEq3}
+\pdydx{v_i}{y} + \lambda_i(v_i) \pdydx{v_i}{x} = 0
+\end{equation}
+for $1 \leq i \leq n$, where
+$\lambda_1(\VEC{v}) < \lambda_2(\VEC{v}) < \ldots < \lambda_n(\VEC{v})$
+for all $\displaystyle \VEC{v} \in \RR^n$
+and $\lambda_i(\VEC{v}) = \lambda_i(v_i)$ for all $i$.
+We assume that $\displaystyle v(x,0) = \VEC{v}^-$ for $x<0$ and
+$\displaystyle v(x,0) = \VEC{v}^+$ for $x>0$, 
+
+We have that $v$ is possibly discontinuous along the line
+$\displaystyle \Gamma = \left\{ (\eta y,y) : y \geq 0 \right\}$
+where $\eta$ is given by the Rankine-Hugoniot formula
+$\displaystyle \lambda_i(\VEC{v}^+) - \lambda_i(\VEC{v}^-)
+= \lambda_i(v_i^+) - \lambda_i(v_i^-) = \eta (v_i^+ - v_i^-)$
+for $1 \leq i \leq n$.  The $v_i$ are constant along (sections
+of) the $x$,$y$ characteristics given by 
+$x = \lambda_i(v_i(s,0)) y + s$ for $s \in \RR$.  Note that
+$\displaystyle \lambda_i(v) = \lambda(\VEC{v}^-) = \lambda(v_i^-)$ on
+the left side of $\Gamma$ and
+$\displaystyle \lambda_i(v) = \lambda(\VEC{v}^+) = \lambda(v_i^+)$ on
+the right side of $\Gamma$.
+
+Suppose that
+\begin{equation} \label{systConLawEq4}
+\lambda_1(\VEC{v}^+) < \lambda_2(\VEC{v}^+) < \ldots
+\lambda_{k_r}(\VEC{v}^+) < \eta < \lambda_{k_r+1}(\VEC{v}^+)
+< \ldots  < \lambda_n(\VEC{v}^+) \ .
+\end{equation}
+We have that $v_i$ is completely determined by the initial condition
+$\displaystyle v_i^+$ on the right of $\Gamma$ when $i\leq k_r$
+(Figure~\ref{shock_fig11a} (a)).  However, this not so for $v_i$ with
+$i>k_r$ (Figure~\ref{shock_fig11a} (b)).
+There are $n-k_r$ conditions on $\Gamma$ that need to be
+given.
+
+\pdfF{shock_waves/shock_fig11a}{Solutions on the right of $\Gamma$ for
+a system of conservation laws}{The solution for the system of
+conservation laws (\ref{systConLawEq3}) on the right of $\Gamma$.  The
+solutions for $v_i$ with $i \leq k_r$ are represented in (a) and those
+for $i>k_r$ are represented in (b).}{shock_fig11a}
+
+Suppose that
+\begin{equation} \label{systConLawEq5}
+\lambda_1(\VEC{v}^-) < \lambda_2(\VEC{v}^-) < \ldots
+\lambda_{k_l}(\VEC{v}^-) < \eta < \lambda_{k_l+1}(\VEC{v}^-)
+< \ldots  < \lambda_n(\VEC{v}^-) \ .
+\end{equation}
+We have that $v_i$ is completely determined by the initial condition
+$\displaystyle v_i^-$ on the left of $\Gamma$ when $i > k_l$
+(Figure~\ref{shock_fig11b} (a)).  However, this is not so for $v_i$ with
+$i\leq k_l$ (Figure~\ref{shock_fig11b} (b)).  There are $k_l$
+conditions on $\Gamma$ that need to be given.
+
+\pdfF{shock_waves/shock_fig11b}{Solutions on the left of $\Gamma$ for
+a system of conservation laws}{The solution for the system of
+conservation laws (\ref{systConLawEq3}) on the left of $\Gamma$.  The
+solutions for $v_i$ with $i > k_l$ are represented in (a) and those
+for $i \leq k_l$ are represented in (b).}{shock_fig11b}
+
+How could we select all the conditions to get a well defined shock
+wave?  Moreover, is there a relation between $k_l$ and $k_r$?
+To answer these questions, we again refer to Rankine-Hugoniot Formula
+(\ref{shock_rank_hugND}) to obtain $n$ equations that must be
+satisfied; namely,
+$\displaystyle \lambda_i(\VEC{v}^+)-\lambda_i(\VEC{v}^-)
+= \eta \left(v_i^+ - v_i^- \right)$
+for $1\leq i \leq n$.   We can isolate $\eta$ to eliminate one of
+the equations.  We therefore have $n-1$ equations to produce a well
+defined solution.  We must therefore have that
+$n-k_r + k_l = n-1$.  This yields $k \equiv k_r = k_l + 1$.  Hence,
+(\ref{systConLawEq4}) and (\ref{systConLawEq5}) yield
+$\displaystyle
+\lambda_{k-1}(\VEC{v}^-) < \eta < \lambda_k(\VEC{v}^-)$
+and $\displaystyle
+\lambda_k(\VEC{v}^+) < \eta < \lambda_{k+1}(\VEC{v}^+)$
+as stated in (\ref{entropy3}).
+
+To generalize the previous discussion to the strictly hyperbolic partial
+differential equation (\ref{systConLawEq1}) with $n \geq 2$ requires a
+delicate analysis.  In particular, the Lax Shock Condition is not the
+only approach used to address entropy in higher dimensional systems 
+of conservation Laws.  We will come back on this subject at the end of
+the section.
+
+\begin{egg}[Example~\ref{eggPsystem} continued]  \label{eggPsystem2}
+The system of conservation laws (\ref{psystEq1}) can be expressed in
+the form (\ref{systConLawEq1}) with
+$\displaystyle G(\VEC{u}) = \begin{pmatrix} -u_2 \\ p(u_1) \end{pmatrix}$,
+where $p'(v) = -k\beta v^{-\beta-1} <0$ and
+$p''(v) = k\beta(\beta+1) v^{-\beta-2} >0$ for all $v \in \RR$
+\footnote{The results in this example are in fact true for all
+functions $p$ that satisfy $p'(v) < 0$ and $p''(v) > 0$ for all $v \in \RR$,
+not only for the specific $p$ of the $p$-system.}.
+
+We study the {\bfseries Riemann problem}\index{Conservation
+Laws!Riemann Problem} associated to (\ref{psystEq1}).  More
+precisely, we assume that $\displaystyle u(x,0) = \VEC{u}^-$ for $x<0$ and
+$\displaystyle u(x,0) = \VEC{u}^+$ for $x>0$.
+
+The eigenvalues of
+$\displaystyle \diff G(\VEC{u}) = \begin{pmatrix} 0 & -1 \\
+p'(u_1) & 0 \end{pmatrix}$ are
+$\lambda_1(\VEC{u}) = -\sqrt{-p'(u_1)}$ and
+$\lambda_2(\VEC{u}) = \sqrt{-p'(u_1)}$.
+
+According to our theory, there are two acceptable types of shock
+waves.  As usual, let
+$\displaystyle \Gamma = \left\{ (\eta y,y) : y \geq 0 \right\}$
+be the line along which $u$ is discontinuous, where $\eta$ is given
+by the Rankine-Hugoniot formula
+$\displaystyle G(\VEC{u}^+) - G(\VEC{u}^-)
+= \eta (\VEC{u}^+ - \VEC{u}^-)$.  We may have the $1$-shock
+\[
+\eta < \lambda_1(\VEC{u}^-) \quad , \quad
+\lambda_1(\VEC{u}^+) <  \eta < \lambda_2(\VEC{u}^+)
+\]
+or the $2$-shock
+\[
+\lambda_1(\VEC{u}^-) <  \eta < \lambda_2(\VEC{u}^-)
+\quad , \quad \lambda_2(\VEC{u}^+) <  \eta \ .
+\]
+Therefore, the $1$-shock is given by
+\begin{equation} \label{psystEq2}
+\lambda_1(\VEC{u}^+) < \eta < \lambda_1(\VEC{u}^-)
+\end{equation}
+and the $2$-shock is given by
+\begin{equation} \label{psystEq3}
+\lambda_2(\VEC{u}^+) < \eta < \lambda_2(\VEC{u}^-) \ .
+\end{equation}
+Since $\displaystyle \eta < \lambda_1(\VEC{u}^-) < 0$ for the $1$-shock
+(the speed of the shock wave is negative), the $1$-shock is also called
+{\bfseries back shock}\index{Conservation Laws!Back Shock}
+because it moves backward as $y$ increases.
+Similarly, since $\displaystyle \eta > \lambda_2(\VEC{u}^+) > 0$ for the
+$2$-shock (the speed of the shock wave is positive),
+the $2$-shock is also called
+{\bfseries front shock}\index{Conservation Laws!Front Shock}
+because it moves forward as $y$ increases.
+
+We would like to know what are the possible values of
+$\displaystyle \VEC{u}^+$ that may be connected to
+$\displaystyle \VEC{u}^-$ by a shock wave
+\footnote{We could have reversed the statement and ask what are the
+possible values of $\displaystyle u^-(\VEC{p})$ that we may connected to
+$\displaystyle u^+(\VEC{p})$ by a shock wave.  This would not have changed the
+qualitative conclusions of the example.}.
+
+\stage{i} We first consider the $1$-shock.  As we did in the
+theory above, we have to use the Rankine-Hugoniot formula
+(\ref{shock_rank_hugND}).  We get
+\begin{equation} \label{psystEq4}
+-u_2 + u^-_2 = \eta ( u_1 - u^-_1) \quad \text{and} 
+\quad p(u_1) - p(u^-_1) = \eta ( u_2 - u^-_2 ) \ .
+\end{equation}
+It follows from
+$\displaystyle -\eta ( u_1 - u^-_1) = u_2 - u^-_2 = (p(u_1) - p(u^-_1))/\eta$
+that $\displaystyle \eta^2 = (p(u_1) - p(u^-_1))/(u^-_1 - u_1)$.
+Since $\eta < 0$, we get that
+\begin{equation}  \label{psystEq7}
+\eta = - \big((p(u_1) - p(u^-_1))/(u^-_1 - u_1)\big)^{1/2} \ .
+\end{equation}
+It also follows from (\ref{psystEq2}) that
+$-\sqrt{-p'(u_1)} < -\sqrt{-p'(u^-_1)}$.  Therefore,
+$\displaystyle p'(u_1) < p'(u^-_1)$.  Since
+$p''(v) > 0$ for all $v \in \RR$, we have that $p'$ is increasing and
+we must therefore have $\displaystyle u_1 < u^-_1$.
+
+Hence, the admissible values of $\VEC{u}$ are the points on the curve
+$S_{1,\VEC{u}^-}$ given by
+\[
+u_2 - u^-_2 = ( u_1 - u^-_1)
+\left(\frac{p(u_1) - p(u^-_1)}{u^-_1 - u_1}\right)^{1/2}
+= -\big( (u^-_1 - u_1) (p(u_1) - p(u^-_1)) \big)^{1/2}
+\]
+for $\displaystyle u_1 < u^-_1$.  We have that
+\[
+\pdydx{u_2}{u_1} = \frac{p(u_1) - p(u^-_1) - (u^-_1 - u_1)p'(u_1)}
+{2\big( (u^-_1 - u_1) (p(u_1) - p(u^-_1)) \big)^{1/2}} > 0
+\]
+for all $\displaystyle u_1 < u^-_1$ because
+$\displaystyle p(u_1) > p(u^-_1)$ and $p'(u_1)<0$, and
+\[
+\pdydxn{u_2}{u_1}{2} = 
+\frac{\big(p(u_1) - p(u^-_1) + (u^-_1 - u_1)p'(u_1)\big)^2
+- 2 (u^-_1-u_1)^2 (p(u_1) - p(u^-_1)) p''(u_1)}
+{4\big((u^-_1 - u_1)(p(u_1)-p(u^-_1))\big)^{3/2}}
+< 0
+\]
+for $\displaystyle u_1 < u^-_1$ and $u_1$ sufficient close to
+$\displaystyle u^-_1$.  A possible
+sketch of $S_{1,\VEC{u}^-}$ is given in Figure~\ref{shock_fig12}.
+
+It will be useful later to know that
+\[
+\lim_{u_1 \to u^-_1} \pdydx{u_2}{u_1}(u_1) =
+\lim_{u_1 \to u^-_1} \frac{-(p(u_1) - p(u^-_1))/(u_1-u^-_1) - p'(u_1)}
+{2\big( -(p(u_1) - p(u^-_1))/(u_1-u^-_1) \big)^{1/2}} 
+= \frac{-2p'(u^-_1)}{2\sqrt{-p'(u^-_1)}} = \sqrt{-p'(u^-_1)}
+\]
+and
+\begin{align*}
+&\lim_{u_1 \to u^-_1} \pdydxn{u_2}{u_1}{2}(u_1) \\
+&=\lim_{u_1 \to u^-_1}
+\frac{(u^-_1 -u_1)^{-3}\big(p(u_1) - p(u^-_1) +(u^-_1-u_1) p'(u_1)\big)^2
++ 2 p''(u_1) (p(u_1)-p(u^-_1))/(u_1-u^-_1)}
+{4\big(-(p(u_1) - p(u^-_1))/(u_1 - u^-_1)\big)^{3/2}} \\
+&= \frac{0  + 2 p''(u^-_1) p'(u^-_1)}{4 \big(-p'(u^-_1)\big)^{3/2}}
+= -\frac{p''(u^-_1)}{2 \sqrt{-p'(u^-_1)}} < 0 \ ,
+\end{align*}
+where we have used the fact that
+$\displaystyle \big(p(u_1) - p(u^-_1) - (u_1-u^-_1) p'(u_1)\big)
+= O(|u^-_1-u_1|^2)$ as
+$\displaystyle |u^-_1 - u_1| \to 0$ to compute the limit.
+
+\pdfF{shock_waves/shock_fig12}{Sketch of the curve $S_{1,\VEC{u}^-}$
+and $S_{2,\VEC{u}^-}$}{The points $\VEC{u}$ on the curve
+$S_{1,\VEC{u}^-}$ are the possible values of
+$\displaystyle \VEC{u}^+$ that can be connected by a
+$1$-shock to $\displaystyle \VEC{u}^-$.  The points $\VEC{u}$ on the
+curve $S_{2,\VEC{u}^-}$ are the possible values of 
+$\displaystyle \VEC{u}^+$ to that can be connected by a $2$-shock to
+$\displaystyle \VEC{u}^-$.}{shock_fig12}
+
+\stage{ii} We now consider the $2$-shock.  The analysis is almost
+identical to the analysis for the $1$-shock.  We again start with the
+information provided by the Rankine-Hugoniot formula
+(\ref{shock_rank_hugND}) to get (\ref{psystEq4}) and from it
+to get $\displaystyle \eta^2 = (p(u_1) - p(u^-_1))/(u^-_1 - u_1)$.
+However, we now have that $\eta > 0$.  Therefore,
+$\displaystyle \eta = \big((p(u_1) - p(u^-_1))/(u^-_1 - u_1)\big)^{1/2}$.
+It also follows from (\ref{psystEq3}) that
+$\displaystyle \sqrt{-p'(u_1)} < \sqrt{-p'(u^-_1)}$.  Therefore,
+$\displaystyle p'(u_1) > p'(u^-_1)$.  Since $p''(v) > 0$ for all
+$v \in \RR$, we have that $p'$ is increasing and we must therefore have
+$\displaystyle u_1 > u^-_1$.
+
+Hence, the admissible values of $\VEC{u}$ are the points on the curve
+$S_{2,\VEC{u}^-}$ given by
+\[
+u_2 - u^-_2 = -( u_1 - u^-_1)
+\left(\frac{p(u_1) - p(u^-_1)}{u^-_1 - u_1}\right)^{1/2}
+= - \big( (u^-_1 - u_1) (p(u_1) - p(u^-_1)) \big)^{1/2}
+\]
+for $\displaystyle u_1 > u^-_1$.  We have that
+\[
+\pdydx{u_2}{u_1} = \frac{p(u_1) - p(u^-_1) - (u^-_1 - u_1)p'(u_1)}
+{2\big( (u^-_1 - u_1) (p(u_1) - p(u^-_1)) \big)^{1/2}} < 0
+\]
+for all $\displaystyle u_1 > u^-_1$ because
+$\displaystyle p(u_1) < p(u^-_1)$ and $p'(u_1)<0$, and
+\[
+\pdydxn{u_2}{u_1}{2} = 
+\frac{\big(p(u_1) - p(u^-_1) + (u^-_1 - u_1)p'(u_1)\big)^2
+- 2 (u^-_1-u_1)^2 (p(u_1) - p(u^-_1)) p''(u_1)}
+{4\big((u^-_1 - u_1)(p(u_1)-p(u^-_1))\big)^{3/2}}
+< 0
+\]
+for $\displaystyle u_1 > u^-_1$ and $u_1$ sufficient close to
+$\displaystyle u^-_1$.  A possible
+sketch of $S_{2,\VEC{u}^-}$ is given in Figure~\ref{shock_fig12}.
+
+As for (i), it will be useful later to know that
+\[
+\lim_{u_1 \to u^-_1} \pdydx{u_2}{u_1}(u_1) =
+\lim_{u_1 \to u^-_1} \frac{(p(u_1) - p(u^-_1))/(u_1-u^-_1) + p'(u_1)}
+{2\big( -(p(u_1) - p(u^-_1))/(u_1-u^-_1) \big)^{1/2}} 
+= \frac{2p'(u^-_1)}{2\sqrt{-p'(u^-_1)}} = -\sqrt{-p'(u^-_1)}
+\]
+and
+\begin{align*}
+&\lim_{u_1 \to u^-_1} \pdydxn{u_2}{u_1}{2}(u_1) \\
+&=\lim_{u_1 \to u^-_1}
+\frac{(u_1 -u^-_1)^{-3}\big(p(u_1) - p(u^-_1) +(u^-_1-u_1) p'(u_1)\big)^2
+- 2 p''(u_1) (p(u_1)-p(u^-_1))/(u_1-u^-_1)}
+{4\big(-(p(u_1) - p(u^-_1))/(u_1 - u^-_1)\big)^{3/2}} \\
+&= \frac{0  - 2 p''(u^-_1) p'(u^-_1)}{4 \big(-p'(u^-_1)\big)^{3/2}}
+= \frac{p''(u^-_1)}{2 \sqrt{-p'(u^-_1)}} > 0 \ .
+\end{align*}
+
+\stage{iii}  We would like to find out the values
+of $\displaystyle \VEC{u}^+$ that may be connected to a given
+$\displaystyle \VEC{u}^-$ by a
+rarefaction wave.  We proceed as in Section~\ref{subsectRarefW} to
+address this problem.
+
+Since $u_\mu(x,y) \equiv u(\mu x, \mu y)$ is a solution of
+(\ref{systConLawEq1}) with
+$\displaystyle G(u) = \begin{pmatrix} -u_2 \\ p(u_1) \end{pmatrix}$
+for all $\mu >0$, we seek a solution of the form $u(x,y) = w(x/y)$, where
+$\displaystyle w:\RR \to \RR^2$ is of class $\displaystyle C^1$.  If we
+set $z = x/y$ and substitute $u(x,y) = w(z)$ in (\ref{systConLawEq1}),
+we have seen previously that this implies that
+\[
+(\diff G)(w(z)) \dydx{w}{z}(z) = z \dydx{w}{z}(z) \ .
+\]
+If $\displaystyle \dydx{w}{z}(z) \neq \VEC{0}$, then it is an
+eigenvector of $(\diff G)(w(z))$ associated to the eigenvalue $z$.
+
+We have already seen that
+$\displaystyle \diff G(\VEC{u}) = \begin{pmatrix} 0 & -1 \\
+p'(u_1) & 0 \end{pmatrix}$ has the eigenvalues
+$\lambda_1(\VEC{u}) = -\sqrt{-p'(u_1)}$ and
+$\lambda_2(\VEC{u}) = \sqrt{-p'(u_1)}$.
+
+We first consider the eigenvalue $\lambda_1(\VEC{u})$.  We get from
+\[
+\begin{pmatrix} 0 & -1 \\ p'(w_1) & 0 \end{pmatrix}
+\begin{pmatrix} \displaystyle \dydx{w_1}{z} \\[0.6em]
+\displaystyle \dydx{w_2}{z} \end{pmatrix}
+= -\sqrt{-p'(w_1)} \begin{pmatrix} \displaystyle \dydx{w_1}{z} \\[0.6em]
+\displaystyle \dydx{w_2}{z} \end{pmatrix}
+\]
+that
+$\displaystyle \dydx{w_2}{z} - \sqrt{-p'(w_1)} \, \dydx{w_1}{z} = 0$.
+Since $\displaystyle \dydx{w_1}{z} \neq 0$ because we assume that
+$\displaystyle \dydx{w}{z} \neq \VEC{0}$ for an eigenvector, we get
+\[
+\dydx{w_2}{w_1} = \dydx{w_2}{z} \left(  \dydx{w_1}{z} \right)^{-1}
+= \sqrt{-p'(w_1)} \ .
+\]
+If we integrate from $\displaystyle u_1^-$ to $u_1$, we get
+\begin{equation} \label{psystEq5}
+u_2 - u_2^- = \int_{u_1^-}^{u_1} \sqrt{-p'(v)} \dx{v}
+\end{equation}
+Since the speed of the wave should increase along the $x$ axis, we
+must have that
+$\displaystyle \lambda_1(\VEC{u}) > \lambda_1(\VEC{u}^-)$; namely,
+$\displaystyle -\sqrt{-p'(u_1)} > -\sqrt{-p'(u_1^-)}$.  Thus,
+$\displaystyle p'(u_1) > p'(u_1^-)$.  Since $p'$ is increasing, we get that
+$\displaystyle u_1 > u_1^-$.
+Thus, the acceptable values of $\VEC{u}$ are the points on the curve
+$R_{1,\VEC{u}^-}$ defined by (\ref{psystEq5}) for
+$\displaystyle u_1 > u_1^-$.  We have that
+$\displaystyle \dydx{u_2}{u_1} = \sqrt{-p'(u_1)}$ and
+$\displaystyle \dydxn{u_2}{u_1}{2} = \frac{-p''(u_1)}{2\sqrt{-p'(u_1)}}$.
+
+A possible sketch of the curve $R_{1,\VEC{u}^-}$ is represented in
+Figure~\ref{shock_fig14}.
+
+The rarefaction waves connecting $\displaystyle \VEC{u}^-$ to
+$\VEC{u}$ on the curve $R_{1,\VEC{u}^-}$ are called {\bfseries back rarefaction
+waves}\index{Conservation Laws!Back Rarefaction Wave}
+(Figure~\ref{shock_fig19}).
+
+\pdfF{shock_waves/shock_fig19}{Sketch of the curve $R_{1,\VEC{u}^-}$
+and $R_{2,\VEC{u}^-}$}{The points $\VEC{u}$ on the curve
+$R_{1,\VEC{u}^-}$ are the possible values of
+$\displaystyle \VEC{u}^+$ that can be connected by a back rarefaction wave
+to $\displaystyle \VEC{u}^-$.  The points $\VEC{u}$ on the curve
+$R_{2,\VEC{u}^-}$ are the possible values of
+$\displaystyle \VEC{u}^+$ that can be connected by a front rarefaction
+wave to $\displaystyle \VEC{u}^-$.}{shock_fig19}
+
+We repeat the previous analysis but this time for the eigenvalue
+$\lambda_2(\VEC{u})$.  We get from
+\[
+\begin{pmatrix} 0 & -1 \\ p'(w_1) & 0 \end{pmatrix}
+\begin{pmatrix} \displaystyle \dydx{w_1}{z} \\[0.6em]
+\displaystyle \dydx{w_2}{z} \end{pmatrix}
+= \sqrt{-p'(w_1)} \begin{pmatrix} \displaystyle \dydx{w_1}{z} \\[0.6em]
+\displaystyle \dydx{w_2}{z} \end{pmatrix}
+\]
+that
+$\displaystyle \dydx{w_2}{z} + \sqrt{-p'(w_1)} \, \dydx{w_1}{z} = 0$.
+Since $\displaystyle \dydx{w_1}{z} \neq 0$ because we assume that
+$\displaystyle \dydx{w}{z} \neq \VEC{0}$ for an eigenvector, we get
+\[
+\dydx{w_2}{w_1} = \dydx{w_2}{z} \left(  \dydx{w_1}{z} \right)^{-1}
+= -\sqrt{-p'(w_1)} \ .
+\]
+If we integrate from $\displaystyle u_1^-$ to $u_1$, we get
+\begin{equation} \label{psystEq6}
+u_2 - u_2^- = -\int_{u_1^-}^{u_1} \sqrt{-p'(v)} \dx{v}
+\end{equation}
+Since the speed of the wave should increase along the $x$ axis, we
+must have that
+$\displaystyle \lambda_2(\VEC{u}) > \lambda_2(\VEC{u}^-)$; namely,
+$\displaystyle \sqrt{-p'(u_1)} > \sqrt{-p'(u_1^-)}$.  Thus,
+$\displaystyle p'(u_1) < p'(u_1^-)$.  Since $p'$ is increasing, we get that
+$\displaystyle u_1 < u_1^-$.
+Thus, the acceptable values of $\VEC{u}$ are the points on the curve
+$R_2$ defined by (\ref{psystEq5}) for $\displaystyle u_1 < u_1^-$.  We
+have that $\displaystyle \dydx{u_2}{u_1} = -\sqrt{-p'(u_1)}$ and
+$\displaystyle \dydxn{u_2}{u_1}{2} = \frac{p''(u_1)}{2\sqrt{-p'(u_1)}}$.
+
+A possible sketch of the curve $R_{2,\VEC{u}^-}$ is drawn in
+Figure~\ref{shock_fig19}.
+The rarefaction waves connecting $\displaystyle \VEC{u}^-$
+to $\VEC{u}$ on the curve $R_{2,\VEC{u}^-}$ are called {\bfseries
+front rarefaction waves}\index{Conservation Laws!Front Rarefaction Wave}.
+
+The curves $S_{1,\VEC{u}^-}$ and
+$R_{1,\VEC{u}^-}$ intersect at $\displaystyle \VEC{u}^-$ where they have matching
+first and second order derivatives as it is confirmed by our
+computations at the end of (i) (Figure~\ref{shock_fig14}).
+Likewise, the curves $S_{2,\VEC{u}^-}$ and
+$R_{2,\VEC{u}^-}$ intersect at $\displaystyle \VEC{u}^-$ where they
+have matching first and second order derivatives as it is confirmed by our
+computations at the end of (ii).
+
+\pdfF{shock_waves/shock_fig14}{Sketch of the curves $S_{1,\VEC{u}^-}$,
+$S_{2,\VEC{u}^-}$, $R_{1,\VEC{u}^-}$ and $R_{2,\VEC{u}^-}$}{
+We have combined the graphs of $S_{1,\VEC{u}^-}$, $S_{2,\VEC{u}^-}$,
+$R_{1,\VEC{u}^-}$ and $R_{2,\VEC{u}^-}$.}{shock_fig14}
+
+\stage{iv} We divide the $x$,$y$ plane into four regions (at least in
+an open neighbourhood of $\displaystyle \VEC{u}^-$).  $W_1$ is the
+region bounded by  $S_{2,\VEC{u}^-}$ and $R_{1,\VEC{u}^-}$, $W_2$ is
+the region bounded
+by $R_{1,\VEC{u}^-}$ an $R_{2,\VEC{u}^-}$, $W_3$ is the region bounded
+b $R_{2,\VEC{u}^-}$ and $S_{1,\VEC{u}^-}$, and $W_4$ is the region
+bounded by $S_{1,\VEC{u}^-}$ and $S_{2,\VEC{u}^-}$ as in
+Figure~\ref{shock_fig14}.
+
+We know from (i), (ii) and (iii) how to use a shock wave or a
+rarefaction wave to connect $\displaystyle \VEC{u}^-$ to $\VEC{u}$
+if $\VEC{u}$ is on one of $S_{1,\VEC{u}^-}$, $S_{2,\VEC{u}^-}$,
+$R_{1,\VEC{u}^-}$ or $R_{2,\VEC{u}^-}$.  We now explain how to do it
+when $\VEC{u}$ is not on one of these four curves.
+
+For instance, suppose that $\VEC{u} \in W_2$ as in
+Figure~\ref{shock_fig15}.  Suppose that
+$\VEC{u} \in R_{2,\VEC{u}_{bf}}$ with $\VEC{u}_{bf} \in R_{1,\VEC{u}^-}$.
+We can connect $\VEC{u}_{bf}$ to $\VEC{u}$ with a front rarefaction wave and
+$\displaystyle \VEC{u}^-$ to $\VEC{u}_{bf}$ with a back rarefaction wave.
+There may be another way to connect $\displaystyle \VEC{u}^-$ to $\VEC{u}$.
+Suppose that $\VEC{u} \in R_{1,\VEC{u}_{fb}}$ with
+$\VEC{u}_{fb} \in R_{2,\VEC{u}^-}$.  We can
+connect $\VEC{u}_{fb}$ to $\VEC{u}$ with a back rarefaction wave and
+$\displaystyle \VEC{u}^-$ to $\VEC{u}_{fb}$ with a front rarefaction wave.
+
+\pdfF{shock_waves/shock_fig15}{General case to connect
+$\displaystyle \VEC{u}^-$ to $\VEC{u}$}{The figure used to explain how
+to connect $\displaystyle \VEC{u}^-$ to $\VEC{u} \in W_2$ using
+rarefaction and shock waves.}{shock_fig15}
+
+\pdfF{shock_waves/shock_fig17}{$W_1$ is covered by $_{2,\VEC{v}}$ curves}
+{The region $W_1$ is covered by the curves $S_{2,\VEC{v}}$ for
+$\VEC{v} \in R_{1,\VEC{u}^-}$.}{shock_fig17}
+
+\stage{v} The procedure formally presented in (iv) to connect
+$\VEC{u}$ to $\displaystyle \VEC{u}^-$ with shock and rarefaction
+waves is valid in a small neighbourhood of the origin but may fail
+globally.  It is proved in \cite{Smo} that the procedure presented in
+(iv) is valid without restriction in the regions $W_1$, $W_3$ and $W_4$.
+Namely, $\displaystyle \bigcup_{\VEC{v}\in R_{1,\VEC{u}^-}} S_{2,\VEC{v}}$
+will cover $W_1$ without any intersection between the $S_{2,\VEC{v}}$
+curves (Figure~\ref{shock_fig17}).  We have a similar result for $W_3$
+and $W_4$.  However, it is not valid in the entire region $W_2$.  To
+understand why it fails, we use Figure~\ref{shock_fig16}.
+Suppose $\displaystyle P = \int_{u_1^-}^\infty \sqrt{-p'(v)}\dx{v} < \infty$.
+The reader should verify that this last assumption is true in the
+important case where $\displaystyle p(v) = kv^{-\beta}$ and $\beta >1$.
+
+Given $\VEC{v} \in R_{1,\VEC{u}^-}$, we have from (\ref{psystEq5}) that
+$\displaystyle v_2 - u_2^- = \int_{u_1^-}^{v_1} \sqrt{-p'(v)} \dx{v}$.
+So, $\displaystyle \lim_{v_1 \to \infty} v_2 = u_2^- + P$.  In
+particular, $\displaystyle v_2 \leq u_2^- + P$ for all
+$\VEC{v} \in R_{1,\VEC{u}^-}$.
+
+Given $\VEC{w} \in R_{2,\VEC{v}}$ with $\displaystyle w_1 = u_1^-$, we have from
+(\ref{psystEq6}) that
+$\displaystyle w_2 - v_2 = -\int_{v_1}^{w_1} \sqrt{-p'(v)} \dx{v}$.
+So, $\displaystyle w_2 \leq v_2 + P \leq u_2^- + 2P$ for all
+$\VEC{v} \in R_{1,\VEC{u}^-}$.
+Therefore, there is no curve $R_{2,\VEC{v}}$ that contains $\VEC{u}$ if
+$\displaystyle u_1 = u_1^-$ and $\displaystyle u_2 > u_2^- + 2 P$.
+
+\pdfF{shock_waves/shock_fig16}{Illustration of the problem to connect
+$\VEC{u} \in W_2$ to $\displaystyle \VEC{u}^-$ using a back
+rarefaction wave first}{Illustration of the problem to connect
+$\VEC{u} \in W_2$ to $\displaystyle \VEC{u}^-$ using a back
+rarefaction wave first.}{shock_fig16}
+
+If $U$ is a small enough open neighbourhood of $\displaystyle \VEC{u}^-$ as in
+Figure~\ref{shock_fig16}, then it can be shown that
+$\VEC{u} \in R_{2,\VEC{v}}$ for some $\VEC{v} \in R_{1,\VEC{u}^-}$
+for $\VEC{u} \in U$.
+\end{egg}
+
+\subsection{Basic Concepts}
+
+The previous example illustrate what may be expected in systems of
+conservation laws in higher dimensions; namely, when $n>2$.  However,
+more conditions have to be imposed on the systems of conservation laws
+to be able to get valuable results.
+
+We should start by generalizing the concept of $x$,$y$ characteristics
+for the system of conservation laws (\ref{systConLawEq1}).
+A $x$,$y$ characteristic is a curve
+$\Sigma = \{ (\rho(y),y) : y \geq 0 \}$ such that
+\[
+  \dfdx{u(\rho(y),y)}{y} = \VEC{0}
+\]
+for a solution $u$ of (\ref{systConLawEq1}).  If $\Sigma$ is a $x$,$y$
+characteristic, we therefore have that
+\begin{align*}
+\VEC{0} &= \pdydx{u(\rho(y),y)}{y} + \rho'(y)\, \pdydx{u(\rho(y),y)}{x} 
+= -(\diff G)(u(\rho(y),y))\, \pdydx{u(\rho(y),y)}{x}
++ \rho'(y)\, \pdydx{u(\rho(y),y)}{x} \\
+&= -\big( (\diff G)(u(\rho(y),y)) - \rho'(y) \Id \big)\,
+\pdydx{u(\rho(y),y)}{x} \ .
+\end{align*}
+Thus, if we assume that (\ref{systConLawEq1}) is a strictly hyperbolic
+differential equation, then $\rho'(y)$ must be an eigenvalue of
+$(\diff G)(u(\rho(y),y))$ and $\displaystyle \pdydx{u(\rho(y),y)}{x}$
+an eigenvector of $(\diff G)((\rho(y),y))$ associated to $\rho'(y)$
+for all $y$.
+
+Since they will play an important role in studying strictly hyperbolic
+systems of conservation laws, we assume from now on that
+$\lambda_1(\VEC{u}) < \lambda_2(\VEC{u}) < \ldots < \lambda_n(\VEC{u})$
+are the eigenvalues of $\diff G(\VEC{u})$ for $\VEC{u} \in \RR^n$,
+and $q_i(\VEC{u}) \in \RR^n$ is a (right) eigenvector of $\diff G(\VEC{u})$
+associated to the eigenvalue $\lambda_i(\VEC{u})$ for $1 \leq i \leq n$.
+
+Hence, the $x$,$y$ characteristics associated to the system of
+conservation laws (\ref{systConLawEq1}) are given by
+$\rho'(y) = \lambda_i(u(\rho(y),y))$ for $1\leq i \leq n$.
+
+It is also going to be useful to assume that $p_i(\VEC{u}) \in \RR^n$
+is a left eigenvector of $\diff G(\VEC{u})$ associated to the
+eigenvalue $\lambda_i(\VEC{u})$ for $1 \leq i \leq n$; 
+namely, $\displaystyle (p_i(\VEC{u}))^\top \diff G(\VEC{u})
+= \lambda_i(\VEC{u}) (p_i(\VEC{u}))^\top$.  It is well know that
+$\displaystyle (p_i(\VEC{u}))^\top q_j(\VEC{u}) = 0$ for $i \neq j$
+and $\displaystyle (p_i(\VEC{u}))^\top q_j(\VEC{u}) \neq 0$ for $i=j$.
+So, after scaling, we may assume that
+$\displaystyle (p_i(\VEC{u}))^\top q_i(\VEC{u}) =1$
+for $1\leq i \leq n$.
+
+\begin{defn}
+The pair $(\lambda_i,q_i)$ is called the
+{\bfseries $\displaystyle \mathbf{i^{th}}$ characteristic
+field}\index{Conservation Laws!$\displaystyle i^{th}$ Characteristic Field}.
+\end{defn}
+
+The first property which is useful to analyze the Riemann problem associated to
+(\ref{systConLawEq1}) is given in the next definition.  It is
+particularly useful for the study of rarefaction waves connecting two
+states $\displaystyle \VEC{u}^-$ and $\displaystyle \VEC{u}^+$.
+
+\begin{defn}
+We say that the $\displaystyle i^{th}$ characteristic field of the system
+of conservation laws (\ref{systConLawEq1}) is
+{\bfseries genuinely nonlinear}\index{Conservation Laws!Genuinely Nonlinear}
+in $U$ if
+$\graD \lambda_i(\VEC{u}) \cdot q_i(\VEC{u}) \neq 0$
+for all $\VEC{u} \in U$ \footnotemark.
+If $\graD \lambda_i(\VEC{u}) \cdot q_i(\VEC{u}) \neq 0$
+for all $\VEC{u} \in U$ and $1\leq i \leq n$, we say
+that the system of conservation laws (\ref{systConLawEq1}) is
+{\bfseries genuinely nonlinear}\index{Conservation Laws!Genuinely Nonlinear}.
+\end{defn}
+
+\footnotetext{When using the dot product, we assume that $q_i(\VEC{u})$
+is treated as a row vector, not a column vector.  This is the perennial
+dilemma between the geometric and algebraic interpretation of vectors.}
+
+\begin{egg}[Example~\ref{eggPsystem2} continued]  \label{eggPsystem3}
+For the $p$-system, we have found that the eigenvalues of the matrix
+$\displaystyle \diff G(\VEC{u}) = \begin{pmatrix} 0 & -1 \\
+p'(u_1) & 0 \end{pmatrix}$ are
+$\lambda_1(\VEC{u}) = -\sqrt{-p'(u_1)}$ and
+$\lambda_2(\VEC{u}) = \sqrt{-p'(u_1)}$.  An eigenvector associated to 
+$\lambda_1(\VEC{u})$ is
+$\displaystyle q_1(\VEC{u}) = \begin{pmatrix} 1 \\ \sqrt{-p'(u_1)}
+\end{pmatrix}$ and an eigenvector associated to
+$\lambda_2(\VEC{u})$ is
+$\displaystyle q_2(\VEC{u}) = \begin{pmatrix} -1 \\ \sqrt{-p'(u_1)}
+\end{pmatrix}$.
+
+We have that 
+\[
+\graD \lambda_1(\VEC{u}) \cdot q_1(\VEC{u}) =
+\left( \frac{p''(u_1)}{2 \sqrt{-p'(u_1)}} , 0 \right)
+\cdot \left( 1 , \sqrt{-p'(u_1)} \right) = \frac{p''(u_1)}{2 \sqrt{-p'(u_1)}} 
+\]
+and
+\[
+\graD \lambda_2(\VEC{u}) \cdot q_2(\VEC{u}) =
+\left( \frac{-p''(u_1)}{2 \sqrt{-p'(u_1)}} , 0 \right)
+\cdot \left( -1 , \sqrt{-p'(u_1)} \right) = \frac{p''(u_1)}{2 \sqrt{-p'(u_1)}} 
+\ .
+\]
+Thus, by assuming that $p''(v) >0$ for all $v$, we have that the
+the $p$-system is genuinely nonlinear.
+\end{egg}
+
+\begin{egg}
+To appreciate the importance of this definition,     \label{eggRareWaveN}
+we consider the system of conservation laws
+(\ref{systConLawEq1}) with $\displaystyle u(x,y) = \VEC{u}^-$
+for $\displaystyle x < y \lambda_i(\VEC{u}^-)$.  We seek
+$\displaystyle \VEC{u}^+$ such that $\displaystyle \VEC{u}^-$
+could be connected to $\displaystyle \VEC{u}^+$ by
+a rarefaction wave.
+
+Let us assume that $(\graD \lambda_i)(\VEC{u}) \cdot q_i(\VEC{u}) \neq 0$
+in a neighbourhood $U$ of $\displaystyle \VEC{u}^-$.  By scaling the
+eigenvector $q_i$, we may assume that
+$(\graD \lambda_i)(\VEC{u}) \cdot q_i(\VEC{u}) = 1$
+for $\VEC{u} \in U$.
+
+Let $w$ be the solution of
+\[
+\dydx{w}{z} = q_i(w)
+\]
+with the initial condition $\displaystyle w(z^-) = \VEC{u}^-$
+where $\displaystyle z^- = \lambda_i(\VEC{u}^-)$.  The unique solution
+$w$ is well defined and continuously differentiable (assuming that $G$
+is continuously differentiable) on an interval $\displaystyle [z^-,z^+]$.
+
+Since
+\[
+\dfdx{\lambda_i(w(z))}{z}  
+= (\diff \lambda_i)(w(z)) \dydx{w}{z}(z)
+= (\diff \lambda_i)(w(z)) q_i(w(z))
+= (\graD \lambda_i)(w(z))\cdot q_i(w(z)) = 1
+\]
+for all $\displaystyle z \in [z^-,z^+]$. we have that
+$\lambda_i(w(z)) = z + C$ for all $\displaystyle z \in [z^-,z^+]$.
+Moreover, since $\displaystyle w(\lambda_i(\VEC{u}^-)) = \VEC{u}^-$,
+we have that $C=0$.
+
+Let $\displaystyle \VEC{u}^+ = w(z^+)$.
+The {\bfseries $\displaystyle \mathbf{i^{th}}$-rarefaction
+wave}\index{Conservation Laws!$\displaystyle i^{th}$-Rarefaction Wave}
+connecting $\displaystyle \VEC{u}^-$ to $\displaystyle \VEC{u}^+$
+is defined by
+\[
+u(x,y) = \begin{cases}
+\VEC{u}^- & \quad \text{if} \ x \leq y z^- \\
+w(x/y) & \quad \text{if} \ y z^- < x < y z^+ \\
+\VEC{u}^+ & \quad \text{if} \ x \geq y z^+
+\end{cases}
+\]
+See Figure~\ref{shock_fig18}.
+
+Since $z = \lambda_i(w(z))$ for all $\displaystyle z^- \leq z \leq z^+$,
+we have that $\lambda_i\circ w$ is increasing along the wave; in
+particular, $\displaystyle \lambda_i(w(z^+)) = z^+ > z^- = \lambda_i(w(z^-))$.
+
+We have that $u(x,y) = w(x/y)$ is a classical solution of
+(\ref{systConLawEq1}) in the wedge $W$ defined by
+$\displaystyle y z^- < x < y z^+$.  Let $z = x/y$ for $(x,y) \in W$.  Then
+\begin{align*}
+&\pdydx{u}{y}(x,y) + (\diff G)(u(x,y)) \, \pdydx{u}{x}(x,y)
+= \pdydx{w}{z}(z)\,\pdydx{z}{y} + (\diff G(w(z)) \, \pdydx{w}{z}(z)\,
+\pdydx{z}{x} \\
+&\qquad = -\frac{x}{y^2} q_i(w(z)) + \frac{1}{y} (\diff G)(w(z)) q_i(w(z))
+= -\frac{x}{y^2} q_i(w(z)) + \frac{1}{y} \lambda_i(w(z)) q_i(w(z)) \\
+&\qquad = -\frac{x}{y^2} q_i(w(z)) + \frac{x}{y^2} q_i(w(z))
+= 0 \ .
+\end{align*}
+\end{egg}
+
+\pdfF{shock_waves/shock_fig18}{Rarefaction wave in higher dimension}
+{Example of an $\displaystyle i^{th}$-rarefaction wave for a system of
+conservation laws in higher dimension.  We assume that
+$\displaystyle u(x,y) = \VEC{u}^-$ for
+$\displaystyle x< y \lambda_i(\VEC{u}^-)$.  The lines where $u$
+is constant are given by $x= y z$ for $\displaystyle
+\lambda_i(\VEC{u}^-) = z^- \leq z \leq z^+ = \lambda_i(\VEC{u}^+)$.}
+{shock_fig18}
+
+\begin{defn}
+Let $\displaystyle w:I \to \RR^n$ be a solution of
+$\displaystyle \dydx{w}{z} = q_i(w)$, where $I$ is an open interval
+containing the origin.  The orbit $\{ w(z) : z\in I \}$ is called an
+{\bfseries integral curve}\index{Conservation Laws!Integral Curve}
+associated to $q_i$.
+\end{defn}
+
+\begin{defn}
+A {\bfseries $\mathbf{i}$-Riemann invariant}\index{Conservation
+Laws!$i$-Riemann Invariant} on an open set $U \subset \RR^n$ is
+continuously differentiable function $v:U \to \RR$ such that
+$\displaystyle \graD v(\VEC{u}) \cdot q_i(\VEC{u}) = 0$
+for all $\VEC{u} \in U$.
+\end{defn}
+
+It can be shown that we can always select $n-1$ $i$-Riemann invariants
+$v_j:U \to \RR$ for $1 \leq j \leq n-1$ such that
+$\displaystyle \graD v_j(\VEC{u})$ for $1\leq j\leq n-1$ are linearly
+independent for all $\VEC{u} \in U$.  At least, if $U$ is small enough.
+
+\begin{egg}[Example~\ref{eggPsystem3} continued]   \label{eggPsystem4}
+To find the $1$-Riemann invariants $v$ of the $p$-system, we have to
+solve
+\[
+\graD v(\VEC{u}) \cdot q_1(\VEC{u})
+= \left( \pdydx{v}{u_1}(\VEC{u}) , \pdydx{v}{u_2}(\VEC{u}) \right)
+\cdot \left( 1 , \sqrt{-p'(u_1)} \right) 
+= \pdydx{v}{u_1}(\VEC{u}) + \sqrt{-p'(u_1)} \pdydx{v}{u_2}(\VEC{u}) = 0 \ .
+\]
+It is easy to verify that the solutions are given by
+$v(\VEC{u}) = u_2 + F(u_1)$, where $F(v)$ is a primitive of
+$-\sqrt{-p'(v)}$.  Similarly, we find that the $2$-Riemann invariants
+$v$ of the $p$-system are given by
+$v(\VEC{u}) = u_2 - F(u_1)$.
+\end{egg}
+
+The $i$-Riemann invariants are constant along the integral curves
+associated to $q_i$ because
+\begin{equation} \label{iRiemannInv}
+\begin{split}
+\dfdx{v(w(z))}{z} &= (\diff v)(w(z)) \, \dydx{w}{z}
+= (\diff v)(w(z))\, q_i(w(z)) \\
+&= (\graD v)(w(z)) \cdot q_i(w(z)) = 0
+\end{split}
+\end{equation}
+for the solution $w$ of $\displaystyle \dydx{w}{z} = q_i(w)$ and
+any $i$-Riemann invariants $v:U \to \RR$.   In the previous argument,
+we obviously assume that we consider the values of $z$ for which
+$w(z) \in U$ to be able to compose $w$ with $v$.
+
+\begin{egg}[Example~\ref{eggPsystem4} continued]
+Let us prove for the $p$-system that the $i$-Riemann invariants
+are constant along the integral curves associated to $q_i$.
+
+The integral curve associated to $q_1$ is given by
+\[
+\dydx{w}{z}(z) = q_1(w(z)) = \begin{pmatrix} 1 \\ \sqrt{-p'(w_1(z))}
+\end{pmatrix}
+\]
+Thus $\displaystyle w(z) = \begin{pmatrix} z + C \\ \tilde{F}(z) \end{pmatrix}$,
+where $C$ is a constant and $\tilde{F}$ is a primitive of $\sqrt{-p'(z+C))}$.
+
+Let $v(\VEC{u}) = u_2 + F(u_1)$ be the $1$-Riemann invariants defined in
+Example~\ref{eggPsystem4}. We have to show that
+$v(w(z)) = \tilde{F}(z) + F(z+C)$ is constant.  This is clear because
+\[
+\dfdx{v(w(z))}{z} = \sqrt{-p'(z+C))} - \sqrt{-p'(z+C))} = 0
+\]
+for all $z$.  A similar computation shows that the $2$-Riemann invariants
+are constant along the integral curves associated to $q_2$.
+\end{egg}
+
+\begin{rmk}
+Suppose that (\ref{systConLawEq1}) is a strictly hyperbolic system of
+conservation laws in $\RR^2$.  Moreover, suppose that
+$U \subset \RR^2$ is an open and connected set.
+
+Let $v_i:U \to \RR$ denotes the $i$-Riemann invariants for $i=1,2$.
+We have that $v_i$ is constant along integral curves associated to
+right eigenvector $q_j$ if $i \neq j$.  Since the right eigenvectors
+$q_1(\VEC{u})$ and $q_2(\VEC{u})$ are linearly independent for all
+$\VEC{u} \in \RR^2$, the integral curves associated to $q_1$ intersect
+transversely the integral curves associated to $q_2$.  Hence, using
+standard results in ordinary differential equation, we can show that
+\begin{align*}
+\Phi : U & \to \Phi(U) \\
+\VEC{u} &\mapsto \big(v_1(\VEC{u}), v_2(\VEC{u})\big)
+\end{align*}
+defines an isomorphism and $\Phi(U) \subset \RR^2$ is open and
+connected.
+
+Since the right and left eigenvectors satisfy
+$p_i(\VEC{u})\cdot q_j(\VEC{u}) = \delta_{i,j}$ for all $\VEC{u}$,
+we have that $\diff v_1(\VEC{u})$ is a left eigenvector associated to
+$\lambda_2(\VEC{u})$ and $\diff v_2(\VEC{u})$ is a left eigenvector
+associated to $\lambda_1(\VEC{u})$ .  Therefore 
+\begin{align*}
+0 &= (\diff v_1(u))  \left( \pdydx{u}{y} + (\diff G(u)) \pdydx{u}{x} \right)
+= (\diff v_1(u)) \pdydx{u}{y} + (\diff v_1(u)) (\diff G(u)) \pdydx{u}{x} \\
+&= (\diff v_1(u)) \pdydx{u}{y} + \lambda_2(u) (\diff v_1(u)) \pdydx{u}{x}
+= \pdydx{v_1(u)}{y} + \lambda_2(u) \pdydx{v_1(u)}{x} \ .
+\end{align*}
+Using the $v_1$,$v_2$ coordinate system, it is the equation
+$\displaystyle \pdydx{v_1}{y} + \tilde{\lambda}_2(v_1,v_2) \pdydx{v_1}{x} =
+0$, where $\tilde{\lambda}_2(v_1,v_2) = \lambda_2(u_1,u_2)$.
+Similarly, we find that
+$\displaystyle \pdydx{v_2}{y} + \tilde{\lambda}_1(v_1,v_2) \pdydx{v_2}{x} = 0$.
+This seems to be an interesting approach so solve our original system of
+conservation laws.  Unfortunately, this system is not completely
+decoupled and is no longer in the form of a system of conservation
+laws; namely, cannot be written in the form (\ref{systConLawEq1}).
+This is another example where a transformation of a system of
+conservation laws may lead to undesirable consequences.
+\end{rmk}
+
+\begin{egg}[Example~\ref{eggRareWaveN} continued]
+The fact that $i$-Riemann invariants are constant along the integral
+curves associated to $q_i$ implies that these $i$-Riemann invariants
+are constant on $u(W)$, where $u$ is the solution defined in
+Example~\ref{eggRareWaveN} and $W \subset \RR\times [0,\infty[$ is the
+wedge where the rarefaction wave is defined.
+In fact, we have from (\ref{iRiemannInv}) that the $i$-Riemann invariants are
+constant on $\{ w(z) : z \in u(W) = [z^-,z^+]\}$ where $w$, used to
+define $u$ in Example~\ref{eggRareWaveN}, yields an integral
+curve associated to $q_i$.
+This property will become the base for the definition of 
+$\displaystyle i^{th}$-rarefaction wave.
+\end{egg}
+
+We generalize our concept of rarefaction wave.
+
+\begin{defn}
+Suppose that $u$ is a classical solution of (\ref{systConLawEq1}) with
+$u(x,y) \in U$, where $U$ is an open subset of $\displaystyle \RR^n$.
+We will say that $u$ is a
+{\bfseries $\displaystyle \mathbf{i^{th}}$-rarefaction
+wave}\index{Conservation Laws!$\displaystyle i^{th}$-Rarefaction Wave}
+in $U$ if all $i$-Riemann invariant on $U$ are constant.
+\end{defn}
+
+\begin{prop}
+Suppose that $u$ is an $\displaystyle i^{th}$-rarefaction wave on $U$.
+Then the $x$,$y$ characteristic curves given by
+$\rho'(y) = \lambda_i(u(\rho(y),y))$  
+are straight lines and $u$ is constant on each line.
+\end{prop}
+
+\begin{proof}
+Let $w_j:U \to \RR$ for $1 \leq j \leq n-1$ be $n-1$ linearly
+independent $i$-Riemann invariants associated to $q_i$.
+
+Let $I$ be a subset of the domain of $\rho$ such that $u(\rho(y),y) \in U$
+for $y \in I$.  We need to prove that
+$\displaystyle \pdfdx{u(\rho(y),y)}{y} = 0$ for all $y \in I$
+to prove that $u$ is constant on the $x$,$y$ characteristic
+curves.  At the same time, this proves that $\lambda_i(u(\rho(y),y))$
+is constant.  So, the characteristic curves are given by
+$x = \rho(y) = z y + C$ with $z=\lambda_i(u(\rho(y_0),y_0))$ for some
+$y_0\in I$ arbitrary but fixed and $C$ a
+constant \footnote{For the Riemann problems that we have considered so
+far, $C=0$ because the rarefaction waves were based at $(x,y) = (0,0)$.
+This does not need to be.}.
+
+Since
+$\displaystyle \pdydx{u}{y} + \diff G(u) \, \pdydx{u}{x} = \VEC{0}$
+for $u \in U$, we have that
+\[
+  \pdydx{u}{y}(\rho(y),y) + (\diff G)(u(\rho(y),y))
+  \, \pdydx{u}{x}(\rho(y),y) = \VEC{0}
+\]
+for $y \in I$.  Hence,
+\begin{align*}
+&(p_i(u(\rho(y),y)))^\top \pdfdx{u(\rho(y),y)}{y}
+= (p_i(u(\rho(y),y)))^\top \left(\pdydx{u}{y}(\rho(y),y)
++ \lambda_i(u(\rho(y),y)) \pdydx{u}{x}(\rho(y),y)  \right) \\
+&\qquad = (p_i(u(\rho(y),y)))^\top \pdydx{u}{y}(\rho(y),y)
++ \lambda_i(u(\rho(y),y)) (p_i(u(\rho(y),y)))^\top \, \pdydx{u}{x}(\rho(y),y) \\
+&\qquad = (p_i(u(\rho(y),y)))^\top \pdydx{u}{y}(\rho(y),y)
++ (p_i(u(\rho(y),y)))^\top (\diff G)(u(\rho(y),y)) \, \pdydx{u}{x}(\rho(y),y) \\
+&\quad = (p_i(u(\rho(y),y)))^\top  \left( \pdydx{u}{y}(\rho(y),y)
++ (\diff G)(u(\rho(y),y)) \, \pdydx{u}{x}(\rho(y),y) \right) = 0
+\end{align*}
+for $y \in I$.
+
+Moreover, since $w_j$ is constant on $U$, we have that
+\[
+(\diff w_j)(u(\rho(y),y)) \, \pdfdx{u(\rho(y),y)}{y}
+  = \pdfdx{w_j(u(\rho(y),y))}{y} = 0
+\]
+for $1 \leq j \leq n-1$ and $y \in I$.
+
+Therefore, $\displaystyle \pdfdx{u(\rho(y),y)}{y}$ is orthogonal to
+$p_i(u(\rho(y),y))$ and $\displaystyle (\diff w_j)^\top(u(\rho(y),y))$
+with $1 \leq j \leq n-1$ for all $y\in I$.  However, the vectors
+$\displaystyle (\diff w_j)^\top(u(\rho(y),y))$ for $1\leq j \leq n-1$ are
+linearly independent and orthogonal to $q_i(u(\rho(y),y))$.  Since
+$\displaystyle (q_i(u(\rho(y),y)))^\top p_i(u(\rho(y),y)) \neq 0$, the vector
+$p_i(u(\rho(y),y))$ is not orthogonal to $q_i(u(\rho(y),y))$
+and so is linearly independent of
+$\displaystyle (\diff w_j)^\top(u(\rho(y),y))$ for $1\leq j \leq n-1$.
+
+Thus, $\displaystyle \pdfdx{u(\rho(y),y)}{y}$ is orthogonal to
+a basis of $\RR^n$ for all $y\in I$.  This is possible only if
+$\displaystyle \pdfdx{u(\rho(y),y)}{y} = \VEC{0}$
+for all $y\in I$.
+\end{proof}
+
+The result of the previous proposition confirm what we have observed
+in Example~\ref{eggRareWaveN}.
+
+The analysis that we have performed for the $p$-system in 
+Example~\ref{eggPsystem2} can be repeated for systems of conservation
+laws in higher dimensions.  There are two main results supporting this
+analysis.
+
+\begin{theorem}
+Suppose that (\ref{systConLawEq1}) is a strictly hyperbolic system of
+conservation laws which is genuinely linear on an open set
+$U \subset \RR^n$.  For each $1 \leq i \leq n$ and
+$\displaystyle \VEC{u}^- \in U$,
+if we select the eigenvectors $q_i(\VEC{u})$ such
+that $\graD \lambda_i(\VEC{u}) \cdot q_i(\VEC{u}) = 1$ for all
+$\VEC{u} \in U$, then the exist an interval $[0,r_i]$ and a smooth function
+$\displaystyle R_i: [0,r_i] \to \RR^n$ such that
+$\displaystyle R_i(0) = \VEC{u}^-$ and
+$\displaystyle \VEC{u}^-$ can be connected to $R_i(r)$ by an
+$i$-rarefaction wave for all $r \in [0,r_i]$.
+\end{theorem}
+
+The main idea for the proof of this theorem was introduced in
+Example~\ref{eggRareWaveN}; namely, one considers the ordinary
+differential equation $\displaystyle \dydx{w}{z} = q_i(w)$ with
+$\displaystyle w(\lambda_i(\VEC{u}^-)) = \VEC{u}^-$.
+The proof can be found in Section B of Chapter~17 of \cite{Smo}.
+
+The choice of $R_i$ for the name of the function is not random.  We
+obviously want to indicate that the curves
+$\displaystyle R_i([0,r_i]) \subset \RR^n$
+are the generalizations of the curves $R_{1,\VEC{u}^-}$ and $R_{2,\VEC{u}^-}$ in
+Example~\ref{eggPsystem2} about the $p$-system.
+
+The generalization to higher dimensions of rarefaction waves can also
+be done for the shock waves.  The main results are summarized in the
+next proposition
+
+\begin{theorem}  \label{genHugCurve}
+Suppose that (\ref{systConLawEq1}) is a genuinely linear and strictly
+hyperbolic system of conservation laws.  For each $1 \leq i \leq n$
+and $\displaystyle \VEC{u}^-$, the exist an interval $[s_i,0]$ and a
+smooth function $\displaystyle S_i: [s_i,0] \to \RR^n$ such that
+$\displaystyle S_i(0) = \VEC{u}^-$,
+$\displaystyle \dydx{S_i}{s}(0) = q_i(\VEC{u}^-)$,
+$\displaystyle \dydxn{S_i}{s}{2}(0) = \dfdx{q_i(S_i(s))}{s}\Big|_{s=0}$
+and $\displaystyle \VEC{u}^-$ can be connected to $S_i(s)$ by a $i$-shock
+for all $s \in [s_i,0]$.
+
+Moreover, we have that
+$\displaystyle G(S_i(s))-G(\VEC{u}^-)
+= \eta(s) \left(S_i(s) - \VEC{u}^-\right)$
+with $\displaystyle \eta(0) = \lambda_i(\VEC{u}^-)$ and $\eta'(0) = 1/2$.
+\end{theorem}
+
+The proof of the previous theorem can be found in Section B of
+Chapter 17 in \cite{Smo}.  The curve $\Gamma \subset \RR\times [0,\infty[$
+where the strong solution $u$ is discontinuous is obtained
+simultaneously as we obtain the curves $S_i$.  For $y$ fixed, the value of
+$\gamma'(y)$ for the parametric representation of the curve $\Gamma$
+that we have used before is given by $\eta(s)$.  So, $\gamma'(y)$
+may change as $s$ varies.
+In Example~\ref{eggPsystem2}, $\eta$ is given in
+(\ref{psystEq7}) as a function of $u_1$ and the curves $S_i$ and $R_i$
+were represented by $u_2$ as functions of $u_1$.
+
+As we did for the previous theorem, we want to indicate that the
+curves $\displaystyle S_i([s_i,0]) \subset \RR^n$ are the generalizations of the
+curves $S_{1,\VEC{u}^-}$ and $S_{2,\VEC{u}^-}$ in
+Example~\ref{eggPsystem2} about the $p$-system.
+The curve $S_i([s_i,0])$ is called the
+{\bfseries $\displaystyle \mathbf{i^{th}}$ Hugoniot curve}\index{Conservation
+Laws!$\displaystyle i^{th}$ Hugoniot Curve} emanating from
+$\displaystyle \VEC{u}^-$.
+
+As we have for the $p$-system, one can show that for each $i$ the
+curves $S_i([s_i,0])$ and $R_i([0,r_i])$ have matching first and second
+order derivatives at the point $\displaystyle \VEC{u}^-$ where they intersect.
+
+We should mention that there are more than standard $k$-shocks in
+systems of conservation laws in higher dimensions.   The systems may
+satisfy the following condition.
+
+\begin{defn}
+Suppose that
+$\lambda_1(\VEC{u}) < \lambda_2(\VEC{u}) < \ldots < \lambda_n(\VEC{u})$
+are the eigenvalues of $\diff G(\VEC{u})$ for
+$\displaystyle \VEC{u} \in U \subset \RR^n$,
+and $\displaystyle q_i(\VEC{u}) \in \RR^n$ is an eigenvector of
+$\diff G(\VEC{u})$
+associated to the eigenvalue $\lambda_i(\VEC{u})$ for $1 \leq i \leq n$.
+We say that the $\displaystyle i^{th}$ characteristic field is
+{\bfseries linearly degenerate}\index{Conservation Laws!Linearly Degenerate} at
+$u \in U$ if $\graD \lambda_i(\VEC{u}) \cdot q_i(\VEC{u}) = 0$,
+and {\bfseries linearly degenerate} on $U$ if
+$\graD \lambda_i(\VEC{u}) \cdot q_i(\VEC{u}) = 0$ for all $\VEC{u} \in U$.
+\end{defn}
+
+Suppose that $\displaystyle i^{th}$ characteristic field is linearly
+degenerate in an open set $\displaystyle U \subset \RR^n$, then
+$\lambda_i$ is constant an $i$-Riemann invariant.  It follows that
+$\lambda_i$ is along the integral curves associated to $q_i$ because
+$i$-Riemann invariants are constant along the integral curves
+associated to $q_i$.  If we consider the integral curve given by
+$\displaystyle \dydx{w}{s}(s) = q_i(w(s))$ with the
+initial condition $\displaystyle w(0) = \VEC{u}^- \in U$, we have that
+$\displaystyle \lambda_i(w(s)) = \lambda_i(w(0)) = \lambda_i(\VEC{u}^-)$
+for $|s| < \epsilon$, where $\epsilon$ is such that $w(s) \in U$ for
+$|s| < \epsilon$.
+It follows that $\displaystyle q_i(w(s)) = q_i(\VEC{u}^-)$ for
+$|s| < \epsilon$.  Hence $\displaystyle q_i(\VEC{u}^-)$ is an eigenvector
+associated to the eigenvalue $\displaystyle \lambda_i(\VEC{u}^-)$ of
+$(\diff G)(w(s))$ for $|s| < \epsilon$.
+
+For $|s| < \epsilon$, let $\displaystyle z^- = \lambda_i(\VEC{u}^-)$ and
+\[
+u(x,y) = \begin{cases} \VEC{u}^- & \quad \text{if} \ x < y z^- \\
+w(s) & \quad \text{if} \ x \geq y z^-
+\end{cases}
+\]
+(Figure~\ref{shock_fig23}).
+The function $u$ is discontinuous along the line
+$\Gamma = \{ (\gamma(y),y), y >0\}$ where
+$\displaystyle \gamma(y) = y z^-$.
+We have that $u$ is a strong solution of (\ref{systConLawEq1})
+satisfying the initial condition
+$u(x,0) = \VEC{u}^-$ for $x<0$ and $u(x,0) = w(s)$ for $x \geq 0$
+because $u$ obviously satisfies the initial condition and is also satisfies
+(\ref{systConLawEq1}) outside $\Gamma$ since it is constant outside
+$\Gamma$.
+
+\pdfF{shock_waves/shock_fig23}{Example of a contact discontinuity}
+{Example of a contact discontinuity.}{shock_fig23}
+
+Moreover, $u$ satisfies the Rankine-Hugoniot formula for a shock
+wave as we now prove.  Since
+\begin{align*}
+&\dfdx{G(w(s)) - \lambda_i(\VEC{u}^-) w(s)}{s}
+= (\diff G)(w(s)) \dydx{w}{s}(s) - \lambda_i(\VEC{u}^-) \pdydx{w}{s}(s) \\
+&\qquad = \left( (\diff G)(w(s)) - \lambda_i(\VEC{u}^-) \Id \right) q_i(w(s))
+= \left( (\diff G)(w(s)) - \lambda_i(\VEC{u}^-) \Id \right) q_i(\VEC{u}^-)
+= 0
+\end{align*}
+for $|s|<\epsilon$, we have that
+$\displaystyle s \mapsto G(w(s)) - \lambda_i(\VEC{u}^-) w(s)$
+is constant.  Therefore,
+$\displaystyle G(w(s)) - \lambda_i(\VEC{u}^-) w(s)
+=  G(w(0)) - \lambda_i(\VEC{u}^-) w(0)
+= G(\VEC{u}^-) - \lambda_i(\VEC{u}^-) \VEC{u}^-$.  It follows that
+\[
+G(w(s)) - G(\VEC{u}^-)
+= \lambda_i(\VEC{u}^-) \left( w(s) - \VEC{u}^-\right)
+= \gamma'(y) \left( w(s) - \VEC{u}^-\right)
+\]
+as required by Rankine-Hugoniot formula.
+
+Solutions where the shock speed equals the characteristic speed on one
+side are called {\bfseries contact discontinuities}\index{Conservation
+Laws!Contact Discontinuity}.  This is the situation above where
+$\gamma'(y)$  is equal to $\displaystyle \lambda_i(\VEC{u}^-)$ with
+$\displaystyle \VEC{u}^- = u^-(\VEC{p})$ and $\VEC{p} = (\gamma(y),y)$.
+
+As we did with the $p$-system, we can (in theory) combine
+$i$-rarefaction waves, $i$-shocks and contact discontinuities to
+create connection from $\displaystyle \VEC{u}^-$ to other values of
+$\VEC{u}$ that are not on the curves $S_i([s_i,0])$ and $R_i([0,r_i])$.
+In fact, suppose that (\ref{systConLawEq1}) is strictly hyperbolic
+system of conservation laws on an open set $U$ and each characteristics
+fields is either genuinely linear or nonlinear, then at most
+$n$ $i$-rarefaction waves, $i$-shocks and contact discontinuities
+may be used to connect $\displaystyle \VEC{u}^-$ to 
+$\displaystyle \VEC{u}^+$ if it is closed enough to $\displaystyle \VEC{u}^-$.
+
+\subsection{The Glimm Difference Scheme}
+
+Most of the discussion so far was about $i$-rarefaction waves and
+$i$-shocks based at $(x,y) = (0,0)$.  Obviously, using a translation,
+everything that we have said is also valid for $i$-rarefaction waves
+and $i$-shocks based at any point of $\RR\times [0,\infty[$.
+In particular, we may extend the Riemann problem to system of
+conservation laws with piecewise constant initial condition at $y=0$.
+From there, we may also consider systems of conservation laws with any
+continuous initial condition at $y=0$.  The
+{\bfseries Glimm Difference Scheme}\index{Conservation Laws!Glimm
+Difference Scheme} is one of the methods that can be used to
+proof the existence of solutions to systems of conservation laws with
+continuous initial condition at $y=0$.
+
+We sketch the main idea behind the Glimm Difference Scheme.  As usual,
+we assume that (\ref{systConLawEq1}) is a genuinely linear and
+strictly hyperbolic system of conservation laws.  We also assume that
+the total variation of the initial condition is {\bfseries sufficiently small};
+namely, that
+\[
+  \text{TV}(h) \equiv
+\sup_{\substack{x_1 < x_2 < \ldots < x_m\\ m >0}} \sum_{j=1}^{m-1} \left|
+h(x_{j+1}) - h(x_j) \right|
+\]
+is sufficiently enough.  We consider the following mesh on
+$\RR\times [0,\infty[$.
+\[
+  M_{\Delta x, \Delta y} \equiv \left\{ (j \Delta x , k \Delta y) :
+    j \in \ZZ \ \text{and} \ k \in \NN \right\} \ .
+\]
+Suppose that $U \subset \RR^n$ is a {\bfseries sufficiently small}
+open neighbourhood of the origin and
+\[
+  C \equiv \sup_{\substack{1 \leq j \leq n\\
+    \VEC{u} \in \overline{U}}} \left| \lambda_j(\VEC{u}) \right|
+< \infty \ .
+\]
+We assume that $\Delta x / \Delta y > C$.  We select values
+$\VEC{u}_{j,k} \in \RR^n$ such that $k+j = 0 \mod{2}$ as it follows.
+We set $\VEC{u}_{j,0} = h((j+1)\Delta x + \theta_0 \Delta x)$ for
+$j \in \ZZ$ even and $\theta_0 \in [-1,1]$ randomly selected.  Suppose
+that we have $\VEC{u}_{j,k} \in \RR^n$
+for $j\in \ZZ$ with $k+j =0 \mod{2}$ and $k\in \NN$ fixed.  For each
+$j \in \ZZ$ with $j+k \mod{2}$, we solve the Riemann problem
+\[
+  \pdydx{v}{y} + \diff G(v) \, \pdydx{v}{x} = \VEC{0}
+\]
+on $[(j-1)\Delta x, (j+1)\Delta x]\times [k\Delta x,(k+1)\Delta y]$
+with initial condition
+$v(x, k\Delta y) = \VEC{u}_{j-2,k}$ for $ x \leq j \Delta x$
+and $v(x, k\Delta y) = \VEC{u}_{j,k}$ for $ x > j \Delta x$.
+Let $v_{j,k}$ be the solution of this problem.  We set
+$\VEC{u}_{j-1,k+1} = v_{i,j}(\VEC{a}_{j-1,k+1})$, where
+$\VEC{a}_{j-1,k+1} = (j\Delta x + \theta_{k+1} \Delta x, (k+1) \Delta y)$
+and $\theta_{k+1} \in [-1,1]$ has been randomly selected
+(Figure~\ref{shock_fig20}).
+
+\pdfF{shock_waves/shock_fig20}{Glimm Difference Scheme}
+{Diagram used to illustrate the Glimm Difference Scheme}{shock_fig20}
+
+The condition $\Delta x / \Delta y > C$ is essential as well as
+$\Delta x$, and so $\Delta y$, {\bfseries sufficiently small}.
+The previous condition ensures that there is no interaction between
+the waves that we find for each value of $j$; namely, the areas
+in blue in Figure~\ref{shock_fig20} do not intersect.  These areas contain
+$x$,$y$ characteristics used for the connections associated to each
+Riemann problem.  It is traditional to take $\Delta y = c \Delta x$ with
+$c>C$ fixed.
+
+For each choice of $\Delta x$ and
+$\Theta = \{\theta_0, \theta_1, \theta_2, \ldots \}$, we
+define the following approximation $u_{\Theta, \Delta x}$ of the solution $u$ of
+(\ref{systConLawEq1}) with the initial condition $u(x,0) = h(x)$.
+Set $u_{\Theta,\Delta x}(x,y) = v_{j,k}(x,y)$ for
+$(x,y) \in [(j-1)\Delta x, (j+1)\Delta x]\times [k\Delta x,(k+1)\Delta y]$
+and $j+k = 0 \mod{2}$.  The function $u_{\Theta,\Delta x}$ is likely
+to be discontinuous along the lines $y = k \Delta y$.
+
+Figure~\ref{shock_fig21} illustrates what happen when $\Delta x$, and
+so $\Delta y$, converge to $0$.  Because of the strong law of large numbers,
+the segments associated to the $\VEC{a}_{j,k}$ with $j+k =0 \mod{0}$
+provide an approximation of the exact solution.
+
+\pdfF{shock_waves/shock_fig21}{Approximation of an $x$,$y$
+characteristic for the general initial condition}{The exact $x$,$y$
+characteristic for the system of conservation laws with a general
+initial condition is the dashed line in red.}{shock_fig21}
+
+Let $I = \{ (j,k) \in \ZZ \times \NN : j+k = 0 \mod{2} \}$ and
+$\displaystyle R = \prod_{(j,k) \in I} [(j-1)\Delta x,(j+1) \Delta x]
+\times \{(k+1)\Delta y\}$.  Since
+$[(j-1)\Delta x,(j+1) \Delta x]$ is homeomorphic to
+$[-1,1]$ for any $\Delta x$, we can define an homeomorphism $\Phi$
+between $R$ and $\displaystyle \tilde{R} = \prod_{(j,k) \in I} [-1,1]$.
+
+One shows that there exist a set $\tilde{N}$ of measure zero in
+$\tilde{R}$ and a sequence $\displaystyle \{ \Delta x_i\}_{i=1}^\infty$
+converging to $0$ such that
+$\displaystyle \{u_{\Theta,\Delta x_i}\}_{i=1}^\infty$ converges in
+$L^1_{loc}(\RR\times [0,\infty[)$ to a solution of
+(\ref{systConLawEq1}) with the initial condition $u(x,0) = h(x)$ if
+$\Theta$ is such that
+$\displaystyle \Phi\big(\big(\VEC{a}_{j,k} : (j,k)\in I\big)\big)
+\in \tilde{R}\setminus \tilde{N}$.  Recall that $\VEC{a}_{j,k} \in 
+[(j-1)\Delta x,(j+1) \Delta x] \times \{(k+1)\Delta y\}$ is randomly
+selected.
+
+There are a lot of technical details that need to be proved to support
+the claims in the sketch of the proof.  One has to properly define what 
+is met by {\bfseries sufficiently small}; in particular for the total
+variation $\text{TV}(h)$.  This is a major constrain.
+A comprehensive version of Grimm's proof is given by \cite{Smo}.
+Another reference is \cite{LeF}.
+
+\subsection{Entropy Pairs}
+
+Another issue that we should address is the entropy condition
+associated to a shock wave.  We have used so far the Lax Shock
+Condition.  Other, more convenient and sometime more general, entropy
+conditions are used for system of conservation laws in higher
+dimension.  Under specific conditions on $G$ in (\ref{systConLawEq1}),
+they are often equivalent to the Lax Shock Condition.  We mention a
+couple of possible extensions of the entropy condition.
+
+\begin{defn}
+Suppose that $G:\RR^n \to \RR^n$ in (\ref{systConLawEq1}) is of class
+$C^1$, and that $E,F:U\to \RR$ are two continuously differentiable
+functions defined on an open set $U \subset \RR^n$.  If
+$(\diff F)(\VEC{u}) = (\diff E)(\VEC{u}) (\diff G)(\VEC{u})$ for all
+$\VEC{u} \in U$,
+then $(E,F)$ is called an {\bfseries entropy pair}\index{Conservation
+Laws!Entropy Pair} on $U$.  The function $E$ is called the
+{\bfseries entropy}\index{Conservation Laws!Entropy} and the function
+$F$ is called the {\bfseries entropy-flux}\index{Conservation
+Laws!Entropy-Flux}.
+\end{defn}
+
+\begin{egg}
+It is not always possible to find an entropy pair for a system of
+conservation laws in dimension higher than $2$.  There is however one
+type of systems of conservation laws for which we can always find a
+entropy pair.
+
+If $G$ is the gradient of a function $g:\RR^n \to \RR$,
+then the system of conservation laws is
+\begin{equation} \label{eggGradSyst}
+\pdydx{u}{y}(x,y) + \pdfdx{G(u(x,y))}{x}
+= \pdydx{u}{y}(x,y) + \pdfdx{(\diff g)(u(x,y))}{x} = 0 \ .
+\end{equation}
+We claim that $E(\VEC{u}) = \|\VEC{u}\|^2/2$ and
+$F(\VEC{u}) = \VEC{u}^\top (\diff g)(\VEC{u}) - g(\VEC{u})$ define
+an entropy pair for the (\ref{eggGradSyst}) on $\RR^n$.  This follows
+from
+\[
+(\diff E)(\VEC{u})\, (\diff G)(\VEC{u})
+= \VEC{u}^\top (\diff^2 g)(\VEC{u})
+= (\diff g)(\VEC{u}) + \VEC{u}^\top (\diff^2 g)(\VEC{u}) - (\diff g)(\VEC{u})
+= (\diff F)(\VEC{u})
+\]
+for all $\VEC{u}$.
+\end{egg}
+
+If $u:\RR\times ]0,\infty[ \to U$ is a classical solution of
+(\ref{systConLawEq1}), we have that
+\begin{align*}
+&\pdfdx{E(u(x,y))}{y} + \pdfdx{F(u(x,y))}{x}
+= (\diff E)(u(x,y)) \pdydx{u}{y}(x,y) + (\diff F)(u(x,y)) \pdydx{u}{x}(x,y)  \\
+&\qquad = - (\diff E)(u(x,y))\, (\diff G)(u(x,y)) \pdydx{u}{x}(x,y)
++ (\diff F)(u(x,y)) \pdydx{u}{x}(x,y) \\
+&\qquad = \big( (\diff F)(u(x,y)) - (\diff E)(u(x,y)) (\diff G)(u(x,y)) \big)
+\pdydx{u}{x}(x,y)
+\end{align*}
+for all $(x,y) \in \RR\times ]0,\infty[$.
+Therefore, if $(E,F)$ is an entropy pair, then
+\begin{equation} \label{EntroPairEq}
+\pdfdx{E(u(x,y))}{y} + \pdfdx{F(u(x,y))}{x} = 0
+\end{equation}
+for all $(x,y) \in \RR\times ]0,\infty[$.
+
+\begin{defn} \label{dnfEntroSol}
+A strong solution $u:\RR\times ]0,\infty[\to \RR^n$ of (\ref{systConLawEq1})
+is called an {\bfseries entropy solution}\index{Conservation
+Laws!Entropy Solution} if there exists an entropy pair $(E,F)$ on $\RR^n$
+such that
+\begin{equation} \label{EntroIneEq}
+-\int_{\RR}\int_{]0,\infty[}
+\left( E(u(x,y)) \pdydx{\psi}{y}(x,y) +
+  F(u(x,y)) \pdydx{\psi}{x}(x,y) \right) \dx{y}\dx{x} \leq 0
+\end{equation}
+for all function $\psi \in \DD(\RR\times]0,\infty[)$ with
+$\psi \geq 0$ on $\RR\times]0,\infty[$.  The inequality
+(\ref{EntroIneEq}) is called the {\bfseries entropy inequality
+associated to the entropy pair $\mathbf{(E,F)}$}\index{Conservation
+Laws!Entropy Inequality Associated to the Entropy Pair $(E,F)$}.
+\end{defn}
+
+It follows from (\ref{EntroPairEq}) that we have equality to $0$ in
+(\ref{EntroIneEq}) if $u$ is a classical solution of
+(\ref{systConLawEq1}).  However, we may have a strict inequality if
+$u$ is a strong solution.
+
+\begin{lemma}
+Suppose that $u:\RR\times [0,\infty[ \to \RR^n$ is a strong solution of
+(\ref{systConLawEq1}) which is discontinuous along the curve
+$\displaystyle \Gamma = \left\{ (\gamma(y),y) : y \geq y_0 \right\}$ of
+class $\displaystyle C^1$ for some $y_0\geq 0$.  If $u$ is an entropy
+solution associated to the entropy pair $(E,F)$ \footnotemark, then
+\begin{equation} \label{EntrJumpEq}
+\gamma'(y) \big( E(u^+(\VEC{p})) - E(u^-(\VEC{p})) \big)
+- \big( F(u^+(\VEC{p}))- F(u^-(\VEC{p})) \big) \geq 0
+\end{equation}
+for all $\VEC{p}=(\gamma(y),y) \in \Gamma$.
+\end{lemma}
+
+\footnotetext{As usual, we assume that $u$ is of class $C^1$ on both
+sides of $\Gamma$.}
+
+\begin{proof}
+The proof is very similar to the proof of the Rankine-Hugoniot formula
+in Section~\ref{sectRankHugo}.  If we use all the setup in
+Section~\ref{sectRankHugo}, and consider
+\begin{equation} \label{EntroPairRHeq1}
+\begin{split}
+&-\iint_{V_l} \left( E(u(x,y)) \pdydx{\psi}{y}(x,y) +
+  F(u(x,y)) \pdydx{\psi}{x}(x,y) \right) \dx{y}\dx{x} \\
+&\qquad -\iint_{V_r} \left( E(u(x,y)) \pdydx{\psi}{y}(x,y) +
+  F(u(x,y)) \pdydx{\psi}{x}(x,y) \right) \dx{y}\dx{x} \leq 0
+\end{split}
+\end{equation}
+obtained from (\ref{EntroIneEq}).
+Recall that $\psi \in \DD(V)$ and $V$ is split in two by $\Gamma$ with
+$V_l = \{ (x,y) \in V : x < \gamma(y)\}$ and
+$V_r = \{ (x,y) \in V : x > \gamma(y)\}$.
+
+We may use the Divergence Theorem as in (\ref{shock_burgers_W1}) to
+evaluate the first integral in (\ref{EntroPairRHeq1}).  We get
+\begin{align*}
+&\iint_{V_l}
+\left( E(u(x,y)) \pdydx{\psi}{y}(x,y) +
+F(u(x,y)) \pdydx{\psi}{x}(x,y) \right) \dx{y}\dx{x} \\
+&\qquad = \iint_{V_l}
+\left( \pdfdx{E(u)}{y} + \pdfdx{F(u)}{x} \right)\,\psi
+\dx{x}\dx{y}
++ \int_{\Gamma \cap \partial V_l} \left(F(u^-)\,\psi, E(u^-)\,\psi \right)\cdot
+\VEC{\nu} \dx{s} \ ,
+\end{align*}
+where $\displaystyle \VEC{\nu}(\VEC{p})$ is the unit normal to $\Gamma$
+at $\VEC{p} \in \Gamma$ pointing to the right of $\Gamma$, so outside
+$V_l$, and
+\[
+u^-(\VEC{p}) = \lim_{t\rightarrow 0^-}
+u\left(\VEC{p}+t\, \VEC{\nu}(\VEC{p})\right)
+\]
+for $\VEC{p} \in \Gamma$.
+Since $\displaystyle \pdfdx{E(u)}{y} + \pdfdx{F(u)}{x} = 0$ in
+$V_l$ because $u$ is of class $C^1$ on the left side of $\Gamma$, we get
+\begin{equation} \label{EntroPairRHeq2}
+\begin{split}
+& \iint_{V_l} \left( E(u(x,y)) \pdydx{\psi}{y}(x,y) +
+F(u(x,y)) \pdydx{\psi}{x}(x,y) \right) \dx{y}\dx{x} \\
+&\qquad = \int_{\Gamma \cap \partial V_l}
+\left(F(u^-)\,\psi, E(u^-)\,\psi \right)\cdot \VEC{\nu} \dx{s} \ .
+\end{split}
+\end{equation}
+
+Proceeding as we just did but using the second integral in
+(\ref{EntroPairRHeq1}), we get
+\begin{equation} \label{EntroPairRHeq3}
+\begin{split}
+& \iint_{V_r} \left( E(u(x,y)) \pdydx{\psi}{y}(x,y) +
+  F(u(x,y)) \pdydx{\psi}{x}(x,y) \right) \dx{y}\dx{x} \\
+&\qquad =
+-\int_{\Gamma\cap\partial V_r}
+\left(F(u^+)\,\psi, E(u^+)\,\psi \right)\cdot \VEC{\nu} \dx{s} \ ,
+\end{split}
+\end{equation}
+where
+\[
+u^+(\VEC{p}) = \lim_{t\rightarrow 0^+}
+u\left(\VEC{p}+t \VEC{\nu}(\VEC{p})\right)
+\]
+for $\VEC{p} \in \Gamma$.
+The minus sign in front of the previous line integral comes from the
+counterclockwise direction of the contour integral along $\partial V_r$
+while the normal $\VEC{\nu}$ is pointing inside $V_r$.
+
+It follows from (\ref{EntroPairRHeq1}) that
+\begin{align*}
+&-\int_{\Gamma \cap \partial V_l}
+\left(F(u^-)\,\psi, E(u^-)\,\psi \right)\cdot \VEC{\nu} \dx{s} 
++ \int_{\Gamma\cap\partial V_r}
+\left(F(u^+)\,\psi, E(u^+)\,\psi \right)\cdot \VEC{\nu} \dx{s}  \\
+& \qquad = \int_{\Gamma\cap\partial V} \psi
+\left( F(u^+)-F(u^-) , E(u^+) - E(u^-) \right)\cdot \VEC{\nu} \dx{s}
+\leq 0 \ .
+\end{align*}
+Since the last inequality is true for all
+$\psi \in \DD(V)$ with $\psi \geq 0$ on $V$, and open sets $V$ which
+are split by $\Gamma$, we get
+\[
+\left( F(u^+)-F(u^-) , E(u^+) - E(u^-) \right) \cdot \VEC{\nu} \leq 0
+\]
+on $\Gamma$.  Therefore,
+\begin{align*}
+0 &\geq \big(F(u^+(\VEC{p}))-F(u^-(\VEC{p}))\big)
+ + \frac{\nu_y(\VEC{p})}{\nu_x(\VEC{p})}
+\big(E(u^+(\VEC{p}))-E(u^-(\VEC{p}))\big) \\
+&= \big(F(u^+(\VEC{p}))-F(u^-(\VEC{p}))\big)
+- \dydx{\gamma}{y}(y) \big(E(u^+(\VEC{p}))-E(u^-(\VEC{p}))\big)
+\end{align*}
+for all $\VEC{p}=(\gamma(y),y) \in \Gamma$.
+Note that $\nu_x(\VEC{p})>0$ because $\VEC{\nu}$ is the unit normal to $\Gamma$
+at $\VEC{p} \in \Gamma$ pointing to the right of $\Gamma$.
+\end{proof}
+
+We say that a function $f:U \to \RR$, where $U$ is an open subset of
+$\RR^n$, is {\bfseries strictly convex}\index{Strictly Convex} on $U$ if
+$\diff^2 f(\VEC{u})$ (the Hessian matrix of $f$) is definite
+positive for all $\VEC{u} \in U$.
+
+There is a relation between the entropy jump condition
+(\ref{EntrJumpEq}) and the Lax Shock Condition.
+
+\begin{theorem}
+Suppose that (\ref{systConLawEq1}) is a strictly hyperbolic and
+genuinely nonlinear system of conservation laws, and that
+$(E,F)$ is an entropy pair on $\RR^n$ with $E$ strictly convex on
+$\RR^n$.  In particular, we assume that $G$, $E$ and $F$ are
+sufficiently differentiable.
+If $u$ is a strong solution of (\ref{systConLawEq1}) which
+is discontinuous along the curve $\Gamma \subset \RR \times [0,\infty[$ of
+class $\displaystyle C^1$ where the Rankine-Hugoniot formula
+(\ref{shock_rank_hugND}) is satisfied with
+$\displaystyle \|u^+(\VEC{p})-u^-(\VEC{p})\|$ small enough for
+$\VEC{p} \in \Gamma$, then the Lax Shock Condition (\ref{entropy3}) is
+satisfied if and only if the entropy jump condition (\ref{EntrJumpEq})
+is strictly satisfied.
+\end{theorem}
+
+\begin{proof}
+We have from Theorem~\ref{genHugCurve} that
+$\VEC{u}^- = u^-(\VEC{p})$ is connected to $\VEC{u}^+ = u^+(\VEC{p})$ 
+by an $i$-shock (and therefore the Lax Shock Condition is satisfied)
+if and only if $\displaystyle u^-(\VEC{p}) = S_i(0)$ and
+$\displaystyle u^+(\VEC{p}) = S_i(s)$ for some $0 \leq i \leq 1$
+and $s<0$ \footnote{As stated, Theorem~\ref{genHugCurve} does not
+exactly imply this.  A closer look at the proof of this theorem is
+required to conclude that it is true if $\VEC{u}^+$ is close enough to
+$\VEC{u}^-$.  This is certainly what is illustrated with the
+$p$-system.}.  Moreover, we have that
+$\displaystyle G(S_i(s))-G(S_i(0))
+= \eta(s) \left(S_i(s) - S_i(0)\right)$
+with $\displaystyle \eta(0) = \lambda_i(S_i(0))$ and $\eta'(0) = 1/2$.
+
+Let
+\[
+  H(s) = \eta(s) \big( E(S_i(0)) - E(S_i(s)) \big)
+  - \big( F(S_i(0))- F(S_i(s)) \big) \ .
+\]
+We have that (\ref{EntrJumpEq}) is strictly satisfied if and only if
+$H(s) < 0$.  We now prove that $H(s) <0$ if and only if $s<0$ is close
+enough to $0$.  To prove this last statement, we prove that
+$\displaystyle H(0) = \dydx{H}{s}(0) = \dydxn{H}{s}{2}(0) = 0$ and
+$\displaystyle \dydxn{H}{s}{3}(0) > 0$.
+Hence, for $s<0$ close to $0$, the sign of $H(s)$ will be the sign of
+$s^3$.
+
+We obviously have that $H(0) = 0$.
+
+If we differentiate $\displaystyle G(S_i(s))-G(S_i(0))
+= \eta(s) \left(S_i(s) - S_i(0)\right)$ with respect to $s$, we get
+\[
+  (\diff G)(S_i(s)) \dydx{S_i}{s}(s) = 
+\eta'(s) \left(S_i(s) - S_i(0)\right)
++ \eta(s) \dydx{S_i}{s}(s) \ .
+\]
+Hence
+\begin{align*}
+\dydx{H}{s}(s) &= \eta'(s) \big( E(S_i(0)) - E(S_i(s)) \big)
+- \eta(s) (\diff E)(S_i(0)) \dydx{S_i}{s}(s)
++ (\diff F)(S_i(s)) \dydx{S_i}{s}(s) \\
+&= \eta'(s) \big( E(S_i(0)) - E(S_i(s)) \big)
+- \eta(s) (\diff E)(S_i(s)) \dydx{S_i}{s}(s) \\
+&\qquad + (\diff E)(S_i(s)) (\diff G)(S_i(s)) \dydx{S_i}{s}(s) \\
+&= \eta'(s) \big( E(S_i(0)) - E(S_i(s)) \big)
+- \eta(s) (\diff E)(S_i(s)) \dydx{S_i}{s}(s) \\
+&\qquad + (\diff E)(S_i(s)) \left( \eta'(s) \left(S_i(s) - S_i(0)\right)
+  + \eta(s) \dydx{S_i}{s}(s) \right) \\
+&= \eta'(s) \big( E(S_i(0)) - E(S_i(s)) \big)
++ \eta'(s) (\diff E)(S_i(s)) \left(S_i(s) - S_i(0)\right) \ .
+\end{align*}
+It follows that $\displaystyle \dydx{E}{s}(0) = 0$.  Moreover, after
+some computations, we get that
+\begin{align*}
+\dydxn{H}{s}{2}(s)
+% &= \eta''(s) \big( E(S_i(0)) - E(S_i(s)) \big)
+% - \eta'(s) (\diff E)(S_i(s)) \dydx{S_i}{s}(s) \\
+% &\qquad + \eta''(s) (\diff E)(S_i(s)) \left(S_i(s) - S_i(0)\right) \\
+% &\qquad + \eta'(s)
+% \left(\dydx{S_i}{s}(s)\right)^\top \big((\diff^2 E)(S_i(s))\big)
+% \left(S_i(s)-S_i(0)\right) \\
+% &\qquad + \eta'(s) (\diff E)(S_i(s)) \dydx{S_i}{s}(s) \\
+&= \eta''(s) \big( E(S_i(0)) - E(S_i(s)) \big)
++ \eta''(s) (\diff E)(S_i(s)) \left(S_i(s) - S_i(0)\right) \\
+&\qquad + \eta'(s)
+\left(\dydx{S_i}{s}(s)\right)^\top \big((\diff^2 E)(S_i(s))\big)
+\left(S_i(s)-S_i(0)\right) \ .
+\end{align*}
+Again, it is easy to see that 
+$\displaystyle \dydxn{E}{s}{2}(0) = 0$.  Finally, after a bit more
+computations, we get that
+% \begin{align*}
+% \dydxn{H}{s}{3}(s)
+% &= \gamma^{(4)}(s) \big( E(S_i(0)) - E(S_i(s)) \big)
+% - \eta''(s) (\diff E)(S_i(s)) \dydx{S_i}{s}(s) \\
+% &\quad + \gamma^{(4)}(s) (\diff E)(S_i(s)) \left(S_i(s) - S_i(0)\right) \\
+% &\quad + 2 \eta''(s) \left(\dydx{S_i}{s}(s)\right)^\top
+% \big((\diff^2 E)(S_i(s))\big) \left(S_i(s)-S_i(0)\right)
+% + \eta''(s) (\diff E)(S_i(s)) \dydx{S_i}{s}(s) \\
+% &\quad + \eta'(s) \big((\diff^3 E)(S_i(s))\big)
+% \left(\dydx{S_i}{s}(s),\dydx{S_i}{s}(s),S_i(s)-S_i(0)\right) \\
+% &\quad + \eta'(s)
+% \left(\dydxn{S_i}{s}{2}(s)\right)^\top \big((\diff^2 E)(S_i(s))\big)
+% \left(S_i(s)-S_i(0)\right) \\
+% &\quad + \eta'(s)
+% \left(\dydx{S_i}{s}(s)\right)^\top \big((\diff^2 E)(S_i(s))\big)
+% \dydx{S_i}{s}(s) \ .
+% \end{align*}
+\[
+\dydxn{H}{s}{3}(s) = \eta'(s)
+\left(\dydx{S_i}{s}(s)\right)^\top \big((\diff^2 E)(S_i(s))\big)
+\dydx{S_i}{s}(s) + \ldots
+\]
+where the $\ldots$ are terms that have a factor
+$\big( E(S_i(0)) - E(S_i(s)) \big)$ or
+$\big( S_i(0) - S_i(s) \big)$.  Hence,
+\[
+\dydxn{H}{s}{3}(0) = \eta'(0)
+\left(\dydx{S_i}{s}(0)\right)^\top \big((\diff^2 E)(S_i(0))\big)
+\dydx{S_i}{s}(0) > 0
+\]
+because $\eta'(0) = 1/2$ and $E$ is strictly convex.
+\end{proof}
+
+It is proved in \cite{Smo} that, as a consequence of the previous
+theorem, solutions of a strictly hyperbolic and genuinely nonlinear
+system of conservation laws obtained from the Glimm Difference Method
+satisfy (\ref{entropy3}) if there is an entropy pair $(E,F)$ with
+$E$ strictly convex.
+
+\subsection{Viscosity Method}
+
+Definition~\ref{dnfEntroSol} is motivated by the physical assumption
+that solutions of the system of conservation laws
+(\ref{systConLawEq1}) are limits (in some sense to be determined
+later) as $\epsilon \to 0$ of solutions
+of a system of partial differential equation of the form
+\begin{equation} \label{systConLawEq1Pert}
+\pdydx{u^{[\epsilon]}}{y} + \pdydx{G(u^{[\epsilon]})}{x}
+= \epsilon A \pdydxn{u^{[\epsilon]}}{x}{2} \ ,
+\end{equation}
+where $A$ is a positive definite \nn matrix.
+The term $\displaystyle \epsilon A \pdydxn{u^{[\epsilon]}}{x}{2}$
+represent some dissipation which in gas dynamics is associated to
+viscosity.  The system (\ref{systConLawEq1Pert}) is a
+perturbation of the system of conservation laws (\ref{systConLawEq1}).
+From an experimental point of view, (\ref{systConLawEq1Pert}) may be a
+more realistic system governing the physical phenomenon which is
+investigated.  To simplify the discussion that follows, we also assume
+that $A$ is constant.
+
+Suppose that $(E,F)$ is an entropy pair on an open subset $U \subset \RR^n$
+and that $\displaystyle u^{[\epsilon]}$ is a classical solution of
+(\ref{systConLawEq1Pert}).  If we multiply both sides of
+(\ref{systConLawEq1Pert}) by
+$\displaystyle (\diff E)(u^{[\epsilon]})$, we get
+\begin{align*}
+&(\diff E)(u^{[\epsilon]})\, \pdydx{u^{[\epsilon]}}{y}
++ (\diff E)(u^{[\epsilon]})\, \pdydx{G(u^{[\epsilon]})}{x}
+= \epsilon (\diff E)(u^{[\epsilon]}) \, A \pdydxn{u^{[\epsilon]}}{x}{2} \\
+&\Rightarrow
+(\diff E)(u^{[\epsilon]})\, \pdydx{u^{[\epsilon]}}{y}
++ (\diff E)(u^{[\epsilon]})\, (\diff G)(u^{[\epsilon]})
+\pdydx{u^{[\epsilon]}}{x} = \epsilon (\diff E)(u^{[\epsilon]}) \, A
+\pdydxn{u^{[\epsilon]}}{x}{2} \\
+&\Rightarrow
+(\diff E)(u^{[\epsilon]})\, \pdydx{u^{[\epsilon]}}{y}
++ (\diff F)(u^{[\epsilon]})\, \pdydx{u^{[\epsilon]}}{x}
+= \epsilon (\diff E)(u^{[\epsilon]}) \, A
+\pdydxn{u^{[\epsilon]}}{x}{2} \\
+&\Rightarrow
+\pdfdx{E(u^{[\epsilon]})}{y} + \pdfdx{F(u^{[\epsilon]})}{x}
+= \epsilon \pdfdx{ \left( (\diff E)(u^{[\epsilon]}) \,
+A \pdydx{u^{[\epsilon]}}{x} \right) }{x}
+- \epsilon \left(\pdydx{u^{[\epsilon]}}{x}\right)^\top
+(\diff^2 E)(u^{[\epsilon]}) \, A \pdydx{u^{[\epsilon]}}{x} \ .
+\end{align*}
+
+If we assume that $\displaystyle (\diff^2 E)(u) \, A$ is
+positively definite for all $\VEC{u} \in U$, and
+express the previous equation in the sense of distributions,
+we have
+\begin{equation} \label{viscSolEq1}
+\begin{split}
+&-\int_{\RR} \int_{[0,\infty[} E(u^{[\epsilon]}) \pdydx{\psi}{y} \dx{y}\dx{x}
+- \int_{\RR} \int_{[0,\infty[} F(u^{[\epsilon]}) \pdydx{\psi}{x} \dx{y}\dx{x}
+\\
+&\qquad = - \epsilon \int_{\RR} \int_{[0,\infty[}
+\left( (\diff E)(u^{[\epsilon]}) \,
+A \pdydx{u^{[\epsilon]}}{x} \right) \pdydx{\psi}{x} \dx{y}\dx{x} \\
+&\qquad\qquad + \epsilon \int_{\RR}\int_{[0,\infty[}
+\underbrace{\left( \left(\pdydx{u^{[\epsilon]}}{x}\right)^\top
+(\diff^2 E)(u^{[\epsilon]}) \, A \pdydx{u^{[\epsilon]}}{x}\right)}_{>0}
+\psi \dx{y}\dx{x} \\
+&\qquad \leq - \epsilon \int_{\RR} \int_{[0,\infty[}
+\left( (\diff E)(u^{[\epsilon]}) \,
+A \pdydx{u^{[\epsilon]}}{x} \right) \pdydx{\psi}{x} \dx{y}\dx{x}
+\end{split}
+\end{equation}
+for all $\psi \in \DD(\RR\times [0,\infty[)$ with $\psi(x,y) \geq 0$
+for all $(x,y) \in \RR\times [0,\infty[$.
+
+As usual, we assume that $E$ and $F$ are at least of class
+$C^2(\RR^n)$.  Moreover, suppose that $E$ is such that
+$\displaystyle \int_{\RR} \int_{[0,\infty[}
+\left( (\diff E)(u^{[\epsilon]}) \,
+A \pdydx{u^{[\epsilon]}}{x} \right) \pdydx{\psi}{x} \dx{y}\dx{x}$ is
+bounded independently of $\epsilon$.
+If $u^{[\epsilon]} \to u$ in the sense of distributions as
+$\epsilon \to 0$, where $u$ is solution of (\ref{systConLawEq1}),
+then (\ref{viscSolEq1}) yields
+the entropy inequality (\ref{EntroIneEq}) associated to the pair
+$(E,F)$ as $\epsilon \to 0$.  Solutions of (\ref{EntroIneEq})
+obtained as limits of solutions of (\ref{systConLawEq1}) are called
+{\bfseries viscosity solutions}\index{Conservation Laws!Viscosity Solution}.
+
+The reader may find a nice formal introduction to the viscosity method in
+\cite{Sal} to find discontinuous solutions of (\ref{systConLawEq1}).
+
+\section{Addendum}
+
+We have provided a very brief introduction to the vast subject of
+conservation laws.  To use the classical formula, we have only
+touched the tip of the iceberg.
+
+For an extensive study of conservation laws and shock waves, readers
+should consult \cite{Daf,LeF,Smo}.  In particular, \cite{Daf}
+provides extensive notes at the end of each chapter to direct the
+reader to further reading and the source of the material in the
+chapter.  Moreover, a brief ``early history of hyperbolic
+conservation laws'' can be found in \cite{Daf}.  Likewise, \cite{LeF}
+provides very detailed bibliographic notes that may guide the reader
+to further study of conservation laws.
+
+The reader can find in Chapter VIII of \cite{Daf} and Section 1 of
+Chapter II1 of \cite{LeF} several results comparing different entropy
+conditions: Lax shock condition, entropy inequality associated to an
+entropy pair $(E,F)$, 
+{\bfseries Liu entropy condition}\index{Conservation Laws!Liu Entropy
+Condition} and 
+{\bfseries Oleinik entropy condition}\index{Conservation Laws!Oleinik
+Entropy Condition}.  If we refer to the conservation law
+(\ref{shock_burgers_g}), the Oleinik entropy condition states that
+\[
+\frac{G(u^+(\VEC{p})) - G(u)}{u^+(\VEC{p}) - u} \leq 
+\frac{G(u^+(\VEC{p})) - G(u^-)(\VEC{p})}{u^+(\VEC{p}) - u^-(\VEC{p})}
+\leq \frac{G(u) - G(u^-(\VEC{p}))}{u - u^-(\VEC{p})}
+\]
+for all $u$ between $u^-(\VEC{p})$ and $u^+(\VEC{p})$, where
+$\VEC{p}$ is a point on the curve $\Gamma \subset \RR\times [0,\infty[$
+where $u$ is discontinuous and a shock wave is generated.  Oleinik entropy
+condition implies Lax shock condition (\ref{LSCdef1}).  The converse
+is not generally true.
+
+There are other methods to prove the existence of solutions for
+conservation laws than the Grimm difference method.  Some of the other
+methods are the calculus of variations and the viscosity method.
+
+Be aware that \cite{Smo} contains more typos than is expected in a
+mathematical textbook.  Despite that, it is an excellent book.
+
+\section{Exercises}
+
+Some of the problems below refer to weak solutions of partial
+differential equations.  Using our terminology, they are solutions in
+the sense of distribution or, what we call, strong solutions.
+The expression ``weak solutions'' is reserved for the solutions of
+variational problems as we have seen in Chapter~\ref{elliptic_PDEs}.
+
+Suggested exercises:
+
+\begin{itemize}
+\item In \cite{J}: numbers 3 and 6 in Section 1.6.
+\item In \cite{McO}: all the numbers in Sections 1.2.
+\item In \cite{Str}: numbers 2, 3, 5, 7, 8, 10 and 12 in Section 14.1.
+\end{itemize}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End: 

@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{potential/dbl_layer_KN.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex dbl_layer_KN.fig dbl_layer_KN.pdf
+% fig2dev -L pdftex_t dbl_layer_KN.fig dbl_Layer_KN.pdf_t
+

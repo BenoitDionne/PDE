@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{characteristics/lagrange_fig1.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex lagrange_fig1.fig lagrange_fig1.pdf
+% fig2dev -L pdftex_t lagrange_fig1.fig lagrange_fig1.pdf_t
+ 

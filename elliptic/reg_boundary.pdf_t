@@ -1,0 +1,44 @@
+\begin{picture}(0,0)%
+\includegraphics{elliptic/reg_boundary.pdf}%
+\end{picture}%
+%
+%  encoding: UTF-8 
+%
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(5352,2253)(589,-2605)
+\put(1501,-1111){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\Omega$}%
+}}}}
+\put(5926,-1636){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\RR^n_0$}%
+}}}}
+\put(5926,-1261){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\Omega_{\rho_{\VEC{z}}}$}%
+}}}}
+\put(5926,-961){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\Omega_{r_{\VEC{z}}}$}%
+}}}}
+\put(5176,-736){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\RR^n_+$}%
+}}}}
+\put(3226,-511){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\psi_{\VEC{z}}$}%
+}}}}
+\put(5926,-1936){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$B_{\rho_{\VEC{z}}}(\VEC{0})$}%
+}}}}
+\put(2851,-1936){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\psi_{\VEC{z}}^{-1}(\Omega_{r_{\VEC{z}}})$}%
+}}}}
+\put(2851,-2236){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\psi_{\VEC{z}}^{-1}(\Omega_{\rho_{\VEC{z}}})$}%
+}}}}
+\put(1886,-2231){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\VEC{z}$}%
+}}}}
+\put(2626,-2536){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$V_j = \psi_{\VEC{z}}^{-1}(B_{\rho_{\VEC{z}}}(\VEC{0}))$}%
+}}}}
+\put(676,-2461){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$B_{\eta_{\VEC{z}}}(\VEC{z})$}%
+}}}}
+\put(5926,-2236){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$B_{r_{\VEC{z}}}(\VEC{0})$}%
+}}}}
+\put(5926,-2536){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\psi_{\VEC{z}}(B_{\eta_{\VEC{z}}}(\VEC{z}))$}%
+}}}}
+\end{picture}%

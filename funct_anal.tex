@@ -1,0 +1,2177 @@
+\chapter{Review of Functional Analysis} \label{ChapterRevFunctAnal}
+
+The following material is normally presented in a functional analysis
+course.   We assume that the reader has already taken an introductory
+course in topology and one in measure theory.  Good references for
+the material of this section are \cite{Br,ReeSim,Ru,RuFA}.  We
+particularly suggest \cite{Br}.  It contains a lot of exercises with
+detailed solutions to many of them.
+
+We assume that the reader has learned the basic concepts of
+topological, metric, linear and normed spaces.  In particular, we assume that
+the reader is familiar know what is a
+{\bfseries Banach space}\index{Banach Space}; namely, of complete
+normed space.  This is the starting point for this chapter.
+
+\section{Hilbert Spaces}
+
+\begin{defn}
+An {\bfseries inner product space}\index{Inner Product Space}
+$H$ over the complex numbers is a vector
+space over $\CC$ equipped with a mapping
+$\ps{\cdot}{\cdot}:H\times H \rightarrow \CC$ such that
+\begin{enumerate}
+\item $\ps{x}{y} \geq 0$ for all $x,y \in H$.
+\item $\ps{x}{x} = 0$ if and only if $x=0 \in H$.
+\item $\ps{x}{y} = \overline{\ps{x}{y}}$ for all $x,y \in H$.
+\item $\ps{x+y}{z} = \ps{x}{z} + \ps{y}{z}$ for all $x,y,z \in H$.
+\item $\ps{\alpha x}{y} = \alpha \ps{x}{y}$ for all $x,y \in H$ and
+$\alpha \in \CC$.
+\end{enumerate}
+The mapping $\ps{\cdot}{\cdot}:H\times H \rightarrow \CC$ is called a
+{\bfseries scalar product}\index{Scalar Product} or an
+{\bfseries inner product}\index{Inner Product} on $H$.
+\end{defn}
+
+Hilbert spaces are metric spaces.  We can define a norm and a distance
+in a natural way.
+
+\begin{theorem}
+If $H$ is an inner product space over the complex numbers, then
+$\displaystyle \| x \| = \sqrt{\ps{x}{x}}$ for $x \in H$ defines a
+norm on $H$.  This norm is called the
+{\bfseries norm Induced}\index{Norm Induced} by the scalar product. 
+\end{theorem}
+
+As expected for a norm, the norm induced by a scalar product has the
+following properties.
+
+\begin{theorem}
+If $H$ is an inner product space over the complex numbers, then
+\begin{enumerate}
+\item $|\ps{x}{y}| \leq \|x\|\,\|y\|$ for all $x,y\in H$.  This is
+called the {\bfseries Schwarz inequality}\index{Schwarz Inequality}.
+\item $\|x+y\| \leq \|x\| + \|y\|$ for all $x,y\in H$.  This is
+called the {\bfseries triangle inequality}\index{Triangle Inequality}.
+\end{enumerate}
+\end{theorem}
+
+Since an inner product space $H$ is a metric space with the metric
+$d(\VEC{x},\VEC{y}) = \|\VEC{x} - \VEC{y}\|$ for all $\VEC{x},\VEC{y} \in H$,
+we can define the convergence of sequences
+$\displaystyle \{ \VEC{x}_j \}_{j=0}^\infty$ in $H$ exactly has it is
+done in any metric space.  The metric $d$ defines a topology on $H$.
+
+\begin{defn}
+Let $H$ is an inner product space over the complex numbers with the
+scalar product $\ps{\cdot}{\cdot}:H\times H \rightarrow \CC$.  If $H$
+is complete with respect to the norm induce by this scalar product
+(i.e.\ every Cauchy sequence in $H$ is converging to an element of
+$H$), then $H$ is called an
+{\bfseries Hilbert space}\index{Hilbert Space} over the complex
+numbers.
+\end{defn}
+
+Since the inner product defines a metric on an inner product space, we
+may define the continuity of a function $f:H_1 \to H_2$ from an inner
+product space $H_1$ to an inner product space $H_2$ as it is normally
+done for functions between two metric spaces.
+
+\begin{prop}
+Let $H$ be an Hilbert space over the complex numbers and let
+$y\in H$, then
+\begin{enumerate}
+\item $\displaystyle x \mapsto \ps{x}{y}$ is a continuous linear mapping.
+\item $\displaystyle x \mapsto \ps{y}{x}$ is a continuous
+conjugate-linear mapping.
+\item $\displaystyle x \mapsto \|x\|$ is a continuous mapping.
+\end{enumerate}
+\end{prop}
+
+In addition to open or close subsets of an Hilbert space, there is
+another type of subsets of an Hilbert space that will play an
+important role later on when solving partial differential equations.
+
+\begin{defn}
+A subset $V$ of a vector space $H$ is {\bfseries convex}\index{Convex Space}
+if $ \lambda x + (1-\lambda) y \in V$ for all $\lambda \in [0,1]$ and all
+$x,y \in V$.    
+\end{defn}
+
+\begin{theorem} \label{fu_an_ccnes}
+If $V$ is a closed, convex and non-empty subset of and Hilbert space
+$H$, then there exists a unique $y \in V$ such that
+$\displaystyle \|y\| = \inf_{x\in V} \|x\|$.
+\end{theorem}
+
+In the previous theorem, $V$ may not be compact.
+
+\begin{defn} \label{defnCLFunctHilbert}
+A continuous linear function from an Hilbert space $H$ to $\CC$ is
+called a {\bfseries continuous linear functional}\index{Continuous
+Linear Functional} on $H$.  The space of all continuous linear
+functional on $H$ is denote $\displaystyle H^\ast$.  This space is
+called the {\bfseries dual space}\index{dual space} of $H$.
+\end{defn}
+
+\begin{theorem}[Riesz Representation Theorem] \label{fu_an_RieszRT}
+Let $H$ be an Hilbert space and let $g:H\rightarrow \CC$ be a
+continuous linear functional, then there exists a unique $y\in H$ such
+that $g(x) = \ps{x}{y}$ for all $x\in H$.  \index{Riesz Representation Theorem}
+\end{theorem}
+
+Since an inner product is defined on an Hilbert space, it is possible
+to define the angle between elements of an Hilbert space; in
+particular, it is possible to define when two elements are orthogonal
+to each other.
+
+\begin{defn}
+Let $H$ be an Hilbert space.  Two elements $x_1, x_2 \in H$ are
+{\bfseries orthogonal}\index{Orthogonal Vectors} or
+{\bfseries perpendicular}\index{Perpendicular Vectors} if $\ps{x_1}{x_2} = 0$.
+A set $\displaystyle S = \{ x_\alpha \}_{\alpha \in A} \subset H$,
+where $A$ is some index set, is
+{\bfseries orthogonal}\index{Orthogonal Set} if
+$\ps{x_\alpha}{x_\beta} = 0$ for $\alpha\neq\beta$ and
+$\ps{x_\alpha}{x_\beta} \neq 0$ for $\alpha=\beta$.  The set $S$ is
+{\bfseries orthonormal}\index{Orthonormal Set} if
+\[
+\ps{x_\alpha}{x_\beta} =
+\begin{cases}
+0 & \quad \text{if} \ \alpha \neq \beta \\
+1 & \quad \text{if} \ \alpha = \beta \\
+\end{cases}
+\]
+\end{defn}
+
+\begin{theorem}
+Let $H$ be an Hilbert space and let $\displaystyle \{x_j\}_{j=1}^J$ be a finite
+orthonormal subset of $H$.  Given $x\in H$, we have
+\[
+\left\| x - \sum_{j=1}^J \ps{x}{x_j} x_j \right\| 
+\leq \left\| x - \sum_{j=1}^J \lambda_j x_j \right\|
+\]
+for all $\lambda_j \in \CC$, and
+\[
+\left\| x - \sum_{j=1}^J \ps{x}{x_j} x_j \right\| 
+= \left\| x - \sum_{j=1}^J \lambda_j x_j \right\|
+\]
+implies that $\lambda_j = \ps{x}{x_j}$ for all $j$.
+\end{theorem}
+
+\begin{cor}
+Let $H$ be an Hilbert space and
+$\displaystyle S = \{ x_\alpha \}_{\alpha \in A}$,
+where $A$ is some index set, be an orthonormal subset of $H$.
+Then
+\begin{equation} \label{fu_an_intsum}
+\sum_{\alpha \in A} |\ps{x}{x_\alpha}|^2 \leq \|x\|^2
+\end{equation}
+for all $x \in H$.
+\end{cor}
+
+The sum in (\ref{fu_an_intsum}) is in fact the square of the norm of
+the function 
+\begin{align*}
+F_x:A & \rightarrow \CC \\
+\alpha &\mapsto \ps{x}{x_\alpha}
+\end{align*}
+in the space $\displaystyle \ell^2(A)$ of square integrable functions
+with respect to the counting measure on $A$.  In other words,
+(\ref{fu_an_intsum}) is
+\[
+\int_A \left| F_x(\alpha)\right|^2\dx{\nu(\alpha)} \leq \|x\|^2 \ ,
+\]
+where $\nu$ is the counting measure on $A$.  The previous corollary
+states that $\displaystyle F_x \in \ell^2(A)$ for all $x\in H$.
+
+Since $\displaystyle F_x \in \ell^2(A)$, it follows that the set of all $\alpha$
+such that $F_x(\alpha) \neq 0$ is at most countable.  More
+precisely, for each positive integer $n$, the set of all $\alpha$ such
+that $|F_x(\alpha)| > 1/n$ is finite or empty.
+
+\begin{theorem} \label{fu_an_complset}
+Let $H$ be an Hilbert space and
+$\displaystyle S = \{ x_\alpha \}_{\alpha \in A}$,
+where $A$ is some index set, be an orthonormal subset of $H$.
+The following statement are equivalent
+\begin{enumerate}
+\item $S$ is a maximal orthonormal subset of $H$.
+\item The set of all finite linear combinations of elements of $S$ is
+dense in $H$.
+\item For every $x\in H$, we have
+$\displaystyle \|x\|^2 = \sum_{\alpha \in A} |\ps{x}{x_\alpha}|^2$.
+\item For every $x, y \in H$, we have
+$\displaystyle
+\ps{x}{y} = \sum_{\alpha \in A} \ps{x}{x_\alpha}\, \ps{y}{x_\alpha}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{defn}
+Let $H$ be an Hilbert space.  A
+{\bfseries complete orthonormal set}\index{Complete Orthonormal Set}
+or an {\bfseries orthonormal basis}\index{Orthonormal Basis} for $H$
+is an orthonormal set
+$\displaystyle S = \{ x_\alpha \}_{\alpha \in A} \subset H$, where $A$ is
+some index set, such that $S$ satisfies any of the equivalent statements in
+Theorem~\ref{fu_an_complset}.
+
+A {\bfseries complete orthogonal set}\index{Complete Orthogonal Set}
+or a {\bfseries orthogonal basis}\index{Orthogonal Basis} for
+$H$ is an orthogonal set $S = \{ x_\alpha \}_{\alpha \in A}$, where $A$ is
+some index set, such that
+$\displaystyle \{ \|x_\alpha\|^{-1} x_\alpha \}_{\alpha \in A}$ is an
+orthonormal basis.
+\end{defn}
+
+A consequence of the previous definition is that a complete orthogonal set
+$S$ is an orthogonal set such that all finite linear combinations of elements
+of $S$ is dense in $H$.
+
+If $\displaystyle S = \{ x_\alpha \}_{\alpha \in A}$, where $A$ is some index
+set, is an orthonormal basis of an Hilbert space $H$, it follows from
+Theorem~\ref{fu_an_complset} that
+\begin{equation} \label{fu_an_isoL2}
+\begin{split}
+T: H & \rightarrow \ell^2(A) \\
+ x &\mapsto F_x
+\end{split}
+\end{equation}
+is a one-to-one and onto isometry, and moreover
+$\displaystyle \ps{x}{y} = \int_A F_x(\alpha)F_y(\alpha) \dx{\nu(\alpha)}$,
+where $\nu$ is the counting measure on $A$.  A consequence of this
+isomorphism is that orthonormal bases in $H$ are isomorphic (i.e.\ have
+the same cardinality).
+
+\section{General $\displaystyle L^2$ Spaces}\label{SectGenL2}
+
+Suppose that $\mu$ is a measure on a measurable space $\Omega$.
+Let $\displaystyle L^2(\Omega) \equiv L^2(\Omega, \mu)$ be the space
+of measurable functions $f:\Omega \rightarrow \CC$ such that
+$\displaystyle \int_\Omega |f|^2 \dx{\mu}$ is finite.  We can define
+a scalar product on $\displaystyle L^2(\Omega)$ by
+\[
+\ps{f}{g} = \int_\Omega f\, \overline{g} \dx{\mu} \quad , \quad
+f, g \in L^2(\Omega) \ .
+\]
+The associated $\displaystyle L^2$-norm is
+\[
+\| f \|_2 = \sqrt{\ps{f}{f}} = \left(\int_\Omega |f|^2 \dx{\mu}\right)^{1/2}
+\quad , \quad  f \in L^2(\Omega) \ .
+\]
+Equipped with this norm, $\displaystyle L^2(\Omega)$ is an Hilbert space.
+
+\begin{rmk}
+We use the term ``function'' for an element
+$\displaystyle f \in L^2(\Omega)$.  The
+reader should remember that in fact $f$ represents the equivalence
+class of functions which are equal to $f$ almost everywhere. 
+\end{rmk}
+
+It follows from Theorem~\ref{fu_an_complset}, that an orthonormal set
+of functions $\displaystyle \{ v_\alpha \}_{\alpha \in A}$, where $A$
+is some index set, is complete if
+$\ps{f}{v_\alpha} = 0$ for all $\alpha \in A$ implies that $f = 0$
+almost everywhere on $\Omega$.
+
+Let $\displaystyle S= \{ v_\alpha \}_{\alpha \in A}$, where $A$ is some
+index set, be an orthonormal basis of $\displaystyle L^2(\Omega)$.  
+The {\bfseries (generalized) Fourier series}%
+\index{Generalized Fourier Series} of a function
+$\displaystyle f \in L^2(\Omega)$ with respect to the orthonormal basis $S$ is
+\[
+\sum_{\alpha \in A} a_\alpha v_\alpha \ ,
+\]
+where
+\[
+a_\alpha = \ps{f}{v_\alpha} 
+= \int_\Omega f\, \overline{v}_\alpha \dx{\mu} \quad, \quad \alpha \in A \ .
+\]
+Recall that the set of all $\alpha$ such that $a_\alpha \neq 0$ is at
+most countable.  So, the sum is an ordinary sum.  More precisely, take
+any ordering $\displaystyle \{ \alpha_j\}_{j=0}^\infty$ of the set of
+index $\alpha \in A$ such that $a_\alpha \neq 0$.  Because of the
+isometry defined in (\ref{fu_an_isoL2}), we have
+\begin{equation} \label{fu_an_convFS}
+\left\| f - \sum_{j=0}^{J} a_{\alpha_j} v_{\alpha_j} \right\|_2
+= \left( \int_{j \in B_J} \left| F_f(j)\right|^2 \dx{\nu} \right)^{1/2}
+\rightarrow 0 \quad \text{as} \quad J \rightarrow \infty \ ,
+\end{equation}
+where $F_f:\NN \rightarrow \CC$ is defined by
+$F_f(j) = \ps{f}{v_{\alpha_j}}$ for all
+$j\in \NN$, $B_J = \{J+1, J+2, \ldots\}$ and $\nu$ is the
+counting measure on $\NN$.  The convergence to $0$ of the integral
+above is due to the fact that $\displaystyle F_f \in \ell^2(\NN)$.
+In other words, (\ref{fu_an_convFS}) states that
+\[
+\left( \int_\Omega
+\left|f - \sum_{j=1}^{J} \: a_{\alpha_j} v_{\alpha_j} \right|^2
+\dx{\mu} \right)^{1/2}
+= \left( \sum_{j=J+1}^\infty |a_{\alpha_j}|^2 \right)^{1/2} 
+\rightarrow 0 \quad \text{as} \quad
+J \rightarrow \infty
+\]
+whatever the ordering $\displaystyle \{ \alpha_j\}_{j=0}^\infty$ of
+the set of indices $\alpha \in A$ such that $a_\alpha \neq 0$.
+We write
+\[
+  f = \sum_{\alpha \in A} a_\alpha v_\alpha
+\]
+whenever \ref{fu_an_convFS} is satisfied.   This does not mean that we
+have pointwise convergence.  We address this issue in
+Section~\ref{sectPtWsConv} below.
+
+\subsection{$\displaystyle L^2$ Spaces on the Real Line}
+
+An important special case of the general theory of $\displaystyle L^2$ spaces is
+given by $\Omega=[a,b]$ equipped with the measure $\mu$ defined on
+$[a,b]$ by
+\[
+  \mu(I) = \int_I p(x) \dx{x}
+\]
+for all Lebesgue measurable subsets $I$ of $[a,b]$, where
+$p:[a,b]\rightarrow \RR$ is a piecewise continuous function on the
+interval $[a,b]$ such that $p(x) > 0$ for almost all $x \in [a,b]$.
+We could also have used an open interval $]a,b[$, bounded or not
+bounded.  The results are the same.
+
+Recall that a function $f$ is
+{\bfseries piecewise continuous}\index{Piecewise Continuous} on an
+interval $I$ if $f$ is continuous on the interval $I$ except at a
+finite number of points and
+$\displaystyle f(c^+) = \lim_{x\to c^+} f(x)$ and
+$\displaystyle f(c^-) = \lim_{x\to c^-} f(x)$ for all $c \in I$; in
+particular at the points where $f$ is discontinuous.
+
+$\displaystyle L^2[a,b] \equiv L^2([a,b],\mu)$ is the space of
+measurable functions $f:[a,b]\rightarrow \RR$ such that
+$\displaystyle \int_a^b f^2 \dx{\mu} = \int_a^b f^2(x) p(x) \dx{x}$
+is finite.  The scalar product on $\displaystyle L^2[a,b]$ is 
+\begin{equation} \label{fu_an_r_scp}
+\ps{f}{g} = \int_a^b f(x) g(x) p(x) \dx{x} \quad , \quad f, g \in L^2[a,b] \ .
+\end{equation}
+The associated $\displaystyle L^2$-norm is
+\begin{equation} \label{fu_an_r_2norm}
+\| f \|_2 = \sqrt{\ps{f}{f}} = \left(\int_a^b f^2(x) p(x) \dx{x}\right)^{1/2}
+\quad , \quad f \in L^2[a,b] \ .
+\end{equation}
+
+The $\displaystyle L^2[a,b]$ spaces have countable orthonormal bases.
+Suppose that $\displaystyle \{v_n : n \in \NN \} \subset L^2[a,b]$
+is an orthonormal base for $\displaystyle L^2[a,b]$, the Fourier
+series of a function $\displaystyle f \in L^2[a,b]$ with respect to
+this bases is
+\begin{equation} \label{fsOne}
+\sum_{n=0}^{\infty} a_{n} v_n \ ,
+\end{equation}
+where
+\[
+a_n = \ps{f}{v_n} = \int_a^b f(x) v_n(x) p(x) \dx{x}
+\quad, \quad n \in \NN \ .
+\]
+
+Sometime, we only have a complete orthogonal set of
+functions $\displaystyle \{v_n : n \in \NN \} \subset L^2[a,b]$.
+In this case, the Fourier series of $\displaystyle f \in L^2[a,b]$
+with respect to this set of functions is
+\begin{equation} \label{fsTwo}
+\sum_{n=0}^{\infty} a_{n} v_n \ ,
+\end{equation}
+where
+\[
+a_n = \frac{\ps{f}{v_n}}{\| v_n \|^2} 
+= \left( \int_a^b (v_n(x))^2 p(x) \dx{x} \right)^{-1}
+\int_a^b f(x) v_n(x) p(x) \dx{x}
+\quad, \quad n \in \NN \ .
+\]
+
+The convergence of the series in (\ref{fsOne}) and (\ref{fsTwo})
+implies that
+\[
+\left\| f - \sum_{n=0}^{N} a_n v_n \right\|_2
+= \left( \int_a^b \left( f(x) - \sum_{n=0}^{N} \: a_n v_n(x) \right)^2
+p(x) \dx{x} \right)^{1/2} \rightarrow 0 \quad \text{as} \quad
+N \rightarrow \infty \ .
+\]
+We say that $\displaystyle \sum_{n=0}^{N} \: a_n v_n$ converges in
+$\displaystyle L^2$ to $f$ as $N\rightarrow \infty$, and we write
+\[
+ f = \sum_{n=0}^\infty a_n v_n \ .
+\]
+Recall that this equality is not pointwise but it is an equality in
+$\displaystyle L^2[a,b]$.
+
+\subsection{$\displaystyle L^2$ Spaces on the Unit Circle}
+
+An important class of $\displaystyle L^2$ spaces is the space of
+measurable complex valued functions $\displaystyle L^2(T) \equiv L^2(T,\nu)$,
+where $T$ is the unit circle in $\CC$ and the Lebesgue measure $\nu$
+on $T$ is obtained from the arc length divided by $2\pi$.  In
+particular, $\nu(T) =1$.
+
+Let $P$ be the space of $2\pi$-periodic complex valued functions on
+$\RR$ such that
+\[
+\left(\int_{-\pi}^\pi |f|^2 \dx{\mu}\right)^{1/2} < \infty \ ,
+\]
+where $\mu$ is the Lebesque measure on $[-\pi,\pi]$ divided by $2\pi$.
+If the norm on $P$ is defined by
+\[
+\|f\|_2 = \left(\int_{-\pi}^\pi |f|^2 \dx{\mu}\right)^{1/2} \ ,
+\]
+we have an isometry between $\displaystyle L^2(T,\nu)$ and $P$ defined by
+\begin{align*}
+Q: L^2(T,\nu) & \rightarrow P \\
+  f & \mapsto f(e^{x\,i})
+\end{align*}
+We have
+\[
+\left(\int_T |f(z)|^2\dx{\nu}(z) \right)^{1/2}
+= \left(\int_{-\pi}^\pi |f(e^{x\,i})|^2\dx{\mu}(x) \right)^{1/2}  \ ,
+\]
+Every measurable set $B \subset T$ is of the form
+$\displaystyle B = e^{Ai} \equiv \{e^{x\,i} : x\in A\}$ where
+$A \subset [-\pi,\pi]$
+is a measurable set, and vice-versa.   We also have that
+$\displaystyle \nu(e^{Ai}) = \mu(A)$.
+
+The following definition is justified by the isometry above.
+
+\begin{defn}
+$P$ is denoted $\displaystyle L^2(T) = L^2(T,\nu)$.
+\end{defn}
+
+The context will determine which of the two spaces we may be working with.
+
+The set $\displaystyle \left\{ e^{n x\, i} : n \in \ZZ \right\}$ is a
+complete orthonormal set in $\displaystyle L^2(T)$.  The
+{\bfseries classical Fourier expansion}\index{Classical Fourier Expansion}
+of a complex valued function $\displaystyle f \in L^2(T)$ is
+\[
+\sum_{n\in \ZZ} c_n e^{n x\, i} \ ,
+\]
+where
+\begin{equation} \label{fa_coeff_cfs}
+c_n = \frac{1}{2\pi} \int_{-\pi}^{\pi} \, f(x) e^{-n x\, i} \dx{x} \quad
+, \quad n \in \ZZ \ .
+\end{equation}
+
+\subsection{Pointwise Convergence of the Classical Fourier Series}
+\label{sectPtWsConv}
+
+In this section, we prove the following theorem.
+
+\begin{theorem}\label{faFsPwc}
+Let $f:\RR\to \CC$ be a $2\pi$-periodic, piecewise differentiable
+function.  Then
+\[
+\frac{f(x^+) + f(x^-)}{2} = \lim_{N\to \infty} \sum_{n=-N}^N c_n e^{n x\, i} \ ,
+\]
+where the $c_n$ are defined in (\ref{fa_coeff_cfs}),
+$\displaystyle f(x^+) = \lim_{s\to x^+} f(s)$ and
+$\displaystyle f(x^-) = \lim_{s\to x^-} f(s)$.
+\end{theorem}
+
+Less restrictive conditions are given in \cite{RuPMA} for the
+pointwise convergence of the Fourier series.  Recall that $f$ is
+{\bfseries piecewise differentiable}\index{Piecewise Differentiable}
+on $[a,b]$ if $f$ and $f'$ are piecewise continuous on $[a,b]$.
+
+Before proving this theorem, we will need a very famous Lemma.
+
+\begin{lemma}[Riemann-Lebesgue]
+If $f:[a,b] \to \RR$ is piecewise differentiable, then
+\[
+\lim_{R\to \infty} \int_a^b f(y) \sin(Ry) \dx{y} = 0 \ .
+\]
+\end{lemma}
+
+\begin{proof}
+Let $a < y_1 < y_2 < \ldots < y_{m-1} < b$ be the points where $f$ is
+not differentiable.  Let $y_0 = a$ and $y_m = b$.  Using integration
+by parts, we have
+\begin{align*}
+&\int_a^b  f(y) \sin(Ry) \dx{y}
+= \sum_{j=0}^{m-1} \int_{y_j}^{y_{j+1}} f(y) \sin(Ry) \dx{y} \\
+& \quad = \frac{1}{R} \sum_{j=0}^{m-1} \left( -f(y_{j+1}^+)\cos(Ry_{j+1})
++ f(y_j^-)\cos(Ry_j) + \int_{y_j}^{y_{j+1}} f'(y) \cos(Ry) \dx{y} \right) \ .
+\end{align*}
+Let $M_1 = \sup_{y\in[a,b]} |f(y)|$ and $M_2 = \sup_{y\in[a,b]}|f'(y)|$.
+$M_1$ and $M_2$ are finite because $f$ is piecewise differentiable and
+thus also piecewise continuous.  We have
+\begin{align*}
+\left| \int_a^b  f(y) \sin(Ry) \dx{y} \right|
+& \leq \frac{1}{R} \sum_{j=0}^{m-1} \left( |f(y_{j+1}^+)| + |f(y_j^-)|
++ \int_{y_j}^{y_{j+1}} |f'(y)| \dx{y} \right) \\
+& \leq \frac{1}{R} \left( 2m M_1 + M_2 (b-a) \right) \to 0 \quad \text{as}
+\quad R \to \infty \ .  \qedhere
+\end{align*}
+\end{proof}
+
+Let
+\[
+S_N(x) = \sum_{n=-N}^N c_n e^{n x\, i}
+\]
+for $N$ a positive integer and $\VEC{x} \in \RR$.  We get from
+(\ref{fa_coeff_cfs}) that
+\[
+S_N(x) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t) \sum_{n=-N}^N
+e^{n(x-t)\, i} \dx{t}
+= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t) D_N(x-t) \dx{t} \ ,
+\]
+where
+\[
+D_n(y) = \sum_{n=-N}^N e^{n y \, i} \ .
+\]
+$D_N$ is called the {\bfseries Dirichlet kernel}\index{Dirichlet kernel}.
+From
+\[
+(1-e^{y\, i}) \sum_{n=-N}^N e^{n y \, i} = 
+\sum_{n=-N}^N \left( e^{n y \, i} - e^{(n+1) y \, i} \right)
+= e^{-N y \, i} - e^{(N+1) y \, i} \ ,
+\]
+we get
+\[
+D_N(y) = \frac{e^{-N y \, i} - e^{(N+1) y \, i}}{1-e^{y\, i}}
+= \frac{e^{-(N+1/2) y \, i} - e^{(N+1/2) y \, i}}{e^{-(y/2)\,i}-e^{(y/2)\, i}}
+= \frac{ \sin( (N+1/2)y)}{\sin(y/2)}
+\]
+for $y \neq 2 n \pi$ with $n \in \ZZ$.
+
+The function $D_N(y)$ is even and
+$\displaystyle \int_{-\pi}^{\pi} D_N(y) \dx{y} = 2\pi$.
+
+\begin{proof}[Proof of Theorem~\ref{faFsPwc}]
+Given $x \in [-\pi,\pi]$.
+\begin{align*}
+S_N(x) - \frac{f(x^+)-f(x^-)}{2}
+&= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t) D_N(x-t)\dx{t}
+- \frac{1}{2\pi} \int_{-\pi}^{\pi} \frac{f(x^+)+f(x^-)}{2} D_N(t)\dx{t} \\
+&= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x-t) D_N(t)\dx{t}
+- \frac{1}{2\pi} \int_0^{\pi} (f(x^+)+f(x^-)) D_N(t)\dx{t} \ ,
+\end{align*}
+where we have used the substitution $t \to x-t$ in the first integral
+and the fact that $f$ and $D_N$ are $2\pi$-periodic.  For the second
+integral, we have use the fact that $D_N$ is an even function.  Thus
+\begin{align*}
+&S_N(x) - \frac{f(x^+)-f(x^-)}{2}
+= \frac{1}{2\pi} \int_0^{\pi} f(x-t) D_N(t)\dx{t}
+- \frac{1}{2\pi} \int_0^{\pi} f(x^-) D_N(t)\dx{t} \\
+&\qquad + \frac{1}{2\pi} \int_{-\pi}^0 f(x-t) D_N(t)\dx{t}
+- \frac{1}{2\pi} \int_0^{\pi} f(x^+) D_N(t)\dx{t} \\
+&\quad = \frac{1}{2\pi} \int_0^{\pi} f(x-t) D_N(t)\dx{t}
+- \frac{1}{2\pi} \int_0^{\pi} f(x^-) D_N(t)\dx{t} \\
+&\qquad + \frac{1}{2\pi} \int_0^{\pi} f(x+t) D_N(t)\dx{t}
+- \frac{1}{2\pi} \int_0^{\pi} f(x^+) D_N(t)\dx{t} \\
+&\quad = \frac{1}{2\pi} \int_0^{\pi} \left(f(x-t) - f(x^-) \right) D_N(t)\dx{t}
++ \frac{1}{2\pi} \int_0^{\pi} \left( f(x+t)- f(x^+)\right) D_N(t)\dx{t} \ .
+\end{align*}
+Let
+\begin{align*}
+I_1(N) &= \frac{1}{2\pi} \int_0^{\pi} \left(f(x-t) - f(x^-) \right) D_N(t)\dx{t}
+\intertext{and}
+I_2(N) &= \frac{1}{2\pi} \int_0^{\pi} \left( f(x+t)- f(x^+)\right) D_N(t)\dx{t} \ .
+\end{align*}
+
+\stage{i} We prove that $I_2(N) \to 0$ as $N \to \infty$.
+Namely, given $\epsilon > 0$, we find $N_0>0$ such that
+$|I_2(N)| < \epsilon$ for $N > N_0$.
+
+Given $0 < \delta < \pi$, we have that
+\[
+I_2(N) = I_{2,1}(N,\delta) + I_{2,2}(N,\delta) \ ,
+\]
+where
+\begin{align*}
+I_{2,1}(M, \delta)
+&= \frac{1}{2\pi} \int_0^{\delta} \left( f(x+t)- f(x^+)\right) D_N(t)\dx{t}
+\intertext{and}
+I_{2,2}(N,\delta)
+&= \frac{1}{2\pi} \int_{\delta}^{\pi} \left( f(x+t)- f(x^+)\right) D_N(t)\dx{t} \ .
+\end{align*}
+Choose $\delta_0 \in ]0,\pi[$ such that $f'$ is continuous on
+$]x,x+\delta_0[$.  Let $M = \sup_{t\in]x,x+\delta_0[}|f'(t)|$.  By the Mean
+Value Theorem, we have that $\displaystyle |f(x+t) - f(x^+)| \leq M t$
+for $0 < t < \delta_0$.
+We also have $0 \leq t \leq \pi \sin(t/2)$ for $0 \leq t \leq \pi$.
+Hence, for $0 < \delta < \min( \delta_0, \epsilon/M)$, we get
+\[
+|I_{2,1}(N,\delta)|
+\leq \frac{1}{2\pi} \int_0^{\delta} M t | D_N(t) | \dx{t}
+\leq \frac{M}{2} \int_0^{\delta} \frac{t}{\pi \sin(t/2)} \dx{t}
+\leq \frac{M\delta}{2} < \frac{\epsilon}{2}
+\]
+We fix $\delta$ between $0$ and $\min( \delta_0, \epsilon/M)$.
+From Riemann-Lebesgue's Lemma, we can find $N_0>0$ such that
+\[
+|I_{2,2}(N,\delta)|
+= \left|
+\frac{1}{2\pi} \int_{\delta}^{\pi} 
+\left( \frac{f(x+t)- f(x^+)}{\sin(t/2)} \right) 
+\sin((N+1/2)t) \dx{t} \right| < \frac{\epsilon}{2}
+\]
+for $N > N_0$.  Hence, for $N> N_0$, we have $|I_2(N)| < \epsilon$.
+
+We had to split the integral $I_2(N)$ because
+$\displaystyle (f(x+t) - f(x^+))/\sin(t/2)$ or is derivative may not
+be bounded at the origin.  So, $\displaystyle (f(x+t) - f(x^+))/\sin(t/2)$
+may not be piecewise differentiable on $[0,\pi]$.
+
+\stage{ii} A proof similar to the one given in (i) yields
+$I_1(N) \to 0$ as $N\to \infty$.
+\end{proof}
+
+\section{Classical Fourier Series of real Valued
+Functions}\label{SectClassFourierSer}
+
+We consider the space $\displaystyle L^2[-L,L] = L^2([-L,L],m)$, where
+$m$ is the Lebesgue measure on the interval $[-L,L]$.  A complete
+orthogonal set for this space is given by the trigonometric functions
+\[
+\left\{ \cos\left(\frac{n\pi x}{L}\right) : n \geq 0 \right\}
+\cup \left\{ \sin\left(\frac{n\pi x}{L}\right) : n \geq 1 \right\} \ .
+\]
+To be more precise, we have
+\begin{align*}
+\int_{-L}^L \sin\left(\frac{i \pi x}{L}\right)
+\sin\left(\frac{j \pi x}{L}\right)\dx{x} & =
+\begin{cases}
+0 & \mbox{ if } i \neq j \mbox{ and } i,j > 0\\
+L & \mbox{ if } i = j > 0
+\end{cases} \\
+\int_{-L}^L \cos\left(\frac{i \pi x}{L}\right)
+\cos\left(\frac{j \pi x}{L}\right)\dx{x} & =
+\begin{cases}
+0 & \mbox{ if } i \neq j \mbox{ and } i,j \geq 0 \\
+L & \mbox{ if } i = j > 0 \\
+2L & \mbox{ if } i = j = 0
+\end{cases}
+\intertext{and}
+\int_{-L}^L \sin\left(\frac{i \pi x}{L}\right)
+\cos\left(\frac{j \pi x}{L}\right)\dx{x} & =
+ 0 \quad \text{if} \quad i,j \geq 0 \ .
+\end{align*}
+
+From (\ref{fsTwo}), we get the
+{\bfseries classical Fourier expansion}\index{Classical Fourier expansion}
+of a function $\displaystyle f \in L^2[-L,L]$.
+\[
+a_0 + \sum_{n=1}^{\infty} \left( a_n
+\cos\left(\frac{n\pi x}{L}\right) + b_n
+\sin\left( \frac{n\pi x}{L}\right) \right) \ ,
+\]
+where
+$\displaystyle a_0 = \frac{1}{2L} \int_{-L}^{L} f(x) \dx{x}$,
+$\displaystyle a_n = \frac{1}{L} \int_{-L}^{L} f(x)
+\cos\left(\frac{n\pi x}{L}\right) \dx{x}$ for $n \geq 1$, and\\
+$\displaystyle b_n = \frac{1}{L} \int_{-L}^{L} f(x)
+\sin\left( \frac{n\pi x}{L}\right) \dx{x}$ for $n \geq 1$.
+
+If $f:\RR\rightarrow \RR$ is periodic of period $T = 2L$ and
+$\displaystyle f\big|_{[-L,L]} \in L^2[-L,L]$, the coefficients of the Fourier
+expansion are also given by
+$\displaystyle a_0 = \frac{1}{2L} \int_{\alpha}^{\alpha+2L} f(x) \dx{x}$,
+$\displaystyle a_n = \frac{1}{L} \int_{\alpha}^{\alpha+2L} f(x)
+\cos\left(\frac{n\pi x}{L}\right) \dx{x}$ for $n \geq 1$ and
+$\displaystyle b_n = \frac{1}{L} \int_{\alpha}^{\alpha+2L} f(x)
+\sin \left(\frac{n\pi x}{L}\right) \dx{x}$ for $n \geq 1$,
+where $\alpha$ may be any real number.
+
+\begin{egg}
+Find the Fourier series of the periodic function $f$ of period $2\pi$
+defined by
+\[
+f(x) = \begin{cases}
+0 & \quad \text{if} \ -\pi \leq x \leq 0 \\
+1 & \quad \text{if} \ 0 < x < \pi
+\end{cases}
+\]
+
+We have
+\begin{align*}
+a_0 &= \frac{1}{2\pi} \int_{-\pi}^\pi f(x) \dx{x} =
+\frac{1}{2\pi} \int_0^\pi \dx{x} = \frac{1}{2} \ , \\
+a_n &= \frac{1}{\pi} \int_{-\pi}^\pi f(x) \cos(nx) \dx{x}
+= \frac{1}{\pi} \int_0^\pi \cos(nx) \dx{x}
+= \frac{\sin(nx)}{n\pi}\bigg|_0^\pi = 0
+\intertext{and}
+b_n &= \frac{1}{\pi} \int_{-\pi}^\pi f(x) \sin(nx) \dx{x}
+= \frac{1}{\pi} \int_0^\pi \sin(nx) \dx{x}
+= -\frac{\cos(nx)}{n\pi}\bigg|_0^\pi
+= \begin{cases}
+2/(n\pi) & \quad \text{if $n$ is odd} \\
+0 & \quad \text{if $n$ is even}
+\end{cases}
+\end{align*}
+Hence,
+\[
+f = \frac{1}{2} + \sum_{m=1}^\infty
+  \frac{2}{(2m-1)\pi}\sin((2m-1)x) \ .
+\]
+As predicted by Theorem~\ref{faFsPwc}, we have that the value of the
+series is $1/2$ when $x=n\pi$ with $n\in \ZZ$.
+\end{egg}
+
+\begin{egg}
+Find the Fourier series of the periodic function $f$ of period $6$
+defined by
+\[
+f(x) = \begin{cases}
+1 & \quad \text{if} \ -3 \leq x \leq 0 \\
+x & \quad \text{if} \ 0 < x < 3
+\end{cases}
+\]
+
+We have
+\begin{align*}
+a_0 &= \frac{1}{6} \int_{-3}^3 f(x) \dx{x} =
+\frac{1}{6} \int_{-3}^0 \dx{x} + \frac{1}{6} \int_0^3 x \dx{x}
+= \frac{5}{4} \ , \\
+a_n &= \frac{1}{3} \int_{-3}^3 f(x) \cos\left(\frac{n\pi x}{3}\right) \dx{x}
+= \frac{1}{3} \int_{-3}^0 \cos\left(\frac{n\pi x}{3}\right) \dx{x}
++ \frac{1}{3} \int_0^3 x\cos\left(\frac{n\pi x}{3}\right) \dx{x} \\
+&= \frac{1}{n\pi}\sin\left(\frac{n\pi x}{3}\right)\bigg|_{-3}^0
++ \left( \frac{x}{n\pi} \sin\left(\frac{n\pi x}{3}\right)
++ \frac{3}{n^2\pi^2} \cos\left(\frac{n\pi x}{3}\right) \right)\bigg|_0^3 \\
+&= \frac{3}{n^2\pi^2} (\cos(n\pi)-1)
+= \begin{cases}
+0 & \quad \text{if $n$ is even} \\
+-6/(n^2 \pi^2) & \quad \text{if $n$ is odd}
+\end{cases}
+\intertext{and}
+b_n &= \frac{1}{3} \int_{-3}^3 f(x) \sin\left(\frac{n\pi x}{3}\right) \dx{x}
+= \frac{1}{3} \int_{-3}^0 \sin\left(\frac{n\pi x}{3}\right) \dx{x}
++ \frac{1}{3} \int_0^3 x \sin\left(\frac{n\pi x}{3}\right) \dx{x} \\
+&= -\frac{1}{n\pi} \cos\left(\frac{n\pi x}{3}\right)\bigg|_{-3}^0
++ \left( -\frac{x}{n\pi} \cos\left(\frac{n\pi x}{3}\right)
++ \frac{3}{n^2\pi^2} \sin\left(\frac{n\pi x}{3}\right) \right)\bigg|_0^3 \\
+&= \left( -\frac{1}{n\pi} + \frac{1}{n\pi} \cos(n\pi)\right)
+- \frac{3}{n\pi}\cos(n\pi)
+= \begin{cases}
+1/(n\pi) & \quad \text{if $n$ is odd} \\
+-3/(n\pi) & \quad \text{if $n$ is even}
+\end{cases}
+\end{align*}
+Hence,
+\begin{align*}
+f &= \frac{5}{4} - \sum_{m=1}^\infty
+  \frac{6}{(2m-1)^2\pi^2}\cos\left(\frac{(2m-1)\pi x}{3}\right)
+- \sum_{m=1}^\infty \frac{3}{2m\pi} \sin\left(\frac{2m\pi x}{3}\right) \\
+&\quad + \sum_{m=1}^\infty \frac{1}{(2m-1)\pi}
+\sin\left(\frac{(2m-1)\pi x}{3}\right) \ .
+\end{align*}
+From Theorem~\ref{faFsPwc}, we have that
+\[
+\frac{1}{2} = \frac{5}{4} - \sum_{m=1}^\infty \frac{6}{(2m-1)^2\pi^2} \ .
+\]
+This is the value of the series at $x = 6n$ with $n \in \ZZ$.
+Moreover,
+\[
+2 = \frac{5}{4} + \sum_{m=1}^\infty \frac{6}{(2m-1)^2\pi^2} \ .
+\]
+This is the value of the series at $x = 3+ 6n$ with $n \in \ZZ$.
+\end{egg}
+
+\subsection{Odd and Even Functions}
+
+We may use the properties that
+$\displaystyle \int_{-L}^L g(t) \dx{t} = 0$ if $g$ is an odd
+function and $\displaystyle \int_{-L}^L g(t) \dx{t} = 2 \int_0^L g(t) \dx{t}$
+if $g$ is an even function to obtain simpler formulae for the Fourier
+series of odd and even functions.
+
+If $\displaystyle f \in L^2[-L,L]$ is an even function, its Fourier expansion is
+\begin{equation} \label{OEfunctEq1}
+a_0 + \sum_{n=1}^{\infty} \,  a_n \cos\left(\frac{n\pi x}{L}\right)  \ ,
+\end{equation}
+where
+$\displaystyle a_0 = \frac{1}{L} \int_{0}^{L} f(x) \dx{x}$ and
+$\displaystyle a_n = \frac{2}{L} \int_{0}^{L} \, f(x)
+\cos\left( \frac{n\pi x}{L}\right) \dx{x}$ for $n \geq 1$.
+
+If $\displaystyle f\in L^2[-L,L]$ is an odd function, its Fourier expansion is
+\begin{equation} \label{OEfunctEq2}
+\sum_{n=1}^{\infty} \, b_n \sin \left( \frac{n\pi x}{L}\right) \ ,
+\end{equation}
+where $\displaystyle b_n = \frac{2}{L} \int_{0}^{L} \, f(x)
+\sin \left( \frac{n\pi x}{L}\right) \dx{x}$ for $n \geq 1$.
+
+The {\bfseries Fourier sine series}\index{Fourier Sine Series} of a function
+$f:[0,L] \rightarrow \RR$ is the Fourier series of the odd function
+$F:[-L,L]\rightarrow \RR$ defined by
+\[
+F(x) =
+\begin{cases}
+f(x) & \quad \text{if} \ 0 \leq x \leq L \\
+-f(-x) & \quad \text{if} \ -L < x < 0
+\end{cases}
+\]
+if $\displaystyle F \in L^2[-L,L]$.
+The {\bfseries Fourier cosine series}\index{Fourier Cosine Series} of
+a function $f:[0,L] \rightarrow \RR$ is the Fourier series of the even
+function $F:[-L,L]\rightarrow \RR$ defined by
+\[
+F(x) =
+\begin{cases}
+f(x) & \quad \text{if} \ 0 \leq x \leq L \\
+f(-x) & \quad \text{if} \ -L \leq x < 0
+\end{cases}
+\]
+if $\displaystyle F\in L^2[-L,L]$.
+
+The Fourier series in (\ref{OEfunctEq1}) and (\ref{OEfunctEq1})
+converge to $\displaystyle f = F\big|_{[0,L]}$ in
+$\displaystyle L^2[0,L]$ because they converge to
+$F$ in $\displaystyle L^2[-L,L]$.
+
+\begin{egg}
+Find the Fourier series of the periodic function $f$ of period $\pi$
+defined by $f(x) = |\sin(x)|$ whose graph is given in
+Figure~\ref{abssin}.
+
+\pdfF{funct_anal/abssin}{Graph of the $\pi$-period function
+define by $f(x) = |\sin(x)|$}{Graph of the $\pi$-period function
+define by $f(x) = |\sin(x)|$}{abssin}
+
+We note that $f$ is an even function.  Thus, the coefficients $b_n$ of
+the Fourier series are all null.  We have $L = \pi/2$ in the formulae
+for the $a_n$.  Hence
+\begin{align*}
+a_0 &= \frac{2}{\pi} \int_0^{\pi/2} f(x) \dx{x} =
+\frac{2}{\pi} \int_0^{\pi/2} \sin(x) \dx{x} =
+-\frac{2}{\pi} \cos(x) \bigg|_0^{\pi/2} = \frac{2}{\pi}
+\intertext{and}
+a_n &= \frac{4}{\pi} \int_0^{\pi/2} f(x) \cos(2n x) \dx{x}
+= \frac{4}{\pi} \int_0^{\pi/2} \sin(x) \cos(2n x) \dx{x} \\
+&= \frac{2}{\pi} \int_0^{\pi/2} \left(
+\sin( (2n+1)x) - \sin((2n-1)x) \right) \dx{x} \\
+&= \frac{2}{\pi} \left( -\frac{\cos( (2n+1)x)}{2n+1}
+ + \frac{\cos((2n-1)x)}{2n-1} \right)\bigg|_0^{\pi/2}
+= \frac{4}{(1-4n^2)\pi} \ .
+\end{align*}
+We get
+\[
+f = \frac{2}{\pi} + 
+\sum_{n=1}^\infty \frac{4}{(1-4n^2)\pi} \cos(2n x) \ .
+\]
+\end{egg}
+
+\begin{egg}
+Find the Fourier cosine series of the function $\displaystyle f(x) = e^x$ for
+$0 \leq x <1$.
+
+In other words, we want the Fourier series of the even function $F$ of
+period $2$ defined by
+\[
+F(x) = \begin{cases}
+e^x & \quad \text{if} \ 0\leq x \leq 1 \\
+e^{-x} & \quad \text{if} \ -1\leq x < 0
+\end{cases}
+\]
+Since $F$ is an even function, the coefficients $b_n$ of the Fourier
+series are all null.  We have $L = 1$ in the formulae for the $a_n$.
+Hence
+\begin{align*}
+a_0 &= \int_0^1 f(x) \dx{x} = \int_0^1 e^x \dx{x} = e - 1
+\intertext{and}
+a_n &= 2 \int_0^1 f(x) \cos(n \pi x) \dx{x}
+= 2 \int_0^1 e^x \cos(n\pi x) \dx{x} \\
+&= \frac{2 (n\pi)^2}{(n\pi)^2+1}
+\left( e^x \frac{\sin(n\pi x)}{n\pi}
++ e^x \frac{\cos(n\pi x)}{(n\pi)^2}\right)\bigg|_0^1 
+= \frac{2}{(n\pi)^2+1} \left( e \cos(n\pi) - 1\right) \\
+&= \begin{cases}
+\displaystyle \frac{2(e-1)}{(n\pi)^2+1} &\quad \text{if $n$ is even}\\
+\displaystyle \frac{-2(e+1)}{(n\pi)^2+1} &\quad \text{if $n$ is odd}\\
+\end{cases}
+\end{align*}
+We get
+\[
+e^x = e - 1 + \sum_{m=1}^\infty \frac{2(e-1)}{(2m\pi)^2+1} \cos(2m \pi x)
+- \sum_{m=1}^\infty \frac{2(e+1)}{((2m-1)\pi)^2+1} \cos((2m-1) \pi x)
+\]
+for $0 \leq x < 1$.
+\end{egg}
+
+\subsection{More Special Cases}\label{period4L}
+
+By expanding the definition of a function $f:[0,L] \to \RR$ to an
+interval larger than $[0,L]$, it is possible to obtain different
+Fourier series of $f$ on $[0,L]$ in terms of the sine and cosine
+functions.
+
+For instance, if we expand a function $\displaystyle f \in L^2[0,L]$ to an even
+function $F[-2L,2L]\rightarrow \RR$ as follows
+\[
+F(x) = \begin{cases}
+-f(2L-x) & \quad \text{if} \ L<x\leq 2L \\
+f(x) &  \quad \text{if} \ 0 \leq x\leq L \\
+f(-x) & \quad \text{if} \ -L\leq x < 0 \\
+-f(2L+x) & \quad \text{if} \ -2L\leq x < -L
+\end{cases}
+\]
+then $\displaystyle F\in L^2[-2L,2L]$ and the Fourier cosine series of $F$ on
+$[0,2L]$ restricted to $[0,L]$ gives the following series
+representation of $f$ on $[0,L]$.
+\begin{equation} \label{moreFSegg1}
+\sum_{n=1}^{\infty} \, a_n \cos\left(\frac{(2n-1)\pi x}{2L}\right)
+\end{equation}
+for $x\in [0,L]$, where
+$\displaystyle a_n = \frac{2}{L} \int_{0}^{L} \, f(x)
+\cos\left(\frac{(2n-1) \pi x}{2L}\right) \dx{x}$ for $n \geq 1$.
+To obtain this formula, we need to note that
+\[
+\cos\left(\frac{m \pi x}{2L}\right)
+= \begin{cases}
+\displaystyle
+\cos\left(\frac{m \pi (2L-x)}{2L}\right) & \quad \text{if $m$ even} \\
+\displaystyle
+-\cos\left(\frac{m \pi (2L-x)}{2L}\right) & \quad \text{if $m$ odd}
+\end{cases}
+\]
+for $L \leq x \leq 2L$.  Hence,
+\[
+F(x) \cos\left(\frac{m \pi x}{2L}\right)
+= F(x) \cos\left(\frac{m \pi (2L-x)}{2L}\right)
+= -F\left( 2L-x\right) \cos\left(\frac{m \pi (2L-x)}{2L}\right)
+\]
+for $m$ even and $L \leq x \leq 2L$, and
+\[
+F(x) \cos\left(\frac{m \pi x}{2L}\right)
+= -F(x) \cos\left(\frac{m \pi (2L-x)}{2L}\right)
+= F\left( 2L-x\right) \cos\left(\frac{m \pi (2L-x)}{2L}\right)
+\]
+for $m$ odd and $L \leq x \leq 2L$.  We then get that
+\[
+a_m = \frac{2}{2L} \int_{0}^{2L} \, f(x)
+\cos\left(\frac{m \pi x}{2L}\right) \dx{x}
+= \begin{cases}
+\displaystyle \frac{2}{L} \int_{0}^{L} \, f(x)
+\cos\left(\frac{m \pi x}{2L}\right) \dx{x}
+& \quad \text{if $m$ odd} \\
+0 & \quad \text{if $m$ even}
+\end{cases}
+\]
+
+If we expand a function $\displaystyle f \in L^2[0,L]$ to an odd function
+$F[-2L,2L]\rightarrow \RR$ as follows
+\[
+F(x) = \begin{cases}
+f(2L-x) & \quad \text{if} \ L<x\leq 2L \\
+f(x) &  \quad \text{if} \ 0 \leq x\leq L \\
+-f(-x) & \quad \text{if} \ -L\leq x < 0 \\
+-f(2L+x) & \quad \text{if} \ -2L\leq x < -L
+\end{cases}
+\]
+then $\displaystyle F\in L^2[-2L,2L]$ and the Fourier sine series of $F$ on
+$[0,2L]$ restricted to $[0,L]$ gives the following series
+representation of $f$ on $[0,L]$.
+\begin{equation} \label{moreFSegg2}
+\sum_{n=1}^{\infty} \, b_n \sin\left(\frac{(2n-1)\pi x}{2L}\right)
+\end{equation}
+for $x\in [0,L]$, where
+$\displaystyle b_n = \frac{2}{L} \int_{0}^{L} \, f(x)
+\sin\left(\frac{(2n-1)\pi x}{2L}\right) \dx{x}$ for $n \geq 1$.
+One may proceed as we did above to obtain this results.
+
+The Fourier series in (\ref{moreFSegg1}) and (\ref{moreFSegg2})
+converge to $\displaystyle f = F\big|_{[0,L]}$ in $\displaystyle L^2[0,L]$
+because they converge to $F$ in $\displaystyle L^2[-2L,2L]$.
+
+\subsection{Fourier Series of Functions of Two Variables}
+
+If, in the general definition of $\displaystyle L^2$ spaces, we have
+$\Omega =[a,b]\times[b,c]$ and $\mu$ is the Lebesgue measure on
+$\Omega$, then we get the space
+$\displaystyle L^2([a,b]\times[b,c]) = L^2([a,b]\times[b,c],\mu)$ of
+$\displaystyle L^2$ integrable functions on the rectangle
+$[a,b]\times[b,c]$.  We invite the reader
+to write the definitions of scalar product, norm, orthogonal set,
+complete set, \ldots in the special case of
+$\displaystyle L^2([a,b]\times[c,d])$.
+
+We can extend in a natural way the concept of classical Fourier series
+to functions in $\displaystyle L^2([a,b]\times[b,c])$.  For instance,
+the Fourier sine series for a function
+$\displaystyle f \in L^2([0,a]\times[0,b])$ is
+\[
+\sum_{m=1}^{\infty} \sum_{n=1}^{\infty} \, c_{m,n}
+\sin\left(\frac{m \pi x}{a} \right)\sin\left(\frac{n \pi y}{b} \right)
+\ ,
+\]
+where $\displaystyle c_{m,n} = \frac{4}{ab} \int_{0}^{b} \int_{0}^{a} f(x,y)
+\sin \left(\frac{m \pi x}{a}\right) \sin\left(\frac{n \pi y}{b}\right)
+\dx{x}\dx{y}$ for $n,m \geq 1$.
+
+We leave it to the reader to provide other examples of classical
+Fourier series in $\displaystyle L^2([a,b]\times[c,d])$.
+
+\section{Operator Theory}
+
+\subsection{Bounded Operators}
+
+We start be reviewing some definitions about mapping between Banach spaces.
+In this section, $X$ and $Y$ are two Banach spaces over the complex
+numbers.
+
+\begin{defn}
+A {\bfseries linear operator}\index{Linear Operator}
+or {\bfseries linear mapping}\index{Linear Mapping} from $X$
+to $Y$ is a function $A:X \rightarrow Y$ such that
+$A(\lambda_1 x_1 + \lambda_2 x_2) = \lambda_1 A(x_1) + \lambda_2 A(x_2)$
+for all $\lambda_1, \lambda_2 \in \CC$ and $x_1, x_2 \in X$.
+If $Y=\CC$, then the linear operator $A$ is called a
+{\bfseries linear functional}\index{Linear Functional}.
+
+The {\bfseries range}\index{Linear Mapping!Range} of $A$ is the
+linear space
+$\displaystyle \IMG(A) = \left\{ y \in Y : y = A(x) \ \text{for some} \ x\in X\right\}$.
+The {\bfseries kernel}\index{Linear Mapping!Kernel} of $A$ is
+the linear space
+$\displaystyle \KE(A) = \left\{ x \in X : A(x) = 0 \right\}$.
+\end{defn}
+
+\begin{defn}
+A linear operator $A:X\rightarrow Y$ is
+{\bfseries bounded}\index{Linear Mapping!Bounded} if there
+exist a constant $C\geq 0$ such that $\|A(x)\| \leq C \|x\|$ for all
+$x\in X$. The space of bounded linear operators from $X$ to $Y$ is
+denoted $\LL(X,Y)$.  If $Y=X$, The space of bounded linear operators
+on $X$ is simply denoted $\LL(X)$.
+\end{defn}
+
+The following results are fundamental results about bounded linear
+operators between Banach spaces.
+
+\begin{prop}
+Let
+\[
+\|A\| = \sup_{\substack{x\in X\\ \|x\|=1}} \|A(x)\| \quad ,
+\quad A \in \LL(X,Y) \ .
+\]
+\begin{enumerate}
+\item $\|\cdot\|$ defines a norm on $\LL(X,Y)$ called the
+{\bfseries induce norm from $X$ and $Y$}\index{Induce Norm}.
+\item Equipped with the norm $\|\cdot\|$, $\LL(X,Y)$ is a Banach
+space.
+\end{enumerate}
+\end{prop}
+
+\begin{theorem}[Open Mapping Theorem]
+If $A\in \LL(X,Y)$ is onto, then the image of an open set is an
+open set.    \index{Open Mapping Theorem}
+\end{theorem}
+
+\begin{theorem}[Bounded Inverse Theorem]
+If $A\in \LL(X,Y)$ is one-to-one and onto, then
+$\displaystyle A^{-1} \in \LL(Y,X)$.
+\index{Bounded Inverse Theorem}  
+\end{theorem}
+
+\begin{defn}
+The {\bfseries graph}\index{Linear Mapping!Graph} of a linear operator
+$A:X\rightarrow Y$ is the subspace
+\[
+\GR(A) = \left\{ (x,A(x)) : x \in X \right\} \subset X \times Y  \ .
+\]
+A linear operator $A:X\rightarrow Y$ is
+{\bfseries closed}\index{Linear Mapping!Closed} if its
+graph is closed in $X\times Y$.  In other words, a linear operator
+$A:X \rightarrow Y$ is closed if, for any converging sequence
+$\displaystyle \left\{ (x_n, A(x_n)) \right\}_{n=0}^\infty \subset \GR(A)$,
+we have that
+$\displaystyle (x,y) = \lim_{n\to\infty} (x_n, A(x_n)) \in \GR(A)$; namely,
+$y=A(x)$.
+\end{defn}
+
+\begin{theorem}[Closed Graph Theorem]
+If $A:X\rightarrow Y$ is a closed linear operator, then $A \in \LL(X,Y)$.
+\index{Closed Graph Theorem}
+\end{theorem}
+
+\begin{defn}
+The {\bfseries resolvent set}\index{Linear Mapping!Resolvent Set}
+$\rho(A)$ of $A \in \LL(X)$ is the set
+of all $\lambda \in \CC$ such that $A-\lambda \Id: X \rightarrow X$ is
+one-to-one and onto.
+The {\bfseries spectrum}\index{Linear Mapping!Spectrum}
+of $A \in \LL(X)$ is the set $\sigma(A) = \CC \setminus \rho(A)$.
+\end{defn}
+
+From the Open Mapping Theorem, we have that
+$\displaystyle (A-\lambda \Id)^{-1} \in \LL(X)$ if $\lambda$ is in the
+resolvent set of $A$.
+
+\begin{defn}
+If $\lambda$ is in the resolvent set of $A$, then
+$\displaystyle R_\lambda(A) = (A-\lambda\Id)^{-1}$ is called the
+{\bfseries resolvent}\index{Linear Mapping!Resolvent}
+of $A$.
+\end{defn}
+
+$\lambda \in \sigma(A)$ if $A-\lambda \Id$ is not one-to-one, or
+$A-\lambda \Id$ is not onto, or both.
+
+\begin{defn}
+If $A-\lambda \Id$ is not one-to-one, then $\lambda$ is called an
+{\bfseries eigenvalue}\index{Linear Mapping!Eigenvalue} of $A$.  We have that
+$\KE(A-\lambda\Id) \neq \{0\}$ and the elements of 
+$\KE(A-\lambda\Id) \setminus \{0\}$ are called the
+{\bfseries eigenvectors}\index{Linear Mapping!Eigenvectors} associated
+to $\lambda$.  $\KE(A-\lambda\Id)$
+is called the {\bfseries eigenspace}\index{Linear Mapping!Eigenspace}
+associated to $\lambda$.
+\end{defn}
+
+If $x$ is en eigenvector associated to $\lambda$, then
+$Ax = \lambda x$.
+
+\begin{prop}
+If $A \in \LL(X)$ and $\lambda \in \sigma(A)$, then $|\lambda|\leq \|A\|$.
+\end{prop}
+
+\begin{defn}
+The {\bfseries spectral radius}\index{Linear Mapping!Spectral Radius}
+of $A\in \LL(X)$ is defined as
+$\displaystyle r_\sigma(A) = \sup_{\lambda\in \sigma(A)} |\lambda|$.
+\end{defn}
+
+From the previous proposition, $r_\sigma(A) \leq \|A||$.
+
+We list below some of the important properties of
+the spectrum of a bounded linear operator.
+
+\begin{prop}
+If $A \in \LL(X)$, then $\sigma(A) \subset \CC$ is compact.
+\end{prop}
+
+\begin{prop}
+If $A \in \LL(X)$ and $X\neq \{0\}$, then $\sigma(A) \neq \emptyset$.
+\end{prop}
+
+The following definition generalizes the definition of dual space
+given in Definition~\ref{defnCLFunctHilbert}.
+
+\begin{defn}
+Let $X$ be a Banach space.  The {\bfseries dual space}\index{Dual Space}
+$\displaystyle X^\ast$ of $X$ is the set of all bounded linear
+functionals on $X$.
+\end{defn}
+
+\begin{egg}
+If $H$ is an Hilbert space, we have from the Riesz Representation
+Theorem, Theorem~\ref{fu_an_RieszRT}, that there exists a mapping
+$\displaystyle T:H^\ast \to H$ such that $u(x) = \ps{x}{T(u)}$ for all
+$x \in H$.  It follows from Schwarz inequality that
+$|u(x)| \leq \|x\|\,\|T(u)\|$ for all $x \in H$.  Thus,
+$\|u\| \leq \|T(u)\|$ where the norm on the left is the norm of
+the linear mapping $u:H \to \RR$ and the norm on the right is the norm
+of $T(u) \in H$.  In fact, we have that $\|u\|=\|T(u)\|$ because
+$\displaystyle u\left( \|T(u)\|^{-1} T(u)\right) = \|T(u)\|$.
+Hence, $\displaystyle T:H^\ast \to H$ is an isometry from
+$\displaystyle H^\ast$ into $H$.
+\end{egg}
+
+\begin{defn}
+The {\bfseries adjoint}\index{Linear Mapping!Adjoint} of
+$A\in \LL(X,Y)$ is the linear mapping
+$\displaystyle A^\ast : Y^\ast \rightarrow X^\ast$ defined by
+\[
+A^\ast(w)(x) = w(A(x)) \quad , \quad x \in X \ \text{and} \ w \in Y^\ast \ .
+\]
+\end{defn}
+
+\begin{theorem}
+If $A \in \LL(X,Y)$, then $\displaystyle A^\ast \in \LL(Y^\ast, X^\ast)$ and
+$\displaystyle \|A\| = \|A^\ast\|$
+\end{theorem}
+
+Obviously, in the previous theorem,
+\[
+\| A^\ast \| =  \sup_{\substack{w\in Y^\ast\\ \|w\|=1}} \|A^\ast(w)\| 
+\quad , \quad A^\ast \in \LL(Y^\ast,X^\ast) \ ,
+\]
+and
+\[
+\| w \| = \sup_{\substack{y\in Y\\ \|y\|=1}} |w(y)| 
+\quad , \quad w \in Y^\ast \ ,
+\]
+with a similar definition for the norm on $\displaystyle X^\ast$.
+
+\begin{defn}
+A linear operator $A \in \LL(X,Y)$ is
+{\bfseries compact}\index{Linear Mapping!Compact} if
+$\overline{A(V)}$ is compact for every bounded set $V \subset X$.
+The set of all compact linear operators from $X$ to
+$Y$ is denoted $\KK(X,Y)$ and the set of all compact linear operators from $X$
+to itself is denoted $\KK(X)$.
+\end{defn}
+
+A little review of some topological concepts are useful for future
+applications.
+
+\begin{defn}
+A set $U \subset X$ is {\bfseries precompact}\index{Precompact Set} if
+$\overline{U}$ is compact.  A set $U \subset X$ is
+{\bfseries sequentially compact}\index{Sequentially Compact Set}
+if every sequence in $U$ has a subsequence converging in $X$.
+\end{defn}
+
+Inside a Banach space, these two concepts are equivalent.
+
+\begin{prop} \label{fu_an_Kclose}
+$\KK(X,Y)$ is a closed subspace of $\LL(X,Y)$ with respect to the
+operator norm induced by the norms on $X$ and $Y$.
+\end{prop}
+
+\begin{prop} \label{fu_an_comp_cont}
+Let $X$, $Y$ and $Z$ be three Banach spaces.
+\begin{enumerate}
+\item If $A \in \KK(X,Y)$ and $B \in \LL(Y,Z)$, then $B\circ A \in \KK(X,Z)$.
+\item If $A \in \LL(X,Y)$ and $B \in \KK(Y,Z)$, then $B\circ A \in \KK(X,Z)$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+We prove (2).  Let $U\subset X$ be a bounded set, then
+$A(U) \subset Y$ is bounded because $A$ is bounded\footnote{If
+$B_r(\VEC{0}) \supset U$, then $B_{\|A\|r}(\VEC{0}) \supset A(U)$.}.
+Thus, $\overline{B(A(U))}$ is a compact set since $B$ is a compact
+operator and $A(U)$ is a bounded set.
+\end{proof}
+
+\begin{theorem} \label{fa_finit_compact}
+Let $A$ be a linear operator from $X$ to $Y$.
+\begin{enumerate}
+\item If $A \in \LL(X,Y)$ and $\dim \IMG(A) < \infty$, then $A \in \KK(X,Y)$.
+\item If $A \in \KK(X,Y)$ and $\IMG(A)$ is closed, then
+$\dim \IMG(A) < \infty$.
+\item $A \in \KK(X,Y)$ if and only if
+$\displaystyle A^\ast \in \KK(Y^\ast, X^\ast)$.
+\end{enumerate}
+\end{theorem}
+
+Surprisingly, the next theorem will be quite useful for the study of
+differential equations.  For instance, it will be used to describe the
+eigenvalues for the Sturm-Liouville problem and the Laplace operator.
+
+\begin{theorem} \label{fu_an_comp_oper}
+Consider $A \in \KK(X)$.
+\begin{enumerate}
+\item If $\lambda \neq 0$, then $\dim \KE(A-\lambda \Id) < \infty$.
+\item If $\lambda \neq 0$, then $\IMG(A-\lambda \Id)$ is closed.
+\item If $\lambda \neq 0$, then
+$\displaystyle \dim \KE(A-\lambda \Id) = \dim \KE(A^\ast-\lambda \Id)$.
+\item If $r>0$ and $E$ is the set of eigenvalues $\lambda$ of $A$ such
+that $|\lambda|>r$, then $E$ is finite and $\IMG(A-\lambda \Id) \neq X$
+for all $\lambda \in E$.
+\item If $\lambda \in \sigma(A)$ and $\lambda \neq 0$, then $\lambda$
+is an eigenvalue.
+\item $\sigma(A)$ is compact and at most countable.  If $\sigma(A)$ is
+countable, then $0$ is the only limit point of $\sigma(A)$.
+\end{enumerate}
+\end{theorem}
+
+\subsection{Unbounded Operators}
+
+As in the previous section, $X$ and $Y$ are two Banach spaces over the
+complex numbers.  We consider linear operators from a subspace $Z$ of
+$X$ to $Y$ where $Z$ may not be equal to $X$.  We generalize many
+of the definitions and results that we have presented in the previous
+section to these new linear operators.
+
+\begin{defn}
+A {\bfseries linear operator}\index{Linear Operator} or
+{\bfseries linear mapping}\index{Linear Mapping} from $X$
+to $Y$ is a pair $(\DO(A),A)$, where $\DO(A)$ is a subspace of $X$
+and $A:\DO(A) \rightarrow Y$ is such that
+$A(\lambda_1 x_1 + \lambda_2 x_2) = \lambda_1 A(x_1) + \lambda_2 A(x_2)$
+for all $\lambda_1, \lambda_2 \in \CC$ and $x_1, x_2 \in \DO(A)$.
+
+$\DO(A)$ is called the {\bfseries domain}\index{Linear Mapping!Domain}
+of $A$.  The {\bfseries range}\index{Linear Mapping!Range} of $A$ is
+the linear space
+$\displaystyle \IMG(A) = \left\{ y \in Y : y = A(x) \ \text{for some}
+\ x\in \DO(A)\right\}$.
+The {\bfseries kernel}\index{Linear Mapping!Kernel} of $A$ is the
+linear space
+$\displaystyle \KE(A) = \left\{ x \in \DO(A) : A(x) = 0 \right\}$.
+\end{defn}
+
+\begin{defn}
+A linear operator $(\DO(A),A)$ is
+{\bfseries bounded}\index{Linear Mapping!Bounded} if there
+exists a constant $C\geq 0$ such that $\|A(x)\| \leq C \|x\|$ for all
+$x\in \DO(X)$.
+\end{defn}
+
+The following result is well know for linear operators between finite
+dimensional vector spaces.
+
+\begin{prop}
+If $(\DO(A),A)$ is a linear operator such that $\dim \DO(A) < \infty$,
+then $(\DO(A),A)$ is bounded.
+\end{prop}
+
+\begin{defn}
+A linear operator $(\DD(B),B)$ from $X$ to $Y$ is an
+{\bfseries extension}\index{Linear Mapping!Extension} of a
+linear operator $(\DD(A),A)$ from $X$ to $Y$ if $\DO(A) \subset \DO(B)$ and 
+$A(x)=B(x)$ for all $x \in \DO(A)$.
+\end{defn}
+
+\begin{theorem}
+Given a linear operator $(\DO(A),A)$ such that
+$\DO(A)$ is a closed subspace of $X$ and
+\begin{equation} \label{FA_UBOnorm}
+M = \sup_{\substack{x\in\DO(A)\\ \|x\|=1}} \|A(x)|\ < \infty \ ,
+\end{equation}
+then there exists a bounded linear operator $B \in \LL(X,Y)$ such that
+$(X,B)$ is an extension of $(\DO(A),A)$ and $\|B\| = M$.
+$M$ defined by (\ref{FA_UBOnorm}) is the norm of $A$ acting on the
+subspace $\DD(A)$.
+\end{theorem}
+
+\begin{defn}
+The {\bfseries graph}\index{Linear Mapping!Graph} of a linear operator
+$(\DO(A),A)$ is the subspace
+\[
+\GR(A) = \left\{ (x,A(x)) : x \in \DO(A) \right\} \subset X \times Y  \ .
+\]
+\end{defn}
+
+\begin{defn}
+A linear operator $(\DO(A),A)$ is
+{\bfseries closed}\index{Linear Mapping!Closed} if its graph is
+closed in $X\times Y$.  In other words, a linear operator $(\DO(A),A)$
+is closed if, for any converging sequence
+$\displaystyle \left\{ (x_n, A(x_n)) \right\}_{n=0}^\infty \subset \GR(A)$,
+we have
+$\displaystyle (x,y) = \lim_{n\to \infty} (x_n, A(x_n)) \in \GR(A)$;
+namely, $x\in \DO(A)$ and $y=A(x)$.
+
+The {\bfseries closure}\index{Linear Mapping!Closure} of an operator
+$(\DO(A),A)$ is the smallest closed extension of $(\DO(A),A)$ which we
+denoted by $(\DO(\,\overline{A}\,),\overline{A})$.
+\end{defn}
+
+\begin{theorem}[Closed Graph Theorem]
+If $(\DO(A),A)$ is a closed linear operator such that $\DO(A)$ is
+dense in $X$, then $(\DO(A),A)$ is bounded.
+\index{Closed Graph Theorem}
+\end{theorem}
+
+\begin{defn}
+The {\bfseries resolvent set}\index{Linear Mapping!Resolvent Set}
+$\rho(A)$ of a closed linear operator
+$(\DO(A),A)$ from $X$ to itself is the set of all $\lambda \in \CC$
+such that $A-\lambda \Id: \DO(A) \rightarrow X$ is one-to-one and
+onto, and $\displaystyle (A-\lambda\Id)^{-1} \in \LL(X)$.
+The {\bfseries spectrum}\index{Linear Mapping!Spectrum} of $A$ is the set
+$\sigma(A) = \CC \setminus \rho(A)$.
+If $\lambda$ is in the resolvent set of $A$, then
+$\displaystyle R_\lambda(A) \equiv (A-\lambda\Id)^{-1}$ is
+called the {\bfseries resolvent}\index{Linear Mapping!Resolvent} of $A$.
+\end{defn}
+
+\begin{prop}
+$\lambda \in \sigma(A)$ falls into one of the following three classes.
+\begin{enumerate}
+\item The {\bfseries point spectrum}\index{Linear Mapping!Point Spectrum}
+  or {\bfseries discrete spectrum}\index{Linear Mapping!Discrete Spectrum}
+  is the set $\sigma_{ps}(A)$ of all $\lambda \in \sigma(A)$ such that
+  $A-\lambda \Id$ is not one-to-one.
+\item The {\bfseries residual spectrum}\index{Linear Mapping!Residual Spectrum}
+or {\bfseries compression spectrum}\index{Linear Mapping!Compression Spectrum}
+is the set $\sigma_{rs}(A)$ of all $\lambda$ such that $A-\lambda \Id$
+is one-to-one but $\IMG(A-\lambda \Id)$ is not a dense subspace of $X$.
+\item The {\bfseries continuous spectrum}\index{Linear
+Mapping!Continuous Spectrum} 
+is the set $\sigma(A) \setminus ( \sigma_{ps}(A) \cup \sigma_{rs}(A))$.
+\end{enumerate}
+\end{prop}
+
+\begin{defn}
+If $\lambda$ is in the point spectrum, then $\lambda$ is called
+an {\bfseries eigenvalue}\index{Linear Mapping!Eigenvalue} of $A$.  We
+have that $\KE(A-\lambda\Id) \neq \{0\}$ and the elements of
+$\KE(A-\lambda\Id) \setminus \{0\}$ are
+called the {\bfseries eigenvectors}\index{Linear Mapping!Eigenvectors}
+associated to $\lambda$.  $\KE(A-\lambda\Id)$ is called the
+{\bfseries eigenspace}\index{Linear Mapping!Eigenspace} associated to
+$\lambda$.
+\end{defn}
+
+If $x$ is en eigenvector associated to $\lambda$, then $Ax = \lambda x$.
+As we have in finite dimension, eigenvectors associated to distinct
+eigenvalues are independent.
+
+\begin{defn}
+Let $(\DO(A),A)$ be a linear mapping from $X$ into $Y$ such that
+$\DO(A)$ is dense in $X$.  Let $S$ be the set of all bounded linear
+functionals $\displaystyle w \in Y^\ast$ such that there exists a
+bounded linear functional $\displaystyle v \in X^\ast$ satisfying
+$w(A(x)) = v(x)$ for all $x \in \DO(A)$.
+Since $\DO(A)$ is dense, $v$ is uniquely defined.  The
+{\bfseries adjoint}\index{Linear Mapping!Adjoint}
+of $A$ is the mapping $\displaystyle (S,A^\ast)$ from $\displaystyle Y^\ast$
+to $\displaystyle X^\ast$ defined by $\displaystyle A^\ast(w) = v$ for
+$w\in S$.  We have that $\displaystyle \DO(A^\ast) = S$.
+\end{defn}
+
+\begin{theorem}
+Let $(\DO(A),A)$ be a linear mapping from $X$ into $Y$ such that
+$\DO(A)$ is dense in $X$, then $\displaystyle (\DO(A^\ast),A^\ast)$ is a closed
+linear operator.  Moreover, if $X$ and $Y$ are
+{\bfseries reflexive}\index{Reflexive Space}
+(i.e.\ $\displaystyle X^{\ast\ast}=X$ and $\displaystyle Y^{\ast\ast} = Y$),
+then $\displaystyle \DO(A^\ast)$ is dense in
+$\displaystyle Y^\ast$ and $\displaystyle A^{\ast\ast} = A$.
+\end{theorem}
+
+\begin{defn}
+Let $(\DO(A),A)$ be a bounded linear operator from $X$ to $Y$.  The
+linear operator $(\DO(A),A)$ is
+{\bfseries compact}\index{Linear Mapping!Compact} if
+$\overline{A(V)}$ is compact for every bounded set $V \subset \DD(A)$.
+\end{defn}
+
+The next theorem is not surprising if we think about linear mappings
+between finite dimensional vector spaces.
+
+\begin{theorem}
+Let $(\DO(A),A)$ be a linear operator from $X$ to $Y$, then
+\begin{enumerate}
+\item $(\DO(A),A)$ is a compact linear operator if $(\DO(A),A)$ is
+bounded and $\IMG(A)$ is finite dimensional.
+\item $(\DO(A),A)$ is a compact linear operator if $\DO(A)$ is finite
+dimensional.
+\end{enumerate}
+\end{theorem}
+
+\subsection{Operators on Hilbert Spaces}
+
+In the present section, $H$, $H_1$, $H_2$, \ldots will be Hilbert
+spaces over the complex numbers.
+
+Obviously, the definitions and results of the previous
+sections about operators between Banach spaces applied are also valid
+for operators between Hilbert spaces.
+However, since there is a conjugate-linear isomorphism between
+$\displaystyle H^\ast$ and $H$ provided by the Riesz Representation
+Theorem, it is traditional to redefine the adjoint of a linear
+operator between two Hilbert spaces.  Recall that a linear mapping $L$
+between two vector spaces is
+{\bfseries Conjugate-linear}\index{Conjugate-Linear mapping}
+if $L(\lambda_1v_1 + \lambda_2 v_2) = \overline{\lambda_1}\, L(v_1)
++ \overline{\lambda_2}\, L(v_2)$ for all $\lambda_1, \lambda_2 \in \CC$ and
+all vectors $v_1,v_2$.
+
+\begin{defn} \label{fu_an_dualHB_def}
+Let $(\DO(A),A)$ be a linear mapping from $H_1$ into $H_2$ such that
+$\DO(A)$ is dense in $H_1$.  Let $S \subset H_2$ be the set of all
+elements $w$ of $H_2$ for which there exists an element $v \in H_1$
+satisfying $\displaystyle \ps{A(x)}{w}_{H_2} = \ps{x}{v}_{H_1}$ for $x
+\in \DO(A)$.  Since $\DO(A)$ is dense, $v$ is uniquely defined.  The
+{\bfseries (Hilbert space) adjoint}\index{Linear Mapping!Hilbert Space
+Adjoint} of $A$ is the mapping $\displaystyle (S,A^\bullet)$ from
+$H_2$ to $H_1$ defined by $\displaystyle A^\bullet(w) = v$ for $w\in S$.
+We have $\displaystyle \DO(A^\bullet) = S$.
+\end{defn}
+
+Consider the conjugate-linear application
+\begin{align*}
+\Lambda_H : H &\rightarrow H^\ast \\
+v & \mapsto  \ps{\cdot}{v}
+\end{align*}
+As a consequence of Riesz Representation Theorem, this is a one-to-one
+and onto mapping.
+
+Consider a linear operator $(\DO(A),A)$ from $H_1$ to $H_2$ such
+that $\DO(A)$ is dense in $H_1$.  Let
+$\displaystyle (\DO(A^\ast),A^\ast)$ be the
+adjoint of $(\DO(A),A)$ in the sense of operators between Banach
+spaces and $\displaystyle (\DO(A^\bullet),A^\bullet)$ be the adjoint
+of $(\DO(A),A)$ in the sense of operators between Hilbert spaces.  We have
+\begin{equation} \label{fu_an_dualHB}
+A^\ast = \Lambda_{H_1} \circ A^\bullet \circ \Lambda_{H_2}^{-1}
+\end{equation}
+on $\displaystyle \DD(A^\ast)$.  To prove this, we note that
+\[
+w(A(x)) = A^\ast(w)(x) \Leftrightarrow
+\ps{A(x)}{\Lambda_{H_2}^{-1}(w)}_{H_2} =
+\ps{x}{\Lambda_{H_1}^{-1}(A^\ast(w))}_{H_1}
+\]
+for all $x \in \DO(A)$ and $\displaystyle w\in \DO(A^\ast)$.  Thus
+$\displaystyle \Lambda_{H_2}^{-1}(w) \in \DO(A^\bullet)$
+for $\displaystyle w \in \DD(A^\ast)$ and
+\[
+A^\bullet(\Lambda_{H_2}^{-1}(w)) = \Lambda_{H_1}^{-1}(A^\ast(w))
+\]
+for $\displaystyle w\in \DO(A^\ast)$ by definition of
+$\displaystyle (\DO(A^\bullet),A^\bullet)$.  This proves (\ref{fu_an_dualHB}).
+
+It follows from Definition~\ref{fu_an_dualHB_def} that
+the mapping $\displaystyle A \mapsto A^\bullet$ if conjugate-linear
+because
+\[
+A^\bullet(w) = v
+\Leftrightarrow \ps{A(x)}{w}_{H_2} = \ps{x}{v}_{H_1}
+\Leftrightarrow \ps{\lambda A(x)}{w}_{H_2} = \ps{\lambda x}{v}_{H_1}
+= \ps{x}{\overline{\lambda} v}_{H_1}
+\Leftrightarrow (\lambda A)^\bullet = \overline{\lambda} v
+\]
+for all $\lambda \in \CC$.  We have
+however that the mapping $\displaystyle A \mapsto A^\ast$ is linear.
+
+From now on, we will follow the tradition in functional analysis and
+use $\displaystyle A (\DO(A^\ast),A^\ast)$ to also designate
+$\displaystyle A (\DO(A^\bullet),A^\bullet)$.  The context will determine if we are
+talking of the dual in the sense of operators between Banach spaces or
+between Hilbert spaces.
+
+\begin{theorem} \label{fu_an_RIOrth}
+Let $(\DO(A),A)$ be a linear operator from $H$ to itself
+such that $\DO(A)$ is dense in $H$.  We have
+$\displaystyle \IMG(A)^\perp = \KE(A^\ast)$ and
+$\displaystyle \IMG(A^\ast)^\perp = \KE(A)$.
+Moreover, $\displaystyle \KE(A^\ast)^\perp = \overline{\IMG(A)}$ and
+$\displaystyle \KE(A)^\perp = \overline{\IMG(A^\ast)}$.
+\end{theorem}
+
+\begin{defn}
+Let $(\DO(A),A)$ be a linear operator from $H$ into itself
+such that $\DO(A)$ is dense in $H$.  We say that $(\DO(A),A)$ is
+{\bfseries symmetric}\index{Linear Mapping!Symmetric}
+if $\displaystyle (\DO(A^\ast),A^\ast)$ is an extension of $(\DO(A),A)$.  Thus,
+$\displaystyle \ps{A(x)}{y} = \ps{x}{A(y)}$ for $x,y \in \DO(A)$.
+
+We say that $(\DO(A),A)$ is
+{\bfseries self-adjoint}\index{Linear Mapping!Self Adjoint} if
+$\displaystyle (\DO(A^\ast),A^\ast) = (\DO(A),A)$; namely, if
+$\displaystyle \DO(A)=\DO(A^\ast)$ and
+$\displaystyle A(x)=A^\ast(x)$ for all $x \in \DO(A)$.
+\end{defn}
+
+\begin{theorem}
+Let $(\DO(A),A)$ be a symmetric linear operator from $H$
+to itself such that $\DO(A)$ is dense in $H$.  We have
+\begin{enumerate}
+\item $\ps{A(x)}{x} \in \RR$ for all $x \in \DD(A)$.
+\item The eigenvalues of $A$ are real.
+\item Eigenvectors associated to distinct eigenvalues are orthogonal.
+\item The continuous spectrum of $A$ is a subset of $\RR$.
+\end{enumerate}
+If $(\DO(A),A)$ is also self-adjoint, we have
+\begin{enumerate}
+\item The spectrum of $A$ is a subset of $\RR$.
+\item The residual spectrum of $A$ is empty.
+\end{enumerate}
+\end{theorem}
+
+Consider a self-adjoint linear operator $A \in \KK(H)$.  According to
+Theorem~\ref{fu_an_comp_oper}, every $\lambda \in \sigma(A)$ with
+$\lambda \neq 0$ is an eigenvalue with
+$\dim \KE(A-\lambda\Id) < \infty$, and these
+eigenvalues may be arranged in a monotone decreasing sequence
+$\displaystyle |\lambda_1| \geq |\lambda_2| \geq |\lambda_2| \geq \ldots$
+\ Moreover, if $\sigma(A)$ is infinite, then
+$\lambda_n \rightarrow 0$ as $n\rightarrow \infty$.
+
+If we choose for each eigenspace $\KE(A-\lambda\Id)$, where
+$\lambda \in \sigma(A)$ with $\lambda \neq 0$, an orthonormal
+basis and do the union of these basis, we get an orthonormal set
+$\displaystyle \{ \phi_j \}_{j=1}^\infty$ such that $\phi_j \neq 0$ for only a finite
+number of $j$ when $\sigma(A)$ is finite.
+For each eigenvector $\phi_j$, we denote the eigenvalue associate to
+it by $\tilde{\lambda}_j$.  For instance,
+for each $\phi_j \in \KE(A- \lambda_n \Id)$, we will have that 
+$\tilde{\lambda}_j = \lambda_n$.
+
+\begin{theorem}[Hilbert-Schmidt Theorem] \label{fu_an_HStheorem}
+Consider a self-adjoint linear operator $A \in \KK(H)$.
+\index{Hilbert-Schmidt Theorem}
+Let $\displaystyle S = \left\{ \phi_1, \phi_2, \phi_3, \ldots \right\}$ be
+an orthonormal set of eigenvectors as defined in the previous
+paragraph.
+\begin{enumerate}
+\item $S$ is an orthonormal basis for $H$.
+\item $\displaystyle Au =
+\sum_{j=1}^{\infty} \tilde{\lambda}_j \ps{u}{\phi_j}\phi_j$ for $u \in H$.
+\item Given $f\in H$, let
+$\displaystyle f_0 = f - \sum_{j=1}^{\infty} \ps{f}{\phi_j}\phi_j$.
+We have that $f_0 \in \KE(A)$.
+
+If $\lambda$ is not an eigenvalue, there is a unique solution
+to $\displaystyle Au - \lambda u = f$ given by
+\[
+u = \sum_{j=1}^{\infty} \frac{1}{\tilde{\lambda}_j-\lambda}
+\ps{f}{\phi_j} \phi_j - \frac{1}{\lambda} f_0 \ .
+\]
+If $\lambda$ is an eigenvalue, there is a solution to
+$\displaystyle Au - \lambda u = f$ if and only if
+$\displaystyle \ps{f}{\phi_j} = 0$ for $\tilde{\lambda}_j = \lambda$.
+If this is satisfied, there are infinitely many solutions given by
+\[
+u = \sum_{\substack{j=1\\ \tilde{\lambda}_j\neq \lambda}}^\infty
+\frac{1}{\tilde{\lambda}_j-\lambda} \ps{f}{\phi_j} \phi_j -
+\frac{1}{\lambda} f_0
++ \sum_{\substack{j=1\\ \tilde{\lambda}_j  = \lambda}}^\infty c_j \phi_j \ ,
+\]
+where the $c_j$'s are arbitrary constants.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+If $A \in \KK(H)$, there exists a sequence
+$\displaystyle \{A_n\}_{n-1}^\infty$ of
+operators $A_n \in \LL(H)$, each of finite rank, converging to $A$ in
+the induced operator norm; namely,
+$\displaystyle \lim_{n\rightarrow \infty} \|A_n-A\| = 0$.
+\end{theorem}
+
+We complete this section with an important class of compact operators.
+
+\begin{theorem} \label{fu_an_HSKern}
+Let $\Omega$ be a measurable space and
+$\displaystyle K \in L^2(\Omega\times \Omega)$.  Then
+$\displaystyle T_K:L^2(\Omega)\rightarrow L^2(\Omega)$ defined by
+\[
+(T_K f)(x) = \int_{\Omega} K(x,y) f(y) \dx{y} \quad , \quad for x \in \Omega
+\ \text{and} \ f \in L^2(\Omega) \ ,
+\]
+is a compact operator and $\|T_K\| \leq \|K\|_2$.
+\end{theorem}
+
+The function $\displaystyle K \in L^2(\Omega\times \Omega)$ in the
+previous theorem is called a
+{\bfseries Hilbert-Schmidt kernel}\index{Hilbert-Schmidt Kernel}. 
+
+\begin{proof}
+\stage{i} We first prove that $T_K$ is effectively a bounded operator
+from $\displaystyle L^2(\Omega)$ into itself.
+
+Since $K:\Omega \time \Omega \to \RR$ is measurable, we have that
+$\VEC{y} \mapsto K(\VEC{x},\VEC{y})$ is also measurable for almost all
+$\VEC{x}$.  Given any $\displaystyle f\in L^2(\Omega)$, we have that
+$\VEC{y} \mapsto K(\VEC{x},\VEC{y})f(\VEC{y})$ is
+measurable for almost all $\VEC{x}$.
+
+From Fubini's Theorem, we have that
+$\displaystyle \int_{\Omega} |K(\VEC{x},\VEC{y})|^2\dx{\VEC{y}}$
+exists almost everywhere in $\VEC{x}$ because
+$\displaystyle K \in L^2(\Omega\times \Omega)$.  Hence, given any
+$\displaystyle f \in L^2(\Omega)$, we have from Schwarz inequality in
+$\displaystyle L^2(\Omega)$ that
+\[
+\int_{\Omega} |K(\VEC{x},\VEC{y})|\,|f(\VEC{y})| \dx{\VEC{y}}
+\leq \left(\int_{\Omega} |K(\VEC{x},\VEC{y})|^2\dx{\VEC{y}}\right)^{1/2}
+\left(\int_{\Omega} |f(\VEC{y})|^2\dx{\VEC{y}}\right)^{1/2} < \infty
+\]
+almost everywhere.  Hence,
+$\VEC{y} \mapsto K(\VEC{x},\VEC{y})f(\VEC{y})$ is in
+$\displaystyle L^1(\Omega)$
+for almost all $\VEC{x}$.  So, $T_K f:\Omega \to \RR$ is well defined
+almost everywhere.  Moreover, from Fubini's Theory,
+$T_K f:\Omega \to \RR$ is measurable. 
+
+From
+\[
+\left| (T_K f)(\VEC{x}) \right|
+\leq \int_{\Omega} |K(\VEC{x},\VEC{y})|\,|f(\VEC{y})| \dx{\VEC{y}}
+\leq \left(\int_{\Omega} |K(\VEC{x},\VEC{y})|^2\dx{\VEC{y}}\right)^{1/2}
+\left(\int_{\Omega} |f(\VEC{y})|^2\dx{\VEC{y}}\right)^{1/2}
+\]
+for almost all $x$, we get
+\[
+\| T_K f \|_2^2 =
+\int_{\Omega} \left| (T_K f)(\VEC{x}) \right|^2 \dx{\VEC{x}}
+\leq \int_{\Omega}\int_{\Omega} |K(\VEC{x},\VEC{y})|^2\dx{\VEC{y}}\dx{\VEC{x}}
+\ \int_{\Omega} |f(\VEC{y})|^2\dx{\VEC{y}}
+= \| K \|_2^2 \|f\|_2^2 < \infty
+\]
+for all $\displaystyle f\in L^2(\Omega)$.  Thus
+$\displaystyle T_K f \in L^2(\Omega)$ for all
+$\displaystyle f\in L^2(\Omega)$ and
+\begin{equation} \label{faHilbSchA}
+\|T_K \| \leq \|K\|_2
+= \left( \int_{\Omega}\int_{\Omega}
+|K(\VEC{x},\VEC{y})|^2\dx{\VEC{y}}\dx{\VEC{x}} \right)^{1/2} \ .
+\end{equation}
+
+\stage{ii} We now prove that $T_K$ is compact.
+
+Let $\displaystyle \{\phi_j\}_{j=0}^\infty$ be an orthonormal basis of
+$\displaystyle L^2(\Omega)$.  We consider the functions
+$\psi_{j,k}:\Omega \times \Omega \to \RR$ defined by
+$\displaystyle \psi_{j,k}(\VEC{x},\VEC{y}) = \phi_j(\VEC{x})\phi_k(\VEC{y})$ for
+$(\VEC{x},\VEC{y}) \in \Omega\times \Omega$.  The functions
+$\psi_{j,k}$ are measurable.  Using Fubini's Theorem and
+Theorem~\ref{fu_an_complset}, one can show that 
+$\displaystyle \{\psi_{j,k}\}_{(j,k)\in \NN\times \NN}$ is an
+orthonormal basis of $\displaystyle L^2(\Omega \times \Omega)$.
+
+We can write $K$ as
+$\displaystyle K = \sum_{(j,k)\in \NN\times \NN} a_{j,k} \psi_{j,k}$
+for some $a_{j,k} \in \RR$.  The convergence of the previous series is
+in $\displaystyle L^2(\Omega\times \Omega)$.  In particular,
+$\displaystyle \|K\|_2^2 = \sum_{(j,k)\in \NN\times \NN} a_{j,k}^2$
+since $\displaystyle \{\psi_{j,k}\}_{(j,k)\in \NN\times \NN}$ is an
+orthonormal basis.  The series converges independently of the order
+of the summation.  In particular, for every $\epsilon >0$, there
+exists $M>0$ such that $\displaystyle \sum_{i+j > m} a_{j,k}^2 < \epsilon$
+for $m\geq M$.  Thus $\displaystyle \sum_{i+j > N} a_{j,k}^2 \to 0$ as
+$N \to \infty$.
+
+Let $\displaystyle
+K_N(\VEC{x}, \VEC{y}) = \sum_{i+j\leq N} a_{j,k} \psi_{j,k}(\VEC{x},\VEC{y})$
+for $N \geq 0$.  Since the image of $T_{K_N}$ is included in the
+span of $\displaystyle \{\phi_j\}_{j=0}^N$, we have that
+$\dim \IMG(T_{K_N}) \leq N +1 < \infty$.  Thus
+$\displaystyle T_{K_N}$ is a compact
+operator according to Theorem~\ref{fa_finit_compact}.  We can prove, as
+we proved (\ref{faHilbSchA}), that 
+\[
+\|T_K - T_{K_N} \| \leq \| K - K_N\|_2 = \sum_{j+k>N} a_{j,k}^2 \ .
+\]
+Thus $T_{K_N}$ converges to $T_K$ as $N\to \infty$.  Since the space
+of compact operators is closed with respect to the induce operator
+norm according to Theorem~\ref{fu_an_Kclose},
+we have that $T_K$ is compact.
+\end{proof}
+
+\section{Lax-Milgram Theorem}
+
+\begin{defn}
+Let $H$ be an Hilbert space over $\CC$.  A
+{\bfseries bounded (or continuous) sequilinear form}%
+\index{Sequilinear Form!Bounded}\index{Sequilinear Form!Continuous}
+on $H$ is a mapping $B:H\times H \rightarrow \CC$ such that
+\begin{enumerate}
+\item For each $u\in H$, the mapping $v \mapsto B(u,v)$ is conjugate-linear.
+\item For each $v\in H$, the mapping $u \mapsto B(u,v)$ is linear.
+\item There exists a constant $C$ such that
+$\displaystyle \left| B(u,v) \right| \leq C \| u\| \, \| v\|$
+for all $\displaystyle (u,v) \in H \times H$, where $\|\cdot\|$ is the
+norm induced by the scalar product $\ps{\cdot}{\cdot}$ on $H$.
+\end{enumerate}
+
+The bounded sequilinear form $B$ is
+{\bfseries symmetric}\index{Sequilinear Form!Symmetric} if
+$\displaystyle B(u,v) = \overline{B(v,u)}$ for all $u,v \in H$.
+
+The bounded sequilinear form $B$ is
+{\bfseries coercive}\index{Sequilinear Form!Coercive} if there
+exists a positive constant $c$ such that
+$\displaystyle \RE B(u,u) \geq c \|u||^2$ for all $u \in H$.  If
+$B:H\times H \rightarrow \RR$, then the condition is simply
+$\displaystyle B(u,u) \geq c \|u||^2$.
+\end{defn}
+
+\begin{prop} \label{fu_an_pre_lax}
+Let $H$ be an Hilbert space and $K$ be a non-empty, convex and
+closed subset of $H$.  Given $w\in H$, there exists a unique element
+$u \in K$ such that
+\begin{equation} \label{fu_an_lax3}
+\| w-u\| = \min_{v\in K} \|w-v\| \ .
+\end{equation}
+Moreover, this element $u$ as the property of being the unique element
+of $K$ satisfying
+\begin{equation} \label{fu_an_lax4}
+\RE \ps{w-u}{v-u} \leq 0
+\end{equation}
+for all $v \in K$.
+\end{prop}
+
+\begin{proof}
+\stage{i}
+Since $w-K$ is a non-empty, convex and closed subset of $H$, it has an
+unique element of smallest norm according to
+Theorem~\ref{fu_an_ccnes}.  If $\breve{u} \in w-K$ is this element, then
+$u= w - \breve{u}$.
+
+\stage{ii}
+Suppose that $u$ satisfies (\ref{fu_an_lax3}) and take $v \in K$.  Let
+$\displaystyle v_t = (1-t)u+t v$ for $0\leq t \leq 1$.  we have that
+$v_t \in K$ for all $t \in [0,1]$ because $K$ is convex.  Thus
+\begin{align*}
+\| w-u\|^2 &\leq \| w - v_t\|^2 = \|(w-u) -t(v-u)\|^2 \\
+&= \|w-u\|^2 - 2t \RE \ps{w-u}{v-u} + t^2 \|u-v\|^2 \ .
+\end{align*}
+We get that
+\[
+2\RE \ps{w-u}{v-u} \leq t \|u-v\|^2
+\]
+for $0<t \leq 1$.  If $t\rightarrow 0$, we get (\ref{fu_an_lax4}).
+
+Conversely, if $u\in K$ satisfies (\ref{fu_an_lax4}), then
+\begin{align*}
+&\|w-u\|^2 - \|w-v\|^2
+= \|w-u\|^2 - \|(w-u) + (u-v)\|^2 \\
+&\qquad = -2 \RE \ps{w-u}{u-v}  - \|u-v\|^2
+= 2 \RE \ps{w-u}{v-u} - \|u-v\|^2\leq 0
+\end{align*}
+for $v\in K$.  Thus (\ref{fu_an_lax3}) is satisfied.
+
+The uniqueness of $u$ satisfying (\ref{fu_an_lax4}) comes from the
+uniqueness of $u$ satisfying (\ref{fu_an_lax3}).  If there are two
+distinct elements $u_1$ and $u_2$ of $K$ satisfying
+(\ref{fu_an_lax4}), they must also satisfies (\ref{fu_an_lax3}) since
+(\ref{fu_an_lax3}) and (\ref{fu_an_lax4}) are equivalent.  This is a
+contradiction of the uniqueness of the unique element of minimal norm
+in $w - K$.
+\end{proof}
+
+\begin{rmk}
+The uniqueness of the element $u$ satisfying (\ref{fu_an_lax4}) could
+also be proved directly.  Suppose that there exist $u_1, u_2 \in K$
+such that
+$\displaystyle \RE \ps{w-u_1}{v-u_1} \leq 0$
+and $\displaystyle \RE \ps{w-u_2}{v-u_2} \leq 0$ for all $v \in K$.
+If we substitute $v=u_2$ in the first inequality, $v=u_1$ in the
+second inequality and add the resulting inequalities, we get
+$\displaystyle \ps{u_1-u_2}{u_1-u_2} \leq 0$.  Thus $u_1=u_2$.
+\end{rmk}
+
+\begin{theorem}[Stampacchia] \label{fu_an_stamp}
+Let $B:H\times H\rightarrow \RR$ be a coercive bounded sequilinear form
+on an Hilbert space $H$.  \index{Stampacchia's Theorem}
+Moreover, let $K$ be a non-empty, convex and
+closed subset of $H$.  Then, for any $\displaystyle \tilde{u} \in H^\ast$, there
+exists a unique $u\in K$ such that
+\begin{equation} \label{fu_an_lax1}
+\RE B(v-u,u) \geq \RE \tilde{u}(v-u)
+\end{equation}
+for all $v \in K$.  Moreover, if the sequilinear form $B$ is also
+symmetric, then $u$ is the unique element of $K$ such that
+\begin{equation} \label{fu_an_lax8}
+\frac{1}{2}B(u,u) - \RE\tilde{u}(u) = \min_{v\in K} \left\{
+\frac{1}{2}B(v,v) - \RE\tilde{u}(v) \right\} \ .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\stage{i} Since $v \mapsto B(v,u)$ is a bounded linear function on
+$H$ for each $u\in H$, we may use the Riesz Representation Theorem
+to define a unique mapping $A:H \rightarrow H$ such that
+$\displaystyle B(v,u) = \ps{v}{Au}$ for all $v \in H$.
+$Au$ is the unique element of $H$ such that the previous relation is
+satisfied.
+
+We now prove that $A$ is a bounded, one-to-one linear mapping.
+\begin{enumerate}
+\item By definition of $A$, we have for $a_1, a_2 \in \CC$ and
+$u_1, u_2 \in H$ that
+\begin{align*}
+\ps{v}{A\left( a_1 u_1 + a_2 u_2 \right)}
+&= B(v,a_1 u_1 + a_2 u_2) = \overline{a_1} B(v,u_1) + \overline{a_2} B(v,u_2) \\
+&= \overline{a_1} \ps{v}{A u_1} + \overline{a_2} \ps{v}{A u_2}
+= \ps{v}{a_1 A u_1 + a_2 A u_2}
+\end{align*}
+for all $v \in H$.  Thus
+$A\left( a_1 u_1 + a_2 u_2 \right) = a_1 A u_1 + a_2 A u_2$ by
+uniqueness of the representation of the elements in $\displaystyle H^\ast$ by
+elements in $H$ as given by the Riesz Representation Theorem.  This
+show that $A$ is a linear mapping.
+\item Since
+\[
+\|Au\|^2 = \ps{Au}{Au} = B(Au,u) \leq C \|u||\|Au\|
+\]
+for all $u \in H$, where $C$ is the constant in the definition of a
+bounded sequilinear form, we get
+\begin{equation} \label{fu_an_lax6}
+\|Au\| \leq C \|u||
+\end{equation}
+for all $u \in H$.  Thus, the induced norm of $A$ satisfies
+$\|A\| \leq C$ and, therefore, $A$ is a bounded linear mapping.
+\item We have from the coercive property of $B$ that $A$ is
+one-to-one.  In fact, we have that
+\begin{equation} \label{fu_an_lax7}
+\RE \ps{u_1-u_2}{A(u_1-u_2)}
+= \RE B(u_1-u_2,u_1-u_2) \geq c \|u_1-u_2\|^2
+\end{equation}
+for any $u_1, u_2 \in H$, where $c$ is the constant given in the
+definition of a coercive bounded sequilinear form.
+If $A u_1 = A u_2$, we then get
+\[
+0 = \RE \ps{u_1-u_2}{A(u_1-u_2)} \geq c \|u_1-u_2\|^2 \ .
+\]
+Thus $u_1=u_2$.
+\end{enumerate}
+
+\stage{ii} According to Riesz Representation Theorem,
+Theorem~\ref{fu_an_RieszRT}, there exists a unique $\breve{u} \in H$ such that 
+$\displaystyle \tilde{u}(v) = \ps{v}{\breve{u}}$ for all $v \in H$.
+
+Proving that there exists a unique $u\in K$ satisfying 
+(\ref{fu_an_lax1}) is equivalent to proving that there exists a unique
+$u\in K$ satisfying
+\begin{equation} \label{fu_an_lax2}
+\RE \ps{v-u}{Au} \geq \RE \ps{v-u}{\breve{u}}
+\end{equation}
+for all $v \in K$.  Let $p$ be a positive number.  Proving that there
+exists a unique $u\in K$ satisfying (\ref{fu_an_lax2}) is equivalent
+to proving that there exists a unique $u\in K$ satisfying
+\begin{equation} \label{fu_an_lax5}
+\RE \ps{v-u}{ \left(p\breve{u}-p Au +u\right)-u} \leq 0
+\end{equation}
+for all $v \in K$.
+
+Let $P:K \rightarrow K$ be the function defined by
+$\displaystyle P(w) = u$ where $u$ satisfies (\ref{fu_an_lax4}).
+Because of the uniqueness of $u$, the function $P$ is well defined.
+Proving that there exists a unique $u\in K$ satisfying
+(\ref{fu_an_lax5}) is thus equivalent to proving that there exists a
+unique fixed point $u$ of
+\begin{align*}
+F: K &\rightarrow K \\
+ v & \mapsto P(p\breve{u}-p Av +v)
+\end{align*}
+To prove this last statement, it is enough to prove that $F$ is a
+strict contraction on the closed set $K$.  That is what we now do.  We
+will choose the constant $p$ to get a strict contraction.
+
+We first prove that $\|P(w_1) - P(w_2) \| \leq \|w_1 - w_2\|$ for all
+$w_1, w_2 \in H$.  We have that $P(w_1)$ and $P(w_2)$ are defined by
+$\displaystyle \RE \ps{w_1- P(w_1)}{v- P(w_1)} \leq 0$ and
+$\displaystyle \RE \ps{w_2- P(w_2)}{v- P(w_2)} \leq 0$
+for all $v \in K$ respectively.  If we substitute $v=P(w_2)$ in the
+first inequality, $v=P(w_1)$ in the second inequality and add the
+resulting inequalities, we get
+\begin{align*}
+&\RE \ps{w_1- P(w_1)}{P(w_2)- P(w_1)} + \RE \ps{w_2- P(w_2)}{P(w_1)- P(w_2)} \\
+&\qquad \qquad = \RE \ps{-w_1 + w_2 + P(w_1) - P(w_2)}{P(w_1)- P(w_2)} \leq 0 \\
+&\qquad \Leftrightarrow
+\ps{P(w_1) - P(w_2)}{P(w_1)- P(w_2)} = \RE \ps{P(w_1) - P(w_2)}{P(w_1)- P(w_2)} \\
+&\qquad \qquad \leq \RE \ps{w_1- w_2}{P(w_1)- P(w_2)}
+\end{align*}
+Thus,
+\begin{align*}
+\|P(w_1) - P(w_2) \|^2 &= \ps{P(w_1)- P(w_2)}{P(w_1)- P(w_2)} \\
+& \leq \RE \ps{w_1- w_2}{P(w_1)- P(w_2)}
+\leq \|w_1 - w_2 \| \, \|P(w_1) - P(w_2) \| \ ,
+\end{align*}
+where the last inequality comes from Schwarz inequality.
+Hence $\displaystyle \|P(w_1) - P(w_2)\| \leq \| w_1 - w_2 \|$.
+
+It follows that
+\begin{align*}
+\| F(v_1) - F(v_2) \|^2 &= \| P(p\breve{u}-p Av_1 +v_1) -
+P(p\breve{u}-p Av_2 +v_2) \|^2 \\
+& \leq \| p (Av_2 - Av_1) - (v_2 - v_1) \|^2 \\
+&= p^2 \| Av_2 - Av_1\|^2 -2p \RE\ps{Av_2 - Av_1}{v_2 - v_1}
++ \|v_2 - v_1\|^2 \\
+&\leq p^2 C^2 \| v_2-v_1 \|^2 - 2pc \|v_2-v_1\|^2 + \|v_2-v_1\|^2 \\
+& = (p^2 C^2 - 2pc +1 ) \|v_2-v_2\|^2
+\end{align*}
+for all $v_1, v_2 \in K$, where we have used
+(\ref{fu_an_lax6}) and (\ref{fu_an_lax7}) for the last
+inequality.  If we take $p$ such that
+$\displaystyle 0< p^2 C^2 - 2pc +1 <1$, we
+get that $F$ is a strict contraction on $K$.  Such a $p$ exists
+because
+\[
+0 > p(pC^2 -2c) \geq -c^2/C^2 \geq -1
+\]
+for all $p$ is between the two roots, $0$ and $\displaystyle 2c/C^2$, of the
+quadratic polynomial $\displaystyle p(pC^2 -2c)$.  The reader should verify
+that we must have $0<c\leq C$.
+
+\stage{iii} When $B$ is also a symmetric bounded sequilinear form,
+proving that there exists a unique $u\in K$ satisfying
+(\ref{fu_an_lax1}) is equivalent to proving that there exists a unique
+$u\in K$ satisfying (\ref{fu_an_lax8}).
+
+Let
+\[
+\ps{v}{u}_B = B(v,u) 
+\]
+for all $u,v \in H$.  Since $B$ is a coercive and symmetric bounded
+sequilinear form on $H$, $\ps{\cdot}{\cdot}_B$ is a scalar product on
+$H$ equivalent to the standard scalar product on $H$.  Namely,
+$\ps{\cdot}{\cdot}_B$ and $\ps{\cdot}{\cdot}$ define the same topology
+on $H$.
+We may therefore use the Riesz Representation Theorem to conclude
+that there exists a unique $\check{u} \in H$ such that
+$\displaystyle \tilde{u}(v) = \ps{v}{\check{u}}_B$ for all $v \in H$.
+Hence, (\ref{fu_an_lax1}) becomes
+\begin{equation} \label{fu_an_lax10}
+\RE \ps{v-u}{\check{u}-u}_B \leq 0
+\end{equation}
+for all $v \in K$.
+
+According to Proposition~\ref{fu_an_pre_lax}, proving that there exists
+a unique $u\in K$ satisfying (\ref{fu_an_lax10}) is equivalent to
+proving that there exists a unique $u\in K$ satisfying
+\[
+\| \check{u}-u\|_B = \min_{v\in K} \|\check{u}-v\|_B \ ,
+\]
+where $\|v\|_B = \sqrt{B(v,v)}$ for $v \in H$.  This is equivalent to
+proving that there exists a unique $v \in K$ where
+\[
+v \mapsto B(\check{u}-v,\check{u}-v) = B(\check{u},\check{u})
+-2 \RE B(v,\check{u}) + B(v,v)
+\]
+reaches its minimum, which is equivalent to proving that there exists
+a unique $v \in K$ where
+\[
+v \mapsto  -2 \RE B(v,\check{u}) + B(v,v) = B(v,v) - 2 \RE \tilde{u}(v)
+\]
+reaches its minimum.  This yields (\ref{fu_an_lax8}).
+\end{proof}
+
+\begin{cor}[Lax-Milgram Theorem] \label{fu_an_LaxMilgTh}
+Let $B:H\times H\rightarrow \CC$ be a bounded, coercive sequilinear form
+on an Hilbert space $H$.  \index{Lax-Milgram Theorem}
+Then, for every $\displaystyle \tilde{u} \in H^\ast$, there
+exists a unique $u\in H$ such that
+\begin{equation} \label{fu_an_lax9}
+B(v,u) = \tilde{u}(v)
+\end{equation}
+for all $v \in H$.  Moreover, if the bilinear form $B$ is also
+symmetric, then $u$ is the unique element of $H$ such that
+\begin{equation} \label{fu_an_lax13}
+\frac{1}{2}B(u,u) - \RE \tilde{u}(u) = \min_{v\in H} \left\{
+\frac{1}{2}B(v,v) - \RE \tilde{u}(v) \right\} \  .
+\end{equation}
+\end{cor}
+
+\begin{proof}
+This is Stampacchia's theorem with $K=H$.  To prove
+(\ref{fu_an_lax9}), we note that (\ref{fu_an_lax1}) now says that
+there exists a unique $u\in H$ such that
+$\displaystyle \RE B(v-u,u) \geq \RE \tilde{u}(v-u)$ for all $v\in H$.
+Since $H-u = H$, the previous sentence is equivalent to saying that
+there exists a unique $u\in H$ such that
+\begin{equation} \label{fu_an_lax11}
+\RE B(v,u) \geq \RE \tilde{u}(v)
+\end{equation}
+for all $v\in H$.
+ 
+If $v = w$ in (\ref{fu_an_lax11}), we get
+\begin{equation}\label{fu_an_lax14}
+\RE B(w,u) \geq \RE \tilde{u}(w) \ .
+\end{equation}
+If $v = -w$ in (\ref{fu_an_lax11}), we get
+$\RE B(-w,u) \geq \RE \tilde{u}(-w)$.
+Therefore,
+\begin{equation}\label{fu_an_lax15}
+\RE B(w,u) = - \RE B(-w,u) \leq - \RE \tilde{u}(-w) = \RE \tilde{u}(w) \ .
+\end{equation}
+(\ref{fu_an_lax14}) and (\ref{fu_an_lax15}) implies that
+$\displaystyle \RE B(w,u) = \RE \tilde{u}(w)$ for all $w \in H$.
+Thus, $w\mapsto B(w,u)$ and $\tilde{u}$ denote the same linear
+functional \footnote{
+$\displaystyle \RE B(w,u) = \RE \tilde{u}(w)$ for all $w \in H$
+if and only if $\displaystyle \RE B(i w,u) = \RE \tilde{u}(iw)$ for all $w \in H$
+if and only if $\displaystyle \RE (i B(w,u)) = \RE (i\tilde{u}(w))$ for all $w \in H$
+if and only if $\displaystyle \IM B(w,u) = \IM \tilde{u}(w)$ for all $w \in H$.
+}.  Hence, (\ref{fu_an_lax9}) is true.
+
+If $u' \neq u$ satisfies $B(v,u') = \tilde{u}(v)$ for $v \in H$, then 
+(\ref{fu_an_lax11}) is satisfied with $u'$ instead of $u$.  This is a
+contradiction that $u$ satisfying (\ref{fu_an_lax11}) is unique.
+
+Obviously, (\ref{fu_an_lax13}) is (\ref{fu_an_lax8}) with $K = H$.
+\end{proof}
+
+\begin{rmk}
+If we are only interested in the existence and uniqueness of $u\in H$
+satisfying (\ref{fu_an_lax9}), there is a short proof of this result.
+It is almost the first part of the proof of Theorem~\ref{fu_an_stamp}.
+\label{fu_an_LaxMilgTh1}
+
+According to Riesz Representation Theorem, there
+exists a unique $\breve{u} \in H$ such that
+$\displaystyle \tilde{u}(v) = \ps{v}{\breve{u}}$ for all $v \in H$.
+
+Similarly, since $v \mapsto B(v,u)$ is a bounded linear function on
+$H$ for each $u\in H$, we may use the Riesz Representation Theorem
+to define a unique mapping $A:H \rightarrow H$ such that
+$\displaystyle B(v,u) = \ps{v}{Au}$ for all $v \in H$.
+$Au$ is the unique element of $H$ such that the previous relation is
+satisfied.
+
+To prove the existence and uniqueness of $u\in H$ satisfying
+(\ref{fu_an_lax9}), it suffices to prove that $A$ is a linear bijection of
+$H$ onto itself.  The requested $u$ in (\ref{fu_an_lax9}) is
+$\displaystyle A^{-1}(\breve{u})$.  The proof that $A$ is a bounded, one-to-one
+linear mapping is given in the first part of the proof of
+Theorem~\ref{fu_an_stamp}.  The coercive nature of $B$ implies that
+$A(H)$ is closed as we now explain.  If
+$\displaystyle \left\{A u_j\right\}_{j=1}^\infty$ converges to
+$w\in H$, we have that
+\[
+\|A(u_j)\|\,\|u_j\| \geq |\ps{u_j}{A(u_j)}| = |B(u_j,u_j)| \geq c
+\|u_j\|^2
+\]
+for $j \geq 1$.
+Thus $\displaystyle \|A(u_j)\| \geq c \|u_j\|$ for all $j$.  Since 
+$\displaystyle \left\{A u_j\right\}_{j=1}^\infty$ converges, it is a
+Cauchy sequence.  Thus
+$\displaystyle \left\{u_j\right\}_{j=1}^\infty$ is a Cauchy sequence 
+in the Hilbert space $H$.  Hence, the sequence
+$\displaystyle \left\{u_j\right\}_{k=1}^\infty$ converges.  Let $u$ be the
+limit of this converging sequence.  Since $A$ is continuous, we have
+\[
+w = \lim_{j\rightarrow \infty} A u_{j}
+= A\left( \lim_{j\rightarrow \infty} u_j\right) = A(u) \  .
+\]
+Thus $w \in A(H)$.
+
+Finally, the range of $A$ is dense in $H$.  Suppose that
+$\displaystyle w \in A(H)^\perp$,
+then
+\[
+c \|w\|^2 \leq |B(w,w)| = |\ps{w}{Aw}| = 0 \  .
+\]
+Since $R(A)$ is closed and dense in $H$, we have that $A(H)=H$.
+\end{rmk}
+
+\begin{rmk}
+To prove that the mapping
+\begin{align*}
+T: H^\ast &\rightarrow H \\
+\tilde{u} &\mapsto u
+\end{align*}
+defined by (\ref{fu_an_lax9}) in Corollary~\ref{fu_an_LaxMilgTh} is a
+bounded linear mapping, we show that $T$ is the composition of two
+bounded linear mappings.              \label{fu_an_LaxMilgTh2}
+
+Let $\displaystyle R:H^\ast \rightarrow H$ be the bounded linear
+mapping defined by $R(\tilde{u})$ is the unique element given by the
+Riesz Representation Theorem such that
+$\tilde{u}(v) = \ps{v}{R(\tilde{u})}$ for all $v \in H$.
+We have $\|R\|=1$ because $\|\tilde{u}\| = \|R(\tilde{u})\|$ for all
+$\displaystyle \tilde{u}\in H^\ast$.  Let $A:H\rightarrow H$ be the
+bounded mapping defined in Remark~\ref{fu_an_LaxMilgTh1}.  Since $A$
+is a linear bijection of $H$ onto $H$, we have by the Open Mapping
+Theorem that $\displaystyle A^{-1}$ is continuous.  Finally, we have that
+$\displaystyle T=A^{-1}\circ R$.
+\end{rmk}
+
+\section{Exercises}
+
+The problems that we suggest cover only $\displaystyle L^2$ spaces and
+in particular the classical Fourier series.  For exercises on the
+general theory of functional analysis, the reader should consult books like
+\cite{Br,ReeSim,Ru,RuFA}.  Some of the books on
+partial differential equations listed in the bibliography have
+sections on functional analysis with some basic exercises.  In general,
+they are not substitute to good books in function analysis.  There is one
+exception, \cite{Br} has a nice introduction to the important results
+of functional analysis and also include a lot of exercises with
+detailed solutions for many of them.  We strongly recommend this book.
+
+Suggested exercises:
+
+\begin{itemize}
+\item In \cite{Str}: numbers 1 to 7 in Section 5.1; numbers 1, 2, 9 to
+15 in Section 5.2; number 2 in Section 5.3; numbers 1 to 16 in Section 5.4. 
+\end{itemize}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End: 

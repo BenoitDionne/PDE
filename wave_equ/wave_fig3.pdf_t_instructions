@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{wave_equ/wave_fig3.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex wave_fig3.fig wave_fig3.pdf
+% fig2dev -L pdftex_t wave_fig3.fig wave_fig3.pdf_t
+

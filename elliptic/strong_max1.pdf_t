@@ -1,0 +1,32 @@
+\begin{picture}(0,0)%
+\includegraphics{elliptic/strong_max1.pdf}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+\begin{picture}(3691,2414)(61,-1408)
+\put(926,329){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$\Omega$}%
+}}}
+\put(3376,689){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$S_2$}%
+}}}
+\put(2751, 84){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$M$}%
+}}}
+\put( 76, 14){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$S_1$}%
+}}}
+\put( 76,-211){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$\VEC{q}_1$}%
+}}}
+\put( 76,-1336){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$\gamma([0,1])$}%
+}}}
+\put(1081,-348){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$\VEC{q}$}%
+}}}
+\put(2821,-91){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$\VEC{p}$}%
+}}}
+\put(751,839){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$B_1=B_{\delta_1}(\VEC{q}_1)$}%
+}}}
+\put(1051,-1336){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$B_2=B_{\delta_2}(\VEC{r})$}%
+}}}
+\put(2476,-1186){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$\VEC{r}$}%
+}}}
+\put(3301,-1036){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$\VEC{q}_2$}%
+}}}
+\put(2176,839){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$B_3= B_{\delta_3}(\VEC{q}_2)$}%
+}}}
+\end{picture}%

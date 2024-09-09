@@ -1,0 +1,2373 @@
+\chapter{Distributions and Strong Solutions}
+\label{ChapterDistributions}
+
+\section{Introduction}
+
+Consider the linear partial differential equation
+\begin{equation} \label{distr_lPDE}
+L(\VEC{x}, \diff)u = \sum_{|\alpha|\leq m} a_\alpha(\VEC{x}) \diff^\alpha u = f
+\end{equation}
+where $\displaystyle u \in C^m(\RR^n)$, $\displaystyle f \in C(\RR^n)$
+and $\displaystyle a_\alpha \in C^{|\alpha|}(\RR^n)$ for all
+multi-indices involved in the sum.
+
+If we multiply both sides of the equation in (\ref{distr_lPDE}) by a
+function $\displaystyle \phi \in C_c^\infty(\RR^n)$
+(functions in $\displaystyle C^\infty(\RR^n)$ with compact supports) and
+use integration by parts, we get
+\begin{align*}
+\int_{\RR^n} f(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}}
+&= \sum_{|\alpha|\leq m} \int_{\RR^n} a_\alpha(\VEC{x})
+\diff^\alpha u(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}} \\
+&= \sum_{|\alpha|\leq m} (-1)^{|\alpha|}\int_{\RR^n}
+u(\VEC{x}) \diff^\alpha \left(a_\alpha(\VEC{x})\phi(\VEC{x})\right)
+\dx{\VEC{x}} \ .
+\end{align*}
+
+Conversely, if there exists a function $\displaystyle u \in C^m(\RR^n)$
+such that
+\begin{equation} \label{distr_intE}
+\int_{\RR^n} f(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}}
+= \sum_{|\alpha|\leq m} (-1)^{|\alpha|}\int_{\RR^n}
+u(\VEC{x}) \diff^\alpha \left(a_\alpha(\VEC{x})\phi(\VEC{x})\right) \dx{\VEC{x}}
+\end{equation}
+for all functions $\displaystyle \phi \in C_c^\infty(\RR^n)$,
+then integrations by parts allows us to rewrite this equation as
+\[
+\int_{\RR^n} f(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}}
+= \sum_{|\alpha|\leq m} \int_{\RR^n} a_\alpha(\VEC{x})
+\diff^\alpha u(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}}
+\]
+for all functions $\displaystyle \phi \in C_c^\infty(\RR^n)$.
+Since these functions are dense in the space of continuous complex valued
+functions over $\displaystyle \RR^n$, (\ref{distr_intE}) implies that
+(\ref{distr_lPDE}) is satisfied by $u$ in the classical sense.
+
+The previous discussion suggests the following approach to solve
+(\ref{distr_lPDE}).
+\begin{enumerate}
+\item Find a function $u$ which satisfies (\ref{distr_intE}) for all
+function $\displaystyle \phi \in C_c^\infty(\RR^n)$.
+\item Show, if possible, that $u$ found in (1) is in
+$\displaystyle C^m(\RR^n)$.
+\end{enumerate}
+
+Let $\displaystyle L^\ast(\VEC{x}, \diff)$ be the linear partial
+differential operator defined by
+\[
+L^\ast(\VEC{x}, \diff)\phi = \sum_{|\alpha|\leq m} (-1)^{|\alpha|}
+\diff^\alpha \left( a_\alpha(\VEC{x}) \phi \right)
+\]
+for all $\displaystyle \phi \in C_c^\infty(\RR^n)$.  The
+operator $\displaystyle L^\ast(\VEC{x}, \diff)$ is called the
+{\bfseries adjoint}\index{Linear Partial Differential Operator!Adjoint} of
+$L(\VEC{x}, \diff)$.  Hence, if $u \in C^m(\RR^n)$ is a solution of
+(\ref{distr_lPDE}), we have
+\[
+\int_{\RR^n} \big( L(\VEC{x}, \diff)u(\VEC{x}) \big) \phi(\VEC{x}) \dx{\VEC{x}}
+= \int_{\RR^n} u(\VEC{x}) \big( L^\ast(\VEC{x}, \diff)\phi(\VEC{x})
+\big) \dx{\VEC{x}}
+\]
+for all $\displaystyle \phi \in C_c^\infty(\RR^n)$.
+This is reminiscing of the relation that we have in linear algebra between an
+\nn matrix $A$ and its adjoint $\displaystyle A^\ast$; namely,
+$\displaystyle \ps{A\VEC{x}}{\VEC{y}} = \ps{\VEC{x}}{A^\ast\VEC{y}}$
+for all $\displaystyle \VEC{x}, \VEC{y} \in \RR^n$.
+
+A {\bfseries classical solution}\index{Classical Solution}
+of (\ref{distr_lPDE}) is a function
+$\displaystyle u\in C^m(\RR^n)$ that satisfies (\ref{distr_lPDE}).
+A {\bfseries strong solution}\index{Strong Solution} or a
+{\bfseries solution in the sense of distributions}\index{Solution in
+the Sense of Distribution} of (\ref{distr_lPDE}) is a measurable
+function $\displaystyle u:\RR^n \to \CC$ that satisfies (\ref{distr_intE}).
+Sometime, only strong solutions of (\ref{distr_lPDE}) can be found.
+
+We should warn the reader that our use of strong solution is not
+universal.  What we called strong solution is often called
+``weak solution'' in the literature.   However, we have chosen to
+reserve the expression ``weak solution'' for the solution of the
+``variational problem'' associated to a partial differential equation
+as we will see in Chapter~\ref{elliptic_PDEs}.  The concept of
+Strong solution is more general than the concept of ``weak solution''
+though the are often the same.
+
+The simple idea of solving an integral equation like
+(\ref{distr_intE}) instead of its associated differential equation
+like (\ref{distr_lPDE}) has lead to a lot of research in partial
+differential equations during the twentieth century.  The
+{\bfseries theory of distributions}\index{Theory of Distributions} that we
+briefly present in this chapter and the
+{\bfseries Sobolev spaces}\index{Sobolev Space} that we will
+study in a future chapter have come out of the research done in
+that century.  The modern theory of numerical analysis for partial
+differential equations is based on the theory of distributions and the
+Sobolev spaces.
+
+Good references for the material presented in this chapter are
+\cite{ReeSim,RuFA}.  You will find in these references the proofs of
+the results that we state without proofs in the presentation below.
+
+\section{Test Functions} \label{SectTestFnct}
+
+From now on, unless otherwise stated, $\displaystyle \Omega \subset \RR^n$ is an
+open set.
+
+The space $\displaystyle C_c^\infty(\Omega)$ of infinitely
+differentiable functions with compact support in $\Omega$ is denoted
+$\DD(\Omega)$.
+Recall that the support of a function $f:\Omega \rightarrow \CC$, denoted
+$\supp f$, is the set
+\[
+\supp f = \overline{\left\{ \VEC{x} \in \Omega : f(\VEC{x}) \neq 0 \right\}} \ ,
+\]
+where $\overline{A}$ denotes the closure of the set $A\subset \Omega$.
+The functions in $\DD(\Omega)$ are called the
+{\bfseries test functions}\index{Test Functions} on $\Omega$. 
+
+The convergence (and so the topology) on $\DD(\Omega)$ is defined as
+follows.  We say that sequence
+$\displaystyle \left\{\phi_j\right\}_{j=0}^\infty$
+{\bfseries converges}\index{Test Functions!Convergence}
+toward $\phi$ in $\DD(\Omega)$ and write
+$\displaystyle \phi_j \rightarrow \phi$ if
+\begin{enumerate}
+\item there exists a compact set $K$ such that
+$\supp \phi_j \subset K$ for all $j$ and $\supp \phi \subset K$.
+\item $\displaystyle \lim_{j\rightarrow \infty}
+\left\| \diff^\alpha \phi_j - \diff^\alpha \phi\right\|_{\infty,K} =0$
+for all multi-indices
+$\alpha = (\alpha_1,\alpha_2, \ldots, \alpha_n) \in \NN^n$.
+\end{enumerate}
+Recall that, for all continuous functions $\psi:\Omega \to \CC$ and
+compact sets $K\subset \Omega$,
+$\displaystyle \left\| \psi \right\|_{\infty,K} =
+\max_{\VEC{x}\in K} \left| \psi(\VEC{x}) \right|$.
+
+A complete definition of the locally convex topology on $\DD(\Omega)$
+is presented in \cite{RuFA,ReeSim}.  We have only stated the definition of
+convergence in $\DD(\Omega)$ that is convenient for the presentation
+of distribution theory.
+
+\section{Distributions}
+
+A {\bfseries distribution}\index{Distribution} on $\Omega$ is a
+continuous linear functional on $\DD(\Omega)$, where the continuity is
+defined as follows.  An application $u:\DD(\Omega) \rightarrow \CC$ is
+continuous at $\phi \in \DD(\Omega)$ if
+$\displaystyle \lim_{j\rightarrow \infty}|u(\phi_j)-u(\phi)| = 0$
+for all sequences $\displaystyle \left\{ \phi_j\right\}_{j=0}^\infty$ in
+$\DD(\Omega)$ converging toward $\phi$ in $\DD(\Omega)$.
+The space of all distributions on $\Omega$ is denoted $\DD'(\Omega)$.
+
+Let $K$ be a compact subset of $\displaystyle \RR^n$.  The space
+$\DD_K$ is defined by\\
+$\displaystyle \DD_K = \left\{ u \in \DD(\RR^n) : \supp u \subset K \right\}$.
+
+\begin{prop} \label{distr_cont_cond}
+A linear functional $u$ on $\DD(\Omega)$ is continuous if and only if
+for every compact set $K \subset \Omega$ there exist a constant $C_K$
+and an integer $N_K$ such that
+$\displaystyle \left| u(\phi) \right| \leq C_K \max_{|\alpha|\leq N_K}
+\left\| \diff^\alpha \phi \right\|_{\infty,K}$
+for all $\phi \in \DD_K$.
+\end{prop}
+
+The proof of this result is included in the proof of Theorem 6.8 in
+\cite{RuFA}.
+
+\begin{rmk}
+The following notation is often used.  For $u \in \DD'(\Omega)$ and
+$\phi \in \DD(\Omega)$, we define $\ps{u}{\phi}$ as
+$\ps{u}{\phi} = u(\phi)$.  We will use this notation occasionally.
+\end{rmk}
+
+\begin{egg}
+Let $u$ be a function in $\displaystyle L^1_{loc}(\RR^n)$.  The
+function $u$ defines a distribution on $\displaystyle \RR^n$ by
+\[
+\ps{u}{\phi} = u(\phi) =
+\int_{\RR^n} u(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}} \quad ,
+\quad \phi \in \DD(\RR^n) \ .
+\]
+It is traditional to use the same letter to designate the function
+and the distribution.  The context determines to which one we refer to.
+
+To verify this statement, we have to show that
+$\displaystyle u:\DD(\RR^n)\rightarrow \CC$ is well defined, $u$ is
+linear, and $u$ is continuous.
+
+If $\displaystyle \phi \in \DD(\RR^n)$ and $K = \supp \phi$, then 
+\begin{align*}
+\left|u(\phi)\right|
+&= \left| \int_{\RR^n} u(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}} \right|
+\leq \int_{K} \left|u(\VEC{x})\right|\,
+\left| \phi(\VEC{x})\right| \dx{\VEC{x}}
+\leq \left\|\phi(\VEC{x})\right\|_{\infty,K}
+\int_{K} \left| u(\VEC{x})\right| \dx{\VEC{x}} <\infty
+\end{align*}
+because
+$\displaystyle \left\|\phi(\VEC{x})\right\|_{\infty,K} < \infty$ since
+$\phi$ is continuous on the compact set $K$, and
+$\displaystyle \int_{K} \left| u(\VEC{x})\right| \dx{\VEC{x}}$ is bounded
+since $\displaystyle u\in L^1_{loc}(\RR^n)$.  Thus,
+$\displaystyle u:\DD(\RR^n)\rightarrow \CC$ is well defined.
+
+$\displaystyle u:\DD(\RR^n)\rightarrow \CC$ is linear because the integral is a
+linear mapping.
+
+To show that $\displaystyle u:\DD(\RR^n)\rightarrow \CC$ is
+continuous, let $\phi$ be any element of $\displaystyle \DD(\RR^n)$ and
+$\displaystyle \left\{ \phi_j\right\}_{j=0}^\infty$ be any sequence
+$\displaystyle \DD(\RR^n)$ converging toward $\phi$ in
+$\displaystyle \DD(\RR^n)$.  By definition
+of convergence in $\displaystyle \DD(\RR^n)$, there exists a compact set
+$\displaystyle K \subset \RR^n$ such that $\supp \phi_j \subset K$ for all $j$,
+$\supp \phi \subset K$, and
+\[
+\lim_{j\rightarrow \infty}
+\left\| \diff^\alpha \phi_k - \diff^\alpha \phi \right\|_{\infty,K} = 0
+\]
+for all multi-indices $\displaystyle \alpha \in \NN^n$.
+In particular, for $\alpha = \VEC{0}$, we get
+\[
+\lim_{j\rightarrow \infty} \left\| \phi_k - \phi \right\|_{\infty,K} = 0 \ .
+\]
+Hence,
+\begin{align*}
+\left|u(\phi_j) - u(\phi)\right| &=
+\left| \int_{\RR^n} u(\VEC{x})
+\left(\phi_j(\VEC{x}) - \phi(\VEC{x})\right) \dx{\VEC{x}} \right|
+\leq \int_K \left| u(\VEC{x}) \right|\,
+\left|\phi_j(\VEC{x}) - \phi(\VEC{x})\right| \dx{\VEC{x}} \\
+& \leq \left\| \phi_k - \phi \right\|_{\infty,K} 
+\int_K \left| u(\VEC{x}) \right|\ \dx{\VEC{x}} \rightarrow 0
+\end{align*}
+as $j \to \infty$.  Note that
+$\displaystyle \int_K \left| u(\VEC{x}) \right| \dx{\VEC{x}}$ is finite
+because $\displaystyle u\in L^1_{loc}(\RR^n)$.
+\end{egg}
+
+\begin{egg}
+The {\bfseries Dirac delta function}\index{Dirac Delta Function} is
+the distribution on $\displaystyle \RR^n$ defined by
+\[
+\ps{\delta}{\phi} = \delta(\phi) = \phi(\VEC{0}) \quad , \quad
+\phi \in \DD(\RR^n) \ .
+\]
+\end{egg}
+
+\begin{rmk}
+The Dirac delta function is often introduced in engineering books
+as a function which is zero everywhere but at the origin and such that
+$\displaystyle \int_{-\infty}^\infty \delta(x)f(x) \dx{x} = f(0)$ for
+all functions $f$.  Obviously, this does not make any sense.  However,
+the formal manipulations done using this ``definition'' of the
+Dirac delta function can be rigorously proved with the correct
+definition of this function given in the previous example.
+
+Since most of the distributions $\displaystyle u \in \DD'(\RR)$ used in
+engineering comes from integrable functions, the integral notation
+$\displaystyle \int_{-\infty}^\infty u(x) \phi(x)\dx{x}$ is often used
+instead of $u(\phi)$ or $\ps{u}{\phi}$ even when the distribution
+$u$ is not an integrable function as is the case for the Dirac delta
+function.  We will not use these notation in the present text.
+\end{rmk}
+
+The next proposition states that we may defined the
+{\bfseries product}\index{Distribution!Product} of $u \in \DD'(\Omega)$ and
+$\displaystyle f \in C^\infty(\Omega)$ as the distribution $f u$ defined by
+\[
+(f u)(\phi) = u(f \phi) \quad , \quad \phi \in \DD(\Omega) \ .
+\]
+
+\begin{prop} \label{distr_product}
+If $\displaystyle f\in C^\infty(\Omega)$ and $u \in \DD'(\Omega)$, then
+\[
+v(\phi) = u(f \phi) \quad , \quad \phi \in \DD(\Omega) \ ,
+\]
+defines a distribution on $\Omega$.  We denote this distribution by
+$f u$, the product of the function $f$ and the distribution $u$.
+\end{prop}
+
+\begin{proof}
+\stage{i} $(f u)(\phi)$ is well defined for all $\phi \in \DD(\Omega)$
+because $f \phi \in \DD(\Omega)$ for all $\phi\in \DD(\Omega)$.
+
+\stage{ii} It is easy to show that $f u$ is a linear functional.
+
+\stage{iii} To prove that $f u$ is continuous, we show that $f u$
+satisfies Proposition~\ref{distr_cont_cond}.
+
+Let $K$ be a compact subset of $\Omega$.  Since $u\in \DD'(\Omega)$,
+it follows from Proposition~\ref{distr_cont_cond} that there exist a
+constant $C_K$ and an integer $N_K$ such that
+$\displaystyle \left| u(\phi) \right| \leq C_K \max_{|\alpha|\leq N_K}
+\left\| \diff^\alpha \phi \right\|_{\infty,K}$ for all
+$\phi \in \DD_K$.  According to Leibniz formula
+\[
+\diff^\alpha (f \phi) = \sum_{\beta \leq \alpha} c_{\alpha,\beta}
+\diff^{\alpha-\beta}f \,\diff^\beta \phi \ ,
+\]
+where the coefficients $c_{\alpha,\beta}$ are constants.  This is a formula
+similar to the binomial formula.  Hence, there exists a constant $C_f$
+such that
+\[
+\| \diff^\alpha (f \phi) \|_{\infty} \leq C_f
+\max_{\beta\leq\alpha} \|\diff^\beta \phi\|_{\infty,K}
+\]
+for all $\phi \in \DD_K$ and $|\alpha|\leq N_K$.  The constant $C_f$
+depends only of $\displaystyle \left\|\diff^{\alpha-\beta} f\right\|_{\infty,K}$
+and $c_{\alpha,\beta}$ for $\beta \leq \alpha$.
+We finally get that
+\[
+\left| (f u)(\phi) \right| =
+\left| u(f \phi) \right| \leq C_K \max_{|\alpha|\leq N_K}
+\left\| \diff^\alpha (f \phi) \right\|_{\infty,K}
+\leq C_K C_f \max_{|\alpha|\leq N_K}
+\left\| \diff^\alpha \phi \right\|_{\infty,K}
+\]
+for all $\phi \in \DD_K$.
+\end{proof}
+
+The {\bfseries support}\index{Distribution!Support} of a distribution
+$u\in \DD'(\Omega)$ is the complement of the largest open set
+$V\subset \Omega$ such that $u(\phi)=0$ for all $\phi \in \DD(\Omega)$ with
+$\supp \phi \subset V$.  The space of distributions on $\Omega$
+with compact support is denoted $\EE'(\Omega)$; in other words,
+$\displaystyle \EE'(\Omega) = \left\{ u \in \DD'(\Omega) : \supp u
+\text{ is compact} \right\}$.
+
+The space of distributions is equipped with the following (weak) topology.
+We say that the sequence
+$\displaystyle \left\{ u_j\right\}_{j=0}^\infty$ of distribution on
+$\Omega$ {\bfseries converge (weakly)}\index{Distribution!Convergence} to
+$u\in \DD'(\Omega)$ if
+$\displaystyle \lim_{j\rightarrow \infty} \left|u_j(\phi) - u(\phi) \right| = 0$
+for all $\phi \in \DD(\Omega)$.  The space of distribution on $\Omega$
+is ``kind of complete'' according to this topology.
+
+\begin{prop}
+Let $\displaystyle \left\{ u_j \right\}_{j=0}^\infty$ be a sequence
+in $\DD'(\Omega)$ such that the sequence
+$\displaystyle \left\{ u_j(\phi) \right\}_{j=0}^\infty$ of complex numbers
+converges for all $\phi \in \DD(\Omega)$.  Let
+$u : \DD(\Omega) \to \CC$ be the function defined
+by $\displaystyle u(\phi) = \lim_{j\to \infty} u_j(\phi)$ for all
+$\phi \in \DD(\Omega)$.  Then $u\in \DD'(\Omega)$ and the sequence 
+$\displaystyle \left\{ u_j \right\}_{j=0}^\infty$ converges to $u$ in
+$\DD'(\Omega)$.
+\end{prop}
+
+The proof of this result is part of the proof of Theorem 6.17 in
+\cite{RuFA}.
+
+\begin{egg}
+Consider the function        \label{chia_delta}
+\[
+\chi_a(x) =
+\begin{cases}
+1/(2a) & \quad \text{if} \ |x|<a \\
+0 & \quad \text{if} \ |x| >a
+\end{cases}
+\]
+It is often stated in engineering books that the Dirac delta function
+$\delta$ is the limit of $\chi_a$ as $a \to 0$.
+
+We can rigorously prove this statement in the context of our theory.
+We have that $\chi_a$ defined a distribution on $\RR$ by
+\[
+  \chi_a(\phi) = \int_{\RR} \chi_a(x) \phi(x) \dx{x}
+\]
+for all $\phi \in \DD(\RR)$.  We now prove that this distribution
+converges to $\delta$ as $ a \to 0$.
+
+Given $\phi \in \DD(\RR)$, let
+$\displaystyle \Phi(x) = \int_0^x \phi(x) \dx{x}$.
+We have that
+\[
+\lim_{a\to 0} \chi_a(\phi)
+= \lim_{a\to 0}\frac{1}{2a} \int_{-a}^a \phi(x) \dx{x} 
+= \lim_{a\to 0}\frac{1}{2a} \left( \Phi(a) - \Phi(-a)\right)
+= \Phi'(0) = \phi(0) = \delta(\phi) \ .
+\]
+Since this is true for all $\phi \in \DD(\RR)$, we get that
+$\chi_a \to \delta$ in $\DD'(\RR)$.
+\end{egg}
+
+\section{Derivatives of Distributions}
+
+\begin{prop} \label{distr_der_def}
+If $u \in \DD'(\Omega)$ and $\alpha$ is a multi-index, then
+\[
+v(\phi) = (-1)^{|\alpha|}u(\diff^\alpha \phi) \quad ,
+\quad \phi \in \DD(\Omega) \ ,
+\]
+defines a distribution on $\Omega$.  We denote this distribution by
+$\displaystyle \diff^\alpha u$, the
+{\bfseries partial derivative}\index{Distribution!Partial Derivative}
+of $u\in \DD'(\Omega)$.
+\end{prop}
+
+\begin{proof}
+\stage{i} $\displaystyle (\diff^\alpha u)(\phi)$ is well defined for all
+$\phi \in \DD(\Omega)$ because $\displaystyle \diff^\alpha \phi \in \DD(\Omega)$
+for all $\phi\in \DD(\Omega)$.
+
+\stage{ii} It is easy to show that $\displaystyle \diff^\alpha u$ is a
+linear functional.
+
+\stage{iii} To prove that $\displaystyle \diff^\alpha u$ is
+continuous, we show that $\displaystyle \diff^\alpha u$ satisfies
+Proposition~\ref{distr_cont_cond}.
+
+Let $K$ be a compact subset of $\Omega$.  Since $u\in \DD'(\Omega)$,
+it follows from Proposition~\ref{distr_cont_cond} that there exist a
+constant $C_K$ and an integer $N_K$ such that
+$\displaystyle \left| u(\phi) \right| \leq C_K \max_{|\beta|\leq N_K}
+\left\| \diff^\beta \phi \right\|_{\infty,K}$
+for all $\phi \in \DD_K$.  Hence
+\[
+\left| (\diff^\alpha u)(\phi) \right| =
+  \left| (-1)^{|\alpha|} u(\diff^\alpha \phi) \right|
+\leq C_K \max_{|\beta|\leq N_K}
+\left\| \diff^{\beta+\alpha} \phi \right\|_{\infty,K}
+\leq C_K \max_{|\beta|\leq N_K+|\alpha|}
+\left\| \diff^{\beta} \phi \right\|_{\infty,K}
+\]
+for all $\phi \in \DD_K$.
+\end{proof}
+
+The distributions are infinitely differentiable.  The following
+example justifies this definition of derivative. 
+
+\begin{egg}
+Suppose that $\displaystyle u \in C^k(\RR^n)$.  Show that the partial
+derivatives $\displaystyle \diff^\alpha u$ of the distribution $u$ on
+$\displaystyle \RR^n$ with $|\alpha|\leq k$
+corresponds to the standard partial derivatives of the function $u$.  More
+precisely, show that the derivative of the distribution $u$ on
+$\displaystyle \RR^n$ is the distribution given by the standard
+derivative of the function $u$.
+
+Note that $\displaystyle u \in C^k(\RR^n)$ implies that standard derivative
+$\displaystyle \diff^\alpha u$ of $u$ is in $\displaystyle C(\RR^n)$
+for all $|\alpha|\leq k$ and
+so it is in $\displaystyle L_{loc}^1(\RR^n)$ for all $|\alpha|\leq k$.
+Thus, the standard derivative $\displaystyle \diff^\alpha u$ can define a
+distribution for all $|\alpha|\leq k$.
+
+Let $\alpha = (1,0,\ldots,0)$, the reasoning for other first order
+partial derivatives is similar. There are two ways to look at
+$\displaystyle \diff^{\alpha} u$.
+
+\stage{i} The function $u$ can be used to define a
+distribution on $\displaystyle \RR^n$ because
+$\displaystyle u\in L_{loc}^1(\RR^n)$.  Hence, the 
+derivative of $u$ in the sense of distributions is
+\[
+\ps{\diff^\alpha u}{\phi} = -\ps{u}{\diff^\alpha \phi} =
+-\int_{\RR^n} u(\VEC{x}) \pdydx{\phi}{x_1}(\VEC{x}) \dx{\VEC{x}}
+\quad , \quad \phi \in \DD(\Omega) \ .
+\]
+
+\stage{ii} The function $\displaystyle \diff^\alpha u$ can be used to define a
+distribution on $\displaystyle \RR^n$ because
+$\displaystyle \diff^\alpha u\in L_{loc}^1(\RR^n)$.
+Hence, by definition,
+\[
+\ps{\diff^\alpha u}{\phi} = 
+\int_{\RR^n} (\diff_{x_1}u)(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}
+\quad , \quad \phi \in \DD(\Omega) \ .
+\]
+
+However, for all $\displaystyle \phi \in \DD(\RR^n)$, we have
+\begin{align*}
+&-\int_{\RR^n} u(\VEC{x}) \pdydx{\phi}{x_1}(\VEC{x}) \dx{\VEC{x}}
+= -\int_{\RR^{n-1}} \left( \int_{-\infty}^\infty u(x_1,\VEC{y})
+\pdydx{\phi}{x_1}(x_1,\VEC{y})\dx{x_1}\right) \dx{\VEC{y}} \\
+&\qquad = -\int_{\RR^{n-1}} \left(
+\lim_{x_1\rightarrow +\infty}u(x_1,\VEC{y})\phi(x_1,\VEC{y})
+- \lim_{x_1\rightarrow -\infty}u(x_1,\VEC{y})\phi(x_1,\VEC{y}) \right. \\
+&\qquad \qquad \left. - \int_{-\infty}^\infty
+\diff^\alpha u(x_1,\VEC{y})\phi(x_1,\VEC{y})\dx{x_1} \right) \dx{\VEC{y}}\\
+&\qquad = \int_{\RR^{n-1}} \left(\int_{-\infty}^\infty
+\diff^\alpha u(x_1,\VEC{y})\phi(x_1,\VEC{y})\dx{x_1} \right) \dx{\VEC{y}}
+= \int_{\RR^n} \diff^\alpha u(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}} \ ,
+\end{align*}
+where we have used integration by parts for the differentiable functions
+$u$ and $\phi$, and
+\[
+\lim_{x_1\rightarrow +\infty}u(x_1,\VEC{y})\phi(x_1,\VEC{y})
+= \lim_{x_1\rightarrow -\infty}u(x_1,\VEC{y})\phi(x_1,\VEC{y}) = 0
+\]
+because $\phi$ has a compact support, so the support of $\phi$ is bounded.
+
+Thus, the action of the derivative of the distribution $u$ given in
+(i) is equal to the action of the distribution $\displaystyle \diff^\alpha u$
+given in (ii) on $\displaystyle \DD(\RR^n)$.
+
+By Induction, one can show that this is also true for higher order
+partial derivatives.
+\end{egg}
+
+\begin{egg}
+Let $\displaystyle k(x_1,x_2) = \frac{1}{2\pi(x_1 + i x_2)}$ and
+$L = \diff_{x_1} + i \diff_{x_2}$.
+
+Given $\displaystyle \phi \in \DD(\RR^2)$, we have that
+\begin{align*}
+\ps{L k}{\phi} &= - \ps{k}{L\phi}
+= \frac{-1}{2\pi} \int_{\RR^2} \left( \pdydx{\phi}{x_1} + i
+\pdydx{\phi}{x_2} \right) \frac{1}{x_1 + i x_2} \dx{\VEC{x}} \\
+&= \lim_{r\to 0} \frac{-1}{2\pi} \int_{\|\VEC{x}\|_2\geq r}
+\left( \pdydx{\phi}{x_1} + i \pdydx{\phi}{x_2} \right)
+\frac{1}{x_1 + i x_2} \dx{\VEC{x}}  \ ,
+\end{align*}
+where the limit is justified by the Lebesgue Dominate Convergence
+Theorem.  Using the Green's Theorem on the disk defined by
+$\displaystyle \|\VEC{x}\|_2 \leq r$, we get
+\begin{align*}
+\int_{\|\VEC{x}\|_2\geq r}
+\left( \pdydx{\phi}{x_1} + i \pdydx{\phi}{x_2} \right) \frac{1}{x_1 + i x_2}
+\dx{\VEC{x}}
+&= -i \int_{\|\VEC{x}\|_2\geq r}
+\left( \pdfdx{\left(\frac{i \phi}{x_1 + i x_2}\right)}{x_1}
+- \pdfdx{\left(\frac{\phi}{x_1 + i x_2}\right)}{x_2}  \right) \dx{\VEC{x}} \\
+&= -i \int_{\|\VEC{x}\|_2 = r}
+\frac{\phi}{x_1 + i x_2} \dx{x_1} + \frac{i\phi}{x_1 + i x_2} \dx{x_2}
+\end{align*}
+where the orientation of the circle $\|\VEC{x}\|_2 = r$
+is clockwise.  If we use the parametric representation
+$(x_1,x_2) = (r\cos(\theta),r\sin(\theta)$ for
+$0 \leq \theta \leq 2\pi$, a parametric representation associated to
+the counterclockwise orientation of the circle, we get
+\begin{align*}
+&\int_{\|\VEC{x}\|_2\geq r}
+\left( \pdydx{\phi}{x_1} + i \pdydx{\phi}{x_2} \right)
+\frac{1}{x_1 + i x_2} \dx{\VEC{x}} 
+= i \int_0^{2\pi} \frac{\phi(r\cos(\theta),r\sin(\theta))}{r e^{i \theta}}
+\left( -r \sin(\theta) + i r \cos(\theta) \right) \dx{\theta} \\
+&\qquad \qquad
+= - \int_0^{2\pi} \phi(r\cos(\theta),r\sin(\theta)) \dx{\theta} \ .
+\end{align*}
+Thus,
+\[
+\ps{L k}{\phi} = \lim_{r\to 0} \frac{1}{2\pi}
+\int_0^{2\pi} \phi(r\cos(\theta),r\sin(\theta)) \dx{\theta}
+= \frac{1}{2\pi} \int_0^{2\pi} \phi(\VEC{0}) \dx{\theta}
+= \phi(\VEC{0}) = \delta(\phi)
+\]
+for all $\displaystyle \phi \in \DD(\RR^2)$.  This means that
+$L k = \delta$.
+\end{egg}
+
+\begin{lemma} % If the label is defined here before the first sentence
+% of the definition, TeX does not register it.  Why?
+Let $]a,b[$ be an open interval of $\RR$.  If     \label{distr_der0_eq_const}
+$\displaystyle f \in L^1_{loc}(]a,b[)$ satisfies
+\begin{equation} \label{distr_fp0_const}
+\ps{f}{\phi'} = \int_a^b f(x) \phi'(x) \dx{x} = 0
+\end{equation}
+for all $\phi \in \DD(]a,b[)$, then there exists a constant $C$ such
+that $f=C$ almost everywhere on $]a,b[$.
+\end{lemma}
+
+\begin{proof}
+Choose $\psi \in \DD(]a,b[)$ such that
+$\displaystyle \int_a^b \psi(x)\dx{x}=1$.  For each
+$\phi \in \DD(]a,b[)$, let
+\[
+\theta(x) = \int_a^x \left( \phi(y) - \psi(y) \int_a^b
+\phi(z)\dx{z}\right) \dx{y} \ .
+\]
+We prove that $\theta \in \DD(]a,b[)$. Let $K = \supp \psi \cup \supp \phi$
+and choose $m, M \in ]a,b[$ such $m < x < M$ for all $x \in K$.
+This is possible because $\phi$ and $\psi$ have compact supports in
+the open set $]a,b[$.  We then have that
+$\theta(x) = 0$ for $x<m$ because $\phi(x) = \psi(x) = 0$ for $x<m$,
+and $\theta(x) = 0$ for $x>M$ because
+\begin{align*}
+\int_a^x \left( \phi(y) - \psi(y) \int_a^b \phi(z)\dx{z}\right) \dx{y} &=
+\int_a^b \left( \phi(y) - \psi(y) \int_a^b \phi(z)\dx{z}\right) \dx{y} \\
+&= \int_a^b \phi(y) \dx{y} - \left(\int_a^b \psi(y) \dx{y}\right)
+\left( \int_a^b \phi(z)\dx{z}\right) = 0
+\end{align*}
+for all $x >M$, where we have used $\phi(x)=\psi(x) = 0$ for $x>M$.
+
+It follows from (\ref{distr_fp0_const}) that
+\begin{align*}
+0 &= \ps{f}{\theta'} = \int_a^b f(x) \left( \phi(x) - \psi(x) \int_a^b
+\phi(z)\dx{z}\right) \dx{x} \\
+&= \int_a^b f(x) \phi(x) \dx{x} -
+\left( \int_a^b f(x) \,\psi(x) \dx{x}\right)
+\left(\int_a^b \phi(z)\dx{z}\right) \\
+&= \int_a^b f(x) \phi(x) \dx{x} -
+\left( \int_a^b f(z) \, \psi(z) \dx{z}\right)
+\left(\int_a^b \phi(x)\dx{x}\right) \\
+&= \int_a^b \left( f(x) - \left( \int_a^b f(z)\,\psi(z) \dx{z}\right) \right)
+\phi(x)\dx{x}
+\end{align*}
+for all $\phi \in \DD(]a,b[)$.  Thus
+\[
+f(x) - \left( \int_a^b f(z)\,\psi(z) \dx{z}\right) = 0
+\]
+almost everywhere in $]a,b[$.
+The constant $C$ in the conclusion of the lemma is given by
+$\displaystyle C = \int_a^b f(z)\,\psi(z) \dx{z}$.  The readers should
+convince themselves that this is independent of $\psi$.
+\end{proof}
+
+The previous proposition can be restated as follows.  If
+$u \in \DD'(]a,b[)$ is defined by
+$\displaystyle u(\phi) = \int_a^b f(x) \phi(x) \dx{x}$ for
+$\phi \in \DD(]a,b[)$, where $\displaystyle f \in L_{loc}^1(]a,b[)$, and
+$\diff u = 0$ in the sense of distributions, then there exists a constant
+$C$ such that $f(x) = C$ almost everywhere on $]a,b[$.  Thus, we may
+say that $u$ is a distribution given by the constant function
+$f(x) = C$ for all $x \in ]a,b[$.
+
+\begin{prop} \label{distr_cdistr_cder}
+Suppose that $u \in C(\Omega)$.  Moreover, suppose that the derivative
+in the sense of distributions $\displaystyle \diff^\alpha u$ can be
+represented by a continuous function $g_\alpha:\Omega \to \CC$ for
+$|\alpha|\leq k$; namely,
+\[
+\ps{\diff^{\alpha} u}{\phi} = (-1)^{|\alpha|} \ps{u}{\diff^\alpha\phi}
+= \ps{g_\alpha}{\phi} = \int_{\Omega} g_{\alpha}(\VEC{x})
+\phi(\VEC{x}) \dx{\VEC{x}}
+\]
+for all $\phi \in \DD(\Omega)$.  Then
+$\displaystyle u \in C^k(\Omega)$.
+\end{prop}
+
+\begin{proof}
+\stage{$\mathbf{k=1}$}
+Let $g_\alpha \in C(\Omega)$ be the function representing
+$\displaystyle \diff^\alpha u$ for $\alpha = (1.0.\ldots,0)$, the
+partial derivative of the distribution $u$ on $\Omega$ with respect to
+$x_1$.  The reasoning is similar for the other multi-indices $\alpha$
+such that $|\alpha|=1$.
+
+Since the standard derivative is a local concept, we may assume that
+$\displaystyle \Omega = \prod_{j=1}^n ]a_j,b_j[$.
+
+Choose $\VEC{y} \in \Omega$. Let
+\[
+v(\VEC{x}) = \int_{y_1}^{x_1} g_\alpha(s,\tilde{\VEC{x}}) \dx{s} +
+u(y_1,\tilde{\VEC{x}})
+\]
+for $\VEC{x} = (x_1, \tilde{\VEC{x}}) \in \Omega$.
+Since $g_\alpha \in C(\Omega)$, we have that
+\begin{align*}
+]a_1,b_1[ & \rightarrow \CC \\
+x & \mapsto v(x,\tilde{\VEC{x}})
+\end{align*}
+is differentiable in the classical sense for all
+$\displaystyle \tilde{\VEC{x}} \in \prod_{j=2}^n ]a_j,b_j[$.
+More precisely, $\displaystyle \pdydx{v}{x_1}(x,\tilde{\VEC{x}}) =
+g_\alpha(x,\tilde{\VEC{x}})$ for all $(x, \tilde{\VEC{x}}) \in \Omega$.
+The goal is to show that $u=v$ in $\Omega$.
+
+Consider
+\begin{equation} \label{distr_der_der}
+\int_\Omega \left(u(\VEC{x}) - v(\VEC{x})\right) \diff^\alpha
+\phi(\VEC{x}) \dx{\VEC{x}}
+= \int_\Omega u(\VEC{x}) \diff^\alpha \phi(\VEC{x}) \dx{\VEC{x}} -
+\int_\Omega v(\VEC{x}) \diff^\alpha \phi(\VEC{x}) \dx{\VEC{x}}
+\end{equation}
+for $\phi \in \DD(\Omega)$.
+By definition of the derivative in the sense of distributions, we have
+\begin{equation} \label{distr_der_derA}
+-\int_\Omega u(\VEC{x}) \diff^\alpha \phi(\VEC{x}) \dx{\VEC{x}} =
+\int_\Omega g_\alpha(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}
+\end{equation}
+for all $\phi \in \DD(\Omega)$ by hypothesis.
+Moreover, using integration by parts, we have
+\begin{align}
+&\int_\Omega v(\VEC{x}) \diff^\alpha \phi(\VEC{x}) \dx{\VEC{x}} =
+\int_{\prod_{j=2}^n]a_j,b_j[} \int_{a_1}^{b_1}
+v(x_1,\tilde{\VEC{x}}) \pdydx{\phi}{x_1}(x_1,\tilde{\VEC{x}})
+\dx{x_1} \dx{\tilde{\VEC{x}}} \nonumber \\
+&\quad = \int_{\prod_{j=2}^n]a_j,b_j[} \left( v(x_1, \tilde{\VEC{x}})\,
+\phi(x_1,\tilde{\VEC{x}})\bigg|_{x_1=a_1}^{x_1=b_1}
+- \int_{a_1}^{b_1} \pdydx{v}{x_1}(x_1,\tilde{\VEC{x}})\,
+\phi(x_1,\tilde{\VEC{x}}) \dx{x_1} \right) \dx{\tilde{\VEC{x}}}
+\nonumber \\
+&\quad = - \int_\Omega \pdydx{v}{x_1}(\VEC{x})\,\phi(\VEC{x}) \dx{\VEC{x}}
+= - \int_\Omega g_\alpha(\VEC{x})\,\phi(\VEC{x}) \dx{\VEC{x}}
+\label{distr_der_derB}
+\end{align}
+for all $\phi \in \DD(\Omega)$, where we have use the fact that $\phi$
+has a compact support in $\Omega$ to obtain
+\[
+v(x_1,\tilde{\VEC{x}})\, \phi(x_1,\tilde{\VEC{x}})
+\bigg|_{x_1=a_1}^{x_1=b_1}
+= \lim_{x_ \to b_1} v(x_1,\tilde{\VEC{x}})\, \phi(x_1,\tilde{\VEC{x}})
+- \lim_{x_ \to a_1} v(x_1,\tilde{\VEC{x}})\, \phi(x_1,\tilde{\VEC{x}}) = 0 \ .
+\]
+It follows from (\ref{distr_der_der}), (\ref{distr_der_derA}) and
+(\ref{distr_der_derB}) that
+\begin{equation} \label{distr_der_der2}
+\int_\Omega \left(u(\VEC{x}) - v(\VEC{x})\right) \diff^\alpha
+\phi(\VEC{x}) \dx{\VEC{x}} = 0
+\end{equation}
+for all $\phi \in \DD(\Omega)$.
+
+If we consider $\phi \in \DD(\Omega)$ of the form
+$\displaystyle \phi(\VEC{x}) = \phi_1(x_1) \, \phi_2(\tilde{\VEC{x}})$ for all
+$\VEC{x} = (x_1,\tilde{\VEC{x}}) \in \Omega$, where
+$\phi_1 \in \DD(]a_1,b_1[)$ and
+$\displaystyle \phi_2 \in \DD\left(\prod_{j=2}^n]a_j,b_j[\right)$, we
+can rewrite (\ref{distr_der_der2}) as
+\[
+\int_{\prod_{j=2}^n]a_j,b_j[} \left( \int_{a_1}^{b_1}
+\left(u(x_1,\tilde{\VEC{x}}) - v(x_1,\tilde{\VEC{x}})\right)
+\diff^\alpha \phi_1(x_1) \dx{x_1} \right) \phi_2(\tilde{\VEC{x}})
+\dx{\tilde{\VEC{x}}} = 0
+\]
+for all $\phi_1 \in \DD(]a_1,b_1[)$ and
+$\displaystyle \phi_2 \in \DD\left(\prod_{j=2}^n]a_j,b_j[\right)$.
+It follows that, for almost all
+$\displaystyle \tilde{\VEC{x}} \in \prod_{j=2}^n]a_j,b_j[$, we have
+\[
+\int_{a_1}^{b_1}
+\left(u(x_1,\tilde{\VEC{x}}) - v(x_1,\tilde{\VEC{x}})\right) \diff^\alpha
+\phi_1(x_1) \dx{x_1} = 0
+\]
+for all $\phi_1 \in \DD(]a_1,b_1[)$.
+Hence, from Lemma~\ref{distr_der0_eq_const}, there exists a constant $C$ such
+that $u-v = C$ almost everywhere in $\Omega$.  Since $v$ and $u$ are
+continuous on $\Omega$, it follows that
+$u(\VEC{x})-v(\VEC{x}) = C$ for all $\VEC{x} \in \Omega$.
+However, $u(y_1,x_2,\ldots,x_n) = v(y_1,x_2, \ldots,x_n)$.  Thus
+$C=0$.
+
+\stage{$\mathbf{k>1}$} A proof by induction on $k$ takes care of
+higher order partial derivatives.
+\end{proof}
+
+\section{Convolution} \label{sectConvolution}
+
+\begin{theorem}[Generalized Young's Inequality] \label{distr_GyoungI}
+Let $\left(X,\mu\right)$ be a measure space,
+$1\leq p \leq \infty$, and $K:X\times X \rightarrow \CC$ be a
+measurable function.  Suppose that there exists $C>0$ such that
+\[
+\sup_{x\in X} \int_X \left|K(x,y)\right| \dx{\mu(y)} \leq C
+\quad \text{and} \quad
+\sup_{y\in X} \int_X \left|K(x,y)\right| \dx{\mu(x)} \leq C \ .
+\]
+If $\displaystyle f \in L^p(X)$, then $Tf:X\rightarrow \CC$ defined by
+\[
+(Tf)(x) = \int_X K(x,y)f(y) \dx{\mu(y)}
+\]
+is defined almost everywhere, $\displaystyle Tf \in L^p(X)$ and
+$\displaystyle \| Tf \|_p \leq C \|f\|_p$.
+\index{Generalized Young's Inequality}
+\end{theorem}
+
+\begin{proof}
+\stage{$0<p<\infty$}  Let $q$ be the
+{\bfseries conjugate exponent}\index{Conjugate Exponent} of
+$p$; namely. $\displaystyle \frac{1}{p} + \frac{1}{q} = 1$.  Since
+\[
+K(x,y)f(y) = K(x,y)^{1/q} K(x,y)^{1/p}f(y)
+\]
+for all $x,y \in X$, we get from Hölder's inequality that
+\begin{align*}
+\int_X \left| K(x,y)f(y)\right| \dx{\mu(y)}
+&\leq \left( \int_X \left| K(x,y)\right| \dx{\mu(y)}\right)^{1/q}
+\left(\int_X \left| K(x,y)\right|\,\left|f(y)\right|^p
+\dx{\mu(y)}\right)^{1/p} \\
+& \leq C^{1/q} 
+\left(\int_X \left| K(x,y)\right|\,\left|f(y)\right|^p
+\dx{\mu(y)}\right)^{1/p}
+\end{align*}
+for all $x \in X$.  Hence, from Fubini's theorem, we have
+\begin{align}
+&\int_X \left( \int_X \left| K(x,y)f(y)\right| \dx{\mu(y)} \right)^p \dx{\mu(x)}
+\leq C^{p/q} \int_X \left(\int_X \left| K(x,y)\right|\,\left|f(y)\right|^p
+\dx{\mu(y)}\right) \dx{\mu(x)} \nonumber \\
+& \quad = C^{p/q} \int_X \left(\int_X \left| K(x,y)\right| \dx{\mu(x)}\right)
+\,\left|f(y)\right|^p \dx{\mu(y)}
+\leq C^{1+p/q} \int_X \left|f(y)\right|^p \dx{\mu(y)} < \infty \  .
+\label{distr_g_young}
+\end{align}
+Thus
+\[
+\int_X \left| K(x,y)f(y)\right| \dx{\mu(y)} < \infty
+\]
+for almost all $x\in X$.  It follows that
+$\displaystyle y \mapsto K(x,y)f(y) \in L^1(\mu)$ for almost all $x\in X$.
+So $Tf$ is defined almost everywhere.  Moreover, since
+\[
+\left|(Tf)(x)\right| \leq \int_X \left| K(x,y)f(y)\right| \dx{\mu(y)} \ ,
+\]
+it follows from (\ref{distr_g_young}) that
+\[
+\int_X \left|(Tf)(x)\right|^p \dx{\mu(x)} \leq
+C^{1+p/q} \int_X \left|f(y)\right|^p \dx{\mu(y)} \ .
+\]
+After taking the $p^{th}$ root on both sides of the previous
+inequality, we get
+\[
+\| Tf\|_p \leq C^{1/p+1/q} \| f\|_p = C \|f \|_p \ .
+\]
+
+\stage{$p=1$}  We have from Fubini's theorem that
+\begin{align}
+\int_X \int_X \left| K(x,y)f(y)\right| \dx{\mu(y)} \dx{\mu(x)}
+& = \int_X \left(\int_X \left| K(x,y)\right| \dx{\mu(x)}\right)
+\,\left|f(y)\right| \dx{\mu(y)} \nonumber \\
+& \leq C \int_X \left|f(y)\right|\dx{\mu(y)} < \infty \ .
+\label{distr_g_young1}
+\end{align}
+Thus
+\[
+\int_X \left| K(x,y)f(y)\right| \dx{\mu(y)} < \infty
+\]
+for almost all $x\in X$.
+It follows that $\displaystyle y \mapsto K(x,y)f(y) \in L^1(\mu)$ for
+almost all $x\in X$.  So $Tf$ is defined almost everywhere.  Moreover, since
+\[
+\left|(Tf)(x)\right| \leq \int_X \left| K(x,y)f(y)\right| \dx{\mu(y)} \ ,
+\]
+we have from (\ref{distr_g_young1}) that
+$\displaystyle \| Tf\| \leq  C \|f \|$.
+
+\stage{$p=\infty$} We have
+\[
+\int_X \left| K(x,y)f(y)\right| \dx{\mu(y)}
+\leq \|f\|_\infty \int_X \left| K(x,y)\right| \dx{\mu(y)}
+\leq C \|f\|_\infty
+\]
+for all $x\in X$.
+It follows that $\displaystyle y \mapsto K(x,y)f(y) \in L^1(\mu)$ for
+all $x\in X$.  So $Tf$ is defined (almost) everywhere.  Moreover,
+$\displaystyle \| (Tf)(x)\|_\infty \leq C \| f\|_\infty$.
+
+The norm $\| \cdot \|_\infty$ above is the essential supremum of the
+measurable function.
+\end{proof}
+
+The {\bfseries convolution}\index{Functions!Convolution} of $f$ and $g$ in
+$\displaystyle L^1(\RR^n)$ is defined by
+\[
+(f\ast g)\left(\VEC{x}\right) = \int_{\RR^n}
+f\left(\VEC{x} - \VEC{y}\right)  g\left(\VEC{y}\right) \dx{\VEC{y}}
+\]
+for all $\displaystyle \VEC{x} \in \RR^n$ where the integral
+converges.  It can be proved that the integral is defined almost
+everywhere.
+
+\begin{theorem}[Young's Inequality] \label{distr_sp_young}
+if $\displaystyle f \in L^1(\RR^n)$ and $\displaystyle g\in L^p(\RR^n)$
+\index{Young's Inequality}
+for $1\leq p \leq \infty$, then $\displaystyle f\ast g \in L^p(\RR^n)$ and
+\[
+\| f\ast g \|_p \leq \|f \|_1 \, \|g\|_p \ .
+\]
+\end{theorem}
+
+\begin{proof}
+It is a special case of the Generalized Young's Inequality where
+$\displaystyle X=\RR^n$ and $K(x,y) = f\left(\VEC{x}-\VEC{y}\right)$.
+\end{proof}
+
+The following proposition is often used to expand to a larger class of
+functions results proved for a special class of functions.
+
+\begin{prop} \label{distr_limit_convol}
+Suppose that $\displaystyle \phi \in L^1(\RR^n)$ and let
+$\displaystyle a = \int_{\RR^n} \phi(\VEC{x})\dx{\VEC{x}}$.  For
+$\epsilon >0$, let
+\[
+\phi_\epsilon(\VEC{x}) = \epsilon^{-n}
+\phi\left(\epsilon^{-1}\VEC{x}\right) \ .
+\]
+If $\displaystyle f \in L^p(\RR^n)$ with $1 \leq p < \infty$, then
+$\displaystyle f\ast \phi_\epsilon \rightarrow a f$ in
+$\displaystyle L^p(\RR^n)$ as $\epsilon \rightarrow 0$.
+
+If $\displaystyle f \in L^\infty(\RR^n)$ and $f$ is uniformly continuous on
+an open set $V\subset \RR^n$, then
+$\displaystyle f\ast \phi_\epsilon \rightarrow a f$ uniformly on
+$K$ as $\epsilon \rightarrow 0$ for all compact sets $K\subset V$.
+\end{prop}
+
+\begin{proof}
+The substitution $\VEC{y} = \epsilon^{-1} \VEC{x}$ shows that
+\[
+\int_{\RR^n} \phi_\epsilon(\VEC{x}) \dx{\VEC{x}} 
+= \int_{\RR^n} \epsilon^{-n} \phi(\epsilon^{-1} \VEC{x}) \dx{\VEC{x}} 
+= \int_{\RR^n} \phi(\VEC{y}) \dx{\VEC{y}} = a
+\]
+for every $\epsilon >0$.
+
+\stage{i} If $\displaystyle f\in L^p(\RR^n)$ with $1\leq p < \infty$,
+the substitution $\VEC{y} = \epsilon\, \VEC{z}$ yields
+\[
+(f\ast \phi_\epsilon)(\VEC{x}) - a f(\VEC{x}) =
+\int_{\RR^n} \left( f(\VEC{x}-\VEC{y}) - f(\VEC{x})
+\right)\phi_\epsilon(\VEC{y}) \dx{\VEC{y}}
+= \int_{\RR^n} \left( f(\VEC{x}-\epsilon \VEC{z}) - f(\VEC{x})
+\right)\phi(\VEC{z}) \dx{\VEC{z}} \ .
+\]
+Using Jensen's Inequality (Theorem 3.3 in \cite{Ru}), we get
+\begin{align*}
+\left| (f\ast \phi_\epsilon)(\VEC{x}) - a f(\VEC{x}) \right|^p
+&\leq \left( \int_{\RR^n} \left| f(\VEC{x}-\epsilon \VEC{z}) - f(\VEC{x})
+\right| \,\left| \phi(\VEC{z})\right| \dx{\VEC{z}} \right)^p \\
+&\leq \int_{\RR^n} \left| f(\VEC{x}-\epsilon\VEC{z}) - f(\VEC{x})
+\right|^p \,\left| \phi(\VEC{z})\right| \dx{\VEC{z}} \ .
+\end{align*}
+If we define $\displaystyle f_{\VEC{z}} \in L^p(\RR^n)$ by
+$f_{\VEC{z}}(\VEC{x}) = f(\VEC{x}-\VEC{z})$ for
+$\VEC{x}, \VEC{z}\in \RR^n$, we then have that
+\[
+\| f\ast \phi_\epsilon -a f \|_p^p
+\leq \int_{\RR^n} \int_{\RR^n} \left| f(\VEC{x}-\epsilon \VEC{z})
+ - f(\VEC{x})\right|^p\, \left| \phi(\VEC{z})\right| \dx{\VEC{z}}
+\dx{\VEC{x}}
+\leq \int_{\RR^n} \| f_{\epsilon\VEC{z}} - f \|_p^p
+\left|\phi(\VEC{z})\right|
+\dx{\VEC{z}} \ .
+\]
+However,
+\[
+\| f_{\epsilon\VEC{z}} - f \|_p^p \left|\phi(\VEC{z})\right| \leq
+(2 \|f\|_p)^p \left|\phi(\VEC{z})\right| \in L^1(\RR^n)
+\]
+and
+\[
+\| f_{\epsilon\VEC{z}} - f \|_p^p \left|\phi(\VEC{z})\right| \rightarrow 0
+\quad \text{as} \quad \epsilon \rightarrow 0
+\]
+for all $\VEC{z}$ because
+$\displaystyle \| f_{\epsilon\VEC{z}} - f \|_p \rightarrow 0$
+as $\epsilon \rightarrow 0$ (Theorem~9.5 in \cite{Ru}).  It follows from the
+Lebesgue Dominate Convergence Theorem that
+\[
+\| f\ast \phi_\epsilon -a f \|_p \rightarrow 0 \quad \text{as} \quad
+\epsilon \rightarrow 0 \ .
+\]
+
+\stage{ii} Suppose that $\displaystyle f \in L^\infty(\RR^n)$ and $f$
+is uniformly continuous on $\displaystyle V\subset \RR^n$.
+Let $K \subset V$ be a compact set.
+
+Given $\delta >0$, choose a compact set
+$\displaystyle W \subset \RR^n$ such that
+\[
+\int_{\RR^n\setminus W} |\phi(\VEC{x})| \dx{\VEC{x}} <
+\frac{\delta}{4\|f\|_\infty} \ .
+\]
+This is possible because $\displaystyle \phi \in L^1(\RR^n)$.
+
+Since $f$ is uniformly continuous on the open set $V$, we may choose
+$\epsilon$ small enough such that $K+\epsilon W \subset V$ and
+\[
+\sup_{\VEC{x}\in K,\VEC{y}\in W} \left| f(\VEC{x}+\epsilon \VEC{y})
+-f(\VEC{x})\right| < \frac{\delta}{2\|\phi\|_1} \ .
+\]
+Then,
+\begin{align*}
+&\sup_{\VEC{x}\in K} \left| (f\ast \phi_\epsilon)(\VEC{x}) - a f(\VEC{x}) \right|
+\leq \sup_{\VEC{x}\in K} 
+\int_{\RR^n} \left| f(\VEC{x}-\epsilon \VEC{y})
+ - f(\VEC{x})\right| \, \left|\phi(\VEC{y})\right| \dx{\VEC{y}} \\
+&\quad \leq \sup_{\VEC{x}\in K, \VEC{y} \in W} 
+\left| f(\VEC{x}-\epsilon \VEC{y}) - f(\VEC{x})\right|
+\, \int_{W} \left|\phi(\VEC{y})\right| \dx{\VEC{y}} + 2 \| f \|_\infty
+\int_{\RR^n\setminus W}\left|\phi(\VEC{y})\right| \dx{\VEC{y}} \\
+&\quad \leq \frac{\delta}{2 \|\phi\|_1} \,
+\int_{W} \left|\phi(\VEC{y})\right| \dx{\VEC{y}}
++ 2 \| f \|_\infty \, \frac{\delta}{4\|f\|_\infty} < \delta \ .
+\end{align*}
+The role of $\epsilon$ and $\delta$ are interchanged from the usual
+role that they play in a proof of convergence.  Instead of ``for all
+$\epsilon$ there exists $\delta$ \ldots'', we have ``for all $\delta$
+there exists $\epsilon$ \ldots''
+\end{proof}
+
+\begin{defn}
+The functions $\phi_\epsilon$ for $\epsilon>0$ defined in
+Proposition~\ref{distr_limit_convol} are called
+{\bfseries approximate identity}\index{Approximate Identity} when $a=1$.
+\end{defn}
+
+Given $\displaystyle \phi:\RR^n \rightarrow \CC$, we define
+$\displaystyle \phi^\vee$ and
+$\displaystyle \phi_{\VEC{z}}$ in $\DD(\RR^n)$ by
+$\displaystyle \phi^{\vee}(\VEC{x}) = \phi(-\VEC{x})$ for
+$\displaystyle \VEC{x} \in \RR^n$ and
+$\displaystyle \phi_{\VEC{z}}(\VEC{x}) = \phi(\VEC{x}-\VEC{z})$
+for $\displaystyle \VEC{x}, \VEC{r} \in \RR^n$.
+
+This motivates the following definition.  Given
+$\displaystyle u \in \DD'(\RR^n)$,
+we define $\displaystyle u^\vee$ and $u_{\VEC{z}}$ in
+$\displaystyle \DD'(\RR^n)$ by
+$\displaystyle u^\vee(\phi) = \ps{u^\vee}{\phi} = \ps{u}{\phi^\vee}$
+and
+$\displaystyle u_{\VEC{z}}(\phi) = \ps{u_{\VEC{z}}}{\phi}
+= \ps{u}{\phi_{-\VEC{z}}}$ for $\displaystyle \phi \in \DD(\RR^n)$.
+
+For two functions $f$ and $g$ in $\displaystyle L^1(\RR^n)$, we have
+\[
+(f\ast g)\left(\VEC{x}\right) = \int_{\RR^n} f\left(\VEC{y}\right)
+(g^\vee)_{\VEC{x}}\left(\VEC{y}\right)\dx{\VEC{y}} \ .
+\]
+It therefore makes sense to define the
+{\bfseries convolution}\index{Distribution!Convolution} of
+$\displaystyle u\in \DD'(\RR^n)$ with $\displaystyle \phi\in \DD(\RR^n)$ by
+\[
+\left( u \ast \phi\right)(\VEC{x}) =
+\ps{u}{\left(\phi^{\vee}\right)_{\VEC{x}}}
+\]
+for all $\displaystyle \VEC{x} \in \RR^n$.
+We will see later that this definition of convolution is the usual
+definition of convolution when $\displaystyle u\in L^1(\RR^n)$.
+
+Suppose that $\displaystyle u \in \EE'(\RR^n)$ and that $K$ is the
+compact support of $u$.  Choose $\displaystyle \psi \in \DD(\RR^n)$
+such that $\psi(z) =1$ for all $z \in K$.  We have that $\psi u = u$ because
+$\ps{\psi u}{\phi} = \ps{u}{\psi \phi} = \ps{u}{\phi}$ for all
+$\displaystyle \phi \in \DD(\RR^n)$.  This is obviously independent of
+the function $\psi$ chosen.  We can use this property to extend $u$ in a
+unique way to a continuous linear functional on
+$\displaystyle C^\infty(\RR^n)$,
+where the convergence in $\displaystyle C^\infty(\RR^n)$ is defined by uniform
+convergence on compact sets.  We define
+$\displaystyle u:C^\infty(\RR^n) \to \CC$ by
+$u(\phi) = u(\psi \phi)$ for $\displaystyle \phi \in C^\infty(\RR^n)$.
+
+\begin{prop} \label{distr_smooth_convol}
+\begin{enumerate}
+\item If $\displaystyle u\in \DD'(\RR^n)$ and
+$\displaystyle \psi\in \DD(\RR^n)$, then $u\ast \psi$
+is in $\displaystyle C^\infty(\RR^n)$.
+\item If $\displaystyle u\in \EE'(\RR^n)$ and
+$\displaystyle \psi\in \DD(\RR^n)$, then
+$\displaystyle u \ast \psi \in \DD(\RR^n)$.
+\item If $\displaystyle u\in \EE'(\RR^n)$ and
+$\displaystyle \psi\in C^\infty(\RR^n)$, then
+$\displaystyle u \ast \psi \in C^\infty(\RR^n)$.
+\end{enumerate}
+\end{prop}
+
+\begin{prop} \label{distr_comm_der}
+If $\displaystyle u\in \DD'(\RR^n)$ and
+$\displaystyle \phi\in \DD(\RR^n)$, then
+$\displaystyle \diff^\alpha(u\ast \phi)
+= u \ast \diff^\alpha \phi = \diff^\alpha u \ast \phi$
+for all multi-indices $\alpha$.
+\end{prop}
+
+We may also define the convolution of two distributions if one of them
+has compact support.  Consider $\displaystyle u,v \in \DD'(\RR^n)$.
+If one of them has compact support, then the function
+$\displaystyle L: \DD(\RR^n) \to C^\infty(\RR^n)$
+defined by $\displaystyle L(\phi) = u \ast (v \ast \phi)$ for
+$\displaystyle \phi \in \DD(\RR^n)$ is well defined.  To justify this
+statement, we note that if $v$ has compact support, then
+$\displaystyle v \ast \phi \in \DD(\RR^n)$
+by (2) of Proposition~\ref{distr_smooth_convol} and
+$\displaystyle u \ast (v \ast \phi) \in C^\infty(\RR^n)$ by (1) of
+Proposition~\ref{distr_smooth_convol}.  Moreover, if $u$ has compact
+support and $v$ does not have compact support, then
+$\displaystyle v \ast \phi \in C^\infty(\RR^n)$ by (1) of
+Proposition~\ref{distr_smooth_convol} and again 
+$\displaystyle u \ast (v \ast \phi) \in C^\infty(\RR^n)$ by (3) of
+Proposition~\ref{distr_smooth_convol}.
+
+If follows from Theorem~6.33 in \cite{RuFA} that there exists a unique
+distribution on $\displaystyle \RR^n$, denoted $u\ast v$, such that
+\[
+L(\phi) = u \ast ( v \ast \phi) = (u \ast v ) \ast \phi
+\]
+for all $\displaystyle \phi \in \DD(\RR^n)$.  In particular, we have
+\[
+\ps{(u \ast v)}{\phi} = ( (u\ast v) \ast \phi^\vee)(\VEC{0}) 
+= (u \ast (v \ast \phi^\vee))(\VEC{0}) 
+= \ps{u}{ (v \ast \phi^\vee)^\vee}
+\]
+for all $\displaystyle \phi \in \DD(\RR^n)$.
+
+\begin{prop} \label{uvequvu}
+If $\displaystyle u\in \EE'(\RR^n)$ and
+$\displaystyle \psi\in C^\infty(\RR^n)$, then
+$u \ast \psi = \psi \ast u$.
+\end{prop}
+
+\begin{proof}
+First, we have to expend our definition of integration.
+Suppose that $\Omega$ is a measurable space with measure $\mu$, that $E$
+is a {\bfseries toplogical vector space}\index{Topological Vector
+Space} \footnote{We will not give a definition of topological
+vector spaces.  This will lead us too dip into analysis.  The reader
+can find a definition of topological vector space in
+\cite{ReeSim,RuFA,Tr} and many other graduate textbooks in Analysis.
+A Banach space is a topological vector space.}
+and that $f:\Omega \to E$ is a measurable
+function.  The integral of $f$ over $\Omega$ is the element $y \in E$,
+if such a $y$ exists, such that
+\begin{equation} \label{intVectFunct}
+  u(y) = \int_\Omega u\circ f \dx{\mu}
+\end{equation}
+for all $\displaystyle u \in E^\ast$.   We assume that
+$\displaystyle E^\ast$ separates points in $E$
+\footnote{Namely, for any $y_1$ and $y_2$ in
+$E$ with $y_1 \neq y_2$, there exists $\displaystyle u \in E^\ast$
+such that $u(y_1) \neq u(y_2)$.} to ensure the uniqueness of $y$ if it
+exists.  There is a more traditional approach to define the integral
+in (\ref{intVectFunct}) using the equivalent of ``Riemann sums.''\
+This approach can be found in more traditional textbooks in functional
+analysis.
+
+Let
+\[
+g(x) = \int_{\RR^n} \psi(\VEC{w}) \phi(\VEC{x} - \VEC{w}) \dx{\VEC{w}}
+\]
+for $\displaystyle \VEC{x} \in \RR^n$.  According to the definition of
+$u \ast \psi$, we have
+\[
+\big( (u\ast \psi) \ast \phi \big)(\VEC{z})
+= \big( u \ast ( \psi \ast \phi) \big)(\VEC{z})
+= \left( u \ast g \right)(\VEC{z})
+\]
+for $\displaystyle \VEC{z} \in \RR^n$ because $\psi$ and $\phi$ are of class
+$\displaystyle C^\infty(\RR^n)$ with one of them having a compact support.
+So $\displaystyle \psi \ast \phi \in \DD(\RR^n)$.
+We then have that
+\[
+\big( (u\ast \psi) \ast \phi \big)(\VEC{z})
+= \left( u \ast g \right)(\VEC{z})
+= \ps{u}{ \left(g^\vee\right)_{\VEC{z}}}
+= \ps{u}{h} \ ,
+\]
+where
+\[
+h(\VEC{x}) = g(\VEC{z}- \VEC{x})
+= \int_{\RR^n} \psi(\VEC{w}) \phi(\VEC{z} - \VEC{x} - \VEC{w}) \dx{\VEC{w}}
+\]
+for all $\displaystyle \VEC{x} \in \RR^n$.  If $\displaystyle f(\VEC{w})$ for
+$\displaystyle \VEC{w} \in \RR^n$ is the function in $\displaystyle \DD(\RR^n)$
+defined by
+\[
+f(\VEC{w})(\VEC{x}) = \psi(\VEC{w}) \phi(\VEC{z} - \VEC{x} - \VEC{w})
+\]
+for all $\displaystyle \VEC{x} \in \RR^n$, then we get
+\[
+\big( (u\ast \psi) \ast \phi \big)(\VEC{z}) = \ps{u}{h}
+= \int_{\RR^n} u \circ f \dx{\VEC{w}} \ ,
+\]
+where we have used (\ref{intVectFunct}) with
+$\displaystyle \Omega = \RR^n$ and $\displaystyle E = \DD(\RR^n)$.
+If $\displaystyle q(\VEC{w})$ for
+$\displaystyle \VEC{w} \in \RR^n$ is the function in $\displaystyle \DD(\RR^n)$
+defined by
+\[
+q(\VEC{w})(\VEC{x}) = \phi(\VEC{z} - \VEC{x} - \VEC{w})
+\]
+for all $\displaystyle \VEC{x} \in \RR^n$, then
+\begin{align*}
+\big( (u\ast \psi) \ast \phi \big)(\VEC{z}) 
+& = \int_{\RR^n} \psi(\VEC{w}) \ps{u}{q(\VEC{w})} \dx{\VEC{w}}
+= \int_{\RR^n} \psi(\VEC{w})
+\ps{u}{\left(\phi^\vee\right)_{\VEC{z}-\VEC{w}}} \dx{\VEC{w}} \\
+&= \int_{\RR^n} \psi(\VEC{w}) \big( u \ast \phi \big)(\VEC{z} - \VEC{w})
+\dx{\VEC{w}}
+= \big( \psi \ast (u \ast \phi) \big)(\VEC{z})
+\end{align*}
+for $\displaystyle \VEC{z} \in \RR^n$ and all
+$\displaystyle \phi \in \DD(\RR^n)$.  Thus,
+$\psi \ast (u \ast \phi) = (u\ast \psi) \ast \phi$ for all
+$\displaystyle \phi \in \DD(\RR^n)$.  But, by definition of the
+convolution of two distributions with one having a compact support,
+this states that $\psi \ast u = u\ast \psi$.  
+\end{proof}
+
+\section{Fourier Transforms} \label{sectionFT}
+
+If $\displaystyle f \in L^1(\RR^n)$, the
+{\bfseries Fourier transform}\index{Functions!Fourier Transform} of $f$ is the
+function defined by
+\begin{equation} \label{distr_fourierT}
+\F(f)(\VEC{y}) \equiv \hat{f}(\VEC{y}) = \int_{\RR^n} e^{-i \VEC{x}\cdot\VEC{y}}
+f(\VEC{x}) \dx{\mu(\VEC{x})} \quad , \quad \VEC{y} \in \RR^n \ ,
+\end{equation}
+where $\mu$ is the Lebesgue measure $m$ divided by $\displaystyle (2\pi)^{n/2}$.
+To be able to state aesthetically pleasing relations between
+Fourier transform and convolution, we redefined the
+{\bfseries convolution}\index{Functions!Convolution} of
+two functions $\displaystyle f,g \in L^1(\RR^n)$ as
+\[
+(f\ast g)\left(\VEC{x}\right) = \int_{\RR^n}
+f\left(\VEC{x} - \VEC{y}\right)  g\left(\VEC{y}\right) \dx{\mu(\VEC{y})}
+\]
+for all $\displaystyle \VEC{x} \in \RR^n$ where the integral converges.  We have
+added the factor $\displaystyle (2\pi)^{-n/2}$ to the previous definition of
+convolution.   We will use this definition of convolution only inside
+this section and revert to the previous definition in the rest of the
+text.  The reader shall therefore not be surprise by the appearance
+of the factor $\displaystyle (2\pi)^{n/2}$ in the formulae involving
+convolution and Fourier transform later in the text.
+
+\begin{egg}
+Suppose that $f \in C(\RR)$ has a compact support.
+
+We first show that the function $\displaystyle g:\RR \to \RR$ defined by
+$\displaystyle g(x) = \sum_{k\in \ZZ} f(x+ 2 \pi k)$ is a
+continuous periodic function of period $2\pi$.  Since $f$ has a
+compact support, the summation is finite on every bounded open set.
+It follows that $g \in C(\RR)$ since continuity is a local property.
+Since
+\[
+g(x+2\pi) = \sum_{k\in \ZZ} f(x+2\pi(k+1))
+= \sum_{k\in \ZZ} f(x+2 \pi k) = g(x)
+\]
+for all $x$, we have that $g$ is periodic of period $2 \pi$.
+
+We now show that the coefficient $a_n$ of the Fourier series
+$\displaystyle \sum_{n\in \ZZ} a_n e^{n x i}$ of $g$ is given by
+$\displaystyle a_n = \frac{1}{2\pi} \hat{f}(n)$ for all $n$.  It is a simple
+computation from the definition of the coefficient of the series.
+\begin{align*}
+a_n &= \frac{1}{2\pi} \int_{-\pi}^{\pi} g(x) e^{- n x i} \dx{x}
+= \frac{1}{2\pi}
+\sum_{k\in \ZZ} \int_{-\pi}^{\pi} f(x+ 2 \pi k) e^{-n x i} \dx{x} \\
+&= \frac{1}{2\pi} 
+\sum_{k\in \ZZ} \int_{(2k-1)\pi}^{(2k+1)\pi} f(y)
+e^{-n (y-2 \pi k) i} \dx{y}
+= \frac{1}{2\pi} 
+\sum_{k\in \ZZ} \int_{(2k-1)\pi}^{(2k+1)\pi} f(y) e^{-n y i} \dx{y} \\
+&= \frac{1}{2\pi} \int_{-\infty}^{\infty} f(y) e^{- n y i} \dx{y}
+= \frac{1}{2\pi} \hat{f}(n)
+\end{align*}
+for all $n \in \ZZ$.  Note that the previous summations are finite.
+
+It follows that
+\begin{equation} \label{eggPoissonSF}
+  \frac{1}{2\pi} \sum_{n\in \ZZ} \hat{f}(n) = \sum_{n\in\ZZ} f(n) \ .
+\end{equation}
+Since $g$ is continuous we have that
+\[
+\frac{1}{2\pi} \sum_{n\in \ZZ} \hat{f}(n) e^{n x i}
+= \sum_{n\in \ZZ} a_n e^{n x i} = g(x) =  \sum_{n\in\ZZ} f(x+n)
+\]
+for all $x$.  If $x = 0$, we get (\ref{eggPoissonSF}).  The formula 
+(\ref{eggPoissonSF}) is known as the
+{\bfseries Poisson summation formula}\index{Poisson Summation Formula}.
+\end{egg}
+
+\begin{egg}
+As an example, we compute the Fourier transform of
+$\displaystyle f(x) = e^{-\|\VEC{x}\|^2}$ for $\displaystyle \VEC{x} \in \RR^n$.
+This Fourier transform will play an important role in the study of the
+heat equation.  \label{FTexpx2}
+Since
+\[
+  \hat{f}(\VEC{y}) = \int_{\RR^n} e^{-i \VEC{x}\cdot\VEC{y}}
+e^{-\|\VEC{x}\|^2} \dx{\mu(\VEC{x})} 
+= \prod_{j=1}^n \left( \frac{1}{\sqrt{2\pi}}
+  \int_{-\infty}^\infty  e^{-i x_j y_j - x_j^2} \dx{x_j} \right) \ ,
+\]
+it suffices to compute
+\[
+\frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty  e^{-i x y - x^2} \dx{x} \ .
+\]
+If we use the substitution $x = r/2$, we get
+\[
+\frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty  e^{-i x y - x^2} \dx{x}
+= \frac{1}{2\sqrt{2\pi}} \int_{-\infty}^\infty  e^{-(2 i r y + r^2)/4} \dx{r}
+= \frac{1}{2\sqrt{2\pi}} e^{-y^2/4}
+\int_{-\infty}^\infty  e^{-(r+ y i)^2/4} \dx{r} \ .
+\]
+To compute the integral, we note that $\displaystyle e^{-z^2/4}$ with
+$z \in \CC$ is an entire function and use Cauchy's theorem for
+integrals along a close path to conclude that
+$\displaystyle \int_{\Gamma} e^{-z^2/4} \dx{z} = 0$ where $\Gamma$ is
+the close path defined by
+$\displaystyle \Gamma = \Gamma_1 + \Gamma_2 - \Gamma_3 - \Gamma_4$
+with $\Gamma_1 = \{r + 0 i : -R \leq r \leq R\}$,
+$\Gamma_2=\{R + s i : 0 \leq s \leq y \}$,
+$\Gamma_3 = \{r + y i : -R \leq r \leq R\}$ and
+$\Gamma_4 = \{-R + s i : 0 \leq s \leq y\}$ (Figure~\ref{distr_FIG2}).
+We have that
+\[
+\int_{\Gamma_1} e^{-z^2/4} \dx{z}
+= \int_{-R}^R e^{-r^2/4} \dx{r} \to \int_{-\infty}^\infty e^{-r^2/4} \dx{r}
+= 2 \int_{-\infty}^\infty e^{-t^2} \dx{t} = 2\sqrt{\pi}
+\quad \text{as} \quad R \to \infty \ ,
+\]
+\[
+\int_{\Gamma_3} e^{-z^2/4} \dx{z}
+= \int_{-R}^R e^{-(r+y i)^2/4} \dx{r} \to
+\int_{-\infty}^\infty e^{-(r+yi)^2/4} \dx{r}
+\quad \text{as} \quad R \to \infty \ ,
+\]
+\[
+\left| \int_{\Gamma_2} e^{-z^2/4} \dx{z} \right|
+\leq \int_0^y \left| e^{-(R+s i)^2/4}\right| \dx{s}
+= e^{-R^2/4} \int_0^y e^{s^2/4} \dx{s} \to 0
+\quad \text{as} \quad R \to \infty \ ,
+\]
+and similarly
+\[
+\left| \int_{\Gamma_4} e^{-z^2/4} \dx{z} \right|
+\leq \int_0^y \left| e^{-(-R+s i)^2/4}\right| \dx{s}
+= e^{-R^2/4} \int_0^y e^{s^2/4} \dx{s} \to 0
+\quad \text{as} \quad R \to \infty \ .
+\]
+Thus,
+\[
+\int_{-\infty}^\infty  e^{-(r+ y i)^2/4} \dx{r} = 2 \sqrt{\pi} \ .
+\]
+We finally get that
+\[
+\hat{f}(\VEC{y}) = 
+\prod_{j=1}^n \left( \frac{1}{\sqrt{2}} e^{-y_j^2/4} \right)
+= \frac{1}{2^{n/2}} e^{-\|\VEC{y}\|^2/4} \ .
+\]
+
+More generally, we can compute the Fourier transform of
+$\displaystyle f(x) = e^{-a \|\VEC{x}\|^2}$ for
+$\displaystyle \VEC{x} \in \RR^n$
+and $a$ a positive constant.  We have that
+\[
+\hat{g}(\VEC{y}) = \int_{\RR^n} e^{-i \VEC{x}\cdot\VEC{y}}
+e^{-a\|\VEC{x}\|^2} \dx{\mu(\VEC{x})} \ .
+\]
+If we use the change of variables $\VEC{w} = \sqrt{a}\, \VEC{x}$, we get
+\begin{equation} \label{FTexpx2eq1}
+\hat{g}(\VEC{y}) = \frac{1}{a^{n/2}}
+\int_{\RR^n} e^{-i \VEC{w}\cdot (a^{-1/2}\VEC{y})}
+e^{-\|\VEC{w}\|^2} \dx{\mu(\VEC{w})}
+= \frac{1}{a^{n/2}} \hat{f}(a^{-1/2}\VEC{y})
+= \frac{1}{(2a)^{n/2}} e^{-\|\VEC{y}\|^2/(4a)} \ .
+\end{equation}
+\end{egg}
+
+\pdfF{distributions/distr_fig2}{Contour of integration for an Inverse
+Fourier Transform}{According to Cauchy's theorem for integrals along a
+close path, we have that
+$\displaystyle \int_{\Gamma} = \int_{\Gamma_1} + \int_{\Gamma_2}
+- \int_{\Gamma_3} - \int_{\Gamma_4} = 0$.}{distr_FIG2}
+
+The Fourier transform has the following properties.
+
+\begin{prop} \label{FTLofPs}
+\begin{enumerate}
+\item If $f$ and $g$ are in $\displaystyle L^1(\RR^n)$, then
+$\displaystyle (f\ast g)^\wedge = \hat{f}\,\hat{g}$.
+\item If $f$ is in $\displaystyle L^1(\RR^n)$, then
+$\displaystyle (f_{\VEC{z}})^\wedge(\VEC{y}) =
+e^{-i \VEC{z}\cdot\VEC{y}} \hat{f}(\VEC{y})$
+\item If $\displaystyle f \in C_c^m(\RR^n)$, $\alpha$ is a multi-index
+such that $|\alpha|\leq m$, and $p$ is the polynomial
+$\displaystyle p(\VEC{x}) = (-i\VEC{x})^\alpha$,
+then $\displaystyle (\diff^\alpha f)^\wedge = p \hat{f}$ and
+$\displaystyle (p f)^\wedge = \diff^\alpha\hat{f}$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Left to the reader.
+\end{proof}
+
+In a course for engineer students, the Fourier transform and the
+``inverse Fourier transform'' are introduced without considerations
+for the domain and range of these transformations.  The following
+theorem states under which conditions the inversion formula is valid.
+Before stating this theorem, we need to define the space
+$\displaystyle C_0(\RR^n)$ of continuous functions that
+{\bfseries vanish at infinity}\index{Functions!Vanish at Infinity}.
+
+The space $\displaystyle C_0(\RR^n)$ is the space of continuous real valued
+functions on $\displaystyle \RR^n$ satisfying the following property.  For every
+$\epsilon >0$, there exists a compact set $K$ such that
+$|f(\VEC{x})|<\epsilon$ for $\displaystyle \VEC{x} \in \RR^n \setminus K$.
+
+\begin{prop} \label{distr_C0_four_transf}
+If $\displaystyle f\in L^1(\RR^n)$, then $\hat{f} \in C_0(\RR^n)$ and
+$\|\hat{f}\|_\infty \leq \|f\|_1$.
+\end{prop}
+
+\begin{prop}[Inverse Fourier Transform] \label{distr_inv_four_transf}
+If $\displaystyle f \in L^1(\RR^n)$, $\displaystyle \hat{f} \in L^1(\RR^n)$ and
+\[
+g(\VEC{y}) = \int_{\RR^n} e^{i \VEC{x}\cdot\VEC{y}} \,
+\hat{f}(\VEC{x}) \dx{\mu(\VEC{x})}
+\]
+for all $\displaystyle \VEC{y} \in \RR^n$, then
+$\displaystyle g \in C_0(\RR^n)$.  Moreover, $f = g$ almost everywhere
+in $\displaystyle \RR^n$ and $\|f\|_\infty \leq \|\hat{f}\|_1$.
+\end{prop}
+
+Given $\displaystyle f\in L^1(\RR^n)$, let
+\[
+\F^{-1}(f)(\VEC{y}) \equiv \check{f}(\VEC{y}) = 
+\int_{\RR^n} e^{i \VEC{x}\cdot\VEC{y}} \, f(\VEC{x}) \dx{\mu(\VEC{x})}
+\quad , \quad \VEC{y} \in \RR^n \ .
+\]
+The previous theorem states that $\displaystyle \F^{-1}(\F(f)) = f$
+almost everywhere when $\displaystyle f \in L^1(\RR^n)$
+and $\displaystyle \hat{f} \in L^1(\RR^n)$.
+
+It is possible to extend the Fourier transform to $\displaystyle L^2(\RR^n)$.
+This will be useful when talking about Sobolev spaces later.
+
+\begin{theorem}[Plancherel] \label{distr_plancherel}
+To each $\displaystyle f\in L^2(\RR^n)$ can be associated a function
+$\displaystyle \hat{f} \in L^2(\RR^n)$ such that   \index{Plancherel's Theorem}
+\begin{enumerate}
+\item For $\displaystyle f \in L^1(\RR^n) \cap L^2(\RR^n)$. $\hat{f}$ is the
+Fourier transform given in (\ref{distr_fourierT}).
+\item $\| f \|_2 = \|\hat{f}\|_2$ for all $\displaystyle f \in L^2(\RR^n)$.
+In fact, $\displaystyle \int_{\RR^n} f g \dx{\VEC{x}} =
+\int_{\RR^n} \hat{f} \hat{g} \dx{\VEC{x}}$ for all
+$\displaystyle f,g \in L^2(\RR^n)$.
+\item The linear mapping $\displaystyle \F: L^2(\RR^n) \rightarrow L^2(\RR^n)$
+defined by $\F(f) = \hat{f}$ for all $\displaystyle f \in L^2(\RR^n)$
+is an Hilbert space isomorphism.
+\end{enumerate}
+\end{theorem}
+
+In fact, (2) and (3) in Theorem~\ref{distr_plancherel} implies that 
+$\displaystyle \F: L^2(\RR^n) \rightarrow L^2(\RR^n)$ is an isometry.
+
+The space $\displaystyle \SS(\RR^n)$ of
+{\bfseries rapidly decreasing functions}\index{Functions!Rapidly
+Decreasing Functions} on $\displaystyle \RR^n$ (also called 
+{\bfseries Schwartz class}\index{Functions!Schwartz Class}) is the space of all
+functions $\displaystyle f \in C^\infty(\RR^n)$ such that
+\[
+\sup_{\VEC{x} \in \RR^n} \left| \VEC{x}^\alpha \diff^\beta f(\VEC{x})
+\right| < \infty
+\]
+for all multi-indices $\alpha$ and $\beta$.  A locally convex topology
+is defined on $\SS(\RR^n)$ with the help of the norms defined by
+\[
+\sup_{|\alpha|\leq k} \sup_{\VEC{x} \in \RR^n} \left( 1 + \|\VEC{x}\|_2^2\right)^2
+\left| \diff^\alpha f(\VEC{x}) \right|
+\]
+for $k \geq 0$.  We will not elaborate on this subject but the
+interested reader may consult \cite{RuFA,ReeSim} for more information.
+
+If $\displaystyle f \in \SS(\RR^n)$, we have that
+$\displaystyle \VEC{x}^\alpha \diff^\beta f$ itself vanishes at infinity
+for all multi-indices $\alpha$ and $\beta$.
+Moreover, $\displaystyle \VEC{x}^\alpha \diff^\beta f \in L^1(\RR^n)$
+for all multi-indices $\alpha$ and $\beta$.  To prove this, choose
+$k > n/2$ and $C>0$.  Since $f$ vanishes at infinity, there exists $r>0$
+such that
+$\displaystyle \|\VEC{x}\|^{2k}\, \left| f(\VEC{x}) \right| < C$ for
+all $\|\VEC{x}\| > r$.  Hence,
+\begin{align*}
+\int_{\RR^n} \left| f(\VEC{x})\right| \dx{\VEC{x}} &=
+\int_{\|\VEC{x}\|\leq r} \left| f(\VEC{x})\right| \dx{\VEC{x}} +
+\int_{\|\VEC{x}\|> r} \left| f(\VEC{x})\right| \dx{\VEC{x}} \\
+&= \int_{\|\VEC{x}\|\leq r} \left| f(\VEC{x})\right| \dx{\VEC{x}} +
+\int_{\|\VEC{x}\|> r} \|\VEC{x}\|^{2k}\,\left| f(\VEC{x})\right|
+\|\VEC{x}\|^{-2k} \dx{\VEC{x}} \\
+&\leq \int_{\|\VEC{x}\|\leq r} \left| f(\VEC{x})\right| \dx{\VEC{x}} +
+C \int_{\|\VEC{x}\|> r} \|\VEC{x}\|^{-2k} \dx{\VEC{x}} < \infty
+\end{align*}
+because $f$ is locally integrable, the integral of $|f|$ on
+$\{ \VEC{x} : \|\VEC{x}\| \leq r \}$ is finite, and\\
+$\displaystyle \int_{\|\VEC{x}\|> r} \|\VEC{x}\|^{-2k} \dx{\VEC{x}} < \infty$
+since $2k >n$.  For all multi-indices $\alpha$ and $\beta$, this
+reasoning can be applied to
+$\displaystyle \VEC{x}^\alpha \diff^\beta f$ instead of $f$ to
+show that $\displaystyle \VEC{x}^\alpha \diff^\beta f \in L^1(\RR^n)$.
+
+Hence, the Fourier transform of rapidly decreasing functions and their
+derivatives exists.
+
+\begin{prop} \label{distr_four_f}
+If $\displaystyle f \in L^1(\RR^n)$ has compact support, then $\hat{f}$ is the
+restriction to $\displaystyle \RR^n$ of an entire function on
+$\displaystyle \CC^n$.  If
+$\displaystyle f\in \DD(\RR^n)$, then $\hat{f}$ is a rapidly decreasing
+function on any subset of the form
+$\displaystyle \left\{ \VEC{z}\in \CC^n : \| \IM \VEC{z} \|_2 \leq c \right\}$ 
+for $c>0$.  Recall that
+$\displaystyle \IM \VEC{z} =
+\begin{pmatrix} \IM z_1 & \IM z_2 & \ldots & \IM z_n \end{pmatrix}^\top$
+for $\displaystyle \VEC{z} \in \CC^n$.
+\end{prop}
+
+\begin{proof}
+The integral
+\[
+\int_{\RR^n} e^{-i \VEC{z}\cdot \VEC{x}} f(\VEC{x}) \dx{\mu(\VEC{x})} \ ,
+\]
+converges for all $\displaystyle \VEC{z} \in \CC^n$ because $f$ has a compact
+support so the integration is over a bounded set and the
+exponential factor is bounded on this set.
+Hence, we may define $\hat{f}(\VEC{z})$ for $\displaystyle \VEC{z} \in \CC^n$ by
+\[
+  \hat{f}(\VEC{z}) =
+\int_{\RR^n} e^{-i \VEC{z}\cdot \VEC{x}} f(\VEC{x}) \dx{\mu(\VEC{x})} \ .
+\]
+$\hat{f}$ is an entire function because
+$\displaystyle\VEC{z} \mapsto  e^{i \VEC{z}\cdot \VEC{x}}$ is an entire function
+and, for any multi-index $\alpha$, complex
+derivatives $\displaystyle \diff_{\VEC{z}}^\alpha$ and integration
+can be interchanged.
+
+If $\displaystyle f \in \DD(\RR^n)$, choose $r$ large enough such that
+$\supp f \subset \{ \VEC{x} : \|\VEC{x}\| < r \}$.  Then, for any
+multi-index $\alpha$,
+\begin{align}
+\left| \VEC{z}^\alpha \hat{f}(\VEC{z}) \right|
+&= \left| (i)^{|\alpha|} \big(\diff^\alpha f\big)^\wedge(\VEC{z}) \right|
+= \left| \int_{\RR^n} e^{-i \VEC{z}\cdot\VEC{x}} \diff^\alpha f(\VEC{x})
+  \dx{\mu(\VEC{x})} \right| \nonumber \\
+&\leq \int_{\|\VEC{x}\| < r} \left| e^{-i \VEC{z}\cdot\VEC{x}}\right|\,
+\left|\diff^\alpha f(\VEC{x})\right| \dx{\mu(\VEC{x})}
+\leq e^{r \|\IM \VEC{z}\|_2}\,\int_{\|\VEC{x}\| < r}
+\left|\diff^\alpha f(\VEC{x})\right| \dx{\mu(\VEC{x})} \nonumber \\
+& = e^{r \|\IM \VEC{z}\|_2}\,\int_{\RR^n}
+\left|\diff^\alpha f(\VEC{x})\right| \dx{\mu(\VEC{x})}
+\label{proof_distr_four_f} 
+\end{align}
+for all $\displaystyle \VEC{z} \in \CC^n$.
+Hence, for $\|\IM \VEC{z} \|_2 \leq c$, we have
+\[
+\left| \VEC{z}^\alpha \hat{f}(\VEC{z}) \right|
+\leq e^{r c}
+\int_{\RR^n} \left|\diff^{\alpha} f(\VEC{x})\right| \dx{\mu(\VEC{x})}
+< \infty \ .
+\]
+
+Given any two multi-indices $\alpha$ and $\beta$, to prove that
+$\displaystyle \VEC{z}^\alpha \diff^\beta \hat{f}(\VEC{z})$ is
+uniformly bounded for $\|\IM \VEC{z} \|_2 \leq c$, we use the relation
+\[
+\VEC{z}^\alpha \diff^\beta \hat{f}(\VEC{z}) =
+\VEC{z}^\alpha \big( (-i \VEC{x})^\beta f\big)^{\wedge} (\VEC{z})
+= (-i)^{|\beta|} \VEC{z}^\alpha
+\left(\VEC{x}^\beta f \right)^{\wedge}(\VEC{z})
+\]
+to reduce the problem to the previous case with $\displaystyle \VEC{x}^\beta f$
+instead of $f$ where $\displaystyle \VEC{x}^\beta f \in \DD(\RR^n)$.
+\end{proof}
+
+The Fourier transform can only be defined on a subset of the space
+$\displaystyle \DD'(\RR^n)$ of distributions on $\displaystyle \RR^n$.
+
+\begin{prop} \label{DD_S_IncDense}
+\begin{enumerate}
+\item $\displaystyle \DD(\RR^n) \subset \SS(\RR^n)$ and the inclusion
+$\displaystyle i:\DD(\RR^n) \subset \SS(\RR^n)$ is continuous.
+\item $\displaystyle \DD(\RR^n)$ is dense in $\displaystyle \SS(\RR^n)$.
+\end{enumerate}
+\end{prop}
+
+In the statement of the previous proposition, the topology on
+$\displaystyle \DD(\RR^n)$ is the topology defined in
+Section~\ref{SectTestFnct} and the topology on
+$\displaystyle \SS(\RR^n)$ is the locally convex topology that we
+have mentioned above.
+
+If $u$ is a continuous linear functional on $\displaystyle \SS(\RR^n)$, then
+$u \circ i$ is a continuous linear functional on
+$\displaystyle \DD(\RR^n)$; namely,
+$u\circ i \in \DD'(\RR)$.  Since $\displaystyle \DD(\RR^n)$ is dense in
+$\displaystyle \SS(\RR^n)$, each continuous linear functional on
+$\displaystyle \SS(\RR^n)$ is associated in this manner to a unique
+element of $\displaystyle \DD'(\RR^n)$.
+The {\bfseries tempered distributions}\index{Distribution!Tempered}
+on $\displaystyle \RR^n$ are the distributions on $\displaystyle \RR^n$
+associated to continuous linear functionals on
+$\displaystyle \SS(\RR^n)$.  For this reason, the space of all the tempered
+distributions is denoted $\displaystyle \SS'(\RR^n)$.  Another way to
+look at the tempered distributions is to say that
+$\displaystyle u \in \DD'(\RR^n)$ is a
+tempered distribution if it can be extended to a continuous linear
+functional on $\displaystyle \SS(\RR^n)$.
+
+\begin{egg}
+Here are a couple of examples of tempered distributions.
+
+If $\nu$ is a positive measure on $\displaystyle \RR^n$ such that
+$\displaystyle \int_{\RR^n} (1 + \|\VEC{x}\|^2)^{-k} \dx{\nu} < \infty$
+for some positive integer $k$, then $\nu$ defines a tempered
+distribution on $\displaystyle \RR^n$.  More precisely,
+$\displaystyle u : \SS(\RR^n) \to \CC$ defined by
+$\displaystyle u(\phi) = \int_{\RR^n} \phi(\VEC{x}) \dx{\nu(\VEC{x})}$
+for $\displaystyle \phi\in \SS(\RR^n)$ is a temperate distribution on
+$\displaystyle \RR^n$.
+
+If $\displaystyle g:\RR^n \to \RR$ is a measurable functions such that
+$\displaystyle \int_{\RR^n} \left| (1+\|\VEC{x}\|^2)^{-k} g(\VEC{x})
+\right|^p \dx{\VEC{x}} < \infty$ for a positive integer $k$ and a real
+number $p \geq 1$, then $g$ defines a tempered distribution on
+$\displaystyle \RR^n$.
+More precisely, $\displaystyle u : \SS(\RR^n) \to \CC$ defined by
+$\displaystyle u(\phi) = \int_{\RR^n} \phi(\VEC{x}) g(\VEC{x}) \dx{\VEC{x}}$
+for $\displaystyle \phi\in \SS(\RR^n)$ is a temperate distribution on
+$\displaystyle \RR^n$.
+
+Every $\displaystyle g \in L^p(\RR^n)$ for $1 \leq p \leq \infty$
+defines a tempered distribution on $\displaystyle \RR^n$.
+\end{egg}
+
+The following proposition states that all distributions with compact
+support are also tempered distribution but there are more tempered
+distributions.
+
+\begin{prop}
+$\displaystyle \EE'(\RR^n) \subset \SS'(\RR^n) \subset \DD'(\RR^n)$
+\end{prop}
+
+The Fourier transform of a rapidly decreasing function has the
+following properties.
+
+\begin{prop} \label{distr_frr_tempT}
+\begin{enumerate}
+\item The Fourier transform (\ref{distr_fourierT}) is a continuous
+linear bijection from $\displaystyle \SS(\RR^n)$ to itself and its inverse is
+continuous.
+\item If $\phi$ and $\psi$ are in $\displaystyle \SS(\RR^n)$, then
+$\displaystyle \phi \ast \psi \in \SS(\RR^n)$ and 
+$\displaystyle (\phi\ast \psi)^\wedge = \hat{\phi}\,\hat{\psi}$.
+\end{enumerate}
+\end{prop}
+
+The {\bfseries convolution}\index{Distribution!Convolution} of a
+temperate distribution $\displaystyle u \in \SS'(\RR^n)$ with a
+function $\displaystyle \phi \in \SS(\RR^n)$ is defined by
+\[
+  (u \ast \phi)(\VEC{x}) = \ps{u}{(\phi^\vee)_{\VEC{x}}}
+\]
+for all $\displaystyle \VEC{x} \in \RR^n$.
+The {\bfseries Fourier transform}\index{Distribution!Fourier Transform}
+of a tempered distribution $\displaystyle u \in \SS'(\RR^n)$ is the
+distribution $\hat{u}$ defined by
+\begin{equation} \label{distr_fourierTD}
+\ps{\hat{u}}{\phi} = \ps{u}{\hat{\phi}} \quad , \quad \phi \in \SS(\RR^n) \ .
+\end{equation}
+As for the standard distributions, we use the notation
+$\ps{u}{\phi} = u(\phi)$ for $\displaystyle u \in \SS'(\RR^n)$ and
+$\displaystyle \phi \in \SS(\RR^n)$.
+
+\begin{prop} \label{distr_frr_tempD}
+\begin{enumerate}
+\item The Fourier transform (\ref{distr_fourierTD}) is a continuous
+linear bijection from $\displaystyle \SS'(\RR^n)$ into itself and its
+inverse is continuous.
+\item If $\displaystyle u \in \SS'(\RR^n)$, $\alpha$ is a multi-index,
+and $p$ is the polynomial $\displaystyle p(\VEC{x}) = (i\VEC{x})^\alpha$, then
+$\displaystyle (\diff^\alpha u)^\wedge = p\, \hat{u}$ and
+$\displaystyle (p^\vee u)^\wedge = \diff^\alpha\hat{u}$.
+\item If $\displaystyle u \in \SS'(\RR^n)$ and
+$\displaystyle \phi \in \SS(\RR^n)$, then
+$\displaystyle u\ast \phi \in C^\infty(\RR^n)$ and
+$\displaystyle u\ast \phi \in \SS'(\RR^n)$.
+\item If $\displaystyle u \in \SS'(\RR^n)$ and
+$\displaystyle \phi \in \SS(\RR^n)$, then
+$\displaystyle (u\ast \phi)^\wedge = \hat{\phi}\,\hat{u}$ and
+$\displaystyle \hat{u}\ast \hat{\phi} = (\phi\,u)^\wedge$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+We will only prove the first part of (2).  The reader should consult
+the references for the proofs of the other results.
+
+By definition, we have that
+$\displaystyle (\diff^\alpha u)(\phi) = (-1)^\alpha u(\diff^\alpha \phi)$
+for all $\displaystyle \phi \in \SS(\RR^n)$.  Hence,
+\[
+(\diff^\alpha u)^\wedge (\phi)
+= (\diff^\alpha u)(\hat{\phi})
+= (-1)^\alpha u\big(\diff^\alpha \hat{\phi}\big)
+= (-1)^\alpha u\big((-i\VEC{x})^\alpha \hat{\phi})
+= (i\VEC{x})^\alpha u\big( \hat{\phi})
+= (i\VEC{x})^\alpha \hat{u}(\phi)
+\]
+for all $\displaystyle \phi \in \SS(\RR^n)$.  Thus,
+$\displaystyle (\diff^\alpha u)^\wedge = p \hat{u}$ in the sense of
+distributions.
+\end{proof}
+
+\begin{egg}
+The Dirac delta function $\delta$ is a distribution with compact
+support, so we can compute its Fourier transform.  Since
+\[
+\ps{\hat{\delta}}{\phi} = \ps{\delta}{\hat{\phi}} = \hat{\phi}(\VEC{0})
+= \int_{\RR^n} \phi(\VEC{x}) \dx{\mu(\VEC{x})} =
+\ps{f}{\phi}
+\]
+for all $\displaystyle \phi \in \SS(\RR^n)$, where
+$\displaystyle f \in \SS'(\RR^n)$ is the
+tempered distribution defined by the measure $\mu$; namely,
+$\displaystyle f(\phi) = \int_{\RR^n} \phi(\VEC{x}) \dx{\mu(\VEC{x})}
+= \frac{1}{(2\pi)^{n/2}} \int_{\RR^n} \phi(x) \dx{\VEC{x}}$ for all
+$\displaystyle \phi \in \SS(\RR^n)$, then $\hat{\delta} = f$.
+
+Note that in the literature, it is often stated that $\hat{\delta} = 1$.
+The reason behind the difference with our statement is that they do
+not use the factor $\displaystyle (2\pi)^{-n/2}$ in their definition
+of the Fourier transform as we have done with the measure $\mu$.
+\end{egg}
+
+\begin{egg}
+Using Example~\ref{chia_delta}, it is also possible to prove that
+$\hat{\delta} = \mu$ in $\DD'(\RR)$.   This is often the proof given
+for this result.
+
+Since the Fourier transform is continuous on $\SS'(\RR)$ and since
+$\chi_a$ defined in Example~\ref{chia_delta} converges to $\delta$
+in $\DD(\RR)$ as $a \to 0$, and so in $\SS(\RR)$ because of (1) in
+Proposition~\ref{DD_S_IncDense}, we have that
+$\displaystyle (\chi_a)^\wedge$ converges to $\hat{\delta}$ in $\SS'(\RR)$.
+
+Since $\displaystyle \chi_a \in L^1(\RR)$, its Fourier transform is
+given by
+\[
+(\chi_a)^\wedge(x) = \frac{1}{2a \sqrt{2\pi}}\int_{-a}^a e^{-ix y}\dx{y}
+= \frac{-1}{2a \sqrt{2\pi}\, i x}\, e^{-i x y}\bigg|_{-a}^a
+= \frac{\sin(a x)}{a x \sqrt{2\pi}}
+\]
+for $x \neq 0$ and
+\[
+(\chi_a)^\wedge(x) = \frac{1}{2a \sqrt{2\pi}}\int_{-a}^a \dx{y}
+= \frac{1}{\sqrt{2\pi}}
+\]
+for $x = 0$.   Thus
+$\displaystyle \lim_{a\to 0} (\chi_a)^\wedge(x) = 1/\sqrt{2\pi}$
+for all $x \in \RR$.
+
+Thus $\displaystyle \lim_{a\to 0} (\chi_s)^\wedge(x) = 1/\sqrt{2\pi}$
+for all $x \in \RR$.  We have shown that
+$\displaystyle (\chi_a)^\wedge$ converges pointwise to the function
+$f:\RR\to \RR$ defined by $f(x) = 1/\sqrt{2\pi}$ for
+all $x$.  We cannot immediately conclude that $\hat{\delta} = f$
+because pointwise convergence is not the convergence in $\SS'(\RR)$.
+However, if the pointwise limit exists, then the limit in $\SS'(\RR)$
+must be equal almost everywhere to the pointwise limit.  Thus,
+$\hat{\delta} = f$ almost everywhere as expected.
+\end{egg}
+
+\section{Fundamental Solutions}
+
+Our presentation is based on \cite{FoPDE} and make used of the Fourier
+transform.  This approach is analytic.  A more elementary and algebraic
+presentation is given in \cite{Smo}.
+
+Let $\displaystyle \Omega \subset \RR^n$ be an open set and consider
+the linear partial differential equation
+\begin{equation} \label{distr_lPDE2}
+L(\VEC{x},\diff)u = \sum_{|\alpha|\leq m} a_\alpha \diff^\alpha u = f
+\end{equation}
+where $u:\Omega \rightarrow \CC$, $f:\Omega \rightarrow \CC$ is
+continuous and $a_\alpha:\Omega \rightarrow \CC$ is of class
+$\displaystyle C^{|\alpha|}$ for all multi-indices involved in the sum.
+
+As in the introduction of the present chapter, let
+$\displaystyle L^\ast(\VEC{x}, \diff)$ 
+be the adjoint of $L(\VEC{x}, \diff)$ defined by
+\[
+L^\ast(\VEC{x},\diff)\phi = \sum_{|\alpha|\leq m} (-1)^{|\alpha|}
+\diff^\alpha \left(a_\alpha \phi \right) \quad , \quad \phi \in
+\DD(\Omega) \ .
+\]
+A {\bfseries strong solution}\index{Strong Solution} or a
+{\bfseries solution in the sense of distributions}\index{Solution in
+the Sense of Distribution}
+of (\ref{distr_lPDE2}) is a distribution $u$ on $\Omega$ such that
+\[
+\ps{L(\VEC{x},\diff)u}{\phi} = \ps{u}{L^\ast(\VEC{x},\diff)\phi} =
+\ps{f}{\phi}
+\]
+for all $\phi \in \DD(\Omega)$.
+
+Consider the linear partial differential equation with constant coefficients
+\begin{equation} \label{distr_lPDE3}
+L(\VEC{x},\diff)u = \sum_{|\alpha|\leq m} a_\alpha \diff^\alpha u = f \  ,
+\end{equation}
+where $a_\alpha \in \RR$ for all multi-indices $\alpha$ involved in the
+sum, $\displaystyle u:\RR^n \rightarrow \CC$ and
+$\displaystyle f \in \DD(\RR^n)$.
+
+We assume that the coordinates are such that
+$\displaystyle \{ \VEC{x} \in \RR^n : x_n=0 \}$ is not a characteristic surface.
+This implies that $a_{(0,0,\ldots,0,m)} \neq 0$.  Without loss of
+generality, we may even assume that $a_{(0,0,\ldots,0,m)} = 1$.
+We show that there exists a solution $\displaystyle u \in C^\infty(\RR^n)$ for
+(\ref{distr_lPDE3}).
+
+We have that $\displaystyle L(\VEC{x},\diff)\hat{u} = (p\, u)^\wedge$, where
+\begin{equation} \label{distr_lPDE3_ex1}
+p(\VEC{y}) = \sum_{|\alpha|\leq m} a_\alpha (-i\VEC{y})^\alpha \ .
+\end{equation}
+Let $\lambda_1(\breve{\VEC{y}})$, $\lambda_2(\breve{\VEC{y}})$, \ldots,
+$\lambda_m(\breve{\VEC{y}})$ be the roots of
+$\displaystyle g(z) = p(\breve{\VEC{y}}, z)$ for
+$\displaystyle \breve{\VEC{y}}\in \RR^{n-1}$.
+By Rouch\'e's theorem, the roots
+$\displaystyle \lambda_i:\RR^{n-1} \rightarrow \CC$
+are continuous functions.
+
+\begin{lemma} \label{distr_lPDE3_ex2}
+There exists a measurable function $\kappa:\RR^{n-1}\rightarrow [-m,m]$
+such that
+\[
+\min_{\substack{\breve{\VEC{y}} \in \RR^{n-1}\\ 1\leq j \leq m}}
+\left\{ \left|\kappa(\breve{\VEC{y}})
+- \IM \lambda_j(\breve{\VEC{y}})\right| \right\} \geq 1 \ .
+\]
+\end{lemma}
+
+\begin{proof}
+Given $\displaystyle \breve{\VEC{y}} \in \RR^{n-1}$, there exists a
+least one interval
+$\displaystyle I_k = [2k-m-1, 2k-m+1]$ with $0\leq k \leq m$ such that
+$\IM \lambda_j(\breve{\VEC{y}}) \not\in I_k$ for all $j$ because there
+are $m+1$ intervals and at most $m$ distinct zeros.  Let
+\[
+V_k = \left\{ \breve{\VEC{y}} \in \RR^{n-1} :
+\IM \lambda_j(\breve{\VEC{y}}) \not\in I_k \ \text{for} \ 1 \leq j
+\leq m \right\}
+\]
+for $0 \leq k \leq m$,  We have that
+$\displaystyle \RR^{n-1} = \bigcup_{1\leq k \leq m} V_k$ and
+the $V_k$ are measurable because
+\[
+V_k = \bigcap_{1\leq j \leq m} \lambda_j^{-1}\big(\CC \setminus
+(\RR + i\,[2k-m-1,2k-m+1])\big)
+\]
+and the $\lambda_j$ are continuous.
+
+The function $\kappa$ is defined by
+$\displaystyle \kappa(\breve{\VEC{y}}) = 2k-m$ if
+$\displaystyle \breve{\VEC{y}} \in V_k \setminus \bigcup_{0\leq j<k} V_j$.
+It is a measurable function because
+$\displaystyle \kappa^{-1}\big(\{2k-m\}\big)
+= V_k \setminus \bigcup_{0\leq j<k} V_j$
+is a measurable set.
+\end{proof}
+
+\begin{lemma} \label{distr_lPDE3_ex3}
+Let $\displaystyle q(z) = z^m + g(z)$, where $g$ is a polynomial of
+degree less than $m$ and $g(0) \neq 0$.  Suppose that $\lambda_1$,
+$\lambda_2$, \ldots, $\lambda_m$ are the roots of $q$.  Then,
+$\displaystyle \left| q(0)\right| \geq \left(\frac{\lambda}{2}\right)^m$,
+where $\displaystyle \lambda = \min_{1\leq j\leq m} |\lambda_j|$.
+\end{lemma}
+
+\begin{proof}
+The factorization of $q$ is
+$\displaystyle q(z) = (z-\lambda_1)(z-\lambda_2)\ldots(z-\lambda_m)$.
+Hence,
+\[
+\left| q(0) \right| = \left| \prod_{j=1}^m \lambda_j \right|
+= \prod_{j=1}^m \left| \lambda_j \right| \geq
+\lambda^m \geq \left(\frac{\lambda}{2}\right)^m \ .  \qedhere
+\]
+\end{proof}
+
+\begin{rmk}
+A more convoluted but cute proof of the previous lemma was given in
+\cite{FoPDE}.  The factorization of $q$ is
+$\displaystyle q(z) = (z-\lambda_1)(z-\lambda_2)\ldots(z-\lambda_m)$.
+Hence,
+\[
+\left| \frac{q(z)}{q(0)} \right| = \prod_{j=1}^m
+\left| 1 - \frac{z}{\lambda_j} \right| \leq 2^m
+\]
+for $|z|= \lambda$ since $|z/\lambda_j| = \lambda/|\lambda_j| \leq 1$,
+so $z/\lambda_j \in \overline{B_1(0)} \subset \CC$ and
+$|z/\lambda_j - 1| \leq 2$.  Since $\displaystyle m! = q^{(m)}(z)$,
+Cauchy Integral Formula gives
+\begin{align*}
+m! & = |q^{(m)}(0)| = \left| \frac{m!}{2\pi i}
+\int_{|z|=\lambda} \frac{q(z)}{z^{m+1}} \dx{z} \right|
+= \frac{m!}{2\pi} \left| \int_0^{2\pi}
+\frac{q(\lambda e^{i\theta})}{(\lambda e^{i\theta})^{m+1}}
+\lambda i e^{i\theta} \dx{\theta}\right| \\
+& \leq \frac{m!}{2\pi \lambda^m} \int_0^{2\pi}
+|q(\lambda e^{i\theta})| \dx{\theta}
+\leq \frac{m!\, 2^m |q(0)|}{2\pi \lambda^m} \int_0^{2\pi} \dx{\theta}
+= \frac{m!\, 2^m |q(0)|}{\lambda^m} \ .
+\end{align*}
+Thus, $\displaystyle \left(\frac{\lambda}{2}\right)^m \leq |q(0)|$.
+\end{rmk}
+
+\begin{theorem} \label{distr_lPDE3_ex4}
+There exists a solution of class $\displaystyle C^\infty$ for
+(\ref{distr_lPDE3}).
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+u(\VEC{x}) = (2\pi)^{-n/2} \int_{\RR^{n-1}}
+\int_{\IM y_n = \kappa(\breve{\VEC{y}})}
+e^{-i\, \VEC{x}\cdot\VEC{y}}
+\frac{\hat{f}(\VEC{y})}{p(\VEC{y})} \dx{y_n}\dx{\breve{\VEC{y}}}
+\]
+for $\displaystyle \VEC{x} \in \RR^n$, where $\kappa$ is defined in
+Lemma~\ref{distr_lPDE3_ex2} and $p$ is defined in
+(\ref{distr_lPDE3_ex1}).  In the previous integral, we
+assume that $y_n \in \CC$.
+
+\stage{i} Given $\displaystyle \VEC{y} \in \RR^n$, we first prove that
+$\displaystyle |p(\VEC{y})| \geq 2^{-m}$ for
+$\IM y_n = \kappa(\breve{\VEC{y}})$.
+Let $q(z) = p(\breve{\VEC{y}}, y_n+z)$.
+From Lemma~\ref{distr_lPDE3_ex3}, we have that
+\[
+\left| p(\VEC{y}) \right| = \left| q(0) \right| \geq
+\left(\frac{\lambda}{2}\right)^m \ ,
+\]
+where
+$\displaystyle
+\lambda = \min_{1\leq j\leq m} \left\{ \left|\lambda_j\right| : \lambda_j
+\ \text{is a root of} \ q \right\}$.
+However, the roots of the present polynomial $q$ are
+$\lambda_j(\breve{\VEC{y}}) - y_n$, where $\lambda_j(\breve{\VEC{y}})$ for
+$1\leq j \leq m$ are the roots of the polynomial
+$\displaystyle g(z) = p(\breve{\VEC{y}}, z)$. Hence,
+for $\IM y_n = \kappa(\breve{\VEC{y}})$, we get from
+Lemma~\ref{distr_lPDE3_ex2} that
+\[
+\lambda = \min_{1\leq j \leq m}
+\left| \lambda_j(\breve{\VEC{y}}) - y_n \right|
+\geq \min_{1\leq j \leq m}
+\left|\IM \lambda_j(\breve{\VEC{y}}) - \kappa(\breve{\VEC{y}}) \right|
+\geq 1 \ .
+\]
+
+\stage{ii}
+From Proposition~\ref{distr_four_f}, $\hat{f}$ is rapidly decreasing
+on the set $\displaystyle \{\VEC{y} \in \CC^n : \|\IM \VEC{y}\|_2 \leq m \}$
+that contains the domain of integration
+$\displaystyle \{ \VEC{y} = (\breve{\VEC{y}}, y_n) \in \RR^{n-1}\times \CC :
+\IM y_n = \kappa(\breve{\VEC{y}}) \}$ because
+$|\IM y_n| \leq m$ since the range of $\kappa$ is $[-m.m]$.
+
+It follows from (i) and (ii) that $\displaystyle
+\VEC{y} \mapsto e^{-i\, \VEC{x}\cdot\VEC{y}} \frac{\hat{f}(\VEC{y})}{p(\VEC{y})}$
+is bounded and rapidly decreasing on the domain of integration
+\[
+S = \{\VEC{y} = (\breve{\VEC{y}}, y_n) \in \RR^{n-1}\times \CC :
+|y_n| \leq m \} \ .
+\]
+Since $|\IM y_n|\leq m$ in the domain of integration, the
+exponential in the definition of $u$ is bounded by $\displaystyle e^{m x_n}$.
+It follows that
+$\displaystyle \VEC{y} \mapsto \diff_{\VEC{x}}^\alpha
+e^{-i\, \VEC{x}\cdot\VEC{y}} \frac{\hat{f}(\VEC{y})}{p(\VEC{y})}$
+is rapidly decreasing on $S$ for all multi-indices $\alpha$.
+Hence, we may interchange derivative and integral in the definition of
+$u$.  Thus $u$ is of class $\displaystyle C^\infty$.
+
+We have
+\begin{align}
+(L(\VEC{x},\diff)u)(\VEC{x}) &= 
+(2\pi)^{-n/2} \int_{\RR^{n-1}} \int_{\IM y_n = \kappa(\breve{\VEC{y}})}
+\left( L(\VEC{x},\diff) e^{-i\, \VEC{x}\cdot\VEC{y}} \right)
+\frac{\hat{f}(\VEC{y})}{p(\VEC{y})} \dx{y_n}\dx{\breve{\VEC{y}}}
+\nonumber \\
+&= (2\pi)^{-n/2} \int_{\RR^{n-1}} \int_{\IM y_n = \kappa(\breve{\VEC{y}})}
+e^{-i\, \VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y}) \dx{y_n}\dx{\breve{\VEC{y}}}
+\label{distrlPDE3eq1}
+\end{align}
+for $\displaystyle \VEC{x} \in \RR^n$.
+
+Since $\displaystyle y_n \mapsto e^{i\VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y})$ is a
+entire function, we may use Cauchy's theorem for
+integrals along a close path to conclude that
+\[
+\int_{y_n \in \Gamma}
+e^{-i\, \VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y}) \dx{y_n} = 0 \ ,
+\]
+where $\Gamma = \Gamma_1 + \Gamma_2 - \Gamma_3 - \Gamma_4$ with
+$\Gamma_1 = \{ r+ 0 i : -R \leq r \leq R \}$,
+$\Gamma_2 = \{ R+ s i : 0 \leq s \leq \kappa(\breve{\VEC{y}}) \}$,
+$\Gamma_3 = \{ r+ \kappa(\breve{\VEC{y}}) i : -R \leq r \leq R \}$
+and
+$\Gamma_4 = \{ -R+ s i : 0 \leq s \leq \kappa(\breve{\VEC{y}}) \}$
+(Figure~\ref{distr_FIG1}).
+We have that
+\[
+\int_{y_n \in \Gamma_1}
+e^{-i\, \VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y}) \dx{y_n}
+\to
+\int_{-\infty}^{\infty}
+e^{-i\, \VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y}) \dx{y_n}
+\quad \text{as} \quad R \to \infty
+\]
+and
+\[
+\int_{y_n \in \Gamma_3}
+e^{-i\, \VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y}) \dx{y_n}
+\to 
+\int_{\IM y_n = \kappa(\breve{\VEC{y}})}
+e^{-i\, \VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y}) \dx{y_n}
+\quad \text{as} \quad R \to \infty \ .
+\]
+Moreover, since
+$\displaystyle \VEC{y} \mapsto 2^{i\VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y})$ is
+rapidly decreasing on the set $S$, we have that there exists a
+constant $C>0$ such that
+$\displaystyle \left| 2^{i\VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y}) \right| \leq
+C/ \|\VEC{y}\|_2^2$ for all $\VEC{z} \in S$.  Thus, for
+$\displaystyle R^2>2m^2$, we have that
+\begin{align*}
+\left| \int_{y_n \in \Gamma_2}
+e^{-i\, \VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y}) \dx{y_n} \right|
+& \leq C \int_0^{\kappa(\breve{\VEC{y}})}
+\frac{1}{\|(\breve{\VEC{y}},R+is)\|_2^2} \dx{s}
+\leq C \int_0^m \frac{1}{ R^2 - s^2} \dx{s} \\
+& \leq C \int_0^m \frac{1}{ R^2 - m^2} \dx{s}
+= \frac{2Cm}{R^2} \to 0
+\quad \text{as} \quad R \to \infty
+\end{align*}
+and similarly
+\begin{align*}
+\left| \int_{y_n \in \Gamma_4}
+e^{-i\, \VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y}) \dx{y_n} \right|
+&\leq C \int_0^{\kappa(\breve{\VEC{y}})}
+\frac{1}{\|(\breve{\VEC{y}},-R+is)\|_2^2} \dx{s}
+\leq C \int_0^m \frac{1}{ R^2 - s^2} \dx{s} \\
+& \leq C \int_0^m \frac{1}{ R^2 - m^2} \dx{s}
+= \frac{2Cm}{R^2} \to 0
+\quad \text{as} \quad R \to \infty \ .
+\end{align*}
+Hence,
+\[
+\int_{\IM y_n = \kappa(\breve{\VEC{y}})}
+e^{-i\, \VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y}) \dx{y_n}
+= 
+\int_{-\infty}^{\infty}
+e^{-i\, \VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y}) \dx{y_n} \ .
+\]
+It follows from (\ref{distrlPDE3eq1}) that
+\[
+(L(\VEC{x},\diff)u)(\VEC{x})
+= \int_{\RR^n} e^{-i\, \VEC{x}\cdot\VEC{y}} \hat{f}(\VEC{y}) \dx{\mu(\VEC{y})}
+= f(\VEC{x})
+\]
+for $\displaystyle \VEC{x} \in \RR^n$, where we have used the Formula for the
+Inverse Fourier transform.
+\end{proof}
+
+\pdfF{distributions/distr_fig1}{Contour of integration}{
+According to Cauchy's theorem for integrals along a
+close path, we have that
+$\displaystyle \int_{\Gamma} = \int_{\Gamma_1} + \int_{\Gamma_2}
+- \int_{\Gamma_3} - \int_{\Gamma_4} = 0$.}{distr_FIG1}
+
+\begin{defn}
+A {\bfseries fundamental solution}\index{Fundamental Solution} for the
+differential operator $L(\VEC{x},\diff)$ defined in (\ref{distr_lPDE3}) is a
+distribution $F$ on $\displaystyle \RR^n$ such that
+$L(\VEC{x},\diff)F = \delta$.
+\end{defn}
+
+\begin{egg}
+Let $R = \{\VEC{x} \in \RR^2 : x_i > 0 \ \text{for} \ i=1,2 \}$ and
+$\displaystyle L(\VEC{x},\diff) = \diff^{(1,1)}
+= \pdydxnm{}{x_1}{x_2}{2}{}{}$.  We have that
+$\Chi_R$ is a fundamental solution of the differential operator
+$L(\VEC{x},\diff)$ because
+\begin{align*}
+&\ps{L(\VEC{x},\diff) \Chi_R}{\phi}
+= \ps{\Chi_R}{\diff^{(1,1)} \phi}
+= \int_0^\infty \int_0^\infty \pdydxnm{\phi}{x_1}{x_2}{2}{}{}(x_1,x_2)
+\dx{x_2}\dx{x_1} \\
+&\qquad 
+= \int_0^\infty \left( \pdydx{\phi}{x_1}(x_1,x_2) \bigg|_0^\infty\right)\dx{x_1}
+= -\int_0^\infty \pdydx{\phi}{x_1}(x_1,0) \dx{x_1}
+= -\phi(x_1,0) \bigg|_0^\infty = \phi(0,0) = \delta(\phi)
+\end{align*}
+for all $\phi \in \DD(\RR^2)$.
+\end{egg}
+
+\begin{rmk}
+If $\displaystyle F\in \DD'(\RR^n)$ is a fundamental solution for
+$L(\VEC{x},\diff)$, then a solution of $L(\VEC{x},\diff)u = f$, where
+$\displaystyle f \in \DD(\RR^n)$, is the 
+distribution $u = F \ast f$ because
+\[
+L(\VEC{x},\diff) u = L(\VEC{x},\diff)(F \ast f)
+= (L(\VEC{x},\diff) F) \ast f = \delta \ast f = f \ .
+\]
+\end{rmk}
+
+\begin{theorem}[Malgrange-Ehrempreis] \label{malgr_Ehr}
+Every differential linear operator with constant coefficients
+\begin{equation} \label{distr_lPDE4}
+L(\VEC{x},\diff) = \sum_{|\alpha|\leq m} a_\alpha \diff^\alpha
+\end{equation}
+has a fundamental solution on $\displaystyle \RR^n$.
+\index{Malgrange-Ehrempreis' Theorem}
+\end{theorem}
+
+\begin{proof}
+We define a linear functional $F$ on $\displaystyle \DD(\RR^n)$ by
+\[
+F(\phi) = (2\pi)^{-n/2} \int_{\RR^{n-1}} \int_{\IM y_n = \kappa(\breve{\VEC{y}})}
+\frac{\hat{\phi}^\vee(\VEC{y})}{p(\VEC{y})}\dx{y_n}\dx{\breve{\VEC{y}}}
+\quad , \quad \phi \in \DD(\RR^n) \ ,
+\]
+where $\kappa$ is defined in Lemma~\ref{distr_lPDE3_ex2} and $p$ is
+defined in (\ref{distr_lPDE3_ex1}).  In the previous integral, we
+assume that $y_n \in \CC$.  To prove that
+$\displaystyle F \in \DD'(\RR^n)$, we have
+to show that $F$ is continuous on
+$\displaystyle \DD(\RR^n)$.  We will also show
+that $L(\VEC{x},\diff)F = \delta$.
+
+\stage{i} Let $\displaystyle K \subset \RR^n$ be a compact set.  We will find a
+constant $C_K$ and an integer $N_K$, such that
+\[
+\left|F(\phi)\right| \leq C_K \sum_{|\alpha|\leq N_K} \|\diff^\alpha
+\phi\|_{\infty,K}
+\]
+for all $\phi \in \DD_K$.
+It will follow from Proposition~\ref{distr_cont_cond} that $F$ is
+continuous on $\displaystyle \DD(\RR^n)$ and so
+$\displaystyle F\in \DD'(\RR^n)$.
+
+As in the proof of Theorem~\ref{distr_lPDE3_ex4}, we can use
+Proposition~\ref{distr_four_f} to conclude that $\hat{\phi}$ is
+rapidly decreasing on the set
+$\displaystyle \{\VEC{y} \in \CC^n : \|\IM \VEC{y}\|_2 \leq m \}$.
+Moreover, we have shown in the proof of Theorem~\ref{distr_lPDE3_ex4} that
+$\displaystyle \left|p(\VEC{y})\right| \geq 2^{-m}$ for
+$\IM y_n = \kappa(\breve{\VEC{y}})$.  Hence, 
+\begin{align*}
+&\left| F(\phi) \right|
+\leq \frac{1}{C_1(2\pi)^{n/2}}
+\int_{\RR^{n-1}} \int_{-\infty}^\infty
+\left| \hat{\phi}^\vee(\breve{\VEC{y}},r + \kappa(\breve{\VEC{y}})\,i) \right|
+\dx{r}\dx{\breve{\VEC{y}}} \\
+&\quad\leq \bigg( \underbrace{ \frac{1}{C_1\,(2\pi)^{n/2}}
+\int_{\RR^{n-1}} \int_{-\infty}^\infty
+\left( 1+\|\breve{\VEC{y}}\|^2 + r^2\right)^{-n-1} \dx{r}
+  \dx{\breve{\VEC{y}}}}_{=C_2} \bigg)
+\, \sup_{\|\IM \VEC{y}\| \leq m } \left\{
+\left( 1+ \|\VEC{y}\|^2  \right)^{n+1}
+\left| \hat{\phi}^\vee(\VEC{y}) \right| \right\} \\
+&\quad = C_2 \sup_{\|\IM \VEC{y}\| \leq m} \left\{
+\left( 1+\|\VEC{y}\|^2 \right)^{n+1}
+\left| \hat{\phi}^\vee(\VEC{y}) \right| \right\}
+\leq C_3 \sum_{|\alpha|\leq 2(n+1)} \|\diff^\alpha \phi\|_\infty
+\end{align*}
+for all $\phi \in \DD_K$ and some constant $C_3$.
+The last inequality above is proved using the relation
+\[
+\left| \VEC{y}^\alpha \hat{\phi}(\VEC{y}) \right|
+\leq e^{r\|\IM \VEC{y}\|_2}\,\int_{\RR^n}
+\left|\diff^\alpha \phi(\VEC{x})\right| \dx{\mu(\VEC{x})}
+\]
+for $\displaystyle \VEC{y} \in \CC^n$ and
+$\displaystyle \alpha \in \NN^n$ that we have obtained in
+(\ref{proof_distr_four_f}) of the proof of Proposition~\ref{distr_four_f},
+where $r$ is such that $K \subset B_r(\VEC{0})$.
+Thus, the constant $C_3$ depends on $K$.
+
+\stage{ii} We have
+$\displaystyle \ps{L(\VEC{x},\diff) F}{\phi}
+= \ps{F}{L^\ast(\VEC{x},\diff) \phi}$
+for $\phi \in \DD(\RR^n)$ where
+$\displaystyle L^\ast(\VEC{x},\diff)
+= \sum_{|\alpha|\leq m} (-1)^{|\alpha|} a_\alpha \diff^{\alpha}$.
+Let
+\[
+p^\ast(\VEC{y}) = \sum_{|\alpha|\leq m} a_\alpha (i \VEC{y})^\alpha \ .
+\]
+Then
+\[
+((L^\ast(\VEC{x},\diff) \phi))^\wedge(-\VEC{y})
+= p^\ast(-\VEC{y}) \hat{\phi}(-\VEC{y})
+= p(\VEC{y}) \hat{\phi}(-\VEC{y})
+\]
+for $\displaystyle \VEC{y}\in \RR^n$.  Hence
+\begin{align*}
+\ps{L(\VEC{x},\diff)F}{\phi} &= \ps{F}{L^\ast(\VEC{x},\diff)\phi}
+= (2\pi)^{-n/2} \int_{\RR^{n-1}} \int_{\IM y_n = \kappa(\breve{\VEC{y}})}
+\frac{(L^\ast(\VEC{x},\diff)\phi)^\wedge(-\VEC{y})}{p(\VEC{y})}
+\dx{y_n}\dx{\breve{\VEC{y}}} \\
+&= (2\pi)^{-n/2} \int_{\RR^{n-1}} \int_{\IM y_n = \kappa(\breve{\VEC{y}})}
+\hat{\phi}(-\VEC{y}) \dx{y_n}\dx{\breve{\VEC{y}}}
+= (2\pi)^{-n/2} \int_{\RR^n} \hat{\phi}(-\VEC{y}) \dx{\VEC{y}} \\
+&= \int_{\RR^n} \hat{\phi}(\VEC{y}) \dx{\mu(\VEC{y})}
+= \phi(\VEC{0}) = \delta(\phi)
+\end{align*}
+for all $\displaystyle \phi \in \DD(\RR^n)$.  The fourth equality comes from
+the Cauchy's theorem for integral along a close path as we have done 
+in Theorem~\ref{distr_lPDE3_ex4} for instance.
+Note that $\hat{\phi}$ is the restriction of an entire function which
+is rapidly decreasing on the set
+$\displaystyle \{ \VEC{y} \in \CC^n : \|\IM y\|_2 \leq m \}$ according to 
+Proposition~\ref{distr_four_f}.  The second to last
+equality is a consequence of the inverse Fourier transform.
+\end{proof}
+
+\begin{defn}
+Let $\Omega$ be an open subset of $\displaystyle \RR^n$.  The
+differential operator
+$\displaystyle L(\VEC{x},\diff)u = \sum_{|\alpha|\leq m} a_\alpha \diff^\alpha u$,
+where the $\displaystyle a_\alpha\in C^\infty(\Omega)$, is
+{\bfseries hypoelliptic}%
+\index{Linear Partial Differential Operator!Hypoelliptic} if
+$\displaystyle L(\VEC{x},\diff)u \in C^\infty(\Omega)$ implies that
+$\displaystyle u \in C^\infty(\Omega)$.
+\end{defn}
+
+Recall that we say that $u \in \DD'(\Omega)$ is of class
+$\displaystyle C^\infty(\Omega)$ and write
+$\displaystyle u \in C^\infty(\Omega)$ if there exists
+a function $\displaystyle f \in C^\infty(\Omega)$ such that
+$\displaystyle u(\phi) = \int_{\Omega} f(x) \phi(x) \dx{x}$
+for all $\phi \in \DD(\Omega)$.
+
+The next lemma will be used to give a sufficient condition to
+determine if a differential operator is hypoelliptic.
+
+\begin{lemma} \label{distr_lemma_hypo}
+If $\displaystyle f \in \DD'(\RR^n)$ is given by
+$\displaystyle f\in C^\infty(\RR^n\setminus \{\VEC{0}\})$
+and $\displaystyle v \in \EE'(\RR^n)$, then
+$\displaystyle f\ast v \in C^\infty(\RR^n\setminus \supp v)$.
+\end{lemma}
+
+\begin{proof}
+Consider $\VEC{z} \not\in \supp v$ and choose $\epsilon >0$ such that
+$\displaystyle B_\epsilon(\VEC{z}) \cap \supp v = \emptyset$.
+Choose $\displaystyle \psi \in \DD(\RR^n)$ such that $\psi(\VEC{x}) = 1$ for
+$\displaystyle \VEC{x} \in B_{\epsilon/4}(\VEC{0})$ and
+$\displaystyle \supp \psi \subset B_{\epsilon/2}(\VEC{0})$.
+
+Then $f\ast v = (\psi f)\ast v + ( (1-\psi)f) \ast v$ where
+$\displaystyle ((1-\psi) f) \ast v \in C^\infty(\RR^n)$ according to
+item (3) of Proposition~\ref{distr_smooth_convol} and
+Proposition~\ref{uvequvu} because
+$\displaystyle (1-\psi) f \in C^\infty(\RR^n)$.  Moreover,
+\[
+\supp \big( (\psi f)\ast v\big) \subset D = \left\{ \VEC{x} + \VEC{y}
+: \VEC{x} \in \supp \psi \ , \ \VEC{y} \in \supp v \right\}
+\]
+and $\displaystyle D \cap B_{\epsilon/2}(\VEC{z}) = \emptyset$.
+Hence $((\phi f)\ast v)(\phi) = 0$ for all
+$\displaystyle \phi \in \DD\left(B_{\epsilon/2}(\VEC{z})\right)$.
+Thus $\displaystyle f\ast v = ((1-\phi)f) \ast v$ on
+$\displaystyle \DD\left(B_{\epsilon/2}(\VEC{z})\right)$ and so
+$\displaystyle f\ast v \in C^\infty\left(B_{\epsilon/2}(\VEC{z})\right)$.
+
+Since $\VEC{z} \not\in \supp v$ is arbitrary, we get
+$\displaystyle f\ast v \in C^\infty(\RR^n\setminus \supp v)$.
+\end{proof}
+
+\begin{theorem} \label{distr_hypoTH}
+Consider the differential operator
+\[
+L(\VEC{x},\diff)u = \sum_{|\alpha|\leq m} a_\alpha \diff^\alpha u \ ,
+\]
+where $a_\alpha \in \RR$ for all multi-indices $\alpha$.  The following
+sentences are equivalent.
+\begin{enumerate}
+\item There exists a fundamental solution of $L(\VEC{x},\diff)$ of
+class $\displaystyle C^\infty$ on $\displaystyle \RR^n\setminus \{\VEC{0}\}$.
+\item Every fundamental solution of $L(\VEC{x},\diff)$ is of class
+$\displaystyle C^\infty$ on $\displaystyle \RR^n\setminus \{\VEC{0}\}$.
+\item $L(\VEC{x},\diff)$ is hypoelliptic.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\stage{$\mathbf{(3)\Rightarrow (2)}$}
+If $F$ is a fundamental solution, then
+$\displaystyle L(\VEC{x},\diff)F = \delta \in C^\infty(\RR^n
+\setminus \{\VEC{0}\})$ and (3)
+implies that $\displaystyle F \in C^\infty(\RR^n \setminus \{\VEC{0}\})$.
+
+\stage{$\mathbf{(2) \Rightarrow (1)}$}
+This is trivial because of Theorem~\ref{malgr_Ehr}.
+
+\stage{$\mathbf{(1) \Rightarrow (3)}$}
+Let $\displaystyle F \in C^\infty(\RR^n\setminus \{\VEC{0}\}$ be a fundamental
+solution of $L(\VEC{x},\diff)$.  Suppose that $u\in \DD'(\Omega)$ is such that
+$\displaystyle L(\VEC{x},\diff)u \in C^\infty(\Omega)$.
+
+Given $\VEC{z} \in \Omega$ and $\epsilon >0$ such that
+$\displaystyle B_\epsilon(\VEC{z}) \subset \Omega$ , we prove that
+$\displaystyle u \in C^\infty(B_{\epsilon/2}(\VEC{z}))$.  Choose
+$\displaystyle \phi \in \DD(\RR^n)$ such that
+$\displaystyle \supp \phi \subset B_\epsilon(\VEC{z})$ and
+$\phi(\VEC{x})=1$ for all $\displaystyle \VEC{x} \in B_{\epsilon/2}(\VEC{z})$.
+
+We have
+\[
+L(\VEC{x},\diff)(\phi u) = \phi\, L(\VEC{x},\diff)u + v \  ,
+\]
+where $v$ is an expression involving the partial derivatives of $\phi$
+(but not $\phi$ itself) and the partial derivatives of $u$ of order
+less than $m$.
+
+It follows from item (1) of Proposition~\ref{distr_smooth_convol} that
+$\displaystyle F\ast (\phi \, L(\VEC{x},\diff)u) \in C^\infty(\RR^n)$ because
+$\displaystyle \phi\,L(\VEC{x},\diff)u \in \DD(\RR^n)$.
+
+We have that $v(\phi) = 0$ for all $\displaystyle \phi \in \DD(\RR^n)$ with
+$\displaystyle \supp \phi \subset \overline{B_{\epsilon/2}(\VEC{z})}
+\cup \left( \RR^n \setminus B_\epsilon(\VEC{z}) \right)$
+because $\phi(\VEC{x})=0$ for
+$\displaystyle \VEC{x} \not\in B_\epsilon(\VEC{z})$ and $\phi(\VEC{x})=1$ for
+$\displaystyle \VEC{x} \in B_{\epsilon/2}(\VEC{z})$.  Hence, from
+Lemma~\ref{distr_lemma_hypo}, we have that
+$\displaystyle F\ast v \in C^\infty(B_{\epsilon/2}(\VEC{z}))$ 
+because $\displaystyle \supp v \subset \overline{B_\epsilon(\VEC{z})} \setminus
+B_{\epsilon/2}(\VEC{z})$.
+
+Therefore,
+\begin{align*}
+\phi u &= \delta \ast (\phi u) = \big(L(\VEC{x},\diff) F\big) \ast (\phi u)
+= F \ast \big( L(\VEC{x},\diff)(\phi u) \big) \\
+&= F \ast (\phi L(\VEC{x},\diff) u)
++ F\ast v \in C^\infty(B_{\epsilon/2}(\VEC{z}))
+\end{align*}
+and, since $\phi(\VEC{x}) = 1$ for
+$\displaystyle \VEC{x} \in B_{\epsilon/2}(\VEC{z})$, we get that
+$\displaystyle u \in C^\infty(B_{\epsilon/2}(\VEC{z}))$.
+\end{proof}
+
+\section{Exercises}
+
+We only suggest elementary problems about distribution and the Fourier
+transform of functions.  For more advanced problems; in particular
+concerning the Fourier transform of distributions, we suggest
+\cite{ReeSim,RuFA}.
+
+The remark made in the exercise section of Chapter~\ref{ChapShock} is
+worth repeating here.  Namely, some of the problems below refer to
+weak solutions of partial differential equations which for us means
+solutions in the sense of distribution or strong solutions. 
+The expression ``weak solutions'' is reserved to solutions of
+variational problems that we will study in Chapter~\ref{elliptic_PDEs}.
+
+Suggested exercises:
+
+\begin{itemize}
+\item In \cite{J}: numbers 1 in Section 3.6 ; all the numbers
+in Section 1.9.
+\item In \cite{McO}: numbers 3 to 5, 7 to 9 in Sections 2.3.
+\item In \cite{Str}: all the numbers in Sections 12.1 and 12.4
+(Warning: the definition of Fourier transform in \cite{Str} is
+slightly different than the definition given above).
+\end{itemize}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End:

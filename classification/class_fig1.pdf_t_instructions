@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{classification/class_fig1.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex class_fig1.fig class_fig1.pdf
+% fig2dev -L pdftex_t class_fig1.fig class_fig1.pdf_t
+

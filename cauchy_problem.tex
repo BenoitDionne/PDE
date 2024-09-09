@@ -1,0 +1,337 @@
+\chapter{Cauchy Problem} \label{ChapterCauchyP}
+
+\section{Cauchy-Kovalevski's Theorem}
+
+Let $S$ be an hyper-surface in $\displaystyle \RR^n$ and
+$g_j:S\rightarrow \RR$ for $0\leq j \leq m-1$ be continuous functions.
+The {\bfseries Cauchy Problem}\index{Cauchy Problem} is to find a function
+$\displaystyle u: \RR^n \rightarrow \RR$ such that
+\begin{equation}\label{cp_GPDE}
+G\left(\VEC{x},
+\left\{ \diff^\alpha u\left(\VEC{x}\right) : \alpha \in \NN^n \ , \
+  |\alpha|\leq m \right\} \right) = 0
+\end{equation}
+for $\displaystyle \VEC{x} \in \RR^n$,
+\begin{equation}\label{cp_GPDE_cond}
+u\big|_S = g_0 \ , \quad \pdydx{u}{\nu}\bigg|_S = g_1 \ ,
+\ \ldots\ ,\quad \pdydxn{u}{\nu}{m-2}\bigg|_S = g_{m-2} \ 
+\text{and} \ \pdydxn{u}{\nu}{m-1}\bigg|_S = g_{m-1} \ ,
+\end{equation}
+where $\displaystyle \nu:S \rightarrow \RR^n$ is a differentiable
+function such that $\nu\left(\VEC{x}\right)$ is a unit normal vector
+to the hyper-surface $S$ at $\VEC{x} \in S$.  Recall that
+\[
+\pdydx{u}{\nu}\left(\VEC{x}\right) =
+\lim_{s\rightarrow 0} \frac{u\left(\VEC{x}+s\nu\left(\VEC{x}\right)\right) -
+u\left(\VEC{x}\right) }{s} = \graD u(\VEC{x}) \cdot \nu\left(\VEC{x}\right)
+\]
+is the directional derivative of $u$ at $\VEC{x}$ in the direction
+$\nu\left(\VEC{x}\right)$.
+
+As we have seen for the one-dimensional partial differential
+equations, not all hyper-surfaces $S$ yields a Cauchy problem that has a
+unique solution.  We will give later conditions on $S$ that ensure that a
+Cauchy Problem is well posed.
+
+Using a local changed of coordinates near a point $\VEC{p}$, we may
+assume that the hyper-surface $S$ is defined by
+\[
+S = \left\{ \VEC{x} \in \RR^n : x_n = 0 \right\} \ .
+\]
+Hence the Cauchy Problem becomes
+\begin{equation} \label{cauchy_GPDE}
+F\left(\VEC{x},
+\left\{ \diff^\alpha u\left(\VEC{x}\right) : \alpha \in \NN^n \ , \ 
+|\alpha| \leq m \right\} \right) = 0
+\end{equation}
+for $\displaystyle \VEC{x} \in \RR^n$,
+\[
+u\big|_S = f_0 \ , \quad \pdydx{u}{x_n}\bigg|_S = f_1 \ , \ 
+\ldots \ , \quad \pdydxn{u}{x_n}{m-2}\bigg|_S = f_{m-2} \ \text{and}
+\ \pdydxn{u}{x_n}{m-1}\bigg|_S = f_{m-1} \ .
+\]
+
+Let us assume that $F$, $f_0$, $f_1$, \ldots , $f_{m-1}$ are analytic
+functions.  Moreover, let us assume that $u$ is also analytic.
+From $u(x_1,x_2, \ldots, x_{n-1},0) = f_0(x_1,x_2, \ldots, x_{n-1})$,
+we can compute
+\[
+\diff^\alpha u(x_1, x_2, \ldots, x_{n-1}, 0) =
+\diff^\alpha f_0(x_1, x_2, \ldots, x_{n-1})
+\]
+for all $\displaystyle \alpha \in \NN^n$ with $\alpha_n = 0$.
+From $\displaystyle \pdydx{u}{x_n}(x_1,x_2, \ldots, x_{n-1},0)
+= f_1(x_1,x_2, \ldots, x_{n-1})$,
+we can compute
+\[
+\diff^\alpha u(x_1, x_2, \ldots, x_{n-1}, 0) =
+\diff^\alpha f_1(x_1, x_2, \ldots, x_{n-1})
+\]
+for all $\displaystyle \alpha \in \NN^n$ with $\alpha_n = 1$.
+Proceeding like this for the derivative of $u$ up to order $m-1$, we
+can compute $\displaystyle \diff^\alpha u(x_1, x_2, \ldots, x_{n-1}, 0)$ for
+all $\displaystyle \alpha \in \NN^n$ with $\alpha_n < m$.
+
+The problem is to compute
+$\displaystyle \pdydxn{u}{x_n}{j}(x_1,x_2,\ldots,x_{n-1},0)$ for $j\geq m$.
+For this, we assume that (\ref{cauchy_GPDE}) can be solved for
+$\displaystyle \pdydxn{u}{x_n}{m}$ for $\VEC{x}$ near the hyper-surface $S$.
+Namely, we assume that we can write
+\begin{equation} \label{cauchy_CK_cond}
+\displaystyle \pdydxn{u}{x_n}{m} = H\left(\VEC{x},
+\left\{ \diff^\alpha u\left(\VEC{x}\right) : \alpha \in \NN^n \ , \ 
+|\alpha| \leq m \ , \, \alpha \neq m \VEC{e}_n \right\} \right)
+\end{equation}
+for $\displaystyle \VEC{x} \in \RR^n$ near $S$, where, as usual,
+$\displaystyle \left\{ \VEC{e}_1, \VEC{e}_2, \ldots, \VEC{e}_n\right\}$ 
+is the canonical basis of $\displaystyle \RR^n$.  Not all
+hyper-surfaces $S$ will meet this requirement.   This is the basis for
+the classification of partial differential equations given in
+Chapter~\ref{ChapClassifPDE}.
+
+Using (\ref{cauchy_CK_cond}), we may compute derivatives of $u$ of
+order greater or equal to $m$ with respect to $x_n$.  Thus, all the
+mixed derivatives of $u$ at a point
+$\VEC{a} = (a_1,a_2, \ldots, a_{n-1}, 0)$
+can be computed.  Since we assume that $u$ is analytic, we can write
+for $\VEC{x}$ near $\VEC{p}$ that
+\[
+u\left(\VEC{x}\right) =
+\sum_{\alpha \in \NN^n} \frac{1}{\alpha!}
+\diff^\alpha u\left(\VEC{a}\right) \left( \VEC{x}- \VEC{p} \right)^\alpha \ ,
+\]
+where
+\[
+\alpha! = \alpha_1!\,\alpha_2!\ldots \alpha_n!
+\]
+and
+\[
+\left( \VEC{x}- \VEC{p} \right)^\alpha =
+\left(x_1-p_1\right)^{\alpha_1}\,\left(x_2-p_2\right)^{\alpha_2}\ldots
+\left(x_n-p_n\right)^{\alpha_n} \ .
+\]
+
+This is the essence of the following theorem that we will not prove.
+
+\begin{theorem}[Cauchy-Kovalevski] \label{cauchyKovalTh}
+Let $\displaystyle S \subset \RR^n$ be a analytic hyper-surface.  Assume that
+$G$ is an analytic function in a neighbourhood of $S$, and
+$g_0:S\rightarrow \RR$, $g_1:S\rightarrow \RR$, \ldots, 
+$g_{m-1}:S\rightarrow \RR$ are analytic functions on $S$.
+If $S$ is a non-characteristic hyper-surface
+(See Definition~\ref{char_surf_hd_def}),
+then there exists a unique analytic solution $u$ of (\ref{cp_GPDE}) and
+(\ref{cp_GPDE_cond}) in a neighbourhood of $S$.
+\end{theorem}
+
+A proof of this theorem can be found in \cite{J,Tr} for instance.
+
+The uniqueness in Cauchy-Kovalevski theorem is among the analytic
+functions.  It does not say anything about less smooth solutions.
+The next theorem roughly states that, for linear partial differential
+equations, the uniqueness is true among all functions.  This theorem
+will also not be proved.  A proof can be found in \cite{Smo} for
+instance.
+
+\begin{theorem}[Holmgren] \label{HolmgrenTheo}
+Consider the m$^{th}$ order linear partial differential equation
+\[
+L(\VEC{x}, \diff)u = \sum_{|\alpha|\leq m} a_\alpha(\VEC{x}) \diff^\alpha u = 0
+\]
+on $\displaystyle \RR^n$, where the functions
+$\displaystyle a_\alpha:\RR^n \rightarrow \RR$
+are real analytic. Suppose that $S$ is an analytic non-characteristic
+hyper-surface.  Then, the unique solution of class $\displaystyle C^m(\RR^n)$
+which satisfy the Cauchy conditions $\displaystyle \diff^\alpha u = 0$
+on $S$ for all multi-indices $\alpha$ with $|\alpha|<m$ is $u=0$ on $R$.
+\end{theorem}
+
+\cite{J} proves a little bit more general version of Holmgren's theorem.
+The proof of Holmgren's theorem is not easy.
+Before stating this version, we need a little definition.
+
+\begin{defn}
+Let $\displaystyle \Omega \subset \RR^n$ be an open set.  Suppose that
+\begin{enumerate}
+\item there exists a real analytic bijection
+$F:B \times ]a,b[ \rightarrow \Omega$, where $B$ is an open ball in
+$\displaystyle \RR^{n-1}$ and $a<b$,
+\item the Jacobian of $F$ is different from $0$ everywhere on
+$B\times ]a,b[$, and
+\item $\displaystyle \Omega = \bigcup_{\lambda \in ]a,b[} S_\lambda$, 
+where $\displaystyle S_\lambda = \left\{ \VEC{x} : \VEC{x} = F(\VEC{y},\lambda)
+\ \text{for} \ \VEC{y} \in B \right\}$.
+\end{enumerate}
+Then the family of hyper-surfaces
+$\displaystyle \left\{ S_\lambda \right\}_{\lambda \in ]a,b[}$ is an
+{\bfseries analytic field}\index{Analytic Field} for $\Omega$.
+\end{defn}
+
+\begin{theorem}[Holmgren]
+Consider the m$^{th}$ order linear partial differential equation
+\[
+L(\VEC{x}, \diff)u = \sum_{|\alpha|\leq m} a_\alpha(\VEC{x}) \diff^\alpha u = 0
+\]
+on an open set $\Omega$ of $\displaystyle \RR^n$, where the functions
+$a_\alpha:\Omega\rightarrow \RR$ are real analytic. Suppose that
+$\displaystyle \left\{ S_\lambda \right\}_{\lambda \in ]a,b[}$ is an
+analytic field for $\Omega$.\\
+Let
+$\displaystyle
+R = \left\{ \VEC{x} : \VEC{x} \in \Omega \ \text{with} \ x_n\geq 0 \right\}$,
+$\displaystyle
+Z = \left\{ \VEC{x} : \VEC{x} \in \Omega \ \text{with} \ x_n = 0 \right\}$
+and
+$\displaystyle \Omega_\mu = \bigcup_{a<\lambda \leq \mu} S_\lambda$.
+
+If $Z \neq \emptyset$, $Z$ and the $S_\lambda$ are not characteristic
+hyper-surfaces, and
+$\Omega_\mu \cap R$ is a closed subset of $\Omega$ (with
+the induced topology on $\Omega$) for all $\mu \in ]a,b[$, then the
+unique solution of class $\displaystyle C^m(\overline{R})$ which
+satisfy the Cauchy conditions $\displaystyle \diff^\alpha u = 0$ on
+$Z$ for all multi-indices $\alpha$ with $|\alpha|<m$ is $u=0$ on $R$.
+\end{theorem}
+
+If $\displaystyle R\subset \RR^n$, recall that
+$\displaystyle f \in C^m(\overline{R})$ means that
+$\displaystyle f\in C(\overline{R}) \cap C^m(R)$ and
+$\displaystyle \diff^\alpha f$ can be extended
+continuously to $\overline{R}$ for all multi-indices $\alpha$ with
+$|\alpha|\leq m$.
+
+The proof of Theorem~\ref{HolmgrenTheo} consists in fact in
+constructing a specific analytic field.
+
+\section{Lewy Example}
+
+The next theorem provide an example of a partial differential equation
+that cannot have a classical solution  if analyticity is dropped from
+the assumption on the partial differential equation.  This theorem is
+due to Hans Lewy.  For this theorem, we consider complex valued
+functions.
+
+\begin{theorem}[Lewy] \label{Lewy}
+Let
+\[
+L(x,y,\diff) = \pdydx{}{x} + i \pdydx{}{y} - 2i(x+iy)\pdydx{}{t}
+\]
+and $f:\RR\to \RR$ be a continuous function.  If
+$\displaystyle u:\RR^3\to \CC$ is a
+solution of $L(x,y,\diff)u = f$ of class $\displaystyle C^1$ in the
+neighbourhood of the origin, then $f$ is analytic at $t=0$.
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+v(r,\theta,t) = - e^{i\theta} \sqrt{r}
+\, u(\sqrt{r}\cos(\theta) , \sqrt{r}\sin(\theta), t)
+\]
+for
+$(r,\theta,t) \in \Omega_1 = ]0,k[\times \RR \times ]-k,k[$,
+where $k$ is small enough to have $L(x,y,\diff)u = f$ in $\Omega_1$.
+Then $\displaystyle v \in C^1(\Omega_1)$ and
+\[
+L(x,y,\diff)u = -2 \pdydx{v}{r} - \frac{i}{r} \pdydx{v}{\theta}
++ 2i \pdydx{v}{t}
+= f
+\]
+on $\Omega_1$ if we use the substitution 
+$(x,y) = (\sqrt{r} \cos(\theta), \sqrt{r} \sin(\theta))$.  Note that
+$L(x,y,\diff)$ in the $r,\theta$ coordinates given by
+$(x,y) = (\sqrt{r} \cos(\theta), \sqrt{r} \sin(\theta))$ is
+\[
+  L(r,\theta,\diff) = 2 \sqrt{r}\, e^{i\theta} \pdydx{}{r}
+  + \frac{i}{\sqrt{r}} \, e^{i\theta} \pdydx{}{\theta} 
+  - 2 i \sqrt{r} \, e^{i\theta} \pdydx{}{t} \ .
+\]
+
+Let
+\[
+V(t,r) = \int_0^{2\pi} v(r,\theta, t) \dx{\theta}
+\]
+for $(t,r) \in \Omega_2 = ]-k,k[\times ]0,k[$.  Then
+$\displaystyle V\in C^1(\Omega_2)$ and
+\begin{align*}
+\pdydx{V}{t}(t,r) + i \pdydx{V}{r}(t,r) 
+&= \int_0^{2\pi} \left( i\pdydx{v}{r}(r,\theta,t)
+- \frac{1}{2r} \pdydx{v}{\theta}(r,\theta, t)
++ \pdydx{v}{t}(r,\theta,t)  \right) \dx{\theta} \\
+&= \frac{1}{2i} \int_0^{2\pi} f(t) \dx{\theta} = -\pi i f(t) \ ,
+\end{align*}
+where we have use the fact that
+$\displaystyle \int_0^{2\pi} \pdydx{v}{\theta}(r,\theta,t) \dx{\theta}
+= v(r,\theta,t) \Big|_0^{2\pi} = 0 $ because $v$ is $2\pi$-periodic.
+
+Let
+$\displaystyle F(t) = \int_0^t f(s)\dx{s}$ and $W(t,r) = V(t,r) + \pi\, i F(t)$
+for $(t,r) \in \Omega_2$.  The function $W$ satisfies the
+Cauchy-Riemann Equation
+\[
+\pdydx{W}{t} + i \pdydx{W}{r} = 0
+\]
+on $\Omega_2$.  Thus $W$ is an holomorphic function of $w = t+ r i$
+for $(t,r) \in \Omega_2$.
+
+The continuity of $u$ near the origin implies the continuity of $v$ in
+$\Omega_1$.  Moreover, $v(0,\theta,t)=0$ for
+$(\theta,t) \in \RR \times ]-k,k[$.  Hence, $V$ is continuous on
+$\Omega_2$ and $V(t,0) = 0$ for $t \in ]-k,k[$.  Thus,
+$W$ is continuous on $\Omega_2$ and $W(t,0) = \pi\, i F(t)$ for
+$t\in]-k,k[$; namely, $\RE W(t,0) = 0$ for $t\in]-k,k[$.
+
+By Schwarz reflection principle applied to $iW$, the function
+\[
+\tilde{W}(t,r) = \begin{cases}
+i W(t,r) & \quad \text{if} \ r \geq 0 \\[0.5em]
+- i \overline{W(t,-r)} & \quad \text{if} \ r < 0
+\end{cases}
+\]
+defines an holomorphic extension on $]-k,k[\times ]-k,k[$
+of $i W$.  Thus $\tilde{W}(t,0) = - \pi F(t)$ is real analytic at $t = 0$.
+It follows that $\displaystyle f = \dydx{F}{t}$ is real
+analytic at $t=0$.
+\end{proof}
+
+\begin{rmk}
+Given $\displaystyle (x_0,y_0,t_0) \in \RR^3$, we define a translation in $\RR^3$ by
+\begin{align*}
+T:\RR^3 &\to \RR^3 \\
+ (x,y,t) &\mapsto (x+x_0,y+y_0, t+t_0 +2y_0x - 2x_0 y)
+\end{align*}
+If $L(x,y,\diff)$ is the Lewy operator defined in Theorem~\ref{Lewy}, we have
+$\displaystyle L(x,y,\diff)(u \circ T) = \left(L(x,y,\diff)u\right) \circ T$
+for any function $\displaystyle u \in C^1(\RR^3)$.
+Thus, solving $L(x,y,\diff)u = f(t)$ near $(x_0,y_0,t_0)$ is
+equivalent to solving $L(s,y,\diff)(u\circ T) = f(t+t_0+2y_0x - 2x_0y)$ near the
+origin.  It follows from Lewy's Theorem that there is no solution of
+class $C^1$ of $L(x,y,\diff)u = f(t)$ near $(x_0,y_0,t_0)$ unless $f$ is
+analytic at $t=-t_0-2y_0x + 2x_0y$.
+
+H. Lewy has also shown that there are functions
+$\displaystyle f \in C^{\infty}(\RR^3)$
+such that $L(x,y,\diff)u = f$ has no solution $u$ of class
+$\displaystyle C^{1,\mu}(\RR^n)$ for $\mu > 0$ in a neighborhood of
+the origin and by extension anywhere in $\displaystyle \RR^3$.  The spaces
+$\displaystyle C^{k,\mu}(\RR^n)$ of Hölder continuous functions are
+defined later in Definition~\ref{defnHolderContFunct}.  A proof of
+this result can be found in \cite{Smo}.
+\end{rmk}
+
+A generalization of Theorem~\ref{Lewy} is given later in
+Theorem~\ref{Hormander}.
+
+\section{Exercises}
+
+Suggested exercises:
+
+\begin{itemize}
+\item In \cite{McO}: 1, 2, 4 and 7 in Section 2.1.
+\end{itemize}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End: 

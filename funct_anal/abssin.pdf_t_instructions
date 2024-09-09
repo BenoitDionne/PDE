@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{funct_anal/abssin.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex abssin.fig abssin.pdf
+% fig2dev -L pdftex_t abssin.fig abssin.pdf_t
+

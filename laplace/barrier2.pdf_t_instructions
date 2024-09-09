@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{laplace/barrier2.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex barrier2.fig barrier2.pdf
+% fig2dev -L pdftex_t barrier2.fig barrier2.pdf_t
+

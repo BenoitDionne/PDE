@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{characteristics/char_eik_proj.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex char_eik_proj.fig char_eik_proj.pdf
+% fig2dev -L pdftex_t char_eik_proj.fig char_eik_proj.pdf_t
+

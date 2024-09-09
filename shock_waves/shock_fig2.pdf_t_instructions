@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{shock_waves/shock_fig2.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex shock_fig2.fig shock_fig2.pdf
+% fig2dev -L pdftex_t shock_fig2.fig shock_fig2.pdf_t
+ 

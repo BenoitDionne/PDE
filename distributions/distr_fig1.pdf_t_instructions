@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{distributions/distr_fig1.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex distr_fig1.fig distr_fig1.pdf
+% fig2dev -L pdftex_t distr_fig1.fig distr_fig1.pdf_t
+

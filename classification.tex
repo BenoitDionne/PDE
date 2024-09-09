@@ -1,0 +1,1519 @@
+\chapter{Classification of Partial Differential
+Equations} \label{ChapClassifPDE}
+
+\section{Linear Second Order Partial Differential Equation in
+the Plane} \label{classif_reduction_lsoPDE}
+
+Let $\Gamma$ be a curve in $\displaystyle \RR^2$, and let
+$f:\Gamma\rightarrow \RR$ and $g:\Gamma\rightarrow \RR$ be two
+analytic functions.  We consider the Cauchy Problem of the form
+\begin{equation} \label{classif_PDE1}
+\begin{split}
+& L(x,y,\diff) = a_{2,0}(x,y) \pdydxn{u}{x}{2}(x,y) + 2a_{1,1}(x,y)
+\pdydxnm{u}{x}{y}{2}{}{}(x,y) a_{0,2}(x,y) \pdydxn{u}{y}{2}(x,y) \\
+&\qquad  + a_{1,0}(x,y) \pdydx{u}{x}(x,y)
++ a_{0,1}(x,y) \pdydx{u}{y}(x,y) + a_{0,0}(x,y)u(x,y) + b(x,y) = 0
+\end{split}
+\end{equation}
+with the conditions
+\begin{equation} \label{classif_PDE1_cond}
+u\big|_\Gamma = f \quad \text{and} \quad \pdydx{u}{\nu}\bigg|_\Gamma = g \ ,
+\end{equation}
+where $\displaystyle \nu\left(\VEC{p}\right)$ for $\VEC{p} \in \Gamma$
+is a normal unit vector to $\Gamma$ at $\VEC{p}$.
+Equation (\ref{classif_PDE1}) is a
+{\bfseries linear second order partial differential equation}%
+\index{Linear Second Order Partial Differential Equation}. 
+
+We first reduce the Cauchy Problem (\ref{classif_PDE1}) and
+(\ref{classif_PDE1_cond}) to one where $\Gamma$ is the $x$ axis.  Let
+$\VEC{p}$ be a point on $\Gamma$,  In a neighbourhood of $\VEC{p}$, we
+may define two orthogonal families of curves $\eta(x,y)=h$ and
+$\xi(x,y)=k$ such that $\Gamma$ is the curve $\xi(x,y)=0$
+(Figure~\ref{class_fig1}).  We may also assume that $\VEC{p}$ is the
+intersection of the curves $\xi(x,y)=0$ and $\eta(x,y)=0$.
+
+\pdfF{classification/class_fig1}{Change of coordinates to reduce a
+linear second order partial differential equation to its standard
+form}{The orthogonal families of curves $\eta(x,y)=h$ and $\xi(x,y)=k$
+provide a change of coordinates to reduce a linear second order
+partial differential equation to a standard form}{class_fig1}
+
+The condition for two families of curves to be transverse in a
+neighbourhood of $\VEC{p}$ is that
+\begin{equation} \label{classif_PDE2}
+\frac{\partial (\eta, \xi)}{\partial (x,y)} =
+\begin{pmatrix}
+\displaystyle \pdydx{\eta}{x} & \displaystyle \pdydx{\eta}{y} \\[0.7em]
+\displaystyle \pdydx{\xi}{x} & \displaystyle \pdydx{\xi}{y}
+\end{pmatrix} \neq 0
+\end{equation}
+in the neighbourhood of $\VEC{p}$.  Effectively, for $\VEC{q}$ near
+$\VEC{p}$,
+\begin{align*}
+\frac{\partial (\eta, \xi)}{\partial (x,y)}\bigg|_{\VEC{q}} = 0
+& \Leftrightarrow 
+\left(\pdydx{\eta}{x}(\VEC{q}),\pdydx{\eta}{y}(\VEC{q})\right)
+\cdot \left(-\pdydx{\xi}{y}(\VEC{q}), \pdydx{\xi}{x}(\VEC{q})\right) = 0 \\
+& \Leftrightarrow
+\left(-\pdydx{\xi}{y}(\VEC{q}), \pdydx{\xi}{x}(\VEC{q})\right) \ 
+\text{is orthogonal to} \ 
+\left(\pdydx{\eta}{x}(\VEC{q}),\pdydx{\eta}{y}(\VEC{q})\right) \\
+& \Leftrightarrow
+\left(\pdydx{\eta}{x}(\VEC{q}),\pdydx{\eta}{y}(\VEC{q})\right) \ 
+\text{is parallel to} \ 
+\left(\pdydx{\xi}{x}(\VEC{q}),\pdydx{\xi}{y}(\VEC{q})\right)
+\end{align*}
+because
+$\displaystyle \left(-\pdydx{\xi}{y}(\VEC{q}), \pdydx{\xi}{x}(\VEC{q})\right)$
+is also orthogonal to
+$\displaystyle \left(\pdydx{\xi}{x}(\VEC{q}),\pdydx{\xi}{y}(\VEC{q})\right)$,
+This shows that the curves $\xi(x,y)=k$ and $\eta(x,y)=h$ have the
+same perpendicular line at $\VEC{q}$, therefore the two curves are
+tangent at $\VEC{q}$.
+
+Because of (\ref{classif_PDE2}), we may use the Inverse Function
+Theorem to express $x$ and $y$ in a neighbourhood of $\VEC{p}$ as
+functions of $\xi$ and $\eta$ in a neighbourhood of the origin.  We
+will use this change of variables to reduce (\ref{classif_PDE1}).
+
+If we substitute
+\begin{align*}
+u(\eta,\xi) & = u(x,y) \ , \quad
+\ \pdydx{u}{x} = \pdydx{u}{\xi}\pdydx{\xi}{x} +
+\pdydx{u}{\eta}\pdydx{\eta}{x} \ , \quad
+\ \pdydx{u}{y} = \pdydx{u}{\xi}\pdydx{\xi}{y} +
+\pdydx{u}{\eta}\pdydx{\eta}{y} \ ,\\
+\pdydxn{u}{x}{2} &= \pdydxn{u}{\xi}{2} \left(\pdydx{\xi}{x}\right)^2 +
+2\pdydxnm{u}{\eta}{\xi}{2}{}{}\pdydx{\eta}{x}\pdydx{\xi}{x}
++ \pdydxn{u}{\eta}{2}\left(\pdydx{\eta}{x}\right)^2 +
+\pdydx{u}{\xi} \pdydxn{\xi}{x}{2} + \pdydx{u}{\eta}\pdydxn{\eta}{x}{2}  \ ,\\
+\pdydxn{u}{y}{2} &= \pdydxn{u}{\xi}{2} \left(\pdydx{\xi}{y}\right)^2 +
+2\pdydxnm{u}{\eta}{\xi}{2}{}{}\pdydx{\eta}{y}\pdydx{\xi}{y}
++ \pdydxn{u}{\eta}{2}\left(\pdydx{\eta}{y}\right)^2 +
+\pdydx{u}{\xi} \pdydxn{\xi}{y}{2} + \pdydx{u}{\eta}\pdydxn{\eta}{y}{2}
+\intertext{and}
+\pdydxnm{u}{x}{y}{2}{}{} &= \pdydxn{u}{\xi}{2}
+\pdydx{\xi}{x}\pdydx{\xi}{y} +
+\pdydxnm{u}{\eta}{\xi}{2}{}{}\pdydx{\eta}{y}\pdydx{\xi}{x}
++\pdydxnm{u}{\eta}{\xi}{2}{}{}\pdydx{\eta}{x}\pdydx{\xi}{y}
++\pdydxn{u}{\eta}{2}\pdydx{\eta}{x}\pdydx{\eta}{y} +
+\pdydx{u}{\xi} \pdydxnm{\xi}{y}{x}{2}{}{}
++ \pdydx{u}{\eta}\pdydxnm{\eta}{y}{x}{2}{}{}
+\end{align*}
+in (\ref{classif_PDE1}), we get
+\begin{equation} \label{classif_PDE3}
+A_{2,0} \pdydxn{u}{\eta}{2}
++ 2A_{1,1}\pdydxnm{u}{\eta}{\xi}{2}{}{}
++ A_{0,2}\pdydxn{u}{\xi}{2}
++ A_{1,0} \pdydx{u}{\eta}
++ A_{0,1} \pdydx{u}{\xi} + A_{0,0} u + B = 0 \ ,
+\end{equation}
+where
+\begin{align*}
+A_{2,0}(\eta,\xi) &= a_{2,0}\, \left(\pdydx{\eta}{x}\right)^2 
++2a_{1,1}\,\pdydx{\eta}{x}\pdydx{\eta}{y}
++ a_{0,2}\, \left(\pdydx{\eta}{y}\right)^2 \ , \\
+A_{1,1}(\eta,\xi) &= a_{2,0}\, \pdydx{\eta}{x}\pdydx{\xi}{x} + a_{1,1}\, 
+\left(\pdydx{\eta}{y}\pdydx{\xi}{x}+\pdydx{\eta}{x}\pdydx{\xi}{y}\right)
++ a_{0,2}\, \pdydx{\eta}{y}\pdydx{\xi}{y} \ , \\
+A_{0,2}(\eta,\xi) &= a_{2,0}\,\left(\pdydx{\xi}{x}\right)^2
++ 2a_{1,1}\, \pdydx{\xi}{x}\pdydx{\xi}{y}
++ a_{0,2}\,\left(\pdydx{\xi}{y}\right)^2 \ , \\
+A_{1,0}(\eta,\xi) &= a_{2,0}\,\pdydxn{\eta}{x}{2} +
+2a_{1,1}\,\pdydxnm{\eta}{x}{y}{2}{}{} + a_{0,2}\, \pdydxn{\eta}{y}{2}
++a_{1,0} \, \pdydx{\eta}{x} + a_{0,1}\,\pdydx{\eta}{y} \ , \\
+A_{0,1}(\eta,\xi) &= a_{2,0}\,\pdydxn{\xi}{x}{2} +
+2a_{1,1}\,\pdydxnm{\xi}{x}{y}{2}{}{} + a_{0,2}\, \pdydxn{\xi}{y}{2}
++a_{1,0} \, \pdydx{\xi}{x} + a_{0,1}\,\pdydx{\xi}{y} \ , \\
+A_{0,0}(\eta,\xi) &= a_{0,0} \quad \text{and} \quad
+B(\eta,\xi) = b(x,y)
+\end{align*}
+with the right hand side of each expression evaluated at
+$(x,y) = \left(x(\eta,\xi),y(\eta,\xi)\right)$.
+
+The initial condition given in (\ref{classif_PDE1_cond}) becomes
+\begin{equation} \label{classif_PDE3_cond}
+u(\eta,0) = f\left(x(\eta,0),y(\eta,0)\right) \quad \text{and} \quad
+\pdydx{u}{\xi}(\eta,0) = g\left(x(\eta,0),y(\eta,0)\right) \ .
+\end{equation}
+
+As we will see in Chapter~\ref{ChapterCauchyP}, to find the series
+expansion of the solution $u$ of (\ref{classif_PDE3}) and
+(\ref{classif_PDE3_cond}) in a neighbourhood of the origin in the
+$\eta$,$\xi$ plane (so near $\VEC{p}$ in the $x$,$y$ plane), we need to compute
+$\displaystyle \pdydxn{u}{\xi}{j}$ for $j\geq 2$ at the origin.  For 
+that, we assume that (\ref{classif_PDE3}) can be solved for
+$\displaystyle \pdydxn{u}{\xi}{2}$ at $(\eta,\xi)=(0,0)$.  This is
+possible only if
+\begin{equation} \label{classif_PDE9}
+A_{0,2}(0,0) = a_{2,0}(\VEC{p})\, \left(\pdydx{\xi}{x}(\VEC{p})\right)^2
++2a_{1,1}(\VEC{p})\,\pdydx{\xi}{x}(\VEC{p})\,\pdydx{\xi}{y}(\VEC{p})
++ a_{0,2}(\VEC{p})\, \left(\pdydx{\xi}{y}(\VEC{p})\right)^2
+\neq 0 \ .
+\end{equation}
+This condition is fundamental and is the subject of the next section.
+
+Before moving on to the next section, we note that
+\begin{equation} \label{classif_PDE8}
+A_{1,1}^2 - A_{2,0}\,A_{0,2} = \left(a_{1,1}^2 - a_{2,0}a_{0,2}\right)
+\left( \pdydx{\eta}{x}\pdydx{\xi}{y} - \pdydx{\eta}{y}\pdydx{\xi}{x}
+\right)^2
+\end{equation}
+with the left hand side evaluated at $(\eta,\xi)$ and the right hand
+side evaluated at $(x,y) = \left(x(\eta,\xi),y(\eta,\xi)\right)$.
+This identity will be used later for the classification of the linear second
+order partial differential equations.  The reader should verify this identity.
+
+\section{Characteristic curves}
+
+As we will see later, not all initial curves $\Gamma$ will yield a
+well posed Cauchy problem formed of (\ref{classif_PDE1}) and
+(\ref{classif_PDE1_cond}); namely, one with a unique solution. 
+
+\begin{defn}
+A {\bfseries characteristic curve}\index{Characteristic Curve} for the
+Cauchy problem (\ref{classif_PDE1}) and (\ref{classif_PDE1_cond}) is a
+curve $\Gamma$ such that it is not possible from
+(\ref{classif_PDE1}) and (\ref{classif_PDE1_cond}) to 
+determine all the second order (mixed or not) derivatives of $u$ (in
+the neighbourhood of $\Gamma$).
+\end{defn}
+
+The previous definition is a little bit vague and does not provide precise
+conditions to determine if a curve is a characteristic curve or not.
+We now find such conditions.  Suppose that
+\begin{equation} \label{classif_GammaEq1}
+\Gamma = \left\{ (x_0(s), y_0(s)) : s \in I \right\}
+\end{equation}
+for two differentiable functions $x_0:I\rightarrow \RR$ and
+$y_0:I\rightarrow \RR$ defined on an open interval $I$.
+Then, the derivative of the initial condition
+$u(x_0(s),y_0(s)) = f(x_0(s),y_0(s))$ yields
+\begin{equation} \label{classif_class1}
+\dfdx{f(x_0(s),y_0(s))}{s} =
+\pdydx{u}{x}(x_0(s),y_0(s))\,x_0'(s) + \pdydx{u}{y}(x_0(s),y_0(s))\,
+y_0'(s) \ .
+\end{equation}
+Moreover,
+\begin{align}
+&g(x_0(s),y_0(s)) = \pdydx{u}{\nu}(x_0(s),y_0(s))
+= \graD u(x_0(s),y_0(s)) \cdot
+\nu(x_0(s),y_0(s)) \nonumber \\
+&\quad = \pdydx{u}{x}(x_0(s),y_0(s))\,\nu_1(x_0(s),y_0(s)) +
+\pdydx{u}{y}(x_0(s),y_0(s))\,\nu_2(x_0(s),y_0(s)) \ .
+\label{classif_class2}
+\end{align}
+The system of equations (\ref{classif_class1}) and
+(\ref{classif_class2}) determine $\displaystyle \pdydx{u}{x}$ and 
+$\displaystyle \pdydx{u}{y}$ uniquely along $\Gamma$ because
+\begin{align*}
+&\det
+\begin{pmatrix}
+x_0'(s) & y_0'(s) \\
+\nu_1(x_0(s),y_0(s)) & \nu_2(x_0(s),y_0(s))
+\end{pmatrix} \\
+&\quad = \big(-y_0'(s),x_0'(s)\big)\cdot \big(\nu_1(x_0(s),y_0(s)),
+\nu_2(x_0(s),y_0(s))\big) = \epsilon \left\|(y_0'(s),x_0'(s))\right\|
+\neq  0  \ ,
+\end{align*}
+where $\epsilon = 1$ or $-1$ according to the directions of
+$(-y_0'(s),x_0'(s))$ and $\nu(x_0(s),y_0(s))$.  We have that
+$(-y_0'(s),x_0'(s))$ is perpendicular to the curve $\Gamma$ at
+$(x_0(s),y_0(s))$ and so parallel to the unit vector
+$\nu(x_0(s),y_0(s))$.
+
+We may therefore assume that, instead of
+$\displaystyle \pdydx{u}{\nu}\bigg|_\Gamma = g$, we are given
+\begin{equation} \label{classif_class3}
+\pdydx{u}{x}\bigg|_\Gamma = g_1 \quad \text{and} \quad 
+\pdydx{u}{y}\bigg|_\Gamma = g_2 \ .
+\end{equation}
+For consistency, we have from (\ref{classif_class1}) that
+\[
+\dfdx{f(x_0(s),y_0(s))}{s} =
+g_1((x_0(s),y_0(s)))\,x_0'(s) + g_2(x_0(s),y_0(s))\, y_0'(s) \ .
+\]
+
+The derivatives $\displaystyle \pdydxn{u}{x}{2}$,
+$\displaystyle \pdydxnm{u}{x}{y}{2}{}{}$ and
+$\displaystyle \pdydxn{u}{y}{2}$ along $\Gamma$ are the solutions (if
+there are solutions) of the linear system of equation formed of
+(\ref{classif_PDE1}) and the derivatives with respect to $s$ of the 
+equations in (\ref{classif_class3}); namely,
+\begin{align*}
+& a_{2,0}(x_0(s),y_0(s)) \pdydxn{u}{x}{2}(x_0(s),y_0(s)) +
+2a_{1,1}(x_0(s),y_0(s)) \pdydxnm{u}{x}{y}{2}{}{}(x_0(s),y_0(s)) \\
+& \quad + a_{0,2}(x_0(s),y_0(s)) \pdydxn{u}{y}{2}(x_0(s),y_0(s)) = -
+a_{1,0}(x_0(s),y_0(s)) \pdydx{u}{x}(x_0(s),y_0(s)) \\
+& \quad - a_{0,1}(x_0(s),y_0(s)) \pdydx{u}{y}(x_0(s),y_0(s))
+- a_{0,0}(x_0(s),y_0(s))u(x_0(s),y_0(s)) - b(x_0(s),y_0(s)) \ , \\
+&\pdydxn{u}{x}{2}(x_0(s),y_0(s))\, x_0'(s) +
+\pdydxnm{u}{x}{y}{2}{}{}(x_0(s),y_0(s))\, y_0'(s) = \dfdx{g_1}{s}(s)
+\intertext{and}
+&\pdydxnm{u}{x}{y}{2}{}{}(x_0(s),y_0(s))\, x_0'(s) +
+\pdydxn{u}{y}{2}(x_0(s),y_0(s))\, y_0'(s) = \dfdx{g_2}{s}(s) \ .
+\end{align*}
+
+This system has a (unique) solution if and only if
+\begin{align}
+&\det
+\begin{pmatrix}
+a_{2,0}(x_0(s),y_0(s)) & 2a_{1,1}(x_0(s),y_0(s)) & a_{0,2}(x_0(s),y_0(s)) \\
+x_0'(s) & y_0'(s) & 0 \\
+0 & x_0'(s) & y_0'(s)
+\end{pmatrix} \nonumber \\
+& \qquad = a_{2,0}(x_0(s),y_0(s)) \left(y_0'(s)\right)^2
+-2 a_{1,1}(x_0(s),y_0(s)) x_0'(s) y_0'(s) \nonumber \\
+& \qquad\qquad + a_{0,2}(x_0(s),y_0(s)) \left(x_0'(s)\right)^2 \neq 0
+\ . \label{classif_se_pds}
+\end{align}
+
+This motivates the following definition.
+
+\begin{defn}
+The {\bfseries principal symbol}\index{Principal Symbol}
+of (\ref{classif_PDE1}) is the quadratic form
+\begin{align*}
+Q(x,y,\zeta_1,\zeta_2) &= a_{2,0}(x,y) \zeta_1^2 +
+2a_{1,1}(x,y)\zeta_1\zeta_2 + a_{0,2}(x,y) \zeta_2^2 \\
+&=
+\begin{pmatrix}
+\zeta_1 & \zeta_2
+\end{pmatrix}
+\begin{pmatrix}
+a_{2,0}(x,y) & a_{1,1}(x,y) \\
+a_{1,1}(x,y) & a_{0,2}(x,y)  
+\end{pmatrix}
+\begin{pmatrix}
+\zeta_1 \\ \zeta_2
+\end{pmatrix} \ .
+\end{align*}
+for $(x,y)$ and $(\zeta_1,\zeta_2)$ in $\displaystyle \RR^2$.
+\end{defn}
+
+We have proved the following proposition.
+
+\begin{prop}
+A curve $\Gamma$ given by (\ref{classif_GammaEq1}) is a characteristic
+curve if and only if
+$\displaystyle Q(x_0(s),y_0(s), -y_0'(s) , x_0'(s)) = 0$
+for all $s \in I$.
+\end{prop}
+
+Since $\displaystyle \left(-y_0'(s) , x_0'(s)\right)$ is orthogonal
+to the curve $\Gamma$ at $\displaystyle \left(x_0(s), y_0(s)\right)$.
+The condition above can be restated as follows.
+A curve $\Gamma$ is a characteristic curve if and only if
+at each point $(x,y)$ of $\Gamma$ we have that
+$Q(x,y, \zeta_1 , \zeta_2) = 0$ for all orthogonal vectors
+$\VEC{\zeta}$ to the curve $\Gamma$ at $(x,y)$.
+
+If $\Gamma$ is given implicitly as $\mu(x,y) = c$ for some constant
+$c$, the condition above becomes the following.
+A curve $\Gamma$ is a characteristic curve if and only if
+\[
+Q\left(x,y, \pdydx{\mu}{x}(x,y), \pdydx{\mu}{y}(x,y) \right) = 0
+\]
+for all $(x,y) \in \Gamma$.
+
+In Section~\ref{classif_reduction_lsoPDE}, we have found that
+(\ref{classif_PDE9}) was necessary and sufficient to reduce
+the Cauchy problem (\ref{classif_PDE1}) and (\ref{classif_PDE1_cond}) to
+one where the curve $\Gamma$ is replaced by an axis and where we can
+compute all the partial derivatives of $u$.  The condition in
+(\ref{classif_PDE9}) can be expressed with the principal symbol for
+(\ref{classif_PDE1}); namely, it is the condition
+\[
+Q\left(p_1,p_2, \pdydx{\xi}{x}(p_1,p_2), \pdydx{\xi}{y}(p_1,p_2) \right)
+\neq 0 \ .
+\]
+This simply says that $\Gamma$ is not a characteristic curve near
+$\VEC{p} = (p_1,p_2)$.
+
+If the curve $\Gamma$ for the conditions (\ref{classif_PDE1_cond}) of
+(\ref{classif_PDE1}) is a characteristic curve, the Cauchy Problem will
+not be well posed.  We may end up with no possible solution or many
+solutions.
+
+\section{Classification of Linear Second Order Partial
+Differential Equation in the Plane} \label{classif_class_plane}
+
+The second order linear partial differential equations can be classify
+(at each point) into three categories.  The existence of
+characteristic curves differs from one category to the other.
+
+\begin{defn} \label{classif_EHP}
+Let
+\[
+C(x,y) = \det \begin{pmatrix}
+a_{2,0}(x,y) & a_{1,1}(x,y) \\
+a_{1,1}(x,y) & a_{0,2}(x,y)  
+\end{pmatrix} = a_{2,0}(x,y)a_{0,2}(x,y) - a_{1,1}^2(x,y) \  .
+\]
+\begin{enumerate}
+\item The partial differential equation in (\ref{classif_PDE1}) is
+{\bfseries elliptic}\index{Elliptic Partial Differential
+Equation!Second Order} at $(x,y)$ if $C(x,y)>0$.
+\item The partial differential equation in (\ref{classif_PDE1}) is
+{\bfseries hyperbolic}%
+\index{Hyperbolic Partial Differential Equation!Second Order}
+at $(x,y)$ if $C(x,y)<0$.
+\item The partial differential equation in (\ref{classif_PDE1}) is
+{\bfseries parabolic}\index{Parabolic Partial Differential
+Equation!Second Order} at $(x,y)$ if $C(x,y)=0$. 
+\end{enumerate}
+\end{defn}
+
+Since the principal symbol depends on $x$ and $y$, a partial
+differential equation may be elliptic in one region of the plane,
+parabolic in a second region of the plane, and hyperbolic in a third
+region of the plane.
+
+The two families of curves $\xi(x,y)=k$ and $\eta(x,y)=h$, used in
+Section~\ref{classif_reduction_lsoPDE} to reduce the linear second
+order partial differential equation in (\ref{classif_PDE1}) to a
+simpler form, do not have to be
+orthogonal.  Moreover, $\Gamma$ does not have to be a member of one of
+the families.  The only requirement is that the curves of one family
+intersect the curves of the other family transversely.  Obviously, we
+lose control of the transformations on $\Gamma$ and the conditions
+on $\Gamma$.  In particular,
+the condition $\displaystyle \pdydx{u}{\nu}\bigg|_\Gamma = g$ may not
+be reduced to the simple expression
+$\displaystyle \pdydx{u}{\xi}(\eta,0) = g\left(x(\eta,0),y(\eta,0)\right)$.
+The derivative with respect to $\xi$ may no longer correspond to a
+directional derivative perpendicular to $\Gamma$.
+
+From (\ref{classif_PDE8}), we have that the change of coordinates
+provided by the transversal families of curves $\xi(x,y)=k$ and
+$\eta(x,y)=h$ in Section~\ref{classif_reduction_lsoPDE} does not
+change the category of the partial differential equation.
+
+To study the properties of the categories of partial differential
+equation, we will only use families of curves that satisfy the
+transversal condition when they intersect.  In some cases, we will
+even chose families of characteristic curves.
+
+\subsection{Elliptic Equations}
+
+If (\ref{classif_PDE1}) is elliptic on an open set
+$\displaystyle U \subset \RR^2$, then we have
+\[
+\det \begin{pmatrix}
+a_{2,0}(x,y) & a_{1,1}(x,y) \\
+a_{1,1}(x,y) & a_{0,2}(x,y)  
+\end{pmatrix}
+>0
+\]
+for $(x,y) \in U$.  Thus, the principal symbol is either
+{\bfseries positive definite}\index{Positive Definite}
+for all $(x,y) \in U$ or
+{\bfseries negative definite}\index{Negative Definite}
+for all $(x,y) \in U$; namely, $Q(x,y,\zeta_1,\zeta_2) > 0$ for all
+$(\zeta_1,\zeta_2) \in \RR^2 \setminus \{(0,0)\}$ or
+$Q(x,y,\zeta_1,\zeta_2) < 0$ for all
+$(\zeta_1,\zeta_2) \in \RR^2 \setminus \{ (0,0)\}$ respectively.  There is no
+point other than the origin where the principal symbol is
+null. Therefore, there are not characteristic curves and, in
+particular, any curve $\Gamma$ can be used for the conditions
+(\ref{classif_PDE1_cond}).
+
+We can reduce (\ref{classif_PDE1}) to a simpler form.  Consider the
+polynomial
+\begin{equation} \label{classif_PDE4}
+P(x,y,\phi) = a_{2,0}(x,y) \phi^2(x,y) - 2a_{1,1}(x,y) \phi(x,y)
++ a_{0,2}(x,y) \ .
+\end{equation}
+This polynomial is suggested by the condition (\ref{classif_se_pds})
+used to motivate the principal symbol.  There is no real
+root for this polynomial but there are two distinct complex roots:
+\[
+\phi_{\pm}(x,y) = \frac{a_{1,1}(x,y) \pm i
+\sqrt{ a_{2,0}(x,y)a_{0,2}(x,y)-a_{1,1}^2(x,y)}}{a_{2,0}(x,y)} \ .
+\]
+If we solve $\displaystyle \dydx{y}{x} = \phi_{+}(x,y)$, we get a family
+of curves $\displaystyle \psi(x,y) = c \in \CC$.
+Since
+\[
+\dydx{y}{x} = \phi_{+}(x,y) = -\pdydx{\psi}{x} \bigg/ \pdydx{\psi}{y} \ ,
+\]
+we get from (\ref{classif_PDE4}) that
+\begin{equation} \label{classif_PDE5}
+a_{2,0}(x,y) \left(\pdydx{\psi}{x}\right)^2 +
+2a_{1,1}(x,y) \pdydx{\psi}{x}\pdydx{\psi}{y} + a_{0,2}(x,y)
+\left(\pdydx{\psi}{y}\right)^2 = 0 \ .
+\end{equation}
+
+Let $\displaystyle
+\eta(x,y) = \RE \psi(x,y) = \frac{ \psi(x,y)+ \overline{\psi(x,y)}}{2}$
+and
+$\displaystyle \xi(x,y) = \IM \psi(x,y)
+= \frac{ \psi(x,y) -\overline{\psi(x,y)}}{2i}$.
+We consider the families of curves
+\[
+\eta(x,y) = h \quad \text{and} \quad \xi(x,y) = k \ ,
+\]
+where $h$ and $k$ are real constants.  Since
+\[
+\pdydx{\psi}{x} \bigg/ \pdydx{\psi}{y} = -\phi_{+}(x,y) \neq -\phi_{-}(x,y)
+= \overline{ \left(\pdydx{\psi}{x} \bigg/ \pdydx{\psi}{y}\right)}
+= \pdydx{\overline{\psi}}{x} \bigg/ \pdydx{\overline{\psi}}{y}
+\]
+because $\IM \phi_{\pm} \neq 0$, we have
+\begin{align*}
+\frac{\partial(\eta,\xi)}{\partial(x,y)}
+&= \pdydx{\eta}{x}\pdydx{\xi}{y} - \pdydx{\eta}{y}\pdydx{\xi}{x}
+=\frac{1}{4i}\left(\pdydx{\psi}{x}+ \overline{\pdydx{\psi}{x}}\right)
+\left(\pdydx{\psi}{y} - \overline{\pdydx{\psi}{y}}\right)
+- \frac{1}{4i}\left(\pdydx{\psi}{y}+ \overline{\pdydx{\psi}{y}}\right)
+\left(\pdydx{\psi}{x} - \overline{\pdydx{\psi}{x}}\right) \\
+&= - \frac{1}{2i} \left( \pdydx{\psi}{x}\overline{\pdydx{\psi}{y}}
+- \pdydx{\psi}{y}\overline{\pdydx{\psi}{x}}\right)
+\neq 0
+\end{align*}
+and so (\ref{classif_PDE2}) is satisfied.
+
+We get from (\ref{classif_PDE5}) that
+\begin{align*}
+0 &= a_{2,0}(x,y) \left(\pdydx{\eta}{x}+i\pdydx{\xi}{x}\right)^2 \! +
+2 a_{1,1}(x,y) \left(\pdydx{\eta}{x}+i\pdydx{\xi}{x}\right)
+\!\! \left(\pdydx{\eta}{y}+i\pdydx{\xi}{y}\right) \!
++ a_{0,2}(x,y)\left(\pdydx{\eta}{y}+i\pdydx{\xi}{y}\right)^2 \\
+&= \left( a_{2,0}(x,y)\,\left(\pdydx{\eta}{x}\right)^2
++ 2a_{1,1}(x,y)\, \pdydx{\eta}{x}\pdydx{\eta}{y}
++ a_{0,2}(x,y)\, \left(\pdydx{\eta}{y}\right)^2 \right) \\
+&\qquad - \left( a_{2,0}(x,y)\,\left(\pdydx{\xi}{x}\right)^2
++ 2a_{1,1}(x,y)\, \pdydx{\xi}{x}\pdydx{\xi}{y}
++ a_{0,2}(x,y)\, \left(\pdydx{\xi}{y}\right)^2 \right) \\
+&\qquad + 2i\left( a_{2,0}(x,y)\,\pdydx{\eta}{x}\pdydx{\xi}{x}
++ a_{1,1}(x,y)\, \left( \pdydx{\eta}{y}\pdydx{\xi}{x}
++\pdydx{\eta}{x}\pdydx{\xi}{y}\right)
++a_{0,2}(x,y)\,\pdydx{\eta}{y}\pdydx{\xi}{y}\right) \ .
+\end{align*}
+The real and imaginary parts of this expression yield
+\begin{align*}
+& a_{2,0}(x,y)\,\left(\pdydx{\eta}{x}\right)^2
++ 2a_{1,1}(x,y)\, \pdydx{\eta}{x}\pdydx{\eta}{y}
++ a_{0,2}(x,y)\, \left(\pdydx{\eta}{y}\right)^2 \\
+& \qquad = a_{2,0}(x,y)\,\left(\pdydx{\xi}{x}\right)^2
++ 2a_{1,1}(x,y)\, \pdydx{\xi}{x}\pdydx{\xi}{y}
++ a_{0,2}(x,y)\, \left(\pdydx{\xi}{y}\right)^2
+\end{align*}
+and
+\[
+a_{2,0}(x,y)\,\pdydx{\eta}{x}\pdydx{\xi}{x}
++ a_{1,1}(x,y)\, \left( \pdydx{\eta}{y}\pdydx{\xi}{x}
++\pdydx{\eta}{x}\pdydx{\xi}{y}\right)
++a_{0,2}(x,y)\,\pdydx{\eta}{y}\pdydx{\xi}{y} = 0 \ .
+\]
+With this change of coordinates, (\ref{classif_PDE1}) becomes
+(\ref{classif_PDE3}) with $A_{2,0} = A_{0,2} \neq 0$ (since $Q$ is
+positively defined) and $A_{1,1} = 0$.  If we divide by $A_{2,0}$, we
+get an equation of the form
+\begin{equation} \label{classif_StandEll}
+\pdydxn{u}{\eta}{2} + \pdydxn{u}{\xi}{2}
++ \alpha_{1,0}(\eta,\xi) \pdydx{u}{\eta}
++ \alpha_{0,1}(\eta,\xi) \pdydx{u}{\xi} + \alpha_{0,0}(\eta,\xi)u +
+\beta (\eta,\xi) = 0 \ , 
+\end{equation}
+where $\displaystyle \alpha_{1,0} = A_{1,0}/A_{2,0}$, etc.
+(\ref{classif_StandEll}) is the
+{\bfseries standard form}\index{Elliptic Partial Differential
+Equation!Standard Form} of an elliptic equation.
+
+\begin{egg}
+The Laplace Equation
+\[
+\pdydxn{u}{x}{2} + \pdydxn{u}{y}{2} = 0
+\]
+is an example of an elliptic equation on all $\displaystyle \RR^2$.
+\end{egg}
+
+\subsection{Hyperbolic Equations} \label{classif_class_planeHyper}
+
+Suppose that (\ref{classif_PDE1}) is hyperbolic on an open set of
+$\displaystyle \RR^2$, then we have
+\[
+\det \begin{pmatrix}
+a_{2,0}(x,y) & a_{1,1}(x,y) \\
+a_{1,1}(x,y) & a_{0,2}(x,y)  
+\end{pmatrix}
+<0
+\]
+for $(x,y)$ in this set.  Thus, the principal symbol represents
+a saddle point in $(\zeta_1,\zeta_2)$.  There are two lines in
+$\displaystyle \RR^2$ along which the principal symbol is null.
+Therefore, there are characteristic curves and not all curves $\Gamma$
+can be used for the conditions (\ref{classif_PDE1_cond}).
+
+We can reduce (\ref{classif_PDE1}) to a simpler form.  Consider again
+the polynomial
+\begin{equation} \label{classif_PDE6}
+P(x,y,\phi) = a_{2,0}(x,y) \phi^2(x,y) - 2a_{1,1}(x,y) \phi(x,y)
++ a_{0,2}(x,y) \ .
+\end{equation}
+The two real roots of this polynomial are
+\[
+\phi_{\pm}(x,y) = \frac{a_{1,1}(x,y) \pm
+\sqrt{a_{1,1}^2(x,y)-a_{2,0}(x,y)a_{0,2}(x,y)}}{a_{2,0}(x,y)} \ .
+\]
+
+Consider the two families of curves $\eta(x,y)=h$ and $\xi(x,y)=k$
+where the first family of curve is given by the implicit solution of
+$\displaystyle \dydx{y}{x} = \phi_{+}(x,y)$ and the second family of
+curves is given by the implicit solution of
+$\displaystyle \dydx{y}{x} = \phi_{-}(x,y)$.
+
+The relation in (\ref{classif_PDE2}) is satisfied because
+\[
+\pdydx{\eta}{x}\bigg/\pdydx{\eta}{y}
+= - \phi_{+}(x,y) \neq -\phi_{-}(x,y) = \pdydx{\xi}{x}\bigg/ \pdydx{\xi}{y} \ ,
+\]
+
+If we substitute $\phi_{\pm}$ in (\ref{classif_PDE6}), we get
+\begin{align*}
+a_{2,0}(x,y) \,\left(\pdydx{\eta}{x}\right)^2 + 2a_{1,1}(x,y)\,
+\pdydx{\eta}{x} \pdydx{\eta}{y}  +
+a_{0,2}(x,y)\,\left(\pdydx{\eta}{y}\right)^2 &= 0
+\intertext{and}
+a_{2,0}(x,y) \,\left(\pdydx{\xi}{x}\right)^2 + 2a_{1,1}(x,y)\,
+\pdydx{\xi}{x} \pdydx{\xi}{y}  +
+a_{0,2}(x,y)\,\left(\pdydx{\xi}{y}\right)^2 &= 0 \ .
+\end{align*}
+These two equations are
+\[
+Q\left(x,y,\pdydx{\eta}{x}(x,y),\pdydx{\eta}{y}(x,y)\right) = 0 \quad
+\text{and} \quad
+Q\left(x,y,\pdydx{\xi}{x}(x,y),\pdydx{\xi}{y}(x,y)\right) = 0
+\]
+respectively.  Hence, the curves of the two families are
+characteristic curves.
+
+With the change of coordinates $(x,y)=(x(\eta,\xi),y(\eta,\xi))$,
+equation (\ref{classif_PDE1}) is reduced to
+(\ref{classif_PDE3}) with $A_{2,0} = A_{0,2} = 0$ and $A_{1,1} \neq 0$.
+If we divide by $A_{1,1}$, we get an equation of the form
+\begin{equation} \label{classif_StandHyp}
+\pdydxnm{u}{\eta}{\xi}{2}{}{}
++ \alpha_{1,0}(\eta,\xi) \pdydx{u}{\eta}
++ \alpha_{0,1}(\eta,\xi) \pdydx{u}{\xi} + \alpha_{0,0}(\eta,\xi)u +
+\beta (\eta,\xi) = 0 \  , 
+\end{equation}
+where $\displaystyle \alpha_{1,0} = A_{1,0}/A_{1,1}$, etc.
+(\ref{classif_StandHyp}) is the
+{\bfseries standard form}\index{Hyperbolic Partial Differential
+Equation!Standard Form} of an hyperbolic equation.
+
+\begin{egg}
+The wave equation
+\[
+\pdydxn{u}{t}{2} = c^2 \pdydxn{u}{x}{2}
+\]
+is an example of an hyperbolic equation on all $\displaystyle \RR^2$.
+We will study it extensively later.
+\end{egg}
+
+\begin{egg}
+Consider the partial differential equation
+\begin{equation}\label{classif_k3}
+\pdydxnm{u}{x}{y}{2}{}{} + 2 \pdydx{u}{x} = 0 \ .
+\end{equation}
+This is an hyperbolic equation already in its standard form.  With
+$\displaystyle p = \pdydx{u}{x}$, (\ref{classif_k3}) becomes
+\[
+\pdydx{u}{y} + 2 p = 0 \ .
+\]
+For $x$ fixed, this is a separable ordinary differential equation
+whose solution is $\displaystyle p = A(x) e^{-2y}$, where $A$ is an
+arbitrary function.  We now consider
+\[
+\pdydx{u}{x} = A(x) e^{-2y} \ .
+\]
+We can integrate both sides with respect to $x$ to get
+\[
+u = \underbrace{\left(\int A(x) \dx{x}\right)}_{\equiv B(x)} e^{-2y} + C(y)
+= B(x) e^{-2y} +C(y) \ ,
+\]
+where $C$ is an arbitrary functions.
+\end{egg}
+
+\begin{egg}
+The partial differential equation
+\begin{equation} \label{classif_egg_hypk1}
+\pdydxnm{u}{x}{y}{2}{}{} - \pdydxn{u}{y}{2} = 0
+\end{equation}
+is of the form (\ref{classif_PDE1}) with
+$a_{2,0}(x,y) = 0$, $a_{1,1}(x,y) = 1/2$ and $a_{0,2}(x,y) = -1$.
+Hence
+\[
+\det \begin{pmatrix}
+a_{2,0}(x,y) & a_{1,1}(x,y) \\
+a_{1,1}(x,y) & a_{0,2}(x,y)  
+\end{pmatrix}
+=
+\det \begin{pmatrix}
+0 & 1/2 \\
+1/2 & -1  
+\end{pmatrix}
+= -1/4 < 0
+\]
+and (\ref{classif_egg_hypk1}) is hyperbolic.  To get the families of
+curves used to reduce this hyperbolic partial differential equation to
+its standard form, we need to interchange the role of $x$ and $y$ in
+the previous discussion.  We use
+\[
+\phi_{\pm}(x,y) = \frac{a_{1,1}(x,y) \pm
+\sqrt{a_{1,1}^2(x,y)-a_{2,0}(x,y)a_{0,2}(x,y)}}{a_{0,2}(x,y)} = -1/2 \mp 1/2 \ .
+\]
+We get a family of curves $\eta(x,y) = h$ from the implicit
+solution of $\displaystyle \dydx{x}{y} = -1$ and another family of curves
+$\xi(x,y) = k$ from the implicit solution of
+$\displaystyle \dydx{x}{y} = 0$.  We respectively get
+$x = -y + \eta$ and $x=\xi$.  Hence $\eta(x,y)=x+y$ and $\xi(x,y) = x$.
+
+Since $\displaystyle \pdydx{\eta}{x} = 1$, $\displaystyle \pdydx{\eta}{y} = 1$,
+$\displaystyle \pdydx{\xi}{x} = 1$ and $\displaystyle \pdydx{\xi}{y} = 0$,
+we get
+\begin{align*}
+\pdydx{u}{y} &= \pdydx{u}{\eta} \pdydx{\eta}{y} +
+\pdydx{u}{\xi}\pdydx{\xi}{y} = \pdydx{u}{\eta} \quad , \quad
+\pdydxn{u}{y}{2} = \pdfdx{ \left(\pdydx{u}{y}\right) }{y}
+= \pdydxn{u}{\eta}{2} \pdydx{\eta}{y}
++ \pdydxnm{u}{\xi}{\eta}{2}{}{} \pdydx{\xi}{y}
+= \pdydxn{u}{\eta}{2}
+\intertext{and}
+\pdydxnm{u}{x}{y}{2}{}{} &= \pdfdx{ \left(\pdydx{u}{y}\right) }{x}
+=  \pdydxn{u}{\eta}{2}\pdydx{\eta}{x}
++ \pdydxnm{u}{\xi}{\eta}{2}{}{} \pdydx{\xi}{x}
+= \pdydxn{u}{\eta}{2} + \pdydxnm{u}{\xi}{\eta}{2}{}{} \  .
+\end{align*}
+If we substitute these expressions for the derivatives in
+(\ref{classif_egg_hypk1}), we get
+$\displaystyle \pdydxnm{u}{\xi}{\eta}{2}{}{} = 0$.
+We integrate with respect to $\xi$ to get
+$\displaystyle \pdydx{u}{\eta} = H(\eta)$ for some function
+$H$, and with respect to $\eta$ to get
+\[
+u = \underbrace{\int H(\eta) \dx{\eta}}_{\equiv F(\eta)} + G(\xi)
+= F(\eta) + G(\xi)
+\]
+for some function $G$.  The final solution is
+\[
+u(x,y) = u(\xi,\eta) = F(\eta) + G(\xi) = F(x+y) + G(x) \ .
+\]
+\end{egg}
+
+\begin{egg}
+The partial differential equation
+\begin{equation} \label{classif_egg_hypk2}
+x \pdydxn{u}{x}{2} - y \pdydxnm{u}{x}{y}{2}{}{} + \pdydx{u}{x} = 0
+\end{equation}
+is of the form (\ref{classif_PDE1}) with
+$a_{2,0}(x,y) = x$, $a_{1,1}(x,y) = -y/2$ and $a_{0,2}(x,y) = 0$.
+Hence
+\[
+\det \begin{pmatrix}
+a_{2,0}(x,y) & a_{1,1}(x,y) \\
+a_{1,1}(x,y) & a_{0,2}(x,y)  
+\end{pmatrix}
+=
+\det \begin{pmatrix}
+x & -y/2 \\
+-y/2 & 0  
+\end{pmatrix}
+= -y^2/4 \ .
+\]
+The partial differential equation in (\ref{classif_egg_hypk2}) is
+hyperbolic for $y\neq 0$ and parabolic for $y=0$.  We will consider
+only the region $y > 0$.  We have
+\[
+\phi_{\pm}(x,y) = \frac{a_{1,1}(x,y) \pm
+\sqrt{a_{1,1}^2(x,y)-a_{2,0}(x,y)a_{0,2}(x,y)}}{a_{2,0}(x,y)}
+= (-1/2 \pm 1/2)\frac{y}{x} \ .
+\]
+We get a family of curves $\eta(x,y) = h$ from the implicit
+solution of $\displaystyle \dydx{y}{x} = -\frac{y}{x}$ and another family
+of curves $\xi(x,y) = k$ from the implicit solution of
+$\displaystyle \dydx{y}{x} = 0$.  From
+$\displaystyle \dydx{y}{x} = -\frac{y}{x}$, we get $\eta = xy$.  We get
+$\xi = y$ from $\displaystyle \dydx{y}{x} = 0$.
+Since $\displaystyle \pdydx{\eta}{x} = y = \xi$,
+$\displaystyle \pdydx{\eta}{y} = x = \frac{\eta}{\xi}$,
+$\displaystyle \pdydx{\xi}{x} = 0$ and $\displaystyle \pdydx{\xi}{y} = 1$,
+we get
+\begin{align*}
+\pdydx{u}{x} &= \pdydx{u}{\eta} \pdydx{\eta}{x} +
+\pdydx{u}{\xi}\pdydx{\xi}{x} = \xi \pdydx{u}{\eta} \  , \\ 
+\pdydxn{u}{x}{2} &= \pdfdx{ \left(\pdydx{u}{x}\right) }{x}
+= \pdfdx{ \left(\xi \pdydx{u}{\eta}\right) }{\eta}\pdydx{\eta}{x}
++ \pdfdx{ \left(\xi \pdydx{u}{\eta}\right) }{\xi}\pdydx{\xi}{x}
+= \xi^2 \pdydxn{u}{\eta}{2}
+\intertext{and}
+\pdydxnm{u}{x}{y}{2}{}{} &= \pdfdx{ \left(\pdydx{u}{x}\right) }{y}
+= \pdfdx{ \left(\xi \pdydx{u}{\eta}\right) }{\eta}\pdydx{\eta}{y}
++ \pdfdx{ \left(\xi \pdydx{u}{\eta}\right) }{\xi}\pdydx{\xi}{y}
+= \eta \pdydxn{u}{\eta}{2}
++ \pdydx{u}{\eta} + \xi \pdydxnm{u}{\xi}{\eta}{2}{}{} \  .
+\end{align*}
+If we substitute these expressions for the derivatives in
+(\ref{classif_egg_hypk2}), we get
+\[
+0 = \frac{\eta}{\xi} \left( \xi^2 \pdydxn{u}{\eta}{2} \right)
+- \xi \left( \eta \pdydxn{u}{\eta}{2}
++ \pdydx{u}{\eta} + \xi \pdydxnm{u}{\xi}{\eta}{2}{}{} \right)
++ \xi \pdydx{u}{\eta}
+= - \xi^2 \pdydxnm{u}{\xi}{\eta}{2}{}{} \ .
+\]
+Since $\xi = y \neq 0$, we get
+$\displaystyle \pdydxnm{u}{\xi}{\eta}{2}{}{} = 0$.
+As we have seen before, its solution is
+$u(\xi,\eta) = F(\eta) + G(\xi)$ for some functions $F$ and $G$.
+Therefore, the final solution is
+\[
+u(x,y) = u(\xi,\eta) = F(\eta) + G(\xi) = F(xy) + G(y) \ .
+\]
+\end{egg}
+
+\begin{egg}
+Consider the partial differential equation          \label{classif_egg_hyperb1}
+\begin{equation} \label{classif_egg_hypb}
+x \pdydxn{u}{x}{2} + 2 x^2 \pdydxnm{u}{x}{y}{2}{}{} - \pdydx{u}{x} - 1
+= 0
+\end{equation}
+It is a partial differential equation of the form (\ref{classif_PDE1}) with
+$a_{2,0}(x,y) = x$, $\displaystyle a_{1,1}(x,y) = x^2$ and $a_{0,2}(x,y) = 0$.
+Hence
+\[
+\det \begin{pmatrix}
+a_{2,0}(x,y) & a_{1,1}(x,y) \\
+a_{1,1}(x,y) & a_{0,2}(x,y)  
+\end{pmatrix}
+=
+\det \begin{pmatrix}
+x & x^2 \\
+x^2 & 0  
+\end{pmatrix}
+=-x^4
+\]
+and (\ref{classif_egg_hypb}) is parabolic on the $y$ axis and
+hyperbolic everywhere else.  The families of curves used to reduce this
+hyperbolic partial differential equation to its standard form will
+work for $x<0$ and $x>0$.  Since
+\[
+\phi_{\pm}(x,y) = \frac{a_{1,1}(x,y) \pm
+\sqrt{a_{1,1}^2(x,y)-a_{2,0}(x,y)a_{0,2}(x,y)}}{a_{2,0}(x,y)}
+= \frac{x^2 \pm x^2}{x} = x \pm x \ ,
+\]
+we get a family of curves $\eta(x,y) = h$ from the implicit
+solution of $\displaystyle \dydx{y}{x} = 2x$ and another family of curves
+$\xi(x,y) = k$ from the implicit solution of
+$\displaystyle \dydx{y}{x} = 0$.  The solution of the first equation
+is $\displaystyle y = x^2 + \eta$ and the solution of the second is
+$y=\xi$.  Hence, $\displaystyle \eta(x,y)=y-x^2$ and $\xi(x,y) = y$.
+
+To complete the example, we assumed that $x>0$ and thus
+$x=\sqrt{\xi-\eta}$.  The solution below does not change if we assume
+that $x<0$ and $x= -\sqrt{\xi-\eta}$.
+
+Since $\displaystyle \pdydx{\eta}{x} = -2x = -2\sqrt{\xi-\eta}$,
+$\displaystyle \pdydx{\eta}{y} = 1$,
+$\displaystyle \pdydx{\xi}{x} = 0$ and $\displaystyle \pdydx{\xi}{y} = 1$,
+we get
+\begin{align*}
+\pdydx{u}{x} &= \pdydx{u}{\eta} \pdydx{\eta}{x} +
+\pdydx{u}{\xi}\pdydx{\xi}{x} = -2\sqrt{\xi-\eta}\,\pdydx{u}{\eta}\ , \\ 
+\pdydxn{u}{x}{2} &= \pdfdx{ \left(\pdydx{u}{x}\right) }{x}
+= \pdfdx{ \left( -2\sqrt{\xi-\eta}\,\pdydx{u}{\eta} \right) }{\eta}
+\pdydx{\eta}{x}
++ \pdfdx{ \left( -2\sqrt{\xi-\eta}\,\pdydx{u}{\eta} \right) }{\xi}
+\pdydx{\xi}{x}\\
+&= \left( \frac{1}{\sqrt{\xi-\eta}}\,\pdydx{u}{\eta}
+-2 \sqrt{\xi-\eta}\,\pdydxn{u}{\eta}{2} \right)
+\left(-2\sqrt{\xi-\eta}\right)
+=-2\,\pdydx{u}{\eta} +4 (\xi -\eta)\,\pdydxn{u}{\eta}{2}
+\intertext{and}
+\pdydxnm{u}{x}{y}{2}{}{} &= \pdfdx{ \left(\pdydx{u}{x}\right) }{y}
+= \pdfdx{ \left( -2\sqrt{\xi-\eta}\,\pdydx{u}{\eta} \right) }{\eta}
+\pdydx{\eta}{y}
++ \pdfdx{ \left( -2\sqrt{\xi-\eta}\,\pdydx{u}{\eta} \right) }{\xi}
+\pdydx{\xi}{y}\\
+&= \left( \frac{1}{\sqrt{\xi-\eta}}\,\pdydx{u}{\eta}
+-2 \sqrt{\xi-\eta}\,\pdydxn{u}{\eta}{2} \right)
++ \left( -\frac{1}{\sqrt{\xi-\eta}}\,\pdydx{u}{\eta}
+-2 \sqrt{\xi-\eta}\,\pdydxnm{u}{\eta}{\xi}{2}{}{} \right)\\
+&= -2 \sqrt{\xi-\eta}\, \left( \pdydxn{u}{\eta}{2} +
+\pdydxnm{u}{\eta}{\xi}{2}{}{} \right) \ .
+\end{align*}
+If we substitute these expressions for the derivatives in
+(\ref{classif_egg_hypb}), we get
+\begin{align*}
+0 &= \sqrt{\xi-\eta} \left(-2\,\pdydx{u}{\eta}
++ 4 (\xi -\eta)\,\pdydxn{u}{\eta}{2} \right)
++2 (\xi-\eta) \left( -2 \sqrt{\xi-\eta}\, \left( \pdydxn{u}{\eta}{2} +
+    \pdydxnm{u}{\eta}{\xi}{2}{}{} \right) \right) \\
+&\qquad + 2\sqrt{\xi-\eta}\,\pdydx{u}{\eta} - 1
+= - 4 (\xi -\eta)^{3/2} \pdydxnm{u}{\eta}{\xi}{2}{}{} - 1 \ .
+\end{align*}
+Thus,
+\[
+\pdydxnm{u}{\xi}{\eta}{2}{}{} = -\frac{1}{4} \left(\xi-\eta\right)^{-3/2} \ .
+\]
+An integration with respect to $\xi$ followed by and integration with
+respect to $\eta$ yields
+\[
+u(\eta,\xi) = - \sqrt{\xi-\eta} + P(\xi) + Q(\eta)
+\]
+for arbitrary functions $P$ and $Q$.  Finally,
+\[
+u(x,y) = -x + P(y) + Q(y-x^2) \  .
+\]
+\end{egg}
+
+\subsection{Parabolic Equations}
+
+Suppose that (\ref{classif_PDE1}) is parabolic on an open set of
+$\RR^2$, then we have
+\begin{equation}\label{pe_cond}
+\det \begin{pmatrix}
+a_{2,0}(x,y) & a_{1,1}(x,y) \\
+a_{1,1}(x,y) & a_{0,2}(x,y)  
+\end{pmatrix}
+=0
+\end{equation}
+for $(x,y)$ in this set.  Hence, the principal symbol is
+degenerated.  There are characteristic curves and not all curves
+$\Gamma$ can be used for the conditions
+(\ref{classif_PDE1_cond}).
+
+Without loss of generality, we may assume that $a_{2,0}(x,y) \neq 0$
+and $a_{0,2}(x,y) \neq 0$.  If $a_{2,0}(x,y)=0$ or 
+$a_{0,2}(x,y) =0$, then (\ref{pe_cond}) gives $a_{1,1}(x,y)=0$ and
+we already have a standard form for (\ref{classif_PDE1}).  If
+$a_{2,0}(x,y) \neq 0$ and $a_{0,2}(x,y) \neq 0$, it follows from
+(\ref{pe_cond}) that $a_{1,1}(x,y) \neq 0$.
+
+We can reduce (\ref{classif_PDE1}) to a simpler form.  Consider again
+the polynomial
+\begin{equation} \label{classif_PDE7}
+P(x,y,\phi) = a_{2,0}(x,y) \phi^2(x,y) - 2a_{1,1}(x,y) \phi(x,y)
++ a_{0,2}(x,y) \ .
+\end{equation}
+There is only one non-zero root of this polynomial, it is
+\[
+\phi(x,y) = \frac{a_{1,1}(x,y)}{a_{2,0}(x,y)} \ .
+\]
+
+Consider a family of curve $\eta(x,y)=h$ given by the
+implicit solution of $\displaystyle \dydx{y}{x} = \phi(x,y)$.
+Choose any other family of curves $\xi(x,y)=k$ such that
+(\ref{classif_PDE2}) is satisfied.  As we have shown before, it is
+always possible to find such a family at least locally near a point
+$\VEC{p}$ of the curve $\Gamma$.
+
+Since
+\[
+\dydx{y}{x} = \phi(x,y) = -\pdydx{\eta}{x}\bigg/ \pdydx{\eta}{y} \ ,
+\]
+we get after substituting $\phi$ in
+(\ref{classif_PDE7}) that
+\begin{equation} \label{classif_ParEq1}
+a_{2,0}(x,y) \,\left(\pdydx{\eta}{x}\right)^2 + 2a_{1,1}(x,y)\,
+\pdydx{\eta}{x} \pdydx{\eta}{y}  +
+a_{0,2}(x,y)\,\left(\pdydx{\eta}{y}\right)^2 = 0 \ .
+\end{equation}
+This equation is
+$\displaystyle Q\left(x,y,\pdydx{\eta}{x}(x,y),\pdydx{\eta}{y}(x,y)\right) = 0$.
+Hence, the curves of this family are characteristic curves.
+
+It follows (\ref{classif_ParEq1}) that $A_{2,0}=0$ in
+(\ref{classif_PDE8}).  Since the right hand side of
+(\ref{classif_PDE8}) is null by hypothesis, we must also have that
+$A_{1,1}=0$.
+Therefore, with the change of coordinates $(x,y)=(x(\eta,\xi),y(\eta,\xi))$,
+equation (\ref{classif_PDE1}) is reduced to
+(\ref{classif_PDE3}) with $A_{2,0} = A_{1,1} = 0$ and $A_{0,2} \neq 0$.
+If we divide by $A_{0,2}$, we get an equation of the form
+\begin{equation} \label{classif_StandPar}
+\pdydxn{u}{\xi}{2}
++ \alpha_{1,0}(\eta,\xi) \pdydx{u}{\eta}
++ \alpha_{0,1}(\eta,\xi) \pdydx{u}{\xi} + \alpha_{0,0}(\eta,\xi)u +
+\beta (\eta,\xi) = 0 \  , 
+\end{equation}
+where $\displaystyle \alpha_{1,0} = A_{1,0}/A_{0,2}$, etc.
+(\ref{classif_StandPar}) is the
+{\bfseries standard form}\index{Parabolic Partial Differential
+Equation!Standard Form} of a parabolic equation.
+
+\begin{egg}
+The heat equation
+\[
+\pdydx{u}{t} = c^2 \pdydxn{u}{x}{2}
+\]
+is an example of a parabolic equation on all $\RR^2$.
+\end{egg}
+
+\section{More on the Classification of Partial Differential
+Equations}
+
+There are several direction to generalize the classification of
+partial differential equations.  We present some of them below.
+
+\subsection{Classification of Second Order Semi-Linear Partial
+Differential Equations in the Plane}
+
+We consider the Cauchy problem
+\begin{align}
+& L(x,y,u,\diff) = a_{2,0}(x,y,u) \pdydxn{u}{x}{2}(x,y)
++ 2a_{1,1}(x,y,u) \pdydxnm{u}{x}{y}{2}{}{}(x,y)
++ a_{0,2}(x,y,u) \pdydxn{u}{y}{2}(x,y) \nonumber \\
+&\qquad + a_{1,0}(x,y,u) \pdydx{u}{x}(x,y)
++ a_{0,1}(x,y,u) \pdydx{u}{y}(x,y) + a_{0,0}(x,y,u) = 0
+\label{classif_PDE1semi}
+\end{align}
+with the conditions
+\begin{equation} \label{classif_PDE1semi_cond}
+u\big|_\Gamma = f \quad \text{and} \quad \pdydx{u}{\nu}\bigg|_\Gamma = g \  ,
+\end{equation}
+where $\nu(x,y)$ for $(x,y)\in \Gamma$ is a normal unit vector to
+$\Gamma$ at $(x,y)$.  Equation (\ref{classif_PDE1semi}) is a
+{\bfseries second order semi-linear Partial Differential Equation}%
+\index{Second Order Semi-Linear Partial Differential Equation}.
+The coefficients $a_{i,j}$ may depend on $x$, $y$ as well as on $u$.
+
+The classification of the linear second order partial differential
+equation given in the previous section is still valid for the
+semi-linear second order partial differential equation.  The only
+difference is that the {\bfseries principal symbol}\index{Principal Symbol}
+is now defined by
+\begin{align*}
+Q(x,y,u,\zeta_1,\zeta_2) &= a_{2,0}(x,y,u) \zeta_1^2 +
+2a_{1,1}(x,y,u)\zeta_1\zeta_2 + a_{0,2}(x,y,u) \zeta_2^2 \\
+&=
+\begin{pmatrix}
+\zeta_1 & \zeta_2
+\end{pmatrix}
+\begin{pmatrix}
+a_{2,0}(x,y,u) & a_{1,1}(x,y,u) \\
+a_{1,1}(x,y,u) & a_{0,2}(x,y,u)  
+\end{pmatrix}
+\begin{pmatrix}
+\zeta_1 \\ \zeta_2
+\end{pmatrix} \ .
+\end{align*}
+Now, the principal symbol depends of $x$, $y$ and $u$.  Unfortunately,
+there is not any nice method to reduce a second order semi-linear
+partial differential equation to a standard form.
+
+\subsection{System of First Order Partial Differential Equations}
+
+Like for ordinary differential equations, we may reduce (a system of)
+partial differential equations of order greater
+than one to a system of partial differential equations of order one.
+
+\begin{egg}
+The partial differential equation
+\[
+x \pdydxn{u}{x}{2} + 2 x^2 \pdydxnm{u}{x}{y}{2}{}{} - \pdydx{u}{x} - 1
+= 0
+\]
+of Example~\ref{classif_egg_hyperb1} can be reduced to a system of
+first order partial differential equations.
+
+Let $\displaystyle v_1 = \pdydx{u}{x}$ and
+$\displaystyle v_2 = \pdydx{u}{y}$.  Then,
+\[
+\pdydx{v_1}{y} = \pdydxnm{u}{x}{y}{2}{}{} = \pdydx{v_2}{x}
+\]
+and
+\[
+x \pdydx{v_1}{x} + 2 x^2 \pdydx{v_1}{y} - v_1 - 1 = 0 \  .
+\]
+We get the system
+\[
+\begin{pmatrix}
+0 & -1 \\
+x & 0
+\end{pmatrix}
+\pdydx{\VEC{v}}{x}
++
+\begin{pmatrix}
+1 & 0 \\
+2x^2 & 0
+\end{pmatrix}
+\pdydx{\VEC{v}}{y}
+=
+\begin{pmatrix}
+0 \\ v_1+1
+\end{pmatrix} \quad , \quad
+\VEC{v} =
+\begin{pmatrix}
+v_1 \\ v_2
+\end{pmatrix} \ .
+\]
+Once we have found $v_1$ and $v_2$, then $u$ is
+given by integrating $v_1$ with respect of $x$ or $v_2$ with
+respect to $y$.
+\end{egg}
+
+Let $\displaystyle \LL(\RR^n)$ be the space of \nn matrices.  A
+{\bfseries system of linear first order Partial Differential Equations}%
+\index{System of Linear First Order Partial Differential Equations} is
+a system of the form
+\begin{equation} \label{classif_SPDE1}
+A(x,y) \pdydx{\VEC{v}}{x}(x,y) + B(x,y) \pdydx{\VEC{v}}{y}(x,y) =
+\VEC{c}\left(x,y,\VEC{v}(x,y)\right) \ ,
+\end{equation}
+where $\displaystyle A:\RR^2\rightarrow \LL(\RR^n)$,
+$\displaystyle B:\RR^2\rightarrow \LL(\RR^n)$ and
+$\displaystyle \VEC{c}:\RR^{2+n}\rightarrow \RR^n$ are continuous functions.
+If we combine the condition
+\begin{equation} \label{classif_SPDE1_cond}
+\VEC{v}\big|_\Gamma = \VEC{f}
+\end{equation}
+for some curve $\Gamma$ in the plane and some function
+$\displaystyle \VEC{f}:\Gamma \rightarrow \RR^n$ with
+(\ref{classif_SPDE1}), then we get the general form of the
+{\bfseries Cauchy Problem}\index{Cauchy Problem} for systems of first
+order partial differential equation. 
+
+As for single partial differential equation, we need to define
+characteristic curves.
+
+\begin{defn}
+A {\bfseries characteristic curve}\index{Characteristic Curve} for the
+Cauchy problem (\ref{classif_SPDE1}) and (\ref{classif_SPDE1_cond}) is a
+curve $\Gamma$ such that (\ref{classif_SPDE1}) and
+(\ref{classif_SPDE1_cond}) are not enough to determine all
+the first order partial derivatives of $\VEC{v}$ in a neighbourhood of
+$\Gamma$.
+\end{defn}
+
+As for single partial differential equation, we need to give a precise
+condition to determine if a curve is or is not a characteristic curve.
+We limit the discussion to $n=2$. Suppose that
+\begin{equation} \label{classif_GammaEq2}
+\Gamma = \left\{ (x_0(s), y_0(s)) : s \in I \right\} \ ,
+\end{equation}
+where $x_0:I\rightarrow \RR$ and $y_0:I\rightarrow \RR$ are
+differentiable functions, and $I$ is an open interval.  The condition
+on $\Gamma$ that $\VEC{v}$ must satisfy is of the form
+\begin{equation} \label{classif_SPDE1_c1}
+\VEC{v}(x_0(s),y_0(s)) = \VEC{f}(s)
+\end{equation}
+for $s\in I$.
+
+There are two differential (systems of) equations that must be
+satisfied on $\Gamma$.
+\begin{equation} \label{classif_SPDE1_c2}
+\begin{split}
+&A(x_0(s),y_0(s)) \pdydx{\VEC{v}}{x}(x_0(s),y_0(s)) + B(x_0(s),y_0(s))
+\pdydx{\VEC{v}}{y}(x_0(s),y_0(s)) \\
+&\qquad =\VEC{c}\left(x_0(s),y_0(s),\VEC{v}(x_0(s),y_0(s))\right)
+\end{split}
+\end{equation}
+and
+\begin{equation} \label{classif_SPDE1_c3}
+x_0'(s)\pdydx{\VEC{v}}{x}(x_0(s),y_0(s)) +
+y_0'(s)\pdydx{\VEC{v}}{y}(x_0(s),y_0(s)) = \dfdx{\VEC{f}}{s}(s) \ .
+\end{equation}
+The second equation being the derivative of (\ref{classif_SPDE1_c1})
+with respect to $s$.
+
+(\ref{classif_SPDE1_c2}) multiplied by $y_0'(s)$ minus
+(\ref{classif_SPDE1_c3}) multiplied by $B(x_0(s),y_0(s))$ (from the
+left) yields
+\begin{align*}
+& \left( y_0'(s)A(x_0(s),y_0(s)) - x_0'(s)B(x_0(s),y_0(s)) \right)
+\pdydx{\VEC{v}}{x}(x_0(s),y_0(s)) \\
+&\qquad = \left( y_0'(s) \VEC{c}(x_0(s),y_0(s),\VEC{v}(x_0(s),y_0(s)))
+- B(x_0(s),y_0(s))\,\dfdx{\VEC{f}}{s}(s)\right)
+\end{align*}
+and (\ref{classif_SPDE1_c2}) multiplied by $x_0'(s)$ minus
+(\ref{classif_SPDE1_c3}) multiplied by $A(x_0(s),y_0(s))$ (from the
+left) yields
+\begin{align*}
+&\left( x_0'(s)B(x_0(s),y_0(s)) - y_0'(s)A(x_0(s),y_0(s)) \right)
+\pdydx{\VEC{v}}{y}(x_0(s),y_0(s)) \\
+&\qquad = \left( x_0'(s) \VEC{c}(x_0(s),y_0(s),\VEC{v}(x_0(s),y_0(s)))
+- A(x_0(s),y_0(s))\,\dfdx{\VEC{f}}{s}(s)\right) \ .
+\end{align*}
+The first system can be solved for
+$\displaystyle \pdydx{\VEC{v}}{x}(x_0(s),y_0(s))$ and the second for
+$\displaystyle \pdydx{\VEC{v}}{y}(x_0(s),y_0(s))$ if the matrix
+\begin{equation} \label{classif_SPDE1_c4}
+\left( x_0'(s)B(x_0(s),y_0(s)) - y_0'(s)A(x_0(s),y_0(s)) \right)
+\end{equation}
+is invertible.
+
+\begin{defn}
+The {\bfseries principal symbol}\index{Principal Symbol} for
+(\ref{classif_SPDE1}) is defined by
+$\displaystyle
+Q\left(x,y,\xi_1, \xi_2\right) = \xi_1 A(x,y) + \xi_2 B(x,y)$
+for $(x,y)$ and $\xi_1,\xi_2)$ in $\RR^2$.
+\end{defn}
+
+The following proposition is a consequence of (\ref{classif_SPDE1_c4}).
+
+\begin{prop}
+A curve $\Gamma$ given by (\ref{classif_GammaEq2}) is a characteristic
+curve for the Cauchy Problem (\ref{classif_SPDE1}) and
+(\ref{classif_SPDE1_cond}) if and only if
+$Q(x_0(s),y_0(s), -y_0'(s) , x_0'(s))$
+is singular for all $s \in I$.
+\end{prop}
+
+Since $(-y_0'(s) , x_0'(s))$ is perpendicular to the curve $\Gamma$ at
+$(x_0(s), y_0(s))$.  The condition above can be restated as follows.
+A curve $\Gamma$ is a characteristic curve if and only if
+at each point $(x,y)$ of $\Gamma$ we have that
+$Q(x,y, \zeta_1 , \zeta_2)$ is singular for all orthogonal vectors
+$\VEC{\zeta}$ to the curve $\Gamma$ at $(x,y)$.
+
+If $\Gamma$ is given implicitly as $\mu(x,y) = c$ for some constant
+$c$, the condition above becomes the following.
+A curve $\Gamma$ is a characteristic curve if and only if
+\[
+Q\left(x,y, \pdydx{\mu}{x}(x,y), \pdydx{\mu}{y}(x,y) \right)
+\]
+is singular for all $(x,y) \in \Gamma$.
+
+\subsection{Classification of Linear Partial Differential Equations in
+$\displaystyle \RR^n$}
+
+Though it is possible to reduce a linear partial differential equation
+of order greater than one to a system of linear first order partial
+differential equations, it is not necessarily
+advantageous to do so.  Moreover, since the reduced linear system of
+first order partial differential equations may not have the same
+numbers of equations and unknown, it is not trivial to define the
+principal symbol for such a system (see \cite{RenRog}).  For this
+reason, we present only the
+classification of general linear partial differential equations of the form
+\begin{equation} \label{classif_gen_class}
+L(\VEC{x}, \diff)u = \sum_{|\alpha|\leq m} a_\alpha(\VEC{x})
+\diff^\alpha u = f \ ,
+\end{equation}
+where $\displaystyle u:\RR^n \rightarrow \RR$ is at least of class
+$\displaystyle C^m$, $\displaystyle f:\RR^n \rightarrow \RR$ is continuous and
+$\displaystyle a_\alpha:\RR^n \rightarrow \RR$ is of class
+$\displaystyle C^\infty$ for all multi-indices involved in the sum.
+We will relax the conditions on $f$
+and $a_\alpha$ starting in Chapter~\ref{elliptic_PDEs}.
+
+\begin{defn}
+A subset $S$ of $\displaystyle \RR^n$ is an
+{\bfseries hyper-surface}\index{Hyper-Surface} 
+if $S$ is an orientable manifold of dimension $n-1$.  We will say that
+$S$ is an hyper-surface of class $\displaystyle C^k$ (resp.\ an analytic
+hyper-surface) if $S$ is a manifold of class $\displaystyle C^k$
+(resp. an analytic manifold).
+\end{defn}
+
+If $S$ be a hyper-surface, then we may express $S$ locally as the
+solution of an equation $\phi(\VEC{x}) = 0$ for some function
+$\displaystyle \phi:\RR^n \to \RR$.  If $S$ is of class
+$\displaystyle C^k$ (resp. analytic), we may assume that
+$\phi$ is of class $\displaystyle C^k$ (resp. analytic).  We will
+assume from now on that the hyper-surfaces that we consider are
+sufficiently smooth.
+
+As for second order partial differential equation in the plane, we
+have the following definitions.
+
+\begin{defn} \label{char_surf_hd_def}
+Consider the Cauchy problem given by (\ref{classif_gen_class}) with
+conditions on $u$ and its (directional) derivatives of order $\alpha$
+with $|\alpha|<m$ on a hyper-surface $S$.  Them $S$ is a
+{\bfseries characteristic surface}\index{Characteristic Surface}
+for this Cauchy problem if (\ref{classif_gen_class}) and the
+conditions on $u$ and its (directional) derivatives are not
+enough to determine all the partial derivatives (mixed or not) of
+order $m$ of $u$ in the neighbourhood of $S$.
+\end{defn}
+
+\begin{defn}
+The {\bfseries principal symbol}\index{Principal Symbol} (also called the
+{\bfseries characteristic form}\index{Characteristic Form})
+associated to the linear partial differential operator
+$\displaystyle L(\VEC{x}, \diff)$ defined in
+(\ref{classif_gen_class}) is
+\begin{equation} \label{classif_gen_princ_symb}
+Q(\VEC{x}, \VEC{\xi}) = \sum_{|\alpha|=m} a_\alpha(\VEC{x}) \VEC{\xi}^\alpha
+\end{equation}
+for $\VEC{x}$ and $\VEC{\xi}$ in $\displaystyle \RR^n$.
+\end{defn}
+
+We have the following result.
+
+\begin{prop}
+An hyper-surface $S$ is a characteristic surface if and only if
+$\displaystyle Q\left(\VEC{x}, \VEC{\nu}(\VEC{x}) \right) = 0$ for all
+$\VEC{x} \in S$,
+where $\displaystyle \VEC{\nu}(\VEC{x})$ is any orthogonal vector to $S$
+at $\VEC{x}$.
+\end{prop}
+
+Before giving a classification of the linear partial differential
+equations of order greater than $2$, we expand the classification of
+the linear partial differential equations of order 
+$2$ given in Section~\ref{classif_class_plane} to
+$\displaystyle \RR^n$ with $n>2$.
+
+Consider the linear second order partial differential equation
+\begin{equation} \label{classif_class_n}
+L(\VEC{x}, \diff)u = \sum_{i,j=1}^n a_{i,j}(\VEC{x})
+\pdydxnm{u}{x_i}{x_j}{2}{}{} + \sum_{i=1}^n b_i(\VEC{x})
+\pdydx{u}{x_i} + c(\VEC{x})u = 0 \ ,
+\end{equation}
+where $\displaystyle u:\RR^n \rightarrow \RR$,
+$\displaystyle a_{i,j} \in C^2(\RR^n)$,
+$\displaystyle b_i \in C^1(\RR^n)$ and $\displaystyle c \in C(\RR^n)$.
+Its principal symbol takes the form
+\begin{equation} \label{classif_princ_symb_n}
+Q(\VEC{x}, \VEC{\xi}) = \sum_{i,j=1}^n a_{i,j}(\VEC{x})\xi_i \xi_j
+= \xi^\top\ A(\VEC{x})\ \xi \ ,
+\end{equation}
+where $A(\VEC{x})$ is the \nn matrix with entries $a_{i,j}(\VEC{x})$.
+
+\begin{defn}\label{category2}
+Consider the linear partial differential operator $L(\VEC{x}, \diff)$ in
+(\ref{classif_class_n}) with its principal symbol $Q$ given in 
+(\ref{classif_princ_symb_n}).
+\begin{enumerate}
+\item $L(\VEC{x}, \diff)$ is
+  {\bfseries elliptic}\index{Linear Partial Differential Operator!Elliptic}
+  at $\VEC{x}$ if all eigenvalues of $A(\VEC{x})$ have the same sign. 
+\item $L(\VEC{x}, \diff)$ is
+  {\bfseries hyperbolic}\index{Linear Partial Differential Operator!Hyperbolic}
+  at $\VEC{x}$ if all eigenvalues of $A(\VEC{x})$ are non-null and all
+  but one have the same sign.
+\item $L(\VEC{x}, \diff)$ is 
+{\bfseries ultrahyperbolic}
+\index{Linear Partial Differential Operator!Ultrahyperbolic} at
+$\VEC{x}$ if all eigenvalues of $A(\VEC{x})$ are non-null and there
+are more than one of each sign.
+\item $L(\VEC{x}, \diff)$ is {\bfseries parabolic}
+\index{Linear Partial Differential Operator!Parabolic} at $\VEC{x}$ if
+$A(\VEC{x})$ is singular; namely, $A(\VEC{x})$ has at least one zero
+eigenvalue.
+\end{enumerate}
+\end{defn}
+
+In $\displaystyle \RR^2$, this definition is equivalent to
+Definition~\ref{classif_EHP}.  Recall that all the eigenvalues of a
+symmetric matrix are real.
+
+We will not attempt to provide a full classification of partial
+differential equations of order greater than $2$.   In fact, we will
+consider only elliptic partial differential equations and 
+prove one nice result about them.
+
+\begin{defn}\label{categoryM}
+Let $L(\VEC{x}, \diff)$ be the linear partial differential operator
+defined in (\ref{classif_gen_class}) and $Q$ be the associated principal
+symbol defined in (\ref{classif_gen_princ_symb}).
+$L(\VEC{x}, \diff)$ is
+{\bfseries elliptic}\index{Linear Partial Differential Operator!Elliptic}
+at $\VEC{x}$ if $\displaystyle Q(\VEC{x}, \VEC{\xi}) \neq 0$ for all
+$\displaystyle \VEC{\xi} \in \RR^n\setminus \{\VEC{0}\}$.
+\end{defn}
+
+In the case where $m=2$ in (\ref{classif_gen_class}), the definition of
+elliptic partial differential equation given in
+Definition~\ref{category2} is equivalent to
+the definition given in Definition~\ref{categoryM}.
+
+The following proposition shows that the order of an elliptic linear
+partial differential operator must be even.
+
+\begin{prop} \label{classif_ell_even}
+Let $L(\VEC{x}, \diff)$ be an elliptic linear partial differential
+operator of order $m$ at $\displaystyle \VEC{x} \in \RR^n$, $n>1$.
+\begin{enumerate}
+\item If $\displaystyle a_\alpha:\RR^n \rightarrow \RR$ for all
+multi-indices $\alpha$ such that $|\alpha|=m$, then $m$ is even.
+Moreover, the associated principal symbol $Q(\VEC{x}, \VEC{\xi})$ is
+either positive for all $\VEC{\xi} \neq \VEC{0}$ or negative for all
+$\VEC{\xi} \neq \VEC{0}$.
+\item If $\displaystyle a_\alpha:\RR^n \rightarrow \CC$ for some multi-indices
+$\alpha$ such that $|\alpha|=m$ and $n>2$, then $m$ is even.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+\stage{i} Suppose that $\displaystyle a_\alpha:\RR^n\rightarrow \RR$ for all
+multi-indices $\alpha$ such that $|\alpha|=m$.
+
+Moreover, suppose that their exist $\VEC{\xi}_1$ and $\VEC{\xi}_2$ in
+$\displaystyle \RR^n$ such that
+$\displaystyle Q\left(\VEC{x}, \VEC{\xi}_1\right) < 0 <
+Q\left(\VEC{x}, \VEC{\xi}_2\right)$.  Since $Q$ is continuous, we may
+assume that the line
+$\displaystyle \left\{ (1-s)\VEC{\xi}_1 + s\VEC{\xi}_2 : s \in [0,1] \right\}$
+does not contain the origin.  If the origin is on this line, we
+replace $\VEC{\xi}_1$ by another point $\VEC{\xi}_1'$ near
+$\VEC{\xi}_1$ where we still have
+$Q\left(\VEC{x}, \VEC{\xi}_1'\right) < 0$.  Consider the function
+\begin{align*}
+g:[0,1] &\rightarrow \RR \\
+s &\mapsto Q\left(\VEC{x}, (1-s)\VEC{\xi}_1 + s\VEC{\xi}_2\right)
+\end{align*}
+Since $Q$ is continuous, $g$ is a continuous function such that
+$g(0)<0<g(1)$.  By the Intermediate Value Theorem, there exists
+$s_0 \in ]0,1[$ such that $g(s_0)=0$.  Thus
+$\displaystyle
+Q\left(\VEC{x}, (1-s_0)\VEC{\xi}_1 + s_0\VEC{\xi}_2\right) = 0$
+with $\displaystyle (1-s_0)\VEC{\xi}_1 + s_0\VEC{\xi}_2 \neq \VEC{0}$.
+This is a contradiction that $L(\VEC{x}, \diff)$ is elliptic.
+
+Therefore, for
+$\displaystyle \VEC{\xi} \in \RR^n \setminus \{\VEC{0}\}$, we have
+that $\displaystyle Q(\VEC{x}, -\VEC{\xi}) = (-1)^mQ(\VEC{x}, \VEC{\xi})$
+and $\displaystyle Q(\VEC{x}, \VEC{\xi})$ are of the same sign.  This
+is possible only if $m$ is even.
+
+\stage{ii} Suppose that $\displaystyle a_\alpha:\RR^n\rightarrow \CC$ for some
+multi-indices $\alpha$ such that $|\alpha|=m$ and $n>2$.
+
+For each $\displaystyle \VEC{y} \in \RR^{n-1}$, let
+\[
+p_{\VEC{y}}(z) = Q(\VEC{x}, \,(\VEC{y},z)\,) \quad , \quad z \in \CC \ .
+\]
+Let $n_+(\VEC{y})$ be the number of roots (counted with multiplicity)
+of $p_{\VEC{y}}$ with a positive imaginary part, and let $n_-(\VEC{y})$ be
+the number of roots (counted with multiplicity) of $p_{\VEC{y}}$ with
+a negative imaginary part.
+
+Since $p_{\VEC{y}}(z) \neq 0$ for all $z\in \RR$ and
+$\displaystyle \VEC{y} \in \RR^{n-1}\setminus \{\VEC{0}\}$ because
+$L(\VEC{x},\diff)$ is elliptic, we have $n_+(\VEC{y})+n_-(\VEC{y})=m$
+for $\displaystyle \VEC{y} \in \RR^{n-1}\setminus \{\VEC{0}\}$.
+
+Moreover, it follows from Rounch\'e's theorem (see \cite{Co}) that
+$n_+$ and $n_-$ are locally constant.  So, they are constant on the
+largest connected component of $\displaystyle \RR^{n-1}$ that does not
+contain the origin (the only value of $\VEC{y}$ for which
+$p_{\VEC{y}}$ may have real roots).  Since
+$\displaystyle \RR^{n-1}\setminus\{\VEC{0}\}$ is connected for
+$n>2$,  $n_+$ and $n_-$ are constant on
+$\displaystyle \RR^{n-1}\setminus\{\VEC{0}\}$.
+
+Finally, $n_+(-\VEC{y}) = n_-(\VEC{y})$ for
+$\displaystyle \RR^{n-1}\setminus\{\VEC{0}\}$ because
+$\displaystyle p_{-\VEC{y}}(-z) = (-1)^m p_{\VEC{y}}(z)$.  Since $n_+$
+and $n_-$ are constant on $\displaystyle \RR^{n-1}\setminus\{\VEC{0}\}$, we get
+$n_-(\VEC{y}) = n_+(-\VEC{y}) = n_+(\VEC{y})$ for
+$\displaystyle \VEC{y} \in \RR^{n-1}\setminus\{\VEC{0}\}$.
+
+Hence, $m = n_+(\VEC{y})+n_-(\VEC{y}) = 2n_+(\VEC{y})$ and it follows
+that $m$ is even.
+\end{proof}
+
+To be able to use variational methods to solve elliptic partial
+differential equations in Chapter~\ref{elliptic_PDEs}, elliptic
+operator in general is not strong enough.  We need to request a little
+more from our elliptic operators.
+Though we may not use this full generality later, we assume that the
+coefficients $a_\alpha$ in the linear partial differential operator
+$L(\VEC{x}, \diff)$ defined in (\ref{classif_gen_class}) are complex
+valued functions.
+
+Since we are interested in elliptic linear partial differential
+equations, it follows from Proposition~\ref{classif_ell_even} that we
+may assume that the order $m$ of the linear partial differential operator
+$L(\VEC{x}, \diff)$ defined in (\ref{classif_gen_class}) is even.
+
+\begin{defn} \label{strong_ell_form}
+Let $L(\VEC{x}, \diff)$ be the linear partial differential operator of
+even order defined in (\ref{classif_gen_class}) and $Q$ be the
+associated principal symbol defined in (\ref{classif_gen_princ_symb}).
+The operator $L(\VEC{x}, \diff)$ is
+{\bfseries strongly or uniformly elliptic}%
+\index{Linear Partial Differential Operator!Uniformly Elliptic}%
+\index{Linear Partial Differential Operator!Strongly Elliptic} 
+on an open subset $\displaystyle \Omega \subset \RR^n$ if there exists
+a constant $C>0$ such that
+\begin{equation} \label{strong_ell_formEq1}
+(-1)^{m/2} \RE Q(\VEC{x}, \VEC{\xi}) \geq C \|\VEC{\xi}\|^m
+\end{equation}
+for all $\displaystyle \VEC{\xi} \in \RR^n$ and $\VEC{x}\in \Omega$.
+\end{defn}
+
+Note that original partial differential equation may have to be
+multiplied by $-1$ to get (\ref{strong_ell_formEq1}).  We assume that
+this is always done if necessary.
+
+\begin{rmk}
+If the linear partial differential operator $L(\VEC{x}, \diff)$
+is elliptic at $\VEC{x}$, then         \label{ell_implies_strong_ell}
+\[
+0 < C_{\VEC{x}}
+= \inf_{\|\VEC{\xi}\|_2 = 1} \left| Q(\VEC{x}, \VEC{\xi}) \right| < \infty
+\]
+because $\VEC{\xi} \to |Q(\VEC{x},\VEC{\xi})|$ is continuous on the
+compact set $\displaystyle B= \{\VEC{\xi}\in \RR^n : \|\VEC{\xi}\| = 1\}$
+and so reaches its minimum at a point of $B$.  If furthermore we
+assume that the linear partial differential equation is paused on a
+bounded open set $\Omega$ with coefficients continuous on
+$\overline{\Omega}$,  then we may find $C>0$ such that $C \leq
+C_{\VEC{x}}$ for all $\VEC{x} \in \Omega$ because $\VEC{x} \to
+C_{\VEC{x}}$ is continuous on the compact set $\overline{\Omega}$.  We
+therefore have that
+\[
+  \inf_{\|\VEC{\xi}\|_2 = 1} \left| Q(\VEC{x}, \VEC{\xi}) \right| \geq  C
+\]
+for all $\VEC{x} \in \Omega$.  It follows that
+\[
+  \left| Q(\VEC{x}, \VEC{\xi}) \right| \geq  C \|\VEC{\xi}\|^m
+\]
+for all $\displaystyle \VEC{\xi} \in \RR^n$ and $\VEC{x} \in \Omega$.
+If we also assume that all the coefficients $a_\alpha$ in
+$L(\VEC{x},\diff)$ are functions from $\displaystyle \RR^n$ to $\RR$, then
+$\RE\, Q(\VEC{x}, \VEC{\xi}) = Q(\VEC{x}, \VEC{\xi})$ and thus
+$L(\VEC{x}, \diff)$ is strongly elliptic on $\Omega$
+because we can always multiply the $a_{\alpha}$ by $1$ or $-1$ to get
+the right sign for the definition of strongly elliptic.
+\end{rmk}
+
+\begin{rmk}
+The definition of a strongly elliptic linear differential operator
+$L(\VEC{x}, \diff)$ as defined in (\ref{classif_gen_class}) is
+sometime stated as follows.  A linear differential operator
+$L(\VEC{x}, \diff)$ is strongly elliptic on a open
+set $\displaystyle \Omega \subset \RR^n$ if there exist a complex
+valued function
+$\displaystyle \gamma \in C^\infty(\overline{\Omega})$ and a constant $C>0$ such
+that $|\gamma(\VEC{x})|=1$ for all $\VEC{x} \in \overline{\Omega}$ and
+\begin{equation} \label{strong_ell_formEq2}
+\RE\left(\gamma(\VEC{x})\, Q(\VEC{x},\VEC{\xi})\right) \geq C
+\|\VEC{\xi}\|^m
+\end{equation}
+for all $\displaystyle \VEC{\xi} \in \RR^n$ and
+$\VEC{x} \in \overline{\Omega}$.
+This is not a more general definition than Definition~\ref{strong_ell_form}
+because we can always multiply the linear partial differential
+equation by $\displaystyle (-1)^{m/2}/\gamma$ to obtain a linear partial
+differential equation equivalent to the original one.  The
+coefficients $a_\alpha$ of the original linear partial differential
+equation are replaced by the coefficients
+$\displaystyle (-1)^{m/2} a_\alpha/\gamma$ in the new linear partial
+differential equation and thus
+(\ref{strong_ell_formEq2}) is reduced to (\ref{strong_ell_formEq1}).
+\end{rmk}
+
+\section{Exercises}
+
+Suggested exercises:
+
+\begin{itemize}
+\item In \cite{McO}: numbers 1 to 5 in Section 2.2.
+\item In \cite{PinRub}: all the numbers in Sections 3.6. 
+\item In \cite{Str}: all the numbers in Section 1.6.
+\end{itemize}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End: 

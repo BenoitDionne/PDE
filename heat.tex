@@ -1,0 +1,1827 @@
+\chapter{Heat Equation} \label{ChapHeatEqu}
+
+Let $\Omega$ be an open subset of $\displaystyle \RR^n$.  The
+{\bfseries heat equation}\index{Heat Equation}
+is the partial differential equation
+\[
+L(\VEC{x},t,D) u = \pdydx{u}{t} - c^2 \Delta u = 0
+\]
+on $\Omega$.  The constant $\displaystyle c^2$ represent the heat
+conductivity in the region $\Omega$.  In this chapter $\Delta$ stands for
+$\Delta_{\VEC{x}}$ unless otherwise specified.
+
+The problem is to find $u$ that satisfies the heat equation, some
+boundary conditions, and an initial condition.  The most frequent
+boundary conditions are
+\begin{itemize}
+\item $u(\VEC{x},t)=f(\VEC{x})$ for $\VEC{x} \in \partial \Omega$ and
+$t\geq 0$.  This means that the temperature is maintained to
+$f(\VEC{x})$ at $\VEC{x} \in \partial \Omega$ for all time.
+\item $\displaystyle \pdydx{u}{\VEC{\nu}}(\VEC{x},t) = g(\VEC{x})$ for
+$\VEC{x} \in \partial \Omega$ and $t\geq 0$, where $\VEC{\nu}(\VEC{x})$
+is the outward unit normal to the surface $\partial \Omega$ at
+$\VEC{x}\in \partial \Omega$.  This means that the flow of heat
+through $\VEC{x} \in \partial \Omega$ is $g(\VEC{x})$ for all time.
+The most frequent situation is when $g=0$ on $\partial \Omega$;
+namely, the boundary of $\Omega$ is insulated and no heat flow in or
+out of $\Omega$.
+\item $u(\VEC{x},t)=f(\VEC{x})$ on some parts of $\partial \Omega$ and
+$\displaystyle \pdydx{u}{\VEC{\nu}}(\VEC{x},t) = g(\VEC{x})$ on the
+other parts of $\partial \Omega$ for all $t\geq 0$.
+\item $\displaystyle \pdydx{u}{\VEC{\nu}}(\VEC{x},t) + \alpha \left(
+u(\VEC{x},t) - u_o(\VEC{x},t)\right) = 0$ for
+$\VEC{x} \in \partial \Omega$ and $t\geq 0$,
+where $\alpha$ is a constant.  This means that the heat flow
+across $\partial \Omega$ at all time is proportional to the difference
+between the temperature $u$ inside $\Omega$ and the temperature $u_o$
+outside $\Omega$.  This is
+{\bfseries Newton's Law}\index{Newton's Law of heating} of heating.
+\end{itemize}
+The initial condition is normally $u(\VEC{x},0) = v(\VEC{x})$ for
+$\VEC{x} \in \Omega$ and represent the heat distribution in $\Omega$
+initially.
+
+\section{Cauchy Problem}  \label{SectHeatEqCauchyPr}
+
+\subsection{One Dimensional Heat (Diffusion) Equation}
+
+We consider
+\begin{align}
+\pdydx{u}{t} - c^2 \pdydxn{u}{x}{2} &= 0 \quad , \quad x\in \RR
+\ \text{and} \ t > 0 \ , \label{heatODimE} \\
+u(x,0) &= f(x) \quad , \quad x \in \RR \ . \label{heatODimIC}
+\end{align}
+We assume that $f$ is continuous and integrable on $\RR$.  This
+implies in particular that $\displaystyle \lim_{x\to \pm \infty} f(x) = 0$.
+
+The solution of the heat equation satisfies the following properties
+which will guide us in the search of this solution.
+
+\begin{enumerate}
+\item Spatial translation of a solution $u$ of (\ref{heatODimE})
+is still a solution of (\ref{heatODimE}); namely, $v(x,t) = u(x-y,t)$
+satisfies (\ref{heatODimE}).
+\item Any partial derivative of a solution $u$ of (\ref{heatODimE})
+is still a solution of (\ref{heatODimE}).
+\item Linear combination of solutions of (\ref{heatODimE}) is a
+solution of (\ref{heatODimE}).
+\item If $K$ is a solution of (\ref{heatODimE}), then
+\[
+v(x,t) = \int_{-\infty}^\infty K(x-y,t) f(y) \dx{y}
+\]
+is also a solution of (\ref{heatODimE}) if proper convergence
+conditions are assumed.
+\item If $a>0$, then $v(x,t) = u(\sqrt{a}\,x, at)$ is a solution of
+(\ref{heatODimE}) if $u$ is a solution of (\ref{heatODimE}).  The
+solution of (\ref{heatODimE}) is invariant under the transformation
+$(x,t) \mapsto (\sqrt{a}\,x, at)$.
+\end{enumerate}
+
+To solve the heat equation, we first find the solution of the
+following problem.
+\begin{align}
+\pdydx{Q}{t} - c^2 \pdydxn{Q}{x}{2} &= 0 \quad , \quad x\in \RR
+\ \text{and} \ t>0 \ , \label{heatODimQE} \\
+Q(x,0) &= \begin{cases}
+1 & \quad \text{if} \ x > 0 \\
+0 & \quad \text{if} \ x < 0
+\end{cases} \label{heatODimQC}
+\end{align}
+The solution that we will find has a singularity at the origin.
+
+Because the solution of (\ref{heatODimQE}) is invariant under the
+transformation $(x,t) \mapsto (\sqrt{a}\,x, at)$, we seek a solution
+of the form
+$\displaystyle Q(x,t) = q\left(\frac{x}{2c\sqrt{t}}\right)$.
+We introduce the factor $\displaystyle \frac{1}{2c}$ for aesthetic
+reasons as it will become apparent later.  Hence, (\ref{heatODimQE}) becomes
+\begin{equation} \label{heatODimqE}
+q''(s) + 2 s q'(s) = 0 \ ,
+\end{equation}
+where $s= x/(2c\sqrt{t})$.  The general solution of (\ref{heatODimqE})
+is
+\[
+q(s) = C_1 \int_0^s e^{-r^2} \dx{r} + C_2
+\]
+for some constants $C_1$ and $C_2$.  Hence, we get
+\begin{equation} \label{heatODimQSone}
+Q(x,t) = C_1 \int_0^{x/(2c\sqrt{t})} e^{-r^2}\dx{r} + C_2
+\end{equation}
+To determine $C_1$ and $C_2$, we use the initial condition
+(\ref{heatODimQC}).  We require that
+\[
+1 = \lim_{t\to 0^+} Q(x,t) = C_1 \int_0^{\infty} e^{-r^2} \dx{r} + C_2
+= C_1 \frac{\sqrt{\pi}}{2} + C_2
+\]
+for $x>0$ and
+\[
+0 = \lim_{t\to 0^+} Q(x,t) = C_1 \int_0^{-\infty} e^{-r^2} \dx{r} + C_2
+= - C_1 \frac{\sqrt{\pi}}{2} + C_2
+\]
+for $x<0$.  We get $C_1 = 1/\sqrt{\pi}$ and $C_2 = 1/2$.  Thus
+\[
+Q(x,t) = \begin{cases} \displaystyle
+\frac{1}{2} + \frac{1}{\sqrt{\pi}} \int_0^{x/(2c\sqrt{t})}
+e^{-r^2}\dx{r} & \quad \text{if} \ x\in \RR, t>0 \\
+1 & \quad \text{if} \ x>0 , t = 0\\
+1/2 & \quad \text{if} \ x = 0 \\
+0 & \quad \text{if} \ x< 0 , t = 0
+\end{cases}
+\]
+
+Let
+\[
+K(x,t) = \pdydx{Q}{x}(x,t) = \frac{1}{2c\sqrt{\pi t}} e^{-x^2/(4c^2t)}
+\]
+for $x\in \RR$ and $t > 0$.  We show that
+\begin{equation} \label{heatODimSolH}
+u(x,t) = \begin{cases}
+\displaystyle \int_{-\infty}^{\infty} K(x-y,t) f(y) \dx{y}
+& \quad \text{if} \ x\in \RR, t>0 \\
+f(x) & \quad \text{if} \ x \in \RR, t = 0 
+\end{cases}
+\end{equation}
+is the solution of (\ref{heatODimE}) and (\ref{heatODimIC}).  The
+second and fourth properties for the solution of (\ref{heatODimE})
+mentioned above implies that $u$ satisfies (\ref{heatODimE}).  For the
+fourth properties, we note that for every $T>0$ there exists a constant
+$C$ such that
+$\displaystyle |K(x-y,t) f(y)| \leq C |f(y)|$,
+$\displaystyle \left| \pdydx{K}{t}(x-y,t) f(y)\right| \leq C |f(y)|$,
+$\displaystyle \left| \pdfdx{K}{x}(x-y,t) f(y)\right| \leq C |f(y)|$
+and
+$\displaystyle \left| \pdfdxn{K}{x}{2}(x-y,t) f(y)\right| \leq C |f(y)|$
+for $\VEC{x} \in \RR$ and $t \geq T > 0$.  Since
+$\displaystyle f \in L^1(\RR)$, we
+may interchange the integral in the definition of $u$ with the
+derivatives of $u$ with respect to $t$ and $x$ (see \cite{Flem}).
+
+To prove that $u$ is a continuous function for $x\in \RR$ and $t\geq 0$,
+we only have to prove that $u$ is continuous at $(x,0)$ for $x \in \RR$
+because $u$ is continuous for $\RR \times ]0,\infty[$ follows from
+$(x,t) \mapsto K(x,t)f(x)$ being continuous on $\RR \times ]0,\infty[$.
+We first note that
+$\displaystyle \int_{-\infty}^{\infty} K(y,t) \dx{y} = 1$ for all $t>0$.
+Let $\displaystyle M = \sup_{x \in \RR} |f(x)|$.  We have that
+$M < \infty$ because $f$ is a continuous function in $\displaystyle L^1(\RR)$.
+Given $x \in \RR$ and $\epsilon>0$, choose $\delta > 0$ such that
+$|f(y) - f(x)| < \epsilon/2$ for $|y-x|< \delta$.
+Then, choose $\delta$ smaller if needed such that
+\[
+\int_{|x|>\delta} K(x,t) \dx{x}
+= \frac{1}{c \sqrt{\pi t}} \int_{\delta}^\infty e^{-x^2/(4c^2t)} \dx{x}
+= \frac{2}{\sqrt{\pi}} \int_{\delta/(2c\sqrt{t})}^\infty e^{-s^2} \dx{s}
+< \frac{\epsilon}{4M}
+\]
+for $0<t<\delta$.  Hence,
+\begin{align*}
+&|u(z,t) - u(x,0)|
+= \left| \int_{-\infty}^{\infty} K(z-y,t) (f(y) - f(x)) \dx{y} \right| \\
+&\quad \leq \left| \int_{|z-y|<\delta} K(z-y,t) (f(y) - f(x)) \dx{y} \right|
++ \left| \int_{|z-y|\geq \delta} K(z-y,t) (f(y) - f(x)) \dx{y} \right| \\
+&\quad \leq \int_{|z-y|<\delta} |K(z-y,t)|\, |f(y) - f(x)| \dx{y} 
++ \int_{|z-y| \geq \delta} |K(z-y,t)|\,|f(y) - f(x)| \dx{y} \\
+&\quad \leq \frac{\epsilon}{2}
+\underbrace{\int_{|z-y|<\delta} |K(z-y,t)| \dx{y}}_{\leq 1}
++ 2 M \underbrace{\int_{|z-y|>\delta} |K(z-y,t)| \dx{y}}_{\epsilon/(4M)}
+\leq \epsilon
+\end{align*}
+for $|z-x| < \delta$ and $0<t<\delta$.
+
+\begin{rmk}
+If $f$ is differentiable and $f' \in L^1(\RR)$, there is an easy to prove that
+$\displaystyle \lim_{t\to 0^+} u(x,t) = f(x)$.  Note that this is not
+enough to prove the continuity of $u$ at $(x,0)$ as a function from
+$\RR \times [0,\infty[$ to $\RR$ because we approach $(x,0)$ in only
+one direction.
+
+Using integration by parts, we have for $t>0$ that
+\begin{align*}
+u(x,t) &= \int_{-\infty}^{\infty} \pdydx{Q}{x}(x-y,t) f(y) \dx{y}
+= -\int_{-\infty}^{\infty} \left(\pdfdx{Q(x-y,t)}{y}\right) f(y) \dx{y} \\
+&= \int_{-\infty}^{\infty} Q(x-y,t) f'(y)\dx{y}
+- Q(x-y,t) f(y) \bigg|_{-\infty}^{\infty}
+\end{align*}
+Since $\displaystyle \lim_{x\to \pm\infty}f(x) = 0$, we get
+\[
+u(x,t) = \int_{-\infty}^{\infty} Q(x-y,t) f'(y)\dx{y} \ .
+\]
+Hence,
+\[
+\lim_{t\to 0^+} u(x,t)
+= \int_{-\infty}^{\infty} Q(x-y,0) f'(y)\dx{y} \ .
+= \int_{-\infty}^x f'(y) \dx{y} = f(y)\bigg|_{-\infty}^x = f(x) \ ,
+\]
+where we have again used $\displaystyle \lim_{x\to -\infty}f(x) = 0$.
+We should note that $|Q(x-y,t) f'(y)| < |f'(y)|$ for all $x$ and
+$t\geq 0$.  Since $\displaystyle f' \in L'(\RR)$, we may use the
+Lebesgue Dominated Convergence Theorem to justify the first equality
+in the previous expression.
+\end{rmk}
+
+Explicitly, (\ref{heatODimSolH}) is
+\[
+u(x,t) = \frac{1}{2c\sqrt{\pi t}} \int_{-\infty}^{\infty}
+e^{-(x-y)^2/(4c^2t)} f(y) \dx{y}
+\]
+for $t>0$.
+
+The function $(x,t) \mapsto K(x,t)$ is know under several names:
+{\bfseries source function}\index{Source Function},
+{\bfseries Green's function}\index{Green's Function},
+{\bfseries fundamental solution}\index{Fundamental Solution}, etc.  As
+$t$ converges toward $0$, the function $x \mapsto K(x,t)$ behaves like
+the Dirac delta function at the origin.  From the solution of the heat
+equation, we observe that if we have a hot spot near the origin at
+$t=0$, then the heat will spread evenly as $t$ increases.
+
+The heat equation can be solve ``in some sense'' even when the
+initial condition is not a continuously function.  This
+will be the subject of a section later on.  First, we consider the
+non-homogeneous wave equation.
+
+\subsection{Non-homogeneous Heat Equation, Diffusion with a Source}
+
+We consider
+\begin{align}
+\pdydx{u}{t} - c^2 \pdydxn{u}{x}{2} &= g(x,t) \quad , \quad
+x\in \RR \ \text{and} \ t > 0 \ , \label{heatODimNHE} \\
+u(x,0) &= f(x) \quad , \quad x \in \RR \ . \label{heatODimNHIC}
+\end{align}
+We assume that $f$ is continuous and integrable on $\RR$.  In
+particular, this implies that $\displaystyle \lim_{x\to \pm \infty} f(x) = 0$.
+Moreover, we assume that $g$ is also continuously differentiable (at
+least with respect to $x$) on $\RR \times ]0,\infty[$ and integrable on
+$\RR \times [0,T]$ for all $T>0$.
+Again, this implies that $\displaystyle \lim_{x\to \pm \infty} g(x,t) = 0$
+for all $t$.   With these assumptions, all the
+following integrals involving $g$ and $\displaystyle \pdydx{g}{x}$
+converge and we can interchange limits and integrals using the
+Lebesgue Dominated Convergence Theorem.
+
+We show that the solution of (\ref{heatODimNHE}) and
+(\ref{heatODimNHIC}) is
+\[
+u(x,t) = \int_{-\infty}^{\infty} K(x-y,t) f(y) \dx{y}
++ \int_0^t \int_{-\infty}^{\infty} K(x-y,t-s) g(y,s) \dx{y}\dx{s}
+\]
+for $t>0$.  The first integral is the solution of the homogeneous heat
+equation (\ref{heatODimE}) and (\ref{heatODimIC}), and the second
+integral is a solution of the non-homogeneous heat equation
+\begin{align}
+\pdydx{u}{t} - c^2 \pdydxn{u}{x}{2} &= g(x,t) \quad , \quad
+x\in \RR \ \text{and} \ t > 0 \ , \label{heatODimNHEG}\\
+u(x,0) &= 0 \quad ,\quad x \in \RR \ . \label{heatODimNHICG}
+\end{align}
+
+We only have to prove that
+\[
+v(x,t) = \int_0^t \int_{-\infty}^{\infty} K(x-y,t-s) g(y,s) \dx{y}\dx{s}
+\]
+satisfies (\ref{heatODimNHEG}) because (\ref{heatODimNHICG}) is
+obviously satisfied by $v$.
+
+Since
+\[
+\pdydx{K}{t}(x-y,t-s) = c^2 \pdydxn{K}{x}{2}(x-y,t-s) \ ,
+\]
+we have
+\begin{align*}
+\pdydx{v}{t} &= \int_0^t \int_{-\infty}^{\infty}
+\pdydx{K}{t}(x-y, t-s) g(y,s) \dx{y}\dx{s} 
++ \lim_{s\to t^-} \int_{-\infty}^{\infty} K(x-y,t-s)g(y,s) \dx{y} \\
+& = \int_0^t \int_{-\infty}^{\infty} c^2
+\pdydxn{K}{x}{2}(x-y, t-s) g(y,s) \dx{y}\dx{s} + g(x,t)
+= c^2 \pdydxn{v}{x}{2}(x,t) + g(x,t)
+\end{align*}
+for $t>0$ and $x\in \RR$ because
+\begin{align*}
+& \lim_{s\to t^-} \int_{-\infty}^{\infty} K(x-y,t-s)g(y,s) \dx{y}
+= \lim_{\epsilon \to 0^+} \int_{-\infty}^{\infty}
+K(x-y,\epsilon)g(y,t-\epsilon) \dx{y} \\
+& \qquad = -\lim_{\epsilon \to 0^+} \int_{-\infty}^{\infty}
+\left(\pdfdx{Q(x-y,\epsilon)}{y}\right) g(y,t-\epsilon) \dx{y} \\
+& \qquad = \lim_{\epsilon \to 0^+} \left( \int_{-\infty}^{\infty} Q(x-y,\epsilon)
+\pdydx{g}{y}(y,t-\epsilon) \dx{y}
+- Q(x-y,\epsilon) g(y,t-\epsilon) \bigg|_{y=-\infty}^{\infty} \right) \\
+& \qquad = \int_{-\infty}^{\infty} Q(x-y,0) \pdydx{g}{y}(y,t) \dx{y}
+= \int_{-\infty}^x \pdydx{g}{y}(y,t) \dx{y}
+= g(y,t) \bigg|_{y=-\infty}^x = g(x,t) \ ,
+\end{align*}
+where we have used several times that
+$\displaystyle \lim_{x\to \pm\infty} g(x,t) = 0$ for all $t>0$.
+
+\subsection{Higher Dimensional Heat Equation}
+
+Consider the Cauchy problem
+\begin{align}
+\pdydx{u}{t}(\VEC{x},t) - \Delta u(\VEC{x},t) &= 0 \quad , \quad
+\VEC{x} \in \RR^n \ \text{and} \ t> 0 \ , \label{heat_cauchyA} \\
+u(\VEC{x},0) &= f(\VEC{x}) \quad , \quad \VEC{x} \in \RR^n \ ,
+\label{heat_cauchyB} 
+\end{align}
+where $f:\RR^n\rightarrow \RR$ is a function to be specified later.
+
+\begin{rmk}
+The hyperplane $t=0$ is a characteristic surface because the outward
+unit normal to this hyperplane is $\VEC{\nu}(\VEC{x},0) = (\VEC{0},-1)$ for
+all $\displaystyle \VEC{x} \in \RR^n$, where $\VEC{0}$ is the origin
+in $\displaystyle \RR^n$, and 
+the principal symbol for the heat equation is
+\[
+Q((\VEC{x},t), (\VEC{y},s)) = \sum_{j=1}^n y_j^2 \ .
+\]
+Hence, $\displaystyle Q((\VEC{x},0), \VEC{\nu}(\VEC{x},0)) = 0$ for
+all $\displaystyle \VEC{x} \in \RR^n$.
+\end{rmk}
+
+Let us assume that $\displaystyle f \in \SS(\RR^n)$.  Moreover, in addition of
+$u$ being of class $\displaystyle C^2$ on
+$\displaystyle \RR^n \times ]0,\infty[$ and
+continuous on $\displaystyle \RR^n \times [0,\infty[$, let us assume that
+$\VEC{x} \mapsto u(\VEC{x},t)$ is and
+$\displaystyle \VEC{x} \mapsto \pdydx{u}{t}(\VEC{x},t)$ are absolutely
+integrable on $\displaystyle \RR^n$ for all $t \geq 0$.  We may then use Fourier
+transform with respect to $\VEC{x}$ to transform (\ref{heat_cauchyA})
+and (\ref{heat_cauchyB}) into
+\begin{align*}
+\pdydx{\hat{u}}{t}(\VEC{y},t) + \|\VEC{y}\|^2\, \hat{u}(\VEC{y},t)
+&= 0 \quad , \quad \VEC{y} \in \RR^n \ \text{and} \ t \geq 0 \ , \\
+\hat{u}(\VEC{y},0) &= \hat{f}(\VEC{y}) \quad , \quad \VEC{y} \in \RR^n \ .
+\end{align*}
+The solution of this initial value problem is
+\[
+\hat{u}(\VEC{y},t) = \hat{f}(\VEC{y})\, e ^{-\|\VEC{y}\|^2 t}
+\]
+for $\displaystyle \VEC{y} \in \RR^n$ and $t \geq 0$.
+Using the Inverse Fourier transform, we get from
+Proposition~\ref{FTLofPs} that
+\begin{align} \label{heat_sol_cauch1}
+u(\VEC{x},t) = (f \ast K_t)(\VEC{x})
+\end{align}
+for $\displaystyle \VEC{x} \in \RR^n$ and $t \geq 0$, 
+where the convolution is with respect to $\VEC{x}$ only and
+$K_t$ is the inverse Fourier transform of
+$\displaystyle \VEC{y} \mapsto (2\pi)^{-n/2} e ^{-\|\VEC{y}\|^2 t}$
+\footnote{Recall that the integral used in
+the definition of convolution in Section~\ref{sectionFT} was
+with respect to the Lebesgue measure $m$ divided by
+$(2\pi)^{n/2}$.}.  If we use (\ref{FTexpx2eq1}) in
+Example~\ref{FTexpx2} with $a = 1/(4t)$, we find that
+\[
+K_t(\VEC{x}) = (4\pi t)^{-n/2} e^{-\|\VEC{x}\|^2/(4t)}
+\]
+for $\displaystyle \VEC{x} \in \RR^n$ and $t > 0$.  Proceeding as we
+did for the one dimensional heat equation, we can prove that
+\[
+u(\VEC{x},t) = (f \ast K_t)(\VEC{x})
+= (4\pi t)^{-n/2} \int_{\RR^n} e^{-\|\VEC{x}-\VEC{y}\|^2/(4t)}
+f(\VEC{y}) \dx{\VEC{y}}
+\]
+is a classical solution of the heat equation given by (\ref{heat_cauchyA})
+and (\ref{heat_cauchyB}).
+
+This discussion motivates the introduction of the function
+\[
+K(\VEC{x},t) =
+\begin{cases}
+\displaystyle (4\pi t)^{-n/2} e^{-\|\VEC{x}\|^2/(4t)} & \quad 
+\text{if} \quad t>0 \\
+0 &  \quad \text{if} \quad t\leq 0
+\end{cases}
+\]
+$K(\VEC{x},t)$ has many names; it is called
+{\bfseries Gaussian kernel}\index{Heat Equation!Gaussian Kernel},
+{\bfseries Gauss-Weierstrass kernel}
+\index{Heat Equation!Gauss-Weierstrass Kernel} or
+{\bfseries heat kernel}\index{Heat Equation!Heat Kernel}.
+
+Can we used (\ref{heat_sol_cauch1}) even when
+$\displaystyle f\not\in \SS(\RR^n)$?
+We answer this question in the next theorem.
+
+\begin{theorem} \label{heat_solution_hs}
+Assume that $\displaystyle f \in L^p(\RR^n)$, where $1\leq p \leq \infty$.  Then
+\begin{align} \label{heat_sol_cauch}
+u(\VEC{x},t) = (f \ast K_t)(\VEC{x}) \quad , \quad
+(\VEC{x},t) \in \RR^n \times [0,\infty[ \  , 
+\end{align}
+is a solution of (\ref{heat_cauchyA}).
+
+If $f$ is bounded and continuous, then $u$ can be extended
+continuously to $\RR^n \times [0,\infty[$ with
+$u(\VEC{x},0) = f(\VEC{x})$ for $\VEC{x} \in \RR^n$.
+
+If $f \in L^p(\RR^n)$, where $1\leq p < \infty$, then
+$v_t(\VEC{x}) = u(\VEC{x},t)$ for $\VEC{x} \in \RR^n$ satisfies
+$v_t \rightarrow f$ in $L^p(\RR^n)$ as $t\rightarrow 0$.
+\end{theorem}
+
+\begin{proof}
+The proof is similar to the proof of Theorem~\ref{laplace_half_plane_proof}.
+
+\stage{i} First, we prove that $u$ is well defined.
+We have that $\displaystyle K_t \in L^q(\RR^n)$ for
+$1\leq q \leq \infty$ and $t>0$.
+Hence,  $\displaystyle \VEC{y} \mapsto f(\VEC{y})\,K_t(\VEC{x}-\VEC{y})$
+for $\displaystyle \VEC{y} \in \RR^n$ is in
+$\displaystyle L^1(\RR^n)$.  For instance, if
+$1<p<\infty$ we have
+\[
+\int_{\RR^n} \left| f(\VEC{y})\, K_t\left(\VEC{x} - \VEC{y}\right) \right|
+\dx{\VEC{y}}
+\leq
+\left( \int_{\RR^n} \left| f(\VEC{y}) \right|^p \dx{\VEC{y}} \right)^{1/p} \,
+\left( \int_{\RR^n} \left|K_t\left(\VEC{x} - \VEC{y}\right) \right|^q
+\dx{\VEC{y}} \right)^{1/q} < \infty
+\]
+for $\displaystyle \frac{1}{p} + \frac{1}{q} = 1$.
+Thus $\displaystyle u:\RR^n\times ]0,\infty[ \rightarrow \RR$ is well defined.
+
+\stage{ii} We prove that $u$ satisfies the heat equation.
+Proceeding as before, we can show that
+$\displaystyle \VEC{y} \mapsto f(\VEC{y})\, \left(
+D^\alpha_{\VEC{x}} \pdfdxn{K_t\left(\VEC{x} - \VEC{y}\right)}{t}{k} \right)$
+for $\displaystyle \VEC{y} \in \RR^n$ is in
+$\displaystyle L^1(\RR^n)$ for $t>0$ whatever the
+choice of $k\geq 0$ and the multi-index
+$\displaystyle \alpha \in \NN^n$.  Hence, we
+may interchange the integral with respect to $\VEC{y}$ with the partial
+derivatives of any order with respect to the $x_i$'s and $t$.
+
+Therefore,
+\[
+\left(\pdydx{}{t} - \Delta_{\VEC{x}} \right)u(\VEC{x},t)
+= \int_{\RR^n} f(\VEC{y})\,\left(\pdydx{}{t} - \Delta_{\VEC{x}}\right)
+K_t\left(\VEC{x} - \VEC{y}\right) \dx{\VEC{y}} = 0 \quad , \quad
+(\VEC{x},t) \in \RR^n\times ]0.\infty[ \  ,
+\]
+because
+$\displaystyle \left(\pdydx{}{t} - \Delta_{\VEC{x}}\right) K_t\left(\VEC{x}
+- \VEC{y}\right) = 0$ for all $\VEC{x}\in \RR^n$ and $t>0$.
+
+\stage{iii} For the boundary conditions, we first note that
+\begin{align}
+\int_{\RR^n} K_t(\VEC{y}) \dx{\VEC{y}}
+&= (2\pi)^{n/2} \hat{K_t}(\VEC{0}) = e^{-\|\VEC{y}\|^2 t}\big|_{\VEC{y}=\VEC{0}}
+= 1
+\label{heat_convol1}
+\intertext{and}
+K_t(\VEC{x}) &= t^{-n/2} K_1\left(t^{-1/2} \VEC{x}\right)
+\label{heat_convol2}
+\end{align}
+
+If $\displaystyle f\in L^p(\RR^n)$ with $1\leq p < \infty$, it follows from
+Proposition~\ref{distr_limit_convol} that
+$f \ast K_t \rightarrow f$ in $\displaystyle L^p(\RR^n)$ as $t \rightarrow 0$.
+
+If $f$ is continuous and bounded on $\displaystyle \RR^n$, then $f$ is uniformly
+continuous on any bounded open set $V$ because $\overline{V}$ is a
+compact subset of $\displaystyle \RR^n$.  It follows from
+Proposition~\ref{distr_limit_convol} that
+$f \ast K_t \rightarrow f$ uniformly on compact subsets of
+$\displaystyle \RR^n$ as $t \rightarrow 0$.  In particular,
+$u(\VEC{x},0) = f(\VEC{x})$ for $\displaystyle \VEC{x} \in \RR^n$ defines a
+continuous extension of $u$ to $\displaystyle \RR^n \times [0,\infty[$.
+\end{proof}
+
+\begin{prop}
+Assume that $\displaystyle f \in L^p(\RR^n)$, where $1\leq p \leq \infty$.  The
+solution $u$ of (\ref{heat_cauchyA}) given in (\ref{heat_sol_cauch}) is
+of class $\displaystyle C^\infty(\RR^n\times ]0,\infty[)$.
+\end{prop}
+
+\begin{proof}
+We have seen in the proof of the previous theorem that we may
+interchange integration with respect to $\VEC{y}$ in
+\[
+u(\VEC{x},t) = 
+\int_{\RR^n} f(\VEC{y})\,K_t\left(\VEC{x} - \VEC{y}\right) \dx{\VEC{y}}
+\]
+with partial derivatives of any order with respect to the $x_i$'s
+and $t$.  Since $\displaystyle K \in C^\infty(\RR^n \times ]0,\infty[)$,
+we get that $\displaystyle u \in C^\infty(\RR^n \times ]0,\infty[)$.
+\end{proof}
+
+\begin{rmkList} \label{heat_smooth_sol}
+\begin{enumerate}
+\item The solution of (\ref{heat_cauchyA}) and (\ref{heat_cauchyB}) given by
+(\ref{heat_sol_cauch}) smooths out any initial condition in
+$\displaystyle L^p(\RR^n)$.
+\item We may relax the condition on $f$ in the previous theorem if we assume
+that $\displaystyle |f(\VEC{x})| \leq C e^{\|\VEC{x}\|^2/(4T)}$ for
+$\displaystyle \VEC{x} \in \RR^n$, and some positive constants $C$ and
+$T$.  One can show that the function
+\begin{align*}
+u: \RR^n \times ]0,T[ &\rightarrow \RR \\
+(\VEC{x}, t) &\mapsto (f\ast K_t)(\VEC{x})
+\end{align*}
+is a solution of the heat equation on $\displaystyle \RR^n \times ]0,T[$.  In
+addition, if $f$ is also continuous, then
+$u(\cdot,t) \rightarrow f(\cdot)$ uniformly on compact subsets of
+$\displaystyle \RR^n$ as $t\rightarrow 0$.
+\item If no conditions are imposed on the growth at infinity of the
+solution $u$ of (\ref{heat_cauchyA}) and (\ref{heat_cauchyB}), then
+the solution is not unique.  Consider
+\[
+g(t) =
+\begin{cases}
+e^{-1/t^2} & \quad \text{if} \ t\neq 0 \\
+0 & \quad \text{if} \ t=0
+\end{cases}
+\]
+The function $g$ is in $C^\infty(\RR)$.  The function
+\begin{equation} \label{heat_not_uno}
+u(x,t) = \sum_{k=0}^\infty \frac{g^{(k)}(t)}{(2k)!}\,x^{2k}
+\end{equation}
+for $x\in \RR$ and  $t\in \RR$ is a solution of the heat equation
+$\displaystyle \pdydx{u}{t} - \pdydxn{u}{x}{2} = 0$.  This follows
+from the fact that the series (\ref{heat_not_uno}),
+$\displaystyle \sum_{k=0}^\infty \frac{g^{(k+1)}(t)}{(2k)!}\,x^{2k}$
+and $\displaystyle \sum_{k=1}^\infty \frac{g^{(k)}(t)}{(2k-2)!}\,x^{2k-2}$
+converge uniformly on compact sets.  Hence, we may interchange
+summation and partial derivatives in (\ref{heat_not_uno}). 
+Since $g^{(k)}(0)=0$ for all $k$, $u(x,0)=0$ for all
+$x\in \RR$ but $u$ is not the trivial solution of the heat equation.
+\end{enumerate}
+\end{rmkList}
+
+The following theorem gives conditions on the growth at infinity of
+the solution $u$ of (\ref{heat_cauchyA}) and (\ref{heat_cauchyB}) to
+provide unicity of solutions.
+
+\begin{prop}
+Suppose that
+$\displaystyle u \in C(\RR^n \times [0,\infty[) \cap
+C^2(\RR^n \times ]0,\infty[)$
+is a solution of
+$\displaystyle \pdydx{u}{t} - \Delta u = 0$ on $\RR^n \times ]0,\infty[$
+and $u(\VEC{x},0)=0$ for $\displaystyle \VEC{x} \in \RR^n$.  If, for every
+$\epsilon >0$, there exists $C>0$ such that
+$\displaystyle |u(\VEC{x},t)| \leq C e^{\epsilon \|\VEC{x}\|^2}$
+and
+$\displaystyle \|\graD_{\VEC{x}} u(\VEC{x},t)\| \leq C e^{\epsilon \|\VEC{x}\|^2}$
+for all $\VEC{x}$ and $t$, then $u \equiv 0$.
+\end{prop}
+
+\begin{proof}
+Given $\displaystyle (\VEC{x}_0, t_0) \in \RR^n \times ]0,\infty[$, we
+prove that $u(\VEC{x}_0,t_0) = 0$.
+
+We defined two functions, $\displaystyle f:\RR^n\times ]0,\infty[ \to \RR$ and
+$\displaystyle g:\RR^n\times ]-\infty,t_0[ \to \RR$, as follows.
+$f(\VEC{x},t) = u(\VEC{x},t)$ for
+$\displaystyle (\VEC{x},t)\in \RR^n\times ]0,\infty[$
+and $g(\VEC{x},t) = K(\VEC{x}-\VEC{x}_0, t_0-t)$ for
+$\displaystyle (\VEC{x},t)\in \RR^n\times ]-\infty, t_0[$.
+
+We have that $\displaystyle \pdydx{f}{t} - \Delta f = 0$
+on $\displaystyle \RR^n \times ]0,\infty[$ and
+$\displaystyle \pdydx{g}{t} + \Delta g = 0$ on $\RR^n \times ]-\infty,t_0[$.
+
+Given $0< a < b < t_0$ and $r>0$, let
+$\displaystyle \Omega =
+\left\{ (\VEC{x},t) : \|\VEC{x}\| < r, \ a<t<b \right\}$.
+Moreover, let $F:\RR^n \times ]0,t_0[ \to \RR^{n+1}$ be the vector
+field defined by
+\[
+F(\VEC{x},t) = \sum_{j=1}^n
+\left( f(\VEC{x},t) \pdydx{g}{x_j}(\VEC{x},t) - g(\VEC{x},t)
+\pdydx{f}{x_j}(\VEC{x},t) \right) \VEC{e}_j
++ f(\VEC{x},t)g(\VEC{x},t) \VEC{e}_{n+1} \ .
+\]
+Since
+\begin{align*}
+\diV_{\VEC{x},t} F(\VEC{x},t)
+&= \sum_{j=1}^n \pdfdx{
+\left( f(\VEC{x},t) \pdydx{g}{x_j}(\VEC{x},t) - g(\VEC{x},t)
+\pdydx{f}{x_j}(\VEC{x},t) \right) }{x_j}
++ \pdfdx{ \left(f(\VEC{x},t)g(\VEC{x},t)\right) }{t} \\
+&= 
+f(\VEC{x},t) \left( \pdydx{g}{t}(\VEC{x},t) + \Delta g(\VEC{x},t) \right)
++ g(\VEC{x},t) \left( \pdydx{f}{t}(\VEC{x},t) - \Delta f(\VEC{x},t) \right)
+= 0
+\end{align*}
+in $\displaystyle \RR^n \times ]0,t_0[$, we get from the divergence theorem that
+\begin{equation} \label{heat_unicA}
+\begin{split}
+0 &= \int_{\Omega} \diV_{\VEC{x},t}\cdot F(\VEC{x},t) \dx{\VEC{x}}\dx{t} 
+= \int_{\partial \Omega} F \cdot \nu \dx{S} \\
+&= \int_{\|\VEC{x}\|\leq r} f(\VEC{x},b)g(\VEC{x},b) \dx{\VEC{x}}
+- \int_{\|\VEC{x}\|\leq r} f(\VEC{x},a)g(\VEC{x},a) \dx{\VEC{x}} \\
+&\quad + \int_{\|\VEC{x}\|=r} \int_a^b
+\sum_{j=1}^n \left( f(\VEC{x},t) \pdydx{g}{x_j}(\VEC{x},t) - g(\VEC{x},t)
+\pdydx{f}{x_j}(\VEC{x},t) \right) \frac{x_j}{r} \dx{t}\dx{S_{\VEC{x}}} \ .
+\end{split}
+\end{equation}
+The last integral in (\ref{heat_unicA}) converges to $0$ as
+$r\to \infty$ because, given $0 < \epsilon < 1/(4(t_0-a))$, there
+exist $C>0$ such that
+\begin{align*}
+&\int_{\|\VEC{x}\|=r} \int_a^b
+\left| f(\VEC{x},t) \pdydx{g}{x_j}(\VEC{x},t) \right|
+\underbrace{\left|\frac{x_j}{r}\right|}_{\leq 1} \dx{t}\dx{S_{\VEC{x}}} \\
+& \quad
+\leq C e^{\epsilon r^2}\, \frac{2\pi}{(4\pi (t_0-b))^{1+n/2}}
+\, \left(r+\|\VEC{x}_0\|\right)
+\, e^{-(r-\|\VEC{x}_0\|)^2/(4(t_0-a))} (b-a) r^{n-1} \omega_n \to 0 \
+\text{as} \ r \to \infty
+\end{align*}
+and
+\begin{align*}
+&\int_{\|\VEC{x}\|=r} \int_a^b
+\left| g(\VEC{x},t) \pdydx{f}{x_j}(\VEC{x},t) \right|
+\underbrace{\left|\frac{x_j}{r}\right|}_{\leq 1} \dx{t}\dx{S_{\VEC{x}}} \\
+& \quad
+\leq C e^{\epsilon r^2}\, \frac{1}{(4\pi (t_0-b))^{n/2}}
+\, e^{-(r-\|\VEC{x}_0\|)^2/(4(t_0-a))} (b-a) r^{n-1} \omega_n \to 0 \
+\text{as} \ r \to \infty \ .
+\end{align*}
+Hence,
+$r \to \infty$ in (\ref{heat_unicA}) yields
+\begin{equation} \label{heat_unicB}
+\big(u(\cdot, b) \ast K_{t_0-b}(\cdot)\big)(\VEC{x}_0)
+- \big(u(\cdot, a) \ast K_{t_0-a}(\cdot)\big)(\VEC{x}_0) = 0
+\end{equation}
+because
+$g(\VEC{x},t) = K(\VEC{x}-\VEC{x}_0, t_0-t) = K(\VEC{x}_0-\VEC{x}, t_0-t)$.
+
+\stage{i} We claim that
+$\displaystyle \big(u(\cdot, a) \ast K_{t_0-a}(\cdot)\big)(\VEC{x}_0) \to 0$
+as $a \to 0^+$.  We have that
+\[
+\lim_{a\to 0^+} u(\VEC{x},a) K(\VEC{x}-\VEC{x}_0, t_0 - a) =
+u(\VEC{x},0) K(\VEC{x}-\VEC{x}_0, t_0) = 0
+\]
+for all $\displaystyle \VEC{x} \in \RR^n$ because $u(\VEC{x},0) = 0$
+for all $\VEC{x} \in \RR^n$.  Moreover, given
+$\epsilon < 1/(4t_0)$, there exist $C>0$ such that
+\[
+\left| u(\VEC{x},a) K(\VEC{x}-\VEC{x}_0, t_0 - a) \right|
+< C e^{\epsilon \|\VEC{x}\|^2}
+\ \frac{e^{-\|\VEC{x}-\VEC{x}_0\|^2/(4t_0)}}{(\pi t_0)^{n/2}} \in L^1(\RR^n)
+\]
+for $0<a< t_0/2$.  We then get from the
+Lebesgue Dominated Convergence Theorem that
+\begin{equation} \label{heat_unicC}
+\big(u(\cdot, a) \ast K_{t_0-a}(\cdot)\big)(\VEC{x}_0)
+\to 0 \quad \text{as}\quad a \to 0^+ \ .
+\end{equation}
+
+\stage{ii} Our second claim is that
+$\displaystyle \big(u(\cdot, b) \ast K_{t_0-b}(\cdot)\big)(\VEC{x}_0) \to
+u(\VEC{x}_0,t_0)$ as $b \to t_0^-$.
+
+We have that
+\begin{equation} \label{heat_unicD}
+\begin{split}
+\left| u(\cdot, b) \ast K_{t_0-b}(\cdot)\big)(\VEC{x}_0)
+- u(\VEC{x}_0,t_0) \right|
+&\leq \int_{\RR^n} \left|u(\VEC{x},b) - u(\VEC{x}_0,b) \right|
+K_{t_0-b}(\VEC{x}-\VEC{x}_0) \dx{\VEC{x}} \\
+&\quad + \int_{\RR^n} \left|u(\VEC{x}_0,b) - u(\VEC{x}_0,t_0) \right|
+K_{t_0-b}(\VEC{x}-\VEC{x}_0) \dx{\VEC{x}} \ .
+\end{split}
+\end{equation}
+Given $\displaystyle \VEC{x} \in \RR^n$, there exists
+$\theta \in ]0,1[$ such that 
+\[
+\left|u(\VEC{x},b) - u(\VEC{x}_0,b) \right|
+\leq \| \nabla_{\VEC{x}} u( \VEC{x}_0+\theta(\VEC{x}-\VEC{x}_0),b)\|
+\, \|\VEC{x} - \VEC{x}_0 \|
+\]
+according to the Mean Value Theorem for functions of several variables.
+Therefore, given $\epsilon>0$, there exists $C>0$ such that
+\[
+\left|u(\VEC{x},b) - u(\VEC{x}_0,b) \right|
+\leq C e^{\epsilon \|\VEC{x}_0 + \theta (\VEC{x}-\VEC{x}_0)\|^2}\,
+\|\VEC{x}-\VEC{x}_0\|
+\]
+by hypothesis.  Choose $0 < c < t_0$ and $\epsilon < 1/(8(t_0-c))$.  Then,
+\begin{align*}
+&\left|u(\VEC{x},b) - u(\VEC{x}_0,b) \right| K_{t_0-b}(\VEC{x}-\VEC{x}_0)
+\leq \frac{C}{(4\pi (t_0-b))^{n/2}}
+e^{\epsilon \|\VEC{x}_0 + \theta (\VEC{x}-\VEC{x}_0)\|^2}\, \|\VEC{x}-\VEC{x}_0\|
+e^{-\|\VEC{x}-\VEC{x}_0||^2/(4(t_0-b))} \\
+&\leq \frac{C}{(4\pi)^{n/2}}
+\underbrace{\left(\frac{1}{(t_0-b)^{n/2}} e^{-\|\VEC{x}-\VEC{x}_0||^2/(8(t_0-b))}
+\right)}_{\leq (4n)^{n/2} e^{-n/2} /\|\VEC{x}-\VEC{x}_0\|^n}
+e^{\epsilon \|\VEC{x}_0 + \theta (\VEC{x}-\VEC{x}_0)\|^2}\, \|\VEC{x}-\VEC{x}_0\|
+e^{-\|\VEC{x}-\VEC{x}_0||^2/(8(t_0-c))} \\
+&\leq \frac{C n^{n/2} e^{-n/2}}{\pi^{n/2}}
+\|\VEC{x}-\VEC{x}_0\|^{n-1} e^{\epsilon \max \{\|\VEC{x}_0\|^2,\|\VEC{x}\|^2\}}\,
+e^{-\|\VEC{x}-\VEC{x}_0||^2/(8(t_0-c))}  \in L^1(\RR^n)
+\end{align*}
+for all $b \in ]c,t_0[$.  Since
+$\displaystyle
+\left|u(\VEC{x},b) - u(\VEC{x}_0,b) \right| K_{t_0-b}(\VEC{x}-\VEC{x}_0)
+\to 0$ as $b\to t_0^-$ for all $\VEC{x} \neq \VEC{x}_0$, we get from
+the Lebesgue Dominate Convergence Theorem that
+\begin{equation} \label{heat_unicE}
+\int_{\RR^n} \left|u(\VEC{x},b) - u(\VEC{x}_0,b) \right|
+K_{t_0-b}(\VEC{x}-\VEC{x}_0) \dx{\VEC{x}} \to 0
+\quad \text{as} \quad b \to t_0^- \ .
+\end{equation}
+
+Moreover,
+\begin{align}
+\int_{\RR^n} \left|u(\VEC{x}_0,b) - u(\VEC{x}_0,t_0) \right|
+K_{t_0-b}(\VEC{x}-\VEC{x}_0) \dx{\VEC{x}}
+& = \left|u(\VEC{x}_0,b) - u(\VEC{x}_0,t_0) \right| \int_{\RR^n}  
+K_{t_0-b}(\VEC{x}-\VEC{x}_0) \dx{\VEC{x}} \nonumber \\
+& = \left|u(\VEC{x}_0,b) - u(\VEC{x}_0,t_0) \right| \to 0
+\quad \text{as} \quad b \to t_0^- \ . \label{heat_unicF}
+\end{align}
+
+It follows from (\ref{heat_unicD}), (\ref{heat_unicE}) and
+(\ref{heat_unicF}) that
+\begin{equation} \label{heat_unicG}
+\big(u(\cdot, b) \ast K_{t_0-b}(\cdot)\big)(\VEC{x}_0)
+\to u(\VEC{x}_0,t_0)
+\quad \text{as}\quad b \to t_0^- \ .
+\end{equation}
+This complete the prove of the second claim.
+
+\stage{iii} If we let $a\to 0^+$ and $b\to t_0^-$ in (\ref{heat_unicB}), we get
+from (\ref{heat_unicC}) and (\ref{heat_unicG}) that
+$u(\VEC{x}_0, t_0) = 0$.
+\end{proof}
+
+\section{Fundamental Solution} \label{SectHeatFundSol}
+
+As before, let $\displaystyle K:\RR^n \times \RR \rightarrow \RR$ be
+the function defined by
+\[
+K(\VEC{x},t) =
+\begin{cases}
+\displaystyle (4\pi t)^{-n/2} e^{-\|\VEC{x}\|^2/(4t)} & \quad 
+\text{if} \quad t>0 \\
+0 &  \quad \text{if} \quad t\leq 0
+\end{cases}
+\]
+We now generalize the discussion of the previous section to the
+solution of the heat equation in the sense of distributions.
+
+\begin{theorem}
+$K$ is a fundamental solution of the heat equation
+$\displaystyle \pdydx{u}{t} - \Delta u = 0$ on $\displaystyle \RR^n\times \RR$.
+\end{theorem}
+
+\begin{proof}
+\stage{i} We prove that $\displaystyle K\in \DD'(\RR^n\times \RR)$ by
+proving that $\displaystyle K \in L^1_{loc}(\RR^n \times \RR)$.  We
+prove in fact a stronger result.  Since
+$\displaystyle \int_{\RR^n} \left| K(\VEC{x},t) \right| \dx{\VEC{x}} = 1$
+for all $t>0$, we get
+\[
+\int_I \int_{\RR^n} \left| K(\VEC{x},t) \right| \dx{\VEC{x}} \dx{t}
+\leq \int_I \dx{t} < \infty
+\]
+for any bounded interval $I \subset \RR$.  Thus $K$ defines a proper
+distribution on $\displaystyle \RR^n \times \RR$.
+
+\stage{ii} We show that
+$\displaystyle \pdydx{K}{t} - \Delta K = \delta$.  For $\epsilon>0$,
+let
+\[
+K^{[\epsilon]}(\VEC{x},t) =
+\begin{cases}
+K(\VEC{x}, t) & \quad \text{if} \quad t > \epsilon, \VEC{x} \in \RR^n \\
+0 & \quad \text{if} \quad t \leq \epsilon, \VEC{x} \in \RR^n \\
+\end{cases}
+\]
+It is easy to show, as we have done in (i), that
+$\displaystyle K^{[\epsilon]}\in \DD'(\RR^n\times \RR)$.
+
+Given $\displaystyle \phi \in \DD(\RR^n \times \RR)$,
+we have that $\displaystyle K^{[\epsilon]}(\VEC{x},t) \phi(\VEC{x},t)
+\rightarrow K(\VEC{x},t) \phi(\VEC{x},t)$ as
+$\epsilon \rightarrow 0^+$ for all $(\VEC{x},t) \in \RR^n\times \RR$.
+Moreover, since $\phi$ has a compact support,
+$\displaystyle M = \sup_{(\VEC{x},t) \in \RR^n \times \RR} |\phi(\VEC{x},t)|
+< \infty$ and there exists $I \subset \RR$ such that
+$\displaystyle \supp \phi \subset \RR^n \times I$. 
+Since
+\[
+\left| K^{[\epsilon]}(\VEC{x},t) \phi(\VEC{x},t) \right|
+\leq M \Chi_{\RR^n \times I}(\VEC{x},t) K(\VEC{x},t)
+\]
+for all $(\VEC{x},t) \in \RR^n\times \RR$ and
+$\displaystyle M \Chi_{\RR^n \times I} K \in L^1(\RR^n \times \RR)$,
+we get from the Lebesgue Dominate Convergence Theorem that
+\[
+\int_{\RR} \int_{\RR^n} K^{[\epsilon]}(\VEC{x},t) \phi(\VEC{x},t)
+\dx{\VEC{x}}\dx{t} \to
+\int_{\RR} \int_{\RR^n} K(\VEC{x},t) \phi(\VEC{x},t)
+\dx{\VEC{x}}\dx{t} \quad \text{as} \quad \epsilon \to 0^+ \ .
+\]
+Since $\displaystyle \phi \in \DD(\RR^n \times \RR)$ is arbitrary,
+we have that $\displaystyle K^{[\epsilon]} \rightarrow K$ in
+$\displaystyle \DD'(\RR^n\times \RR)$ as $\epsilon \rightarrow 0^+$.
+
+To complete the proof, we only have to show that
+$\displaystyle \pdfdx{K^{[\epsilon]}}{t} - \Delta_{\VEC{x}} K^{[\epsilon]}
+\rightarrow \delta$ in $\displaystyle \DD'(\RR^n\times \RR)$ as
+$\epsilon \to 0^+$.
+Namely, for $\displaystyle \phi \in \DD(\RR^n\times \RR)$,
+we have to show that
+\[
+\ps{K^{[\epsilon]}}{-\pdfdx{\phi}{t} - \Delta_{\VEC{x}} \phi}
+\rightarrow \phi(\VEC{0},0) \quad \text{as} \quad \epsilon \to 0^+ \ .
+\]
+Integration by parts yields
+\begin{align*}
+\ps{K^{[\epsilon]}}{-\pdfdx{\phi}{t} - \Delta_{\VEC{x}} \phi}
+&= \int_{\epsilon}^\infty \int_{\RR^n} K(\VEC{x},t) \left(
+-\pdydx{\phi}{t}(\VEC{x},t) - \Delta_{\VEC{x}} \phi(\VEC{x},t)\right)
+\dx{\VEC{x}} \dx{t} \\
+&= \int_{\epsilon}^\infty \int_{\RR^n} \left( \pdydx{K}{t}(\VEC{x},t) 
+-\Delta_{\VEC{x}} K(\VEC{x},t)\right) \phi(\VEC{x},t) \dx{\VEC{x}} \dx{t}
++ \int_{\RR^n} K(\VEC{x},\epsilon) \phi(\VEC{x},\epsilon) \dx{\VEC{x}}
+\end{align*}
+because $\phi$ has a compact support in $\displaystyle \RR^n\times \RR$.  Since
+$\displaystyle \pdydx{K}{t}(\VEC{x},t) -\Delta_{\VEC{x}} K(\VEC{x},t) = 0$
+and $K(\VEC{x},t) = K(-\VEC{x},t)$ for
+$\displaystyle \VEC{x}\in \RR^n$ and $t>0$, we have
+that
+\[
+\ps{K^{[\epsilon]}}{-\pdfdx{\phi}{t} - \Delta_{\VEC{x}} \phi}
+= \int_{\RR^n} K(-\VEC{x},\epsilon) \phi(\VEC{x},\epsilon)
+\dx{\VEC{x}}
+= \left( K(\cdot,\epsilon) \ast \phi(\cdot, \epsilon)\right)(\VEC{0}) \ .
+\]
+
+Finally, we prove that
+\begin{align*}
+\big( K(\cdot,\epsilon) \ast \phi(\cdot, \epsilon)\big)(\VEC{0})
+&= \big( K(\cdot,\epsilon) \ast \phi(\cdot, 0)\big)(\VEC{0}) +
+\big( K(\cdot,\epsilon) \ast ( \phi(\cdot, \epsilon) -
+\phi(\cdot, 0) ) \big)(\VEC{0}) \\
+& \rightarrow \phi(\VEC{0},0) \quad \text{as} \quad \epsilon \to 0^+ \ .
+\end{align*}
+According to (\ref{heat_convol1}), (\ref{heat_convol2}) and
+Proposition~\ref{distr_limit_convol}, we have that
+\[
+K(\cdot,\epsilon) \ast \phi(\cdot, 0) \rightarrow \phi(\cdot, 0)
+\quad \text{as} \quad \epsilon \to 0^+ \ .
+\]
+Thus
+\[
+(K(\cdot,\epsilon) \ast \phi(\cdot, 0))(\VEC{0}) \rightarrow \phi(\VEC{0},0)
+\quad \text{as} \quad \epsilon \to 0^+ \  .
+\]
+Since $\displaystyle \phi:\RR^n\times \RR$ is a continuous function with
+compact support, $\phi$ is uniformly continuous.  In particular,
+$\phi(\cdot, \epsilon) - \phi(\cdot, 0) \rightarrow 0$ 
+uniformly on $\displaystyle \RR^n$.  Since $K(\VEC{x},\epsilon) >0$ for all
+$\VEC{x}\in \RR^n$, it follows from (\ref{heat_convol1}) that
+$\|K(\cdot,\epsilon)\|_1 = 1$ for $\epsilon >0$.  Hence
+\begin{align*}
+\left| \big( K(\cdot,\epsilon) \ast ( \phi(\cdot, \epsilon) -
+\phi(\cdot, 0) )\big)(\VEC{0})  \right| &\leq
+\| K(\cdot, \epsilon) \|_1 \,
+\|\phi(\cdot, \epsilon) - \phi(\cdot, 0)\|_\infty \\
+&= \|\phi(\cdot, \epsilon) - \phi(\cdot, 0)\|_\infty
+\rightarrow 0 \quad \text{as} \quad \epsilon \to 0^+ \ . \qedhere
+\end{align*}
+\end{proof}
+
+\begin{cor}
+The heat operator
+$\displaystyle L(\VEC{x},y,D) = \pdydx{}{t} - \Delta_{\VEC{x}}$ is hypoelliptic.
+\end{cor}
+
+\begin{proof}
+This follows from Theorem~\ref{distr_hypoTH} because $\displaystyle K \in
+C^\infty\left((\RR^n\times \RR) \setminus \{ (\VEC{0},0) \}\right)$.
+\end{proof}
+
+If $\displaystyle f \in \EE'(\RR^n\times \RR)$, then $u = K\ast f$ is
+a solution (in the sense of distributions) of the non-homogeneous heat
+equation $\displaystyle \pdydx{u}{t} - \Delta_{\VEC{x}} u = f$ on
+$\displaystyle \RR^n\times \RR$.
+The conclusion of the next theorem states that $K\ast f$ can define a
+function almost everywhere if $f$ is nice enough.
+
+\begin{theorem}
+If $\displaystyle f \in L^1(\RR^n\times \RR)$, then $u = f\ast K$ is
+well defined almost everywhere and
+$\displaystyle \pdydx{u}{t} - \Delta_{\VEC{x}} u = f$ in the sense of
+distribution.
+\end{theorem}
+
+\begin{proof}
+Since $\displaystyle f\in L^1(\RR^n\times \RR)$, we have by Fubini's
+Theorem that $\displaystyle f(\cdot, s) \in L^1(\RR^n)$ for almost all
+$s\in \RR$.  We have also seen that $\| K(\cdot, t-s) \|_1 = 1$ for
+all $s<t$.  Hence, from 
+Young's Inequality, Theorem~\ref{distr_sp_young}, we have
+\[
+\| |f|(\cdot,s) \ast K(\cdot, t-s) \|_1 \leq \|f(\cdot, s)\|_1\,
+\|K(\cdot, s-t)\|_1 = \|f(\cdot, s)\|_1 < \infty
+\]
+for almost all $s$ such that $s<t$.  Thus
+$\displaystyle \VEC{x} \mapsto \left( |f|(\cdot,s) \ast K(\cdot, t-s)
+\right)(\VEC{x})$ for $\displaystyle \VEC{x} \in \RR^n$ is in
+$\displaystyle L^1(\RR^n)$ for almost all $s$ such that $s<t$.  The
+convolution is obviously on $\displaystyle \RR^n$.  We then have
+\begin{align*}
+\left| u(\VEC{x},t)\right| &\leq
+\int_{-\infty}^\infty \int_{\RR^n} |f|(\VEC{y},s)
+K(\VEC{x}-\VEC{y}, t-s) \dx{\VEC{y}} \dx{s}
+= \int_{-\infty}^t \int_{\RR^n} |f|(\VEC{y},s)
+K(\VEC{x}-\VEC{y}, t-s) \dx{\VEC{y}} \dx{s} \\
+&= \int_{-\infty}^t \left( |f|(\cdot,s) \ast K(\cdot, t-s)
+\right)(\VEC{x}) \dx{s}
+\end{align*}
+because $K(\VEC{z}, t-s) = 0$ for $\displaystyle \VEC{z}\in \RR^n$
+and $s\geq t$.  Hence,
+\begin{align*}
+\int_{\RR^n} \left| u(\VEC{x},t) \right| \dx{\VEC{x}} 
+&\leq \int_{-\infty}^t \int_{\RR^n} \left( |f|(\cdot,s) \ast K(\cdot, t-s)
+\right)(\VEC{x}) \dx{\VEC{x}} \dx{s}
+= \int_{-\infty}^t \| |f|(\cdot,s) \ast K(\cdot, t-s) \|_1 \dx{s} \\
+&\leq \int_{-\infty}^t \|f(\cdot, s)\|_1 \dx{s}
+= \int_{-\infty}^t \int_{\RR^n} \left| f(\VEC{x},s)\right| \dx{\VEC{x}}\dx{s}
+\leq \|f\|_1 < \infty \  ,
+\end{align*}
+where the last $\displaystyle L^1$-norm is on
+$\displaystyle L^1(\RR^n\times \RR)$.  It follows
+that $u(\VEC{x},t)$ exists for all $t \in \RR$ and for almost every
+$\displaystyle \VEC{x} \in \RR^n$.
+
+The rest of the proof is similar to the proof of
+Theorem~\ref{laplace_not_EEp} with $N$ and $\Delta$ in that proof
+replaced by $K$ and $\displaystyle \pdydx{}{t} - \Delta_{\VEC{x}}$
+respectively.
+\end{proof}
+
+\section{Maximum Principle}
+
+\begin{theorem} [Weak Maximum Principle]
+Let $\Omega$ be a bounded open subset of $\RR^n$.  Suppose that
+$u \in C(\overline{\Omega} \times [0,T])$ is a solution of the heat
+equation $\displaystyle \pdydx{u}{t} - \Delta u = 0$ in
+$\Omega \times ]0,T[$.  Then, $u$ reaches its maximum on
+$(\Omega \times \{0\}) \cup ( \partial \Omega \times [0,T])$.
+\end{theorem}
+
+\begin{proof}
+Since $\displaystyle \pdydx{}{t}-\Delta_{\VEC{x}}$ is hypoelliptic, we
+have that $\displaystyle u \in C^\infty(\Omega\times ]0,T[)$.
+
+Consider $\epsilon>0$ and $T'$ such that $0<T'<T$.  let
+$\displaystyle v(\VEC{x},t) = u(\VEC{x},t) + \epsilon \|\VEC{x}\|^2$
+for $(\VEC{x},t) \in \overline{\Omega} \times [0,T]$.  We have
+\begin{equation} \label{heat_max}
+\pdydx{v}{t} - \Delta_{\VEC{x}} v = -2n\epsilon < 0 \quad , \quad
+(\VEC{x},t) \in \Omega \times ]0,T[ \  .
+\end{equation}
+
+If the maximum of $v$ on $\overline{\Omega}\times [0,T']$ is
+$(\VEC{x}_0,t_0) \in \Omega\times ]0,T'[$, then $(\VEC{x}_0,t_0)$ is a
+critical point and
+$\displaystyle \graD_{\VEC{x},t} v(\VEC{x}_0,t_0) = \VEC{0} \in \RR^n\times \RR$.
+Moreover, $\displaystyle \pdydxn{v}{x_j}{2}(\VEC{x}_0,t_0) \leq 0$ for
+$1\leq j\leq n$ because, in each $x_j$-direction, $v$ has a local
+maximum or $v$ is constant near $(\VEC{x}_0,t_0)$.
+Hence, $\displaystyle \pdydx{v}{t}(\VEC{x}_0,t_0) =0$ and
+$\Delta_{\VEC{x}} v(\VEC{x}_0,t_0) \leq 0$ implies that
+$\displaystyle \pdydx{v}{t} - \Delta_{\VEC{x}} v \geq 0$.  This
+contradicts (\ref{heat_max}).  We need to add the term
+$\displaystyle \epsilon \|\VEC{x}\|^2$ to $u$ to get the strict inequality in
+(\ref{heat_max}).
+
+If the maximum of $v$ on $\overline{\Omega}\times [0,T']$ is
+$(\VEC{x}_0,T')$ with $\VEC{x}_0 \in \Omega$, we have that
+$\displaystyle \pdydx{v}{t}(\VEC{x}_0,T') \geq 0$ because of the
+result in the previous paragraph; namely, $v$ is
+constant or increasing in the direction of $t$.  We still have
+$\displaystyle \pdydxn{v}{x_j}{2}(\VEC{x}_0,T') \leq 0$ for
+all $j$ for the same reason than before.  We need to introduce $T'<T$
+because there is no guarantee that the second order partial
+derivatives $\displaystyle \pdydxn{u}{x_j}{2}(\VEC{x},t)$ exist for
+$t=T$.  Hence, $\displaystyle \pdydx{v}{t}(\VEC{x}_0,T') \geq 0$ and
+$\Delta_{\VEC{x}} v(\VEC{x}_0,T') \leq 0$ implies that
+$\displaystyle \pdydx{v}{t} - \Delta_{\VEC{x}} v \geq 0$.  This again
+contradicts (\ref{heat_max}).
+
+We have found that
+\begin{align*}
+&\max \{ u(\VEC{x},t) : (\VEC{x},t)\in \overline{\Omega}\times [0,T'] \}
+\leq \max \{ v(\VEC{x},t) : (\VEC{x},t)\in \overline{\Omega}\times
+[0,T'] \} \\
+&\qquad = \max \{ v(\VEC{x},t) : (\VEC{x},t)\in (\Omega\times \{0\}) \cup
+(\partial \Omega \times [0,T'])\,\} \\
+&\qquad \leq \max \{ u(\VEC{x},t) : (\VEC{x},t)\in (\Omega\times \{0\}) \cup
+(\partial \Omega \times [0,T'])\,\} + \epsilon
+\max \{ \|\VEC{x}\|^2 : \VEC{x}\in \overline{\Omega} \} \  .
+\end{align*}
+If $\epsilon \rightarrow 0$, we get
+\[
+\max \{ u(\VEC{x},t) : (\VEC{x},t)\in \overline{\Omega}\times [0,T'] \}
+\leq \max \{ u(\VEC{x},t) : (\VEC{x},t)\in (\Omega\times \{0\}) \cup
+(\partial \Omega \times [0,T'])\,\}
+\]
+for all $T'<T$.  Thus
+\[
+\max \{ u(\VEC{x},t) : (\VEC{x},t)\in \overline{\Omega}\times [0,T] \}
+\leq \max \{ u(\VEC{x},t) : (\VEC{x},t)\in (\Omega\times \{0\}) \cup
+(\partial \Omega \times [0,T])\,\} \ . \qedhere
+\]
+\end{proof}
+
+\begin{cor}
+There is only one solution
+$u \in C(\overline{\Omega}\times [0.T])$ (if any) of
+\begin{equation} \label{heat_wm_un}
+\begin{split}
+\pdydx{u}{t}(\VEC{x},t) - \Delta_{\VEC{x}}(\VEC{x},t) u
+&=0 \quad , \quad (\VEC{x},t) \in \Omega \times ]0,T[ \\
+u(\VEC{x},0) &= f(\VEC{x}) \quad , \quad \VEC{x} \in \Omega \\
+u(\VEC{x},t) &= g(\VEC{x},t) \quad , \quad (\VEC{x},t) \in
+\partial \Omega \times ]0,T[
+\end{split}
+\end{equation}
+\end{cor}
+
+\begin{proof}
+If $u_1$ and $u_2$ are two solutions of (\ref{heat_wm_un}) in
+$C(\overline{\Omega}\times [0.T])$, we may apply the weak maximum principle
+above to $u_1-u_2$ and $u_2-u_1$ to conclude that
+$u_1 - u_2 \leq 0$ and $u_2 - u_1 \leq 0$ on $\Omega \times [0,T]$
+respectively.  Thus $u_1 =u_2$ on $\Omega \times [0,T]$.
+\end{proof}
+
+\section{Separation of Variables}
+
+\subsection{Cartesian Coordinates}
+
+\begin{egg}
+Find the solution of the heat equation
+\begin{equation} \label{heat_spv_he}
+\pdydx{u}{t} = c^2 \pdydxn{u}{x}{2} \quad ,
+\quad 0 < x < \pi \ \text{and} \ t > 0 ,
+\end{equation}
+with $c^2 = 4$, the boundary conditions
+$u(0,t) = u(\pi,t) = 0$ for $t>0$ and the initial condition
+\begin{equation} \label{heat_series_init_cond}
+u(x,0) = f(x) = \begin{cases}
+x & \quad 0 < x \leq \pi/2 \\
+\pi - x & \quad \pi/2 < x < \pi
+\end{cases}
+\end{equation}
+
+\subI{Separation of Variables}
+If we substitute $u(x,t) = F(x)G(t)$ in (\ref{heat_spv_he}), we get
+\[
+F(x)\,\dydx{G}{t}(t) = 4 \dydxn{F}{x}{2}(x)\, G(t)
+\quad , \quad t>0 \ \text{and} \ 0<x<\pi \ .
+\]
+Thus, after dividing both sides by $4\,F(x)G(t)$, we get
+\[
+\frac{1}{4\,G(t)} \, \dydx{G}{t}(t) = \frac{1}{F(x)}\, \dydxn{F}{x}{2}(x)
+\quad , \quad t>0 \ \text{and} \ 0<x<\pi \ .
+\]
+Since the right hand side is independent of $t$ and the left hand side
+is independent of $x$, we get
+\[
+\frac{1}{4\,G(t)} \, \dydx{G}{t}(t) = \frac{1}{F(x)}\,
+\dydxn{F}{x}{2}(x) = k \quad , \quad t>0 \ \text{and} \ 0<x<\pi \ ,
+\]
+for some constant $k$.  We end up with two ordinary differential equations.
+\begin{equation} \label{heat_spv_eqs}
+\dydxn{F}{x}{2}(x) -k F(x) = 0 \quad \text{and}
+\quad \dydx{G}{t}(t) - 4\,k\,G(t) = 0 \ .
+\end{equation}
+
+Two boundary conditions are associated to the first ordinary
+differential equation in (\ref{heat_spv_eqs}).   From $u(0,t) = 0$, we
+get $F(0)G(t)=0$.  Since we assume that $G$ is not null, we get
+$F(0)=0$.  Similarly, from $u(\pi,t) = 0$, we get $F(\pi)G(t)=0$.
+Again, since we assume that $G$ is not null, we get $F(\pi)=0$.
+The boundary conditions for the first ordinary differential equation
+in (\ref{heat_spv_eqs}) are $F(0)=F(\pi)=0$.
+
+\subI{Simple Functions}
+We first consider the boundary value problem
+\begin{equation} \label{heat_spv_bvp}
+\dydxn{F}{x}{2}(x) -k F(x) = 0 \quad , \quad 0 \leq x \leq \pi \ ,
+\end{equation}
+with $F(0)=F(\pi)=0$.  The form of the general solution of this
+ordinary differential equation is determined by the roots of the
+characteristic equation $\lambda^2-k=0$.
+
+If $k>0$, the roots of the characteristic equation are $\pm \sqrt{k}$.
+Since the roots are real, the solution of the ordinary differential
+equation is of the form $\displaystyle
+F(x) = A e^{\sqrt{k}\,x} + B e^{-\sqrt{k}\, x}$.
+However, $F(0)=0$ implies that $A+B=0$ and $F(\pi)=0$ implies
+$\displaystyle A e^{\pi\sqrt{k}} + B e^{-\pi\sqrt{k}} = 0$.  The only
+solution of the system
+\[
+\begin{pmatrix}
+1 & 1 \\ e^{\pi\sqrt{k}} & e^{-\pi\sqrt{k}}
+\end{pmatrix}
+\begin{pmatrix}
+A \\ B
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \\ 0 
+\end{pmatrix}
+\]
+is $A=B=0$ because
+\[
+\det
+\begin{pmatrix}
+1 & 1 \\ e^{\pi\sqrt{k}} & e^{-\pi\sqrt{k}}
+\end{pmatrix}
+= e^{-\pi\sqrt{k}} - e^{\pi\sqrt{k}} 
+= e^{-\pi\sqrt{k}}\left(1 - e^{2\pi\sqrt{k}}\right) \neq 0
+\]
+for $k\neq 0$.  Therefore, the null solution is the only solution
+of the boundary value problem (\ref{heat_spv_bvp}) for $k>0$.
+
+If $k=0$, the solution of the ordinary differential equation is $F(x)=Ax+B$.
+However, $F(0)=0$ implies that $B=0$.  Hence, $F(\pi)=0$ implies
+that $A\pi = 0$.  Thus $A=B=0$ and again the null solution is the
+only solution of the boundary value problem (\ref{heat_spv_bvp}) for $k=0$.
+
+If $k<0$, the roots of the characteristic equation are $\pm i \sqrt{-k}$.
+Since the roots are complex, the solution of the ordinary differential
+equation is of the form $\displaystyle
+F(x) = A \cos\left(\sqrt{-k}\,x\right) + B \sin\left(\sqrt{-k}\,x\right)$.
+The condition $F(0)=0$ implies that $A=0$.  Hence, $F(\pi)=0$ implies that
+$B \sin\left(\pi\sqrt{-k}\right) = 0$.  If we take
+$B=0$, we get the null solution.  We must therefore have
+$\sin\left(\pi\sqrt{-k}\right) = 0$.  This implies that
+$k = k_n \equiv -n^2$ for $n>0$.  The boundary value problem
+(\ref{heat_spv_bvp}) has non-null solutions only for $k=k_n=-n^2<0$
+with $n$ a positive integer, and the solutions associated to $k_n$ are of
+the form $F(x)=F_n(x) \equiv B_n \sin(n\,x)$.
+
+The second ordinary differential equation in (\ref{heat_spv_eqs}) is
+therefore
+\[
+\dydx{G}{t}(t) + 4n^2\,G(t) = 0 \  ,
+\]
+where $n$ is a positive integer.  For each $n$, the general solution
+of this first order separable ordinary differential equation is
+$\displaystyle G(t) = G_n(t) \equiv C_n e^{-4n^2t}$.
+
+We have found the simple functions
+\[
+u_n(x,t) \equiv F_n(x)G_n(t) = b_n\,\sin(n\,x)\, e^{-4n^2t} \quad , \quad
+n>0 \ .
+\]
+The constant $b_n$ comes from the product of the constants $B_n$ and
+$C_n$.
+
+\subI{Initial condition}
+We seek a solution of the form
+\[
+u(x,t) = \sum_{n=1}^\infty u_n(x,t)
+= \sum_{n=1}^\infty b_n\,\sin(n\,x)\, e^{-4n^2t} \  .
+\]
+
+From $u(x,0) = f(x)$, we get
+$\displaystyle f(x) = \sum_{n=1}^\infty b_n\,\sin(n\,x)$
+for $0<x<\pi$.  This is the Fourier sine series of $f$.  The coefficients of
+this series are given by
+\[
+b_n = \frac{2}{\pi} \int_0^\pi f(x) \sin(nx)\dx{x}
+= \frac{2}{\pi} \int_0^{\pi/2} x\sin(nx) \dx{x}
++ \frac{2}{\pi} \int_{\pi/2}^\pi (\pi-x) \sin(nx)\dx{x} \ .
+\]
+The first integral can be evaluated using integration by parts.
+% With $u(x)=x$ and $v'(x) = \sin(nx)$, we get $u'(x) =1$,
+% $\displaystyle v(x) = -\frac{1}{n}\cos(nx)$.
+We get
+\begin{align*}
+\int_0^{\pi/2} x\sin(nx) \dx{x}
+% &= u(x)v(x)\bigg|_0^{\pi/2}-\int_0^{\pi/2} v(x) u'(x) \dx{x} \\
+&= -\frac{1}{n}\,x\cos(nx)\bigg|_0^{\pi/2}
++ \frac{1}{n} \int_0^{\pi/2} \cos(nx) \dx{x}
+= -\frac{\pi}{2n}\cos\left(\frac{n\pi}{2}\right)
++ \frac{1}{n^2} \sin(nx)\bigg|_0^{\pi/2} \\
+&= -\frac{\pi}{2n}\cos\left(\frac{n\pi}{2}\right) + \frac{1}{n^2}
+\sin\left(\frac{n\pi}{2}\right)
+\end{align*}
+Similarly, the second integral can be evaluated using integration by
+parts
+% With $u(x)=\pi-x$ and $v'(x) = \sin(nx)$, we get $u'(x) = -1$,
+% $\displaystyle v(x) = -\frac{1}{n}\cos(nx)$.
+\begin{align*}
+\int_{\pi/2}^\pi (\pi-x) \sin(nx) \dx{x}
+% &= u(x)v(x)\bigg|_{\pi/2}^\pi-\int_{\pi/2}^\pi v(x) u'(x) \dx{x} \\
+&= -\frac{1}{n}\,(\pi-x)\cos(nx)\bigg|_{\pi/2}^\pi
+- \frac{1}{n} \int_{\pi/2}^\pi \cos(nx) \dx{x} \\
+&= \frac{\pi}{2n}\cos\left(\frac{n\pi}{2}\right)
+- \frac{1}{n^2} \sin(nx)\bigg|_{\pi/2}^\pi
+= \frac{\pi}{2n}\cos\left(\frac{n\pi}{2}\right) + \frac{1}{n^2}
+\sin\left(\frac{n\pi}{2}\right)
+\end{align*}
+Thus
+\[
+b_n = \frac{4}{n^2 \pi} \sin\left(\frac{n\pi}{2}\right) \\
+=
+\begin{cases}
+0 & \quad \text{if $n$ is even} \\
+\displaystyle (-1)^{(n+3)/2}\frac{4}{n^2 \pi} & \quad \text{if $n$ is odd}
+\end{cases}
+\]
+
+The solution of the heat equation is
+\begin{equation} \label{heat_series_sol}
+u(x,t) = \sum_{m=1}^\infty (-1)^{m+1}\frac{4}{(2m-1)^2 \pi}\,
+\sin((2m-1)\,x)\, e^{-4(2m-1)^2t} \ .
+\end{equation}
+
+Since
+\[
+\left| (-1)^{m+1}\frac{4}{(2m-1)^2 \pi}\, \sin((2m-1)\,x)\, e^{-4(2m-1)^2t}
+\right| \leq \frac{4}{\pi(2m-1)^2}
+\]
+and the series
+\[
+\sum_{m=1}^\infty \frac{4}{\pi(2m-1)^2}
+\]
+converges, we have that the series solution converge absolutely and
+uniformly for $(x,t) \in [0,\pi] \times [0,\infty[$.  Since each term
+of the series are continuous functions on $[0,\pi] \times [0,\infty[$,
+it follow from the uniform convergence of the series that $u$ is
+continuous on $[0,\pi] \times [0,\infty[$.  Moreover, $u$
+satisfies the boundary and initial conditions.
+
+To prove that the method of separation of variables is valid in the
+classical sense, it remains to prove that the differential equation is
+satisfied by $u$ when standard derivatives of order two in $x$ and of
+order one in $t$ are used.  Since each term of the series solution of
+$u$ satisfies the differential equation in the classical sense, it is
+enough to prove that the series (\ref{heat_series_sol}),
+\begin{equation} \label{heat_spv_der_series}
+\begin{split}
+\pdydx{u}{x} &\sim \sum_{m=1}^\infty  \left( (-1)^{m+1}\frac{4}{(2m-1) \pi}\,
+\cos((2m-1)\,x)\, e^{-4(2m-1)^2t} \right) \ , \\
+\pdydxn{u}{x}{2} &\sim \sum_{m=1}^\infty \left( (-1)^m\frac{4}{\pi}\,
+\sin((2m-1)\,x)\, e^{-4(2m-1)^2t} \right) \ , \\
+\pdydx{u}{t} &\sim \sum_{m=1}^\infty \left( (-1)^m\frac{16}{\pi}\,
+\sin((2m-1)\,x)\, e^{-4(2m-1)^2t} \right)
+\end{split}
+\end{equation}
+converge absolutely and uniformly for
+$(x,t)\in [0,\pi]\times ]\epsilon,\infty[$
+whatever $\epsilon>0$ arbitrary but fixed.  To prove the absolute and uniform
+convergence of these series, it suffices to prove that the series
+\begin{equation}\label{heat_series_solB}
+\sum_{m=1}^\infty (2m-1)^{k} e^{-4(2m-1)^2 t}
+\end{equation}
+converges uniformly for $t\geq \epsilon$ whatever the value of
+$k\geq -2$.  Since
+$\displaystyle e^{-4(2m-1)^2\,t} \leq e^{-4(2m-1)^2\epsilon}$
+for $t\geq \epsilon$,  we get as a consequence of the comparison test that
+(\ref{heat_series_solB}) converges uniformly because
+\[
+\sum_{m=1}^\infty (2m-1)^{k} e^{-4(2m-1)^2\epsilon}
+\]
+converges whatever the value of $k$.  That this series converges can
+be deduced from the ratio test since
+\[
+\lim_{m\rightarrow \infty}
+\frac{ \displaystyle (2m+1)^{k} e^{-4(2m+1)^2\epsilon}}
+{ \displaystyle (2m-1)^{k} e^{-4(2m-1)^2\epsilon}}
+= \lim_{m\rightarrow \infty} \left(\frac{2m+1}{2m-1}\right)^{k}
+e^{-32 m \epsilon} = 0 < 1 \  .
+\]
+\end{egg}
+
+\begin{rmk}
+In the previous example, the proof of the absolute and uniform
+convergence of the series like those in (\ref{heat_spv_der_series}) is
+valid for any series obtained from the series solutions of $u$ by deriving the
+terms of this series.  This shows that the solution $u$ is in fact
+infinitely differentiable with respect to $x$ and $t$ in
+$]0,\pi[\times ]0,\infty[$.  That was expected since
+$\displaystyle \pdydx{}{t} - \Delta_{\VEC{x}}$ is hypoelliptic.
+
+Moreover, the previous discussion is valid whatever the choice of $f$
+and is not limited to the function $f$ given in (\ref{heat_series_init_cond}).
+
+Even if the initial condition was not differentiable everywhere on
+the interval $[0,\pi]$, the solution is smooth for $t>0$.  This is
+typical of the parabolic equation.  For the heat equation, we have
+seen in Remark~\ref{heat_smooth_sol} that this property is not limited
+to one-dimension heat equations.
+\end{rmk}
+
+From now on, we will not verify that the series solution and its
+derivatives converge absolutely and (locally) uniformly on the domain,
+and that the series solution satisfy the partial differential
+equation.  In fact, the series solution is a strong solution of the
+partial differential equation.
+
+\begin{egg}
+Find the solution of the heat equation
+\begin{equation} \label{heat_spv_diffa}
+\pdydx{u}{t} = c^2 \pdydxn{u}{x}{2} \quad , \quad 0 < x < 5
+\ \text{and} \ t > 0 \ ,
+\end{equation}
+with $c^2 = 4$, the boundary conditions
+$u(0,t) = 0$ and $\displaystyle \pdydx{u}{x}(5,t) = 0$ for $t>0$, and
+the following initial condition.
+\begin{center}
+\begin{tabular}{l@{\hspace{0.5em}}l@{\hspace{5em}}l@{\hspace{0.5em}}l}
+\subQ{a} & $\displaystyle u(x,0) = 8 \sin\left(\frac{13\pi x}{10}\right)$ &
+\subQ{b} & $u(x,0) = x(5-x)^2$
+\end{tabular}
+\end{center}
+
+\subI{Separation of Variables}
+If we substitute $u(x,t) = F(x)G(t)$ in (\ref{heat_spv_diffa}), we get
+\[
+F(x)\,\dydx{G}{t}(t) = 4 \dydxn{F}{x}{2}(x)\, G(t)
+\quad , \quad t>0 \ \text{and} \ 0<x<5 \ . 
+\]
+Thus, after dividing both sides by $4\,F(x)G(t)$, we get
+\[
+\frac{1}{4\,G(t)} \, \dydx{G}{t}(t) = \frac{1}{F(x)}\, \dydxn{F}{x}{2}(x)
+\quad , \quad t>0 \ \text{and} \ 0<x<5 \ .
+\]
+Since the right hand side is independent of $t$ and the left hand side
+is independent of $x$, we get
+\[
+\frac{1}{4\,G(t)} \, \dydx{G}{t}(t) = \frac{1}{F(x)}\,
+\dydxn{F}{x}{2}(x) = k \quad , \quad t>0 \ \text{and} \ 0<x<5 \ ,
+\]
+for some constant $k$.  We end up with two ordinary differential equations.
+\begin{equation} \label{heat_spv_diffb}
+\dydxn{F}{x}{2}(x) - k F(x) = 0 \quad \text{and}
+\quad \dydx{G}{t}(t) - 4\,k\,G(t) = 0 \ .
+\end{equation}
+
+Two boundary conditions are associated to the first ordinary
+differential equation in (\ref{heat_spv_diffb}).   From $u(0,t) = 0$,
+we get $F(0)G(t)=0$.  Since we assume that $G$ is not null, we get
+$F(0)=0$.  Similarly, from $\displaystyle \pdydx{u}{x}(5,t) = 0$, we
+get $F'(5)G(t)=0$. Again, since we assume that $G$ is not null, we
+get $F'(5)=0$.  The boundary conditions for the first ordinary
+differential equation in (\ref{heat_spv_diffb}) are $F(0)=F'(5)=0$.
+
+\subI{Simple Functions}
+We first consider the boundary value problem
+\begin{equation} \label{heat_spv_diffc}
+\dydxn{F}{x}{2}(x) -k F(x) = 0 \quad , \quad 0 \leq x \leq 5 \ ,
+\end{equation}
+with $F(0)=F'(5)=0$.  The form of the general solution of this
+ordinary differential equation is determined by the 
+roots of the characteristic equation $\lambda^2-k=0$.
+
+If $k>0$, the roots of the characteristic equation are $\pm \sqrt{k}$.
+Since the roots are real, the solution of the ordinary differential
+equation is of the form
+$\displaystyle F(x) = A e^{\sqrt{k}\,x} + B e^{-\sqrt{k}\, x}$.
+However, $F(0)=0$ implies that $A+B=0$ and $F'(5)=0$ implies
+$\displaystyle A \sqrt{k} e^{5\sqrt{k}} - B \sqrt{k} e^{-5\sqrt{k}} = 0$.
+The only solution of the system
+\[
+\begin{pmatrix}
+1 & 1 \\ \sqrt{k} e^{5\sqrt{k}} &-\sqrt{k} e^{-5\sqrt{k}}
+\end{pmatrix}
+\begin{pmatrix}
+A \\ B
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \\ 0 
+\end{pmatrix}
+\]
+is $A=B=0$ because
+\[
+\det
+\begin{pmatrix}
+1 & 1 \\ \sqrt{k} e^{5\sqrt{k}} & -\sqrt{k}e^{-5\sqrt{k}}
+\end{pmatrix}
+= -\sqrt{k} \left(e^{-5\sqrt{k}} + e^{5\sqrt{k}}\right) 
+< 0
+\]
+for $k>0$.  Therefore, the null solution is the only solution
+of the boundary value problem (\ref{heat_spv_diffc}) for $k>0$.
+
+If $k=0$, the solution of the ordinary differential equation is $F(x)=Ax+B$.
+However, $F(0)=0$ yields $B=0$ and $F'(5)=0$ yields $A = 0$.  Thus
+$A=B=0$ and again the null solution is the only solution of the
+boundary value problem (\ref{heat_spv_diffc}) for $k=0$.
+
+If $k<0$, the roots of the characteristic equation are $\pm i \sqrt{-k}$.
+Since the roots are complex, the solution of the ordinary differential equation is of the form
+$\displaystyle
+F(x) = A \cos\left(\sqrt{-k}\,x\right) + B \sin\left(\sqrt{-k}\,x\right)$.
+The condition $F(0)=0$ implies that $A=0$.  Hence, $F'(5)=0$ implies that
+$B \sqrt{-k} \cos\left(5\sqrt{-k}\right) = 0$.  If we take
+$B=0$, we get the null solution.  We must therefore have
+$\cos\left(5\sqrt{-k}\right) = 0$.  This implies that
+$\displaystyle k = k_n \equiv -\left((2n-1)\pi/10\right)^2$ for
+$n>0$.  The boundary value problem (\ref{heat_spv_diffc}) has
+non-null solutions only for
+$\displaystyle k = k_n = -\left((2n-1)\pi/10\right)^2$ with
+$n$ a positive integer, and the solutions associated to $k_n$ are of the
+form $\displaystyle
+F(x)=F_n(x) \equiv B_n \sin\left((2n-1)\pi x/10\right)$.
+
+The second ordinary differential equation in (\ref{heat_spv_diffb}) is then
+\[
+\dydx{G}{t}(t) + 4\left(\frac{(2n-1)\pi}{10}\right)^2\,G(t) = 0 \ ,
+\]
+where $n$ is a positive integer.  For each $n$, the general solution
+of this first order separable ordinary differential equation is
+$\displaystyle G(t) = G_n(t) \equiv C_n e^{-t ((2n-1)\pi/5)^2}$.
+
+We have found the simple functions
+\[
+u_n(x,t) \equiv F_n(x)G_n(t) = b_n\,\sin\left(\frac{(2n-1)\pi x}{10}\right)
+\, e^{-t ((2n-1)\pi/5)^2} \quad , \quad n > 0 \ .
+\]
+The constant $b_n$ comes from the product of the constants $B_n$ and
+$C_n$.
+
+\subI{Initial condition}
+We seek a solution of the form
+\[
+u(x,t) = \sum_{n=1}^\infty u_n(x,t)
+= \sum_{n=1}^\infty b_n\,\sin\left(\frac{(2n-1)\pi x}{10}\right)
+\, e^{-t ((2n-1)\pi/5)^2} \  .
+\]
+
+\subQ{a} From
+$\displaystyle u(x,0) = 8 \sin\left(\frac{13\pi x}{10}\right)$,
+we get
+\[
+8 \sin\left(\frac{13\pi x}{10}\right)
+= \sum_{n=1}^\infty b_n\,\sin\left(\frac{(2n-1)\pi x}{10}\right) \  .
+\]
+Thus,
+\[
+b_n =
+\begin{cases}
+8 & \quad \text{if $n=7$} \\
+0 & \quad \text{if $n\neq 7$}
+\end{cases}
+\]
+The solution is
+\[
+u(x,t) = 8 \sin\left(\frac{13 \pi x}{10}\right)
+\, e^{-t (13\pi/5)^2} \  .
+\]
+
+\subQ{b} From $u(x,0) = x(5-x)^2$, we get
+\[
+x(5-x)^2 = \sum_{n=1}^\infty b_n\,\sin\left(\frac{(2n-1)\pi x}{10}\right)
+\]
+for $0\leq x\leq 5$.  Expanding $f(x) = x(5-x)^2$ on the interval
+$[0,5]$ to a odd function of period $20$ as suggested in
+Section~\ref{period4L}, we find that
+\[
+b_n = \frac{2}{5} \int_0^5 x(5-x)^2
+\sin\left(\frac{(2n-1)\pi x}{10}\right) \dx{x} \quad , \quad n>0 \ .
+\]
+A long computation using integration by parts yields
+\[
+b_n = 4000\left( \frac{4n\pi - 2\pi + (-1)^n 6}
+{\pi^4(16n^4 -32 n^3 +24 n^2 -8n +1)}\right) \quad , \quad n > 0 \ .
+\]
+The solution of the heat equation is
+\[
+u(x,t) = 
+4000\, \sum_{n=1}^\infty \frac{4n\pi - 2\pi + (-1)^n 6}
+{\pi^4(16n^4 -32 n^3 +24 n^2 -8n +1)} \,
+\sin\left(\frac{(2n-1)\pi x}{10}\right)\, e^{-t ((2n-1)\pi/5)^2} \  .
+\]
+\end{egg}
+
+\begin{rmk}
+By separation of variables, we find that the solutions of the heat
+equation for a finite interval with null boundary 
+conditions are linear combinations of the following simple functions.
+\[
+u(x,t) = e^{-c^2 k^2 t}(A \cos (kx) + B \sin(kx)) \ .
+\]
+The solutions of the heat equation for a rectangular domain with
+null boundary conditions are linear combinations of the following
+simple functions.
+\[
+u(x,y,t) = e^{-c^2 k^2 t}(A \cos (\mu x) +B \sin (\mu x))
+(C \cos (\eta y) + D \sin (\eta y))
+\]
+with $k^2 = \mu^2 + \eta^2$.
+\end{rmk}
+
+\begin{egg}
+Solve the heat equation
+\[
+\pdydx{u}{t} = c^2 \Delta u = c^2 \left( \pdydxn{u}{x}{2} +
+\pdydxn{u}{y}{2} \right) \quad ,
+\quad 0<x , y<5 \ \text{and} \ t>0
+\]
+with $c=3$, the boundary conditions
+\begin{align*}
+u(0,y,t) &= u(5,y,t) = 0 \quad , \quad 0<y<5 \quad \text{and}
+\quad t>0 \ , \\
+\pdydx{u}{y}(x,0,t) &= \pdydx{u}{y}(x,5,t) = 0 \quad , \quad
+0<x<5 \quad \text{and} \quad t>0 \ ,
+\end{align*}
+and the initial conditions
+\[
+u(x,y,0) = 11 \sin\left(\frac{3\pi x}{5}\right) + 17 \sin\left(2\pi x\right)
+\cos\left(\frac{7\pi y }{5}\right) \quad , \quad
+0\leq x, y \leq 5 \ .
+\]
+
+The simple functions are of the form
+\[
+u(x,y,t) = e^{-c^2 k^2 t}(A \cos (\mu x) + B \sin (\mu x))
+(C \cos (\eta y) + D \sin (\eta y)) \ ,
+\]
+where $k^2 = \mu^2 + \eta^2$.
+From $u(0,y,t) = 0$, we get
+$\displaystyle A e^{-c^2 k^2 t} (C \cos (\eta y) + D \sin (\eta y)) = 0$.
+Since the expression between parentheses cannot be zero
+for all $0 \leq y \leq 5$ (i.e.\ we cannot have $C=D=0$), we must have
+$A=0$.  From $u(5,y,t) = 0$, we then get
+$\displaystyle
+B \sin(5\mu) e^{-c^2 k^2 t} (C \cos (\eta y) + D \sin (\eta y)) =0$.
+Again, since the expression between parentheses cannot be zero for all
+$0 \leq y \leq 5$ and $B$ cannot be $0$, we must have $\sin(5\mu) = 0$.  This
+yields $\mu = m\pi/5$ for $m >0$.
+
+Since 
+$\displaystyle \pdydx{u}{y} = B \sin\left(\frac{m\pi x}{5}\right) e^{-c^2 k^2 t}
+(-C \eta \sin (\eta y) + D \eta \cos (\eta y))$,
+we get from $\displaystyle \pdydx{u}{y}(x,0,t) = 0$ that
+$\displaystyle B D \eta \sin\left(\frac{m\pi x}{5}\right) e^{-c^2 k^2 t} = 0$
+for all $0 \leq x \leq 5$ and $t>0$, where $B\neq 0$.  Thus $D=0$.  From
+$\displaystyle \pdydx{u}{y}(x,5,t) = 0$, we then get
+$\displaystyle
+-B C \eta \sin(5\eta)\sin\left(\frac{m\pi x}{5}\right) e^{-c^2 k^2 t} = 0$
+for all $0 \leq x \leq 5$ and $t>0$, where $B\neq 0$.  Since we cannot have
+$C=0$, we must have $\sin(5\eta) = 0$.  Thus $\eta = n \pi/5$ for
+$n \geq 0$.
+
+We have found the simple functions
+\[
+u_{n,m}(x,y,t) \equiv A_{n,m} e^{-9 k_{n,m}^2 t} \sin\left(\frac{m\pi x}{5}\right)
+\cos\left(\frac{n\pi y}{5}\right) \ ,
+\]
+where $m$ is a positive integer, $n$ is a non-negative integer (so
+$n=0$ is possible), and
+\[
+k_{n.m}^2 = \left(\frac{m \pi}{5}\right)^2 + \left(\frac{m \pi}{5}\right)^2
+= \frac{\pi^2}{5^2} \left(m^2+n^2\right) \ .
+\]
+
+We seek a solution of the form
+\[
+u(x,y,t) = \sum_{m=1}^\infty \sum_{n=0}^\infty u_{n,m}(x,y,t)
+= \sum_{m=1}^\infty \sum_{n=0}^\infty
+A_{n,m} e^{-9 k_{n,m}^2 t} \sin\left(\frac{m\pi x}{5}\right)
+\cos\left(\frac{n\pi y}{5}\right) \ .
+\]
+
+From the initial condition
+\[
+u(x,y,0) = 11 \sin\left(\frac{3\pi x}{5}\right) +
+17 \sin\left(\frac{10\pi x}{5}\right)
+\cos\left(\frac{7\pi y }{5}\right) \ ,
+\]
+we get
+\[
+\sum_{m=1}^\infty \sum_{n=0}^\infty
+A_{n,m} \sin\left(\frac{m\pi x}{5}\right) \cos\left(\frac{n\pi y}{5}\right) =
+11 \sin\left(\frac{3\pi x}{5}\right) + 17 \sin\left(\frac{10\pi x}{5}\right)
+\cos\left(\frac{7\pi y }{5}\right) \ .
+\]
+Thus,
+\[
+A_{n,m} =
+\begin{cases}
+11 & \quad \text{if} \quad m=3\ , \ n=0 \\
+17 & \quad \text{if} \quad m=10\ , \ n=7 \\
+0 & \quad \text{otherwise}
+\end{cases}
+\]
+Since $k_{n.m} = 9 \pi^2/25$ for $m=3$ and $n=0$, and
+$k_{n.m} = 149 \pi^2/25$ for $m=10$ and $n=7$, we get the solution
+\[
+u(x,y,t) = 11 e^{-81 \pi^2 t/25} \sin\left(\frac{3\pi x}{5}\right)
++ 17 e^{-1341 \pi^2 t/25} \sin\left(\frac{10\pi x}{5}\right)
+\cos\left(\frac{7\pi y}{5}\right) \ .
+\]
+\end{egg}
+
+\begin{egg}
+Find the solution of the heat equation
+\begin{equation} \label{heat_he_egg_nhc}
+\pdydx{u}{t} - c^2 \pdydxn{u}{x}{2} = 0 \quad , \quad 0 < x < L
+  \ \text{and} \ t > 0 \ ,
+\end{equation}
+with the boundary conditions $u(0,t) = t^2$ and $u(L,t) = 1$ for
+$t>0$, and the initial condition $\displaystyle u(x,0) = x/L$
+for $0 \leq x \leq L$.
+
+We cannot readily use our formulae for the simple functions because
+the boundary conditions are not null.  We have first to transform the
+problem into one where the formulae can be used.
+
+Let $\phi(x,t) = (1-t^2)x/L + t^2 = (x+(L-x)t^2)/L$.
+This is the equation of the line in the $x,u$-plane that contains the
+points $(0,t^2)$ and $(L,1)$.  The substitution
+$u(x,t) = w(x,t) + \phi(x,t)$ in (\ref{heat_he_egg_nhc}) yields
+\begin{equation} \label{heat_he_idx3}
+\pdydx{w}{t} - c^2 \pdydxn{w}{x}{2} = \frac{2(x-L)t}{L} \quad ,
+\quad 0 < x < L \ \text{and} \ t>0 \ ,
+\end{equation}
+with the boundary conditions
+$w(0,t) = 0$ and $u(L,t) = 0$ for $t>0$, and the initial condition
+$w(x,0) = 0$ for $0 \leq x \leq L$.
+
+The simple functions of the heat equation
+(i.e.\ when the right hand side of (\ref{heat_he_idx3}) is $0$) are of
+the form
+$\displaystyle B_n e^{-c^2n^2\pi^2t/L^2} \sin\left(\frac{n\pi x}{L}\right)$
+due to the boundary conditions.  So, we seek a solution of the form
+\begin{equation} \label{heat_he_idx1}
+w(x,t) = \sum_{n=1}^\infty T_n(t) \sin\left(\frac{n\pi x}{L}\right) \ .
+\end{equation}
+The boundary conditions are satisfied by each term of the series.
+
+We need the Fourier sine series of
+$\displaystyle h(x,t) = \frac{2(x-L)t}{L}$
+with respect to $x$.  Using integration by parts, we find that the
+coefficients of the series are
+\begin{align*}
+b_n &= \frac{2}{L}\int_0^n \frac{2(x-L)t}{L}
+\sin\left(\frac{n\pi x}{L}\right) \dx{x}
+= \left( \frac{4t(L-x)}{n\pi L} 
+\cos\left(\frac{n\pi x}{L}\right)\right)\bigg|_0^L 
++ \frac{4t}{n\pi L} \int_0^L \cos\left(\frac{n\pi x}{L}\right) \dx{x} \\
+&= -\frac{4t}{n\pi} + \frac{4t}{n^2\pi^2} \,
+\sin\left(\frac{n\pi x}{L}\right)\bigg|_0^L
+= -\frac{4t}{n\pi}  \ .
+\end{align*}
+Thus,
+\begin{equation} \label{heat_he_idx2}
+h(x,t) = -\sum_{n=1}^\infty \frac{4t}{n\pi} \sin\left(\frac{n\pi x}{L}\right) \ .
+\end{equation}
+If we substitute (\ref{heat_he_idx1}) and (\ref{heat_he_idx2}) into
+(\ref{heat_he_idx3}), we get
+\[
+\sum_{n=1}^\infty \left( T_n'(t) + \left(\frac{c n\pi}{L}\right)^2
+T_n(t) \right) \sin\left(\frac{n\pi x}{L}\right) =
+-\sum_{n=1}^\infty \frac{4t}{n\pi} \sin\left(\frac{n\pi x}{L}\right) \ .
+\]
+Each $T_n$ must satisfy the ordinary differential equation.
+\[
+T_n'(t) + \left(\frac{c n\pi}{L}\right)^2 T_n(t) = - \frac{4t}{n\pi}
+\quad , \quad n>0 \ .
+\]
+Those are linear first order ordinary differential equations; namely,
+ordinary differential equations of the form 
+$\displaystyle \dydx{T}{t} + P(t)T = Q(t)$.
+The general solution of this ordinary differential equation is
+$\displaystyle T(t) = e^{-\int P(t)\dx{t}}
+\left(\int Q(t) e^{\int P(t)\dx{x}} \dx{t} + C \right)$.
+Hence,
+\[
+T_n(t) = e^{-c^2n^2\pi^2 t/L^2} \left( - \int \frac{4t}{n\pi}
+e^{c^2n^2\pi^2 t/L^2} \dx{t} + C_n \right)
+\]
+Using integration by parts to evaluate the integral in the
+expression of $T_n$ above, we obtain
+\begin{align*}
+\int \frac{4t}{n\pi} e^{c^2n^2\pi^2 t/L^2} \dx{t} &=
+\left(\frac{4t}{n\pi}\right)\left(\frac{L^2}{c^2n^2\pi^2}\right)
+e^{c^2n^2\pi^2 t/L^2}
+- \left(\frac{4}{n\pi}\right)\left(\frac{L^2}{c^2n^2\pi^2}\right)
+\int e^{c^2n^2\pi^2 t/L^2} \dx{t} \\
+&= \left(\frac{4L^2\,t}{c^2n^3\pi^3}\right) e^{c^2n^2\pi^2 t/L^2}
+- \left(\frac{4L^4}{c^4n^5\pi^5}\right) e^{c^2n^2\pi^2 t/L^2} \ ,
+\end{align*}
+where we may ignored the constant of integration since we already have
+$C_n$.  Hence,
+\[
+T_n(t) = -\left(\frac{4L^2\,t}{c^2n^3\pi^3}\right)
++ \left(\frac{4L^4}{c^4n^5\pi^5}\right) + C_n e^{-c^2n^2\pi^2 t/L^2}
+\quad , \quad n > 0 \ .
+\]
+
+We have found that
+\[
+w(x,t) = \sum_{n=1}^\infty \left(
+-\left(\frac{4L^2\,t}{c^2n^3\pi^3}\right)
++ \left(\frac{4L^4}{c^4n^5\pi^5}\right) + C_n e^{-c^2n^2\pi^2 t/L^2}
+\right) \sin\left(\frac{n\pi x}{L}\right) \  .
+\]
+To determine the $C_n$, we use the initial condition $w(x,0)=0$ to
+get
+\[
+\left(-\left(\frac{4L^2\,t}{c^2n^3\pi^3}\right)
++ \left(\frac{4L^4}{c^4n^5\pi^5}\right) + C_n e^{-c^2n^2\pi^2 t/L^2}
+\right)\bigg|_{t=0} = \left(\frac{4L^4}{c^4n^5\pi^5}\right) +
+C_n = 0
+\]
+for all $n$.  Thus
+$\displaystyle C_n = -\left(\frac{4L^4}{c^4n^5\pi^5}\right)$ for $n>0$
+and
+\[
+w(x,t) = \sum_{n=1}^\infty \left(\frac{4L^4}{c^4n^5\pi^5}\right)
+\left( -\frac{c^2n^2\pi^2}{L^2}\, t + 1 - e^{-c^2n^2\pi^2 t/L^2}\right)
+\sin\left(\frac{n\pi x}{L}\right) \  .
+\]
+
+The solution of the problem is
+\[
+u(x.t) = \frac{(1-t^2)x}{L} + t^2 +
+\sum_{n=1}^\infty \left(\frac{4L^4}{c^4n^5\pi^5}\right)
+\left( -\frac{c^2n^2\pi^2}{L^2}\, t + 1 - e^{-c^2n^2\pi^2 t/L^2}\right)
+\sin\left(\frac{n\pi x}{L}\right) \  .
+\]
+\end{egg}
+
+\subsection{Cylindrical and Spherical Coordinates}
+
+\begin{rmk}
+The solutions of the heat equation in a cylindrical domain with null
+boundary conditions (this includes the planar circular domain if the
+solution is independent of the $z$-coordinate) are linear combinations
+of the following simple functions.  If the problem is independent of
+$\theta$ and $z$,
+\[
+u(r,t) = A e^{-c^2 k^2 t} J_0(k r) \ .
+\]
+If the problem is independent of $z$ only
+\[
+u(r,\theta,t) = e^{-c^2 k^2 t}
+\left(A \cos(n \theta) + B \sin (n \theta)\right) J_n(k r) \quad ,
+\quad n \geq 0 \ .
+\]
+If the problem is independent of $\theta$ only
+\[
+u(r,z,t) = e^{-c^2 k^2 t}
+\left(A \cos (\eta z) + B \sin (\eta z)\right)J_0(\mu r)\
+\]
+with $k^2 = \mu^2 + \eta^2$.
+\end{rmk}
+
+\begin{rmk}
+The solutions of the heat equation on a spherical domain with null
+boundary conditions are linear combinations of the following simple
+functions.  If the problem is independent of $\theta$ and $\phi$,
+\[
+u(r,t) = e^{-c^2 k^2 t} \left(\frac{A}{k r}
+\cos(k r) + \frac{B}{k r} \sin (k r)\right) \ .
+\]
+\end{rmk}
+
+\section{Addendum}
+
+The heat equation is the archetypal example of a parabolic equation.
+It is also used as an example for an evolution or dissipating partial
+differential equation.  We are talking of irreversible time-dependent
+partial differential equations.  Namely, the partial differential equation
+is not invariant under the substitution $t \to -t$.  We cannot go back
+in time.
+
+There are many techniques used to study parabolic partial differential
+equations.  Some of the classical techniques are energy methods, and
+Laplace transforms.  There is also a more modern approach using
+semi-group theory.  One of the fundamental results of this approach is
+the Hille-Yosida theorem used to determine if a semi-group is strongly
+continuous which is an important property to solve parabolic partial
+differential equations.  Unfortunately, all these techniques will not
+be presented in this book.  A good reference for the semi-group
+approach to parabolic partial differential equations is \cite{He}.
+
+For the study of nonlinear (parabolic) partial differential
+equations, we recommend \cite{Smo} and, in particular, \cite{He}.
+
+\section{Exercises}
+
+Suggested exercises:
+
+\begin{itemize}
+\item In \cite{J}: numbers 4 to 6, 8, 11 and 12 in Section 7.1(a);
+number 1 in Section 7.1(c).
+\item In \cite{McO}: numbers 6 and 7 in Sections 5.1; numbers 2, 3, 5 to
+8, and 11 in Section 5.2.
+\item In \cite{PinRub}: numbers 5.1, 5.5 to 5.10, 5.12, 5.13 and 5.20
+  in Section 5.7; numbers 6.13 to 6.17, 6.21 to 6.23, and 6.25 in Section 6.7. 
+\item In \cite{Str}: all the numbers in Section 2.3; numbers 1 to 4, 8,
+  11. 16 to 19 in Section 2.4; numbers 1 to 3 in Section 3.1; all
+  the numbers in Section 3.3; numbers 1 and 4 in Section 4.2; numbers 1
+  and 8 in Section 5.6.
+\end{itemize}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End: 

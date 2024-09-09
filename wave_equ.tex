@@ -1,0 +1,1911 @@
+\chapter{Wave Equation in One-Dimension}\label{ChapWaveEqu1D}
+
+This chapter is devoted to the study of the
+{\bfseries wave equation}\index{Wave Equation}
+\[
+\pdydxn{u}{t}{2} - c^2 \pdydxn{u}{x}{2} = 0 \ .
+\]
+The constant $c$ is called the
+{\bfseries (propagation) speed}\index{Wave Equation!Propagation Speed}.  We
+will justify shortly why $c$ is given this name.
+We will also assume that the solution of the wave equation satisfies
+some initial and boundary conditions according to the domain of the
+wave equation.
+
+\section{D'Alembert Method} \label{wave_sec_oneD}
+
+\subsection{Over the Real Line}
+
+Consider the wave equation
+\begin{equation} \label{wave_oneD}
+\pdydxn{u}{t}{2} - c^2 \pdydxn{u}{x}{2} = 0 \quad , \quad t >0
+\text{ and } x \in \RR \ ,
+\end{equation}
+with the initial conditions
+\begin{equation} \label{wave_oneD_init}
+u(x,0)= f(x) \quad \text{and} \quad \pdydx{u}{t}(x,0) = g(x) \quad ,
+\quad x \in \RR \ ,
+\end{equation}
+for two functions $f:\RR\rightarrow \RR$ and $g:\RR \rightarrow \RR$.
+The smoothness of the functions $f$ and $g$ will be specified later.
+
+As we have seen in Section~\ref{classif_class_planeHyper}, the wave equation
+is an hyperbolic partial differential equation.  We may used a change
+of variables to reduce the wave equation to the standard form for an
+hyperbolic equation.  We now repeat this reduction process.  The wave
+equation is of the form
+\[
+L(x,t,\diff)u = a_{2,0} \pdydxn{u}{t}{2} + 2 a_{1,1} \pdydxnm{u}{x}{t}{2}{}{} +
+a_{0,2} \pdydxn{u}{x}{2} = 0
+\]
+with $a_{2,0} = 1$, $a_{1,1} = 0$ and $\displaystyle a_{0,2}=-c^2$.
+The principal symbol is
+\[
+p(x,t, \xi_1, \xi_2) =
+\begin{pmatrix}
+\xi_1 & \xi_2
+\end{pmatrix}
+\begin{pmatrix}
+a_{2,0} & a_{1,1} \\
+a_{1,1} & a_{0,2}
+\end{pmatrix}
+\begin{pmatrix}
+\xi_1 \\ \xi_2
+\end{pmatrix} \ .
+\]
+The wave equation is hyperbolic on $\displaystyle \RR^2$ because
+$\displaystyle \det
+\begin{pmatrix}
+a_{2,0} & a_{1,1} \\
+a_{1,1} & a_{0,2}
+\end{pmatrix} = -c^2 < 0$.
+The solutions of the differential equations
+\[
+\dydx{x}{t} = \frac{a_{1,1} + \sqrt{a_{1,1}^2 - a_{2,0} a_{0,2}}}{a_{2,0}} = c
+\quad \text{and} \quad
+\dydx{x}{t} = \frac{a_{1,1} - \sqrt{a_{1,1}^2 - a_{2,0} a_{0,2}}}{a_{2,0}} =-c
+\]
+are respectively $x=ct+\eta$ and $x=-ct+\xi$.  The level curves of
+$\eta(x,t) = x-ct$ and $\xi(x,t) = x +ct$ are characteristic curves.  We use
+the change of coordinates $\eta = x-ct$ and $\xi = x +ct$ to reduce the
+wave equation.
+
+Since
+\[
+\pdydx{u}{x} = \pdydx{u}{\eta}\pdydx{\eta}{x} + \pdydx{u}{\xi}\pdydx{\xi}{x}
+= \pdydx{u}{\eta} + \pdydx{u}{\xi}
+\quad \text{and} \quad
+\pdydx{u}{t} = \pdydx{u}{\eta}\pdydx{\eta}{t} + \pdydx{u}{\xi}\pdydx{\xi}{t}
+= -c\, \pdydx{u}{\eta} +c\, \pdydx{u}{\xi} \ ,
+\]
+we get
+\begin{align*}
+\pdydxn{u}{x}{2} &= \pdfdx{\left(\pdydx{u}{x}\right)}{x}
+= \pdfdx{\left(\pdydx{u}{\eta} + \pdydx{u}{\xi}\right)}{\eta} \pdydx{\eta}{x}
++ \pdfdx{\left(\pdydx{u}{\eta} + \pdydx{u}{\xi}\right)}{\xi} \pdydx{\xi}{x}\\
+&= \pdydxn{u}{\eta}{2}\pdydx{\eta}{x} +
+\pdydxnm{u}{\eta}{\xi}{2}{}{}\pdydx{\eta}{x} +
+\pdydxnm{u}{\xi}{\eta}{2}{}{}\pdydx{\xi}{x} +
+\pdydxn{u}{\xi}{2}\pdydx{\xi}{x}
+= \pdydxn{u}{\eta}{2} + 2\pdydxnm{u}{\eta}{\xi}{2}{}{} +
+\pdydxn{u}{\xi}{2}
+\end{align*}
+and
+\begin{align*}
+\pdydxn{u}{t}{2} &= \pdfdx{\left(\pdydx{u}{t}\right)}{t}
+= \pdfdx{\left(-c\pdydx{u}{\eta} + c\pdydx{u}{\xi}\right)}{\eta}\pdydx{\eta}{t}
++ \pdfdx{\left(-c\pdydx{u}{\eta} + c\pdydx{u}{\xi}\right)}{\xi}\pdydx{\xi}{t}\\
+&= -c\,\left( -c\, \pdydxn{u}{\eta}{2}
+   + c\,\pdydxnm{u}{\eta}{\xi}{2}{}{}\right) +
+c\, \left( -c \,\pdydxnm{u}{\xi}{\eta}{2}{}{} + c\,\pdydxn{u}{\xi}{2} 
+\right)
+= c^2\,\left(\pdydxn{u}{\eta}{2} - 2\pdydxnm{u}{\eta}{\xi}{2}{}{}
++ \pdydxn{u}{\xi}{2} \right) \ .
+\end{align*}
+Hence, (\ref{wave_oneD}) becomes
+\[
+0 = \pdydxn{u}{t}{2} - c^2 \pdydxn{u}{x}{2} =
+c^2\,\left(\pdydxn{u}{\eta}{2} - 2\pdydxnm{u}{\eta}{\xi}{2}{}{}
++ \pdydxn{u}{\xi}{2} \right) - c^2 \left(
+\pdydxn{u}{\eta}{2} + 2\pdydxnm{u}{\eta}{\xi}{2}{}{} +
+\pdydxnm{u}{\eta}{\xi}{2}{}{} \right)
+= -4c^2 \pdydxnm{u}{\eta}{\xi}{2}{}{} \ .
+\]
+We have to solve the partial differential equation
+\begin{equation} \label{wave_oneD1}
+\pdydxnm{u}{\eta}{\xi}{2}{}{} = 0 \ .
+\end{equation}
+Integrating (\ref{wave_oneD1}) with
+respect to $\xi$ yields $\displaystyle \pdydx{u}{\eta} = H(\eta)$ for
+some function $H:\RR\rightarrow \RR$.  Integrating
+$\displaystyle \pdydx{u}{\eta} = H(\eta)$ with respect to $\eta$ yields
+$\displaystyle u(\eta,\xi) = \int H(\eta) \dx{\eta} + G(\xi)$ for some
+function $G:\RR\rightarrow \RR$.  If we introduce the function $F$
+defined by
+$\displaystyle F(\eta) = \int H(\eta) \dx{\eta}$, we get the solution
+\[
+u(\eta,\xi) = F(\eta) + G(\xi)
+\]
+for (\ref{wave_oneD1}).  In terms of $x$ and $t$, we get the solution
+\begin{equation} \label{wave_oneD1uFG}
+u(x,t) = F(x-ct) + G(x+ct)
+\end{equation}
+for (\ref{wave_oneD}).
+
+We now consider the initial conditions in (\ref{wave_oneD_init}).
+The functions $F$ and $G$ satisfy the equations
+\[
+f(x) = F(x) + G(x) \quad \text{and} \quad g(x) = -c F'(x) + c G'(x) \ .
+\]
+If we assume that $g$ is locally integrable, we may write
+\[
+\int_0^x g(s)\dx{s} = -c F(x) + c G(x) + c F(0) - c G(0) \ .
+\]
+We end up with two linearly independent equations for $F$ and $G$.
+\begin{align}
+F(x) + G(x) &= f(x) \label{wave_oneD2}
+\intertext{and}
+F(x) - G(x) &= F(0) - G(0) -\frac{1}{c} \int_0^x g(s)\dx{s} \ .
+\label{wave_oneD3}
+\end{align}
+Adding (\ref{wave_oneD2}) and (\ref{wave_oneD3}), and dividing by $2$
+yield
+\[
+F(x) = \frac{1}{2} f(x) - \frac{1}{2c} \int_0^x g(s)\dx{s} +
+\frac{1}{2} \left(F(0) - G(0)\right) \ .
+\]
+Subtracting (\ref{wave_oneD3}) from (\ref{wave_oneD2}), and dividing by $2$
+yield
+\[
+G(x) = \frac{1}{2} f(x) + \frac{1}{2c} \int_0^x g(s)\dx{s} -
+\frac{1}{2} \left(F(0) - G(0)\right) \ .
+\]
+We finally get
+\begin{equation} \label{wave_oneD_sol}
+u(x,t) = F(x-ct) + G(x+ct)
+= \frac{1}{2} \left(f(x-ct) + f(x+ct)\right)
++ \frac{1}{2c} \int_{x-ct}^{x+ct} g(s)\dx{s} \  .
+\end{equation}
+
+If $\displaystyle f \in C^2(\RR)$ and $\displaystyle g \in C^1(\RR)$, then
+(\ref{wave_oneD_sol}) provides a solution of class $\displaystyle C^2(\RR)$ for
+(\ref{wave_oneD}) with the initial conditions (\ref{wave_oneD_init}).
+
+If $g = 0$, then the solution of the wave equation is
+$\displaystyle u(x,t) = \frac{1}{2} \left(f(x-ct) + f(x+ct)\right)$.
+We have illustrated in Figure~\ref{wave_FIG1} the behaviour of this
+solution with respect to time.
+
+\pdfF{wave_equ/wave_fig1}{The wave equation}{There are two waves
+emanating from the initial deformation and moving at speed $c$ in
+opposite directions.}{wave_FIG1}
+
+The value of $u$ at a fixed point $x$ and time $t$ is determined by
+the values of $f$ at $x\pm ct$ and the values of $g$ between $x-ct$
+and $x+ct$.  For this reason, the interval $[x-ct,x+ct]$ is called
+the {\bfseries domain of determinacy}\index{Wave Equation!Domain of
+Determinacy} for $u$ at $(x,t)$.  Conversely, 
+the values of $f$ and $g$ on the interval $[a,b]$ influence only the
+values of $u(x,t)$ for $a-ct \leq x \leq b+ct$ and $t>0$.  The region 
+$\left\{ (x,t) : t>0 \ \text{and} \ a-ct \leq x \leq b+ct \right\}$ is
+called the {\bfseries range of influence}\index{Wave Equation!Range of
+Influence} of the interval $[a,b]$. 
+These definition are illustrated in Figure~\ref{wave_FIG2}.
+A discontinuity of the initial condition on $u$ at $(x_0,0)$ is
+instantaneously propagated along the characteristic lines emanating
+from $(x_0,0)$
+
+\pdfF{wave_equ/wave_fig2}{Domain of determinacy and range of
+influence}{Domain of determinacy and range of influence for the wave
+equation.}{wave_FIG2}
+
+\begin{egg}
+Sketch the solution $u$ of the wave equation $\displaystyle u_{tt} = c^2 u_{xx}$
+with the initial conditions
+\[
+u_t(x,0) = g(x) = 0 \qquad \text{and} \qquad
+u(x,0) = f(x) =
+\begin{cases}
+h & \quad \text{if} \quad |x| \leq a \\
+0 & \quad \text{if} \quad |x| > a
+\end{cases}
+\]
+for $x \in \RR$.  We assume that $a$, $c$ and $h$ are arbitrary
+positive constants.
+
+We have from (\ref{wave_oneD_sol}) that $u(x,t) = f(x-ct) +
+f(x+ct)$.  Hence, we get the following sketch for the solution.
+\begin{center}
+\pdfbox{wave_equ/wave_fig10}
+\end{center}
+\end{egg}
+
+\subsection{Over a Semi-Finite Interval}
+
+In this section, we consider the wave equation
+\[
+\pdydxn{u}{t}{2} - c^2 \pdydxn{u}{x}{2} = 0 \quad ,
+\quad t >0 \text{ and } x > 0 \ ,
+\]
+with the boundary condition
+\begin{equation}\label{wave_oneDHLBC}
+u(0,t) = 0  \quad , \quad t>0 \ ,
+\end{equation}
+and the initial conditions
+\[
+u(x,0) = f(x) \quad \text{and} \quad \pdydx{u}{t}(x,0) = g(x) \quad ,
+\quad x > 0 \ .
+\]
+
+As in the previous section, we may use the change of coordinates $\eta
+= x-ct$ and $\xi = x +ct$ to reduce the wave equation to
+(\ref{wave_oneD1}).  Integrating this equation yields
+\begin{equation}\label{wave_oneDHL1}
+u(\eta,\xi) = F(\eta) + G(\xi)
+\end{equation}
+for some functions $F$ and $G$.  In terms of $x$ and $t$, we get the
+solution
+\[
+u(x,t) = F(x-ct) + G(x+ct)
+\]
+as long as $x-ct>0$.  With the help of the initial conditions as in
+the previous section, we get
+\begin{equation}\label{wave_oneDHLsolp}
+u(x,t) = \frac{1}{2} \left(f(x-ct) + f(x+ct)\right)
++ \frac{1}{2c} \int_{x-ct}^{x+ct} g(s)\dx{s}
+\end{equation}
+for $x-ct > 0$.
+
+We now consider what happens when $x-ct <0$.  We use the boundary
+condition (\ref{wave_oneDHLBC}) to obtain $0 = F(-ct) + G(ct)$ for
+$t>0$.  Thus, $F(w) = -G(-w)$ for $w<0$.  We can now proceed as we did
+for the case $x-ct>0$.
+\begin{align}
+u(x,t) &= F(x-ct) + G(x+ct) = -G(ct-x) + G(x+ct) \nonumber \\
+&= -\left( \frac{1}{2} f(ct-x) + \frac{1}{2c} \int_0^{ct-x} g(s)\dx{s} -
+\frac{1}{2} \left(F(0) - G(0)\right) \right) \nonumber \\
+&\qquad + \left( \frac{1}{2} f(x+ct) + \frac{1}{2c} \int_0^{x+ct} g(s)\dx{s}
+ - \frac{1}{2} \left(F(0) - G(0)\right) \right) \nonumber \\
+&= \frac{1}{2} (f(x+ct) - f(ct-x)) + \frac{1}{2c}
+\int_{ct-x}^{ct+x} g(s) \dx{s}
+\label{wave_oneDHLsoln}
+\end{align}
+for $x-ct < 0$.
+
+For $x-ct>0$, The value of $u$ at a fixed point $x$ and time $t$ is
+determined by the values of $f$ at $x\pm ct$ and the values of $g$
+between $x-ct$ and $x+ct$.  For $x-ct<0$, The value of $u$ at a fixed
+point $x$ and time $t$ is determined by the values of $f$ at $ct\pm x$
+and the values of $g$ between $ct-x$ and $ct+x$.  The interval
+$[ct-x,ct+x]$ is the {\bfseries domain of determinacy}%
+\index{Wave Equation!Domain of Determinacy} for $u$ at
+$(x,t)$ when $x-ct <0$.
+
+\begin{egg}
+Sketch the solution of the wave equation $\displaystyle u_{tt} = c^2 u_{xx}$ for
+$x\geq 0$ and $t \in \RR$ with the initial conditions
+\[
+u(x.0) = \begin{cases}
+0 & \quad \text{if} \ 0<x<a \text{ or } x >b \\
+h & \quad \text{if} \ a\leq x \leq b
+\end{cases}
+\]
+and $u_t(x.0) = 0$ for $x \geq 0$, and the boundary condition
+$u(0,t) = 0$ for $t \geq 0$.
+
+Using (\ref{wave_oneDHLsolp}) and (\ref{wave_oneDHLsoln}), we get the
+following sketch for the solution.
+\begin{center}
+\pdfbox{wave_equ/wave_fig11}
+\end{center}
+\end{egg}
+
+\subsection{Over a Finite Interval}
+
+We first deduce a graphical method to evaluate the solution $u$
+of the wave equation
+\[
+\pdydxn{u}{t}{2} - c^2 \pdydxn{u}{x}{2} = 0 \quad , \quad t>0
+\text{ and } 0<x<L \ ,
+\]
+with the boundary conditions
+\[
+u(0,t) = A(t) \quad \text{and} \quad u(L,t) = B(t) \quad , \quad t>0 \ ,
+\]
+and the initial conditions
+\[
+u(x,0) = f(x) \quad \text{and} \quad \pdydx{u}{t}(x,0) = g(x) \quad ,
+\quad 0 < x < L \ .
+\]
+The function $A$, $B$, $f$ and $g$ are given.
+
+\pdfF{wave_equ/wave_fig3}{Graphical Method to evaluate the solution
+of the wave equation}{Graphical Method to evaluate the solution
+of the wave equation in one dimension.}{wave_FIG3}
+
+The equation (\ref{wave_oneD1uFG}) is still true for
+$0 \leq x-ct < x+ct \leq L$.  Consider Figure~\ref{wave_FIG3}.
+We have that $F$ is constant along
+the lines $x=ct+x_1$ and $x=ct+x_2$, and $G$ is constant along the
+lines $x=-ct+x_3$ and $x=-ct+x_4$.  Hence,
+\begin{align*}
+u(\VEC{a}) + u(\VEC{c}) &= F(x_1) + G(x_4) + F(x_2) + G(x_3) \\
+&= F(x_1) + G(x_3) + F(x_2) + G(x_4) = u(\VEC{d}) + u(\VEC{b}) \ .
+\end{align*}
+Thus,
+\begin{equation} \label{wave_geo1}
+u(\VEC{a}) = u(\VEC{d}) + u(\VEC{b}) - u(\VEC{c})  \ .
+\end{equation}
+
+\begin{egg}
+Consider Figure~\ref{wave_FIG4}.  The values of $u$ inside the region
+$R_1$ are given by (\ref{wave_oneD_sol}).  To find the values of $u$
+at $\VEC{a}$ in $R_3$, we use (\ref{wave_geo1}).  $u(\VEC{b})$ is
+given by the boundary condition on $x=L$,  $u(\VEC{c})$ and
+$u(\VEC{d})$ are given by the values of $u$ on the boundary of $R_1$.
+Proceeding recursively, we may evaluate $u$ in any region $R_i$.
+\label{wave_egg1}
+
+\pdfF{wave_equ/wave_fig4}{D'Alembert method to solve the wave
+equation with boundary and initial conditions}{D'Alembert method to
+solve the wave equation with boundary and initial conditions}{wave_FIG4}
+
+Is the solution that we have defined continuous?  Inside the region
+$R_i$, $u$ will always be continuous if we assume that $f\in C(]0,L[)$
+and $\displaystyle g\in L^1(]0,L[)$.  We only have to consider $u$ along the
+characteristic lines.  Referring to Figure~\ref{wave_FIG4},
+we see that
+\begin{equation} \label{wave_geo2}
+u(\VEC{a}) \rightarrow u(\VEC{d}) + B(0) - f(L)
+\end{equation}
+as $\VEC{a}$ approaches the line $x=-ct+L$.  If $B(0)=f(L)$, then $u$
+will be continuous along $x=-ct+L$ delimiting $R_3$.  Similarly, for
+$u$ to be continuous along the line $x=ct$ delimiting the region $R_1$,
+we need $A(0)=f(0)$.  We have that
+$A,B \in C([0,\infty[)$, $\displaystyle g \in L^1(]0,L[)$ and $f\in C([0,L])$
+with $B(0)=f(L)$ and $A(0) = f(0)$ are sufficient to guarantee that
+$u$ is continuous on the domain
+$\{ (x,t) : t\geq 0, \ 0 \leq x \leq L \}$.
+
+The solution $u$ will be of class $\displaystyle C^1$ inside the $R_i$'s if
+$\displaystyle f\in C^1(]0,L[)$ and $g \in C(]0,L[)$.  The solution
+$u$ will even be of class $\displaystyle C^2$ inside the $R_i$'s if
+$\displaystyle f\in C^2(]0,L[)$ and $\displaystyle g \in C^1(]0,L[)$.
+The issue with the smoothness of the solution is along the lines $x= ct$ and
+$x=-ct+L$, and their reflections on the boundary lines $x=0$ and $x=L$.
+
+If $\displaystyle A,B \in C^2(]0,\infty[)\cap C([0,\infty[)$,
+$\displaystyle g\in C^1(]0,L[)\cap C([0,L])$,
+$\displaystyle f\in C^2(]0,L[)\cap C([0,L])$,
+$A(0)=f(0)$, $A'(0)=g(0)$, $\displaystyle A''(0)= c^2 f''(0)$, $B(0)=f(L)$,
+$B'(0)=g(L)$ and $\displaystyle B''(0)= c^2 f''(L)$, then
+the solution $u$ will be of class $\displaystyle C^2$ on all the domain.
+The conditions on the second order derivatives are necessary to
+satisfies the wave equation on the characteristic lines.
+The conditions above are the {\bfseries consistency
+conditions}\index{Wave Equation!Consistency Conditions} to get a
+classical solution of the wave equation.
+\end{egg}
+
+\section{Non-Homogeneous Wave Equation}
+
+Consider the {\bfseries non-homogeneous wave equation}%
+\index{Wave Equation!Non-Homogeneous}
+\begin{equation} \label{nh_wave_oneD}
+\pdydxn{u}{t}{2} - c^2 \pdydxn{u}{x}{2} = F(x,t) \quad , \quad
+t >0 \ \text{and} \ x \in \RR\ ,  
+\end{equation}
+with the initial conditions
+\begin{equation} \label{nh_wave_oneD_init}
+u(x,0)= f(x) \quad \text{and} \quad \pdydx{u}{t}(x,0) = g(x) \quad ,
+\quad x \in \RR \ .
+\end{equation}
+From now on, we assume that $F$, $f$ and $g$ are sufficiently
+differentiable.
+
+To find a solution of this problem, we use Green's Integral Formula
+\begin{equation}\label{nh_GIF}
+\iint_K \left( \pdydx{Q}{x} - \pdydx{P}{t} \right) \dx{x}\dx{t}
+= \int_{\partial K} P \dx{x} + Q \dx{t} \ ,
+\end{equation}
+where $P$ and $Q$ are continuous differentiable functions in an open
+set containing $\displaystyle K \in \RR^2$, and $\partial K$ is positively
+oriented.  The region $K  = K_{x_0,t_0}$ that we consider is
+drawn in Figure~\ref{nh_wave_domain}.
+
+\pdfF{wave_equ/nh_wave_fig1}{Domain of determinacy}
+{Domain of determinacy used to find the solution of the
+non-homogeneous wave equation (\ref{nh_wave_oneD}) with the initial
+conditions (\ref{nh_wave_oneD_init})}{nh_wave_domain}
+
+From (\ref{nh_wave_oneD}), we have
+\[
+-\iint_{K_{x_0,t_0}} F(x,t) \dx{x}\dx{t} = \iint_{K_{x_0,t_0}} \left(
+c^2 \pdydxn{u}{x}{2} - \pdydxn{u}{t}{2} \right) \dx{x}\dx{t}
+= \int_{\Gamma} \pdydx{u}{t} \dx{x} + c^2 \pdydx{u}{x} \dx{t} \ ,
+\]
+where we have used Green's Integral Formula (\ref{nh_GIF}) with
+$\displaystyle P = \pdydx{u}{t}$ and
+$\displaystyle Q = c^2 \pdydx{u}{x}$, and
+$\Gamma = \gamma_1 + \gamma_2 + \gamma_3$ is the positively oriented
+boundary of $K_{x_0,t_0}$ as drawn in Figure~\ref{nh_wave_domain}.
+
+On $\gamma_1$, we use the parametric representation $(x,t) = (x,0)$ for
+$x_0-ct_0 \leq x \leq x_0+ct_0$ to get
+\[
+\int_{\gamma_1} \pdydx{u}{t} \dx{x} + c^2 \pdydx{u}{x} \dx{t}
+= \int_{x_0-ct_0}^{x_0+ct_0} g(x) \dx{x}
+\]
+because $\displaystyle \pdydx{u}{t}(x,0) = g(x)$ for $x\in \RR$.
+On $\gamma_2$, we use the parametric representation
+$(x,t) = (-ct+x_0+ct_0,t)$ for $0 \leq t \leq t_0$ to get
+\begin{align*}
+\int_{\gamma_2} \pdydx{u}{t} \dx{x} + c^2 \pdydx{u}{x} \dx{t}
+& = -c \int_0^{t_0} \left( \pdydx{u}{t} - c \pdydx{u}{x} \right) \dx{t}
+= -c \int_0^{t_0} \dfdx{u(-ct+x_0+ct_0,t)}{t} \dx{t} \\
+& = -c \left( u(x_0,t_0) - u(x_0+ct_0,0) \right)
+=  -c \left( u(x_0,t_0) - f(x_0+ct_0) \right)
+\end{align*}
+because $\displaystyle u(x,0) = f(x)$ for $x \in \RR$.
+On $\gamma_3$, we use the parametric representation
+$(x,t) = (c(t_0-t)+x_0-ct_0,t_0-t)$ for 
+$0 \leq t \leq t_0$ to get
+\begin{align*}
+\int_{\gamma_3} \pdydx{u}{t} \dx{x} + c^2 \pdydx{u}{x} \dx{t}
+& = -c \int_0^{t_0} \left( \pdydx{u}{t} + c \pdydx{u}{x} \right) \dx{t}
+= c \int_0^{t_0} \dfdx{u(c(t_0-t)+x_0-ct_0,t_0-t)}{t} \dx{t} \\
+& = c \left( u(x_0-ct_0,0) - u(x_0,t_0) \right)
+= c \left( f(x_0-ct_0) -u(x_0,t_0) \right)
+\end{align*}
+because $\displaystyle u(x,0) = f(x)$ for $x \in \RR$.
+
+Hence,
+\begin{align*}
+-\iint_{K_{x_0,t_0}} F(x,t) \dx{x}\dx{t} &
+= \int_{\gamma_1} \pdydx{u}{t} \dx{x} + c^2 \pdydx{u}{x} \dx{t}
++ \int_{\gamma_2} \pdydx{u}{t} \dx{x} + c^2 \pdydx{u}{x} \dx{t}
++ \int_{\gamma_3} \pdydx{u}{t} \dx{x} + c^2 \pdydx{u}{x} \dx{t} \\
+&= \int_{x_0-ct_0}^{x_0+ct_0} g(x) \dx{x} 
++ c \left( f(x_0-ct_0) +  f(x_0+ct_0) \right) -2c u(x_0,t_0) \ .
+\end{align*}
+If we solved for $u(x_0,t_0)$, we get
+\[
+u(x_0,t_0) = \frac{1}{2} \left(f(x_0-ct_0) + f(x_0+ct_0)\right)
++ \frac{1}{2c} \int_{x_0-ct_0}^{x_0+ct_0} g(x)\dx{x}
++ \frac{1}{2c} \iint_{K_{x_0,t_0}} F(x,t) \dx{x}\dx{t}
+\]
+
+This suggest the solution $u = u_1 + u_2$ for
+(\ref{nh_wave_oneD}) and (\ref{nh_wave_oneD_init}), where
+\[
+u_1(x,t) = \frac{1}{2} \left(f(x-ct) + f(x+ct)\right)
++ \frac{1}{2c} \int_{x-ct}^{x+ct} g(s)\dx{s} 
+\]
+is a solution of the homogeneous wave equation (\ref{wave_oneD}) and
+(\ref{wave_oneD_init}), and
+\[
+u_2(x,t) = \frac{1}{2c} \iint_{K_{x,t}} F(z,s) \dx{z}\dx{s}
+= \frac{1}{2c} \int_0^t \int_{x-c(t-s)}^{x+c(t-s)} F(z,s)\dx{z}\dx{s} \ .
+\]
+
+To prove that $u$ is effectively the solution of our non-homogeneous
+wave equation, we need to prove that $u_2$ satisfies
+(\ref{nh_wave_oneD}) with the initial condition
+$\displaystyle u(x,0)= 0$ and $\displaystyle \pdydx{u}{t}(x,0) = 0$
+for $x \in \RR$.  To prove this, we need to use the Fundamental
+Theorem of Calculus several times.  We obviously have $u_2(x,0) =0$.
+We also have that
+\begin{align*}
+\pdydx{u_2}{t}(x,t) &= \frac{1}{2c} \int_{x}^{x} F(z,t)\dx{z}
++ \frac{1}{2} \int_0^t \big( F(x+c(t-s),s) + F(x-c(t-s),s) \big)
+\dx{s} \\
+&= \frac{1}{2} \int_0^t \big( F(x+c(t-s),s) + F(x-c(t-s),s) \big) \dx{s} \ .
+\end{align*}
+Thus, $\displaystyle \pdydx{u_2}{t}(x,0) = 0$ as desired.
+Furthermore,
+\begin{equation} \label{nh_u2tt}
+\pdydxn{u_2}{t}{2}(x,t) = F(x,s)
++ \frac{c}{2} \int_0^t \left( \pdydx{F}{x}(x+c(t-s),s)
+- \pdydx{F}{x}(x-c(t-s),s) \right) \dx{s} \ .
+\end{equation}
+Similarly,
+\[
+\pdydx{u_2}{x}(x,t) = \frac{1}{2c} \int_0^t
+\left( F(x+c(t-s),s) - F(x-c(t-s),s) \right) \dx{s}
+\]
+and
+\begin{equation} \label{nh_u2xx}
+\pdydxn{u_2}{x}{2}(x,t) = 
+\frac{1}{2c} \int_0^t \left( \pdydx{F}{x}(x+c(t-s),s)
+- \pdydx{F}{x}(x-c(t-s),s) \right) \dx{s} \ .
+\end{equation}
+(\ref{nh_wave_oneD}) follows from (\ref{nh_u2tt}) and (\ref{nh_u2xx}).
+
+\begin{rmk}
+We will introduce in Section~\ref{sectDuhamel} another method, the
+Duhamel principle, to solve non-homogeneous wave equations.
+\end{rmk}
+
+\begin{egg}
+Solve the non-homogeneous wave equation
+\[
+\pdydxn{u}{t}{2} - 4 \pdydxn{u}{x}{2} = e^x + \sin(t) \quad , \quad
+x\in \RR\ \text{and} \ t>0 \ ,
+\]
+with the initial conditions
+$\displaystyle u(x,0) = 0$ and
+$\displaystyle \pdydx{u}{t}(x,0) = \frac{1}{1+x^2}$ for $x \in \RR$.
+
+The solution is given by
+\[
+u(x,t) = \frac{1}{2} \left(f(x-ct) + f(x+ct)\right)
++ \frac{1}{2c} \int_{x-ct}^{x+ct} g(s)\dx{s} 
++ \frac{1}{2c} \int_0^t \int_{x-c(t-s)}^{x+c(t-s)} F(z,s)\dx{z}\dx{s} \ ,
+\]
+where $c=2$, $f(x)=0$ for all $x \in \RR$,
+$\displaystyle g(x) = 1/(1+x^2)$ for all
+$x\in \RR$, and $\displaystyle F(x,t) = e^x + \sin(t)$.  We get
+\begin{align*}
+u(x,t) &= \frac{1}{4} \int_{x-2t}^{x+2t} \frac{1}{1+s^2} \dx{s} 
++ \frac{1}{4} \int_0^t \int_{x-2(t-s)}^{x+2(t-s)} (e^z + \sin(s))
+\dx{z}\dx{s} \\
+&= \frac{1}{4} \arctan(s) \bigg|_{x-2t}^{x-2t}
++ \frac{1}{4} \int_0^t \left(e^{x+2(t-s)} - e^{x-2(t-s)} +
+  4(t-s)\sin(s) \right) \dx{s} \\
+&= \frac{1}{4} \left( \arctan(x-2t) - \arctan(x-2t) \right)
++ \frac{1}{8} \left( e^{x+2t} + e^{x-2t} \right) - \frac{e^x}{4}
++ t - \sin(t) \ .
+\end{align*}
+\end{egg}
+
+\begin{rmk}
+For the previous example, there is a more direct approach to solve the
+non-homogeneous wave equation.
+
+It is easy to see that $u_1(x,t)=-\sin(t)$ is a solution of
+\[
+\pdydxn{u}{t}{2} - 4 \pdydxn{u}{x}{2} =  \sin(t) \quad , \quad
+x\in \RR \text{ and } t>0 \ ,
+\]
+and $\displaystyle u_2(x,t)= - e^x/4$ is a solution of
+\[
+\pdydxn{u}{t}{2} - s^4 \pdydxn{u}{x}{2} =  e^x \quad , \quad
+x\in \RR\ \text{and} \ t>0 \ .
+\]
+The solution of the non-homogeneous problem of the previous example is
+therefore $u = u_1 + u_2 + u_3$, where $u_3$ is a solution of the
+homogeneous wave equation
+\[
+\pdydxn{u}{t}{2} - 4 \pdydxn{u}{x}{2} = 0 \quad , \quad
+x\in \RR\ \text{and} \ t>0 \ ,
+\]
+with the initial conditions
+\begin{align*}
+u(x,0) &= 0 - u_1(x,0) - u_2(x,0) = \frac{e^x}{4}
+\intertext{and}
+\pdydx{u}{t}(x,0) &= \frac{1}{1+x^2} - \pdydx{u_1}{t}(x,0) -
+\pdydx{u_2}{t}(x,0) = \frac{1}{1+x^2} + 1  \ .
+\end{align*}
+We find
+\begin{align*}
+u_3(x,t) &= \frac{1}{2}\left( \frac{e^{x-2t}}{4} + \frac{e^{x+2t}}{4} \right)
++ \frac{1}{4} \int_{x-2t}^{x+2t} \left( \frac{1}{1+s^2} + 1
+\right)\dx{s} \\
+&= \frac{e^{x-2t}}{8} + \frac{e^{x+2t}}{8}
++ \frac{1}{4} \left(\arctan(s) + s\right)\bigg|_{x-2t}^{x+2t} \\
+&= \frac{e^{x-2t}}{8} + \frac{e^{x+2t}}{8}
++ \frac{1}{4} \left(\arctan(x+2t) - \arctan(x-2t)\right) + t \ .
+\end{align*}
+\end{rmk}
+
+\section{Strong Solution of the Wave equation} \label{SectWaveEq1DStSol}
+
+Consider the hyperbolic linear partial differential equation of order two
+\begin{equation}  \label{we_classic_sol}
+L(\eta,\xi,\diff)u = \pdydxnm{u}{\eta}{\xi}{2}{}{} + A_{1,0}
+\pdydx{u}{\eta} + A_{0,1} \pdydx{u}{\xi} + A_{0,0} u = 0
+\end{equation}
+which is the general form of a linear homogeneous hyperbolic partial
+differential equation of order two after reduction using a change of
+variables provided by level curves which are characteristic curves.
+
+The adjoint of $L(\eta,\xi,\diff)$ is defined by
+\[
+L^\ast(\eta,\xi,\diff)\phi = \pdydxnm{\phi}{\eta}{\xi}{2}{}{} -
+\pdfdx{\left(A_{1,0}\phi\right)}{\eta} -
+\pdfdx{\left(A_{0,1}\phi\right)}{\xi} + A_{0,0} \phi
+\]
+for $\displaystyle \phi \in \DD(\RR^2)$. 
+
+$u:\Omega \to \RR$ is a strong solution of $L(\eta,\xi,\diff)u=0$
+over an open set $\displaystyle \Omega \subset \RR^2$ if
+\begin{equation} \label{we_strong_sol}
+\int_\Omega u(\eta,\xi)\, L^\ast(\eta,\xi,\diff)\phi(\eta,\xi)
+\dx{\eta}\dx{\xi} = 0
+\end{equation}
+for all $\phi \in \DD(\Omega)$.  This is satisfied if
+$\displaystyle u \in C^2(\Omega)$ is a solution of
+(\ref{we_classic_sol}) as can be shown using integration by parts.
+
+Suppose that $\Omega$ is traversed by a characteristic curve $\Gamma$
+along which the smoothness of $u$ is broken.  Since the characteristic
+curves are the level curves of the change of variables used to get the
+reduced form of the hyperbolic equation, we may assume that the
+characteristic curve $\Gamma$ traversing $\Omega$ is the line $\xi=0$
+as in Figure~\ref{wave_FIG5}.
+
+\pdfF{wave_equ/wave_fig5}{The Transmission condition for a strong
+solution}{The Transmission condition for a strong
+solution across a characteristic line represented by the $\eta$ axis.}
+{wave_FIG5}
+
+We have $\Omega = \Omega_+ \cup \Omega_0 \cup \Omega_-$, where
+$\displaystyle \Omega_+ = \left\{ (\eta,\xi) \in \Omega : \xi>0 \right\}$,
+$\displaystyle \Omega_- = \left\{ (\eta,\xi) \in \Omega : \xi<0 \right\}$
+and $\Omega_0 = \left\{ (\eta,\xi) \in \Omega : \xi=0 \right\}$.
+
+Suppose that $u:\Omega \to \RR$ is a strong solution which also satisfies
+(\ref{we_classic_sol}) in the classical sense on $\Omega_+$ and
+$\Omega_-$.  The fact that $u$ is a strong solution imposes some extra
+conditions on $u$ along $\Omega_0$.
+
+We may assume that $u(\eta,\xi) = 0$ for $(\eta,\xi) \not\in \Omega$.
+We may also assume that $\phi \in \DD(\Omega)$ is in fact
+in $\displaystyle \DD(\RR^2)$ and has a compact support in $\Omega$.  This is
+something that we will often do to simplify the discussion when we
+have to work on an open subset of $\displaystyle \RR^n$.
+
+Using integration by parts, we get for $\phi \in \DD(\Omega)$ that
+\begin{align*}
+& \int_\Omega u(\eta,\xi)\, L^\ast(\eta,\xi,\diff)\phi(\eta,\xi)
+\dx{\eta}\dx{\xi} \\
+&= \int_{\Omega_+} u(\eta,\xi)\, L^\ast(\eta,\xi,\diff)\phi(\eta,\xi)
+\dx{\eta}\dx{\xi}
++\int_{\Omega_-} u(\eta,\xi)\, L^\ast(\eta,\xi,\diff)\phi(\eta,\xi)
+\dx{\eta}\dx{\xi} \\
+&= \int_0^{+\infty} \int_{-\infty}^{+\infty} u \left(
+\pdydxnm{\phi}{\eta}{\xi}{2}{}{} -\pdfdx{\left(A_{1,0}\phi\right)}{\eta} -
+\pdfdx{\left(A_{0,1}\phi\right)}{\xi}
++ A_{0,0} \phi \right) \dx{\eta}\dx{\xi} \\
+& \quad +  \int_{-\infty}^0 \int_{-\infty}^{+\infty} u \left(
+\pdydxnm{\phi}{\eta}{\xi}{2}{}{}-\pdfdx{\left(A_{1,0}\phi\right)}{\eta} -
+\pdfdx{\left(A_{0,1}\phi\right)}{\xi} + A_{0,0}\phi \right) \dx{\eta}\dx{\xi} \\
+&= \int_0^{+\infty} \left( u
+\pdydx{\phi}{\xi}\bigg|_{-\infty}^{+\infty} - \int_{-\infty}^{+\infty}
+\pdydx{u}{\eta}\pdydx{\phi}{\xi} \dx{\eta} \right) \dx{\xi}
+- \int_0^{+\infty} \left( u A_{1,0} \phi\bigg|_{-\infty}^{+\infty}
+- \int_{-\infty}^{+\infty} \pdydx{u}{\eta} A_{1,0} \phi
+\dx{\eta}\right) \dx{\xi} \\
+& \quad + \int_0^{+\infty} \int_{-\infty}^{+\infty}
+u \left(-\pdfdx{\left(A_{0,1}\phi\right)}{\xi}
++ A_{0,0} \phi \right) \dx{\eta}\dx{\xi} \\
+& \quad + \int_{-\infty}^0 \left( u
+\pdydx{\phi}{\xi}\bigg|_{-\infty}^{+\infty} - \int_{-\infty}^{+\infty}
+\pdydx{u}{\eta}\pdydx{\phi}{\xi} \dx{\eta} \right) \dx{\xi}
+- \int_{-\infty}^0 \left( u A_{1,0} \phi\bigg|_{-\infty}^{+\infty}
+- \int_{-\infty}^{+\infty} \pdydx{u}{\eta} A_{1,0} \phi
+\dx{\eta}\right) \dx{\xi} \\
+& \quad + \int_{-\infty}^0 \int_{-\infty}^{+\infty}
+u \left(-\pdfdx{\left(A_{0,1}\phi\right)}{\xi}
++ A_{0,0} \phi \right) \dx{\eta}\dx{\xi} \\
+&= \int_{-\infty}^{+\infty} \int_0^{+\infty} \left(
+- \pdydx{u}{\eta}\pdydx{\phi}{\xi} + \pdydx{u}{\eta} A_{1,0} \phi
+- u \pdfdx{\left(A_{0,1}\phi\right)}{\xi}
++ u A_{0,0} \phi \right) \dx{\xi}\dx{\eta} \\
+&\quad + \int_{-\infty}^{+\infty} \int_{-\infty}^0 \left(
+-\pdydx{u}{\eta}\pdydx{\phi}{\xi} + \pdydx{u}{\eta} A_{1,0} \phi
+- u \pdfdx{\left(A_{0,1}\phi\right)}{\xi} + u A_{0,0} \phi \right)
+\dx{\xi}\dx{\eta} \\
+&= \int_{-\infty}^{+\infty} \left( -\pdydx{u}{\eta}
+\phi\bigg|_0^{+\infty} + \int_0^{+\infty}
+\pdydxnm{u}{\eta}{\xi}{2}{}{} \phi \dx{\xi} \right) \dx{\eta}
+- \int_{-\infty}^{+\infty} \left( u A_{0,1} \phi\bigg|_0^{+\infty}
+- \int_0^{+\infty} \pdydx{u}{\xi} A_{0,1} \phi \dx{\xi}\right) \dx{\eta} \\
+&\quad + \int_0^{+\infty} \int_{-\infty}^{+\infty}
+\left(\pdydx{u}{\eta} A_{1,0}\phi + u A_{0,0} \phi \right) \dx{\eta}\dx{\xi} \\
+&\quad + \int_{-\infty}^{+\infty} \left( -\pdydx{u}{\eta}
+\phi\bigg|_{-\infty}^0 + \int_{-\infty}^0
+\pdydxnm{u}{\eta}{\xi}{2}{}{} \phi \dx{\xi} \right) \dx{\eta}
+- \int_{-\infty}^{+\infty} \left( u A_{0,1} \phi\bigg|_{-\infty}^0
+- \int_{-\infty}^0 \pdydx{u}{\xi} A_{0,1} \phi
+\dx{\xi}\right) \dx{\eta} \\
+&\quad + \int_{-\infty}^0 \int_{-\infty}^{+\infty}
+\left(\pdydx{u}{\eta} A_{1,0}\phi + u A_{0,0} \phi \right) \dx{\eta}\dx{\xi} \\
+&= \int_{\Omega_+} \left( L(\eta,\xi,\diff) u(\eta,\xi)\right)\phi(\eta,\xi)
+\dx{\eta}\dx{\xi}
++ \int_{\Omega_-} \left(L(\eta,\xi,\diff) u(\eta,\xi)\right)\phi(\eta,\xi)
+\dx{x}\dx{t} \\
+&\quad +\int_{\Omega_0} \left( u_+(\eta,0) A_{0,1}(\eta,0) \phi(\eta,0) +
+\pdydx{u_+}{\eta}(\eta,0)\phi(\eta,0) \right) \dx{\eta} \\
+&\quad - \int_{\Omega_0} \left( u_-(\eta,0) A_{0,1}(\eta,0) \phi(\eta,0) +
+\pdydx{u_-}{\eta}(\eta,0)\phi(\eta,0) \right) \dx{\eta} \\
+&=\int_{\Omega_0} \left(u_+(\eta,0) -u_-(\eta,0)\right)
+A_{0,1}(\eta,0) \phi(\eta,0)\dx{\eta}
++\int_{\Omega_0} \left( \pdydx{u_+}{\eta}(\eta,0)
+- \pdydx{u_-}{\eta}(\eta,0) \right)\phi(\eta,0) \dx{\eta}
+\end{align*}
+where $\displaystyle u_\pm(\eta,0) = \lim_{\xi\rightarrow 0^\pm} u(\eta,\xi)$
+and $\displaystyle \pdydx{u_\pm}{\eta}(\eta,0) =
+\lim_{\xi\rightarrow 0^\pm} \pdydx{u}{\eta}(\eta,\xi)$.  We assume
+that these limits exist.
+
+To get $\displaystyle \int_R u(\eta,\xi)\, L^\ast(\eta,\xi,\diff)\phi(\eta,\xi)
+\dx{\eta}\dx{\xi} =0$ for all $\phi \in \DD(\Omega)$, we must have
+\[
+  \int_{\Omega_0} \big(u_+(\eta,0) - u_-(\eta,0)\big) A_{0,1}(\eta,0)
+\phi(\eta,0) \dx{\eta} +\int_{\Omega_0} \left( \pdydx{u_+}{\eta}(\eta,0)
+- \pdydx{u_-}{\eta}(\eta,0)\right) \phi(\eta,0) \dx{\eta} = 0
+\]
+for all $\phi \in \DD(\Omega)$.  This is the
+{\bfseries transmission condition}\index{Wave Equation!Transmission Condition}
+to get a strong solution.
+
+If we consider the wave equation
+$\displaystyle L(\eta,\xi,\diff)u = \pdydxnm{u}{\eta}{\xi}{2}{}{} = 0$, the
+transmission condition for $u$ to be a strong solution is
+\begin{equation} \label{wave_egg4}
+\int_{\Omega_0} \left( \pdydx{u_+}{\eta}(\eta,0)
+- \pdydx{u_-}{\eta}(\eta,0)\right) \phi(\eta,0) \dx{\eta} = 0
+\end{equation}
+for all $\displaystyle \phi\in \DD(\Omega)$.
+Since this is true for all test functions $\phi \in \DD(\Omega)$, we must
+have
+\[
+\pdydx{u_+}{\eta}(\eta,0) - \pdydx{u_-}{\eta}(\eta,0) = 0
+\]
+for almost every $\eta \in \RR$.  If $u$ and $\displaystyle
+\pdydx{u}{\eta}$ can be continuously extended to the $\xi$ axis, then
+this shows that $\displaystyle u_+(\eta,0) - u_-(\eta,0)$ is constant
+for $\eta \in \RR$.
+
+\begin{egg}
+In Example~\ref{wave_egg1}, if the functions $f$, $g$, $A$ and $B$ are
+$\displaystyle C^\infty$. then the solution $u$ constructed in the example is a
+strong solution because the transmission condition is satisfied.
+We have a constant jump discontinuity along the characteristic 
+lines $x = ct$ and $x = -ct +L$, and their reflections through the
+boundary $x=0$ and $x=L$.  For instance, it follows from
+(\ref{wave_geo2}) that 
+$\displaystyle \lim_{\substack{a \to d\\ a \in E_3}} u(a) = u(d)+ B(0) - f(L)$
+where the region $E_3$ is defined in Figure~\ref{wave_FIG4}.
+\end{egg}
+
+\section{Separation of variables}
+
+In this section, we use the method of separation of variables to solve
+the wave equation with some initial and boundary conditions.
+
+The method of separation of variables can generally be used to find
+strong solutions for the wave equation.  We will come back on this
+subject later on.  The next theorem states that if the initial
+conditions are smooth enough, then the method of separation of
+variables yields a classical solution.
+
+\begin{theorem} \label{wave_spv_conditions}
+Suppose that $\displaystyle f \in C^3([0,L])$,
+$\displaystyle g\in C^2([0,L])$, $f(0)=f(L)=0$,
+$f''(0)=f''(L)=0$ and $g(0)=g(L)=0$.  Let
+\begin{equation} \label{wave_class_sol1}
+u(x,t) = \sum_{n=1}^\infty \left(a_n\cos\left(\frac{n\pi t}{L}\right)
++ b_n \sin\left(\frac{n\pi t}{L}\right)\right)
+\sin\left(\frac{n\pi x}{L}\right)
+\end{equation}
+with
+\[
+a_n = \frac{2}{L} \int_0^L f(x) \,\sin\left(\frac{n\pi x}{L}\right)
+\dx{x} \quad \text{and} \quad
+b_n = \frac{2}{n\pi} \int_0^L g(x)\, \sin\left(\frac{n\pi x}{L}\right)
+\dx{x} \ .
+\]
+Then $u$ is a classical solution of the wave equation
+\begin{equation} \label{wave_class_sol2}
+\pdydxn{u}{t}{2} - \pdydxn{u}{x}{2} = 0 \quad , \quad t>0 \text{ and }
+0<x<L \ ,
+\end{equation}
+with the boundary condition
+\[
+u(0,t) = 0 \quad \text{and} \quad u(L,t) = 0 \quad , \quad t>0 \  ,
+\]
+and the initial condition
+\[
+u(x,0) = f(x) \quad \text{and} \quad \pdydx{u}{t}(x,0) = g(x) \quad ,
+\quad 0 < x < L \ .
+\]
+\end{theorem}
+
+\begin{proof}
+To prove the theorem, it is enough to show that
+\begin{align*}
+u(x,t) &=
+\sum_{n=1}^\infty \left(a_n\cos\left(\frac{n\pi t}{L}\right)
++ b_n \sin\left(\frac{n\pi t}{L}\right)\right)
+\sin\left(\frac{n\pi x}{L}\right) \ , \\
+\pdydx{u}{t}(x,t) &=
+\sum_{n=1}^\infty \frac{n\pi}{L} \left(-a_n \sin\left(\frac{n\pi t}{L}\right)
++ b_n \cos\left(\frac{n\pi t}{L}\right)\right)
+\sin\left(\frac{n\pi x}{L}\right) \ , \\
+\pdydxn{u}{t}{2}(x,t) &=
+-\sum_{n=1}^\infty \frac{n^2\pi^2}{L^2} \left( a_n
+\cos\left(\frac{n\pi t}{L}\right)
++ b_n \sin\left(\frac{n\pi t}{L}\right)\right)
+\sin\left(\frac{n\pi x}{L}\right) \ , \\
+\pdydx{u}{x}(x,t) &=
+\sum_{n=1}^\infty \frac{n\pi}{L} \left(a_n\cos\left(\frac{n\pi t}{L}\right)
++ b_n \sin\left(\frac{n\pi t}{L}\right)\right)
+\cos\left(\frac{n\pi x}{L}\right) \ , \\
+\pdydxn{u}{x}{2}(x,t) &= -\sum_{n=1}^\infty \frac{n^2\pi^2}{L^2}
+\left(a_n\cos\left(\frac{n\pi t}{L}\right)
++ b_n \sin\left(\frac{n\pi t}{L}\right)\right)
+\sin\left(\frac{n\pi x}{L}\right)
+\intertext{and}
+\pdydxnm{u}{t}{x}{2}{}{}(x,t) &=
+\sum_{n=1}^\infty \frac{n^2\pi^2}{L^2}
+\left(-a_n \sin\left(\frac{n\pi t}{L}\right)
++ b_n \cos\left(\frac{n\pi t}{L}\right)\right)
+\cos\left(\frac{n\pi x}{L}\right)
+\end{align*}
+converge uniformly on $[0,L]\times[0,T]$ whatever $T>0$.
+
+Assuming the uniform convergence of the series above, we have that $u$
+is continuous on $[0,L]\times [0,\infty[$ because it is continuous on
+each set $[0,L]\times [0,T]$ being the uniform limit in
+(\ref{wave_class_sol1}) of continuous functions.  We can also
+interchange the summation in (\ref{wave_class_sol1}) and the
+derivatives $\displaystyle \pdydx{}{t}$, $\displaystyle \pdydxn{}{t}{2}$,
+$\displaystyle \pdydx{}{x}$, $\displaystyle \pdydxn{}{x}{2}$ and
+$\displaystyle \pdydxnm{}{x}{t}{2}{}{}$.  Since each term of the
+series in (\ref{wave_class_sol1}) is twice differentiable, it follows
+that the same is true for $u$.  Thus
+$\displaystyle u\in C^2(]0,L[\times]0,\infty[)$.
+Moreover, $u$ satisfies (\ref{wave_class_sol2}) because each term of
+the series in (\ref{wave_class_sol1}) satisfies
+(\ref{wave_class_sol2}).  The boundary conditions are also satisfied
+by each term of the series in (\ref{wave_class_sol1}).  The initial
+conditions are satisfied because the $a_n$ and $n\pi b_n/L$ are the
+coefficients for the Fourier sine series of $f$ and $g$ respectively
+on the interval $[0,L]$.
+
+To prove the convergence of all the series above, it is enough to
+prove that
+$\displaystyle \sum_{n=1}^\infty n^2|a_n|$ and
+$\displaystyle \sum_{n=1}^\infty n^2|b_n|$ converge.
+
+Using integration by parts, we find
+\[
+a_n = \frac{2}{L} \int_0^L f(x) \sin\left(\frac{n\pi x}{L}\right) \dx{x}
+= -\frac{2}{L} \left( \frac{L}{n\pi}\right)^3 
+\int_0^L \dydxn{f}{x}{3}(x) \cos\left(\frac{n\pi x}{L}\right) \dx{x} \  .
+\]
+Thus, for $N>0$, we have
+\begin{align*}
+0 &\leq \frac{2}{L} \int_0^L \left( \dydxn{f}{x}{3}(x) +
+\left(\frac{\pi}{L}\right)^3 \sum_{n=1}^N n^3 a_n
+\cos\left(\frac{n\pi x}{L}\right) \right)^2 \dx{x} \\
+&= \frac{2}{L} \int_0^L \left( \dydxn{f}{x}{3}(x) \right)^2 \dx{x}
++ \frac{4}{L} \left(\frac{\pi}{L}\right)^3
+\sum_{n=1}^N n^3 a_n \underbrace{\int_0^L \dydxn{f}{x}{3}(x)
+\cos\left(\frac{n\pi x}{L}\right)
+\dx{x}}_{=-(a_n L/2)(n \pi/L)^3} \\
+&\qquad \qquad + \left(\frac{\pi}{L}\right)^6 \sum_{n=1}^N \sum_{m=1}^N
+n^3 a_n m^3 a_m \underbrace{\int_0^L \cos\left(\frac{n\pi x}{L}\right)
+\cos\left(\frac{m\pi x}{L}\right) \dx{x}}_{=
+\begin{cases} 0 &\text{ if } n\neq m\\ 1/2 & \text{ if } n = m
+\end{cases}} \\
+&= \frac{2}{L} \int_0^L \left( \dydxn{f}{x}{3}(x) \right)^2 \dx{x}
+- 2 \left(\frac{\pi}{L}\right)^6 \sum_{n=1}^N n^6 a_n^2
++ \left(\frac{\pi}{L}\right)^6 \sum_{n=1}^N n^6 a_n^2 \ .
+\end{align*}
+It follows that
+\[
+S_N \equiv \sum_{n=1}^N n^6 a_n^2 \leq
+\frac{2}{L} \left(\frac{L}{\pi}\right)^6
+\int_0^L \left( \dydxn{f}{x}{3}(x) \right)^2 \dx{x} <
+\infty
+\]
+for all $N>0$.  Since
+$\displaystyle \left\{ S_N \right\}_{N=1}^\infty$ is a bounded increasing 
+sequence, it converges.  Namely, $\displaystyle \sum_{n=1}^\infty n^6 a_n^2$
+is a convergent series of positive terms.
+
+Using integration by parts, we find
+\[
+b_n = \frac{2}{n\pi} \int_0^L g(x) \, \sin\left(\frac{n\pi x}{L}\right) \dx{x}
+= -\frac{2}{L} \left( \frac{L}{n\pi}\right)^3 \int_0^L
+\dydxn{g}{x}{2}(x) \, \sin\left( \frac{n\pi x}{L}\right) \dx{x} \  .
+\]
+A reasoning similar to the previous one shows that
+$\displaystyle \sum_{n=1}^\infty n^6 b_n^2$
+is a convergent series of positive terms.
+
+Since
+\[
+n^2 |a_n| = \frac{1}{2} \left( \frac{1}{n^2} + n^6 a_n^2\right) -
+\frac{1}{2} \left( \frac{1}{n} - n^3 |a_n| \right)^2 \leq \frac{1}{2}
+\left( \frac{1}{n^2} + n^6 a_n^2\right)
+\]
+for all $n>0$, we can use the comparison test for series of positive
+terms to conclude that $\displaystyle \sum_{n=1}^\infty n^2 |a_n|$
+converges.  Similarly, we have that
+$\displaystyle n^2 |b_n| \leq \frac{1}{2} \left( \frac{1}{n^2} + n^6
+  b_n^2\right)$ and $\displaystyle \sum_{n=1}^\infty n^2 |b_n|$ converges.
+\end{proof}
+
+Theorems like the previous one can be given for different boundary
+conditions.  We will not provide an encyclopedic list of the results.
+
+\begin{rmk}
+The function
+$\displaystyle u_n(x,t) = \left(a_n\cos\left(\frac{n\pi t}{L}\right)
++ b_n \sin\left(\frac{n\pi t}{L}\right)\right)
+\sin\left(\frac{n\pi x}{L}\right)$ is called the
+{\bfseries $\mathbf{n^{th}}$-normal mode}\index{Wave Equation!$n^{th}$-Normal
+Mode} or {\bfseries $\mathbf{n^{th}}$-harmonic}\index{Wave
+Equation!$n^{th}$-Harmonic}.  The first-harmonic is called the
+{\bfseries fundamental harmonic}\index{Wave Equation!Fundamental Harmonic}.
+The frequency of the fundamental harmonic is $1/(2L)$.  All the other
+harmonics have frequencies which are integer multiples of $1/(2L)$.  This is
+the reason why a well tuned instrument can produce good quality tones.
+\end{rmk}
+
+\begin{egg}
+For our first example, we find the deflection $u(x,t)$ of a vibrating
+string of length $L=\pi$ attached at both ends.  We assume that the
+tension $T$ and density $\rho$ of the string are such that
+$c^2 = T/\rho = 1$.  The initial deflection is
+$f(x) = 0.1 \sin(x)$ and the initial velocity is $g(x) = -0.2 \sin(x)$.
+
+The solution is given by (\ref{wave_class_sol1}) with $L=\pi$,
+\begin{equation} \label{wesvegg1a}
+a_n = \frac{2}{\pi} \int_0^\pi f(x) \sin(n x) \dx{x} =
+\begin{cases}
+0.1 & \qquad \text{if} \quad n=1 \\
+0 & \qquad \text{if} \quad n>1 \\
+\end{cases}
+\end{equation}
+and
+\begin{equation} \label{wesvegg1b}
+b_n = \frac{2}{n\pi} \int_0^\pi g(x) \sin(n x) \dx{x} =
+\begin{cases}
+-0.2 & \qquad \text{if} \quad n=1 \\
+0 & \qquad \text{if} \quad n>1 \\
+\end{cases}
+\end{equation}
+Thus,
+\[
+u(x,t) = \big(0,1 \cos(t) - 0.2 \sin(t) \big) \sin(x) \ .
+\]
+There was no need to compute the integrals to find the values of $a_n$
+and $b_n$.  From $f(x) = u(x,0)$, we have
+\[
+0.1 \sin(x) = \sum_{n=1}^\infty a_n \sin(n x) \ .
+\]
+By uniqueness of the Fourier series, we get (\ref{wesvegg1a}).  Likewise,
+from $\displaystyle g(x) = \pdydx{u}{t}(x,0)$, we have
+\[
+-0.2 \sin(x) = \sum_{n=1}^\infty n b_n \sin(n x) \ .
+\]
+This time, by uniqueness of the Fourier series, we get
+(\ref{wesvegg1b}).
+\end{egg}
+
+In the following examples, we will find the solutions starting from
+separation of variables.  This allows us to deal with boundary
+conditions different than those in Theorem~\ref{wave_spv_conditions}
+if needed.  The presentation will be a little bit formal.  We will not
+study the convergence of the series solutions.
+
+\begin{egg}
+We again consider a special case of Example~\ref{wave_egg1}.
+\begin{equation} \label{wave_spv_egg1_e}
+\pdydxn{u}{t}{2} - c^2 \pdydxn{u}{x}{2} = 0 \quad , \quad t>0
+\ \text{and} \ 0 < x <L \ ,
+\end{equation}
+with the boundary conditions $u(0,t) = 0$ and $u(L,t) = 0$ for $t>0$,
+and the initial conditions
+$u(x,0) = f(x)$ and $\displaystyle \pdydx{u}{t}(x,0) = g(x)$ for
+$0 < x < L$.              \label{wave_spv_egg1}
+
+\subI{Separation of Variables}
+If we substitute $u(x,t) = F(x)G(t)$ in (\ref{wave_spv_egg1_e}), we get
+\[
+F(x)\,\dydxn{G}{t}{2}(t) = c^2 \dydxn{F}{x}{2}(x)\, G(t) \ .
+\]
+Thus, after dividing both sides by $\displaystyle c^2\,F(x)G(t)$, we get
+\[
+\frac{1}{c^2\,G(t)} \, \dydxn{G}{t}{2}(t) =
+\frac{1}{F(x)}\, \dydxn{F}{x}{2}(x)
+\]
+for $t>0$ and $0<x<L$.  Since the right hand side is independent of
+$t$ and the left hand side is independent of $x$, we get
+\[
+\frac{1}{c^2\,G(t)} \, \dydxn{G}{t}{2}(t) = \frac{1}{F(x)}\,
+\dydxn{F}{x}{2}(x) = k
+\]
+for $t>0$ and $0<x<L$, and some constant $k$.  We end up with two
+ordinary differential equations.
+\begin{equation} \label{wave_spv_egg1_ode}
+\dydxn{F}{x}{2}(x) -k F(x) = 0 \quad \text{and}
+\quad \dydxn{G}{t}{2}(t) - c^2\,k\,G(t)) = 0 \ .
+\end{equation}
+
+The first ordinary differential equation in (\ref{wave_spv_egg1_ode})
+satisfies two boundary conditions.   From $\displaystyle u(0,t) = 0$, we get
+$F(0)G(t)=0$.  Since we assume that $G$ is non-null, we get
+$F(0)=0$.  Similarly, from $\displaystyle u(L,t) = 0$, we
+get $F(L)G(t)=0$.  Again, since we assume that $G$ is non-null, we
+get $F(L)=0$.  The boundary conditions for 
+the first ordinary differential equation in (\ref{wave_spv_egg1_ode})
+are $F(0)=F(L)=0$.
+
+\subI{Simple Functions}
+We first consider the boundary value problem
+\begin{equation} \label{wave_spv_egg1_bvp}
+\dydxn{F}{x}{2}(x) -k F(x) = 0 \quad \text{with} \quad F(0)=F(L)=0  \ .
+\end{equation}
+The form of the general solution of the boundary value problem above
+is determined by the roots of the characteristic equation
+$\displaystyle \lambda^2-k=0$.
+
+If $k>0$, the roots of the characteristic equation are $\pm \sqrt{k}$.
+Since the roots are real, the solution of the ordinary differential
+equation is of the form
+$\displaystyle F(x) = A e^{\sqrt{k}\,x} + B e^{-\sqrt{k}\, x}$.
+However, $F(0)=0$ implies that $A + B=0$ and $F(L)=0$ implies
+$\displaystyle A e^{L\sqrt{k}} + B e^{-L\sqrt{k}} = 0$.
+The only solution of the system
+\[
+\begin{pmatrix}
+1 & 1 \\ e^{L\sqrt{k}} & e^{-L\sqrt{k}}
+\end{pmatrix}
+\begin{pmatrix}
+A \\ B
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \\ 0
+\end{pmatrix}
+\]
+is $A=B=0$ because
+\[
+\det
+\begin{pmatrix}
+1 & 1 \\  e^{L\sqrt{k}} &  e^{-L\sqrt{k}}
+\end{pmatrix}
+= e^{-L\sqrt{k}} - e^{L\sqrt{k}} =
+e^{-L\sqrt{k}}\left(1-e^{2L\sqrt{k}}\right) \neq 0
+\]
+for $k\neq 0$.  Therefore, the null solution is the only solution
+of the boundary value problem (\ref{wave_spv_egg1_bvp}) for $k>0$.
+
+If $k=0$, the solution of the ordinary differential equation is
+$F(x)=B x+ A$.  However, $F(0)=0$ implies that $A=0$ and $F(L)=0$
+implies that $B L + A = 0$.  Thus, $A = B =0$.  The boundary value problem
+(\ref{wave_spv_egg1_bvp}) has no non-null solutions for $k =0$.
+
+If $k<0$, the roots of the characteristic equation are $\pm i \sqrt{-k}$.
+Since the roots are complex, the general solution of the ordinary
+differential equation is of the form $\displaystyle
+F(x) = A \cos\left(\sqrt{-k}\,x\right) + B \sin\left(\sqrt{-k}\,x\right)$.
+Hence, $F(0)=0$ implies that $A =0$ and $F(L)=0$ implies that
+$B \sin\left(L\sqrt{-k}\right) = 0$.  If we take $B=0$, we get the
+null solution.  We must therefore have
+$\sin\left(L\sqrt{-k}\right) = 0$ with $k< 0$.  This implies
+that $\displaystyle k = k_n = -\left(n\pi/L\right)^2$ for $n>0$.  The
+boundary value problem (\ref{wave_spv_egg1_bvp}) has non-null solutions only for
+$\displaystyle k=k_n\equiv -\left(n\pi/L\right)^2<0$ with $n>0$, and
+the solutions associated to $k_n$ is of the form
+\[
+F(x)=F_n(x) \equiv B_n \sin\left(\frac{n\pi\,x}{L}\right) \ .
+\]
+
+For $\displaystyle k= k_n=-\left(n\pi/L\right)^2$, the second ordinary
+differential equation in (\ref{wave_spv_egg1_ode}) becomes
+\[
+\dydxn{G}{t}{2}(t) + \left(\frac{c n\pi}{L}\right)^2\,G(t)) = 0
+\]
+for $n>0$.  For each $n$, this is a second order ordinary differential
+equation with the characteristic equation
+$\displaystyle \lambda^2 +\left(n c\pi/L\right)^2=0$.  The two
+roots of this equation are the complex numbers
+$\displaystyle \lambda_{\pm} = \pm (c n\pi/L)i$.
+The general solution of this ordinary differential equation is therefore
+\[
+G(t) = G_n(t) \equiv C_n \cos\left(\frac{cn\pi t}{L}\right)
++ D_n \sin\left(\frac{cn\pi t}{L}\right) \  .
+\]
+
+We have found the simple functions
+\[
+u_n(x,t) \equiv F_n(x)G_n(t) =
+\left( a_n \cos\left(\frac{cn\pi t}{L}\right)
++ b_n \sin\left(\frac{cn\pi t}{L}\right) \right)
+\sin\left(\frac{n\pi\,x}{L}\right)
+\]
+for $n>0$ that satisfy the partial differential equation in
+(\ref{wave_spv_egg1_e}) and the boundary conditions.  The constant
+$a_n$ is the product of the constants $B_n$ and $C_n$, and $b_n$ is
+the product of $B_n$ and $D_n$.  We now need to determine the values
+of $a_n$ and $b_n$ to satisfy the initial conditions.
+
+\subI{Initial condition}
+We seek a solution of the form
+\[
+u(x,t) = \sum_{n=1}^\infty u_n(x,t)
+= \sum_{n=1}^\infty
+\left( a_n \cos\left(\frac{cn\pi t}{L}\right)
++ b_n \sin\left(\frac{cn\pi t}{L}\right) \right)
+\sin\left(\frac{n\pi\,x}{L}\right) \ .
+\]
+
+From $u(x,0) = f(x)$, we get
+\[
+f(x) = \sum_{n=1}^\infty a_n\,\sin\left(\frac{n\pi\,x}{L}\right)
+\]
+for $0<x<L$.  This is the Fourier sine series of $f$.  The coefficients of
+this series are given by
+\[
+a_n = \frac{2}{L} \int_0^L f(x)
+\sin\left(\frac{n\pi\,x}{L}\right) \dx{x} \  .
+\]
+
+From $\displaystyle \pdydx{u}{t}(x,0) = g(x)$, we get
+\[
+g(x) =\sum_{n=1}^\infty \frac{cn\pi b_n}{L}\,
+\sin\left(\frac{n\pi\,x}{L}\right)
+\]
+for $0<x<L$.  This is the Fourier sine series of $g$.  The formula to
+compute the coefficients of this Fourier series yields
+\[
+b_n = \frac{2}{cn\pi} \int_0^L g(x)
+\cos\left(\frac{n\pi\,x}{L}\right) \dx{x} \  .
+\]
+
+To show that we effectively get a solution of the wave equation, we
+should prove that the series converges as we have done for
+Theorem~\ref{wave_spv_conditions} if we seek a classical solution.
+This is left to the reader.
+\end{egg}
+
+\begin{egg}
+Solve the wave equation
+\begin{equation} \label{wave_spv_egg2_e}
+\pdydxn{u}{t}{2} = c^2 \pdydxn{u}{x}{2}  \quad ,
+\quad 0 < x < L \text{ and } t>0 \ ,
+\end{equation}
+with the boundary conditions
+$\displaystyle \pdydx{u}{x}(0,t) = \pdydx{u}{x}(L,t) = 0$ for
+$t>0$, and the initial conditions
+$u(x,0) = f(x)$ and $\displaystyle \pdydx{u}{t}(x,0) = g(x)$
+for $0<x<L$.           \label{wave_spv_egg2}
+
+\subI{Separation of Variables}
+If we substitute $u(x,t) = F(x)G(t)$ in (\ref{wave_spv_egg2_e}), we get
+\[
+F(x)\,\dydxn{G}{t}{2}(t) = c^2 \dydxn{F}{x}{2}(x)\, G(t) \ .
+\]
+After dividing both sides by $\displaystyle c^2\,F(x)G(t)$, we get
+\[
+\frac{1}{c^2\,G(t)} \, \dydxn{G}{t}{2}(t) =
+\frac{1}{F(x)}\, \dydxn{F}{x}{2}(x)
+\]
+for $t>0$ and $0<x<L$.
+Since the right hand side is independent of $t$ and the left hand side
+is independent of $x$, we get
+\[
+\frac{1}{c^2\,G(t)} \, \dydxn{G}{t}{2}(t) = \frac{1}{F(x)}\,
+\dydxn{F}{x}{2}(x) = k
+\]
+for $t>0$ and $0<x<L$, and some constant $k$.  We end up with two
+ordinary differential equations.
+\begin{equation} \label{wave_spv_egg2_ode}
+\dydxn{F}{x}{2}(x) -k F(x) = 0 \quad \text{and}
+\quad \dydxn{G}{t}{2}(t) - c^2\,k\,G(t) = 0 \ .
+\end{equation}
+
+The first ordinary differential equation in (\ref{wave_spv_egg2_ode})
+satisfies two boundary conditions.   From
+$\displaystyle \pdydx{u}{x}(0,t) = 0$, we get
+$F'(0)G(t)=0$.  Since we assume that $G$ is non-null, we get
+$F'(0)=0$.  Similarly, from $\displaystyle \pdydx{u}{x}(L,t) = 0$, we
+get $F'(L)G(t)=0$.  Again, since we assume that $G$ is non-null, we
+get $F'(L)=0$.  The boundary conditions for 
+the first ordinary differential equation in
+(\ref{wave_spv_egg2_ode}) are $F'(0)=F'(L)=0$.
+
+\subI{Simple Functions}
+We first consider the boundary value problem
+\begin{equation} \label{wave_spv_egg2_bvp}
+\dydxn{F}{x}{2}(x) -k F(x) = 0 \quad \text{with} \quad F'(0)=F'(\pi)=0  \ .
+\end{equation}
+The form of the general solution of the ordinary differential equation
+above is determined by the roots of the characteristic equation
+$\displaystyle \lambda^2-k=0$.
+
+If $k>0$, the roots of the characteristic equation are $\pm \sqrt{k}$.
+Since the roots are real, the solution of the ordinary differential
+equation is of the form
+$\displaystyle F(x) = A e^{\sqrt{k}\,x} + B e^{-\sqrt{k}\, x}$.
+However, $F'(0)=0$ implies that $A\sqrt{k} - B\sqrt{k}=0$ and
+$F'(L)=0$ implies
+$\displaystyle A \sqrt{k}\, e^{L\sqrt{k}} - B \sqrt{k}\, e^{-L\sqrt{k}} = 0$.
+The only solution of the system
+\[
+\begin{pmatrix}
+\sqrt{k} & -\sqrt{k} \\ \sqrt{k}\, e^{L\sqrt{k}} & -\sqrt{k}\, e^{-L\sqrt{k}}
+\end{pmatrix}
+\begin{pmatrix}
+A \\ B
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \\ 0
+\end{pmatrix}
+\]
+is $A=B=0$ because
+\[
+\det
+\begin{pmatrix}
+\sqrt{k} & -\sqrt{k} \\ \sqrt{k}\, e^{L\sqrt{k}} & -\sqrt{k}\, e^{-L\sqrt{k}}
+\end{pmatrix}
+= -k \left( e^{-L\sqrt{k}} - e^{L\sqrt{k}}\right) \neq 0
+\]
+for $k\neq 0$.  Therefore, the null solution is the only solution
+of the boundary value problem (\ref{wave_spv_egg2_bvp}) for $k>0$.
+
+If $k=0$, the solution of the ordinary differential equation is
+$F(x)=B_0 x+ A_0$.  However, $F'(0)=0$ implies that $B_0=0$.
+$F'(L)=0$ does not give more information.  Thus $B_0=0$ and $A_0$ is
+free.  The boundary value problem
+(\ref{wave_spv_egg2_bvp}) has a non-null solution for $k=k_0 \equiv 0$
+which is $F(x) = F_0(x) \equiv A_0$ for all $x\in [0,L]$, where $A_0$ can
+be any constant.
+
+If $k<0$, the roots of the characteristic equation are $\pm i \sqrt{-k}$.
+Since the roots are complex, the solution of the ordinary differential
+equation is of the form $\displaystyle
+F(x) = A \cos\left(\sqrt{-k}\,x\right) + B \sin\left(\sqrt{-k}\,x\right)$.
+However, $F'(0)=0$ implies that $B \sqrt{-k} =0$.  So $B=0$ because
+$k\neq 0$.  Then $F'(L)=0$ implies that
+$A \sqrt{-k} \sin\left(L\sqrt{-k}\right) = 0$.  If we take
+$A=0$, we get the null solution.  We must therefore have
+$\sin\left(L\sqrt{-k}\right) = 0$ because $k< 0$.  This implies
+that $\displaystyle k = k_n = -\left(n\pi/L\right)^2$ for $n>0$.  The
+boundary value problem (\ref{wave_spv_egg2_bvp}) has non-null
+solutions only for
+$\displaystyle k=k_n\equiv -\left(n\pi/L\right)^2<0$ with $n>0$, and
+the solution associated to each $k_n$ is of the form
+\[
+F(x)=F_n(x) \equiv A_n \cos\left(\frac{n\pi x}{L}\right) \ .
+\]
+
+For $k=0$, the second ordinary differential equation in
+(\ref{wave_spv_egg2_ode}) becomes $g''(t) = 0$.  This equation has the
+general solution $G(t) = G_0(t) \equiv D_0 t + C_0$.
+
+For $\displaystyle k=k_n=-\left(n\pi/L\right)^2$, the second ordinary
+differential equation in (\ref{wave_spv_egg2_ode}) becomes
+\[
+\dydxn{G}{t}{2}(t) + \left(\frac{c n\pi}{L}\right)^2\,G(t) = 0
+\]
+for $n>0$.  For each $n$, this is a second order ordinary differential
+equation with the characteristic equation
+$\displaystyle \lambda^2 +\left(c n\pi/L\right)^2=0$.  The two
+roots of this equation are the complex numbers
+$\displaystyle \lambda_{\pm} = \pm (c n\pi/L)i$.
+The general solution of this ordinary differential equation is therefore
+\[
+G(t) = G_n(t) \equiv C_n \cos\left(\frac{cn\pi t}{L}\right)
++ D_n \sin\left(\frac{cn\pi t}{L}\right) \ .
+\]
+
+We have found the simple functions
+\begin{align*}
+u_0(x,t) &\equiv F_0(x)G_0(t) = b_0 t + a_0
+\intertext{and}
+u_n(x,t) &\equiv F_n(x)G_n(t) =
+\left( a_n \cos\left(\frac{cn\pi t}{L}\right)
++ b_n \sin\left(\frac{cn\pi t}{L}\right) \right)
+\cos\left(\frac{n\pi x}{L}\right)
+\end{align*}
+for $n>0$.  The constant $a_n$ is the product of the constants $A_n$ and
+$C_n$, and $b_n$ is the product of $A_n$ and $D_n$.
+
+\subI{Initial condition}
+We seek a solution of the form
+\[
+u(x,t) = \sum_{n=0}^\infty u_n(x,t)
+= b_0 t + a_0 + \sum_{n=1}^\infty
+\left( a_n \cos\left(\frac{cn\pi t}{L}\right)
++ b_n \sin\left(\frac{cn\pi t}{L}\right) \right)
+\cos\left(\frac{n\pi x}{L}\right) \  .
+\]
+
+From $u(x,0) = f(x)$, we get
+\[
+f(x) = a_0 + \sum_{n=1}^\infty a_n\,\cos\left(\frac{n\pi x}{L}\right)
+\]
+for $0<x<L$.  This is the Fourier cosine series of $f$.  The coefficients of
+this series are given by
+\[
+a_0 = \frac{1}{L} \int_0^L f(x) \dx{x} \quad \text{and} \quad
+a_n = \frac{2}{L} \int_0^L f(x) \cos\left(\frac{n\pi x}{L}\right) \dx{x}
+\]
+for $n>0$.
+
+From $\displaystyle \pdydx{u}{t}(x,0) = g(x)$, we get
+\[
+g(x) = b_0 + \sum_{n=1}^\infty \frac{cn\pi b_n}{L}\,
+\cos\left(\frac{n\pi x}{L}\right)
+\]
+for $0<x<L$.  This is the Fourier cosine series of $g$.  The coefficients of
+this series are given by
+\[
+b_0 = \frac{1}{L} \int_0^L g(x) \dx{x} \quad \text{and} \quad
+b_n = \frac{2}{cn\pi} \int_0^L g(x)
+\cos\left(\frac{n\pi x}{L}\right) \dx{x}
+\]
+for $n>0$.
+\end{egg}
+
+\begin{egg}
+Solve the wave equation
+\begin{equation} \label{wave_spv_egg3_a}
+\pdydxn{u}{t}{2} = \pdydxn{u}{x}{2} \quad , \quad t > 0 \
+\text{and} \ 0 < x < 5 \ ,
+\end{equation}
+with the boundary conditions
+$u(0,t) = 0$ and $\displaystyle \pdydx{u}{x}(5,t) = 0$ for $t > 0$,
+and the initial conditions
+$\displaystyle u(x,0) = 2 \sin\left(\frac{7\pi x}{10}\right)$
+and
+$\displaystyle \pdydx{u}{t}(x,0) = 5 \sin\left(\frac{11 \pi x}{10}\right)$
+for $0 < x < 5$.
+
+\subI{Separation of Variables}
+If we substitute $u(x,t) = F(x)G(t)$ in (\ref{wave_spv_egg3_a}), we get
+\[
+F(x)\,\dydxn{G}{t}{2}(t) = \dydxn{F}{x}{2}(x)\, G(t) \ .
+\]
+Thus, after dividing both sides by $F(x)G(t)$, we get
+\[
+\frac{1}{G(t)} \, \dydxn{G}{t}{2}(t) = \frac{1}{F(x)}\, \dydxn{F}{x}{2}(x)
+\quad , \quad t>0 \ \text{and} \ 0<x<5 \ .
+\]
+Since the right hand side is independent of $t$ and the left hand side
+is independent of $x$, we get
+\[
+\frac{1}{G(t)} \, \dydxn{G}{t}{2}(t) = \frac{1}{F(x)}\,
+\dydxn{F}{x}{2}(x) = k
+\]
+for $t>0$ and $0<x<5$, and some constant $k$.  We end up with two
+ordinary differential equations.
+\begin{equation} \label{wave_spv_egg3_p_ode}
+\dydxn{F}{x}{2}(x) -k F(x) = 0 \quad \text{and}
+\quad \dydxn{G}{t}{2}(t) - k\,G(t) = 0 \ .
+\end{equation}
+
+The first ordinary differential equation in
+(\ref{wave_spv_egg3_p_ode}) satisfies two boundary
+conditions.   From $u(0,t) = 0$, we get $F(0)G(t)=0$.  Since we assume
+that $G$ is non-null, we get $F(0)=0$.  Similarly, from
+$\displaystyle \pdydx{u}{x}(5,t) = 0$, we get
+$\displaystyle \dydx{F}{x}(5)G(t)=0$.
+Again, since we assume that $G$ is non-null, we get
+$\displaystyle \dydx{F}{x}(5)=0$.  The
+boundary conditions for the first ordinary differential equation in
+(\ref{wave_spv_egg3_p_ode}) are $\displaystyle F(0)=\dydx{F}{x}(5)=0$. 
+
+\subI{Simple Functions}
+We first consider the boundary value problem
+\begin{equation} \label{wave_spv_egg3_p_bvp}
+\dydxn{F}{x}{2}(x) -k F(x) = 0 \quad \text{with} \quad
+F(0)=\dydx{F}{x}(5)=0 \ .
+\end{equation}
+The form of the general solution of the ordinary differential equation
+above is determined by the roots of the characteristic equation
+$\displaystyle \lambda^2-k=0$.
+
+If $k>0$, the roots of the characteristic equation are $\pm \sqrt{k}$.
+Since the roots are real, the solution of the ordinary differential
+equation is of the form
+$\displaystyle F(x) = A e^{\sqrt{k}\,x} + B e^{-\sqrt{k}\, x}$.
+However, $F(0)=0$ implies that $A+B=0$ and
+$\displaystyle \dydx{F}{x}(5)=0$ implies
+$\displaystyle A\sqrt{k} e^{5\sqrt{k}} - B\sqrt{k} e^{-5\sqrt{k}} = 0$.
+The only solution of the system
+\[
+\begin{pmatrix}
+1 & 1 \\ \sqrt{k} e^{5\sqrt{k}} & -\sqrt{k} e^{-5\sqrt{k}}
+\end{pmatrix}
+\begin{pmatrix}
+A \\ B
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \\ 0 
+\end{pmatrix}
+\]
+is $A=B=0$ because
+\[
+\det
+\begin{pmatrix}
+1 & 1 \\ \sqrt{k} e^{5\sqrt{k}} & -\sqrt{k} e^{-5\sqrt{k}}
+\end{pmatrix}
+= -\sqrt{k} \left(e^{-5\sqrt{k}} + e^{5\sqrt{k}}\right) 
+\neq 0
+\]
+for $k\neq 0$.  Therefore, the null solution is the only solution
+of the boundary value problem (\ref{wave_spv_egg3_p_bvp}) for $k>0$.
+
+If $k=0$, the solution of the ordinary differential equation is $F(x)=Ax+B$.
+However, $F(0)=0$ implies that $B=0$ and
+$\displaystyle \dydx{F}{x}(5)=0$ implies that $A = 0$.
+Thus $A=B=0$ and again the null solution is the
+only solution of the boundary value problem (\ref{wave_spv_egg3_p_bvp})
+for $k=0$.
+
+If $k<0$, the roots of the characteristic equation are $\pm i \sqrt{-k}$.
+Since the roots are complex, the solution of the ordinary differential
+equation is of the form $\displaystyle
+F(x) = A \cos\left(\sqrt{-k}\,x\right) + B \sin\left(\sqrt{-k}\,x\right)$.
+Hence, $F(0)=0$ implies that $A=0$ and
+$\displaystyle \dydx{F}{x}(5)=0$ implies that\\
+$B \sqrt{-k} \cos(5\sqrt{-k}) = 0$.  If we take
+$B=0$, we get the null solution.  We must therefore have
+$\cos(5\sqrt{-k}) = 0$.  This implies that
+$\displaystyle 5\sqrt{-k} = (2n-1)\pi/2$ for $n >0$. Thus
+$\displaystyle k = k_n \equiv -\left((2n-1)\pi/10\right)^2$
+for $n>0$.
+The boundary value problem (\ref{wave_spv_egg3_p_bvp}) has non-null
+solutions only for these values of $k$, and the solution associated
+to each $k_n$ is of the form
+\[
+F(x)=F_n(x) \equiv B_n \sin\left(\frac{(2n-1)\pi x}{10}\right) \  .
+\]
+
+The second ordinary differential equation in (\ref{wave_spv_egg3_p_ode}) with
+$\displaystyle k = k_n = -\left((2n-1)\pi/10\right)^2$
+becomes
+\[
+\dydxn{G}{t}{2}(t) + \left(\frac{(2n-1)\pi}{10}\right)^2\,G(t) = 0
+\]
+for $n>0$.  For each $n$, the general solution
+of this second order ordinary differential equation is
+\[
+G(t) = G_n(t) \equiv C_n \cos\left(\frac{(2n-1)\pi t}{10}\right)
++ D_n \sin\left(\frac{(2n-1)\pi t}{10}\right) \ .
+\]
+
+We have found the simple functions
+\[
+u_n(x,t) \equiv F_n(x)G_n(t) = \left( a_n\,
+\cos\left(\frac{(2n-1)\pi t}{10}\right) + b_n
+\sin\left(\frac{(2n-1)\pi t}{10}\right) \right)
+\sin\left(\frac{(2n-1)\pi x}{10}\right)
+\]
+for $n>0$.  The constant $a_n$ comes from the product of the constants
+$B_n$ and $C_n$, and $b_n$ comes from the product of $B_n$ and $D_n$.
+
+\subI{Initial condition}
+We seek a solution of the form
+\[
+u(x,t) = \sum_{n=1}^\infty u_n(x,t)
+= \sum_{n=1}^\infty \left( a_n\, \cos\left(\frac{(2n-1)\pi t}{10}\right)
+ + b_n \sin\left(\frac{(2n-1)\pi t}{10}\right) \right)
+\sin\left(\frac{(2n-1)\pi x}{10}\right) \ .
+\]
+
+From $\displaystyle u(x,0) = 2 \sin\left(\frac{7 \pi x}{10}\right)$, we get
+\[
+2 \sin\left(\frac{7 \pi x}{10}\right)
+= \sum_{n=1}^\infty a_n\,\sin\left(\frac{(2n-1)\pi x}{10}\right)
+\]
+for $0<x<5$.  Thus
+\[
+a_n =
+\begin{cases}
+2 & \quad \text{if} \ n=4 \\
+0 & \quad \text{otherwise}
+\end{cases}
+\]
+From $\displaystyle \pdydx{u}{t}(x,0)
+= 5 \sin\left(\frac{11\pi x}{10}\right)$, we get
+\begin{align*}
+5 \sin\left(\frac{11\pi x}{10}\right)
+& = \sum_{n=1}^\infty \left(\frac{(2n-1)\pi}{10}\right) b_n\,
+\sin\left(\frac{(2n-1)\pi x}{10}\right)
+\end{align*}
+for $0<x<5$.  Thus
+\[
+b_n =
+\begin{cases}
+\displaystyle \frac{50}{11\pi} & \quad \text{if} \ n=6 \\
+0 & \quad \text{otherwise}
+\end{cases}
+\]
+
+The solution is
+\[
+u(x,t) = 2\, \cos\left(\frac{7\pi t}{10}\right)
+\sin\left(\frac{7\pi x}{10}\right)
++\frac{50}{11\pi} \, \sin
+\left(\frac{11\pi t}{10}\right) \sin\left(\frac{11\pi x}{10}\right) \ .
+\]
+\end{egg}
+
+\begin{egg}
+Solve the wave equation
+\begin{equation} \label{wave_spv_egg3_e}
+\pdydxn{u}{t}{2} = 9 \pdydxn{u}{x}{2} \quad ,
+\quad t > 0 \ \text{and} \ 0 < x < \pi/2 \ , 
+\end{equation}
+with the boundary conditions
+$u(0,t) = 0$ and $\displaystyle \pdydx{u}{x}\left(\frac{\pi}{2},t\right) = 0$
+for $t > 0$, and the initial conditions
+$\displaystyle u(x,0) = 3 \sin\left(7 x\right) + 5 \sin\left(13 x\right)$
+and
+$\displaystyle \pdydx{u}{t}(x,0) = 3 \sin\left(7 x\right)$
+for $0 < x < \pi/2$.
+
+\subI{Separation of Variables}
+If we substitute $u(x,t) = F(x)G(t)$ in (\ref{wave_spv_egg3_e}), we get
+\[
+F(x)\,\dydxn{G}{t}{2}(t) = 9\, \dydxn{F}{x}{2}(x)\, G(t) \ .
+\]
+After dividing both sides by $9\,F(x)G(t)$, we get
+\[
+\frac{1}{9\,G(t)} \, \dydxn{G}{t}{2}(t) = \frac{1}{F(x)}\, \dydxn{F}{x}{2}(x)
+\]
+for $t>0$ and $0<x<\pi/2$.
+Since the right hand side is independent of $t$ and the left hand side
+is independent of $x$, we get
+\[
+\frac{1}{9\,G(t)} \, \dydxn{G}{t}{2}(t) = \frac{1}{F(x)}\,
+\dydxn{F}{x}{2}(x) = k
+\]
+for $t>0$ and $0<x<\pi/2$, and some constant $k$.  We end up with two
+ordinary differential equations.
+\begin{equation} \label{wave_spv_egg3_ode}
+\dydxn{F}{x}{2}(x) -k F(x) = 0 \quad \text{and}
+\quad \dydxn{G}{t}{2}(t) - 9\,k\,G(t) = 0 \ .
+\end{equation}
+
+The first ordinary differential equation in (\ref{wave_spv_egg3_ode})
+satisfies two boundary conditions.   From $u(0,t) = 0$, we get
+$F(0)G(t)=0$.  Since we assume that $G$ is non-null, we get
+$F(0)=0$.  Similarly, from
+$\displaystyle \pdydx{u}{x}\left(\frac{\pi}{2},t\right) = 0$, we get
+$\displaystyle \dydx{F}{x}\left(\frac{\pi}{2}\right)G(t)=0$.
+Again, since we assume that $G$ is non-null, we get
+$\displaystyle \dydx{F}{x}\left(\frac{\pi}{2}\right)=0$.  The
+boundary conditions for the first ordinary differential equation in
+(\ref{wave_spv_egg3_ode}) are
+$\displaystyle F(0)=\dydx{F}{x}\left(\frac{\pi}{2}\right)=0$. 
+
+\subI{Simple Functions}
+We first consider the boundary value problem
+\begin{equation} \label{wave_spv_egg3_bvp}
+\dydxn{F}{x}{2}(x) -k F(x) = 0 \quad \text{with} \quad
+F(0)=\dydx{F}{x}\left(\frac{\pi}{2}\right)=0 \  .
+\end{equation}
+The form of the general solution of the ordinary differential equation
+above is determined by the roots of the characteristic equation
+$\displaystyle \lambda^2-k=0$.
+
+If $k>0$, the roots of the characteristic equation are $\pm \sqrt{k}$.
+Since the roots are real, the solution of the ordinary differential
+equation is of the form
+$\displaystyle F(x) = A e^{\sqrt{k}\,x} + B e^{-\sqrt{k}\, x}$.
+However, $F(0)=0$ implies that $A+B=0$ and
+$\displaystyle \dydx{F}{x}\left(\frac{\pi}{2}\right)=0$ implies
+$\displaystyle A\sqrt{k} e^{\pi\sqrt{k}/2} - B\sqrt{k} e^{-\pi\sqrt{k}/2} = 0$.
+The only solution of the system
+\[
+\begin{pmatrix}
+1 & 1 \\ \sqrt{k} e^{\pi\sqrt{k}/2} & -\sqrt{k} e^{-\pi\sqrt{k}/2}
+\end{pmatrix}
+\begin{pmatrix}
+A \\ B
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \\ 0 
+\end{pmatrix}
+\]
+is $A=B=0$ because
+\[
+\det
+\begin{pmatrix}
+1 & 1 \\ \sqrt{k} e^{\pi\sqrt{k}/2} & -\sqrt{k} e^{-\pi\sqrt{k}/2}
+\end{pmatrix}
+= -\sqrt{k} \left(e^{-\pi\sqrt{k}/2} + e^{\pi\sqrt{k}/2}\right) 
+\neq 0
+\]
+for $k\neq 0$.  Therefore, the null solution is the only solution
+of the boundary value problem (\ref{wave_spv_egg3_bvp}) for $k>0$.
+
+If $k=0$, the solution of the ordinary differential equation is $F(x)=Ax+B$.
+However, $F(0)=0$ implies that $B=0$ and
+$\displaystyle \dydx{F}{x}\left(\frac{\pi}{2}\right)=0$ implies
+that $A = 0$.  Thus $A=B=0$ and again the null solution is the
+only solution of the boundary value problem (\ref{wave_spv_egg3_bvp})
+for $k=0$.
+
+If $k<0$, the roots of the characteristic equation are $\pm i \sqrt{-k}$.
+Since the roots are complex, the solution of the ordinary differential
+equation is of the form $\displaystyle
+F(x) = A \cos\left(\sqrt{-k}\,x\right) + B \sin\left(\sqrt{-k}\,x\right)$.
+Moreover, $F(0)=0$ implies that $A=0$ and
+$\displaystyle \dydx{F}{x}\left(\frac{\pi}{2}\right)=0$ implies that
+$B \sqrt{-k} \cos\left(\pi\sqrt{-k}/2\right) = 0$.  If we take
+$B=0$, we get the null solution.  We must therefore have
+$\cos\left(\pi\sqrt{-k}/2\right) = 0$.  This implies that
+$\displaystyle \pi \sqrt{-k}/2 = (2n-1)\pi/2$ for
+$n\in \NN$. Thus $\displaystyle k = k_n \equiv -(2n-1)^2$
+for $n>0$  The boundary value problem (\ref{wave_spv_egg3_bvp}) has
+non-null solutions only for these values of $k$, and the solution
+associated to each $k_n$ is of the form 
+\[
+F(x)=F_n(x) \equiv B_n \sin\left((2n-1)x\right) \ .
+\]
+
+The second ordinary differential equation in (\ref{wave_spv_egg3_ode}) with
+$\displaystyle k = k_n = -(2n-1)^2$ becomes
+\[
+\dydxn{G}{t}{2}(t) + (3(2n-1))^2\,G(t) = 0
+\]
+for $n>0$.  For each $n$, the general solution of this second order
+ordinary differential equation is
+\[
+G(t) = G_n(t) \equiv C_n \cos\left(3(2n-1)t\right)
++ D_n \sin\left(3(2n-1)t\right) \ .
+\]
+
+We have found the simple functions
+\[
+u_n(x,t) \equiv F_n(x)G_n(t) = \left( a_n\,
+\cos\left(3(2n-1)t\right) + b_n
+\sin\left(3(2n-1)t\right) \right) \sin\left((2n-1)x\right)
+\]
+for $n>0$.  The constant $a_n$ comes from the product of the constants
+$B_n$ and $C_n$, and $b_n$ comes from the product of $B_n$ and $D_n$.
+
+\subI{Initial condition}
+We seek a solution of the form
+\[
+u(x,t) = \sum_{n=1}^\infty u_n(x,t)
+= \sum_{n=1}^\infty \left( a_n\, \cos\left(3(2n-1)t\right) + b_n
+\sin\left(3(2n-1)t\right) \right) \sin\left((2n-1)x\right) \ .
+\]
+
+From $u(x,0) = 3 \sin\left(7 x\right) + 5 \sin\left(13 x\right)$, we get
+\[
+3 \sin\left(7 x\right) + 5 \sin\left(13 x\right)
+= \sum_{n=1}^\infty a_n\,\sin((2n-1)\,x)
+\]
+for $0<x<\pi/2$.  Thus
+\[
+a_n =
+\begin{cases}
+3 & \quad \text{if} \ n=4 \\
+5 & \quad \text{if} \ n=7 \\
+0 & \quad \text{otherwise}
+\end{cases}
+\]
+From $\displaystyle \pdydx{u}{t}(x,0) = 3 \sin\left(7 x\right)$, we get
+\[
+3 \sin\left(7 x\right)
+ = \sum_{n=1}^\infty 3(2n-1)b_n\,\sin((2n-1)\,x)
+\]
+for $0<x<\pi/2$.  Thus
+\[
+b_n =
+\begin{cases}
+1/7 & \quad \text{if} \ n=4 \\
+0 & \quad \text{otherwise}
+\end{cases}
+\]
+
+The solution is
+\[
+u(x,t) = \left( 3\, \cos\left(21\,t\right) + \frac{1}{7}
+\sin\left(21\,t\right) \right) \sin\left(7\,x\right)
++5\, \cos\left(39\,t\right) \sin\left(13\,x\right) \ .
+\]
+\end{egg}
+
+In the next example, we consider a non-homogeneous wave equation.
+
+\begin{egg}
+Solve the non-homogeneous wave equation
+\begin{equation} \label{wave_spv_egg4_e}
+\pdydxn{u}{t}{2} = c^2 \pdydxn{u}{x}{2} = h(x,t) \equiv 2Lx-x^2 \quad ,
+\quad 0 < x < L \text{ and } t>0 \ ,
+\end{equation}
+with the boundary conditions
+$\displaystyle \pdydx{u}{x}(0,t) = \pdydx{u}{x}(L,t) = 0$ for
+$t>0$, and the initial conditions
+$\displaystyle u(x,0) = x^2(3L-2x)$ and
+$\displaystyle \pdydx{u}{t}(x,0) = \sin^2\left(\pi x/L\right)$ for
+$0<x<L$.
+
+The solution of the homogeneous wave equation in
+Example~\ref{wave_spv_egg2} suggest to seek a solution of the form
+\begin{equation} \label{wave_spv_egg4_su}
+u(x,t) = T_0(t) + \sum_{n=1}^\infty T_n(t)
+\cos\left(\frac{n\pi\,x}{L}\right) \ .
+\end{equation}
+
+Suppose that the Fourier cosine series of $h$ with respect to the
+variable $x$ is
+\begin{equation} \label{wave_spv_egg4_sh}
+h(x,t) = h_0(t) +  \sum_{n=1}^\infty h_n(t) \cos\left(\frac{n\pi x}{L}\right) \ .
+\end{equation}
+If we substitute (\ref{wave_spv_egg4_su}) and (\ref{wave_spv_egg4_sh}) in
+(\ref{wave_spv_egg4_e}), assuming that we may interchange derivatives and
+infinite summations, we get
+\[
+T_0''(t) + \sum_{n=1}^\infty \left( T_n''(t) +
+\left(\frac{c n\pi}{L}\right)^2 T_n(t) \right)
+\cos\left(\frac{n\pi\,x}{L}\right) =
+h_0(t) +  \sum_{n=1}^\infty h_n(t) \cos\left(\frac{n\pi x}{L}\right)
+\]
+for $0<x<L$.  Thus,
+\[
+T_0''(t)  = h_0(t) \quad \text{and} \quad
+T_n''(t) + \left(\frac{c n\pi}{L}\right)^2 T_n(t) = h_n(t)
+\]
+for $t>0$ and $n>0$.
+
+We first have to find the Fourier cosine series of
+$\displaystyle h(x,t) = 2Lx-x^2$ for $0<x<L$.  We have
+\[
+a_0 = \frac{1}{L}\int_0^L \left( 2Lx-x^2 \right) \dx{x}
+= \frac{1}{L} \left( Lx^2 - \frac{x^3}{3} \right)\bigg|_0^L = \frac{2L^2}{3}
+\]
+and, using integration by parts, we have
+\begin{align*}
+a_n &= \frac{2}{L} \int_0^L \left(2Lx-x^2\right)
+\cos\left(\frac{n\pi x}{L}\right)\dx{x} \\
+&= \left( \frac{2}{n\pi} \left(2Lx-x^2\right)
+\sin\left(\frac{n\pi x}{L}\right)\right)\bigg|_0^L
+- \frac{4}{n\pi} \int_0^L \left(L-x\right)
+\sin\left(\frac{n\pi x}{L}\right) \dx{x} \\
+&= \left( \frac{4L}{n^2\pi^2} \left(L-x\right)
+\cos\left(\frac{n\pi x}{L}\right) \right)\bigg|_0^L 
++ \frac{4L}{n^2\pi^2} \int_0^L \cos\left(\frac{n\pi x}{L}\right)
+\dx{x} \\
+&= -\frac{4L^2}{n^2\pi^2}
++ \frac{4L^2}{n^3\pi^3} \sin\left(\frac{n\pi x}{L}\right)\bigg|_0^L
+= -\frac{4L^2}{n^2\pi^2} \ .
+\end{align*}
+Thus
+\[
+h(x,t) = \frac{2L^2}{3} - \sum_{n=1}^\infty \frac{4L^2}{n^2\pi^2}
+\cos\left(\frac{n\pi x}{L}\right) \ .
+\]
+
+To determine the value of $T_n$ for $n\geq 0$, we have to solve
+\[
+T_0''(t) = \frac{2L^2}{3} \quad \text{and} \quad
+T_n''(t) + \left(\frac{c n\pi}{L}\right)^2 T_n(t) = -\frac{4L^2}{n^2\pi^2}
+\]
+for $t>0$ and $n>0$.  We find
+\[
+T_0(t) = \frac{L^2}{3}\,t^2 + B_0t + A_0 \quad \text{and} \quad
+T_n(t) = A_n\cos\left(\frac{c n \pi t}{L}\right)
++ B_n \sin\left(\frac{c n \pi t}{L}\right) -
+\frac{4 L^4}{c^2n^4\pi^4}
+\]
+for $t>0$ and $n>0$.
+
+The solution is
+\[
+u(x,t) = \left(\frac{L^2}{3}\,t^2 + B_0t + A_0\right)
++ \sum_{n=1}^\infty 
+\left( A_n\cos\left(\frac{c n \pi t}{L}\right)
++ B_n \sin\left(\frac{c n \pi t}{L}\right) -
+\frac{4 L^4}{c^2n^4\pi^4} \right)\cos\left(\frac{n\pi x}{L}\right)
+\]
+for $0<x<L$ and $t>0$.
+
+From $\displaystyle u(x,0) = x^2(3L-2x)$, we get
+\[
+u(x,0) = A_0
++ \sum_{n=1}^\infty 
+\left( A_n - \frac{4 L^4}{c^2n^4\pi^4} \right)\cos\left(\frac{n\pi x}{L}\right)
+= x^2(3L-2x) \ .
+\]
+This is the Fourier cosine series of $\displaystyle x^2(3L-2x)$.  Thus,
+\[
+A_0 = \frac{1}{L}\int_0^L x^2(3L-2x) \dx{x} =
+\frac{1}{L}\left( Lx^3 - \frac{1}{2} x^4\right)\bigg|_0^L
+= \frac{L^3}{2}
+\]
+and, using integration by parts,
+\begin{align*}
+A_n - \frac{4 L^4}{c^2n^4\pi^4} &= \frac{2}{L}\int_0^L x^2(3L-2x)
+\cos\left(\frac{n\pi x}{L}\right) \dx{x} \\
+&= \left(\frac{2}{n\pi} x^2(3L-2x)
+\sin\left(\frac{n\pi x}{L}\right)\right)\bigg|_0^L
+- \frac{12}{n\pi} \int_0^L \left(Lx-x^2\right)
+\sin\left(\frac{n\pi x}{L}\right)\dx{x} \\
+&= \left( \frac{12L}{n^2\pi^2} \left(Lx-x^2\right)
+\cos\left(\frac{n\pi x}{L}\right)\right)\bigg|_0^L
+- \frac{12L}{n^2\pi^2} \int_0^L \left(L-2x\right)
+\cos\left(\frac{n\pi x}{L}\right) \dx{x} \\
+&= - \left( \frac{12L^2}{n^3\pi^3} \left(L-2x\right)
+\sin\left(\frac{n\pi x}{L}\right) \right)\bigg|_0^L
+- \frac{24L^2}{n^3\pi^3} \int_0^L
+\sin\left(\frac{n\pi x}{L}\right) \dx{x} \\
+&= \frac{24L^3}{n^4\pi^4}
+\cos\left(\frac{n\pi x}{L}\right)\bigg|_0^L 
+= \frac{24L^3}{n^4\pi^4} \left( (-1)^n -1 \right) \ .
+\end{align*}
+
+From
+\[
+\pdydx{u}{t}(x,0) = \sin^2\left(\frac{\pi x}{L}\right)
+= \frac{1}{2} - \frac{1}{2}\cos\left(\frac{2 \pi x}{L}\right) \ ,
+\]
+we get
+\[
+B_0
++ \sum_{n=1}^\infty B_n\frac{cn\pi}{L}\cos\left(\frac{n\pi x}{L}\right)
+= \frac{1}{2} - \frac{1}{2}\cos\left(\frac{2 \pi x}{L}\right) \ .
+\]
+This is the Fourier cosine series of $\displaystyle
+\frac{1}{2} - \frac{1}{2}\cos\left(\frac{2 \pi x}{L}\right)$.  By
+uniqueness of the Fourier series, we have
+\[
+B_n =
+\begin{cases}
+\displaystyle \frac{1}{2} & \quad \text{if} \ n=0 \\[0.7em]
+\displaystyle -\frac{1}{2} & \quad \text{if} \ n=2 \\[0.7em]
+0 & \quad \text{otherwise}
+\end{cases}
+\]
+
+The solution of the non-homogeneous wave equation is
+\begin{align*}
+u(x,t) &= \left(\frac{L^2}{3}\,t^2 + \frac{t}{2} + \frac{L^3}{2} \right)
++ \sum_{\substack{n=1\\n\neq 2}}^\infty 
+\left(\frac{24L^3}{n^4\pi^4} \left( (-1)^n -1 \right)
+- \frac{4 L^4}{c^2n^4\pi^4} \right)
+\cos\left(\frac{n\pi x}{L}\right) \\
+&\qquad  - \left(\frac{1}{2}\sin\left(\frac{2c\pi t}{L}\right)
++ \frac{L^4}{4c^2\pi^4} \right)\cos\left(\frac{2\pi x}{L}\right) \ .
+\end{align*} 
+
+We could show that $u$ and its derivatives of order up to $2$
+converges absolutely and locally uniformly for $0<x<L$ and $t>0$.
+\end{egg}
+
+\begin{rmk}
+Using separation of variables, we find that the solutions of the wave
+equation in (\ref{wave_class_sol2}) are linear combinations of simple
+functions of the form
+\[
+u(x,t) = (A \cos (ckt) + B \sin (ckt))(C \cos (kx) + D \sin(kx)) \ .
+\]
+\end{rmk}
+
+\section{Exercises}
+
+Suggested exercises:
+
+\begin{itemize}
+\item In \cite{J}: all the numbers in Section 2.4.
+\item In \cite{McO}: all the numbers in Sections 3.1.
+\item In \cite{PinRub}: all the numbers in Sections 4.6; numbers 6.20,
+  6.24 and 6.26 in Section 6.7. 
+\item In \cite{Str}: all numbers in Sections 2.1, 3.2 and 3.4;
+numbers 1, 2, 4 and 5 in Section 4.1; number 2 in Section 4.2;
+number 13 in Section 4.3; numbers 4 to 6, 9 and 13 in Section 5.6. 
+\end{itemize}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End: 

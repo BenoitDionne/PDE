@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{potential/max_curv.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex max_curv.fig max_curv.pdf
+% fig2dev -L pdftex_t max_curv.fig max_curv.pdf_t
+

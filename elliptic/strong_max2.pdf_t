@@ -1,0 +1,22 @@
+\begin{picture}(0,0)%
+\includegraphics{elliptic/strong_max2.pdf}%
+\end{picture}%
+\setlength{\unitlength}{3947sp}%
+\begin{picture}(1824,1669)(1101,-955)
+\put(1276,-286){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$\Omega$}%
+}}}
+\put(1201,-886){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$B_1 = B_{\delta_1}(\VEC{r})$}%
+}}}
+\put(2701,-886){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$S_1$}%
+}}}
+\put(2180,-270){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$\VEC{r}$}%
+}}}
+\put(2701,539){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$\mu(\VEC{p}) = \|\VEC{p}-\VEC{r}\|(\VEC{p}-\VEC{r})$}%
+}}}
+\put(2308, 29){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$\VEC{p}$}%
+}}}
+\put(1126,539){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$B_2 = B_{\delta_2}(\VEC{p})$}%
+}}}
+\put(2851,239){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$S_2$}%
+}}}
+\end{picture}%

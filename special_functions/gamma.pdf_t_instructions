@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{special_functions/gamma.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex gamma.fig gamma.pdf
+% fig2dev -L pdftex_t gamma.fig gamma.pdf_t
+

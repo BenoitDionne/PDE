@@ -1,0 +1,4281 @@
+\section{Layer Potentials} \label{potential_sect}
+
+We follows closely the content of \cite{FoPDE} on
+the subject of layer potentials.
+
+In this chapter, $\Omega$ is a bounded open subset of $\displaystyle \RR^n$.  We
+assume that $\displaystyle \Omega = \bigcup_{i=1}^{m} \Omega_i$, where the
+$\Omega_i$ are the connected components of $\Omega$.  In particular,
+$\Omega_i \cap \Omega_j = \emptyset$ for $i\neq j$.  Moreover, we
+assume that $\displaystyle \Omega^\prime = \RR^n \setminus \overline{\Omega}
+= \bigcup_{i=0}^{m^{\prime}} \Omega_i^{\prime}$,
+where the $\displaystyle \Omega_i^{\prime}$ are the connected components of
+$\displaystyle \Omega^{\prime}$ with
+$\displaystyle \Omega_0^{\prime}$ being the unbounded component.
+We assume that $\partial \Omega$ is $\displaystyle C^2$ and observe that
+$\displaystyle \partial \Omega = \partial \Omega^{\prime}$.
+
+As usual, let $\VEC{\nu}(\VEC{x})$ denote the outward unit normal to
+$\partial \Omega$ at $\VEC{x} \in \partial \Omega$.  The
+{\bfseries interior normal derivative}\index{Interior Normal Derivative} of
+$\displaystyle u \in C^1(\Omega) \cap C(\overline{\Omega})$ at
+$\VEC{x} \in \partial \Omega$ is
+\[
+\pdydx{u}{\VEC{\nu}^-}(\VEC{x})
+= \lim_{t\rightarrow 0^-} \frac{1}{t}
+\left( u(\VEC{x} + t \VEC{\nu}(\VEC{x})) - u(\VEC{x})\right)
+\]
+for $\VEC{x} \in \partial \Omega$ if the limit exists.  Similarly, the
+{\bfseries exterior normal derivative}\index{Exterior Normal Derivative} of
+$\displaystyle u \in C^1(\Omega^{\prime}) \cap C(\overline{\Omega^{\prime}})$ at
+$\displaystyle \VEC{x} \in \partial \Omega^{\prime}$ is
+\[
+\pdydx{u}{\VEC{\nu}^+}(\VEC{x})
+= \lim_{t\rightarrow 0^+} \frac{1}{t}
+\left( u(\VEC{x} + t \VEC{\nu}(\VEC{x})) - u(\VEC{x}) \right)
+\]
+for $\VEC{x} \in \partial \Omega$ if the limit exists.
+
+The following spaces of functions will be used for the studies of
+Neumann problems. $C_{\VEC{\nu}}(\Omega)$ is the space of functions
+$\displaystyle u \in C^1(\Omega) \cap C(\overline{\Omega})$ such that the
+interior normal derivative exists at all points
+$\VEC{x} \in \partial \Omega$ and
+\begin{equation} \label{pot_unif_ddn}
+\max_{\VEC{x}\in \partial \Omega}
+\left| \graD u(\VEC{x} + t \VEC{\nu}(\VEC{x})) \cdot \VEC{\nu}(\VEC{x})
+- \pdydx{u}{\VEC{\nu}^-}(\VEC{x}) \right| \rightarrow 0 \quad
+\text{as} \quad t \rightarrow 0^- \ .
+\end{equation}
+Similarly, $\displaystyle C_{\VEC{\nu}}(\Omega^{\prime})$ is the space
+of functions
+$\displaystyle u \in C^1(\Omega^{\prime}) \cap C(\overline{\Omega^{\prime}})$
+such that the exterior normal derivative exists at all points
+$\displaystyle \VEC{x} \in \partial \Omega^{\prime}$ and
+\begin{equation} \label{pot_ddn_unif}
+\max_{\VEC{x}\in \partial \Omega^{\prime}}
+\left| \graD u(\VEC{x} + t \VEC{\nu}(\VEC{x})) \cdot \VEC{\nu}(\VEC{x})
+- \pdydx{u}{\VEC{\nu}^+}(\VEC{x}) \right| \rightarrow 0 \quad
+\text{as} \quad t \rightarrow 0^+ \ .
+\end{equation}
+
+The main goal of this chapter is to solve the following four problems.
+\begin{description}
+\item[D1 - Interior Dirichlet Problem:] Given
+$f\in C(\partial \Omega)$, find $u \in C(\overline{\Omega})$ 
+such that $\Delta u = 0$ in $\Omega$ (in the sense of distributions)
+and $\displaystyle u\big|_{\partial \Omega} = f$.
+\item[D2 - Exterior Dirichlet Problem:] Given
+$\displaystyle f\in C(\partial \Omega^{\prime})$, find
+$\displaystyle u \in C(\overline{\Omega^{\prime}})$
+such that $\Delta u = 0$ in
+$\displaystyle \Omega^{\prime} \cup \{\infty\}$ (in the sense of
+distributions) and $\displaystyle u\big|_{\partial \Omega} = f$.
+\item[N1 - Interior Neumann Problem:] Given
+$f\in C(\partial \Omega)$, find $u \in C_{\VEC{\nu}}(\Omega)$ 
+such that $\Delta u = 0$ in $\Omega$ (in the sense of distributions)
+and $\displaystyle \pdydx{u}{\VEC{\nu}^-} = f$ on $\partial \Omega$.
+\item[N2 - Exterior Dirichlet Problem:] Given
+$\displaystyle f\in C(\partial \Omega^{\prime})$, find
+$\displaystyle u \in C_{\VEC{\nu}}(\Omega^{\prime})$
+such that $\Delta u = 0$ in
+$\displaystyle \Omega^{\prime} \cup \{\infty\}$ (in the sense of
+distributions) and $\displaystyle \pdydx{u}{\VEC{\nu}^+} = f$ on
+$\partial \Omega$.
+\end{description}
+
+We need to explain what it means for a function to be harmonic at
+infinity in (D2) and (N2).
+
+Suppose that $g: V\rightarrow W$ is a $\displaystyle C^\infty$ diffeomorphism
+between two open subsets $V$ and $W$ of $\displaystyle \RR^n$.
+Let $\displaystyle G(\VEC{x}) = \big(\diff g(\VEC{x})\big)
+\big(\diff g(\VEC{x})\big)^\top$ for
+$\VEC{x} \in V$.  The components of $G(\VEC{x})$ are
+\[
+G_{i,j}(\VEC{x}) = \sum_{k=1}^n \pdydx{g_i}{x_k}(\VEC{x})\,
+\pdydx{g_j}{x_k}(\VEC{x}) \quad , \quad
+1 \leq i,j \leq n \ .
+\]
+Let $h = g^{-1}$ and
+$\displaystyle H(\VEC{y}) = \big(\diff h(\VEC{y})\big)^\top
+\big(\diff h(\VEC{y})\big)$ for $\VEC{y} \in W$.  The components of
+$H(\VEC{y})$ are
+\[
+H_{i,j}(\VEC{y}) = \sum_{k=1}^n \pdydx{h_k}{y_i}(\VEC{y})\,
+\pdydx{h_k}{y_j}(\VEC{y}) \quad , \quad
+1 \leq i,j \leq n \ .
+\]
+We have that
+$\displaystyle G(h(\VEC{y})) = (H(\VEC{y}))^{-1}$ for all $\VEC{y} \in W$
+because
+\[
+\Id = \diff \big( g(h(\VEC{y})) \big) = \diff g(h(\VEC{y}))
+\,\big(\diff h(\VEC{y}) \big)
+\]
+for all $\VEC{y} \in W$ implies that
+$\displaystyle \diff g(h(\VEC{y})) = (\diff h(\VEC{y}))^{-1}$
+for all $\VEC{y} \in W$.  Thus,
+\[
+G(h(\VEC{y})) = \big(\diff g(h(\VEC{y}))\big)
+\big(\diff g(h(\VEC{y}))\big)^\top
+= \big(\diff h(\VEC{y})\big)^{-1}
+\left( \big(\diff h(\VEC{y}) \big)^{-1}\right)^\top
+= (H(\VEC{y}))^{-1}
+\]
+for all $\VEC{y} \in W$
+
+Let $d_h(\VEC{y}) = \left|\det \big(\diff h(\VEC{y})\big)\right|$
+for $\VEC{y} \in W$.  We have that
+\[
+d_h(g(\VEC{x})) = \left|\det \big(\diff h(g(\VEC{x}))\big)\right|
+= \left|\det \big(\diff g(\VEC{x})\big)^{-1} \right|
+=\left|\det \big(\diff g(\VEC{x})\big) \right|^{-1}
+\]
+for all $\VEC{x} \in V$.
+
+Suppose that $\displaystyle u\in C^2(V)$ and let
+$\breve{u}(\VEC{y}) = u(h(\VEC{y}))$ for all $\VEC{y} \in W$.
+We have the following result.
+
+\begin{prop}
+Suppose that $u$, $g$, $\displaystyle h = g^{-1}$ and $G$ are as
+defined above.  Then
+\begin{equation} \label{pot_chain_rule}
+\Delta u (\VEC{x}) = \left(
+\frac{1}{d_h(\VEC{y})} \sum_{i,j=1}^n
+\pdfdx{ \left( d_h(\VEC{y}) G_{i,j}(h(\VEC{y}))
+\pdydx{\breve{u}}{y_i}(\VEC{y})\right)}{y_j} \right)\bigg|_{\VEC{y} = g(\VEC{x})}
+\end{equation}
+in the sense of distributions for $\VEC{x} \in V$.
+\end{prop}
+
+\begin{proof}
+Given $\phi \in \DD(V)$, let $\breve{\phi}(\VEC{y}) = \phi(h(\VEC{y}))$
+for $\VEC{y} \in W$.  We have
+\begin{align*}
+&\int_V (\Delta u) \phi \dx{\VEC{x}}
+= \sum_{k=1}^n \int_V \pdydxn{u}{x_k}{2}\,\phi \dx{\VEC{x}}
+= -\sum_{k=1}^n \int_V \pdydx{u}{x_k}\,\pdydx{\phi}{x_k} \dx{\VEC{x}} \\
+&\quad = -\sum_{k=1}^n \int_W \left( \sum_{i=1}^n \pdydx{\breve{u}}{y_i}(\VEC{y})
+\pdydx{g_i}{x_k}(h(\VEC{y})) \right)\,
+\left( \sum_{j=1}^n \pdydx{\breve{\phi}}{y_j}(\VEC{y})
+\pdydx{g_j}{x_k}(h(\VEC{y})) \right) d_h(\VEC{y}) \dx{\VEC{y}} \\
+&\quad = - \sum_{j,i=1}^n \int_W \pdydx{\breve{u}}{y_i}(\VEC{y})\,
+\pdydx{\breve{\phi}}{y_j}(\VEC{y})
+\left( \sum_{k=1}^n \pdydx{g_i}{x_k}(h(\VEC{y}))\,\pdydx{g_j}{x_k}(h(\VEC{y}))
+\right) d_h(\VEC{y}) \dx{\VEC{y}} \\
+&\quad =- \sum_{j,i=1}^n \int_W \pdydx{\breve{u}}{y_i}(\VEC{y})
+\, \pdydx{\breve{\phi}}{y_j}(\VEC{y})
+\, G_{i,j}(h(\VEC{y}))\, d_h(\VEC{y}) \dx{\VEC{y}}\\
+&=\quad  - \sum_{j,i=1}^n \int_W \left( \pdydx{\breve{u}}{y_i}(\VEC{y})
+\, G_{i,j}(h(\VEC{y}))\, d_h(\VEC{y}) \right)
+\pdydx{\breve{\phi}}{y_j}(\VEC{y}) \dx{\VEC{y}} \\ 
+&\quad = \sum_{j,i=1}^n \int_W \pdfdx{\left( \pdydx{\breve{u}}{y_i}(\VEC{y})
+\, G_{i,j}(h(\VEC{y})) d_h(\VEC{y}) \right)}{y_j} \breve{\phi}(\VEC{y})
+\dx{\VEC{y}} \\
+&\quad = \int_V \left( \sum_{j,i=1}^n \pdfdx{\left(
+\pdydx{\breve{u}}{y_i}(\VEC{y}) \, G_{i,j}(h(\VEC{y})
+d_h(\VEC{y}) \right)}{y_j} \right)\bigg|_{\VEC{y}=g(\VEC{x})}
+\phi(\VEC{x})\, |\det (\diff g(\VEC{x}))| \dx{\VEC{x}} \\
+&\quad = \int_V \left(\frac{1}{d_h(\VEC{y})}  \sum_{j,i=1}^n
+\pdfdx{\left( \pdydx{\breve{u}}{y_i}(\VEC{y})
+\, G_{i,j}(h(\VEC{y})) d_h(\VEC{y}) \right)}{y_j}
+\right)\bigg|_{\VEC{y}=g(\VEC{x})} \, \phi(\VEC{x}) \dx{\VEC{x}} \ .  \qedhere
+\end{align*}
+\end{proof}
+
+Consider the inversion with respect to the unit ball in $\displaystyle \RR^n$,
+\begin{align*}
+T:\RR^n \setminus \{\VEC{0}\} & \rightarrow \RR^n \setminus \{\VEC{0}\} \\
+\VEC{x} & \mapsto \frac{1}{\|\VEC{x}\|_2^2} \, \VEC{x}
+\end{align*}
+We have that $\displaystyle T=T^{-1}$.  Without loss of generality, we
+may assume that $\VEC{0} \in \Omega$.  The
+{\bfseries Kelvin transform}\index{Kelvin Transform} of a
+function $\displaystyle u\in C(\Omega^{\prime})$, is the function
+\begin{align*}
+\tilde{u}: T(\Omega^{\prime}) & \rightarrow \RR \\
+\VEC{y} & \mapsto \|\VEC{y}\|_2^{2-n} u(T(\VEC{y}))
+\end{align*}
+The function $T$ is well defined on $\displaystyle T(\Omega^{\prime})$ because
+$\displaystyle \VEC{0} \not\in \Omega^{\prime}$.
+
+Let $h(\VEC{y}) = T(\VEC{y})$ for all
+$\displaystyle \VEC{y} \in T(\Omega^{\prime})$.
+So, the set $W$ in the previous discussion is now
+$\displaystyle T(\Omega^{\prime})$ and
+the set $V$ is now $\displaystyle \Omega^{\prime}$.  As before,
+$\breve{u}(\VEC{y}) = u(h(\VEC{y})) = u(T(\VEC{u}))$.
+
+We have that
+\[
+\pdydx{h_k}{y_i} = \pdfdx{\left( y_k \left( \sum_{j=1}^n y_j^2
+\right)^{-1} \right)}{y_i}
+= -\frac{2 y_k y_i}{\|\VEC{y}\|_2^4} + \frac{\delta_{i,k}}{\|\VEC{y}\|_2^2}
+\]
+for $1 \leq i, k \leq n$.  Hence,
+\begin{align*}
+H_{i,j}(\VEC{y}) &= \sum_{k=1}^n \left( -\frac{2 y_i y_k}{\|\VEC{y}\|_2^4} +
+  \frac{\delta_{i,k}}{\|\VEC{y}\|_2^2} \right)
+\left( -\frac{2 y_j y_k}{\|\VEC{y}\|_2^4} +
+  \frac{\delta_{j,k}}{\|\VEC{y}\|_2^2} \right) \\
+&= \frac{4 y_iy_j}{\|\VEC{y}\|_2^8} \sum_{k=1}^n y_k^2
+- \sum_{k=1}^n \frac{2 y_i y_k \delta_{j,k}}{\|\VEC{y}\|_2^6}
+- \sum_{k=1}^n \frac{2 y_j y_k \delta_{i,k}}{\|\VEC{y}\|_2^6}
++ \sum_{k=1}^n \frac{ \delta_{i,k}\delta_{j,k}}{\|\VEC{y}\|_2^4} \\
+&= \frac{4 y_iy_j}{\|\VEC{y}\|_2^6}
+- \frac{2 y_i y_j}{\|\VEC{y}\|_2^6}
+- \frac{2 y_j y_i}{\|\VEC{y}\|_2^6}
++ \frac{ \delta_{i,j}}{\|\VEC{y}\|_2^4}
+= \frac{ \delta_{i,j}}{\|\VEC{y}\|_2^4}
+\end{align*}
+for $1 \leq i,j \leq n$.  It follows that
+\[
+d_h(\VEC{y}) = \left| \det (\diff h)(\VEC{y}) \right|
+= \left| \det H(\VEC{y}) \right|^{1/2}
+= \frac{1}{\|\VEC{y}\|_2^{2n}} \ .
+\]
+We also have that
+$\displaystyle G_{i,j}(h(\VEC{y})) = \delta_{i,j} \|\VEC{y}\|_2^4$
+because $\displaystyle G(h(\VEC{y})) = (H(\VEC{y}))^{-1}$ for all
+$\displaystyle \VEC{y} \in T(\Omega^{\prime})$.
+
+If follows from (\ref{pot_chain_rule}) with $h=T$ and
+$\displaystyle u\in C^2(\Omega^{\prime})$ that
+\begin{align*}
+\Delta u (\VEC{x})
+&= \|\VEC{y}\|_2^{2n}  \sum_{i,j=1}^n
+\pdfdx{ \left( \frac{ \delta_{i,j}}{\|\VEC{y}\|_2^{2n-4}}
+\, \pdydx{\breve{u}}{y_i}(\VEC{y})\right)}{y_j}
+= \|\VEC{y}\|_2^{2n}  \sum_{i=1}^n
+\pdfdx{ \left( \frac{1}{\|\VEC{y}\|_2^{2n-4}}
+\, \pdydx{\breve{u}}{y_i}(\VEC{y})\right)}{y_i} \\
+&= \|\VEC{y}\|_2^{2n}  \sum_{i=1}^n
+\left( (2-n) \frac{2y_i}{\|\VEC{y}\|_2^{2n-2}}\,
+\pdydx{\breve{u}}{y_i}(\VEC{y})
++ \frac{1}{\|\VEC{y}\|_2^{2n-4}} \pdydxn{\breve{u}}{y_i}{2} (\VEC{y})
+\right) \\
+&= \|\VEC{y}\|_2^{n+2}  \sum_{i=1}^n
+\left( (2-n) \frac{2y_i}{\|\VEC{y}\|_2^n}\,
+\pdydx{\breve{u}}{y_i}(\VEC{y})
++ \frac{1}{\|\VEC{y}\|_2^{n-2}} \pdydxn{\breve{u}}{y_i}{2} (\VEC{y})
+\right) \\
+&= \|\VEC{y}\|_2^{n+2}  \sum_{i=1}^n
+\left( \pdfdxn{ \left( \frac{1}{\|\VEC{y}\|_2^{n-2}} \right)}{y_i}{2}
+  \, \breve{u}(\VEC{y})
++ 2\pdfdx{ \left( \frac{1}{\|\VEC{y}\|_2^{n-2}} \right)}{y_i}
+\pdydx{\breve{u}}{y_i}(\VEC{y})
++ \frac{1}{\|\VEC{y}\|_2^{n-2}} \pdydxn{\breve{u}}{y_i}{2} (\VEC{y})
+\right) \\
+&= \|\VEC{y}\|_2^{n+2}  \sum_{i=1}^n
+\pdfdxn{ \left( \frac{1}{\|\VEC{y}\|_2^{n-2}}
+\, \breve{u}(\VEC{y}) \right)}{y_i}{2}
+\end{align*}
+for $\VEC{y} = T(\VEC{x})$, we here we have used
+$\displaystyle \Delta \|\VEC{y}\|_2^{2-n} = 0$ for
+$\VEC{y} \neq \VEC{0}$ for the
+second to last equality.
+
+We have proved that
+\[
+\Delta u (\VEC{x}) =
+\bigg( \|\VEC{y}\|^{n+2} \Delta_{\VEC{y}} \tilde{u}(\VEC{y}) \bigg)
+\bigg|_{\VEC{y} = T(\VEC{x})}
+\]
+for $\VEC{x} \in \Omega^{\prime}$.
+The following result follows from this relation.
+
+\begin{prop} \label{pot_u_ut_harm}
+If $\displaystyle u\in C^2(\Omega^{\prime})$, then $u$ is harmonic on
+$\displaystyle \Omega^{\prime}$
+if and only if $\tilde{u}$ is harmonic on $\displaystyle T(\Omega^{\prime})$.
+\end{prop}
+
+\begin{defn}
+We say that $\displaystyle u\in C(\Omega^{\prime})$ is harmonic at
+infinity if $\tilde{u}$ has a removable singularity at $\VEC{0}$.
+Namely, $\tilde{u}$ can be extended to $\VEC{x}=\VEC{0}$ in such a way
+that $\tilde{u}$ is harmonic on a neighbourhood of $\VEC{0}$.
+\end{defn}
+
+We will need conditions later to determine when a function is harmonic
+at infinity.  To obtain this conditions, we first need the following
+lemma.
+
+\begin{lemma} \label{lem_PotInftyU}
+Suppose that $\displaystyle U \subset \RR^n$ is an open set and that
+$\displaystyle \VEC{p} \in \RR^n$.
+If $u:U \to \RR$ is an harmonic function on $U \setminus \{\VEC{p}\}$
+such that
+$\displaystyle \left|u\left(\VEC{x}\right)\right|
+= o\left(\|\VEC{x} - \VEC{p}\|^{2-n}\right)$ as
+$\|\VEC{x} - \VEC{p}\| \to 0$ when $n>2$ or
+$\displaystyle \left|u\left(\VEC{x}\right)\right|
+= o\left(\ln\left(\left\|\VEC{x} - \VEC{p}\right\|^{-1}\right)\right)$
+as $\|\VEC{x} - \VEC{p}\| \to 0$ when $n=2$, then $u$ has a
+removable singularity at $\VEC{p}$; namely, we may define $u$ at
+$\VEC{p}$ such that $u$ is harmonic on $U$.
+\end{lemma}
+
+\begin{proof}
+Since $U$ is open, there exists $R>0$ such that
+$\overline{B_R(\VEC{p})} \subset U$.
+Let $\displaystyle V = R^{-1} \left( U - \{\VEC{p}\} \right)$.
+The lemma will be proved if we prove that
+$\displaystyle v: V  \to \RR$ defined by
+$\displaystyle v(\VEC{x}) = u\left(R(\VEC{x} + \VEC{p})\right)$
+has a removable singularity at $\VEC{0}$.  We may therefore assume
+that $\displaystyle \overline{B_1(\VEC{0})} \subset U$.
+
+Since $v$ is continuous on $\partial B_1(\VEC{0})$, it follows
+from Theorem~\ref{laplace_exist_ball} that there exists a continuous
+function $w: \overline{B_1(\VEC{0})} \to \RR$ such that
+$w$ is harmonic on $B_1(\VEC{0})$ and $w(\VEC{x}) = v(\VEC{x})$
+for $\VEC{x} \in \partial B_1(\VEC{0})$.
+
+We now prove that $v=w$ on
+$\overline{B_1(\VEC{0})}\setminus\{\VEC{0}\}$.  We will therefore be
+able to remove the singularity at the origin by setting
+$v(\VEC{0}) = w(\VEC{0})$. 
+
+Given $\epsilon >0$ and $0<\delta<1$, let
+$f: \overline{B_1(\VEC{0})} \setminus B_\delta(\VEC{0}) \to \RR$
+be the function defined by
+\[
+f(\VEC{x}) =  
+\begin{cases}
+v(\VEC{x}) - w(\VEC{x}) - \epsilon \left( \|\VEC{x}\|^{2-n} - 1 \right)
+& \quad \text{if} \ n > 2 \\
+v(\VEC{x}) - w(\VEC{x}) - \epsilon \ln(\|\VEC{x}\|^{-1})
+& \quad \text{if} \ n = 2 \\
+\end{cases}
+\]
+We have that $f$ is continuous on
+$\displaystyle \overline{B_1(\VEC{0})} \setminus B_\delta(\VEC{0})$
+and harmonic on
+$\displaystyle B_1(\VEC{0}) \setminus \overline{B_\delta(\VEC{0})}$
+because $v$, $w$, $\displaystyle \|\VEC{x}\|^{2-n} - 1$ when $n>2$,
+and $\displaystyle \ln\left(\|\VEC{x}\|)^{-1}\right)$ when $n=2$ are
+continuous on
+$\displaystyle \overline{B_1(\VEC{0})} \setminus B_\delta(\VEC{0})$
+and harmonic on
+$\displaystyle B_1(\VEC{0}) \setminus \overline{B_\delta(\VEC{0})}$.
+Corollary~\ref{laplace_sharm} is used to justify the previous
+statement.
+
+We have that $f(\VEC{x}) = 0$ for $\VEC{x} \in \partial B_1(\VEC{0})$.
+Let $\displaystyle m = \min_{\VEC{x} \in \overline{B_1(\VEC{0})}} |w(\VEC{x})|$.
+Such a minimum exists because $w$ is continuous on the compact set
+$\overline{B_1(\VEC{0})}$.  By taking $\delta$ small enough, it
+follows from the assumption of the lemma that
+\[
+f(\VEC{x}) \leq
+\begin{cases}
+\displaystyle \underbrace{\left(
+\frac{v(\VEC{x})}{\|\VEC{x}\|^{2-n}} - \epsilon \right)}_{<0}
+\underbrace{\|\VEC{x}\|^{2-n}}_{\to +\infty} - m + \epsilon < 0 \quad
+& \ \text{if}\ n > 2 \\[2.5em]
+\displaystyle \underbrace{\left(
+\frac{v(\VEC{x})}{\ln\left(\|\VEC{x}\|^{-1}\right)} - \epsilon \right)}_{<0}
+\underbrace{\ln\left(\|\VEC{x}\|^{-1}\right)}_{\to +\infty} - m < 0
+\quad & \ \text{if}\ n = 2
+\end{cases}
+\]
+for all $\VEC{x} \in B_\delta(\VEC{0})$.
+Thus $f(\VEC{x}) \leq 0$ on $\partial B_\delta(\VEC{0})$.
+
+It follows from the maximum principle, Theorem~\ref{laplace_HMP},
+applied to $f$ on
+$\displaystyle \overline{B_1(\VEC{0})} \setminus B_\delta(\VEC{0})$
+that $f(\VEC{x}) \leq 0$ for
+$\displaystyle \VEC{x} \in \overline{B_1(\VEC{0})} \setminus B_\delta(\VEC{0})$.
+Since this is true for all $\delta$ small enough, we get that
+$f(\VEC{x}) \leq 0$ for
+$\displaystyle \VEC{x} \in \overline{B_1(\VEC{0})} \setminus \{\VEC{0}\}$.
+Letting $\epsilon$ converges to $0$, we get that
+$\displaystyle v(\VEC{x}) - w(\VEC{x}) \leq 0$ for
+$\displaystyle \VEC{x} \in \overline{B_1(\VEC{0})} \setminus \{\VEC{0}\}$.
+
+Proceeding similarly with $-f$ instead of $f$, we get that
+$\displaystyle w(\VEC{x}) - v(\VEC{x}) \geq 0$ for
+$\displaystyle \VEC{x} \in \overline{B_1(\VEC{0})} \setminus \{\VEC{0}\}$.
+Completing the proof that
+$\displaystyle w(\VEC{x}) - v(\VEC{x}) = 0$ for
+$\displaystyle \VEC{x} \in \overline{B_1(\VEC{0})} \setminus \{\VEC{0}\}$.
+\end{proof}
+
+\begin{prop} \label{pot_infty_u}
+Suppose that $\displaystyle u\in C^2(\Omega^{\prime})$ is harmonic on
+$\displaystyle \Omega^{\prime}$.
+The following statement are equivalent.
+\begin{enumerate}
+\item $u$ is harmonic at infinity.
+\item $\displaystyle u(\VEC{x}) = O(\|\VEC{x}\|^{2-n})$ as
+$\|\VEC{x}\| \rightarrow \infty$.
+\item $|u(\VEC{x})| \to 0 $ as $\|\VEC{x}\| \rightarrow \infty$
+when $n>2$, or
+$|u(\VEC{x})| = o(\ln(\|\VEC{x}\|))$ as $\|\VEC{x}\| \rightarrow \infty$
+when $n=2$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+\stage{1$\mathbf{\Rightarrow}$2}
+If $u$ is harmonic at infinity, then the Kelvin transform
+$\tilde{u}$ has a removable singularity at the origin.  Thus, there
+exist $\delta>0$ such that
+$\displaystyle B_{\delta}(\VEC{0}) \subset T\left(\Omega^{\prime}\right)$
+and a harmonic function $w: B_{\delta}(\VEC{0}) \to \RR$
+such that 
+\[
+w(\VEC{x}) = \tilde{u}\left(\VEC{x}\right)
+= \|\VEC{x}\|_2^{2-n} u(T(\VEC{x}))
+\]
+for all $\VEC{x} \in B_{\delta}(\VEC{0}) \setminus \{\VEC{0}\}$.
+Let
+$\displaystyle M = \max_{\VEC{x} \in \overline{B_{\delta/2}(\VEC{0})}}
+|w(\VEC{x})|$.
+
+We get that
+\[
+u(\VEC{x}) = \|\VEC{x}\|_2^{2-n} w\left(T(\VEC{x})\right)
+\]
+for $\displaystyle \VEC{x} \in T\left(B_{\delta}(\VEC{0})\right)
+= \left\{\VEC{x} : \| \VEC{x} \| > 1/\delta \right\} \subset \Omega^{\prime}$.
+Hence, $\displaystyle | u(\VEC{x}) | \leq M \|\VEC{x}\|^{2-n}$ for
+$\|\VEC{x}\| > 2/\delta$.
+
+\stage{2$\mathbf{\Rightarrow}$3}
+If $\displaystyle u(\VEC{x}) = O(\|\VEC{x}\|^{2-n})$ as
+$\|\VEC{x}\| \rightarrow \infty$, then there exist $C, R >0$ such that
+$\displaystyle |u(\VEC{x})| \leq C \|\VEC{x}\|^{2-n}$ for $\|\VEC{x}\| > R$.
+If $n>0$, then it automatically follows that
+$|u(\VEC{x})| \to 0$ as $\|\VEC{x}\| \to \infty$.
+If $n=2$, then $\displaystyle |u(\VEC{x})| \leq C $ for $\|\VEC{x}\| > R$.
+Hence,
+\[
+  \left| \frac{u(\VEC{x})}{\ln\left(\|\VEC{x}\|\right)} \right|
+  \leq \frac{C}{\ln\left(\|\VEC{x}\|\right)} \to 0
+\]
+as $\|\VEC{x}\|\to \infty$.
+
+\stage{3$\mathbf{\Rightarrow}$1}
+It follows from the definition of the Kelvin transform $\tilde{u}$ of
+$u$ that
+\[
+\left| \frac{\tilde{u}\left(\VEC{x}\right)}{\|\VEC{x}\|_2^{2-n}} \right|
+= \left| u(T(\VEC{x})) \right|
+= \left| u\left( \|\VEC{x}\|^{-2}\VEC{x}\right) \right| \to 0
+\]
+as $\|\VEC{x}\| \to 0$ when $n>2$, and
+\[
+\left| \frac{\tilde{u}\left(\VEC{x}\right)}{\ln\left(\|\VEC{x}\|^{-1}\right)}
+\right|
+= \left| \frac{u(T(\VEC{x}))}{\ln\left(\|\VEC{x}\|^{-1}\right)} \right|
+= \left| \frac{u\left( \|\VEC{x}\|^{-2}\VEC{x}\right)}
+{\ln\left(\|\VEC{x}\|^{-1}\right)} \right| \to 0
+\]
+as $\|\VEC{x}\| \to 0$ when $n=2$ by assumption.
+Hence, according to Lemma~\ref{lem_PotInftyU}, $\tilde{u}$ has a
+removable singularity at the origin in both cases.
+\end{proof}
+
+To prove the next proposition, we will use some of the results about the
+homogeneous polynomials of degree $k$ in $\RR^n$ presented in
+Section~\ref{SectHramPoly}.
+
+\begin{prop} \label{pot_infty_ddu}
+Suppose that $\displaystyle u\in C^2(\Omega^{\prime})$ is harmonic on
+$\displaystyle \Omega^{\prime} \cup \{\infty\}$.  Let
+$\VEC{\nu}(\VEC{x})$ be the outward
+unit normal to $\displaystyle \partial B_r(\VEC{0}) \subset \Omega^{\prime}$ at
+$\VEC{x} \in \partial B_r(\VEC{0})$.
+If $n>2$, then
+$\displaystyle \left| \pdydx{u}{\VEC{\nu}}(\VEC{x})\right| =
+O(\|\VEC{x}\|^{1-n})$ as $\|\VEC{x}\|\rightarrow \infty$.  If $n=2$, then
+$\displaystyle \left| \pdydx{u}{\VEC{\nu}}(\VEC{x})\right| =
+O(\|\VEC{x}\|^{-2})$ as $\|\VEC{x}\|\rightarrow \infty$.
+\end{prop}
+
+\begin{proof}
+We may assume that there exists $0<R<1$ such that
+$\displaystyle \left\{ \VEC{x} : \|\VEC{x}\| > R \right\} \subset
+\Omega^{\prime}$.
+If it is not so, choose $q > 0$ such that 
+$\displaystyle \left\{ \VEC{x} : \|\VEC{x}\| > q/2 \right\} \subset
+\Omega^{\prime}$ and set $\displaystyle W = q^{-1} \Omega^{\prime}$.
+The function $w: W \to \RR$ defined by
+$w(\VEC{x}) = u(q \VEC{x})$ for $\VEC{x} \in W$
+is of class $\displaystyle C^2$ and is harmonic on $W \cup \{\infty\}$.
+Since $\displaystyle \left\{ \VEC{x} : \|\VEC{x}\| > 1/2 \right\} \subset W$,
+we may choose $0<R<1$ such that
+$\displaystyle \left\{ \VEC{x} : \|\VEC{x}\| > R \right\} \subset W$.
+It is then enough to prove the proposition for $w: W \to \RR$.
+
+For the rest of this proof, we will refer to the notation introduced
+in Section~\ref{SectHramPoly}.
+
+We consider the Kelvin function $\tilde{u}$ of $u$.  Since $u$ is
+harmonic at infinity, we may assume that
+$\tilde{u}$ is harmonic on
+$\displaystyle \overline{B_1(\VEC{0})} \subset T\left(B_R(\VEC{0})\right)$.
+Let $S = \partial B_1(\VEC{0})$ and consider the functions $f: S \to \RR$
+and $\displaystyle \phi_k \in H_k\big|_S$ defined by
+$f(\VEC{x}) = \tilde{u}(\VEC{x})$ and
+$\phi_k(\VEC{x}) = \ps{f}{p_{\VEC{x}}^{[k]}}$ for all $\VEC{x} \in S$
+respectively.  Recall that $\displaystyle p_{\VEC{x}}^{[k]}$ is the
+homogeneous polynomial of degree $k$ defined in Section~\ref{SectHramPoly}.
+It follows from Corollary~\ref{L2AbsConvUrxCor} that
+\[
+\tilde{u}(\VEC{x}) = \sum_{k=0}^\infty \|\VEC{x}\|^k
+\phi_k\left(\|\VEC{x}\|^{-1}\VEC{x}\right)
+\]
+for $\VEC{x} \in B_1(\VEC{0})$.  We also have that the
+series converges absolutely and uniformly on $B_R(\VEC{0})$ for every
+$0 \leq R <1$.   We get that
+\[
+u(\VEC{x}) = \|T(\VEC{x})\|^{n-2} \tilde{u}(T(\VEC{x}))  
+= \sum_{k=0}^\infty \|\VEC{x}\|^{2-n-k}
+\phi_k\left(\|\VEC{x}\|^{-1} \VEC{x}\right)
+\]
+for $\|\VEC{x}\| > 1$.  If
+$\VEC{x} = r \VEC{y}$ with $r > 1$ and $\|\VEC{y}\|=1$, we have that
+\[
+u(r\VEC{y}) = \sum_{k=0}^\infty r^{2-n-k} \phi_k\left(\VEC{y}\right) \ ,
+\]
+where the convergence of the series is uniform for $r>1/R$ and
+$\VEC{y} \in S$ whatever $0 < R < 1$.  We may therefore interchange
+the derivative with respect to $r$ with the summation to get
+\begin{equation} \label{dudnurxO}
+\pdydx{u}{\VEC{\nu}}(r \VEC{y})
+= \sum_{k=0}^\infty (2-n-k) r^{1-n-k} \phi_k\left(\VEC{y}\right)
+= r^{1-n} \sum_{k=0}^\infty (2-n-k) r^{-k} \phi_k\left(\VEC{y}\right)
+\end{equation}
+for $r>1$.
+
+\stage{i} We consider first the case $n>2$.  For $r>3$ and $p$ large
+enough such that $\displaystyle (n+p-2) < 2^p$, we have that
+\[
+\left| \sum_{k=p}^{\infty} (2-n-k) r^{-k} \phi_k\left(\VEC{y}\right) \right|
+\leq \sum_{k=p}^{\infty} (n+k-2) 3^{-k}
+\left| \phi_k\left(\VEC{y}\right) \right| \\
+\leq \sum_{k=p}^{\infty} \left(\frac{2}{3}\right)^k
+\left| \phi_k\left(\VEC{y}\right) \right|
+\]
+for all $\VEC{y} \in S$.  Since
+$\displaystyle \sum_{k=p}^{\infty} (2/3)^k |\phi_k|$
+converges uniformly on $S$ to a continuous function, there exists a
+constant $C>0$ such that
+$\displaystyle \sum_{k=p}^{\infty} (2/3)^k \left|
+  \phi_k\left(\VEC{y}\right) \right| < C$
+for all $\VEC{y} \in S$.  It then follows
+from (\ref{dudnurxO}) that
+$\displaystyle \left| \pdydx{u}{\VEC{\nu}}(r \VEC{y}) \right| = O(r^{1-n})$
+for $n>2$ as $r \to \infty$.
+
+\stage{ii} If $n=2$, the expression in (\ref{dudnurxO}) becomes
+\[
+\pdydx{u}{\VEC{\nu}}(r \VEC{y})  
+= r^{-2} \sum_{k=1}^\infty (-k) r^{-k-1} \phi_k\left(\VEC{y}\right) \ .
+\]
+For $r>3$ and $p$ large enough such that $\displaystyle p < 2^{p+1}$,
+we have that
+\[
+\left| \sum_{k=p}^{\infty} (-k) r^{-k-1} p_k\left(\VEC{y}\right) \right|
+\leq \sum_{k=p}^{\infty} k\, 3^{-k-1} \left| p_k\left(\VEC{y}\right) \right| \\
+\leq \sum_{k=p}^{\infty} \left(\frac{2}{3}\right)^{k+1}
+\left| p_k\left(\VEC{y}\right) \right|
+\]
+for all $\VEC{y} \in S$.  As before, since
+$\displaystyle \sum_{k=p}^{\infty} (2/3)^k |\phi_k|$
+converges uniformly on $S$ to a continuous function, there exists a
+constant $C>0$ such that
+$\displaystyle \sum_{k=p}^{\infty} (2/3)^k \left|
+  \phi_k\left(\VEC{y}\right) \right| < C$
+for all $\VEC{y} \in S$.  It then follows
+from (\ref{dudnurxO}) that
+$\displaystyle \left| \pdydx{u}{\VEC{\nu}}(r \VEC{y}) \right| = O(r^{-2})$
+for $n=2$ as $r \to \infty$.
+\end{proof}
+
+\begin{rmk}
+The method used in this chapter to solve (D1), (D2), (N1) and (N2) is called
+{\bfseries Layer Potentials}\index{Layer Potentials}.
+In Section~\ref{ell_GreenF}, we use the results of the present chapter
+to prove Theorem~\ref{laplace_dirichlet2}.
+\end{rmk}
+
+\subsection{Uniqueness of solutions} \label{pot_sect_unique}
+
+\subsubsection{Problem D1}
+The uniqueness of the solution of (D1) is given by
+Theorem~\ref{laplace_uniqu_th}.
+
+\subsubsection{Problem D2}
+To prove the uniqueness of the solution of (D2), suppose
+that $\displaystyle u \in C(\overline{\Omega^{\prime}})$ is a solution
+of (D2) with $u = f = 0$ on $\displaystyle \partial \Omega^{\prime}$.
+According to Proposition~\ref{pot_u_ut_harm}, The Kelvin transform
+$\tilde{u}$ of $u$ is harmonic in $\displaystyle T(\Omega^{\prime})$
+and satisfies $\tilde{u} = \tilde{f} = 0$ on
+$\displaystyle T(\partial \Omega^{\prime}) = \partial\,T(\Omega^{\prime})$.
+Because $\displaystyle T(\Omega^{\prime})$
+is a bounded open subset of $\displaystyle \RR^n$, we have that
+$\tilde{u} = 0$ on $\displaystyle T(\Omega^{\prime})$
+by uniqueness of solution for the problem (D1). 
+This implies that $u =0$ on $\displaystyle \Omega^{\prime}$.
+
+\subsubsection{Problem N1}
+To prove the uniqueness of the solution of (N1) modulo a
+function which is constant on each connected component of $\Omega$,
+suppose that $u \in C_{\VEC{\nu}}(\Omega)$ is a solution of
+(N1) with $\displaystyle \pdydx{u}{\VEC{\nu}^-} = f = 0$ on
+$\partial \Omega$.
+
+We will need the following famous result.
+
+\begin{theorem}[Tubular Neighbourhood Theorem]\label{pot_TBN}
+Suppose that $\displaystyle S \subset \RR^n$ is a $(n-1)$-dimensional
+compact oriented manifold of class $\displaystyle C^k$ with $k>1$.
+There exists $\mu >0$ such that
+\[
+O_\mu = \left\{ \VEC{x} + t\, \VEC{\nu}(\VEC{x}) : \VEC{x} \in S \ ,
+\ |t|<\mu \right\}
+\]
+is an open neighbourhood of $S$.  As usual, $\VEC{\nu}(\VEC{x})$ is
+the outward unit normal to $S$ at $\VEC{x} \in M$.  Moreover, the
+mapping
+\begin{align*}
+F: S\times ]-\mu,\mu[ &\rightarrow \RR^n \\
+(\VEC{x}, t) &\mapsto \VEC{x} + t\, \VEC{\nu}(\VEC{x})
+\end{align*}
+is a diffeomorphism of class $\displaystyle C^{k-1}$ onto $O_\mu$.
+\end{theorem}
+
+\begin{proof}
+The proof can be found in any good textbook on differential geometry
+like \cite{Ab,Sp}.
+\end{proof}
+
+Let $\Omega_\epsilon \subset \Omega$ be the set bounded by
+$\partial \Omega_\epsilon = \{ \VEC{x} + \epsilon \VEC{\nu}(\VEC{x}) : \VEC{x}
+\in \partial \Omega \}$ for $\epsilon<0$, where is $|\epsilon|$ small
+enough so that
+$\displaystyle
+O_{|\epsilon|} = \left\{ \VEC{x} + t\, \VEC{\nu}(\VEC{x}) : \VEC{x} \in
+  \partial \Omega \ , \ |t|<|\epsilon| \right\}$ is a tubular
+neighbourhood of $\partial \Omega$.
+
+From the Green's identity (\ref{laplace_green1}) with $v=u$, we have
+\begin{equation} \label{potN1Eq1}
+\int_{\Omega_\epsilon} \| \graD u \|^2 \dx{\VEC{x}} =
+\int_{\partial \Omega_\epsilon} u\,\pdydx{u}{\VEC{\nu}} \dss{S}{x}
+- \int_{\Omega_\epsilon} u \Delta u \dx{\VEC{x}}  =
+\int_{\partial \Omega_\epsilon} u\,\pdydx{u}{\VEC{\nu}} \dss{S}{x}
+\end{equation}
+because $\Delta u = 0$ on $\Omega$.  From the Lebesgue's Monotone
+Convergence Theorem, we may conclude that
+\begin{equation} \label{potN1Eq2}
+\int_{\Omega_\epsilon} \| \graD u \|_2^2 \dx{\VEC{x}}
+= \int_\Omega \X_{\Omega_\epsilon} \| \graD u \|_2^2 \dx{\VEC{x}}
+\rightarrow \int_\Omega \| \graD u \|^2 \dx{\VEC{x}}
+\end{equation}
+as $\epsilon \rightarrow 0^-$,  where
+\[
+\X_{\Omega_\epsilon}(\VEC{x}) =
+\begin{cases}
+1 & \quad \text{if} \ \VEC{x} \in \Omega_\epsilon \\
+0 & \quad \text{if} \ \VEC{x} \not\in \Omega_\epsilon
+\end{cases}
+\]
+Moreover, we have that
+\begin{equation} \label{potN1Eq3}
+\begin{split}
+\int_{\partial \Omega_\epsilon} u\,\pdydx{u}{\VEC{\nu}} \dss{S}{x}
+&= \int_{\partial \Omega} u\big(\VEC{x} + \epsilon \VEC{\nu}(\VEC{x})\big)
+\graD u(\VEC{x} + \epsilon \VEC{\nu}(\VEC{x})) \cdot \VEC{\nu}(\VEC{x}) 
+\dss{S}{x} \\
+&\rightarrow \int_{\partial \Omega} u(\VEC{x}) \pdydx{u}{\VEC{\nu}^-}(\VEC{x})
+\dss{S}{x} = 0
+\end{split}
+\end{equation}
+as $\epsilon \rightarrow 0^-$ because
+$\displaystyle
+\graD u(\VEC{x} + \epsilon \VEC{\nu}(\VEC{x})) \cdot \VEC{\nu}(\VEC{x})
+\to \pdydx{u}{\VEC{\nu}^-}(\VEC{x})$ uniformly on $\partial \Omega$ as
+$\epsilon \to 0^-$ since $u \in C_{\VEC{\nu}}(\Omega)$, and
+$\displaystyle u\big(\VEC{x} + \epsilon \VEC{\nu}(\VEC{x})\big) \to
+u(\VEC{x})$ uniformly on $\partial \Omega$ as $\epsilon \to 0^-$
+since $u$ is uniformly continuous on the compact set $\overline{\Omega}$.
+We have also used the fact that the outward unit normal to
+$\partial \Omega_\epsilon$ at
+$\VEC{x} + \epsilon \VEC{\nu}(\VEC{x})$ is $\VEC{\nu}(\VEC{x})$
+because of our tubular neighbourhood.
+
+It follows from (\ref{potN1Eq1}), (\ref{potN1Eq2}) and (\ref{potN1Eq3})
+that $\displaystyle \int_\Omega \| \graD u \|^2 \dx{\VEC{x}} = 0$.
+Since $\displaystyle u \in C^1(\Omega)$, this implies that $\graD u = \VEC{0}$
+everywhere on $\Omega$.  Thus $u$ is constant on each connected
+component of $\Omega$.
+
+\subsubsection{Problem N2}
+We prove the uniqueness of the solution of (N2) modulo a
+function which is constant on each connected component of $\Omega$.
+Moreover, we prove that $u=0$ on the unbounded component if $n>2$.
+
+Suppose that $\displaystyle u \in C_{\VEC{\nu}}(\Omega^{\prime})$ is a
+solution of (N2) with $\displaystyle \pdydx{u}{\VEC{\nu}^+} = f = 0$ on
+$\partial \Omega$.
+
+Let $\displaystyle \Omega^{\prime}_\epsilon \subset \Omega^{\prime}$
+be the set bounded by $\partial \Omega^{\prime}_\epsilon
+= \{ \VEC{x} + \epsilon \VEC{\nu}(\VEC{x}) : \VEC{x}
+\in \partial \Omega \}$ for $\epsilon>0$ small enough
+so that
+$\displaystyle
+O_{\epsilon} = \left\{ \VEC{x} + t\, \VEC{\nu}(\VEC{x}) : \VEC{x} \in
+  \partial \Omega \ , \ |t|<\epsilon \right\}$ is a tubular
+neighbourhood of $\displaystyle \partial \Omega = \partial \Omega^{\prime}$.
+
+Choose $r>0$ such that
+$\displaystyle \overline{\RR^n \setminus \Omega^{\prime}_\epsilon}
+\subset B_r(\VEC{0})$.
+From the Green's identity (\ref{laplace_green1}) with $v=u$, we have
+\begin{align}
+\int_{B_r(\VEC{0})\cap\Omega^{\prime}_\epsilon} \| \graD u \|^2 \dx{\VEC{x}} &=
+\int_{\partial B_r(\VEC{0})} u\,\pdydx{u}{\VEC{\nu}} \dss{S}{x}
+- \int_{\partial \Omega^{\prime}_\epsilon} u\,\pdydx{u}{\VEC{\nu}} \dss{S}{x}
+- \int_{B_r(\VEC{0})\cap\Omega^{\prime}_\epsilon} u \Delta u \dx{\VEC{x}}
+\nonumber \\
+&= \int_{\partial B_r(\VEC{0})} u\,\pdydx{u}{\VEC{\nu}} \dss{S}{x}
+- \int_{\partial \Omega^{\prime}_\epsilon} u\,\pdydx{u}{\VEC{\nu}} \dss{S}{x}
+\label{potN2Eq1}
+\end{align}
+because $\Delta u =0$ in $\displaystyle \Omega^{\prime}$.
+
+Using the Lebesgue's Monotone Convergence Theorem as we did to prove
+the uniqueness of the solution for the problem (N1), we have that
+\begin{equation} \label{potN2Eq2}
+\int_{B_r(\VEC{0})\cap\Omega^{\prime}_\epsilon} \| \graD u \|^2 \dx{\VEC{x}}
+\rightarrow \int_{B_r(\VEC{0})\cap\Omega^{\prime}} \| \graD u \|^2 \dx{\VEC{x}}
+\end{equation}
+as $\epsilon \rightarrow 0^+$.
+Moreover, it follows from (\ref{pot_ddn_unif}) that
+\begin{equation} \label{potN2Eq3}
+\begin{split}
+\int_{\partial \Omega^{\prime}_\epsilon} u\,\pdydx{u}{\VEC{\nu}} \dss{S}{x}
+&= \int_{\partial \Omega} u\big(\VEC{x} + \epsilon \VEC{\nu}(\VEC{x})\big)
+\graD u(\VEC{x} + \epsilon \VEC{\nu}(\VEC{x})) \cdot
+\VEC{\nu}(\VEC{x}) \dss{S}{x} \\
+&\rightarrow \int_{\partial \Omega} u(\VEC{x}) \pdydx{u}{\VEC{\nu}^+}(\VEC{x})
+\dss{S}{x} = 0
+\end{split}
+\end{equation}
+as $\epsilon \rightarrow 0^+$ because
+$\displaystyle
+\graD u(\VEC{x} + \epsilon \VEC{\nu}(\VEC{x})) \cdot \VEC{\nu}(\VEC{x})
+\to \pdydx{u}{\VEC{\nu}^+}(\VEC{x})$ uniformly on $\partial \Omega$ as
+$\epsilon \to 0^+$ since
+$\displaystyle u \in C_{\VEC{\nu}}(\Omega^{\prime})$, and
+$\displaystyle u\big(\VEC{x} + \epsilon \VEC{\nu}(\VEC{x})\big) \to
+u(\VEC{x})$ uniformly on $\partial \Omega$ as $\epsilon \to 0^-$
+since $u$ is uniformly continuous on the compact set
+$\displaystyle\overline{B_r(\VEC{0})\cap\Omega^{\prime}}$.
+It follows from (\ref{potN2Eq1}), (\ref{potN2Eq2}) and
+(\ref{potN2Eq3}) that 
+\begin{equation} \label{pot_N2_pequ}
+\int_{B_r(\VEC{0})\cap\Omega^{\prime}} \| \graD u \|^2 \dx{\VEC{x}} =
+\int_{\partial B_r(\VEC{0})} u\,\pdydx{u}{\VEC{\nu}} \dss{S}{x} \  .
+\end{equation}
+
+\subI{$\mathbf{n>2}$} From Proposition~\ref{pot_infty_u} and
+Proposition~\ref{pot_infty_ddu}, we have that
+$\displaystyle |u(\VEC{x})| = O(\|\VEC{x}\|^{2-n})$ and
+$\displaystyle \left| \pdydx{u}{\VEC{\nu}}(\VEC{x})\right|
+= O(\|\VEC{x}\|^{1-n})$ as $\|\VEC{x}\|\rightarrow \infty$.  Hence,
+there exists a constant $C$ such that
+\[
+\left| \int_{\partial B_r(\VEC{0})} u \pdydx{u}{\VEC{\nu}} \dss{S}{x}
+\right| \leq
+\int_{\partial B_r(\VEC{0})} \left| u \right|\,\left| \pdydx{u}{\VEC{\nu}} \right|
+\dss{S}{x}
+\leq C r^{2-n} r^{1-n}
+\underbrace{\int_{\partial B_r(\VEC{0})} \dss{S}{x}}_{=\omega_n \,r^{n-1}}
+= C \omega_n r^{2-n} \rightarrow 0 
+\]
+as $r \rightarrow \infty$.
+It follows from (\ref{pot_N2_pequ}) and the Lebesgue's Monotone
+Convergence Theorem that
+\[
+\int_{B_r(\VEC{0})\cap\Omega^{\prime}} \| \graD u \|_2^2 \dx{\VEC{x}} \rightarrow
+\int_{\Omega^{\prime}} \| \graD u \|_2^2 \dx{\VEC{x}} = 0
+\]
+as $r \rightarrow \infty$.
+Since $\displaystyle u \in C^1(\Omega^{\prime})$, we find that
+$\graD u = \VEC{0}$ everywhere on $\displaystyle \Omega^{\prime}$.
+Thus $u$ is constant on each connected component of $\Omega^{\prime}$.
+
+Moreover, $u=0$ on $\displaystyle \Omega_0^{\prime}$, the unbounded component
+of $\displaystyle \Omega^{\prime}$, because $u(\VEC{x}) \rightarrow 0$ as
+$\|\VEC{x}\|\rightarrow \infty$ according to
+Proposition~\ref{pot_infty_u}.  This is possible for a constant
+function $u$ on $\displaystyle \Omega_0^{\prime}$ only if $u=0$
+on $\displaystyle \Omega_0^{\prime}$.
+
+\subI{$\mathbf{n=2}$} From Proposition~\ref{pot_infty_u} and
+Proposition~\ref{pot_infty_ddu}, we have that
+$|u(\VEC{x})| = o(\ln(\|\VEC{x}\|))$ and
+$\displaystyle \left| \pdydx{u}{\VEC{\nu}}(\VEC{x})\right|
+= O(\|\VEC{x}\|^{-2})$ as $\|\VEC{x}\|\rightarrow \infty$.  Hence,
+there exists a constant $C$ such that
+\[
+\left| \int_{\partial B_r(\VEC{0})} u \pdydx{u}{\VEC{\nu}} \dss{S}{x}
+\right| \leq
+\int_{\partial B_r(\VEC{0})} \left| u \right|\,\left| \pdydx{u}{\VEC{\nu}} \right|
+\dss{S}{x}
+\leq C r^{-2} \ln(r)
+\underbrace{\int_{\partial B_r(\VEC{0})} \dss{S}{x}}_{=2\pi r}
+= 2\pi C \frac{\ln(r)}{r} \rightarrow 0
+\]
+as $r \rightarrow \infty$.
+As before, it follows from (\ref{pot_N2_pequ}) and the Lebesgue
+Monotone Convergence Theorem that
+\[
+\int_{B_r(\VEC{0})\cap\Omega^{\prime}} \| \graD u \|_2^2 \dx{\VEC{x}} \rightarrow
+\int_{\Omega^{\prime}} \| \graD u \|^2 \dx{\VEC{x}} = 0
+\]
+as $r \rightarrow \infty$.
+Since $\displaystyle u \in C^1(\Omega^{\prime})$, we find that
+$\graD u = \VEC{0}$ everywhere on $\displaystyle \Omega^{\prime}$.
+Thus $u$ is constant on each connected component of
+$\displaystyle \Omega^{\prime}$.
+
+\subsection{Necessary condition for the Neumann Problem}
+\label{pot_sect_necessary}
+
+In this section, we give necessary conditions for the existence of the
+solutions of the Interior and Exterior Neumann problem.  The first
+proposition has been proved in the previous section.
+
+\begin{prop} \label{pot_nec_Nprobl0}
+If $u$ is a solution of (N2) with $f=0$ on
+$\displaystyle \partial \Omega^{\prime}$, the following statements are true.
+\begin{enumerate}
+\item For $n=2$, $u$ is constant on each connected component
+$\displaystyle \Omega^{\prime}_j$,
+$\displaystyle 0\leq j \leq m^{\prime}$, of $\displaystyle \Omega^{\prime}$.
+\item For $n>2$, $u$ is constant on each bounded connected component
+$\displaystyle \Omega^{\prime}_j$,
+$\displaystyle 1\leq j \leq m^{\prime}$, of $\displaystyle \Omega^{\prime}$
+and $u=0$ on the unbounded connected component
+$\displaystyle \Omega^{\prime}_0$.
+\end{enumerate}
+\end{prop}
+
+\begin{prop} \label{pot_nec_Nprobl}
+\begin{enumerate}
+\item If $u$ is a solution of (N1), then
+$\displaystyle \int_{\partial \Omega_i} f =0$ for $1 \leq i \leq m$.
+\item If $u$ is a solution of (N2), then
+$\displaystyle \int_{\partial \Omega^{\prime}_i} f =0$ for
+$\displaystyle 1 \leq i \leq m^{\prime}$.
+Moreover, $\displaystyle \int_{\partial \Omega^{\prime}_0} f =0$ for $n=2$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+\stage{1}
+For $1\leq i \leq m$, let $\Omega_{i,\epsilon} \subset \Omega_i$ be
+the set bounded by
+$\displaystyle \partial \Omega_{i,\epsilon}
+= \{\VEC{x} + \epsilon \VEC{\nu}(\VEC{x}) : \VEC{x}
+\in \partial \Omega_i \}$ for $\epsilon<0$ and $|\epsilon|$ small
+enough so that
+$\displaystyle
+O_{|\epsilon|} = \left\{ \VEC{x} + t\, \VEC{\nu}(\VEC{x}) : \VEC{x} \in
+  \partial \Omega_i \ , \ |t|<|\epsilon| \right\}$ is a tubular
+neighbourhood of $\partial \Omega_i$.
+
+From the Green's identity (\ref{laplace_green1}) with $v=1$, we have
+\begin{equation} \label{potNecessEq1}
+\int_{\partial \Omega_{i,\epsilon}} \pdydx{u}{\VEC{\nu}} \dss{S}{x}
+= \int_{\Omega_{i,\epsilon}} \Delta u \dx{\VEC{x}} = 0
+\end{equation}
+because $\Delta u = 0$ on $\Omega_i$.  However, we have that
+\[
+\int_{\partial \Omega_{i,\epsilon}} \pdydx{u}{\VEC{\nu}} \dss{S}{x}
+= \int_{\partial \Omega_i} \graD u(\VEC{x} + \epsilon \VEC{\nu}(\VEC{x}))
+\cdot \VEC{\nu}(\VEC{x}) \dss{S}{x}
+\rightarrow \int_{\partial \Omega_i} \pdydx{u}{\VEC{\nu}^-} \dss{S}{x}
+= \int_{\partial \Omega_i} f \dss{S}{x}
+\]
+as $\epsilon \rightarrow 0^-$ because
+$\displaystyle
+\graD u(\VEC{x} + \epsilon \VEC{\nu}(\VEC{x})) \cdot \VEC{\nu}(\VEC{x})
+\to \pdydx{u}{\VEC{\nu}^-}(\VEC{x})$ uniformly on $\partial \Omega_i$ as
+$\epsilon \to 0^-$ since $u \in C_{\VEC{\nu}}(\Omega)$.  It follows
+from (\ref{potNecessEq1}) that
+$\displaystyle \int_{\partial \Omega_i} f \dss{S}{x} = 0$.
+
+\stage{2} The prove that
+$\displaystyle \int_{\partial \Omega^{\prime}_i} f \dss{S}{x} = 0$ for
+$\displaystyle 1 \leq i \leq m^{\prime}$ is identical to the proof given in
+(i) if $\Omega_i$ is replaced by $\displaystyle \Omega_i^{\prime}$ and
+$\epsilon >0$ is used.
+
+If $n=2$, let
+$\displaystyle \Omega^{\prime}_{0,\epsilon} \subset \Omega^{\prime}_0$ be
+the set bounded by
+$\displaystyle \partial \Omega^{\prime}_{0,\epsilon}
+= \{ \VEC{x} + \epsilon \VEC{\nu}(\VEC{x}) :
+\VEC{x} \in \partial \Omega^{\prime}_0 \}$ for $\epsilon>0$ small
+enough so that
+$\displaystyle
+O_{\epsilon} = \left\{ \VEC{x} + t\, \VEC{\nu}(\VEC{x}) : \VEC{x} \in
+  \partial \Omega_0^{\prime} \ , \ |t|<\epsilon \right\}$ is a tubular
+neighbourhood of $\displaystyle \partial \Omega = \partial \Omega^{\prime}_0$.
+
+Choose $r>0$ large enough such that
+$\displaystyle \partial \Omega^{\prime}_{0,\epsilon} \subset B_r(\VEC{0})$.
+
+From the Green's identity (\ref{laplace_green1}) with $v=1$, we have
+\begin{equation} \label{pot_ness_idx1}
+\int_{\partial \Omega^{\prime}_{0,\epsilon}} \pdydx{u}{\VEC{\nu}} \dss{S}{x}
+= \int_{\partial B_r(\VEC{0})} \pdydx{u}{\VEC{\nu}} \dss{S}{x}
+- \int_{B_r(\VEC{0}) \cap \Omega^{\prime}_{0,\epsilon}} \Delta u \dx{\VEC{x}} =
+\int_{\partial B_r(\VEC{0})} \pdydx{u}{\VEC{\nu}} \dss{S}{x}
+\end{equation}
+because $\displaystyle \Delta u = 0$ on $\Omega_0^{\prime}$.  We have that
+\begin{equation} \label{pot_ness_idx2}
+\int_{\partial \Omega^{\prime}_{0,\epsilon}} \pdydx{u}{\VEC{\nu}} \dss{S}{x}
+= \int_{\partial \Omega^{\prime}_0} \graD u(\VEC{x}
++ \epsilon \VEC{\nu}(\VEC{x}))
+\cdot \VEC{\nu}(\VEC{x}) \dss{S}{x}
+\rightarrow \int_{\partial \Omega^{\prime}_0}
+\pdydx{u}{\VEC{\nu}^+} \dss{S}{x}
+= \int_{\partial \Omega^{\prime}_0} f \dss{S}{x}
+\end{equation}
+as $\epsilon \rightarrow 0^+$ because
+$\displaystyle
+\graD u(\VEC{x} + \epsilon \VEC{\nu}(\VEC{x})) \cdot \VEC{\nu}(\VEC{x})
+\to \pdydx{u}{\VEC{\nu}^+}(\VEC{x})$ uniformly on
+$\partial \Omega^{\prime}_0$ as
+$\epsilon \to 0^+$ since $u \in C_{\VEC{\nu}}(\Omega^{\prime})$.
+Moreover, from Proposition~\ref{pot_infty_ddu}, we have that 
+$\displaystyle \left| \pdydx{u}{\VEC{\nu}}(\VEC{x})\right| =
+O(\|\VEC{x}\|^{-2})$ as $\|\VEC{x}\|\rightarrow \infty$.  Therefore,
+there exists a constant $C$ such that
+\begin{equation} \label{pot_ness_idx3}
+\left| \int_{\partial B_r(\VEC{0})} \pdydx{u}{\VEC{\nu}} 
+\dss{S}{x} \right| \leq
+\int_{\partial B_r(\VEC{0})} \left| \pdydx{u}{\VEC{\nu}} \right|
+\dss{S}{x} \leq C r^{-2} \int_{\partial B_r(\VEC{0})}
+\dss{S}{x}
+= 2\pi C r^{-1} \rightarrow 0
+\end{equation}
+as $r \rightarrow \infty$.
+It follows from (\ref{pot_ness_idx1}), (\ref{pot_ness_idx2}) and
+(\ref{pot_ness_idx3}), that
+$\displaystyle \int_{\partial \Omega^{\prime}_0} f \dss{S}{x} = 0$.
+\end{proof}
+
+\subsection{Note on the Integration on Manifolds} \label{pot_int_man}
+
+Before diving into the study of the integral operators which are of
+interest to us, we need to review integration on manifolds.  Good
+references on the subject are \cite{Ab,Sp}.
+
+\begin{defn} \label{pot_part_unity}
+Let $\Omega$ be an open subset of $\displaystyle \RR^n$ and $S$ be a subset of
+$\Omega$.  Let $\displaystyle \{V_i\}_{i=1}^\infty$ be a collection of
+open subsets of $\Omega$ such that
+$\displaystyle S \subset \bigcup_{i=1}^\infty V_i$.
+A {\bfseries partition of unity}\index{Partition of Unity}
+for $S$ subordinated to $\displaystyle \{V_i\}_{i=1}^\infty$ is a set
+of functions $\displaystyle \{\phi_i\}_{i=1}^\infty$ such that:
+\begin{enumerate}
+\item The $\phi_i$ are $\displaystyle C^\infty$ functions on $\Omega$.
+\item $0 \leq \phi_i(\VEC{x}) \leq 1$ for all $i$ and all $\VEC{x} \in \Omega$.
+\item $\supp \phi_i \subset V_i$ for all $i$.
+\item For any compact set $K \subset S$, we have that
+$\supp \phi_i \cap K = \emptyset$ for all but a finite number of indices.
+\item $\displaystyle \sum_{i=1}^\infty \phi_i(\VEC{x}) = 1$ for all
+$\VEC{x}\in S$.
+\end{enumerate}
+The definition of partition of unity subordinated to a finite
+collection of open subsets $\displaystyle \{V_i\}_{i=1}^N$ is identical.
+Note that the support of $\phi_i$ may not be compact if the open set
+$V_i$ is not bounded.
+\end{defn}
+
+The summation in the previous definition is finite for every
+$\VEC{x} \in S$ because, given any compact set $K\subset S$,
+$K\cap \supp \phi_i = \emptyset$ for all but a finite number of indices.
+
+\begin{prop}
+Let $\Omega$ be an open subset of $\displaystyle \RR^n$ and $S$ be a subset of
+$\Omega$.  If $\displaystyle \{ V_i\}_{i=1}^\infty$ is a collection
+of open sets in $\Omega$ such that
+$\displaystyle S \subset \bigcup_{i=1}^\infty V_i$.
+Then, there exists a partition of unity for $S$
+subordinate to $\displaystyle \{ V_i\}_{i=1}^\infty$.
+\end{prop}
+
+\begin{proof}
+This proposition is proved in any good functional analysis or
+differential geometry textbook.  For instance, see \cite{Ad}. 
+\end{proof}
+
+There is another definition of partition of unity that will be useful
+in Section~\ref{WequalH} and that we introduce right now.
+
+\begin{defn} \label{pot_part_unity_V2}
+Let $\Omega$ be an open subset of $\displaystyle \RR^n$ and
+$\displaystyle \{V_i\}_{i=1}^\infty$
+be a collection of open subsets of $\displaystyle \RR^n$ such that
+$\displaystyle \Omega = \bigcup_{i=1}^\infty V_i$.
+A {\bfseries partition of unity}\index{Partition of Unity}
+for $\Omega$ subordinated to $\displaystyle \{V_i\}_{i=1}^\infty$ is a
+set of functions $\displaystyle \{\phi_i\}_{i=1}^\infty$ such that:
+\begin{enumerate}
+\item The $\phi_i$ are $\displaystyle C^\infty$ functions on $\Omega$.
+\item $0 \leq \phi_i(\VEC{x}) \leq 1$ for all $i$ and all $\VEC{x} \in \Omega$.
+\item $\supp \phi_i \subset V_i$ for all $i$.
+\item For any compact set $K \subset \Omega$, there exists an open set
+$W \supset K$ such that $\supp \phi_i \cap W = \emptyset$ for all but
+a finite number of indices.
+\item $\displaystyle \sum_{i=1}^\infty \phi_i(\VEC{x}) = 1$ for all
+$\VEC{x}\in \Omega$.
+\end{enumerate}
+Note that the support of $\phi_i$ may not be compact if the open set
+$V_i$ is not bounded.
+\end{defn}
+
+As for the previous definition of partition of unity,
+the summation in the previous definition is finite for every
+$\VEC{x} \in \Omega$ because, given any compact set $K\subset \Omega$,
+there exist an open set $W \supset K$ such that
+$W \cap \supp \phi_i = \emptyset$ for all but a finite number of indices.
+
+Note that Definition~\ref{pot_part_unity_V2} implies
+Definition~\ref{pot_part_unity}.
+
+\begin{prop}
+Let $\Omega$ be an open subset of $\displaystyle \RR^n$ and
+$\displaystyle \{ V_i\}_{i=1}^\infty$ is be collection
+of open sets in $\Omega$ such that
+$\displaystyle S \subset \bigcup_{i=1}^\infty V_i$.
+Then, there exists a partition of unity for $\Omega$
+subordinate to $\displaystyle \{ V_i\}_{i=1}^\infty$.
+\end{prop}
+
+\begin{proof}
+See \cite{RuFA}. 
+\end{proof}
+
+Suppose that $S$ is an oriented differentiable manifold and
+$f:S \rightarrow \RR$ is a
+continuous function with compact support.  Let
+$\displaystyle \BB = \{ (U_j, \psi_j) \}_{j\in J}$ be an atlas for
+$S$, where $J \subset \NN$ is an index set.
+Moreover, let $\displaystyle \{ \phi_j \}_{j\in J}$ be a partition of unity
+for $S$ subordinated to $\BB$; namely,
+$\displaystyle \{ \phi_j \}_{j\in J}$ is a partition of unity for $S$
+subordinated to $\displaystyle \{ V_j \}_{j\in J}$,
+where $U_j = V_j \cap S$ and $V_j$ is an open subset of
+$\displaystyle \RR^n$.  Note 
+that we assume that the topology on $S$ is the induced topology from
+$\displaystyle \RR^n$.
+
+The integral $\displaystyle \int_S f(\VEC{x}) \dx{S}$ is defined by
+\begin{align*}
+\int_S f(\VEC{x}) \dx{S} &= \int_S
+\sum_{j\in J} \phi_j(\VEC{x}) f(\VEC{x}) \dx{S} =
+\sum_{j\in J} \int_{U_j} \phi_j(\VEC{x}) f(\VEC{x}) \dx{S} \\
+&= \sum_{j\in J} \int_{\psi_j(U_j)} \phi_j(\psi_j^{-1}(\VEC{w}))
+f(\psi_j^{-1}(\VEC{w}))
+\left|\det \diff \psi_j^{-1} (\VEC{w}) \right| \dx{\VEC{w}} \ .
+\end{align*}
+The integral is independent of the chosen atlas and partition of
+unity.  Moreover, since $f$ has a compact support, the summation is
+finite.  The sum is over all $j$ such that
+$U_j \cap \supp f \neq \emptyset$.
+
+The manifold that we consider in this chapter is $S = \partial \Omega$
+where $\displaystyle \Omega \subset \RR^n$ is a bounded open set.  We also
+assume $S$ is of class at least $\displaystyle C^2$.  The orientation on $S$ is
+determined by the outward unit normal $\VEC{\nu}(\VEC{x})$ to $S$ at
+$\VEC{x} \in S$.
+
+To simplify the computations later, we select a particular atlas of
+$S$ as it follows.  At each point $\VEC{x} \in M$, we select a
+chart $\displaystyle \left(U_{\VEC{x}},\psi_{\VEC{x}}\right)$ such
+that:
+\begin{itemize}
+\item $\displaystyle U_{\VEC{x}}$ is a connected set containing
+$\VEC{x}$ and $\displaystyle U_{\VEC{x}} = S \cap V_{\VEC{x}}$ for
+some bounded open set $\displaystyle V_{\VEC{x}} \subset \RR^n$.  This is
+possible because $S$ is the boundary of an open set.
+\item $\displaystyle \psi_{\VEC{x}}$ is the projection of
+$\displaystyle U_{\VEC{x}}$ onto
+$\displaystyle W_{\VEC{x}} \subset T_{\VEC{x}}$ along the vector
+$\nu(\VEC{x})$, where $\displaystyle T_{\VEC{x}}$ is the
+tangent space to $\displaystyle U_{\VEC{x}}$ at the point
+$\VEC{x}$.  We have that
+$\displaystyle \psi_{\VEC{x}}^{-1}: W_{\VEC{x}} \to \RR^n$ is of
+class $\displaystyle C^2$.  Using translation and rotation, we may consider
+that $\displaystyle U_{\VEC{x}}$ is the graph
+of a function of class $\displaystyle C^2$ from $\displaystyle \RR^{n-1}$
+to $\RR$
+(Figure~\ref{MAN_PARAM_V2}).
+\item By shrinking $\displaystyle V_{\VEC{x}}$ and $\displaystyle U_{\VEC{x}}$
+if necessary, we may assume that $\displaystyle \psi_{\VEC{x}}^{-1}$ is of class
+$\displaystyle C^2$ on the compact set $\displaystyle \overline{W_{\VEC{x}}}$.
+\item It is also convenient to assume that the diameter of
+$V_{\VEC{x}}$, and so of $W_{\VEC{x}}$, is lest than $1$.
+\end{itemize}
+
+\pdfF{potential/man_param_v2}{Chart of a manifold}
+{Chart $\displaystyle (U_{\VEC{x}},\psi_{\VEC{x}})$ of the manifold $S$ in
+Section~\ref{pot_int_man}.}{MAN_PARAM_V2}
+
+Since $S$ is compact, there exists a finite cover
+$\displaystyle \left\{ V_{\VEC{x}_j} \right\}_{j\in J}$ of $S$
+and so a finite atlas
+$\displaystyle \BB
+= \left\{ \left(U_{\VEC{x}_j}, \psi_{\VEC{x}_j}\right) \right\}_{j\in J}$
+of $S$.
+
+Let $\displaystyle Q_{\VEC{x}_j} = \max_{\VEC{w} \in \overline{W_{\VEC{x}_j}}}
+= \left|\det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w})\right|$.  We have that
+$\displaystyle Q_{\VEC{x}_j} < \infty$ because we assume that
+$\displaystyle \phi_{\VEC{x}_j}^{-1}$ is of class $\displaystyle C^2$
+on the compact set $\displaystyle \overline{W_{\VEC{x}_j}}$.
+If $\displaystyle Q = \max_{j \in J} Q_{\VEC{x}_j}$, then
+\begin{equation} \label{defnQdetpsim1}
+\left|\det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w})\right| < Q
+\end{equation}
+for all $\displaystyle \VEC{w} \in W_{\VEC{x}_j}$ and all $j \in J$.
+
+Given $\VEC{x} \in S$ and $\eta < 1$,
+let $\displaystyle S_{\VEC{x},\eta} = S \cap B_{\eta}(\VEC{x})$.
+In the next sections, we will need an upper bound for the integrals
+\[
+\int_{S_{\VEC{x},\eta}} \|\VEC{x}-\VEC{y}\|^{-\alpha} \dss{S}{y} 
+\quad \text{and} \quad
+\int_{S_{\VEC{x},\eta}} \left| \ln(\|\VEC{x}-\VEC{y}\|) \right| \dss{S}{y} 
+\]
+which depends only on $\eta$ but not on $\VEC{x} \in S$, where
+$0 \leq \alpha < n - 1$.
+
+If $\eta/2$ is smaller than the Lebesgue number associated to the
+open covering $\displaystyle \{ V_{\VEC{x}_j}\}_{j\in J}$ of
+$S$~\footnote{\cite{Mu} is a good reference on the subject of the Lebesgue
+number.}, then
+$\displaystyle \overline{B_\eta(\VEC{x})} \subset V_{\VEC{x}_j}$
+for some $j \in J$.  Thus
+$\displaystyle \overline{S_{\VEC{x},\eta}} \subset U_{\VEC{x}_j}$
+(Figure~\ref{MAN_PARAM_V3}).
+
+\pdfF{potential/man_param_v3}{Small region on a manifold}
+{Region $\displaystyle S_{\VEC{x},\eta}$ of the manifold $S$ in
+Section~\ref{pot_int_man}.}{MAN_PARAM_V3}
+
+\stage{$\mathbf{n>2}$}
+Since $\displaystyle \|\VEC{x}-\VEC{y}\| 
+\geq \|\psi_{\VEC{x}_j}(\VEC{x}) - \psi_{\VEC{x}_j}(\VEC{y})\|$ for all
+$\displaystyle \VEC{x},\VEC{y} \in U_{\VEC{x}_j}$ and
+$\displaystyle \psi_{\VEC{x}_j}(S_{\VEC{x},\eta}) \subset
+B_{\eta}(\psi_{\VEC{x}_j}(\VEC{x}))$, we get that
+\begin{align*}
+&\int_{S_{\VEC{x},\eta}} \|\VEC{x}-\VEC{y}\|^{-\alpha} \dss{S}{y}
+= \int_{\psi_{\VEC{x}_j}(S_{\VEC{x},\eta})}
+\left\|\VEC{x}-\psi_{\VEC{x}_j}^{-1}(\VEC{w})\right\|^{-\alpha}
+\left| \det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w})\right| \dx{\VEC{w}} \\
+& \qquad
+\leq \int_{\psi_{\VEC{x}_j}(S_{\VEC{x},\eta})}
+\left\|\psi_{\VEC{x}_j}(\VEC{x})-\VEC{w}\right\|^{-\alpha}
+\left| \det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w})\right| \dx{\VEC{w}}
+\leq Q \int_{B_{\eta}(\psi_{\VEC{x}_j}(\VEC{x}))}
+\left\|\psi_{\VEC{x}_j}(\VEC{x})-\VEC{w}\right\|^{-\alpha} \dx{\VEC{w}} \\
+&\qquad
+= Q \int_{\partial B_1(\VEC{0})} \int_0^\eta r^{-\alpha}
+r^{n-2} \dx{r} \dx{S}
+= \frac{ Q \omega_{n-1} \eta^{n-\alpha-1}}{n-\alpha -1} \ ,
+\end{align*}
+where we have use the change of variables
+$\VEC{w} = \psi_{\VEC{x}_j}(\VEC{x}) + r \VEC{z}$ for
+$0 \leq r < \eta$ and $\VEC{z} \in \partial B_1(\VEC{0}) \subset \RR^{n-1}$.
+
+Similarly, we get
+\begin{align*}
+&\int_{S_{\VEC{x},\eta}} \left|\ln(\|\VEC{x}-\VEC{y}\|)\right| \dss{S}{y}
+= \int_{\psi_{\VEC{x}_j}(S_{\VEC{x},\eta})}
+\left| \ln\left(\left\|\VEC{x}
+-\psi_{\VEC{x}_j}^{-1}(\VEC{w})\right\|\right)\right| \,
+\left| \det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w})\right| \dx{\VEC{w}} \\
+& \qquad
+\leq \int_{\psi_{\VEC{x}_j}(S_{\VEC{x},\eta})}
+\left| \ln\left( \left\|\psi_{\VEC{x}_j}(\VEC{x})-\VEC{w}\right\|\right)\right|
+\, \left| \det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w})\right| \dx{\VEC{w}}
+\leq Q \int_{B_{\eta}(\psi_{\VEC{x}_j}(\VEC{x}))}
+\left|\ln\left( \left\|\psi_{\VEC{x}_j}(\VEC{x})-\VEC{w}\right\|\right)\right|
+\dx{\VEC{w}} \\
+&\qquad
+= Q \int_{\partial B_1(\VEC{0})} \int_0^\eta |\ln(r)|
+  r^{n-2} \dx{r} \dx{S}
+\leq Q \omega_{n-1} \left( \frac{|\ln(\eta)|\, \eta^{n-1}}{n-1}  +
+  \frac{\eta^{n-1}}{(n-1)^2}  \right) \ ,
+\end{align*}
+where again we have use the change of variables 
+$\VEC{w} = \psi_{\VEC{x}_j}(\VEC{x}) + r \VEC{z}$ for
+$0 \leq r < \eta <1$ and
+$\VEC{z} \in \partial B_1(\VEC{0}) \subset \RR^{n-1}$.
+
+\stage{$\mathbf{n=2}$}
+The computations are very similar to those of the case $n>2$ with a
+single difference as we will see.  Since $n = 2$, we have that
+$\alpha = 0$.  Hence, we get
+\[
+\int_{S_{\VEC{x},\eta}} \|\VEC{x}-\VEC{y}\|^{-\alpha} \dss{S}{y}
+= \int_{S_{\VEC{x},\eta}} \dss{S}{y}
+\leq Q \int_{B_{\eta}(\psi_{\VEC{x}_j}(\VEC{x})) \subset \RR} \dx{w}
+= Q \int_{\psi_{\VEC{x}_j}(\VEC{x})-\eta}^{\psi_{\VEC{x}_j}(\VEC{x})+\eta}
+  \dx{w} = 2 Q \eta  \ .
+\]
+
+Similarly, we get
+\begin{align*}
+&\int_{S_{\VEC{x},\eta}} \left|\ln(\|\VEC{x}-\VEC{y}\|)\right| \dss{S}{y}
+\leq Q \int_{B_{\eta}(\psi_{\VEC{x}_j}(\VEC{x}))\subset \RR}
+\left|\ln\left( \left\|\psi_{\VEC{x}_j}(\VEC{x})-w\right\|\right)\right|
+\dx{w} \\
+&\qquad = 2Q \int_{\psi_{\VEC{x}_j}(\VEC{x})}^{\psi_{\VEC{x}_j}(\VEC{x})+\eta}
+\left| \ln\left( \left\|\psi_{\VEC{x}_j}(\VEC{x})-w\right\|\right) \right|
+\dx{w}
+= 2Q \int_0^{\eta} |\ln(r)| \dx{r}
+\leq 2 Q \left( \eta |\ln(\eta)| + \eta \right) \ .
+\end{align*}
+
+In conclusion,
+\begin{equation} \label{Sxepsint1}
+\int_{S_{\VEC{x},\eta}} \|\VEC{x}-\VEC{y}\|^{-\alpha} \dss{S}{y}
+\leq \frac{ Q \omega_{n-1} \eta^{n-\alpha-1}}{n-\alpha -1}
+\end{equation}
+and
+\begin{equation} \label{Sxepsint2}
+\int_{S_{\VEC{x},\eta}} \left|\ln(\|\VEC{x}-\VEC{y}\|)\right| \dss{S}{y}
+\leq Q \omega_{n-1} \left( \frac{|\ln(\eta)|\, \eta^{n-1}}{n-1}  +
+  \frac{\eta^{n-1}}{(n-1)^2} \right)
+\end{equation}
+for $0 \leq \alpha < n-1$ and $n\geq 2$ if we set
+$\omega_1 = 2$.
+
+\subsection{Integral Operators}
+
+In this section, we set $S = \partial \Omega$.  Recall that $S$ is a compact
+$\displaystyle C^2$-manifold of dimension $n-1$ in $\displaystyle \RR^n$.
+
+\begin{defn} \label{pot_kerOk}
+Let $K:S \times S \rightarrow \RR$ be a measurable function.  $K$ is a
+{\bfseries kernel of order $\alpha$}\index{Kernel of Order $\alpha$}
+with $0< \alpha < n-1$ if
+\[
+K(\VEC{x},\VEC{y}) = A(\VEC{x}, \VEC{y}) \|\VEC{x}-\VEC{y}\|^{-\alpha} \ ,
+\]
+where $A:S\times S \rightarrow \RR$ is a bounded measurable function.
+$K$ is a
+{\bfseries kernel of order $0$}\index{Kernel of Order $0$} if
+\[
+K(\VEC{x},\VEC{y}) = A(\VEC{x}, \VEC{y}) \ln(\|\VEC{x}-\VEC{y}\|)
++B(\VEC{x},\VEC{y}) \ ,
+\]
+where $A, B:S\times S \rightarrow \RR$ are bounded measurable
+functions.  Moreover, if
+\[
+K: \{ (\VEC{x},\VEC{y}) \in S \times S : \VEC{x} \neq \VEC{y} \}
+\rightarrow \RR
+\]
+is also continuous, we say that $K$ is a
+{\bfseries continuous kernel of order $\alpha$}\index{Continuous
+Kernel of Order $\alpha$}
+\end{defn}
+
+\begin{prop} \label{pot_lin_op_K}
+Suppose that $K:S\times S \rightarrow \RR$ is a kernel of order $\alpha$
+with $0\leq \alpha < n-1$, and 
+$\supp K \subset \{(\VEC{x}, \VEC{y}) \in S \times S :
+\|\VEC{x}-\VEC{y}\| <\epsilon \}$ for $\epsilon > 0$.  Then
+\[
+(T_K f)(\VEC{x}) = \int_S K(\VEC{x},\VEC{y}) f(\VEC{y}) \dss{S}{y}
+\quad , \quad \VEC{x} \in S \ ,
+\]
+defines a bounded linear operator
+$\displaystyle T_K : L^p(S) \rightarrow L^p(S)$
+for $1\leq p \leq \infty$.
+If $\alpha>0$, then there exists a constant $C$ such that
+\begin{equation} \label{pot_TK_Bound1}
+\| T_K f \|_p \leq C \epsilon^{n-\alpha-1} \|A\|_{\infty} \|f\|_p
+\end{equation}
+for $\displaystyle f \in L^p(S)$,
+where $A$ is given in Definition~\ref{pot_kerOk}.  If $\alpha = 0$,
+then there exists a constant $C$ such that
+\begin{equation} \label{pot_TK_Bound2}
+\| T_K f \|_p \leq C \epsilon^{n-1} \left( \|A\|_{\infty}
+(1 + |\ln(\epsilon)|) + \|B\|_\infty \right) \|f\|_p
+\end{equation}
+for $\displaystyle f \in L^p(S)$, where $A$ and $B$ are given in
+Definition~\ref{pot_kerOk}.
+\end{prop}
+
+\begin{proof}
+That $\displaystyle T_K : L^p(S) \rightarrow L^p(S)$ defines a bounded linear
+operator follows from (\ref{pot_TK_Bound1}) and (\ref{pot_TK_Bound2}).
+
+Let $\displaystyle \BB
+= \left\{ \left(U_{\VEC{x}_j}, \psi_{\VEC{x}_j}\right) \right\}_{j\in J}$
+be the finite atlas for $S$ defined in Section~\ref{pot_int_man}, and
+let $\displaystyle \{ \phi_{\VEC{x}_j} \}_{j\in J}$ be a partition of unity
+for $S$ subordinated to $\BB$.
+
+\stage{$\mathbf{\alpha>0}$}
+We have that
+\begin{align*}
+&\int_S \left| K(\VEC{x},\VEC{y}) \right| \dss{S}{y}
+= \int_{S\cap B_\epsilon(\VEC{x})} \left| A(\VEC{x},\VEC{y}) \right| \,
+\|\VEC{x}-\VEC{y}\|^{-\alpha} \dss{S}{y}
+\leq \|A\|_\infty
+\int_{S\cap B_\epsilon(\VEC{x})} \|\VEC{x}-\VEC{y}\|^{-\alpha} \dss{S}{y} \\ 
+&\qquad = \|A\|_\infty \sum_{j\in J}
+\int_{U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x})} \phi_{\VEC{x}_j}(\VEC{y})
+\left\|\VEC{x} - \VEC{y} \right\|^{-\alpha} \dss{S}{y}
+\leq \|A\|_\infty \sum_{j\in J} \int_{U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x})}
+\left\|\VEC{x} - \VEC{y} \right\|^{-\alpha} \dss{S}{y} \\
+&\qquad = \|A\|_\infty \sum_{j\in J}
+\int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))}
+\left\| \VEC{x} - \psi_{\VEC{x}_j}^{-1}(\VEC{w}) \right\|^{-\alpha}
+\, \left|\det \diff \psi_{\VEC{x}_j}^{-1} (\VEC{w}) \right| \dx{\VEC{w}} \\
+&\qquad \leq \|A\|_\infty Q \sum_{j\in J}
+\int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))}
+\left\| \VEC{x} - \psi_{\VEC{x}_j}^{-1}(\VEC{w}) \right\|^{-\alpha} \dx{\VEC{w}}
+\\
+&\qquad \leq \|A\|_\infty Q \sum_{j\in J}
+\int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))}
+\left\| \psi_{\VEC{x}_j}(\VEC{x}) - \VEC{w} \right\|^{-\alpha} \dx{\VEC{w}} \\
+&\qquad \leq \|A\|_\infty Q \sum_{j\in J} \int_{\partial B_1(\VEC{0})}
+\int_0^{\epsilon} r^{-\alpha}\,r^{n-2} \dx{r} \dx{S}
+= \frac{\|A\|_\infty Q\, \omega_{n-1} |J|\, \epsilon^{n-\alpha-1}}{n-\alpha-1}
+< \infty
+\end{align*}
+for all $\VEC{x} \in S$, where $|J|$ is the number of elements in $J$.
+Some of the inequalities in the relation above will benefit from
+some explanations.  The second inequality is a consequence of
+$0 \leq \phi_{\VEC{x}_j}(\VEC{y}) \leq 1$ for all
+$\VEC{y}$ and all functions in the partition of unity.
+The third inequality comes from (\ref{defnQdetpsim1}).  The fourth
+inequality comes
+$\displaystyle \|\VEC{x}-\VEC{y}\|
+\geq \|\psi_{\VEC{x}_j}(\VEC{x}) - \psi_{\VEC{x}_j}(\VEC{y})\|$ for all
+$\displaystyle \VEC{x},\VEC{y} \in U_{\VEC{x}_j}$.
+The last inequality is true because
+$\displaystyle \psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))
+\subset B_\epsilon(\psi_{\VEC{x}_j}^{-1}(\VEC{x})) \subset \RR^{n-1}$.
+We have used the change of
+variables $\VEC{w} = \psi_{\VEC{x}_j}(\VEC{x}) + r \VEC{z}$ with
+$0 \leq r < \epsilon$ and
+$\displaystyle \VEC{z} \in \partial B_1(\VEC{0}) \subset \RR^{n-1}$.
+
+Similarly,
+\[
+\int_S | K(\VEC{x},\VEC{y}) | \dss{S}{x} \leq
+\frac{\|A\|_\infty Q\, \omega_{n-1} |J|\, \epsilon^{n-\alpha-1}}{n-\alpha-1}
+\]
+for all $\VEC{y} \in S$.
+
+Thus, (\ref{pot_TK_Bound1}) with
+$\displaystyle C = \frac{Q\, \omega_{n-1} |J|}{n-\alpha-1}$
+follows from the generalized Young's inequality,
+Theorem~\ref{distr_GyoungI}.
+
+\stage{$\alpha=0$}  Proceeding as we did for $\alpha > 0$, we find
+that
+\begin{align*}
+&\int_S \left| K(\VEC{x},\VEC{y}) \right| \dss{S}{y}
+= \int_{S \cap B_\epsilon(\VEC{x})}
+\left| A(\VEC{x},\VEC{y}) \,\ln(\|\VEC{x}-\VEC{y}\|) +
+B(\VEC{x},\VEC{y}) \right| \dss{S}{y} \\
+&\qquad \leq \|A\|_\infty \int_{S \cap B_\epsilon(\VEC{x})}
+\left|\ln(\|\VEC{x}-\VEC{y}\|) \right| \dss{S}{y} +
+\|B\|_\infty \int_{S \cap B_\epsilon(\VEC{x})}\dss{S}{y} \\
+&\qquad = \|A\|_\infty\sum_{j\in J}
+\int_{U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x})}
+\phi_{\VEC{x}_j}(\VEC{y})
+\left| \ln\left( \left\| \VEC{x} - \VEC{y} \right\|\right) \right|
+\dss{S}{\VEC{y}} + \|B\|_\infty \sum_{j\in J}
+\int_{U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x})} \phi_{\VEC{x}_j}(\VEC{y})
+\dss{S}{\VEC{y}} \\
+&\qquad \leq \|A\|_\infty\sum_{j\in J}
+\int_{U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x})}
+\left| \ln\left( \left\| \VEC{x} - \VEC{y} \right\|\right) \right|
+\dss{S}{\VEC{y}} + \|B\|_\infty \sum_{j\in J}
+\int_{U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x})}\dss{S}{\VEC{y}} \\
+&\qquad = \|A\|_\infty\sum_{j\in J}
+\int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))}
+\left| \ln\left( \left\| \VEC{x} - \psi_{\VEC{x}_j}^{-1}(\VEC{w}) 
+\right\|\right) \right|\, \left|\det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w}) \right|
+\dx{\VEC{w}} \\
+&\qquad \qquad + \|B\|_\infty \sum_{j\in J}
+\int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))}
+\left|\det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w}) \right| \dx{\VEC{w}} \\
+&\qquad \leq \|A\|_\infty Q \sum_{j\in J}
+\int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))}
+\left| \ln\left( \left\| \VEC{x} - \psi_{\VEC{x}_j}^{-1}(\VEC{w}) 
+\right\|\right) \right| \dx{\VEC{w}}
++ \|B\|_\infty Q \sum_{j\in J}
+\int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))} \dx{\VEC{w}} \\
+&\qquad \leq \|A\|_\infty Q \sum_{j\in J}
+\int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))}
+\left| \ln\left(
+\left\| \psi_{\VEC{x}_j}(\VEC{x}) - \VEC{w} \right\|\right) \right|
+\dx{\VEC{w}}
++ \|B\|_\infty Q \sum_{j\in J}
+\int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))} \dx{\VEC{w}} \\
+&\qquad \leq \|A\|_\infty Q \sum_{j\in J} \int_{\partial B_1(\VEC{0})}
+\int_0^{\epsilon} |\ln(r)| \,r^{n-2} \dx{r} \dx{S}
++ \|B\|_\infty Q \sum_{j\in J} \int_{\partial B_1(\VEC{0})}
+\int_0^{\epsilon} r^{n-2} \dx{r} \dx{S} \\
+&\qquad \leq \frac{\|A\|_\infty Q\, \omega_{n-1}
+|J|\,\left( |\ln(\epsilon)| + 1 \right) \epsilon^{n-1}}{n-1}
++ \frac{\|B\|_\infty Q \omega_{n-1} |J|\, \epsilon^{n-1}}{n-1}
+< \infty
+\end{align*}
+for all $\VEC{x} \in S$.  To obtain the fourth inequality, we have
+the fact that the diameter of $V_{\VEC{x}_j}$ is less than $1$ to get
+$\displaystyle
+\ln\left(\left\| \VEC{x} - \psi_{\VEC{x}_j}^{-1}(\VEC{w}) \right\|\right)
+\leq \ln\left(\left\| \psi_{\VEC{x}_j}(\VEC{x}) - \VEC{w} \right\|\right)$
+for
+$\displaystyle 
+\left\| \psi_{\VEC{x}_j}(\VEC{x}) - \VEC{w} \right\|
+\leq \left\| \VEC{x} - \psi_{\VEC{x}_j}^{-1}(\VEC{w}) \right\| \leq  1$.
+
+Similarly,
+\[
+\int_S | K(\VEC{x},\VEC{y}) | \dss{S}{x}
+\leq \frac{\|A\|_\infty Q\, \omega_{n-1}
+|J|\,\left( |\ln(\epsilon)| + 1 \right) \epsilon^{n-1}}{n-1}
++ \frac{\|B\|_\infty Q \omega_{n-1} |J|\, \epsilon^{n-1}}{n-1}
+< \infty
+\]
+for all $\VEC{y} \in S$.
+
+Thus, (\ref{pot_TK_Bound2}) with $C= Q\, \omega_{n-1} |J|/(n-1)$
+follows from the generalized Young's inequality,
+Theorem~\ref{distr_GyoungI}.
+
+Note that
+\[
+\int_0^{\epsilon} |\ln(r)| \,r^{n-2} \dx{r} 
+= \frac{|\ln(\epsilon)|\epsilon^{n-1}}{n-1} +
+\frac{\epsilon^{n-1}}{(n-1)^2}
+\leq \frac{(|\ln(\epsilon)| + 1)\epsilon^{n-1}}{n-1}
+\]
+for $0 < \epsilon < 1$, and
+\[
+\int_0^{\epsilon} |\ln(r)| \,r^{n-2} \dx{r} 
+= \frac{|\ln(\epsilon)|\epsilon^{n-1}}{n-1} -
+\frac{\epsilon^{n-1}}{(n-1)^2} + \frac{2}{(n-1)^2}
+\leq \frac{|\ln(\epsilon)|\epsilon^{n-1}}{n-1}
++ \frac{\epsilon^{n-1}}{(n-1)^2}
+\leq \frac{(|\ln(\epsilon)| + 1)\epsilon^{n-1}}{n-1}
+\]
+for $\epsilon >1$.
+\end{proof}
+
+The proof of the previous proposition contains in some way the
+following results.
+
+\begin{prop} \label{pot_prop_KL1}
+If $K$ is a kernel of order $0 \leq \alpha < n-1$, then there exists a
+constant $C$ such that
+$\displaystyle \int_S |K(\VEC{x},\VEC{y})| \dss{S}{y} < C$
+for all $\VEC{x} \in S$.  In particular,  the function defined by
+$\VEC{y} \mapsto K(\VEC{x},\VEC{y})$ for $\VEC{y} \in S$ 
+is in $\displaystyle L^1(S)$ for all $\VEC{x}\in S$.
+\end{prop}
+
+\begin{proof}
+We may assume that $0<\alpha < n$.  If $K$ is a kernel of order
+$0$, we have
+\begin{align*}
+|K(\VEC{x},\VEC{y})| &\leq \|A\|_\infty \,
+|\ln(\|\VEC{x}-\VEC{y}\|)| + \|B\|_\infty \\
+&= \left( \|A\|_\infty \,\|\VEC{x}-\VEC{y}\|^\alpha
+|\ln(\|\VEC{x}-\VEC{y}\|)| + \|B\|_\infty \|\VEC{x}-\VEC{y}\|^\alpha \right)
+\|\VEC{x}-\VEC{y}\|^{-\alpha}
+\leq D \|\VEC{x}-\VEC{y}\|^{-\alpha}
+\end{align*}
+for $\VEC{x},\VEC{y} \in S$ and $\alpha >0$, where
+\[
+D = \max_{\VEC{x},\VEC{y}\in S} \left( \|A\|_\infty
+\,\|\VEC{x}-\VEC{y}\|^\alpha |\ln(\|\VEC{x}-\VEC{y}\|)| +
+\|B\|_\infty \|\VEC{x}-\VEC{y}\|^\alpha \right) < \infty
+\]
+because $S$ is compact and
+$\displaystyle \lim_{r\rightarrow 0} r^\alpha \ln(r)=0$ whatever $\alpha>0$.
+Thus $K$ is a kernel of order $\alpha>0$.
+
+Choose $\epsilon >0$ such that $\supp K \subset 
+\{ (\VEC{x},\VEC{y}) \in S \times S : \|\VEC{x} - \VEC{y} < \epsilon \}$.
+Note that we may not have $\epsilon <1$ but this is not necessary for
+$\alpha >0$.
+
+We can proceed exactly as in the case $\alpha >0$ of the proof of
+Proposition~\ref{pot_lin_op_K} to show that
+\[
+\int_S \left| K(\VEC{x},\VEC{y}) \right| \dss{S}{y}
+\leq C \equiv
+\frac{\|A\|_\infty Q\, \omega_{n-1} |J|\, \epsilon^{n-\alpha-1}}{n-\alpha-1}
+\]
+for all $\VEC{x} \in S$.
+\end{proof}
+
+\begin{prop} \label{pot_K_LtwoComp}
+If $K:S\times S \rightarrow \RR$ is a kernel of order $\alpha$ with
+$0\leq \alpha < n -1$, then $\displaystyle T_K: L^2(S) \rightarrow L^2(S)$ is
+compact.
+\end{prop}
+
+\begin{proof}
+Given $0 < \epsilon <1$, defined
+$\displaystyle K_\epsilon^{[o]}:S\times S \rightarrow \RR$
+by
+\[
+K_\epsilon^{[o]}(\VEC{x},\VEC{y}) =
+\begin{cases}
+K(\VEC{x},\VEC{y}) & \quad \text{if} \quad 
+\|\VEC{x}-\VEC{y}\| \geq \epsilon \\
+0 & \quad \text{otherwise}
+\end{cases}
+\]
+and $\displaystyle K_\epsilon^{[i]}:S\times S \rightarrow \RR$ by
+$\displaystyle K_\epsilon^{[i]} = K - K_\epsilon^{[o]}$.  Choose $r>0$
+such that $S \subset \overline{B_r(\VEC{0})}$.
+
+\stage{i} $\displaystyle K_\epsilon^{[o]} \in L^2(S \times S)$ because
+$\displaystyle K_\epsilon^{[o]}$ is bounded on the compact set $S \times S$.
+More precisely, for $\alpha>0$, we have
+$\displaystyle
+\left|K_\epsilon^{[o]}(\VEC{x},\VEC{y})\right| =
+\left| A(\VEC{x},\VEC{y}) \|\VEC{x} - \VEC{y} \|^{-\alpha} \right|
+\leq \|A\|_{\infty} \epsilon^{-\alpha}$
+for $\|\VEC{x}-\VEC{y}\| \geq \epsilon$ and
+$\displaystyle \left|K_\epsilon^{[o]}(\VEC{x},\VEC{y})\right| = 0$
+for $\|\VEC{x}-\VEC{y}\| < \epsilon$.
+For $\alpha = 0$, we have
+\[
+\left|K_\epsilon^{[o]}(\VEC{x},\VEC{y})\right|
+\leq
+\left| A(\VEC{x},\VEC{y}) \ln(\|\VEC{x} - \VEC{y} \|) + B(\VEC{x},\VEC{y})
+\right|
+\leq \|A\|_{\infty} \max \{ |\ln(\epsilon)|, |\ln(2r)| \} +
+\|B\|_\infty
+\]
+for $\|\VEC{x}-\VEC{y}\| \geq \epsilon$ and
+$\displaystyle
+\left|K_\epsilon^{[o]}\VEC{x},\VEC{y})\right| = 0$
+for $\|\VEC{x}-\VEC{y}\| < \epsilon$.
+
+Thus $\displaystyle K_\epsilon^{[o]}$ is an Hilbert-Schmidt kernel according to
+Theorem~\ref{fu_an_HSKern}.  This implies in
+particular that $T_{K_\epsilon^{[o]}}:L^2(S) \rightarrow L^2(S)$ is compact.
+
+\stage{ii} Since $\displaystyle K_\epsilon^{[i]}$ is a kernel of order $\alpha$,
+it follows from Proposition~\ref{pot_lin_op_K} that
+$\displaystyle
+\|T_K - T_{K_\epsilon^{[o]}}\|_2 =
+\|T_{K_\epsilon^{[i]}}\|_2 \leq C \|A\|_\infty \epsilon^{n-\alpha-1}$
+for a constant $C$ when $\alpha>0$, and
+$\displaystyle
+\|T_K - T_{K_\epsilon^{[o]}}\|_2 =
+\|T_{K_\epsilon^{[i]}}\|_2 \leq C \left( \|A\|_\infty
+  (1+|\ln(\epsilon)|) + \|B\|_\infty \right) e^{n}$
+for a constant $C$ when $\alpha = 0$.
+
+Hence $\displaystyle T_{K_\epsilon^{[o]}} \rightarrow T$ as
+$\epsilon \rightarrow 0$.
+Since the operators $\displaystyle T_{K_\epsilon^{[o]}}$ are compact,
+it follows from Proposition~\ref{fu_an_Kclose} that $T_K$ is compact.
+\end{proof}
+
+\begin{prop} \label{pot_Kc_fb}
+If $K:S\times S \rightarrow \RR$ is a continuous kernel of order
+$\alpha$ with $0\leq \alpha < n-1$ and $f:S\rightarrow \RR$ is
+a bounded function, then $T_K f \in C(S)$.
+\end{prop}
+
+\begin{proof}
+As we did at the beginning of the proof of Proposition~\ref{pot_prop_KL1},
+we may assume that $0<\alpha < n$; namely, that $K$ is a kernel of
+order $\alpha>0$.
+
+Choose $\VEC{x}\in S$ and $\epsilon>0$.  We prove that $T_K f$ is
+continuous at $\VEC{x}$.  For $r>0$ and $\VEC{w} \in S$, let
+\[
+S_{\VEC{w},r} = \{ \VEC{z}\in S : \|\VEC{w}-\VEC{z}\| < r \}
+= S \cap B_r(\VEC{w}) \ .
+\]
+Given $\delta > 0$ and $\VEC{y} \in S_{\VEC{x},\delta}$, we have that
+\begin{align*}
+\left| (T_K f)(\VEC{x}) - (T_K f)(\VEC{y}) \right|
+&= \left| \int_S \left(K(\VEC{x},\VEC{z}) - K(\VEC{y},\VEC{z})\right)
+  f(\VEC{z}) \dss{S}{z} \right| \\
+&\leq \int_S \left| K(\VEC{x},\VEC{z}) - K(\VEC{y},\VEC{z})\right|\,
+ \left| f(\VEC{z}) \right| \dss{S}{z}
+\leq I_1(\VEC{x},\VEC{y}) + I_2(\VEC{x},\VEC{y}) \ ,
+\end{align*}
+where
+\begin{align*}
+I_1(\VEC{x},\VEC{y}) &=
+\int_{S_{\VEC{x},2\delta}} \big( \left| K(\VEC{x},\VEC{z})\right| +
+\left|K(\VEC{y},\VEC{z})\right| \big)\, \left| f(\VEC{z})\right| \dss{S}{z}
+\intertext{and}
+I_2(\VEC{x},\VEC{y}) &= \int_{S\setminus S_{\VEC{x},2\delta}}
+\left| K(\VEC{x},\VEC{z}) - K(\VEC{y},\VEC{z})\right|\,
+\left| f(\VEC{z}) \right|\dss{S}{z} \ .
+\end{align*}
+
+\stage{i}
+We have that
+\[
+I_1(\VEC{x},\VEC{y})
+\leq \|A\|_\infty \|f\|_\infty \int_{S_{2\delta}} \left(
+\|\VEC{x}-\VEC{z}\|^{-\alpha} + \|\VEC{y}-\VEC{z}\|^{-\alpha}\right)
+\dss{S}{z} \ .
+\]
+
+If we assume that $3\delta/2$ is smaller than the Lebesgue number
+associated to the atlas that we have introduced in
+Section~\ref{pot_int_man}, then we get from (\ref{Sxepsint1}) that
+\[
+\int_{S_{\VEC{x},2\delta}} \|\VEC{x}-\VEC{z}\|^{-\alpha} \dss{S}{z}
+\leq
+\frac{ Q \omega_{n-1} (2\delta)^{n-\alpha-1}}{n-\alpha -1} \ .
+\]
+Moreover, since $S_{\VEC{x},2\delta} \subset S_{\VEC{y},3\delta}$, we
+get that
+\[
+\int_{S_{\VEC{x},2\delta}} \|\VEC{y}-\VEC{z}\|^{-\alpha} \dss{S}{z}
+\leq \int_{S_{\VEC{y},3\delta}}\|\VEC{y}-\VEC{z}\|^{-\alpha} \dss{S}{z}
+\leq \frac{ Q \omega_{n-1} (3\delta)^{n-\alpha-1}}{n-\alpha -1} \ .
+\]
+Thus
+\[
+I_1(\VEC{x},\VEC{y}) \leq 
+\|A\|_\infty \|f\|_\infty 
+Q \omega_{n-1}\, \frac{2^{n-\alpha} + 3^{n-\alpha} }{n-\alpha-1} \,
+\delta^{n-\alpha-1} \rightarrow 0 \quad \text{as} \quad
+\delta\rightarrow 0 \ .
+\]
+Choose $\delta$ smaller if needed to get
+$I_1(\VEC{x},\VEC{y})< \epsilon/2$ for $\VEC{y} \in S_{\VEC{x},\delta}$.
+
+\stage{ii}
+$K$ is continuous on the compact set
+$\overline{S_{\VEC{x},\delta}} \times (S\setminus S_{\VEC{x},2\delta})$ because
+$(\VEC{z},\VEC{z}) \not\in \overline{S_{\VEC{x},\delta}}
+\times (S\setminus S_{\VEC{x},2\delta})$
+for all $\VEC{z}\in S$.  Hence $K$ is uniformly continuous on
+$\overline{S_{\VEC{x},\delta}} \times (S\setminus S_{\VEC{x},2\delta})$.
+Choose a positive number $\delta_0 < \delta$ such that
+\[
+|K(\VEC{x},\VEC{z}) - K(\VEC{y},\VEC{z})| <
+\frac{\epsilon}{2 \|f\|_\infty \,\int_{S\setminus S_{2\delta}} \dx{S}}
+\]
+for $\VEC{y} \in S_{\VEC{x},\delta_0}$ and
+$\VEC{z} \in S\setminus S_{\VEC{x},2\delta}$.  Then,
+\[
+I_2(\VEC{x},\VEC{y}) = \int_{S\setminus S_{\VEC{x},2\delta}}
+\left| K(\VEC{x},\VEC{z}) - K(\VEC{y},\VEC{z})\right|\,
+\left| f(\VEC{z}) \right|\dss{S}{z}
+\leq \|f\|_{\infty}
+\left( \frac{\epsilon}{2 \|f\|_\infty \,\int_{S\setminus S_{2\delta}} \dx{S}}
+\right) \int_{S\setminus S_{2\delta}}  \dx{S}
+< \frac{\epsilon}{2}
+\]
+for $\VEC{y} \in S_{\VEC{x},\delta_0}$.
+
+\stage{iii} Hence,
+$\displaystyle \left| (T_K f)(\VEC{x}) - (T_K f)(\VEC{y}) \right| < \epsilon$
+for $\VEC{y} \in S_{\VEC{x},\delta_0}$.  This proves that $T_K f$ is continuous
+at an arbitrary point $\VEC{x}\in S$.
+\end{proof}
+
+\begin{prop} \label{pot_compt_cont_K}
+Let $K:S\times S \rightarrow \RR$ be a continuous kernel of order
+$\alpha$ with $0\leq \alpha < n-1$.  Given $\lambda \in \RR$, if
+$\displaystyle f \in L^2(S)$ and $f + \lambda T_K f \in C(S)$,
+ then $f \in C(S)$.
+\end{prop}
+
+\begin{proof}
+Given $0 < \epsilon < 1$, choose $\psi \in \DD(\RR)$ such that
+$\psi(x)=1$ for $x \in ]-\epsilon/2, \epsilon/2[$,
+$\supp \psi \subset ]-\epsilon, \epsilon[$ and $0\leq \psi(x)\leq 1$
+for all $x\in \RR$.  Let
+$\phi(\VEC{x},\VEC{y}) = \psi\big(\|\VEC{x}-\VEC{y}\|\big)$ for
+$\VEC{x}, \VEC{y} \in S$.  Moreover, let $K_1 = \phi K$ and
+$K_2 = (1-\phi)K$.
+
+\stage{i} We prove that $T_{K_2} f \in C(S)$.  Choose $\VEC{x}\in S$.
+From Schwarz inequality, we have
+\begin{align*}
+\left| (T_{K_2} f)(\VEC{x}) - (T_{K_2} f)(\VEC{y})\right|
+&\leq \int_S \left| K_2(\VEC{x},\VEC{z}) - K_2(\VEC{y},\VEC{z}) \right|\,
+\left| f(\VEC{z}) \right| \dss{S}{z} \\
+&\leq \|f\|_2 \, \left( \int_S \left|K_2(\VEC{x},\VEC{z}) -
+K_2(\VEC{y},\VEC{z}) \right|^2 \dss{S}{z} \right)^{1/2}
+\end{align*}
+for $\VEC{y} \in S$.  Moreover, since $K_2 =0$ in an neighbourhood of
+the diagonal $\{(\VEC{z},\VEC{z}) : \VEC{z} \in S\}$, we have the
+$K_2$ is continuous on $S\times S$.
+
+Let
+$\displaystyle h_{\VEC{y}}(\VEC{z}) = \left|K_2(\VEC{x},\VEC{z}) -
+K_2(\VEC{y},\VEC{z})\right|^2$ for $\VEC{z} \in S$, and define
+$h:S \to \RR$ by $\displaystyle h(\VEC{z}) = 4\|K_2\|_\infty^2$
+ for all $\VEC{z} \in S$.
+We have that $h \in L(S)$ because $S$ is compact.
+
+Since $h_{\VEC{y}}(\VEC{z}) \rightarrow 0$ as
+$\VEC{y} \rightarrow \VEC{x}$ for every $\VEC{z} \in S$,
+and $0\leq h_{\VEC{y}}(\VEC{z}) \leq h(\VEC{z})$ for all
+$\VEC{z}, \VEC{y}\in S$, it follows from the Lebesgue Dominated
+Convergence Theorem that
+\begin{align*}
+\left| (T_{K_2} f)(\VEC{x}) - (T_{K_2} f)(\VEC{y})\right|
+&\leq \|f\|_2 \, \left( \int_S \left|K_2(\VEC{x},\VEC{z}) -
+K_2(\VEC{y},\VEC{z}) \right|^2 \dss{S}{z} \right)^{1/2} \\
+&= \|f\|_2 \, \left( \int_S h_y(\VEC{z}) \dss{S}{z} \right)^{1/2}
+\rightarrow 0 \quad \text{as} \quad \VEC{y} \rightarrow \VEC{x} \ .
+\end{align*}
+Thus, $T_{K_2}f$ is continuous at the arbitrary point $\VEC{x} \in S$.
+
+\stage{ii} We prove that $f \in C(S)$.
+Let $g = (f+ \lambda T_K f) - \lambda T_{K_2} f$.  We have that $g \in C(S)$
+by hypothesis and ({\bfseries i}).  Moreover, $g=f+ \lambda T_{K_1} f$ by
+definition of $K_1$ and $K_2$.  It follows from
+Proposition~\ref{pot_lin_op_K} that
+\begin{align*}
+\| \lambda T_{K_1} \|_p & \leq
+\begin{cases}
+\lambda C \epsilon^{n-\alpha-1} \|A\|_{\infty} & \quad \text{if} \quad
+\alpha>0 \\
+\lambda C \epsilon^{n-1} \left( \|A\|_{\infty}
+\left( 1 + |\ln(\epsilon)|\right) + \|B\|_\infty \right) & \quad \text{if} \quad
+\alpha=0
+\end{cases}
+\end{align*}
+for $p=2$ and $p=\infty$,  By taking $\epsilon$ smaller if needed, we
+then have that $\displaystyle \| \lambda T_{K_1} \|_p < 1$.
+It follows from
+the Banach Lemma that
+$\displaystyle \Id + \lambda T_{K_1}:L^2(S) \rightarrow L^2(S)$ is
+invertible.  More precisely,
+$\displaystyle (\Id + \lambda T_{K_1})^{-1} = \sum_{j=0}^\infty
+(-\lambda T_{K_1})^j$.
+Hence $\displaystyle f = \sum_{j=0}^\infty (-\lambda T_{K_1})^j g$, where the
+convergence is in $\displaystyle L^2(S)$.
+
+Since $g$ is continuous on the compact set $S$, $g$ is bounded.  It
+follows from Proposition~\ref{pot_Kc_fb} that
+$(-\lambda T_{K_1})^j g\in C(S)$ for all $j$.  Moreover, the series
+$\displaystyle \sum_{j=0}^\infty \|\lambda T_{K_1}\|_\infty^j$
+converges because $\|\lambda T_{K_1}\|_\infty <1$.  Hence,
+given $\delta>0$, you can choose $N$ large enough such that
+\[
+\left\| \sum_{j=n}^m (-\lambda T_{K_1})^j g \right\|_\infty \leq
+\sum_{j=n}^m \|\lambda T_{K_1}\|_\infty^j \|g\|_\infty < \delta
+\]
+for $m\geq n >N$.  Proving that
+$\displaystyle
+\left\{ \sum_{j=0}^n (-\lambda T_{K_1})^j g \right\}_{n=0}^\infty$ is a
+Cauchy sequence in $C(S)$ with respect to the uniform norm.  Thus, the
+limit $f$ of the series is in $C(S)$.
+\end{proof}
+
+\begin{rmk}
+The results in this section are also valid if $S$
+is the closure of a bounded and open subset of $\RR^{n-1}$.
+The proofs are almost identical.  They are even simpler because
+the interior of the sets of the form
+$\displaystyle S_{\VEC{x},\epsilon} = \left\{\VEC{y} \in S :
+\|\VEC{y}-\VEC{x}\| < \epsilon \right\}$ are open subsets of $\RR^{n-1}$.
+So, there is no need to refer to an atlas for $S$ and to use the
+relations (\ref{Sxepsint1}) and (\ref{Sxepsint1}).  Moreover, there is
+no restriction associated to the Lebesgue number of an atlas.
+\end{rmk}
+
+\subsection{Double Layer Potential}
+
+As in the previous section, we set $S = \partial \Omega$.  In addition
+to being a compact $\displaystyle C^2$-manifold of dimension $n-1$ in
+$\displaystyle \RR^n$ with the topology on $S$ induced from the
+topology on $\displaystyle \RR^n$, $S$ is a measurable space.
+
+\begin{defn} \label{pot_dblp_def}
+The {\bfseries double layer potential} with moment $\phi \in C(S)$ is
+\[
+u(\VEC{x}) = \int_S
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \phi(\VEC{y}) \dss{S}{y}
+\quad , \quad \VEC{x} \in \RR^n \setminus S \ ,
+\]
+where $\displaystyle \pdydx{}{\VEC{\nu}_{\VEC{y}}}$ denotes the
+directional derivative of $\VEC{y} \mapsto N(\VEC{x},\VEC{y})$ in the
+direction of the outward unit normal $\VEC{\nu}(\VEC{y})$ to
+$S$ at $\VEC{y} \in S$ and $N$ is the fundamental solution for
+the Laplace operator defined in (\ref{laplace_NXY}) and
+Theorem~\ref{laplace_fund_sol}.
+\end{defn}
+
+We have that
+\[
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) =
+\graD_{\VEC{y}} N(\VEC{x},\VEC{y}) \cdot \VEC{\nu}(\VEC{y}) =
+\frac{-1}{\omega_n \|\VEC{x}-\VEC{y}\|^n}\,(\VEC{x}-\VEC{y})
+\cdot \VEC{\nu}(\VEC{y})
+\]
+for $\VEC{x} \neq \VEC{y}$.  Hence,
+\[
+\Delta_{\VEC{x}} \left(\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})\right) =
+\graD_{\VEC{y}} \left( \Delta_{\VEC{x}} N(\VEC{x},\VEC{y}) \right) \cdot
+\VEC{\nu}(\VEC{y}) = 0
+\]
+for $\VEC{x} \neq \VEC{y}$ because
+$\displaystyle N:\RR^n \setminus \{ \VEC{0} \} \to \RR$ is harmonic.
+Thus
+$\displaystyle \VEC{x} \mapsto \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})$
+is harmonic on $\displaystyle \RR^n\setminus \{\VEC{y}\}$ for all
+$\displaystyle \VEC{y} \in \RR^n$.  Moreover, since 
+$\displaystyle (\VEC{x},\VEC{y}) \mapsto
+\diff^\alpha_{\VEC{x}}
+\left(\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})\right)$
+is continuous on $\displaystyle (\RR^n\setminus S)\times S$ for all
+multi-index $\alpha$, we may interchange the integral with respect to
+$\VEC{y}$ in the definition of $u$ with the operator
+$\Delta_{\VEC{x}}$ to show that $u$ is harmonic on
+$\displaystyle \RR^n \setminus S$. 
+
+Since
+$\displaystyle 
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) = O(\|\VEC{x}\|^{1-n})$
+as $\|\VEC{x}\| \rightarrow \infty$ uniformly for $\VEC{y}$ on the
+compact set $S$ \footnote{
+Let $\displaystyle M = \max_{\VEC{y} \in S} \|\VEC{y}\|$.
+For $\|\VEC{x}\| \geq M$, we have that
+$\|\VEC{x}-\VEC{y}\| \geq \|\VEC{x}\| - \|\VEC{y}\| \geq \|\VEC{x}\| - M$
+for all $\VEC{y} \in S$.  Thus, for all $\VEC{y} \in S$,
+we have that $\|\VEC{x} - \VEC{y}\|^{1-n}
+\leq (\|\VEC{x}\| - M)^{1-n} < C \|\VEC{x}\|^{1-n}$ 
+for a constant $C$ and $\|\VEC{x}\| > M$.}, we have that
+$\displaystyle u(\VEC{x}) = O(\|\VEC{x}\|^{1-n})$
+as $\|\VEC{x}\| \rightarrow \infty$.
+It follows from Proposition~\ref{pot_infty_u} that $u$ is harmonic at
+infinity.
+
+Let
+\begin{equation} \label{pot_K_defn}
+K(\VEC{x},\VEC{y}) =
+\begin{cases}
+\displaystyle \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) &
+\quad \text{if} \ \VEC{x},\VEC{y} \in S \ \text{and} \ \VEC{x} \neq \VEC{y} \\
+\text{anything} & \quad \text{if} \ \VEC{x}=\VEC{y} \in S
+\end{cases}
+\end{equation}
+This function will be useful later to study the double layer
+potential on $S$.  Before studying the double layer potential, we need
+some results about $K$ and $\displaystyle \pdydx{N}{\VEC{\nu}_{\VEC{y}}}$.
+
+\begin{lemma} \label{pot_lem_dbl1}
+There exists $C>0$ such that
+$\displaystyle \left| (\VEC{x}-\VEC{y}) \cdot \VEC{\nu}(\VEC{x}) \right| \leq C
+\|\VEC{x}-\VEC{y}\|^2$ for all $\VEC{x},\VEC{y} \in S$.
+\end{lemma}
+
+\begin{proof}
+\stage{i}
+Let $\displaystyle \BB = \left\{ \left(U_{\VEC{x}_j},
+\psi_{\VEC{x}_j}\right) \right \}_{j=1}^J$ be the atlas for
+$S$ described in Section~\ref{pot_int_man}.
+Choose $\epsilon/2$ smaller or equal to the Lebesgue number associated
+to the open cover $\displaystyle \{ V_{\VEC{x}_j}\}_{j=1}^J$ of $S$.  Thus,
+for each $\VEC{x} \in S$, there exists an index $j$ such that
+$\displaystyle
+S_{\VEC{x},\epsilon} = B_{\epsilon}(\VEC{x}) \cap S \subset U_{\VEC{x}_j}$.
+
+Choose $C_0$ such that $C_0\,\epsilon > 1$.  Since
+$\VEC{\nu}(\VEC{x})$ is of norm one for all $\VEC{x}$, we get from
+Schwarz inequality that
+\[
+\left| (\VEC{x}-\VEC{y}) \cdot \VEC{\nu}(\VEC{x}) \right|
+\leq \|\VEC{x}-\VEC{y}\|
+\leq C_0\,\epsilon \|\VEC{x}-\VEC{y}\|
+\leq C_0 \|\VEC{x}-\VEC{y}\|^2
+\]
+for all $\VEC{x}, \VEC{y} \in S$ such that
+$\|\VEC{x}-\VEC{y}\| \geq \epsilon$.
+Thus, we only have to consider $\|\VEC{x}-\VEC{y}\| < \epsilon$.
+
+\stage{ii}
+Given $\VEC{x} \in S$.  We have that
+$\displaystyle S_{\VEC{x},\epsilon} \subset U_{\VEC{x}_j}$ for some $j \in J$.
+Since we assume that
+$\displaystyle \psi_{\VEC{x}_j}^{-1}$ is of class $C^2$ on the compact set
+$\displaystyle \overline{W_j}$, we
+have that $\displaystyle C_j = \max_{\VEC{w} \in \overline{W_j}}
+\left\| \diff^2 \psi_j^{-1}(\VEC{w}) \right\| < \infty$
+\footnote{For a bounded bilinear mapping $B:\RR^n \times \RR^n \to \RR^m$,
+$\displaystyle \|B\| = \max_{\|\VEC{x}\|= \|\VEC{y}\|=1}
+\|B(\VEC{x},\VEC{y})\|$.
+Hence, $\|B(\VEC{x},\VEC{y})\| \leq \|B\| \, \|\VEC{x}\|\, \|\VEC{y}\|$
+for all $\VEC{x}, \VEC{y} \in \RR^n$.}.
+
+Let $\displaystyle \breve{\VEC{x}} = \psi_{\VEC{x}_j}(\VEC{x})$ and, given
+$\displaystyle \VEC{y} \in S_{\VEC{x},\epsilon}$,
+let $\displaystyle \breve{\VEC{y}} = \psi_{\VEC{x}_j}(\VEC{y})$.
+Using the Taylor expansion of $\psi_{\VEC{x}_j}^{-1}$ about
+$\breve{\VEC{x}}$, we get
+\[
+\left|(\VEC{y}- \VEC{x})\cdot \VEC{\nu}(\VEC{x})\right|
+= \left|\left( \diff \psi_{\VEC{x}_j}^{-1}(\breve{\VEC{x}})
+    \left(\breve{\VEC{y}}- \breve{\VEC{x}}\right)
++ \diff^2 \psi_{\VEC{x}_j}^{-1}(\VEC{w})
+\left(\breve{\VEC{y}}- \breve{\VEC{x}},\breve{\VEC{y}}- \breve{\VEC{x}}\right)
+\right) \cdot \VEC{\nu}(\VEC{x})\right|
+\]
+for some $\displaystyle \VEC{w} \in W_{\VEC{x}_j}$.  However,
+\begin{align*}
+&\left( \diff \psi_{\VEC{x}_j}^{-1}(\breve{\VEC{x}})
+\left(\breve{\VEC{y}}- \breve{\VEC{x}} \right)\right) \cdot
+\VEC{\nu}(\VEC{x}) \\
+&\qquad = \begin{pmatrix}
+\displaystyle
+\pdydx{\psi^{-1}_{\VEC{x}_j}}{w_1}(\breve{\VEC{x}}) \cdot \VEC{\nu}(\VEC{x}) &
+\displaystyle
+\pdydx{\psi^{-1}_{\VEC{x}_j}}{w_2}(\breve{\VEC{x}}) \cdot \VEC{\nu}(\VEC{x}) &
+\ldots &
+\displaystyle
+\pdydx{\psi^{-1}_{\VEC{x}_j}}{w_{n-1}}(\breve{\VEC{x}}) \cdot \VEC{\nu}(\VEC{x})
+\end{pmatrix} \cdot
+\left(\breve{\VEC{y}}- \breve{\VEC{x}} \right) = 0
+\end{align*}
+because $\displaystyle \pdydx{\psi^{-1}_{\VEC{x}_j}}{w_k}(\breve{\VEC{x}})$
+is in the tangent space of $S$ at $\VEC{x}$ and so orthogonal to
+$\VEC{\nu}(\VEC{x})$ for all $k$.  Thus
+\[
+\left|(\VEC{y}- \VEC{x})\cdot \VEC{\nu}(\VEC{x})\right|
+= \left|\left(\diff^2 \psi_{\VEC{x}_j}^{-1}(\VEC{w})
+\left(\breve{\VEC{y}}- \breve{\VEC{x}},\breve{\VEC{y}}- \breve{\VEC{x}}\right)
+\right) \cdot \VEC{\nu}(\VEC{x})\right|
+\leq C_j \|\breve{\VEC{y}}- \breve{\VEC{x}}\|^2
+\leq C_j \|\VEC{y}- \VEC{x}\|^2
+\]
+because $\|\VEC{\nu}(\VEC{x})\| = 1$, where we have used the fact that
+$\displaystyle \|\breve{\VEC{y}}- \breve{\VEC{x}}\|
+=\| \psi_{\VEC{x}_j}(\VEC{y})- \psi_{\VEC{x}_j}(\VEC{x})\|
+\leq \| \VEC{y}- \VEC{x}\|$ since
+$\displaystyle \psi_{\VEC{x}_j}$ is the projection of
+$\displaystyle U_{\VEC{x}_j}$ along the vector
+$\displaystyle \nu(\VEC{x}_j)$ onto
+$\displaystyle W_{\VEC{x}_j}$.
+
+\stage{iii} We get the conclusion of the lemma with
+$\displaystyle C = \max_{0\leq j \leq J} C_j$.
+\end{proof}
+
+\begin{lemma} \label{pot_lem_dbl2}
+$K: S \times S \rightarrow \RR$ defined in
+(\ref{pot_K_defn}) is a continuous kernel of order $n-2$.
+\end{lemma}
+
+\begin{proof}
+We have that $\displaystyle K(\VEC{x},\VEC{y}) = A(\VEC{x},\VEC{y})
+\|\VEC{x}- \VEC{y}\|^{2-n}$, where
+\[
+A(\VEC{x},\VEC{y}) = \frac{-1}{\omega_n \|\VEC{x}-\VEC{y}\|^2}\,
+\left(\VEC{x}-\VEC{y}\right)\cdot \VEC{\nu}(\VEC{y}) \  .
+\]
+From Lemma~\ref{pot_lem_dbl1}, there exists a constant $C$ such that
+$\displaystyle \left| A(\VEC{x},\VEC{y})\right| \leq C/\omega_n$ for
+all $\VEC{x},\VEC{y} \in S$ with $\VEC{x} \neq \VEC{y}$.
+So we may expand $A$ to a bounded and measurable function
+on $S \times S$.  Note that $\|(\VEC{x},\VEC{x}) : \VEC{x} \in S\}$
+is a set of measure zero.  This shows that $K$ is a kernel of order
+$n-2$.
+
+By definition, $K$ is continuous at
+$\{ (\VEC{x},\VEC{y}) \in S \times S : \VEC{x} \neq \VEC{y}\}$.
+\end{proof}
+
+\begin{lemma} \label{pot_lem_dbl3}
+We have that
+\begin{equation} \label{pot_lem_dbl3E1}
+\int_S K(\VEC{x},\VEC{y}) \dss{S}{y} = \frac{1}{2} \quad , \quad
+\VEC{x} \in S \ ,
+\end{equation}
+and
+\begin{equation} \label{pot_lem_dbl3E2}
+\int_S \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \dss{S}{y} =
+\begin{cases}
+1 & \quad \text{if} \ \VEC{x} \in \Omega \\
+0 & \quad \text{if} \ \VEC{x} \in \Omega^{\prime}
+\end{cases}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\stage{i} We first prove (\ref{pot_lem_dbl3E2}).
+Given $\displaystyle \VEC{x} \in \Omega^{\prime}$, we have that
+$w(\VEC{y}) = N(\VEC{x},\VEC{y})$ for $\VEC{y} \in \overline{\Omega}$
+is harmonic on $\Omega$ and
+$\displaystyle w \in C^2(\Omega) \cap C^1(\overline{\Omega})$
+It follows from the Green's Identity (\ref{laplace_green1}) with
+$v = 1$ and $u= w$ that
+\[
+\int_S \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \dss{S}{y} =
+\int_{\Omega} \Delta_{\VEC{y}} N(\VEC{x},\VEC{y}) \dx{\VEC{y}} = 0
+\]
+for $\displaystyle \VEC{x} \in \Omega^{\prime}$.
+
+Given $\VEC{x} \in \Omega$, choose $\epsilon >0$ small enough to have
+$\overline{B_\epsilon(\VEC{x})} \subset \Omega$.
+Let $\displaystyle \Omega_\epsilon = \Omega \setminus
+\overline{B_\epsilon(\VEC{x})}$.  We have that
+$w(\VEC{y}) = N(\VEC{x},\VEC{y})$ for $\VEC{y} \in \overline{\Omega_\epsilon}$
+is harmonic on $\Omega_\epsilon$ and
+$\displaystyle w \in C^2\left(\Omega_\epsilon\right) \cap
+C^1\left(\overline{\Omega_\epsilon}\right)$.
+It follows from the Green's Identity (\ref{laplace_green1}) with
+$v = 1$ and $u = w$ that
+\[
+\int_S \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \dss{S}{y}
+- \int_{\partial B_\epsilon(\VEC{x})}
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \dss{S}{y}
+=
+\int_{\Omega_\epsilon} \Delta_{\VEC{y}} N(\VEC{x},\VEC{y}) \dx{\VEC{y}} = 0 \ .
+\]
+However,
+\[
+\int_{\partial B_\epsilon(\VEC{x})}
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \dss{S}{y}
+= \frac{1}{\omega_n \epsilon^{n-1}}
+\int_{\|\VEC{y}\|_2=\epsilon} \dss{S}{y} = 1
+\]
+because $\VEC{x}-\VEC{y} = \epsilon \VEC{\nu}(\VEC{y})$ and
+$\|\VEC{x}-\VEC{y}\| = \epsilon$.  Thus,
+$\displaystyle
+\int_S \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \dss{S}{y} = 1$
+for $\VEC{x} \in \Omega$.
+
+\stage{ii} We now prove (\ref{pot_lem_dbl3E1}).
+Given $\VEC{x} \in S$, let
+$A_\epsilon = S \setminus \overline{B_\epsilon(\VEC{x})}$,
+$B_\epsilon = \Omega \setminus \overline{B_\epsilon(\VEC{x})}$,
+$C_\epsilon = \Omega \cap \partial B_\epsilon(\VEC{x})$ and
+$\displaystyle D_\epsilon = \left\{\VEC{y} \in \partial B_\epsilon(\VEC{x}) :
+  (\VEC{y}- \VEC{x})\cdot \nu(\VEC{x}) < 0 \right\}$
+(Figure~\ref{dblLayerKN}).
+
+Since the function defined by $w(\VEC{y}) = N(\VEC{x},\VEC{y})$ for
+$\VEC{y} \in \overline{B_\epsilon}$ is
+harmonic in $B_\epsilon$ and
+$\displaystyle w \in C^2(B_\epsilon)\cap C^2\left(\overline{B_\epsilon}\right)$,
+we may use the Green's Identity (\ref{laplace_green1}) with
+$v = 1$ and $u = w$ to get
+\[
+\int_{A_\epsilon} K(\VEC{x},\VEC{y}) \dss{S}{y}
+-\int_{C_\epsilon} \pdydx{N}{\VEC{\nu}_\VEC{y}}(\VEC{x},\VEC{y}) \dss{S}{y}
+= \int_{B_\epsilon} \Delta_{\VEC{y}} N(\VEC{x},\VEC{y}) \dx{\VEC{y}} = 0 \ .
+\]
+
+Since $\VEC{y} \to K(\VEC{x},\VEC{y})$ defines a function in
+$\displaystyle L^1(S)$
+according to Proposition~\ref{pot_prop_KL1}, we may use the Lebesgue
+Dominate Convergence theorem to conclude that
+\[
+\int_S  K(\VEC{x},\VEC{y}) \dss{S}{y}
+= \lim_{\epsilon \to 0} \int_{A_\epsilon}  K(\VEC{x},\VEC{y}) \dss{S}{y} \ .
+\]
+Thus
+\begin{equation} \label{pot_lem_dbl3E7}
+\int_S  K(\VEC{x},\VEC{y}) \dss{S}{y}
+= \lim_{\epsilon \to 0}
+\int_{C_\epsilon} \pdydx{N}{\VEC{\nu}_\VEC{y}}(\VEC{x},\VEC{y}) \dss{S}{y} \ .
+\end{equation}
+We have that
+\begin{align}
+\int_{C_\epsilon} \pdydx{N}{\VEC{\nu}_\VEC{y}}(\VEC{x},\VEC{y}) \dss{S}{y}
+&= \frac{1}{\omega_n \epsilon^{n-1}} \int_{C_\epsilon} \dss{S}{y} \nonumber \\
+&= \frac{1}{\omega_n \epsilon^{n-1}} \left( \int_{D_\epsilon} \dss{S}{y}
+- \int_{D_\epsilon \setminus C_\epsilon} \dss{S}{y}
++ \int_{C_\epsilon \setminus D_\epsilon} \dss{S}{y} \right) \ .
+\label{pot_lem_dbl3E3} 
+\end{align}
+Moreover,
+\begin{equation} \label{pot_lem_dbl3E4}
+\frac{1}{\omega_n \epsilon^{n-1}} \int_{D_\epsilon} \dss{S}{y}
+= \frac{1}{2 \omega_n \epsilon^{n-1}}
+\int_{\partial B_\epsilon(\VEC{x})} \dss{S}{y} = \frac{1}{2} \ .
+\end{equation}
+
+Let
+$\displaystyle
+M_\epsilon = \max_{\VEC{y}\in S \cap B_\epsilon(\VEC{x})} \left|
+  \left( \VEC{y} - \VEC{x}\right) \cdot \VEC{\nu}(\VEC{x}) \right|$
+and
+$Q_\epsilon = \left\{ \VEC{y} \in \partial B_\epsilon(\VEC{x}) :
+\left| (\VEC{y} - \VEC{x}) \cdot \VEC{\nu}(\VEC{x}) \right| \leq
+M_\epsilon \right\}$.
+Since $D_\epsilon \setminus C_\epsilon \subset Q_\epsilon$, we get
+that the portion $A_\epsilon$ of the sphere
+$\partial B_\epsilon(\VEC{x})$ covered by $D_\epsilon \setminus C_\epsilon$ 
+is smaller than the portion
+$\displaystyle 4 \arctan(M_\epsilon/\sqrt{\epsilon^2 - M_\epsilon^2})$
+of the sphere $\partial B_\epsilon(\VEC{x})$ covered by $Q_\epsilon$. 
+However, we have from Lemma~\ref{pot_lem_dbl1} that
+$M_\epsilon \leq C \epsilon^2$ for some constant $C$.  Thus,
+$A_\epsilon \leq 4 \arctan(M_\epsilon/\sqrt{\epsilon^2 - M_\epsilon^2}) \to 0$ 
+as $\epsilon \to 0$.  It follows that
+\begin{equation} \label{pot_lem_dbl3E5}
+\frac{1}{\omega_n \epsilon^{n-1}} \int_{D_\epsilon \setminus C_\epsilon} \dss{S}{y}
+= A_\epsilon \to 0 \quad \text{as} \quad \epsilon \to 0 \ .
+\end{equation}
+Similarly,
+\begin{equation} \label{pot_lem_dbl3E6}
+\frac{1}{\omega_n \epsilon^{n-1}} \int_{C_\epsilon \setminus D_\epsilon} \dss{S}{y}
+\to 0 \quad \text{as} \quad \epsilon \to 0 \ .
+\end{equation}
+If we let $\epsilon$ converge to $0$ in (\ref{pot_lem_dbl3E3}), and
+use (\ref{pot_lem_dbl3E4}), (\ref{pot_lem_dbl3E5}) and
+(\ref{pot_lem_dbl3E6}), we get (\ref{pot_lem_dbl3E1}) from
+(\ref{pot_lem_dbl3E7}).
+\end{proof}
+
+\pdfF{potential/dbl_layer_KN}{Figure for the proof of Lemma~\ref{pot_lem_dbl3}}
+{Figure for the proof of Lemma~\ref{pot_lem_dbl3}.  The dashed blue
+line represents $C_\epsilon$.  The dashed black line represents
+$D_\epsilon$.  The tick black line represents $A_\epsilon$.}{dblLayerKN}
+
+\begin{rmk}
+Looking at the proof of the previous lemma, it is clear that
+(\ref{pot_lem_dbl3E1}) and (\ref{pot_lem_dbl3E2}) are still true if
+$S$ is replaced by $\partial \Omega_j$ and $\Omega$ by $\Omega_j$,
+where $\Omega_j$ is one of the components of $\Omega$.  For
+(\ref{pot_lem_dbl3E2}), the set $\Omega^{\prime}$ is then replaced by
+the complement of $\overline{\Omega_j}$.     \label{pot_lem_dbl3_rmk}
+\end{rmk}
+
+\begin{lemma} \label{pot_lem_dbl4}
+There exists $B \in ]0,\infty[$ such that 
+\[
+\int_S \left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})
+\right| \dss{S}{y} \leq B
+\]
+for all $\VEC{x} \in \RR^n\setminus S$.
+\end{lemma}
+
+\begin{proof}
+Given $\displaystyle \VEC{x} \in \RR^n\setminus S$, let
+$\displaystyle d_{\VEC{x}} = \min_{\VEC{y} \in S}\|\VEC{y} - \VEC{x}\|$.
+Since $S$ is compact, $\displaystyle d_{\VEC{x}} >0$.
+
+Choose $\delta >0$ such that $\delta < 1/(4C)$ for $C$ given in
+Lemma~\ref{pot_lem_dbl1} and such that
+\[
+O_{\delta} = \left\{ \VEC{y} + t\, \VEC{\nu}(\VEC{y}) : \VEC{y} \in S \ ,
+\ |t|<\delta \right\}
+\]
+is a tubular neighbourhood of $S$.  Such a $\delta$ exists according
+to Theorem~\ref{pot_TBN}.
+
+\stage{i} If $\displaystyle d_{\VEC{x}} \geq \delta$, then
+\[
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})\right| 
+= \left| \frac{-1}{\omega_n \|\VEC{x}-\VEC{y}\|^n}\,(\VEC{x}-\VEC{y})
+\cdot \VEC{\nu}(\VEC{y}) \right|
+\leq \frac{1}{\omega_n \|\VEC{x}-\VEC{y}\|^{n-1}}
+\leq \frac{1}{\omega_n d_{\VEC{x}}^{n-1}}
+\leq \frac{1}{\omega_n \delta^{n-1}} \ .
+\]
+Thus,
+\begin{equation} \label{Bounddny1}
+\int_S \left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})
+\right| \dss{S}{y} \leq \frac{1}{\omega_n \delta^{n-1}} \int_S \dx{S} \ .
+\end{equation}
+
+\stage{ii}  If $\displaystyle d_{\VEC{x}} < \delta$, then
+$\VEC{x} \in O_{\delta}$.  So, there exist a unique
+$\VEC{x}_o \in S$ and $t_o \in ]-\delta,\delta[$ such
+that
+$\displaystyle \VEC{x} = \VEC{x}_o + t_o\VEC{\nu}(\VEC{x}_o)$.
+Let $\displaystyle S_{\VEC{x}_o,2\delta} = 
+\left\{ \VEC{y} \in S : \|\VEC{y} - \VEC{x}_0\| < 2\delta \right\}$.
+
+We have that
+\[
+\int_S \left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \right|
+\dss{S}{y}
+= \int_{S_{\VEC{x}_o,2\delta}}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \right| \dss{S}{y}
++ \int_{S\setminus S_{\VEC{x}_o,2\delta}}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \right|
+\dss{S}{y} \ .
+\]
+
+For $\VEC{y} \in S \setminus S_{\VEC{x}_o,2\delta}$, we have that
+\[
+\|\VEC{x} - \VEC{y} \|
+\geq \|\VEC{x}_o-\VEC{y}\| - \|\VEC{x}-\VEC{x}_o\|
+\geq 2\delta - \delta = \delta \ .
+\]
+Thus
+\[
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})\right| 
+= \left| \frac{-1}{\omega_n \|\VEC{x}-\VEC{y}\|^n}\,(\VEC{x}-\VEC{y})
+\cdot \VEC{\nu}(\VEC{y}) \right|
+\leq \frac{1}{\omega_n \|\VEC{x}-\VEC{y}\|^{n-1}}
+\leq \frac{1}{\omega_n \delta^{n-1}}
+\]
+and so
+\begin{equation}  \label{Bounddny2}
+\int_{S\setminus S_{\VEC{x}_o,2\delta}}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \right| \dss{S}{y}
+\leq \frac{1}{\omega_n \delta^{n-1}} \int_S \dx{S} \ .
+\end{equation}
+
+For $\VEC{y} \in S_{\VEC{x}_o,2\delta}$, we get from
+Lemma~\ref{pot_lem_dbl1} that
+\begin{align}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})\right| 
+&= \left| \frac{-1}{\omega_n \|\VEC{x}-\VEC{y}\|^n}\,(\VEC{x}-\VEC{y})
+\cdot \VEC{\nu}(\VEC{y}) \right|
+\leq \frac{1}{\omega_n \|\VEC{x}-\VEC{y}\|^n}\,\big(
+\left|(\VEC{x}-\VEC{x}_o) \cdot \VEC{\nu}(\VEC{y}) \right|
++ \left| (\VEC{x}_o-\VEC{y}) \cdot \VEC{\nu}(\VEC{y}) \right| \big)
+\nonumber \\
+&\leq \frac{1}{\omega_n \|\VEC{x}-\VEC{y}\|^n}\,\left(
+\left\|\VEC{x}-\VEC{x}_o) \right\|
++ C \left\| \VEC{x}_o-\VEC{y}) \right\|^2 \right)
+\label{Bounddny3}
+\end{align}
+because $\VEC{x}_o, \VEC{y} \in S$.  We now find a lower bound for
+$\displaystyle \|\VEC{x}-\VEC{y}\|^n$ with $\VEC{y} \in S_{\VEC{x}_o,2\delta}$.
+We have that
+\[
+\|\VEC{x}-\VEC{y}\|^2 = \| (\VEC{x}-\VEC{x}_o) + (\VEC{x}_o-\VEC{y})\|^2
+= \|\VEC{x}-\VEC{x}_o\|^2 + 2 (\VEC{x}-\VEC{x}_o) \cdot (\VEC{x}_o-\VEC{y})
++ \|\VEC{x}_o-\VEC{y}\|^2 \ .
+\]
+We also have that
+\begin{align*}
+2\left| (\VEC{x} - \VEC{x}_o) \cdot (\VEC{x}_o - \VEC{y}) \right|
+&= 2\left|\, \|\VEC{x} - \VEC{x}_o\| \VEC{\nu}(\VEC{x}_o)
+\cdot (\VEC{x}_o - \VEC{y}) \right|
+= 2\|\VEC{x} - \VEC{x}_o\|\, \left|\VEC{\nu}(\VEC{x}_o)
+\cdot (\VEC{x}_o - \VEC{y}) \right| \\
+&\leq 2 C \|\VEC{x} - \VEC{x}_o\| \, \|\VEC{x}_o - \VEC{y}\|^2 \ ,
+\end{align*}
+where again we have used Lemma~\ref{pot_lem_dbl1} with
+$\VEC{x}_o, \VEC{y} \in S$.  Since
+$\|\VEC{x}_o - \VEC{y}\| < 2\delta < 1/(2C)$, we get that
+\[
+2\left| (\VEC{x} - \VEC{x}_o) \cdot (\VEC{x}_o - \VEC{y}) \right|
+\leq \|\VEC{x} - \VEC{x}_o\| \, \|\VEC{x}_o - \VEC{y}\| \ .
+\]
+Hence,
+\[
+\|\VEC{x}-\VEC{y}\|^2 \geq \|\VEC{x}-\VEC{x}_o\|^2
+- \|\VEC{x} - \VEC{x}_o\| \, \|\VEC{x}_o - \VEC{y}\| + \|\VEC{x}_o-\VEC{y}\|^2
+\geq \frac{1}{2} \left( \|\VEC{x}-\VEC{x}_o\|^2
++ \|\VEC{x}_o-\VEC{y}\|^2 \right) \ .
+\]
+If we substitute this expression in (\ref{Bounddny3}), we get
+\begin{align*}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})\right| 
+&\leq \frac{2^{n/2}}{\omega_n \left(\|\VEC{x}-\VEC{x}_o\|^2 +
+    \|\VEC{x}_o-\VEC{y}\|^2\right)^{n/2}}\,\left(
+\left\|\VEC{x}-\VEC{x}_o) \right\|
+  + C \left\| \VEC{x}_o-\VEC{y}) \right\|^2 \right) \\
+&\leq \frac{2^{n/2} \left\|\VEC{x}-\VEC{x}_o\right\|}
+{\omega_n \left(\|\VEC{x}-\VEC{x}_o\|^2 +
+\|\VEC{x}_o-\VEC{y}\|^2\right)^{n/2}}
++ \frac{2^{n/2} C}{\omega_n \|\VEC{x}_o-\VEC{y}\|^{n-2}} \ .
+\end{align*}
+Therefore,
+\begin{equation} \label{Bounddny4}
+\begin{split}
+\int_{S_{\VEC{x}_o,2\delta}}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \right| \dss{S}{y}
+&\leq \frac{2^{n/2}}{\omega_n} \int_{S_{\VEC{x}_o,2\delta}}
+\frac{\left\|\VEC{x}-\VEC{x}_o\right\|}
+{\left(\|\VEC{x}-\VEC{x}_o\|^2 + \|\VEC{x}_o-\VEC{y}\|^2\right)^{n/2}}
+\dss{S}{y} \\
+&\qquad + \frac{2^{n/2} C}{\omega_n} \int_{S_{\VEC{x}_o,2\delta}}
+\frac{1}{\|\VEC{x}_o-\VEC{y}\|^{n-2}} \dss{S}{y} \ .
+\end{split}
+\end{equation}
+If we assume that $4\delta$ is smaller than the Lebesgue number
+associated to the atlas that we have introduced in
+Section~\ref{pot_int_man}, then we get from (\ref{Sxepsint1}) with
+$\alpha = n-2$ that
+\begin{equation} \label{Bounddny5}
+\int_{S_{\VEC{x}_o,2\delta}} \frac{1}{\|\VEC{x}_o-\VEC{y}\|^{n-2}} \dss{S}{y}
+\leq 2 Q \omega_{n-1} \delta \ .
+\end{equation}
+To find an upper bound for the first integral on the right side of
+(\ref{Bounddny4}), we use the fact that
+$S_{\VEC{x}_o,2\delta} \subset U_{\VEC{x}_j}$ for one of the chart of
+the atlas that we have defined in Section~\ref{pot_int_man}.
+Thus
+\begin{align*}
+&\int_{S_{\VEC{x}_o,2\delta}}
+\frac{\left\|\VEC{x}-\VEC{x}_o\right\|}
+{\left(\|\VEC{x}-\VEC{x}_o\|^2 + \|\VEC{x}_o-\VEC{y}\|^2\right)^{n/2}}
+\dss{S}{y} \\
+&\qquad = \int_{\psi_{\VEC{x}_j}(S_{\VEC{x}_o,2\delta})}
+\frac{\left\|\VEC{x}-\VEC{x}_o\right\|}
+{\left(\|\VEC{x}-\VEC{x}_o\|^2
++ \|\VEC{x}_o-\psi_{\VEC{x}_j}^{-1}(\VEC{w})\|^2\right)^{n/2}}
+\left| \det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w}) \right| \dx{\VEC{w}} \\
+&\qquad \leq Q \int_{B_{2\delta}(\psi_{\VEC{x}_j}(\VEC{x}_o))}
+\frac{\left\|\VEC{x}-\VEC{x}_o\right\|}
+{\left(\|\VEC{x}-\VEC{x}_o\|^2
++ \|\psi_{\VEC{x}_j}(\VEC{x}_o) -\VEC{w}\|^2\right)^{n/2}} \dx{\VEC{z}} \ ,
+\end{align*}
+where we have use (\ref{defnQdetpsim1}),
+$\displaystyle \psi_{\VEC{x}_j}(S_{\VEC{x}_o,2\delta}) \subset
+B_{2\delta}(\psi_{\VEC{x}_j}(\VEC{x}_o))$, and
+$\displaystyle \|\VEC{x}-\VEC{y}\| 
+\geq \|\psi_{\VEC{x}_j}(\VEC{x}) - \psi_{\VEC{x}_j}(\VEC{y})\|$ for all
+$\displaystyle \VEC{x},\VEC{y} \in U_{\VEC{x}_j}$ to obtain the
+inequality.  Using the change of variables
+$\VEC{w} = \psi_{\VEC{x}_j}(\VEC{x}_o) + r \VEC{z}$ with $0 \leq r < 2\delta$
+and $\VEC{z} \in \partial B_1(\VEC{0}) \subset \RR^{n-1}$, and posing
+$a = \|\VEC{x}-\VEC{x}_o\|$, we get
+\begin{align}
+&\int_{S_{\VEC{x}_o,2\delta}}
+\frac{\left\|\VEC{x}-\VEC{x}_o\right\|}
+{\left(\|\VEC{x}-\VEC{x}_o\|^2 + \|\VEC{x}_o-\VEC{y}\|^2\right)^{n/2}}
+\dss{S}{y}
+\leq Q \int_{\partial B_1(\VEC{0})} \int_0^{2\delta}
+\frac{a r^{n-2}}{(a^2 + r^2)^{n/2}} \dx{r} \dx{S} \nonumber \\
+&\qquad
+= Q \omega_{n-1} \int_0^{2\delta/a} \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s} 
+\leq Q \omega_{n-1} \int_0^{\infty} \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s} \ ,
+\label{Bounddny6}
+\end{align}
+where we have used the substitution $r = a s$.
+The last integral converges because
+\[
+\int_0^R \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s}
+= \int_0^1 \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s}
++ \int_1^R \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s}
+\leq \underbrace{\int_0^1 \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s}}_{<\infty}
++ \underbrace{\int_1^R \frac{1}{s^2} \dx{s}}_{<1}
+\]
+for $R >1$.
+
+It follows from (\ref{Bounddny2}), (\ref{Bounddny4}),
+(\ref{Bounddny5}) and (\ref{Bounddny6}) that
+\begin{equation} \label{Bounddny7}
+\begin{split}
+\int_S
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \right| \dss{S}{y}
+&\leq \frac{1}{\omega_n \delta^{n-1}} \int_S \dx{S} 
++ \frac{2^{n/2}Q \omega_{n-1}}{\omega_n} 
+\int_0^{\infty} \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s} \\
+&\qquad + \frac{2^{(n+2)/2} C Q \omega_{n-1} \delta}{\omega_n}
+\end{split}
+\end{equation}
+
+\stage{iii} It follows from (\ref{Bounddny1}) and (\ref{Bounddny7})
+that the Lemma is satisfied if $B$ if equal or larger than
+\[
+\frac{1}{\omega_n \delta^{n-1}} \int_S \dx{S} 
++ \frac{2^{n/2}Q \omega_{n-1}}{\omega_n} 
+\int_0^{\infty} \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s}
++ \frac{2^{(n+2)/2} C Q \omega_{n-1} \delta}{\omega_n} \ . \qedhere
+\]
+\end{proof}
+
+\begin{lemma} \label{pot_lem_dbl5}
+If $\phi \in C(S)$ is zero at some point $\VEC{z} \in S$, then the
+double layer potential $u$ is continuous at $\VEC{z}$.
+\end{lemma}
+
+\begin{proof}
+According to Proposition~\ref{pot_prop_KL1}, there exists a constant $A$
+such that $\displaystyle \int_S |K(\VEC{x},\VEC{y})| \dss{S}{y} < A$
+for all $\VEC{x}$ since $K$ is a continuous kernel of order $n-2$.
+
+Given $\epsilon > 0$, choose $\eta > 0$ such that
+$\displaystyle |\phi(\VEC{x})| < \frac{\epsilon}{3(A+B)}$
+for $\VEC{x} \in S_{\VEC{z},\eta} = S \cap B_{\eta}(\VEC{z})$, where $B$ is
+given in Lemma~\ref{pot_lem_dbl4}.
+
+We have that
+\begin{equation} \label{potLemDbl5equ1}
+\begin{split}
+|u(\VEC{x}) - u(\VEC{z})|
+& \leq \int_{S_{\VEC{z},\eta}} \left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}
+(\VEC{x},\VEC{y}) - \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{z},\VEC{y})
+\right|\,|\phi(\VEC{y})| \dss{S}{y} \\
+&\qquad + \int_{S \setminus S_{\VEC{z},\eta}} \left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}
+(\VEC{x},\VEC{y}) - \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{z},\VEC{y})
+\right|\,|\phi(\VEC{y})| \dss{S}{y} \ ,
+\end{split}
+\end{equation}
+where obviously
+$\displaystyle \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{w},\VEC{y})
+= K(\VEC{w},\VEC{y})$ when $\VEC{w}, \VEC{y} \in S$.
+
+Since
+$\displaystyle (\VEC{x},\VEC{y}) \to 
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}
+(\VEC{x},\VEC{y}) - \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{z},\VEC{y})$
+is continuous on the compact set 
+$\displaystyle
+\overline{B_\eta(\VEC{z})} \times \left(S \setminus S_{\VEC{z},\eta}\right)$,
+it is uniformly continuous on this set.  Thus,
+$\displaystyle \VEC{y} \to
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}
+(\VEC{x},\VEC{y}) - \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{z},\VEC{y})$
+converges uniformly to $0$ on $S \setminus S_{\VEC{z},\eta}$ as
+$\VEC{x} \to \VEC{z}$.  Hence,
+$\displaystyle
+\int_{S \setminus S_{\VEC{z},\eta}} \left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}
+(\VEC{x},\VEC{y}) - \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{z},\VEC{y})
+\right|\,|\phi(\VEC{y})| \dss{S}{y} \to 0$ as
+$\VEC{x} \to \VEC{z}$.
+
+Choose $\delta > 0$ such that
+$\displaystyle
+\int_{S \setminus S_{\VEC{z},\eta}} \left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}
+(\VEC{x},\VEC{y}) - \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{z},\VEC{y})
+\right|\,|\phi(\VEC{y})| \dss{S}{y} < \frac{\epsilon}{3}$ for
+$\|\VEC{x} - \VEC{z}\| < \delta$.
+Since
+\begin{align*}
+&\int_{S_{\VEC{z},\eta}}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{x},\VEC{y})
+- \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{z},\VEC{y}) \right|\,
+|\phi(\VEC{y})| \dss{S}{y} \\
+& \qquad \leq \int_{S_{\VEC{z},\eta}}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{x},\VEC{y}) \right|\,
+|\phi(\VEC{y})| \dss{S}{y} 
++ \int_{S_{\VEC{z},\eta}}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{z},\VEC{y}) \right|\,
+|\phi(\VEC{y})| \dss{S}{y} \\
+&\qquad \leq \frac{\epsilon}{3(A+B)} \left(
+\int_{S_{\VEC{z},\eta}}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{x},\VEC{y}) \right| \dss{S}{y} 
++ \int_{S_{\VEC{z},\eta}}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}} (\VEC{z},\VEC{y}) \right| \dss{S}{y}
+\right)
+\leq \frac{2\epsilon}{3} \ ,
+\end{align*}
+we get from (\ref{potLemDbl5equ1}) that
+$|u(\VEC{x}) - u(\VEC{z})| < \epsilon$ for 
+$\|\VEC{x} - \VEC{z}\| < \delta$.
+\end{proof}
+
+\begin{theorem} \label{pot_double_layer}
+Consider the double layer potential given in
+Definition~\ref{pot_dblp_def} with $\phi \in C(S)$.
+Then $\displaystyle u\big|_\Omega$ has a continuous extension to
+$\overline{\Omega}$ and $\displaystyle u\big|_{\Omega^{\prime}}$
+has a continuous extension to $\displaystyle \overline{\Omega^{\prime}}$.
+
+To be more precise, let
+$\displaystyle u_t(\VEC{x}) = u(\VEC{x} + t \VEC{\nu}(\VEC{x}))$
+for $\VEC{x} \in \partial \Omega$ and $t \in \RR$,
+\begin{equation} \label{pot_dblpT1}
+u^{[i]}(\VEC{x}) = \frac{1}{2} \phi(\VEC{x}) + \int_S
+K(\VEC{x},\VEC{y}) \, \phi(\VEC{y}) \dss{S}{y}
+\end{equation}
+for $\VEC{x} \in S$, and
+\begin{equation} \label{pot_dblpT2}
+u^{[o]}(\VEC{x}) = - \frac{1}{2} \phi(\VEC{x}) + \int_S
+K(\VEC{x},\VEC{y}) \, \phi(\VEC{y}) \dss{S}{y}
+\end{equation}
+for $\VEC{x} \in S$.
+In other words, $\displaystyle u^{[i]} = \frac{1}{2} \phi + T_K \phi$ and
+$\displaystyle u^{[o]} = -\frac{1}{2} \phi + T_K \phi$ respectively on $S$.
+Then $u_t \rightarrow u^{[i]}$ uniformly on $S$ as $t\rightarrow 0^-$ and
+$u_t \rightarrow u^{[o]}$ uniformly on $S$ as $t\rightarrow 0^+$.
+\end{theorem}
+
+\begin{proof}
+In the discussion below, we assume that $|t|$ is small enough to have
+$\VEC{x} + t \VEC{\nu}(\VEC{x})$ in a tubular neighbourhood of $S$ for
+all $\VEC{x} \in S$.  
+
+\stage{i}
+For $\VEC{x} \in S$ and $t<0$, we have
+\[
+u_t(\VEC{x}) = \int_S \phi(\VEC{y})
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y})
+\dss{S}{y} \ .
+\]
+From Lemma~\ref{pot_lem_dbl3}, we get that
+\begin{align*}
+u_t(\VEC{x}) &= \phi(\VEC{x}) \int_S \pdydx{N}{\VEC{\nu}_{\VEC{y}}}
+(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y}) \dss{S}{y}
++ \int_S \left( \phi(\VEC{y}) - \phi(\VEC{x}) \right)
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y})
+\dss{S}{y} \\
+&= \phi(\VEC{x}) + \int_S \left( \phi(\VEC{y}) - \phi(\VEC{x}) \right) 
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y})
+\dss{S}{y} \ .
+\end{align*}
+Because $\VEC{y} \mapsto \phi(\VEC{y})-\phi(\VEC{x})$ is null at
+$\VEC{y}=\VEC{x}$, we have from Lemma~\ref{pot_lem_dbl5} that the function
+\[
+t \mapsto \int_{\partial \Omega}
+\left( \phi(\VEC{y}) - \phi(\VEC{x}) \right)
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y})
+\dss{S}{y}
+\]
+is continuous at $t=0$ for $\VEC{x}$ fixed.  Thus,
+\begin{align*}
+\lim_{t\rightarrow 0^-} u_t(\VEC{x})
+&= \phi(\VEC{x}) + \int_S K(\VEC{x},\VEC{y}) \left( \phi(\VEC{y})
+- \phi(\VEC{x}) \right) \dss{S}{y} \\
+&= \phi(\VEC{x}) +
+\int_S K(\VEC{x},\VEC{y}) \phi(\VEC{y}) \dss{S}{y}
+- \phi(\VEC{x}) \int_S K(\VEC{x},\VEC{y}) \dss{S}{y} \\
+&= \frac{1}{2} \phi(\VEC{x})
++ \int_S K(\VEC{x},\VEC{y}) \phi(\VEC{y}) \dss{S}{y}
+= u^{[i]}(\VEC{x}) \ ,
+\end{align*}
+where we have used Lemma~\ref{pot_lem_dbl3} for the last
+equality.
+
+\stage{ii}
+For $\VEC{x} \in S$ and $t>0$, we have
+\[
+u_t(\VEC{x}) = \int_S \phi(\VEC{y})
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y})
+\dss{S}{y} \ .
+\]
+From Lemma~\ref{pot_lem_dbl3}, we get that
+\begin{align*}
+u_t(\VEC{x}) &= \phi(\VEC{x}) \int_S \pdydx{N}{\VEC{\nu}_{\VEC{y}}}
+(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y}) \dss{S}{y}
++ \int_S \left( \phi(\VEC{y}) - \phi(\VEC{x}) \right)
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y})
+\dss{S}{y} \\
+&= \int_S \left( \phi(\VEC{y}) - \phi(\VEC{x}) \right) 
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y})
+\dss{S}{y} \ .
+\end{align*}
+From here, the proof that
+\[
+\lim_{t\rightarrow 0^+} u_t(\VEC{x}) = -\frac{1}{2} \phi(\VEC{x}) +
+\int_S K(\VEC{x},\VEC{y}) \phi(\VEC{y}) \dss{S}{y} = u^{[o]}(\VEC{x})
+\]
+is very similar to the proof in (i).
+
+\stage{iii}
+We prove that the convergence $u_t \rightarrow u^{[i]}$ (resp.
+$u_t \rightarrow u^{[o]}$) is uniform on $S$ as
+$t\rightarrow 0^-$ (resp. $t\rightarrow 0^+$).
+
+Let $B$ be the constant from Lemma~\ref{pot_lem_dbl4} and let $A$
+be a constant such that \\
+$\displaystyle \int_S \left| K(\VEC{x},\VEC{y}) \right|
+\dss{S}{y} < A$ for $\VEC{x} \in S$.  Such a constant exists according
+to Proposition~\ref{pot_prop_KL1}.
+
+Given $\epsilon >0$, choose $\eta>0$ such that
+\begin{equation} \label{pot_dblp_B2}
+\left|\phi(\VEC{x}) - \phi(\VEC{y}) \right| < \frac{\epsilon}{2(A + B)}
+\end{equation}
+for $\VEC{x}, \VEC{y} \in S$ and $\|\VEC{x} - \VEC{y}\| < \eta$.
+This is possible because $\phi$ is continuous on the compact
+set $S$.  So $\phi$ is uniformly continuous on
+$S$.
+
+We may also assume that $\eta$ is small enough such that
+$\displaystyle
+O_\eta = \left\{ \VEC{x} + t \VEC{\nu}(\VEC{x}) : \VEC{x} \in S
+\ \text{and} \ |t| < \eta \right\}$
+is a tubular neighbourhood of $S$.
+
+Since
+$\displaystyle
+(\VEC{z},\VEC{y}) \mapsto \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{z},\VEC{y})$ is
+continuous (and so uniformly continuous) on the compact set
+$\displaystyle
+P = \left\{ (\VEC{z},\VEC{y}) \in \overline{O_{\eta/2}} \times S
+: \| \VEC{z}-\VEC{y} \| \geq \eta/2 \right\}$,
+there exists $\delta < \eta/2$ such that
+\begin{equation} \label{pot_dblp_B1}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{z}_1,\VEC{y})
+ - K(\VEC{z}_2,\VEC{y})
+\right| < \frac{\epsilon}{2} \left(\int_S
+\left| \phi(\VEC{y}) \right| \dss{S}{y} + \max_{\VEC{x}\in S}
+|\phi(\VEC{x})|\, \int_S \dss{S}{y} \right)^{-1}
+\end{equation}
+for $(\VEC{z}_1,\VEC{y}) , (\VEC{z}_2,\VEC{y}) \in P$ with
+$\|\VEC{z}_1-\VEC{z}_2\| < \delta$ and $\VEC{z}_2 \in S$.
+
+Hence, for all $\VEC{x} \in S$ and $|t|<\delta$, we have that
+\begin{align*}
+&\left| u_t(\VEC{x}) - u^{[i]}(\VEC{x}) \right| \\
+&\quad = \left| \int_S \left( \phi(\VEC{y}) - \phi(\VEC{x}) \right) 
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y})
+\dss{S}{y} - \int_S K(\VEC{x},\VEC{y})
+\left( \phi(\VEC{y}) - \phi(\VEC{x}) \right) \dss{S}{y} \right| \\
+&\quad \leq \int_S \left|
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y})
+- K(\VEC{x},\VEC{y}) \right|
+\left| \phi(\VEC{y}) - \phi(\VEC{x}) \right| \dss{S}{y} \\
+&\quad\leq \int_{S \cap B_{\eta}(\VEC{x})} \left(
+\left|
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y}) \right|
++\left| K(\VEC{x},\VEC{y}) \right| \right)
+\left| \phi(\VEC{y}) - \phi(\VEC{x}) \right| \dss{S}{y} \\
+&\qquad + \int_{S \setminus B_{\eta}(\VEC{x})}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x} +t \VEC{\nu}(\VEC{x}),\VEC{y})
+- K(\VEC{x},\VEC{y}) \right|
+\left( \left| \phi(\VEC{y})\right|
++ \left|\phi(\VEC{x}) \right| \right) \dss{S}{y}
+\leq \frac{\epsilon}{2} + \frac{\epsilon}{2} < \epsilon \ ,
+\end{align*}
+where we have used (\ref{pot_dblp_B2}) to find an upper bound for the
+integral over $S \cap B_{\eta}(\VEC{x})$, and (\ref{pot_dblp_B1}) to
+find an upper bound for the integral over $S \setminus B_{\eta}(\VEC{x})$.
+Moreover, we note that
+$\| \VEC{x} + t \VEC{\nu}(\VEC{x}) - \VEC{y} || \geq \eta/2$
+for $|t| < \eta/2$ and $\|\VEC{x} - \VEC{y} \| \geq \eta$.  So
+(\ref{pot_dblp_B1}) can be effectively used (Figure~\ref{pot_DBL_LYR}).
+\end{proof}
+
+\pdfF{potential/dbl_layer}{Double layer potential}
+{Figure for the proof of Theorem~\ref{pot_double_layer}.}{pot_DBL_LYR}
+
+\subsection{Single Layer Potential} \label{subsect_SLpot}
+
+As in the previous two sections, $S = \partial \Omega$.
+
+\begin{defn} \label{pot_spl_def}
+The {\bfseries single layer potential} with moment
+$\phi \in C(S)$ is
+\[
+u(\VEC{x}) = \int_S
+N(\VEC{x},\VEC{y}) \phi(\VEC{y}) \dss{S}{y} \quad , \quad
+\VEC{x} \in \RR^n \ ,
+\]
+where $N$ is the fundamental solution for the Laplace operator given in
+(\ref{laplace_NXY}) and Theorem~\ref{laplace_fund_sol}.
+\end{defn}
+
+Recall the following facts about $N$.
+\begin{enumerate}
+\item $\VEC{y}\mapsto N(\VEC{x},\VEC{y})$ is harmonic in
+$\displaystyle \RR^n \setminus \{ \VEC{x} \}$.
+\item For $n>2$,
+$\displaystyle N(\VEC{x},\VEC{y}) = O(\|\VEC{y}\|^{2-n})$ as
+$\|\VEC{y}\|\rightarrow \infty$.  Hence $\VEC{y} \mapsto N(\VEC{x},\VEC{y})$
+is harmonic at infinity according to Proposition~\ref{pot_infty_u}.
+\item (1) and (2) imply that the
+single layer potential $u$ defined in Definition~\ref{pot_spl_def} is
+harmonic on $\displaystyle \RR^n \setminus S$ and at infinity for $n>2$. 
+\item The single layer potential $u$ is well defined at $\VEC{x} \in S$.
+Let $\displaystyle R \geq \diam S
+= \max_{\VEC{x},\VEC{y} \in S} \|\VEC{x}-\VEC{y}\|$,
+$\displaystyle \BB = \left\{ \left(U_{\VEC{x}_j},
+\psi_{\VEC{x}_j}\right) \right \}_{j\in J}$ be the atlas for
+$S$ described in Section~\ref{pot_int_man}, and
+$\displaystyle \{ \phi_{\VEC{x}_j} \}_{j\in J}$ be a partition of unity 
+for $S$ subordinated to $\BB$.
+
+For $n>2$, we have that  
+\begin{align*}
+&\int_S \left| N(\VEC{x},\VEC{y}) \right|\, |\phi(\VEC{y})| \dss{S}{y}
+\leq \frac{1}{(n-2)\omega_n} \, \|\phi\|_\infty
+\int_S \|\VEC{x}-\VEC{y}\|^{2-n} \dss{S}{y} \\
+&\qquad = \frac{1}{(n-2)\omega_n} \, \|\phi\|_\infty
+\sum_{j\in J} \int_{W_{\VEC{x}_j}}
+\phi_{\VEC{x}_j}(\psi_{\VEC{x}_j}^{-1}(\VEC{w})\,
+\|\VEC{x}-\psi_{\VEC{x}_j}^{-1}(\VEC{w})\|^{2-n}
+\,\left|\det\psi_{\VEC{x}_j}^{-1}(\VEC{w})\right| \dx{\VEC{w}} \\
+&\qquad \leq \frac{Q}{(n-2)\omega_n} \, \|\phi\|_\infty
+\sum_{j\in J} \int_{W_{\VEC{x}_j} }
+\|\psi_{\VEC{x}_j}(\VEC{x})-\VEC{w}\|^{2-n}\dx{\VEC{w}} \\
+&\qquad \leq \frac{Q}{(n-2)\omega_n} \, \|\phi\|_\infty
+\sum_{j\in J} \int_{\partial B_1(\VEC{0})} \int_0^R
+  r^{2-n} r^{n-2} \dx{r} \dx{S}
+\leq \frac{Q |J|\, \omega_{n-1} R}{(n-2)\omega_n} \, \|\phi\|_\infty
+< \infty
+\end{align*}
+for all $\phi\in C(\partial \Omega)$ and all $\VEC{x} \in S$, where we
+have used (\ref{defnQdetpsim1}), $\displaystyle \|\VEC{x}-\VEC{y}\| 
+\geq \|\psi_{\VEC{x}_j}(\VEC{x}) - \psi_{\VEC{x}_j}(\VEC{y})\|$ for all
+$\displaystyle \VEC{x},\VEC{y} \in U_{\VEC{x}_j}$ and
+$\displaystyle W_{\VEC{x}_j} = \psi_{\VEC{x}_j}(U_{\VEC{x}_j}) \subset
+B_R(\psi_{\VEC{x}_j}(\VEC{x})) \subset \RR^{n-1}$.
+
+For $n=2$, we have that
+\begin{align*}
+&\int_S \left| N(\VEC{x},\VEC{y}) \right|\, |\phi(\VEC{y})| \dss{S}{y}
+\leq \frac{1}{\omega_2} \, \|\phi\|_\infty
+\int_S |\ln(\|\VEC{x}-\VEC{y}\|)| \dss{S}{y} \\
+&\qquad = \frac{1}{\omega_2} \, \|\phi\|_\infty
+\sum_{j\in J} \int_{W_{\VEC{x}_j}}
+\phi_{\VEC{x}_j}(\psi_{\VEC{x}_j}^{-1}(w)\,
+\left|\ln(\|\VEC{x}-\psi_{\VEC{x}_j}^{-1}(w)\|)\right|
+\,\left|\det\psi_{\VEC{x}_j}^{-1}(w)\right|  \dx{w} \\
+& \qquad \leq \frac{Q}{\omega_2} \, \|\phi\|_\infty
+\sum_{j\in J} \int_{W_{\VEC{x}_j}}
+\left|\ln(|\psi_{\VEC{x}_j}(\VEC{x})-w|)\right| \dx{w}
+\leq \frac{2Q}{\omega_2} \, \|\phi\|_\infty
+\sum_{j\in J} \int_0^R |\ln(r)| \dx{r} \\
+&\qquad
+\leq \frac{2Q\,|J|\,
+\left( 2 + \left( |\ln(R)| + 1 \right) R\right)}{\omega_2} \, \|\phi\|_\infty
+< \infty \ . 
+\end{align*}
+for all $\phi\in C(\partial \Omega)$ and all $\VEC{x} \in S$, where
+we have used (\ref{defnQdetpsim1}), $\displaystyle \|\VEC{x}-\VEC{y}\| 
+\geq \|\psi_{\VEC{x}_j}(\VEC{x}) - \psi_{\VEC{x}_j}(\VEC{y})\|$ for all
+$\displaystyle \VEC{x},\VEC{y} \in U_{\VEC{x}_j}$ and
+$\displaystyle W_{\VEC{x}_j} = \psi_{\VEC{x}_j}(U_{\VEC{x}_j}) \subset
+]\psi_{\VEC{x}_j}(\VEC{x}) -R ,  \psi_{\VEC{x}_j}(\VEC{x}) + R[$.
+\end{enumerate}
+
+\begin{prop} \label{pot_slp_cont}
+If $\phi \in C(S)$, then the single layer potential
+defined in Definition~\ref{pot_spl_def} is continuous on
+$\displaystyle \RR^n$.
+\end{prop}
+
+\begin{proof}
+We only have to show that $u$ is continuous at an arbitrary point
+$\VEC{z} \in \partial \Omega$ since $u$ is continuous on
+$\displaystyle \RR^n \setminus S$.  Given $\mu >0$, let
+$\displaystyle S_{\VEC{z},\mu} = \{ \VEC{y} \in S : \|\VEC{z}-\VEC{y}\|<\mu\}
+= B_\mu(\VEC{z}) \cap S$.  We have
+\begin{equation} \label{potSlpContEq1}
+\begin{split}
+|u(\VEC{x}) - u(\VEC{z})| &= \left| \int_S
+\left( N(\VEC{x},\VEC{y}) -  N(\VEC{z},\VEC{y}) \right)
+\phi(\VEC{y}) \dss{S}{y} \right| \\
+&\leq \int_{S_{\VEC{z},\mu}} \left| N(\VEC{x},\VEC{y}) \right|\,
+|\phi(\VEC{y})| \dss{S}{y}
++ \int_{S_{\VEC{z},\mu}}\left| N(\VEC{z},\VEC{y}) \right|\,
+|\phi(\VEC{y})| \dss{S}{y} \\
+&\qquad + \int_{S \setminus S_{\VEC{z},\mu}}
+\left| N(\VEC{x},\VEC{y}) - N(\VEC{z},\VEC{y}) \right|
+|\phi(\VEC{y}) |\dss{S}{y} \ .
+\end{split}
+\end{equation}
+
+Since $\phi$ is continuous on the compact set
+$S$, we have that $\displaystyle \|\phi\|_\infty =
+\max_{\VEC{x}\in S} |\phi(\VEC{x})| < \infty$.
+
+Given $\epsilon>0$, we first choose $\mu$ small enough such that
+the sum of the first two integrals is less than $2\epsilon/3$ for all
+$\displaystyle \VEC{x} \in B_{\mu/2}(\VEC{z}) \subset \RR^n$ as we
+explain below.
+
+\stage{i} Choose $\mu$ such that $4\mu < 1$ is smaller than the Lebesgue
+number associated to the atlas that we have introduced in
+Section~\ref{pot_int_man}.  So $B_{2\mu}(\VEC{z}) \subset V_{\VEC{x}_j}$
+for some $j$.  Since $\displaystyle
+B_{2\mu}(\VEC{z}) \supset B_{3\mu/2}(\VEC{x})
+\supset B_{\mu}(\VEC{z})$ for all $\VEC{x} \in B_{\mu/2}(\VEC{z})$, we
+get that
+$\displaystyle S_{\VEC{x},3\mu/2} =  B_{3\mu/2}(\VEC{x}) \cap S
+\supset B_{\mu}(\VEC{z}) \cap S = S_{\VEC{z},\mu}$
+for all $\VEC{x} \in B_{\mu/2}(\VEC{z})$.
+Thus, we have for $n>2$ that
+\begin{align*}
+&\int_{S_{\VEC{z},\mu}}\left| N(\VEC{x},\VEC{y}) \right|\,
+|\phi(\VEC{y})| \dss{S}{y}
+\leq \|\phi\|_\infty \int_{S_{\VEC{x},3\mu/2}} \left| N(\VEC{x},\VEC{y}) \right|
+\dss{S}{y}
+= \frac{\|\phi\|_\infty}{(n-2)\omega_n}
+\int_{S_{\VEC{x},3\mu/2}} \left\| \VEC{x} - \VEC{y}\right\|^{2-n} \dx{S}{y} \\
+&\qquad = \frac{\|\phi\|_\infty}{(n-2)\omega_n}
+\int_{\psi_{\VEC{x}_j}(S_{\VEC{x},3\mu/2})}
+\left\| \VEC{x} - \psi_{\VEC{x}_j}^{-1}(\VEC{w})\right\|^{2-n}
+\left| \det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w}) \right| \dx{\VEC{w}} \\
+&\qquad \leq \frac{\|\phi\|_\infty Q}{(n-2)\omega_n}
+\int_{\psi_{\VEC{x}_j}(S_{\VEC{x},3\mu/2})}
+\left\| \psi_{\VEC{x}_j}(\VEC{x}) - \VEC{w}\right \|^{2-n} \dx{\VEC{w}} \\
+&\qquad \leq \frac{\|\phi\|_\infty Q}{(n-2)\omega_n}
+\int_{\partial B_1(\VEC{0})} \int_0^{3\mu/2} \dx{r} \dx{S}
+= \frac{3\|\phi\|_\infty \omega_{n-1} Q\,\mu}{2(n-2)\omega_n}
+\end{align*}
+for all $\VEC{x} \in B_{\mu/2}(\VEC{z})$.  As is usual, for the
+previous computations, we have used (\ref{defnQdetpsim1})
+and $\displaystyle \|\VEC{x}-\VEC{y}\|
+\geq \|\psi_{\VEC{x}_j}(\VEC{x}) - \psi_{\VEC{x}_j}(\VEC{y})\|$ for all
+$\displaystyle \VEC{x},\VEC{y} \in V_{\VEC{x}_j}$, where we consider
+$\psi_{\VEC{x}_j}$ to be the projection of $\displaystyle \RR^n$ onto
+$T_{\VEC{x}_j}$ as defined in Section~\ref{pot_int_man}.
+
+Similarly, we find for $n=2$ that
+\begin{align*}
+&\int_{S_{\VEC{z},\mu}}\left| N(\VEC{x},\VEC{y}) \right|\,
+|\phi(\VEC{y})| \dss{S}{y}
+\leq \|\phi\|_\infty \int_{S_{\VEC{x},3\mu/2}} \left| N(\VEC{x},\VEC{y}) \right|
+\dss{S}{y}
+= \frac{\|\phi\|_\infty}{\omega_2}
+\int_{S_{\VEC{x},3\mu/2}}
+\left| \ln\left( \left\| \VEC{x} - \VEC{y}\right\| \right) \right| \dx{S}{y} \\
+&\qquad \leq \frac{\|\phi\|_\infty Q}{\omega_2} \int_0^{3\mu/2} |\ln(r)| \dx{r}
+= \frac{3\|\phi\|_\infty Q\,(|\ln(3\mu/2)|+1) \mu}{2\omega_2}
+\end{align*}
+for all $\VEC{x} \in B_{\mu/2}(\VEC{z})$.
+
+\stage{ii} We get directly from (\ref{Sxepsint1}) and
+(\ref{Sxepsint2}) that
+\[
+\int_{S_{\VEC{z},\mu}} \left| N(\VEC{z},\VEC{y}) \right|\,
+|\phi(\VEC{y})| \dss{S}{y}
+\leq \frac{\|\phi\|_\infty}{(n-2)\omega_n} 
+\int_{S_{\VEC{z},\mu}} \left\|\VEC{z} -\VEC{y} \right\|^{2-n} \dss{S}{y}
+\leq \frac{\|\phi\|_\infty Q \omega_{n-1} \mu}{(n-2)\omega_n} 
+\]
+for $n>2$, and
+\[
+\int_{S_{\VEC{z},\mu}} \left| N(\VEC{z},\VEC{y}) \right|\,
+|\phi(\VEC{y})| \dss{S}{y}
+\leq \frac{\|\phi\|_\infty}{\omega_2} 
+\int_{S_{\VEC{z},\mu}} \left| \ln\left(
+\left\|\VEC{z} -\VEC{y} \right\| \right)\right|  \dss{S}{y}
+\leq \frac{ \|\phi\|_\infty Q \left(|\ln(\mu)|+1\right)\mu}{\omega_2} 
+\]
+for $n= 2$.
+
+\stage{iii}  It follows from (i) and (ii) that we can choose $\mu$
+small enough such that the sum of the first two integrals
+in (\ref{potSlpContEq1}) is less than $2\epsilon/3$ for all
+$\displaystyle \VEC{x} \in B_{\mu/2}(\VEC{z}) \subset \RR^n$.
+
+\stage{iv}
+Since $(\VEC{x},\VEC{y}) \mapsto N(\VEC{x},\VEC{y})$ is continuous on
+the compact set
+$\overline{B_{\mu/2}(\VEC{z})} \times (S \setminus S_{\VEC{z},\mu})$,
+it is uniformly continuous on this compact set.  So, there exists
+$0 < \delta < \mu/2$ such that
+\[
+\sup_{\VEC{y} \in S \setminus S_{\VEC{z},\mu}}
+\left| N(\VEC{x},\VEC{y}) - N(\VEC{z},\VEC{y}) \right| <
+\epsilon\left( 3\|\phi\|_\infty \int_S \dss{S}{y}\right)^{-1}
+\]
+for all $\displaystyle \VEC{x} \in B_\delta(\VEC{z}) \subset \RR^n$.
+Hence
+\[
+\int_{S \setminus S_{\VEC{z},\mu}}
+\left| N(\VEC{x},\VEC{y}) - N(\VEC{z},\VEC{y}) \right|
+\,|\phi(\VEC{y}) |\dss{S}{y}
+\leq \|\phi\|_\infty \sup_{\VEC{y} \in S \setminus S_{\VEC{z},\mu}}
+\left| N(\VEC{x},\VEC{y}) - N(\VEC{z},\VEC{y}) \right| 
+\int_{S \setminus S_{\VEC{z},\mu}} \dss{S}{y}
+< \frac{\epsilon}{3}
+\]
+for all $\VEC{x} \in B_\delta(\VEC{z})$.
+
+\stage{v} We get from (\ref{potSlpContEq1}), (iii) and (iv) that
+$\displaystyle \left| u(\VEC{x}) - u(\VEC{x}_0) \right| \leq \epsilon$ for all
+$\VEC{x} \in B_\delta(\VEC{w})$.
+\end{proof}
+
+Let $O_\mu$ be a tubular neighbourhood of $S$.  For all
+$\VEC{z_t} \in O_\mu$, we define a directional derivative by the formula
+\[
+\pdydxS{u}{\VEC{\nu}}(\VEC{z}_t)
+\equiv \dfdx{u\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big)}{t}
+= \graD u(\VEC{z}_t) \cdot \VEC{\nu}(\VEC{x})
+= \graD u\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big) \cdot \VEC{\nu}(\VEC{x})
+\]
+where $\VEC{z}_t = \VEC{x} + t\nu(\VEC{x})$ with $\VEC{x} \in S$
+is the unique representation of $\VEC{z}_t$ in the tubular neighbourhood
+$O_\mu$.  The directional derivative of the single layer
+potential $u$ at $\VEC{x}\in O_\mu \setminus S$ is
+therefore
+\[
+\pdydxS{u}{\VEC{\nu}}(\VEC{x}) = \int_S 
+ \phi(\VEC{y}) \pdydxS{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{x},\VEC{y}) \dss{S}{y} \ ,
+\]
+where $\displaystyle \pdydxS{}{\VEC{\nu}_{\VEC{x}}}$ indicates that the
+directional derivative is with respect to the variable $\VEC{x}$ while
+$\VEC{y}$ is constant.
+
+Let $\displaystyle K^\ast(\VEC{x},\VEC{y}) = K(\VEC{y},\VEC{x})$
+for $\VEC{x},\VEC{y} \in S$,  where $K$ is defined in
+(\ref{pot_K_defn}).  We have that
+\[
+K(\VEC{p},\VEC{q}) = \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{p},\VEC{q})
+= - \frac{1}{\omega_n \|\VEC{p}-\VEC{q}\|^n}\,(\VEC{p}-\VEC{q})\cdot
+\VEC{\nu}(\VEC{q})
+= \frac{1}{\omega_n \|\VEC{q}-\VEC{p}\|^n}\,(\VEC{q}-\VEC{p})\cdot
+\VEC{\nu}(\VEC{q})
+= \pdydx{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{q},\VEC{p})
+\]
+for $\VEC{p} , \VEC{q} \in S$ with $\VEC{p} \neq \VEC{q}$.  Thus
+$\displaystyle K^\ast(\VEC{p},\VEC{q}) =
+\pdydx{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{p},\VEC{q})$ for
+$\VEC{p} , \VEC{q} \in S$ with $\VEC{p} \neq \VEC{q}$.
+
+We expand $\displaystyle \pdydxS{u}{\nu}$ to $O_\mu$ with
+the definition
+\begin{equation} \label{pot_dslp_def}
+\pdydxS{u}{\nu}(\VEC{x}) = 
+\begin{cases}
+\displaystyle
+\int_S \phi(\VEC{y}) \pdydxS{N}{\nu_{\VEC{x}}}(\VEC{x},\VEC{y})
+\dss{S}{y} & \quad \text{if} \ \VEC{x} \in O_\mu \setminus S \\[0.8em]
+\displaystyle
+\int_S K^\ast(\VEC{x},\VEC{y}) \phi(\VEC{y})
+\dss{S}{y} & \quad \text{if} \ \VEC{x} \in S
+\end{cases}
+\end{equation}
+Since $K$ is a continuous kernel of order $n-2$, we also have that
+$\displaystyle K^\ast$ is 
+a continuous kernel of order $n-2$.  Hence, it follows from
+Propositions~\ref{pot_lin_op_K} and \ref{pot_Kc_fb} that
+$\displaystyle \pdydxS{u}{\nu} \bigg|_S$ is well defined as
+$\displaystyle T_{K^\ast} \phi$, and
+$\displaystyle \pdydxS{u}{\nu}\bigg|_S \in C(S)$ if $\phi\in C(S)$.
+
+According to Proposition~\ref{pot_K_LtwoComp},
+$\displaystyle T_K:L^2(S)\rightarrow L^2(S)$ and
+$\displaystyle T_{K^\ast}:L^2(S)\rightarrow L^2(S)$ are
+compact operators.  Moreover, since $K$ and $\displaystyle K^\ast$ are
+real valued functions, we have
+\begin{align*}
+&\ps{\psi}{T_K\phi}_2 = \int_S \psi(\VEC{x}) \left(
+\overline{\int_S K(\VEC{x},\VEC{y})\phi(\VEC{y}) \dss{S}{y}} \right) \dss{S}{x}
+=\int_S \psi(\VEC{x}) \left(
+\int_S K(\VEC{x},\VEC{y})\overline{\phi(\VEC{y})} \dss{S}{y} \right)
+\dss{S}{x} \\
+&\quad =\int_S \left( \int_S K(\VEC{x},\VEC{y}) \psi(\VEC{x}) \dss{S}{x}
+\right) \overline{\phi(\VEC{y})} \dss{S}{y}
+=\int_S \left(
+\int_S K^\ast(\VEC{y},\VEC{x}) \psi(\VEC{x}) \dss{S}{x}
+\right) \overline{\phi(\VEC{y})} \dss{S}{y} =
+\ps{T_{K^\ast} \psi}{\phi}_2
+\end{align*}
+for $\phi,\psi \in L^2(S)$.
+Thus $\displaystyle T_{K^\ast} = T_K^\ast$, the adjoint operator to $T_K$ on
+$\displaystyle L^2(S)$.
+
+\begin{lemma} \label{pot_inequ}
+For $\eta$ small enough, there exists a constant $C_1$ such that
+\[
+\left\| \VEC{\nu}(\VEC{y}) - \VEC{\nu}(\VEC{x}) \right\| < C_1
+\|\VEC{y}-\VEC{x}\|
+\]
+for all $\VEC{x}, \VEC{y} \in S$ with $\|\VEC{x} - \VEC{y}\|<\eta$.
+Moreover, there exists a constant $C_2$ such that
+\[
+\left\| \big(\VEC{x} + t\VEC{\nu}(\VEC{x})\big) - \VEC{y} \right\|
+\geq C_2 \|\VEC{x} - \VEC{y}\|
+\]
+for all $\VEC{x}, \VEC{y} \in S$ with $\|\VEC{x} - \VEC{y}\|<\eta$,
+and $t \in \RR$.  
+\end{lemma}
+
+\begin{proof}
+Let $\displaystyle \BB = \{ (U_{\VEC{x}_j}, \psi_{\VEC{x}_j}) \}_{j\in J}$
+be the atlas for $S$ described in Section~\ref{pot_int_man}, and
+let $\epsilon$ be the Lebesgue number associated to the atlas $\BB$.
+
+Given $\VEC{x} \in S$, there exists an index $j$ such that
+$\displaystyle S_{\VEC{x},\epsilon/2} = B_{\epsilon/2}(\VEC{x})
+\cap S \subset U_{\VEC{x}_j}$.
+
+We may assume that
+$\displaystyle \VEC{\nu} \circ \psi_{\VEC{x}_j}^{-1}:
+\overline{W_{\VEC{x}_j}} \to \RR^n$
+is of class $\displaystyle C^1$ since we assume
+$\displaystyle \psi_{\VEC{x}_j}^{-1} \in
+C^2\left(\overline{W_{\VEC{x}_j}}\right)$
+\footnote{If $\VEC{z} \in S \subset \RR^3$, we have that
+$\displaystyle \VEC{\nu}(\VEC{z})
+= \VEC{\nu}\left(\psi_{\VEC{x}_j}^{-1}(\breve{\VEC{z}})\right)
+= (1/\|\VEC{v}\|) \VEC{v}$, where
+$\breve{\VEC{z}} = \psi_{\VEC{x}_j}(\VEC{z})$ and
+$\displaystyle \VEC{v} = \pdydx{\psi_{\VEC{x}_j}^{-1}}{\breve{z}_1}(
+\breve{\VEC{z}})
+\times \pdydx{\psi_{\VEC{x}_j}^{-1}}{\breve{z}_2}(\breve{\VEC{z}})$,
+the vector product}.
+Let $M_j$ be the maximum of
+$\displaystyle \left\| \diff \left(\VEC{\nu} \circ \psi_j^{-1}\right)\right\|$
+on the compact set $\displaystyle \overline{W_j}$.  For all
+$\VEC{y} \in S_{\VEC{x},\epsilon/2}$, we have that
+\[
+  \left\| \VEC{\nu}(\VEC{y}) - \VEC{\nu}(\VEC{x}) \right\|
+= \left\| \VEC{\nu}\left(\psi_{\VEC{x}_j}^{-1}(\breve{\VEC{y}})\right) -
+ \VEC{\nu}\left(\psi_{\VEC{x}_j}^{-1}(\breve{\VEC{x}})\right) \right\|
+\leq M_j \left\| \breve{\VEC{y}} - \breve{\VEC{x}} \right\|
+\leq M_j \left\| \VEC{y} - \VEC{x} \right\| \ ,
+\]
+where $\breve{y} = \psi_{\VEC{x}_j}(\VEC{y})$ and
+$\breve{x} = \psi_{\VEC{x}_j}(\VEC{x})$.  In the previous relation, we
+have used $\displaystyle \|\VEC{x}-\VEC{y}\| 
+\geq \|\psi_{\VEC{x}_j}(\VEC{x}) - \psi_{\VEC{x}_j}(\VEC{y})\|$ for all
+$\displaystyle \VEC{x},\VEC{y} \in U_{\VEC{x}_j}$ to get the last
+inequality.
+
+We get the first conclusion of the lemma with
+$\displaystyle C_1 = \max_{j \in J} M_j$ and $\eta \leq \epsilon /2$.
+
+To get the second conclusion of the lemma, we may assume that the
+$U_{\VEC{x}_j}$ in the definition of the atlas $\BB$ are small enough
+to satisfy 
+$\VEC{\nu}(\VEC{x}_1)\cdot \VEC{\nu}(\VEC{x}_2) \geq 1/\sqrt{2}$ for all
+$\VEC{x}_1,\VEC{x}_2 \in U_{\VEC{x}_j}$.  This is possible because
+$\displaystyle \VEC{\nu}:S \to \RR^n$ is of class $C^1$.  This means that
+the cosine of the angle between the vectors
+$\VEC{\nu}(\VEC{x}_1)$ and $\VEC{\nu}(\VEC{x}_2)$ is between $1/\sqrt{2}$ and
+$1$ for all $\VEC{x}_1,\VEC{x}_2 \in U_{\VEC{x}_j}$.
+
+Let $\VEC{y}_p$ be the orthogonal projection of $\VEC{y}$ on the line
+$\displaystyle \left\{\VEC{x} + t\VEC{\nu}(\VEC{x}) : t \in \RR \right\}$,
+and $\theta$ be the angle between the vectors $\VEC{y}_p - \VEC{y}$ and
+$\VEC{x}- \VEC{y}$.  Then
+\begin{equation} \label{pot_curvat}
+\| \big(\VEC{x} + t\VEC{\nu}(\VEC{x})\big)-\VEC{y} \|
+\geq \|\VEC{y}_p - \VEC{y}\| = \cos(\theta)
+\|\VEC{y}-\VEC{x}\| \geq \frac{1}{\sqrt{2}} \|\VEC{y}-\VEC{x}\|
+\end{equation}
+for all $\VEC{y} \in S_{\VEC{x},\epsilon/2}$ as we can observe from
+the sketch in Figure~\ref{POT_MAX_CURV}.    We note that
+(\ref{pot_curvat}) is true for all $\VEC{x}$.  Thus, we get the second
+conclusion of the lemma with $C_2 = 1/\sqrt{2}$ and $\eta \leq \epsilon/2$.
+
+By shrinking $\eta$, we may have $C_2$ as close to $1$ as we want.
+This is expected because we assume that $S$ is ``smooth''.
+\end{proof}
+
+\pdfF{potential/max_curv}{Sketch associated to the proof of
+Theorem~\ref{pot_slp_exist}}{Sketch associated to the proof of
+Theorem~\ref{pot_slp_exist} where $0 \leq \phi \leq \pi/4$ is the
+angle between $\VEC{\nu}(\VEC{x})$ and $\VEC{\nu}(\VEC{y})$.}{POT_MAX_CURV}
+
+\begin{theorem} \label{pot_slp_exist}
+If $\phi \in C(S)$, then
+$\displaystyle u\big|_{\overline{\Omega}} \in C_{\VEC{\nu}(\Omega)}$ and
+$\displaystyle u\big|_{\overline{\Omega^{\prime}}} \in
+C_{\VEC{\nu}(\Omega^{\prime})}$.
+Moreover,
+\[
+\pdydx{u}{\VEC{\nu}^-}(\VEC{x}) = -\frac{1}{2} \phi(\VEC{x}) +
+\int_{\partial \Omega} K^\ast(\VEC{x},\VEC{y}) \phi(\VEC{y}) \dss{S}{y}
+\]
+for $\VEC{x} \in S$ and
+\[
+\pdydx{u}{\VEC{\nu}^+}(\VEC{x}) = \frac{1}{2} \phi(\VEC{x}) +
+\int_{\partial \Omega} K^\ast(\VEC{x},\VEC{y}) \phi(\VEC{y}) \dss{S}{y}
+\]
+for $\VEC{x} \in S$.  In other words,
+$\displaystyle \pdydx{u}{\VEC{\nu}^-} = -\frac{1}{2} \phi + T^\ast_K \phi$
+and
+$\displaystyle \pdydx{u}{\VEC{\nu}^+} = \frac{1}{2} \phi + T^\ast_K \phi$
+on $S$.
+
+If $\displaystyle
+w_t(\VEC{x}) = \pdydxS{u}{\VEC{\nu}}\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big)$
+for $\VEC{x} \in S$ and $\VEC{x} + t \VEC{\nu}(\VEC{x}) \in O_\mu$,
+then $\displaystyle w_t \rightarrow \pdydx{u}{\VEC{\nu}^-}$ uniformly
+on $S$ as $t\rightarrow 0^-$ and
+$\displaystyle w_t \rightarrow \pdydx{u}{\VEC{\nu}^+}$ uniformly on
+$S$ as $t\rightarrow 0^+$.
+\end{theorem}
+
+\begin{proof}
+From Proposition~\ref{pot_slp_cont}, we have that
+$\displaystyle u \in C(\RR^n)$.
+Hence, $u \in C(\overline{\Omega})$ and
+$\displaystyle u \in C(\overline{\Omega^{\prime}})$.  By definition of
+the single layer potential, we also have that
+$\displaystyle u \in C^1(\Omega)$ and
+$\displaystyle u \in C^1(\Omega^{\prime})$.
+
+Consider the double layer potential of moment $\phi$ defined by
+\[
+v(\VEC{x}) = \int_S \phi(\VEC{y})
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \dss{S}{y}
+\]
+for $\displaystyle \VEC{x} \in \RR^n \setminus S$, and the function
+\[
+f(\VEC{x}) =
+\begin{cases}
+\displaystyle v(\VEC{x}) + \pdydxS{u}{\VEC{\nu}_{\VEC{x}}}(\VEC{x}) & \quad
+\text{if} \quad \VEC{x} \in O_\mu \setminus S \\[0.7em]
+\displaystyle
+(T_K\phi)(\VEC{x}) + (T^\ast_K\phi)(\VEC{x}) & \quad \text{if} \quad
+\VEC{x} \in S
+\end{cases}
+\]
+
+\stage{i} We claim that $f$ is continuous on $O_\mu$.  Note that
+$O_\mu$ is an open subset of $\RR^n$ because $S$ is a manifold of
+dimension $n-1$.  It is clear
+from its definition that $f$ is continuous on $O_\mu \setminus S$.
+To prove that $f$ is continuous on $O_\mu$, it is enough to prove that
+\[
+\sup_{\VEC{x}\in S}\,
+\left| f(\VEC{x}+t\VEC{\nu}(\VEC{x})) - f(\VEC{x})\right| \rightarrow
+0 \quad \text{as} \quad t \rightarrow 0 \ .
+\]
+This will implies that
+$\displaystyle f\big|_{O_\mu \setminus S}$ can be
+continuously expanded to a continuous function on $O_\mu$ by
+$\displaystyle f(\VEC{x}) = (T_K\phi)(\VEC{x}) + (T^\ast_K\phi)(\VEC{x})$
+for $\VEC{x} \in S$.
+
+We now prove the claim.  Let $\VEC{z}_t = \VEC{x}+t\VEC{\nu}(\VEC{x})$ for
+$\VEC{x} \in S$ and $S_{\VEC{x},\eta} = S \cap B_\eta(\VEC{x})$ with
+$\eta < \mu$ given in Lemma~\ref{pot_inequ}.  Recall from the proof of 
+Lemma~\ref{pot_inequ} that $2\eta$ is smaller than the Lebesgue number
+associated to the atlas $\BB$ defined in Section~\ref{pot_int_man}.
+Thus, for each $\VEC{x}$, there exists $j$ such that
+$S_{\VEC{x},\eta} \subset U_{\VEC{x}_j}$.  we have that
+\begin{align*}
+&\left|f(\VEC{z_t}) - f(\VEC{x})\right|\\
+&\qquad = \left| \int_S \phi(\VEC{y}) \left(
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{z_t},\VEC{y}) +
+\pdydxS{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{z_t},\VEC{y})\right) \dss{S}{y}
+- \int_S \phi(\VEC{y}) \left(
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) +
+\pdydx{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{x},\VEC{y})\right) \dss{S}{y}
+\right| \\
+&\qquad \leq I_1(\VEC{x},t,\eta) + I_2(\VEC{x},t,\eta) +
+I_3(\VEC{x},t,\eta) + I_4(\VEC{x},t,\eta) \  ,
+\end{align*}
+where
+\begin{align*}
+I_1(\VEC{x},t,\eta) &= \int_{S\setminus S_{\VEC{x},\eta}}
+\left|\phi(\VEC{y})\right|\,
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{z}_t,\VEC{y}) -
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})\right| \dss{S}{y} \ ,\\
+I_2(\VEC{x},t,\eta) &= \int_{S\setminus S_{\VEC{x},\eta}}
+\left|\phi(\VEC{y})\right|\,
+\left| \pdydxS{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{z}_t,\VEC{y}) -
+\pdydx{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{x},\VEC{y})\right| \dss{S}{y} \ ,\\
+I_3(\VEC{x},t,\eta) &= \int_{S_{\VEC{x},\eta}}
+\left|\phi(\VEC{y})\right|\,
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{z}_t,\VEC{y}) +
+\pdydxS{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{z}_t,\VEC{y})\right| \dss{S}{y}
+\intertext{and}
+I_4(\VEC{x},t,\eta) &= \int_{S_{\VEC{x},\eta}}
+\left|\phi(\VEC{y})\right|\,
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) +
+\pdydx{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{x},\VEC{y})\right| \dss{S}{y} \ .
+\end{align*}
+
+\stage{i.a} We consider $I_3(\VEC{x},t,\eta)$.
+Since $\phi$ is continuous on the compact set $S$, we have that
+$\displaystyle
+\left\|\phi\right\|_{\infty} = \sup_{\VEC{y}\in S}|\phi(\VEC{y}| < \infty$.
+Hence,
+\[
+I_3(\VEC{x},t,\eta)
+\leq \left\|\phi\right\|_{\infty} \int_{S_{\VEC{x},\eta}}
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{z}_t,\VEC{y}) +
+\pdydxS{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{z}_t,\VEC{y})\right| \dss{S}{y} \  .
+\]
+Using Lemma~\ref{pot_inequ}, we have that
+\begin{align*}
+&\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{z}_t,\VEC{y}) +
+\pdydxS{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{z}_t,\VEC{y})\right|
+= \left| \frac{1}{\omega_n \|\VEC{z}_t-\VEC{y}\|^n}\,(\VEC{z}_t-\VEC{y})\cdot
+(\VEC{\nu}(\VEC{x}) - \VEC{\nu}(\VEC{y})) \right| \\
+&\quad
+\leq \frac{1}{\omega_n \|\VEC{z}_t-\VEC{y}\|^n}\,\|\VEC{z}_t-\VEC{y}\|\,
+\|\VEC{\nu}(\VEC{x}) - \VEC{\nu}(\VEC{y})\|
+\leq \frac{C_1}{\omega_n \|\VEC{z}_t-\VEC{y}\|^{n-1}}\,\|\VEC{x}-\VEC{y}\|
+\leq \frac{C_1}{\omega_n C_2^{n-1}\|\VEC{x}-\VEC{y}\|^{n-2}}
+\end{align*}
+for $\|\VEC{x} - \VEC{y}\| < \eta$ and $|t| < \eta$.  It follows from
+(\ref{Sxepsint1}) that
+\[
+I_3(\VEC{x},t,\eta)
+\leq \frac{C_1 \left\|\phi\right\|_{\infty}}{\omega_n C_2^{n-1}}
+\int_{S_{\VEC{x},\eta}} \|\VEC{x}-\VEC{y}\|^{2-n} \dss{S}{y}
+= \frac{C_1 \left\|\phi\right\|_{\infty} \omega_{n-1} Q}{C_2^{n-1}\omega_n}
+\, \eta
+\]
+for $\VEC{x} \in S$ and
+$\VEC{z}_t = \VEC{x}+t\VEC{\nu}(\VEC{x})$ with $|t|< \eta$.
+
+\stage{i.b} A similar but simpler reasoning to the one above yields
+\[
+I_4(\VEC{x},\VEC{t},\eta)
+= \int_{S_{\VEC{x},\eta}} \left|\phi(\VEC{y})\right|\,
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) +
+\pdydx{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{x},\VEC{y})\right| \dss{S}{y}
+\leq \frac{C_1 \left\|\phi\right\|_{\infty}\omega_{n-1} Q}{\omega_n}\, \eta
+\]
+for $\VEC{x} \in S$.
+
+\stage{i.c} Given $\epsilon > 0$, choose $\eta$ small enough such that
+$I_3(\VEC{x},t,\eta)$ and $I_4(\VEC{x},t,\eta)$ are smaller
+than $\epsilon/4$ for $\VEC{x} \in S$ and
+$\VEC{z}_t = \VEC{x}+t\VEC{\nu}(\VEC{x})$ with $|t|< \eta$.
+
+\stage{i.d}
+Since $\displaystyle (\VEC{x},\VEC{y}) \mapsto
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})$ is
+continuous on the compact set
+$\{(\VEC{x},\VEC{y}) \in \overline{O_\nu} \times S :
+\|\VEC{x} - \VEC{y}\| \geq \eta$,
+it is uniformly continuous on this compact set.  So, there exists
+$0 < \delta_1 < \eta$ such that
+\[
+\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{z}_t,\VEC{y}) -
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})\right|
+=\left| \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x} + t \VEC{\nu}(\VEC{x}),\VEC{y}) -
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})\right|
+< \frac{\epsilon}{4} \left(
+\int_{S\setminus S_{\VEC{x},\eta}}\left|\phi(\VEC{y})\right|
+\dss{S}{y} \right)^{-1}
+\]
+for all $\displaystyle \VEC{y} \in S \setminus S_{\VEC{x},\eta}$,
+$|t| < \delta_1$ and $\VEC{x} \in S$.
+Hence,
+$\displaystyle I_1(\VEC{x},t,\eta) \leq \epsilon/4$ for all $\VEC{x} \in S$
+and $|t| < \delta_1$.
+
+\stage{i.e} Since $\displaystyle (t,\VEC{x},\VEC{y}) \mapsto
+\nabla N(\VEC{x} + t \VEC{\nu}(\VEC{x}) - \VEC{y}) \cdot \nu(\VEC{x})$
+is continuous on the compact set
+$[\eta/2,\eta/2] \times \{(\VEC{x},\VEC{y}) \in S \times S :
+\|\VEC{x} - \VEC{y}\| \geq \eta$,
+it is uniformly continuous on this compact set.  So, there exists
+$0 < \delta_2 < \eta/2$ such that
+\begin{align*}
+\left| \pdydxS{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{z}_t,\VEC{y}) -
+\pdydx{N}{\VEC{\nu}_{\VEC{x}}}(\VEC{x},\VEC{y})\right|
+&= \left| \nabla N(\VEC{x} + t \VEC{\nu}(\VEC{x}) - \VEC{y})
+\cdot \VEC{\nu}(\VEC{x}) -
+\nabla N(\VEC{x} - \VEC{y}) \cdot \VEC{\nu}(\VEC{x}) \right| \\
+&\leq \frac{\epsilon}{4} \left(
+\int_{S\setminus S_{\VEC{x},\eta}}\left|\phi(\VEC{y})\right|
+\dss{S}{y} \right)^{-1}
+\end{align*}
+for all $\displaystyle \VEC{y} \in S \setminus S_{\VEC{x},\eta}$,
+$|t| < \delta_2$ and $\VEC{x} \in S$.
+Hence,
+$\displaystyle I_2(\VEC{x},t,\eta) \leq \epsilon/4$ for all $\VEC{x} \in S$
+and $|t| < \delta_2$.
+
+\stage{i.f} Hence, for $\delta < \min\{\delta_1,\delta_2\}$, we have
+that 
+$\displaystyle \left| f(\VEC{z}_t) - f(\VEC{x}) \right|< \epsilon$ for
+$\VEC{x} \in S$ and $|t|< \delta$.  This proves our claim.
+
+\stage{ii} Since $f \in C(O_\mu)$, we have
+\begin{align*}
+(T_K \phi)(\VEC{x}) + (T^\ast_K \phi)(\VEC{x}) &=
+\lim_{t\rightarrow 0^-} f\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big)
+= \lim_{t\rightarrow 0^-} v\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big)
++ \lim_{t\rightarrow 0^-}
+\pdydxS{u}{\VEC{\nu}_{\VEC{x}}}\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big) \\
+&= \frac{1}{2} \phi(\VEC{x}) + (T_K \phi)(\VEC{x}) + 
+\pdydx{u}{\VEC{\nu}^-}(\VEC{x})
+\end{align*}
+for all $\VEC{x} \in S$, where the last equality comes from
+Theorem~\ref{pot_double_layer} and the definition of
+$\displaystyle \pdydx{u}{\VEC{\nu}^-}$.  Thus,
+\[
+\pdydx{u}{\VEC{\nu}^-}(\VEC{x}) =
+-\frac{1}{2} \phi(\VEC{x}) + (T^\ast_K \phi)(\VEC{x})
+\]
+for all $\VEC{x} \in S$.  Similarly,
+\begin{align*}
+(T_K \phi)(\VEC{x}) + (T^\ast_K \phi)(\VEC{x}) &=
+\lim_{t\rightarrow 0^+} f\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big)
+= \lim_{t\rightarrow 0^+} v\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big)
++ \lim_{t\rightarrow 0^+}
+\pdydxS{u}{\VEC{\nu}_{\VEC{x}}}\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big) \\
+&= -\frac{1}{2} \phi(\VEC{x}) + (T_K \phi)(\VEC{x}) + 
+\pdydx{u}{\VEC{\nu}^+}(\VEC{x})
+\end{align*}
+for all $\VEC{x} \in S$, where the last equality comes from
+Theorem~\ref{pot_double_layer} and the definition of
+$\displaystyle \pdydx{u}{\VEC{\nu}^+}$.  Thus,
+\[
+\pdydx{u}{\VEC{\nu}^+}(\VEC{x}) =
+\frac{1}{2} \phi(\VEC{x}) + (T^\ast_K \phi)(\VEC{x})
+\]
+for all $\VEC{x} \in S$.
+
+\stage{iii}
+From Theorem~\ref{pot_double_layer}, we have that
+\[
+\sup_{\VEC{x}\in S}
+\left|v\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big) - v^{[i]}(\VEC{x})\right|
+= \sup_{\VEC{x}\in S}
+\left|v\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big) -
+\frac{1}{2} \phi(\VEC{x}) - (T_K \phi)(\VEC{x}) \right|
+\rightarrow 0 \quad \text{as} \quad t\rightarrow 0^-\ .
+\]
+From the claim in (i) above, we have that
+\begin{align*}
+&\sup_{\VEC{x}\in S}
+\left| \left(v\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big)
++ \pdydxS{u}{\VEC{\nu}}\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big)\right) -
+\bigg( (T_K \phi)(\VEC{x}) + (T_K^\ast \phi)(\VEC{x})\bigg) \right| \\
+&\qquad = \sup_{\VEC{x}\in S}
+\left| f\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big) - f(\VEC{x}) \right|
+\rightarrow 0 \quad \text{as} \quad t \rightarrow 0^- \ .
+\end{align*}
+Thus,
+\[
+\sup_{\VEC{x}\in S} \left| w_t(\VEC{x})
+- \pdydx{u}{\VEC{\nu}^-}(\VEC{x}) \right|
+= \sup_{\VEC{x}\in S} \left| 
+\pdydxS{u}{\VEC{\nu}}\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big)
++ \frac{1}{2} \phi(\VEC{x}) - (T_K^\ast \phi)(\VEC{x}) \right|
+\to 0 \quad \text{as} \quad
+t\rightarrow 0^- \ .
+\]
+This also proofs
+that (\ref{pot_unif_ddn}) is satisfied and thus completes the proof that
+$u \in C_{\VEC{\nu}}(\Omega)$.
+
+The proof that $\displaystyle w_t \rightarrow \pdydx{u}{\VEC{\nu}^+}$
+uniformly on $S$ as $t\rightarrow 0^+$ is similar.  We then also get
+that (\ref{pot_ddn_unif}) is satisfied and thus complete the proof
+that $u \in C_{\VEC{\nu}}(\Omega^{\prime})$.
+\end{proof}
+
+\begin{cor} \label{pot_cor_pdpdm}
+In the previous theorem,
+$\displaystyle \phi = \pdydx{u}{\VEC{\nu}^+}- \pdydx{u}{\VEC{\nu}^-}$ on $S$.
+\end{cor}
+
+The following two lemmas will be useful in the next section.
+
+\begin{lemma} \label{pot_sol_zeroB}
+If $\phi \in C(S)$ and $\displaystyle f = \frac{1}{2} \phi + T^\ast_K \phi$ on
+$S$, where $K$ is defined in (\ref{pot_K_defn}), then
+$\displaystyle \int_{S} f \dx{S} = \int_{S} \phi \dx{S}$.
+\end{lemma}
+
+\begin{proof}
+The result is a consequence of Fubini's theorem and
+Lemma~\ref{pot_lem_dbl3}.
+\begin{align*}
+\int_S f(\VEC{x}) \dx{S} &= \frac{1}{2} \int_S \phi(\VEC{x}) \dx{S} + 
+\int_S \int_S K^\ast(\VEC{x},\VEC{y}) \phi(\VEC{y}) \dss{S}{y} \dss{S}{x} \\
+&= \frac{1}{2} \int_S \phi(\VEC{x}) \dx{S} + 
+\int_S \left( \int_S K^\ast(\VEC{x},\VEC{y}) \dss{S}{x} \right)
+\phi(\VEC{y}) \dss{S}{y} \\
+&= \frac{1}{2} \int_S \phi(\VEC{x}) \dx{S} + 
+\int_S \left( \int_S K(\VEC{y},\VEC{x}) \dss{S}{x} \right)
+\phi(\VEC{y}) \dss{S}{y} \\
+&= \frac{1}{2} \int_S \phi(\VEC{x}) \dx{S}
++ \frac{1}{2} \int_S \phi(\VEC{y}) \dx{S}
+= \int_S \phi(\VEC{x}) \dx{S} \ . \qedhere
+\end{align*}
+\end{proof}
+
+\begin{lemma} \label{pot_1to1n2}
+Suppose that $n=2$ and $\phi \in C(S)$.  Let $u$ be the
+the single layer potential with moment $\phi$.
+\begin{enumerate}
+\item $u$ is harmonic at infinity if and only if
+$\displaystyle \int_{S} \phi(\VEC{x}) \dx{S} =0$.
+\item $u$ harmonic at infinity implies that $u$ vanishes at infinity.
+\item If $\displaystyle \int_{S} \phi(\VEC{x}) \dx{S} =0$
+and $u$ is constant on $\overline{\Omega}$, then $\phi=0$ on
+$S$, and therefore $u=0$ on $\overline{\Omega}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Since $S$ is a compact set, we have that
+$\displaystyle M = \max_{\VEC{y} \in S} \|\VEC{y}\| < \infty$.
+For $\|\VEC{x}\| > M$, we have that
+\[
+\|\VEC{x}\| + M \geq \|\VEC{x}\| + \|\VEC{y}\| \geq \|\VEC{x} - \VEC{y} \|
+\geq \|\VEC{x}\| - \|\VEC{y}\|
+\geq \|\VEC{x}\| - M
+\]
+and therefore
+\[
+\left| \ln\left(\|\VEC{x}-\VEC{y}\|\right) -
+\ln\left(\|\VEC{x}\|\right) \right|
+= \left| \ln\left(\frac{\|\VEC{x}-\VEC{y}\|}{\|\VEC{x}\|}\right) \right|
+\leq \max \left\{
+\left| \ln\left(1 + \frac{M}{\|\VEC{x}\|}\right) \right|,
+\left| \ln\left(1 - \frac{M}{\|\VEC{x}\|}\right) \right| \right\}
+\]
+for all $\VEC{y} \in S$.   It follows that
+$\ln\left(\|\VEC{x}-\VEC{y}\|\right) - \ln\left(\|\VEC{x}\|\right) \to 0$
+uniformly for $\VEC{y} \in S$ as $\|\VEC{x}\| \to \infty$.
+Hence,
+\[
+\lim_{\|\VEC{x}\|\to 0} \int_S \left( \ln(\|\VEC{x}-\VEC{y}\|) - \ln(\|\VEC{x}\|)
+\right) \phi(\VEC{y}) \dss{S}{y} = 0 \ .
+\]
+We get that
+\begin{align*}
+\frac{u(\VEC{x})}{\ln(\|\VEC{x}\|)}
+&= \frac{1}{\omega_2 \ln(\|\VEC{x}\|)}
+\int_S \left( \ln(\|\VEC{x}-\VEC{y}\|) - \ln(\|\VEC{x}\|)
+\right) \phi(\VEC{y}) \dss{S}{y}
++ \frac{1}{\omega_2} \int_S \phi(\VEC{y}) \dss{S}{y} \\
+&\to \frac{1}{\omega_2} \int_S \phi(\VEC{y}) \dss{S}{y}
+\quad \text{as} \quad \|\VEC{x}\| \to \infty \ .
+\end{align*}
+It follows from Proposition~\ref{pot_infty_u} that $u$ is harmonic at
+infinity if and only if
+$\displaystyle \int_S \phi(\VEC{y}) \dss{S}{y} = 0$.
+Moreover, if $\displaystyle \int_S \phi(\VEC{y}) \dss{S}{y} = 0$, then
+\begin{align*}
+u(\VEC{x})
+&= \frac{1}{\omega_2}
+\int_S \left( \ln(\|\VEC{x}-\VEC{y}\|) - \ln(\|\VEC{x}\|)
+\right) \phi(\VEC{y}) \dss{S}{y}
++ \frac{\ln(\|\VEC{x}\|)}{\omega_2} \int_S \phi(\VEC{y}) \dss{S}{y} \\
+&= \frac{1}{\omega_2}
+\int_S \left( \ln(\|\VEC{x}-\VEC{y}\|) - \ln(\|\VEC{x}\|)
+\right) \phi(\VEC{y}) \dss{S}{y}
+\to 0 \quad \text{as} \quad \|\VEC{x}\| \to \infty \ .
+\end{align*}
+Thus $u$ vanishes at infinity.
+
+To prove the last statement of the lemma, suppose that
+$u(\VEC{x}) = c$, a constant, for all $\VEC{x} \in \overline{\Omega}$.
+Thus, in particular, $u(\VEC{x}) = c$ for all $\VEC{x} \in S$.
+According to (1), $u$ is also harmonic at infinity.  Thus, $u$ is a
+solution of the exterior Dirichlet problem (N2) with $f(\VEC{x}) = c$
+for all $\VEC{x} \in S$.   But the solution of this problem is
+unique and $u(\VEC{x}) = c$ for all
+$\displaystyle \VEC{x} \in \Omega^{\prime}$ is a
+solution.  Therefore, $u(\VEC{x}) = c$ for all
+$\displaystyle \VEC{x} \in \RR^n$.
+Since $u$ is constant, it follows from Corollary~\ref{pot_cor_pdpdm}
+that $\phi(\VEC{x}) = 0$ for all $\VEC{x} \in S$.
+\end{proof}
+
+\subsection{Existence of Solutions}
+
+The following subspaces of $\displaystyle L^2(\partial \Omega)$ will play a
+fundamental role in the solutions of the problems (D1), (D2), (N1) and
+(N2) given at the beginning of the chapter.
+\begin{align*}
+V_+ &= \left\{ \phi \in L^2(\partial \Omega) : T_K \phi = \frac{1}{2}
+\phi \right\} \quad , \quad
+W_+ = \left\{ \phi \in L^2(\partial \Omega) : T_K^\ast \phi = \frac{1}{2}
+\phi \right\} \ , \\
+V_- &= \left\{ \phi \in L^2(\partial \Omega) : T_K \phi = - \frac{1}{2}
+\phi \right\} \quad \text{and} \quad
+W_- = \left\{ \phi \in L^2(\partial \Omega) : T_K^\ast \phi = -\frac{1}{2}
+\phi \right\} \ .
+\end{align*}
+It follows from Lemma~\ref{pot_lem_dbl2} and
+Proposition~\ref{pot_K_LtwoComp} that $T_K$ and
+$\displaystyle T_K^\ast$ are compact
+linear operators from $\displaystyle L^2(\partial \Omega)$ to itself.
+
+\begin{prop} \label{pot_split_prop}
+We have
+\begin{enumerate}
+\item $\dim V_+ = \dim W_+ = m$, where $m$ is the number of connected
+components of $\Omega$.
+\item $\displaystyle \dim V_- = \dim W_- = m^{\prime}$, where $m'$ is
+the number of bounded and connected components of
+$\displaystyle \Omega^{\prime}$.
+\item If $\displaystyle \VEC{a} \in \CC^{m^{\prime}}$, then there
+exists a unique $\phi_{\VEC{a}} \in W_-$ such that the single layer
+potential $w$ with moment $\phi_{\VEC{a}}$ satisfies
+$\displaystyle w\big|_{\Omega_0^{\prime}}=0$ and
+$\displaystyle w\big|_{\Omega_j^{\prime}} = a_j$ for
+$1 \leq j \leq m^{\prime}$.
+\item If $n>2$ and $\displaystyle \VEC{a} \in \CC^m$, then there
+exists a unique $\phi_{\VEC{a}} \in W_+$ such that the single layer
+potential $u$ with moment $\phi_{\VEC{a}}$ satisfies
+$\displaystyle u\big|_{\Omega_j} = a_j$
+for $1 \leq j \leq m$.
+\item If $n=2$, there exists an $(m-1)$-dimensional subspace $X$ of
+$\displaystyle \CC^m$ with the following properties.
+\begin{enumerate}
+\item $\displaystyle \CC^m = X \oplus \CC\left\{(1,1,1,\ldots,1)\right\}$.
+\item If $\VEC{a}\in X$, there exists a unique
+\[
+\phi_{\VEC{a}} \in W_+^0 = \left\{ \phi \in W_+ :
+\int_{\partial \Omega} \phi(\VEC{x}) \dss{S}{x} = 0 \right\}
+\]
+such that the single layer potential $u$ with moment $\phi_{\VEC{a}}$
+satisfies $\displaystyle u\big|_{\Omega_j} = a_j$
+for $1 \leq j \leq m$.
+\end{enumerate}
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Consider $\phi_i : \partial \Omega \rightarrow \RR$ for $1\leq i \leq m$, and
+$\displaystyle \phi_j^{\prime} : \partial \Omega \rightarrow \RR$ for
+$\displaystyle 1\leq j \leq m^{\prime}$, defined by
+\begin{equation} \label{pot_phiI_phiJc}
+\phi_i(\VEC{x}) =
+\begin{cases}
+1 & \quad \text{if} \quad \VEC{x} \in \partial \Omega_i \\
+0 & \quad \text{otherwise}
+\end{cases}
+\qquad \text{and} \qquad
+\phi_j^{\prime}(\VEC{x}) =
+\begin{cases}
+1 & \quad \text{if} \quad \VEC{x} \in \partial \Omega_j^{\prime} \\
+0 & \quad \text{otherwise}
+\end{cases}
+\end{equation}
+respectively.
+
+\stage{i} It follows from Lemma~\ref{pot_lem_dbl3} (see
+Remark~\ref{pot_lem_dbl3_rmk}) with
+$\partial \Omega$ replaced by $\partial \Omega_i$ that
+\[
+(T_K \phi_i)(\VEC{x}) = \int_{\partial \Omega_i} K(\VEC{x},\VEC{y})
+\dss{S}{y} = \frac{1}{2} \phi_i(\VEC{x})
+\]
+for all $\VEC{x} \in \partial \Omega$.
+Thus $\phi_i \in V_+$ for $1 \leq i \leq m$.  Since the $\phi_i$
+are linearly independent, $\dim V_+ \geq m$.
+
+\stage{ii} We have that
+\[
+(T_K \phi_j^{\prime})(\VEC{x})
+= \int_{\partial \Omega_j^{\prime}} K(\VEC{x},\VEC{y}) \dss{S}{y}
+= - \sum_{i\in I} \int_{\partial \Omega_i} K(\VEC{x},\VEC{y}) \dss{S}{y} \ ,
+\]
+where $I\subset \{1,2,\ldots, m\}$ is the set of indices such that
+$\displaystyle \partial \Omega_j^{\prime} = \bigcup_{i\in I} \partial \Omega_i$.
+The minus sign in front of the sum comes from the change of orientation
+between the integral over $\displaystyle \partial \Omega_j^{\prime}$
+and the integrals over the $\partial \Omega_i$.
+If $\displaystyle \VEC{x} \in \partial \Omega_j^{\prime}$, then
+$\VEC{x} \in \partial \Omega_i$ for one and only one $i_0 \in I$.  In
+particular, $\VEC{x}$ is in the complement of $\overline{\Omega_i}$
+for all $i \neq i_0$.  As in (i), it follows from
+Lemma~\ref{pot_lem_dbl3} with
+$\partial \Omega$ replace by $\partial \Omega_{i}$ that
+\[
+\int_{\partial \Omega_i} K(\VEC{x},\VEC{y}) \dss{S}{y} =
+\begin{cases}
+1/2 & \quad \text{if} \ i = i_0 \\
+0 & \quad \text{if} \ i \neq i_0
+\end{cases}
+\]
+Thus
+\[
+  (T_K \phi_j^{\prime})(\VEC{x}) = - \frac{1}{2} \phi_j^{\prime}(\VEC{x})
+\]
+for all $\displaystyle \VEC{x} \in \partial \Omega^{\prime}$.
+Hence, $\displaystyle \phi_j^{\prime} \in V_-$ for
+$\displaystyle 1 \leq j \leq m^{\prime}$.
+Since the $\displaystyle \phi_j^{\prime}$ are linearly independent,
+$\displaystyle \dim V_- \geq m^{\prime}$.
+
+\stage{iii}
+Since $\displaystyle -\frac{1}{2} \Id + T_K$ and
+$\displaystyle \frac{1}{2} \Id + T_K$ are compact operators, it
+follows from Theorem~\ref{fu_an_comp_oper} that
+$\displaystyle \dim\ \KE \left(-\frac{1}{2} \Id + T_K\right) =
+\dim\ \KE \left(-\frac{1}{2} \Id + T_K^\ast \right)$
+and $\displaystyle \dim\ \KE \left(\frac{1}{2} \Id + T_K\right) =
+\dim\ \KE \left(\frac{1}{2} \Id + T_K^\ast \right)$.
+
+Since $\displaystyle V_+ = \KE \left(-\frac{1}{2} \Id + T_K\right)$
+and $\displaystyle W_+ = \KE \left(-\frac{1}{2} \Id + T_K^\ast \right)$, 
+we get that $\dim V_+ = \dim W_+$.  Since
+$\displaystyle V_- = \KE \left(\frac{1}{2} \Id + T_K\right)$
+and $\displaystyle W_- = \KE \left(\frac{1}{2} \Id + T_K^\ast \right)$, 
+we get that $\dim V_- = \dim W_-$.
+
+\stage{iv} If $\phi \in W_+$ and $u$ is the single layer potential with
+moment $\phi$, then $\displaystyle \pdydx{u}{\VEC{\nu}^-}(\VEC{x}) = 0$
+for $\VEC{x} \in \partial \Omega$ as a consequence of
+Theorem~\ref{pot_slp_exist}.  By uniqueness (modulo a
+function which is constant on each connected component of $\Omega$)
+of the solution for the interior Neumann problem (N1), we have that
+$u$ is constant on each connected component of $\Omega$.  We may
+therefore define the mapping
+\begin{align*}
+\Lambda : W_+ & \rightarrow \CC^m \\
+\phi &\mapsto \left( u\big|_{\Omega_1}, u\big|_{\Omega_2},
+\ldots, u\big|_{\Omega_m}\right)
+\end{align*}
+
+\stage{iv.a} $\Lambda$ is one-to-one for $n>2$.  Suppose that
+$\Lambda u_1 = \Lambda u_2$, where $u_1$ and $u_2$ are the single
+layer potentials with moments $\phi_1$ and $\phi_2$ respectively.
+Then $u=u_1-u_2$ is the single layer potential with moment
+$\phi = \phi_1-\phi_2$.  Moreover, $u = 0$ on each component of
+$\Omega$.  Thus, $u = 0$ on $\overline{\Omega}$.  By uniqueness of
+solution for the exterior Dirichlet problem (D2) given by
+$\Delta v = 0$ on $\displaystyle \Omega^{\prime} \cup \{\infty\}$ 
+with $\displaystyle v\big|_{\partial \Omega^{\prime}}=0$,
+we have that $u=0$ on $\Omega^{\prime}$ because $v \equiv 0$ is a
+solution of this problem.  Hence, $u=0$ on $\displaystyle \RR^n$.
+We have seen in item (2) following Definition~\ref{pot_spl_def} that
+$u$ is harmonic at infinity.
+It follows from Corollary~\ref{pot_cor_pdpdm} that $\phi =0$ on
+$\partial \Omega$.  Thus $\phi_1=\phi_2$ on $\partial \Omega$.
+
+This shows that $\dim W_+ \leq \dim \Lambda(W_+) \leq m$.  Combined
+with (i) and (iii), this shows that $\dim W_+ = m$.  Thus proving
+{\em item (1) of the proposition for $n>2$}.
+
+We also have that $\displaystyle \Lambda\big|_{W_+}$ is onto because
+$\dim \Lambda(W_+) = m$.  Hence, {\em item (4) of the proposition} is
+true because $\displaystyle \Lambda\big|_{W_+}$ is one-to-one and onto
+$\displaystyle \CC^m$.
+
+\stage{iv.b}  If $n=2$, $\Lambda$ defined above may not be one-to-one
+because the single layer potential $u$ with moment $\phi$ may not be
+harmonic at infinity.  Let
+\[
+W_+^0 = \left\{ \phi \in W_+ : \int_{\partial \Omega} \phi(\VEC{x})
+\dss{S}{x} = 0 \right\} \ .
+\]
+Using Lemma~\ref{pot_1to1n2}, a reasoning very similar to the one
+given in (iv.a) shows that
+$\displaystyle \Lambda\big|_{W_+^0} : W_+^0 \rightarrow \CC^m$ is
+one-to-one.  In particular, this proves that $\displaystyle \dim W_+^0 \leq m$.
+
+Moreover, item (3) of Lemma~\ref{pot_1to1n2} shows that the space
+$\displaystyle Y = \left\{ \alpha (1,1,\ldots,1) : \alpha \in \CC \right\}$
+is not in the image $X$ of $\Lambda\big|_{W_+^0}$.
+Thus $\displaystyle \dim W_+^0 \leq m-1$ because
+$\Lambda\big|_{W_+^0}$ is one-to-one.
+Also $\displaystyle \dim W_+^0 \geq \dim W_+ - 1$ because
+$\displaystyle W_+^0$ is the kernel of the
+linear functional
+$\displaystyle \phi \mapsto \int_{\partial \Omega} \phi(\VEC{x}) \dss{S}{x}$
+from $W_+$ to $\CC$.
+Therefore, $\dim W_+ \leq m$.  Combined with (i) and (iii), this shows
+that {\em item (1) of the proposition is true for $n=2$}.
+
+Since $\dim W_+ = m$, it follows that $\displaystyle \dim W_+^0 = m - 1$.
+Hence, $\displaystyle X = \Lambda(W_+^0)$ is of dimension $m-1$ because
+$\displaystyle \Lambda\big|_{W_+^0}$ is one-to-one.
+We then get that
+$\displaystyle \CC^m = X \oplus \CC\left\{(1,1,1,\ldots,1)\right\}$.
+This completes the proof of {\em item (5) of the proposition} because
+$\displaystyle \Lambda\big|_{W_+^0}$ is one-to-one and onto $X$.
+
+\stage{v}
+We first claim that if $\phi \in W_-$ and $u$ is the single layer
+potential with moment $\phi$, then $u$ is constant on each bounded
+component $\displaystyle \Omega_j^{\prime}$ of
+$\displaystyle \Omega^{\prime}$ and $u=0$ on the unbounded
+component $\displaystyle \Omega_0^{\prime}$.  We have from
+Theorem~\ref{pot_slp_exist}
+that $\displaystyle \pdydx{u}{\VEC{\nu}^+}(\VEC{x}) = 0$
+for $\displaystyle \VEC{x} \in \partial \Omega^{\prime}$.  For $n>2$,
+the claim is a consequence of Proposition~\ref{pot_nec_Nprobl0}.  For $n=2$,
+Proposition~\ref{pot_nec_Nprobl0} still implies that $u$ is constant
+on each bounded component of $\displaystyle \Omega^{\prime}$ and also
+on $\displaystyle \Omega_0^{\prime}$.
+From Lemma~\ref{pot_sol_zeroB}, we have that
+$\displaystyle \int_{\partial \Omega} \phi(\VEC{x}) \dss{S}{x} = 0$.
+Hence, Lemma~\ref{pot_1to1n2} implies that $u$ vanishes at infinity.  Since
+$u$ is constant on $\displaystyle \Omega_0^{\prime}$, $u=0$ on
+$\displaystyle \Omega_0^{\prime}$.
+This completes the proof of the claim.
+
+We may therefore define the mapping
+\begin{align*}
+\Lambda : W_- & \rightarrow \CC^{m^{\prime}} \\
+\phi &\mapsto \left( u\big|_{\Omega^{\prime}_1}, u\big|_{\Omega^{\prime}_2},
+\ldots, u\big|_{\Omega^{\prime}_{m^{\prime}}}\right)
+\end{align*}
+
+We now show that $\Lambda$ is one-to-one.  Suppose that
+$\Lambda u_1 = \Lambda u_2$, where $u_1$ and $u_2$ are the single
+layer potentials with moments $\phi_1$ and $\phi_2$ respectively.
+Then $u=u_1-u_2$ is the single layer potential with moment
+$\phi = \phi_1-\phi_2$.  Moreover, $u = 0$ on each bounded component of
+$\displaystyle \Omega^{\prime}$.  We also have that $u = 0$ on the unbounded
+components since this is true for $u_1$ and $u_2$.   Thus,
+$u=0$ on $\displaystyle \overline{\Omega^{\prime}}$.
+By uniqueness of the interior Dirichlet problem (D1) given by
+$\Delta v =0$ on $\Omega$ with $\displaystyle v\big|_{\partial \Omega}=0$,
+we have that $u=0$ on $\Omega$ because $v\equiv 0$ is a solution of this
+problem.   Hence, $u = 0$ on $\displaystyle \RR^n$.  It follows from
+Corollary~\ref{pot_cor_pdpdm} that $\phi =0$ on
+$\displaystyle \partial \Omega^{\prime}$.
+Thus $\phi_1=\phi_2$ on $\displaystyle \partial \Omega^{\prime}$.
+
+This shows that
+$\displaystyle \dim W_- \leq \dim \Lambda(W_-) \leq m^{\prime}$.  Combined
+with (ii), this shows that $\displaystyle \dim W_- = m^{\prime}$ and proves
+{\em item (2) of the proposition}.
+
+We also have that $\displaystyle \Lambda\big|_{W_-}$ is onto because
+$\dim \Lambda(W_-) = m^{\prime}$.  Hence, 
+{\em item (3) of the proposition} is true because
+$\displaystyle \Lambda\big|_{W_-}$ is one-to-one and onto
+$\displaystyle \CC^{m^{\prime}}$.
+\end{proof}
+
+\begin{prop} \label{pot_L2_split1}
+\[
+L^2(\partial \Omega) = V_+^\perp \oplus W_+ = V_-^\perp \oplus W_- \ .
+\]
+\end{prop}
+
+In the previous proposition, the orthogonality is based on the scalar
+product on $\displaystyle L^2(\partial \Omega)$ defined by
+\[
+\ps{f}{g} = \int_{\partial \Omega} f(\VEC{x})\,\overline{g(\VEC{x})} \dx{S}
+\]
+for $\displaystyle f,g \in L^2(\partial \Omega)$.
+
+\begin{proof}
+\stage{i} We first prove that
+$\displaystyle L^2(\partial \Omega) = V_+^\perp \oplus W_+$.  It
+follows from Proposition~\ref{pot_split_prop} that
+$\displaystyle V_+^\perp$ is a
+closed subspace of codimension $m$ in
+$\displaystyle L^2(\partial \Omega)$ and $W_+$
+is a subspace of dimension $m$ in
+$\displaystyle L^2(\partial \Omega)$.  Thus, we
+only have to prove that $\displaystyle V_+^\perp \cap W_+ = \{0\}$.
+
+Suppose that $\displaystyle \phi \in V_+^\perp \cap W_+$.
+Since $\phi \in W_+$, we have that
+$\displaystyle \phi \in \KE \left(T^\ast_K - \frac{1}{2} \Id\right)$.
+Since $\displaystyle \phi \in V_+^\perp
+= \left(\KE \left(T_k -\frac{1}{2} \Id\right)\right)^\perp$,
+it follows from Theorem~\ref{fu_an_RIOrth} that
+$\displaystyle \phi \in \IMG \left( T^\ast_K - \frac{1}{2} \Id\right)$
+because $\displaystyle T_k^\ast$ is a compact operator
+and so $\displaystyle \IMG \left( T^\ast_K - \frac{1}{2} \Id\right)$
+is a close subspace according to Theorem~\ref{fu_an_comp_oper}.  Thus, there
+exists $\displaystyle \psi \in L^2(\partial \Omega)$ such that
+$\displaystyle \phi = T^\ast_K \psi - \frac{1}{2} \psi$.  Moreover,
+since $\displaystyle T^\ast_K\phi - \frac{1}{2} \phi = 0$, it follows
+from Proposition~\ref{pot_compt_cont_K} that
+$\phi \in C(\partial \Omega)$.  We can use 
+Proposition~\ref{pot_compt_cont_K} a second time to conclude that
+$\psi \in C(\partial \Omega)$ because
+$\displaystyle T^\ast_K \psi - \frac{1}{2} \psi = \phi$.
+
+Let $u$ and $v$ be the simple layer potentials with moments $\phi$ and
+$\psi$ respectively.  We have that $\displaystyle u,v \in C(\RR^n)$
+according to Proposition~\ref{pot_slp_cont}.
+
+From Theorem~\ref{pot_slp_exist}, we have
+that
+$\displaystyle \pdydx{u}{\VEC{\nu}^-} = T^\ast_K \phi - \frac{1}{2} \phi = 0$
+and
+$\displaystyle \pdydx{v}{\VEC{\nu}^-} = T^\ast_K \psi - \frac{1}{2} \psi
+= \phi = T^\ast_K \phi + \frac{1}{2} \phi
+= \pdydx{u}{\VEC{\nu}^+}$
+on $\partial \Omega$.  Hence,
+\begin{equation} \label{pot_L2_split1_E1}
+\int_{\partial \Omega} \left( u \pdydx{v}{\VEC{\nu}^-}
+- v \pdydx{u}{\VEC{\nu}^-} \right) \dx{S}
+= \int_{\partial \Omega} u \pdydx{u}{\VEC{\nu}^+} \dx{S} \ ,
+\end{equation}
+where the positive direction on $\partial \Omega$ is such that the
+normal to $\partial \Omega$ points outside $\Omega$, so inside
+$\displaystyle \Omega^{\prime}$.
+
+From the Green's identity (\ref{laplace_green2}), we have that
+\begin{equation} \label{pot_L2_split1_E2}
+\int_{\partial \Omega} \left( u \pdydx{v}{\VEC{\nu}^-}
+- v \pdydx{u}{\VEC{\nu}^-} \right) \dx{S}
+= \int_\Omega \left( u \Delta v -  v \Delta u \right)
+\dx{\VEC{x}} = 0
+\end{equation}
+because $u$ and $v$ are harmonic on $\Omega$.
+
+To compute the integral on the right side in (\ref{pot_L2_split1_E1}),
+we choose $r>0$ such that
+$\displaystyle \partial B_r(\VEC{0}) \subset \Omega_0^{\prime}$,
+the unbounded component of $\displaystyle \Omega^{\prime}$.
+We get from the Green's identities (\ref{laplace_green1}) that
+\begin{align}
+\int_{\partial \Omega} u \pdydx{u}{\VEC{\nu}^+} \dx{S} 
+&= -\int_{\Omega^{\prime} \cap B_r(\VEC{0})}
+\left( u \Delta u + \graD u \cdot \graD u \right)
+\dx{\VEC{x}} + \int_{\partial B_r(\VEC{0})} u \pdydx{u}{\VEC{\nu}} \dx{S}
+\nonumber \\
+&= -\int_{\Omega^{\prime} \cap B_r(\VEC{0})} \|\graD u\|_2^2 \dx{\VEC{x}}
++ \int_{\partial B_r(\VEC{0})} u \pdydx{u}{\VEC{\nu}} \dx{S}
+\label{pot_L2_split1_E3}
+\end{align}
+because $u$ is harmonic in $\displaystyle \Omega^{\prime}$.  The
+normal to $\displaystyle \partial (\Omega^{\prime} \cap B_r(\VEC{0}))$
+points inside $\displaystyle \Omega^{\prime} \cap B_r(\VEC{0})$.
+
+We now show that the last integral in (\ref{pot_L2_split1_E3}) converges
+to $0$ as $r \to \infty$.  We get from item (2) following
+Definition~\ref{pot_spl_def} that $u$ is harmonic at infinity for
+$n>2$.  To prove that $u$ is harmonic at infinity for $n=2$ requires a
+little bit more work.  Since
+$\Omega^{\prime} \cap B_r(\VEC{0})\phi \in V_+^\perp$, we have that
+\[
+\int_{\partial \Omega} \phi \dx{S}
+= \int_{\partial \Omega} \phi \left( \sum_{i=0}^m \phi_i\right) \dx{S}
+= \sum_{i=0}^m \int_{\partial \Omega} \phi \,\phi_i \dx{S} = 0 \ ,
+\]
+where the functions $\phi_i \in V_+$ are defined at the beginning of
+the proof of Proposition~\ref{pot_split_prop}.  Note that
+$\displaystyle \sum_{i=0}^m \phi_i(\VEC{x}) = 1$ for all
+$\VEC{x} \in \partial \Omega$.  It follows from
+Lemma~\ref{pot_1to1n2} that $u$ is harmonica at infinity.
+
+If $n>2$, we have from Proposition~\ref{pot_infty_u} and
+Proposition~\ref{pot_infty_ddu} that
+$\Omega^{\prime} \cap B_r(\VEC{0})|u(\VEC{x})| \leq C_1\|\VEC{x}\|^{2-n}$ and
+$\displaystyle \left| \pdydx{u}{\VEC{\nu}}(\VEC{x})\right| \leq
+C_2 \|\VEC{x}\|^{1-n}$ as $\|\VEC{x}\| \rightarrow \infty$ for some
+constants $C_1$ and $C_2$.  Hence,
+\[
+\left| \int_{\partial B_r(\VEC{0})} u \pdydx{u}{\VEC{\nu}} \dx{S} \right|
+\leq \int_{\partial B_r(\VEC{0})} |u|\,\left|\pdydx{u}{\VEC{\nu}} \right| \dx{S}
+\leq C_1C_2 r^{3-2n} \int_{\partial B_r(\VEC{0})} \dx{S}
+= C_1C_2 \omega_n r^{2-n}  \to 0 
+\]
+as $r \to \infty$.
+If $n=2$, we have from Proposition~\ref{pot_infty_u} and
+Proposition~\ref{pot_infty_ddu} that
+$|u(\VEC{x})| \leq C_3|\ln(\|\VEC{x}\|)|$ and
+$\displaystyle \left| \pdydx{u}{\VEC{\nu}}(\VEC{x})\right| \leq
+C_4 \|\VEC{x}\|^{-2}$ as $\|\VEC{x}\| \rightarrow \infty$ for some
+constants $C_3$ and $C_4$..  Hence,
+\[
+\left| \int_{\partial B_r(\VEC{0})} u \pdydx{u}{\VEC{\nu}} \dx{S} \right|
+\leq \int_{\partial B_r(\VEC{0})} |u|\,\left|\pdydx{u}{\VEC{\nu}} \right| \dx{S}
+\leq C_3C_4 |\ln(r)| r^{-2} \int_{\partial B_r(\VEC{0})} \dx{S}
+= C_3C_4 \omega_2 \frac{|\ln(r)|}r \to 0 
+\]
+as $r \to \infty$.
+
+Therefore, if we let $r \to \infty$ in (\ref{pot_L2_split1_E3}), we
+get from (\ref{pot_L2_split1_E1}) and (\ref{pot_L2_split1_E2}) that
+$\displaystyle \int_{\Omega^{\prime}} \|\graD u\|_2^2 \dx{\VEC{x}} = 0$.
+Thus $\graD u = 0$ on $\displaystyle \Omega^{\prime}$.  This shows that $u$ is
+constant on each component of $\displaystyle \Omega^{\prime}$.  From
+this, we get that $\displaystyle \phi = \pdydx{u}{\VEC{\nu}^+} = 0$.
+
+\stage{ii} The proof that
+$\displaystyle L^2(\partial \Omega) = V_-^\perp \oplus W_-$ is very
+similar to the proof given in (i). It
+follows from Proposition~\ref{pot_split_prop} that $V_-^\perp$ is a
+closed subspace of codimension $\displaystyle m^{\prime}$ in
+$\displaystyle L^2(\partial \Omega)$ and $W_-$
+is a subspace of dimension $\displaystyle m^{\prime}$ in
+$\displaystyle L^2(\partial \Omega)$.  Thus, we
+only have to prove that $\displaystyle V_-^\perp \cap W_- = \{0\}$.
+
+Suppose that $\displaystyle \phi \in V_-^\perp \cap W_-$.
+Since $\phi \in W_-$, we have that
+$\displaystyle \phi \in \KE \left(T^\ast_K + \frac{1}{2} \Id\right)$.
+Since $\displaystyle \phi \in V_-^\perp
+= \left(\KE \left(T_k + \frac{1}{2} \Id\right)\right)^\perp$,
+it follows from Theorem~\ref{fu_an_RIOrth} that
+$\displaystyle \phi \in \IMG \left( T^\ast_K + \frac{1}{2} \Id\right)$ because
+$\displaystyle T_k^\ast$ is a compact operator
+and so $\displaystyle \IMG \left( T^\ast_K + \frac{1}{2} \Id\right)$
+is a close subspace according to Theorem~\ref{fu_an_comp_oper}.  Thus, there
+exists $\displaystyle \psi \in L^2(\partial \Omega)$ such that
+$\displaystyle \phi = T^\ast_K \psi + \frac{1}{2} \psi$.  Moreover,
+since $\displaystyle T^\ast_K\phi + \frac{1}{2} \phi = 0$, it follows
+from Proposition~\ref{pot_compt_cont_K} that
+$\phi \in C(\partial \Omega)$.  We can use 
+Proposition~\ref{pot_compt_cont_K} a second time to conclude that
+$\psi \in C(\partial \Omega)$ because
+$\displaystyle T^\ast_K \psi + \frac{1}{2} \psi = \phi$.
+
+Let $u$ and $v$ be the simple layer potentials with moments $\phi$ and
+$\psi$ respectively.    We have that $\displaystyle u,v \in C(\RR^n)$
+according to Proposition~\ref{pot_slp_cont}.
+
+From Theorem~\ref{pot_slp_exist}, we have that
+\[
+  \pdydx{u}{\VEC{\nu}^+} = T^\ast_K \phi + \frac{1}{2} \phi = 0
+\quad \text{and} \quad
+  \pdydx{v}{\VEC{\nu}^+} = T^\ast_K \psi + \frac{1}{2} \psi
+= \phi = - T^\ast_K \phi + \frac{1}{2} \phi
+= - \pdydx{u}{\VEC{\nu}^-}
+\]
+on $\partial \Omega$.  Hence,
+\begin{equation} \label{pot_L2_split1_E4}
+\int_{\partial \Omega} \left( u \pdydx{v}{\VEC{\nu}^+}
+- v \pdydx{u}{\VEC{\nu}^+} \right) \dx{S}
+= - \int_{\partial \Omega} u \pdydx{u}{\VEC{\nu}^-} \dx{S} \ ,
+\end{equation}
+where the positive direction on $\partial \Omega$ is such that the
+normal to $\partial \Omega$ points outside
+$\displaystyle \Omega^{\prime}$, so inside $\Omega$.
+
+From the Green's identity (\ref{laplace_green1}), we get that
+\begin{equation} \label{pot_L2_split1_E5}
+\int_{\partial \Omega} u \pdydx{u}{\VEC{\nu}^-} \dx{S} 
+= -\int_{\Omega} \left( u \Delta u + \graD u \cdot \graD u \right)
+\dx{\VEC{x}}
+= -\int_{\Omega} \|\graD u\|_2^2 \dx{\VEC{x}}
+\end{equation}
+because $u$ is harmonic on $\Omega$.  The normal to $\partial \Omega$
+points inside $\Omega$.
+
+To compute the integral on the left side in (\ref{pot_L2_split1_E4}),
+we choose $r>0$ such that
+$\displaystyle \partial B_r(\VEC{0}) \subset \Omega_0^{\prime}$.
+We get from the Green's identities (\ref{laplace_green2}) that
+\begin{align}
+\int_{\partial \Omega} \left( u \pdydx{v}{\VEC{\nu}^+}
+- v \pdydx{u}{\VEC{\nu}^+} \right) \dx{S}
+&= \int_{\Omega^{\prime} \cap B_r(\VEC{0})}
+\left( u \Delta v + v \Delta u \right) \dx{\VEC{x}}
+- \int_{\partial B_r(\VEC{0})} \left( u \pdydx{v}{\VEC{\nu}}
+- v \pdydx{u}{\VEC{\nu}} \right) \dx{S}
+\nonumber \\
+&= - \int_{\partial B_r(\VEC{0})} \left( u \pdydx{v}{\VEC{\nu}}
+- v \pdydx{u}{\VEC{\nu}} \right) \dx{S}
+\label{pot_L2_split1_E6}
+\end{align}
+because $u$ and $v$ are harmonic in $\displaystyle \Omega^{\prime}$.
+The normal to $\displaystyle \partial (\Omega^{\prime} \cap B_r(\VEC{0}))$
+points outside $\displaystyle \Omega^{\prime} \cap B_r(\VEC{0})$.
+
+We now show that the integral in (\ref{pot_L2_split1_E6}) converges
+to $0$ as $r \to \infty$.  We get from item (2) following
+Definition~\ref{pot_spl_def} that $u$ and $v$ are harmonic at infinity for
+$n>2$.  We now prove that $u$ and $v$ are harmonic at infinity for $n=2$.
+Since $\phi \in W_-$, we get from Lemma~\ref{pot_sol_zeroB} that
+$\displaystyle \int_{\partial \Omega} \phi \dx{S} = 0$.
+Moreover, since $\displaystyle T^\ast_K \psi + \frac{1}{2} \psi = \phi$,
+we can use Lemma~\ref{pot_sol_zeroB} again to conclude that
+$\displaystyle \int_{\partial \Omega} \psi \dx{S} = 0$.
+It follows from Lemma~\ref{pot_1to1n2} that $u$ and $v$ are harmonica
+at infinity.  Proceeding exactly as we did in (i), we can show that
+$\displaystyle \int_{\partial B_r(\VEC{0})} u \pdydx{v}{\VEC{\nu}} \dx{S}$
+and
+$\displaystyle \int_{\partial B_r(\VEC{0})} v \pdydx{u}{\VEC{\nu}}  \dx{S}$
+converge to $0$ as $r \to \infty$.
+
+Therefore, if we let $r \to \infty$ in (\ref{pot_L2_split1_E6}), we
+get from (\ref{pot_L2_split1_E4}) and (\ref{pot_L2_split1_E5}) that
+$\displaystyle \int_{\Omega} \|\graD u\|_2^2 \dx{\VEC{x}} = 0$.
+Thus $\graD u = 0$ on $\Omega$.  This shows that $u$ is
+constant on each component of $\Omega$.  From this, we
+that $\displaystyle \phi = \pdydx{u}{\VEC{\nu}^-} = 0$.
+\end{proof}
+
+\begin{cor} \label{pot_cor_splitL2}
+\[
+L^2(\partial \Omega) = \IMG \left( -\frac{1}{2} \Id + T_K\right)
+\oplus V_+ = \IMG \left( \frac{1}{2} \Id + T_K\right) \oplus V_- \ .
+\]
+\end{cor}
+
+\begin{proof}
+Since $\displaystyle T_K$ is a compact operator, it
+follows from Theorems~\ref{fu_an_comp_oper} and \ref{fu_an_RIOrth} that\\
+$\displaystyle  \IMG \left(-\frac{1}{2} \Id + T_K\right)
+= \left( \KE \left(-\frac{1}{2} \Id + T_K^\ast \right) \right)^\perp
+= W_+^\perp$
+and 
+$\displaystyle \IMG \left(\frac{1}{2} \Id + T_K\right)
+= \left( \KE \left(\frac{1}{2} \Id + T_K^\ast \right) \right)^\perp
+= W_-^\perp$.
+It is therefore enough to show that
+$\displaystyle W_+^\perp \cap V_+ = W_-^\perp \cap V_- = \{0\}$
+because $\displaystyle W_+^\perp$ has codimension $m$ and $V_+$ has
+dimension $m$, and $\displaystyle W_-^\perp$ has codimension
+$\displaystyle m^{\prime}$ and $V_-$ has dimension $\displaystyle m^{\prime}$.
+
+Suppose that $\displaystyle \psi \in W^\perp_+ \cap V_+$.  It follows from
+Proposition~\ref{pot_L2_split1} that $\psi = \psi_1+\psi_2$, where
+$\displaystyle \psi_1 \in V^\perp_+$ and $\psi_2 \in W_+$.  Thus
+\[
+\ps{\psi}{\psi_1}_2 = \int_{\partial \Omega}
+\psi(\VEC{x})\overline{\psi_1(\VEC{x})} \dss{S}{x} = 0
+\]
+because $\psi \in V_+$ and
+\[
+\ps{\psi}{\psi_2}_2 = \int_{\partial \Omega}
+\psi(\VEC{x})\overline{\psi_2(\VEC{x})} \dss{S}{x} = 0
+\]
+because $\psi \in W_+^\perp$.  Hence
+\[
+\ps{\psi}{\psi}_2 = \int_{\partial \Omega}
+\left| \psi(\VEC{x}) \right|^2 \dss{S}{x} = 0
+\]
+by linearity.  Thus, $\psi=0$ almost everywhere on $\partial \Omega$.
+A similar proof yields $\displaystyle W_-^\perp \cap V_- = \{0\}$.
+\end{proof}
+
+\begin{theorem} \label{pot_exist_uniqu_TH}
+Referring to the statement of the Dirichlet and Neumann problems given
+at the beginning of the chapter, we have the following results.
+\begin{enumerate}
+\item ({\bfseries D1}) has a unique solution for $f \in  C(\partial \Omega)$.
+\item ({\bfseries D2}) has a unique solution for
+$\displaystyle f \in  C(\partial \Omega^{\prime})$.
+\item ({\bfseries N1}) has a solution for $f \in  C(\partial \Omega)$
+if and only if
+$\displaystyle \int_{\partial \Omega_i} f(\VEC{x})\dss{S}{x}=0$
+for $1 \leq i \leq m$.  The solution is unique modulo a
+function which is constant on each connected component of $\Omega$.
+\item ({\bfseries N2}) has a solution for
+$\displaystyle f \in  C(\partial \Omega^{\prime})$ if and only if
+$\displaystyle \int_{\partial \Omega_j^{\prime}} f(\VEC{x})\dss{S}{x}=0$
+for $\displaystyle 1\leq j \leq m^{\prime}$ when $n>2$, and
+$\displaystyle 0\leq j \leq m^{\prime}$ when $n=2$.  The solution is
+unique modulo a function $h$ such that $h(\VEC{x}) = c$, a fixed
+constant, on each connected component
+$\displaystyle \Omega_j^{\prime}$ for $\displaystyle 1\leq j \leq m^{\prime}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Uniqueness results has been proved in In
+Section~\ref{pot_sect_unique}.  The need for the necessary conditions
+is proved in Section~\ref{pot_sect_necessary}.  We only need to
+consider the existence of the solution.
+
+\stage{N1}  Let $\phi_i \in V_+$ for $1 \leq i \leq m$ be the
+functions defined in (\ref{pot_phiI_phiJc}).  We have shown in the
+proof of Proposition~\ref{pot_split_prop} that
+$\displaystyle \{\phi_i\}_{i=1}^m$ is a basis of $V_+$.  Hence,
+\[
+V_+^\perp = \left\{ g \in L^2(\partial \Omega) :
+\int_{\partial \Omega} g(\VEC{x}) \phi_i(\VEC{x}) \dx{S}
+= \int_{\partial \Omega_i} g(\VEC{x}) \dx{S} = 0 \ \text{for}
+\ 1 \leq i \leq m \right\} \ .
+\]
+From Theorems~\ref{fu_an_comp_oper} and \ref{fu_an_RIOrth},
+we have that $\displaystyle g \in \IMG \left(-\frac{1}{2} \Id +T^\ast_K\right)$
+if and only if\\
+$\displaystyle g \in \left( \KE \left( -\frac{1}{2} \Id +
+T_K\right)\right)^\perp = V_+^\perp$.
+
+By hypothesis $\displaystyle f \in V_+^\perp$.  Therefore, there exists
+$\displaystyle \phi \in L^2(\partial \Omega)$ such that
+\[
+\boxed{
+f = -\frac{1}{2}\phi +T^\ast_K \phi \  .
+}
+\]
+Since $f\in C(\partial \Omega)$, we have that
+$\phi \in C(\partial \Omega)$ by Proposition~\ref{pot_compt_cont_K}.
+Finally, from Theorem~\ref{pot_slp_exist}, the single layer potential 
+with moment $\phi$ defined by
+\[
+\boxed{
+u(\VEC{x}) = \int_{\partial \Omega} N(\VEC{x},\VEC{y})
+\phi(\VEC{y}) \dss{S}{y} \quad , \quad \VEC{x} \in \overline{\Omega} \ ,
+}
+\]
+is the solution of (N1).
+
+\stage{N2}  Let $\displaystyle \phi_j^{\prime} \in V_-$ for
+$\displaystyle 1 \leq j \leq m^{\prime}$
+be the functions defined in (\ref{pot_phiI_phiJc}).  We have shown in
+the proof of Proposition~\ref{pot_split_prop} that
+$\displaystyle \{\phi_j^{\prime}\}_{j=1}^{m^{\prime}}$ is a basis of
+$V_-$.  Hence,
+\[
+V_-^\perp = \left\{ g \in L^2(\partial \Omega) :
+\int_{\partial \Omega^{\prime}} g(\VEC{x}) \phi_j^{\prime}(\VEC{x}) \dss{S}{x}
+= \int_{\partial \Omega_j^{\prime}} g(\VEC{x}) \dss{S}{x} = 0 \ \text{for}
+\ 1 \leq j \leq m^{\prime} \right\} \ .
+\]
+From Theorems~\ref{fu_an_comp_oper} and \ref{fu_an_RIOrth},
+we have that $\displaystyle g \in \IMG \left(\frac{1}{2} \Id +T^\ast_K\right)$
+if and only if\\
+$\displaystyle g \in \left(\KE \left(\frac{1}{2} \Id +T_K\right)\right)^\perp
+= V_-^\perp$.
+
+By hypothesis $\displaystyle f \in V_-^\perp$.  Therefore, there exists
+$\displaystyle \phi \in L^2(\partial \Omega)$ such that
+\[
+\boxed{
+f = \frac{1}{2}\phi +T^\ast_K \phi \ .
+}
+\]
+Since $\displaystyle f\in C(\partial \Omega^{\prime})$, we have that
+$\displaystyle \phi \in C(\partial \Omega^{\prime})$ by
+Proposition~\ref{pot_compt_cont_K}.
+Finally, from Theorem~\ref{pot_slp_exist}, the single layer potential 
+with moment $\phi$ defined by
+\[
+\boxed{
+u(\VEC{x}) = \int_{\partial \Omega} N(\VEC{x},\VEC{y})
+\phi(\VEC{y}) \dss{S}{y} \quad , \quad \VEC{x} \in \overline{\Omega^{\prime}}
+\ ,
+}
+\]
+is the solution of (N2).  If $n>2$, we showed in item (2) following
+Definition~\ref{pot_spl_def} that $u$ is harmonica at infinity.  If
+$n=2$, the extra condition
+$\displaystyle \int_{\partial \Omega_0^{\prime}} f(\VEC{x})\dss{S}{x} = 0$ 
+implies that $u$ is harmonic at infinity (and vanishes at infinity)
+according to Lemmas~\ref{pot_sol_zeroB} and \ref{pot_1to1n2}.
+
+\stage{D1} From Corollary~\ref{pot_cor_splitL2}, we may write
+\[
+\boxed{
+f = \frac{1}{2} \phi + T_K \phi + \sum_{j=1}^{m^{\prime}} a_j \phi_j^{\prime}
+}
+\]
+for some $\displaystyle \phi \in L^2(\partial \Omega)$ and $a_j \in \CC$.
+Since $f\in C(\partial \Omega)$ and
+$\displaystyle \phi_j^{\prime} \in C(\partial \Omega)$
+for all $j$, we have that
+$\displaystyle
+\phi + 2T_K \phi = 2f - 2 \sum_{j=1}^{m^{\prime}} a_j \phi_j^{\prime}
+\in C(\partial \Omega)$.
+It follows from Proposition~\ref{pot_compt_cont_K} that
+$\phi \in C(\partial \Omega)$.  From Theorem~\ref{pot_double_layer},
+the double layer potential with moment $\phi$,
+\[
+\boxed{
+v(\VEC{x}) = \int_{\partial \Omega}
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \phi(\VEC{y})
+\dss{S}{y} \quad , \quad \VEC{x} \in \Omega \ ,
+}
+\]
+can be extended to $\overline{\Omega}$ to give a continuous solution for the
+interior Dirichlet problem (D1) with 
+$\displaystyle \frac{1}{2} \phi + T_K \phi$ instead of $f$ as boundary
+condition.
+By item (3) of Proposition~\ref{pot_split_prop}, there
+exists a unique $\psi \in W_-$ such that the single layer potential
+with moment $\psi$,
+\[
+\boxed{
+w(\VEC{x}) = \int_{\partial \Omega} N(\VEC{x},\VEC{y})
+\psi(\VEC{y}) \dss{S}{y} \quad , \quad \VEC{x} \in \RR^n \ ,
+}
+\]
+satisfies $\displaystyle w\big|_{\Omega_j^{\prime}} = a_j$ for
+$\displaystyle 1\leq j \leq m^{\prime}$, and
+$\displaystyle w\big|_{\Omega_0^{\prime}} = 0$.
+Since $\displaystyle w \in C(\RR^n)$ by
+Proposition~\ref{pot_slp_cont}, we have that
+$\displaystyle 
+w\big|_{\partial \Omega} = \sum_{j=1}^{m^{\prime}} a_j \phi_j^{\prime}$.
+Hence,
+\[
+\boxed{
+u(\VEC{x}) = v(\VEC{x}) + w(\VEC{x}) \quad , \quad \VEC{x} \in
+\overline{\Omega} \ ,
+}
+\]
+is a solution of (D1).
+
+\stage{D2}  From Proposition~\ref{pot_cor_splitL2}, we may write
+\[
+\boxed{
+f = - \frac{1}{2} \phi + T_K \phi + \sum_{i=1}^m a_j \phi_i
+}
+\]
+for some $\displaystyle \phi \in L^2(\partial \Omega)$ and $a_i \in \CC$.
+Since $f\in C(\partial \Omega)$ and $\phi_i \in C(\partial \Omega)$
+for all $j$, we have that
+$\displaystyle
+\phi -2 T_K \phi = -2f + 2 \sum_{j=1}^m a_j \phi_j \in C(\partial \Omega)$.
+It follows from Proposition~\ref{pot_compt_cont_K} that
+$\phi \in C(\partial \Omega)$.  From Theorem~\ref{pot_double_layer},
+the double layer potential with moment $\phi$
+\[
+\boxed{
+v(\VEC{x}) = \int_{\partial \Omega}
+\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \phi(\VEC{y})
+\dss{S}{y} \quad , \quad \VEC{x} \in \Omega^{\prime} \ ,
+}
+\]
+can be extended to $\overline{\Omega^{\prime}}$ to give a continuous
+solution of the exterior Dirichlet problem (D2) with
+$\displaystyle -\frac{1}{2} \phi + T_k \phi$ instead of $f$ as boundary
+condition.
+
+The rest of the proof is split in two cases: $n>2$ and $n=2$.
+
+\stage{$\mathbf{n>2}$}
+By item (4) of Proposition~\ref{pot_split_prop}, there
+exists a unique $\psi \in W_+$ such that the single layer potential
+with moment $\psi$,
+\[
+\boxed{
+w(\VEC{x}) = \int_{\partial \Omega} N(\VEC{x},\VEC{y})
+\psi(\VEC{y}) \dss{S}{y} \quad , \quad \VEC{x} \in \RR^n \ ,
+}
+\]
+satisfies $\displaystyle w\big|_{\Omega_i} = a_i$ for
+$1\leq i \leq m$.
+Since $\displaystyle w \in C(\RR^n)$ by Proposition~\ref{pot_slp_cont},
+$\displaystyle 
+w\big|_{\partial \Omega^{\prime}} = \sum_{i=1}^\infty a_i \phi_i$.
+Therefore,
+\[
+\boxed{
+u(\VEC{x}) = v(\VEC{x}) + w(\VEC{x}) \quad , \quad \VEC{x} \in
+\overline{\Omega^{\prime}} \ ,
+}
+\]
+is a solution of (D2).
+
+\stage{$\mathbf{n=2}$}
+Since
+$\displaystyle \sum_{i=1}^m \phi_i(\VEC{x}) = 1$ for
+$\VEC{x} \in \partial \Omega$, we may write
+\[
+\boxed{
+\sum_{i=1}^m a_i \phi_i(\VEC{x}) = \sum_{i=1}^m b_i \phi_i(\VEC{x}) + c \ ,
+}
+\]
+where $c$ is a constant and $(b_1,b_2, \ldots, b_m)$ is an element of
+the set $X$ defined in Proposition~\ref{pot_split_prop}.  Hence, by
+item (5) of Proposition~\ref{pot_split_prop}, there
+exists $\displaystyle \psi \in W_+^0$ such that the single layer
+potential with moment $\psi$,
+\[
+\boxed{
+w(\VEC{x}) = \int_{\partial \Omega} N(\VEC{x},\VEC{y})
+\psi(\VEC{y}) \dss{S}{y} \quad , \quad \VEC{x} \in \RR^n \  ,
+}
+\]
+satisfies $\displaystyle w\big|_{\Omega_i} = b_i$ for
+$1\leq i \leq m$.  Since
+$\displaystyle \int_{\partial \Omega} \psi(\VEC{y}) \dss{S}{y} = 0$
+because $\psi\in W_+^0$, we also have from Lemma~\ref{pot_1to1n2} that
+$w$ is harmonic at infinity.  Since $w \in C(\RR^n)$ by
+Proposition~\ref{pot_slp_cont},
+$\displaystyle 
+w\big|_{\partial \Omega^{\prime}} = \sum_{i=1}^m b_i \phi_i$.
+Therefore,
+\[
+\boxed{
+u(\VEC{x}) = v(\VEC{x}) + w(\VEC{x}) + c \quad , \quad \VEC{x} \in
+\overline{\Omega^{\prime}}
+}
+\]
+is a solution of (D2).
+\end{proof}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End: 

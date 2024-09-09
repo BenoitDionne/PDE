@@ -1,0 +1,7 @@
+\begin{picture}(0,0)%
+\includegraphics{laplace/laplace_fig3.pdf}%
+\end{picture}%
+
+% fig2dev -L pdftex laplace_fig3.fig laplace_fig3.pdf
+% fig2dev -L pdftex_t laplace_fig3.fig laplace_fig3.pdf_t
+
