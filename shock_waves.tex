@@ -2743,8 +2743,8 @@ open neighbourhood of the origin and
 \]
 We assume that $\Delta x / \Delta y > C$.  We select values
 $\VEC{u}_{j,k} \in \RR^n$ such that $k+j = 0 \mod{2}$ as it follows.
-We set $\VEC{u}_{j,0} = h((j+1)\Delta x + \theta_0 \Delta x)$ for
-$j \in \ZZ$ even and $\theta_0 \in [-1,1]$ randomly selected.  Suppose
+We set $\VEC{u}_{j,0} = h((j+1)\Delta x + \theta_{j,0} \Delta x)$ for
+$j \in \ZZ$ even and $\theta_{j,0} \in [-1,1]$ randomly selected.  Suppose
 that we have $\VEC{u}_{j,k} \in \RR^n$
 for $j\in \ZZ$ with $k+j =0 \mod{2}$ and $k\in \NN$ fixed.  For each
 $j \in \ZZ$ with $j+k \mod{2}$, we solve the Riemann problem
@@ -2757,8 +2757,8 @@ $v(x, k\Delta y) = \VEC{u}_{j-2,k}$ for $ x \leq j \Delta x$
 and $v(x, k\Delta y) = \VEC{u}_{j,k}$ for $ x > j \Delta x$.
 Let $v_{j,k}$ be the solution of this problem.  We set
 $\VEC{u}_{j-1,k+1} = v_{i,j}(\VEC{a}_{j-1,k+1})$, where
-$\VEC{a}_{j-1,k+1} = (j\Delta x + \theta_{k+1} \Delta x, (k+1) \Delta y)$
-and $\theta_{k+1} \in [-1,1]$ has been randomly selected
+$\VEC{a}_{j-1,k+1} = (j\Delta x + \theta_{j-1,k+1} \Delta x, (k+1) \Delta y)$
+and $\theta_{j-1,k+1} \in [-1,1]$ has been randomly selected
 (Figure~\ref{shock_fig20}).
 
 \pdfF{shock_waves/shock_fig20}{Glimm Difference Scheme}
@@ -2773,8 +2773,9 @@ $x$,$y$ characteristics used for the connections associated to each
 Riemann problem.  It is traditional to take $\Delta y = c \Delta x$ with
 $c>C$ fixed.
 
-For each choice of $\Delta x$ and
-$\Theta = \{\theta_0, \theta_1, \theta_2, \ldots \}$, we
+Let $I = \{ (j,k) \in \ZZ \times \NN : j+k = 0 \mod{2} \}$ and
+$\displaystyle \tilde{R} = \prod_{(j,k) \in I} [-1,1]$.
+For each choice of $\Delta x$ and $\Theta \in \tilde{R}$, we
 define the following approximation $u_{\Theta, \Delta x}$ of the solution $u$ of
 (\ref{systConLawEq1}) with the initial condition $u(x,0) = h(x)$.
 Set $u_{\Theta,\Delta x}(x,y) = v_{j,k}(x,y)$ for
@@ -2792,12 +2793,12 @@ characteristic for the general initial condition}{The exact $x$,$y$
 characteristic for the system of conservation laws with a general
 initial condition is the dashed line in red.}{shock_fig21}
 
-Let $I = \{ (j,k) \in \ZZ \times \NN : j+k = 0 \mod{2} \}$ and
-$\displaystyle R = \prod_{(j,k) \in I} [(j-1)\Delta x,(j+1) \Delta x]
-\times \{(k+1)\Delta y\}$.  Since
-$[(j-1)\Delta x,(j+1) \Delta x]$ is homeomorphic to
-$[-1,1]$ for any $\Delta x$, we can define an homeomorphism $\Phi$
-between $R$ and $\displaystyle \tilde{R} = \prod_{(j,k) \in I} [-1,1]$.
+Let $\displaystyle R = \prod_{(j,k) \in I} [j\Delta x,(j+2) \Delta x]
+\times \{k \Delta y\}$.  We have that $\Phi:\tilde{R} \to R$
+defined by $\displaystyle \Phi(\Theta) =
+\prod_{(j,k) \in I} (j\Delta x + \theta_{j,k} \Delta x, k \Delta y)$
+for all $\Theta \in \tilde{R}$ is an homeomorphism 
+for any $\Delta x$.
 
 One shows that there exist a set $\tilde{N}$ of measure zero in
 $\tilde{R}$ and a sequence $\displaystyle \{ \Delta x_i\}_{i=1}^\infty$
@@ -2805,11 +2806,11 @@ converging to $0$ such that
 $\displaystyle \{u_{\Theta,\Delta x_i}\}_{i=1}^\infty$ converges in
 $L^1_{loc}(\RR\times [0,\infty[)$ to a solution of
 (\ref{systConLawEq1}) with the initial condition $u(x,0) = h(x)$ if
-$\Theta$ is such that
-$\displaystyle \Phi\big(\big(\VEC{a}_{j,k} : (j,k)\in I\big)\big)
-\in \tilde{R}\setminus \tilde{N}$.  Recall that $\VEC{a}_{j,k} \in 
-[(j-1)\Delta x,(j+1) \Delta x] \times \{(k+1)\Delta y\}$ is randomly
-selected.
+$\Theta \in \tilde{R}\setminus \tilde{N}$.
+Recall that
+$\VEC{a}_{j,k} = ((j+1)\Delta x + \theta_{j,k} \Delta x, k \Delta y)
+\in [j\Delta x,(j+2) \Delta x] \times \{k \Delta y\}$
+and $\theta_{j,k} \in [-1,1]$ has been randomly selected.
 
 There are a lot of technical details that need to be proved to support
 the claims in the sketch of the proof.  One has to properly define what 
