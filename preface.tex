@@ -322,17 +322,22 @@ $\displaystyle \VEC{x} \in \RR^n$ is defined by
 We adopt the convention that $\|\cdot\|$ will denote the $2$-norm or
 Euclidean norm $\|\cdot\|_2$.
 
-The open ball of radius $r$ centred at
-$\displaystyle \VEC{y} \in \RR^n$ is denoted
-by $\displaystyle B_r(\VEC{y}) = \left\{ \VEC{x} \in \RR^n :
+The open ball of radius $r$ centred at $\displaystyle \VEC{y} \in \RR^n$
+is denoted $\displaystyle B_r(\VEC{y})$; namely,\\
+$\displaystyle B_r(\VEC{y}) = \left\{ \VEC{x} \in \RR^n :
 \left\|\VEC{x}-\VEC{y} \right\| < r \right\}$.  We will also use this
 notation to denote open balls in any metric spaces.
 
 Let $V$ be a subset of $\displaystyle \RR^n$ and $f:V \to \RR$.  The
 supremum norm of $f$ on $V$ is defined by
 $\displaystyle \|f\|_{\infty,V} = \sup_{\VEC{x}\in V} |f(\VEC{x})|$.
-If $f$ is sufficiently differentiable and $\displaystyle \alpha \in \NN^n$, we
-define the differential operator $\displaystyle \diff^\alpha$ by
+We will simply write $\|f\|_\infty$ when it is clear from the context
+what is the set $V$ used in the definition of the supremum.
+
+If $V$ be an open subset of $\displaystyle \RR^n$ and $f:V \to \RR$ is
+sufficiently differentiable, we define the differential operator
+$\displaystyle \diff^\alpha$ for $\displaystyle \alpha \in \NN^n$
+by
 \[
 \diff^\alpha f\left(\VEC{x}\right)
 = \frac{\partial^{|\alpha|} f}{\partial x_1^{\alpha_1}
