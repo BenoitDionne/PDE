@@ -558,7 +558,7 @@
   equations given at the University of Ottawa.
 
   \noindent This document is available on the following sites.\\
-  uO Research: http://hdl.handle.net/10393/45600 \\
+  uO Research: \\ % http://hdl.handle.net/10393/45600 \\
   GitHub: https://github.com/BenoitDionne/PDE
 
   \vspace*{1cm}
@@ -630,7 +630,7 @@
       {\color{purple}\rule{\textwidth}{1pt}}%
     \end{figure}}
 
-\newcommand{\pdfFD}[6][TTT]{
+\newcommand{\pdfFD}[6][TTT]{%
   \ifthenelse{\equal{TTT}{#1}}{\begin{figure}}{\begin{figure}[#1]}%
       {\color{purple}\rule{\textwidth}{1pt}}\begin{center} %
         \input{#2.pdf_t}\end{center} %
