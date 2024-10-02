@@ -330,34 +330,37 @@ $\displaystyle B_r(\VEC{y}) = \left\{ \VEC{x} \in \RR^n :
 notation to denote open balls in any metric spaces.
 
 Let $V$ be a subset of $\displaystyle \RR^n$ and $f:V \to \RR$.  The
-supremum norm of $f$ on $V$ is defined by
+{\bfseries supremum norm}\index{Supremum Norm of a Function}
+of $f$ on $V$ is defined by
 $\displaystyle \|f\|_{\infty,V} = \sup_{\VEC{x}\in V} |f(\VEC{x})|$.
 We will simply write $\|f\|_\infty$ when it is clear from the context
 what is the set $V$ used in the definition of the supremum.
 
 If $V$ be an open subset of $\displaystyle \RR^n$ and $f:V \to \RR$ is
 sufficiently differentiable, we define the differential operator
-$\displaystyle \diff^\alpha$ for $\displaystyle \alpha \in \NN^n$
+$\displaystyle \diff^{\VEC{\alpha}}$ for $\displaystyle \VEC{\alpha} \in \NN^n$
 by
 \[
-\diff^\alpha f\left(\VEC{x}\right)
-= \frac{\partial^{|\alpha|} f}{\partial x_1^{\alpha_1}
+\diff^{\VEC{\alpha}} f\left(\VEC{x}\right)
+= \frac{\partial^{|\VEC{\alpha}|} f}{\partial x_1^{\alpha_1}
 \partial x_2^{\alpha_2} \ldots \partial x_n^{\alpha_n}}\left(\VEC{x}\right)
 \]
-for $\VEC{x} \in V$, where $\displaystyle |\alpha| = \sum_{j=1}^n \alpha_j$.
+for $\VEC{x} \in V$, where
+$\displaystyle |\VEC{\alpha}| = \sum_{j=1}^n \alpha_j$.
 
 \begin{defn*}
 Let $V$ be an open subset of $\displaystyle \RR^n$.  For $m\in \NN$,
 $\displaystyle C^m(\overline{V})$ is the space of all
 $\displaystyle f \in C^m(V) \cap C(\overline{V})$ such that
-$\displaystyle \diff^\alpha f$ can be continuously extended
+$\displaystyle \diff^{\VEC{\alpha}} f$ can be continuously extended
 to $\overline{V}$ for
-all multi-index $\displaystyle \alpha \in \NN^n$ such that $|\alpha|\leq m$.
+all multi-index $\displaystyle \VEC{\alpha} \in \NN^n$ such that
+$|\VEC{\alpha}|\leq m$.
 
 $\displaystyle C^\infty(\overline{V})$ is the space of all
 $\displaystyle f \in C^\infty(V) \cap C(\overline{V})$ such that
-$\displaystyle \diff^\alpha f$ can be continuously extended to
-$\overline{V}$ for all multi-index $\displaystyle \alpha \in \NN^n$.
+$\displaystyle \diff^{\VEC{\alpha}} f$ can be continuously extended to
+$\overline{V}$ for all multi-index $\displaystyle \VEC{\alpha} \in \NN^n$.
 \end{defn*}
 
 \begin{defn*}
@@ -367,8 +370,8 @@ functions}\index{Bounded Continuous Functions}, denoted
 $\displaystyle C_b^k(\overline{V})$, is the set of all functions
 $\displaystyle f\in C^k\left(\overline{V}\right)$ such that
 \[
-\|f\|_{k,\infty,V} \equiv \max_{|\alpha|\leq k}
-\|\diff^\alpha f\|_{\infty,\overline{V}} < \infty \ .
+\|f\|_{k,\infty,V} \equiv \max_{|\VEC{\alpha}|\leq k}
+\|\diff^{\VEC{\alpha}} f\|_{\infty,\overline{V}} < \infty \ .
 \]
 \end{defn*}
 
@@ -382,7 +385,7 @@ positive integer.  The space of {\bfseries bounded uniformly continuous
 functions}\index{Bounded Uniformly Continuous Functions}, denoted
 $\displaystyle C_{bu}^k(\overline{V})$, is the set of all functions
 $\displaystyle f\in C_b^k\left(\overline{V}\right)$ such that
-$\displaystyle \diff^\alpha f:\overline{V} \to \RR$ is uniformly
+$\displaystyle \diff^{\VEC{\alpha}} f:\overline{V} \to \RR$ is uniformly
 continuous.
 \end{defn*}
 

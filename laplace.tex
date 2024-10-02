@@ -18,23 +18,23 @@ $\displaystyle u\big|_{\partial \Omega} = f$.
 
 \subI{Neumann Boundary Conditions} Given
 $g:\partial \Omega \rightarrow \RR$, we require that
-$\displaystyle \pdydx{u}{\VEC{\nu}}(\VEC{x}) = g(\VEC{x})$
-for $\VEC{x} \in \partial \Omega$, where $\VEC{\nu}(\VEC{x})$ is the
+$\displaystyle \pdydx{u}{\nu}(\VEC{x}) = g(\VEC{x})$
+for $\VEC{x} \in \partial \Omega$, where $\nu(\VEC{x})$ is the
 outward unit normal to the surface $\partial \Omega$ at $\VEC{x}$.  We write
-$\displaystyle \pdydx{u}{\VEC{\nu}} \bigg|_{\partial \Omega} = g$.
+$\displaystyle \pdydx{u}{\nu} \bigg|_{\partial \Omega} = g$.
 
 \subI{Mixed Boundary Conditions} A mix of the previous two conditions.
 We assign $u$ on some parts of $\partial \Omega$ and
-$\displaystyle \pdydx{u}{\VEC{\nu}}$ on the other parts of $\partial \Omega$.
+$\displaystyle \pdydx{u}{\nu}$ on the other parts of $\partial \Omega$.
 
 \subI{Robin Boundary Conditions} Given
 $u_0:\partial \Omega \rightarrow \RR$, we require that
 \[
-\pdydx{u}{\VEC{\nu}}(\VEC{x}) + \alpha \left( u(\VEC{x})
+\pdydx{u}{\nu}(\VEC{x}) + \alpha \left( u(\VEC{x})
 - u_0(\VEC{x}) \right) = 0 \quad , \quad \VEC{x} \in \partial \Omega \ ,
 \]
 where $\alpha$ is a constant.  We write
-$\displaystyle \left( \pdydx{u}{\VEC{\nu}} +
+$\displaystyle \left( \pdydx{u}{\nu} +
 \alpha (u - u_0)\right)\bigg|_{\partial \Omega} = 0$.
 
 For the steady-state heat problem.  Robin Boundary Conditions is used
@@ -71,39 +71,39 @@ boundary (at least a boundary of class $\displaystyle C^2$).  If $u$
 and $v$ are two functions of class
 $\displaystyle C^2(\Omega) \cap C^1(\overline{\Omega})$, then
 \begin{align}
-\int_{\partial \Omega} v\,\pdydx{u}{\VEC{\nu}} \dx{S}
+\int_{\partial \Omega} v\,\pdydx{u}{\nu} \dx{S}
 &= \int_\Omega \left( v \Delta u + \nabla u \cdot \nabla v \right)
 \dx{\VEC{x}} \label{laplace_green1}
 \intertext{and}
-\int_{\partial \Omega} \left( v\,\pdydx{u}{\VEC{\nu}} 
-- u\,\pdydx{v}{\VEC{\nu}} \right) \dx{S}
+\int_{\partial \Omega} \left( v\,\pdydx{u}{\nu} 
+- u\,\pdydx{v}{\nu} \right) \dx{S}
 &= \int_\Omega \left( v \Delta u -  u \Delta v \right)
 \dx{\VEC{x}} \ , \label{laplace_green2}
 \end{align}
-where $\VEC{\nu}(\VEC{x})$ is the outward unit normal to the surface
+where $\nu(\VEC{x})$ is the outward unit normal to the surface
 $\partial \Omega$ at $\VEC{x} \in \partial \Omega$.
 \index{Green's Identities}
 \end{prop}
 
 \begin{rmk}
 Recall that a function $f:\Omega \rightarrow \RR$ is of class
-$\displaystyle C^k(\overline{\Omega})$ if $\displaystyle D^\alpha f$
+$\displaystyle C^k(\overline{\Omega})$ if $\displaystyle D^{\VEC{\alpha}} f$
 can be continuously extended to $\overline{\Omega}$ for all
-multi-index $\alpha$ such that $|\alpha|\leq k$.
+multi-index $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq k$.
 \end{rmk}
 
 \begin{proof}
 The Divergence Theorem\index{Divergence Theorem} states that
 \[
-\int_{\partial \Omega} F \cdot \VEC{\nu}\ \dx{S} =
+\int_{\partial \Omega} F \cdot \nu\ \dx{S} =
 \int_\Omega \diV F \dx{\VEC{x}}
 \]
 for $\displaystyle F:\Omega \rightarrow \RR^n$ of class
 $\displaystyle C^1(\Omega) \cap C(\overline{\Omega})$ and
-$\VEC{\nu}$ a unite normal to $\partial \Omega$ pointing outside of
+$\nu$ a unite normal to $\partial \Omega$ pointing outside of
 $\Omega$.
 
-Moreover, $\displaystyle \pdydx{f}{\VEC{\nu}} = \nabla f \cdot \VEC{\nu}$
+Moreover, $\displaystyle \pdydx{f}{\nu} = \nabla f \cdot \nu$
 for $\displaystyle f \in C^1(\Omega)$.  Thus
 (\ref{laplace_green1}) follows from the Divergence Theorem applied to
 $F = v \nabla u$.  To get (\ref{laplace_green2}), interchange $u$ and
@@ -147,7 +147,7 @@ harmonic on $\Omega$. \index{Mean Value Theorem}
 It follows from the Green's identity (\ref{laplace_green1}) on
 $\displaystyle \overline{B_s(\VEC{x})}$ with $v \equiv 1$ that
 \begin{equation} \label{MVTequ1}
-\int_{\partial B_s(\VEC{x})} \pdydx{u}{\VEC{\nu}} \dx{S}
+\int_{\partial B_s(\VEC{x})} \pdydx{u}{\nu} \dx{S}
 = \int_{B_s(\VEC{x})} \Delta u \dx{\VEC{x}} = 0
 \end{equation}
 for all $0 \leq s \leq r$.  Since $u$ and
@@ -162,11 +162,11 @@ set $\overline{B_r(\VEC{x})}$, we may write
 & = s^{1-n}\int_{\partial B_s(\VEC{x})} \graD u(\VEC{y}) \cdot
 (s^{-1}(\VEC{y}-\VEC{x})) \dss{S}{y}
 = s^{1-n} \int_{\partial B_s(\VEC{x})}
-\pdydx{u}{\VEC{\nu}} \dx{S} = 0
+\pdydx{u}{\nu} \dx{S} = 0
 \end{align*}
 for all $0<s<r$, where we note that the unit normal vector to
 $\partial B_s(\VEC{x})$ at $\VEC{y} \in \partial B_s(\VEC{x})$ is
-$\displaystyle \VEC{\nu}(\VEC{y}) = s^{-1}(\VEC{y}-\VEC{x})$.
+$\displaystyle \nu(\VEC{y}) = s^{-1}(\VEC{y}-\VEC{x})$.
 Therefore,
 $\displaystyle s \mapsto
 \int_{\partial B_1(\VEC{0})} u(\VEC{x} + s\VEC{y}) \dss{S}{y}$
@@ -256,19 +256,21 @@ $\displaystyle \phi_\epsilon \in C_c^\infty(\RR^n)$ and, for any
 $\VEC{x}_0 \in \Omega_\epsilon$ and $\delta>0$ such that
 $\overline{B_\delta(\VEC{x}_0)} \subset \Omega_\epsilon$, the function
 \begin{align*}
-h_\alpha: \Omega_\epsilon \times \Omega &\rightarrow \RR \\
-(\VEC{x},\VEC{y}) &\mapsto u(\VEC{y})D^\alpha_{\VEC{x}}
+h_{\VEC{\alpha}}: \Omega_\epsilon \times \Omega &\rightarrow \RR \\
+(\VEC{x},\VEC{y}) &\mapsto u(\VEC{y})D^{\VEC{\alpha}}_{\VEC{x}}
 \phi_\epsilon(\VEC{x}-\VEC{y})
 \end{align*}
 is uniformly continuous on
 $\overline{B_\delta(\VEC{x}_0)} \times \Omega$ for all
-multi-index $\alpha$ as we now show.  Since $h_\alpha$ is continuous
-on the compact set $\displaystyle \overline{B_\delta(\VEC{x}_0)} \times
-\overline{B_{\delta+\epsilon}(\VEC{x}_0)}$, $h_\alpha$ is uniformly
-continuous on this set.  Since $h_\alpha(\VEC{x},\VEC{y}) = 0$ for
+multi-index $\VEC{\alpha}$.  This follows from the
+fact that $h_{\VEC{\alpha}}:\Omega_\epsilon \times \Omega$ is
+continuous, so it is uniformly continuous on the compact set
+$\displaystyle \overline{B_\delta(\VEC{x}_0)} \times
+\overline{B_{\delta+\epsilon}(\VEC{x}_0)}$, $h_{\VEC{\alpha}}$.  Since
+$h_{\VEC{\alpha}}(\VEC{x},\VEC{y}) = 0$ for
 $\VEC{x} \in \overline{B_{\delta}(\VEC{x}_0)}$ and
 $\VEC{y} \not\in \overline{B_{\delta+\epsilon}(\VEC{x}_0)}$,
-$h_\alpha$ is uniformly continuous on
+$h_{\VEC{\alpha}}$ is uniformly continuous on
 $\overline{B_\delta(\VEC{x}_0)} \times \Omega$.
 
 \stage{ii} Since
@@ -286,16 +288,16 @@ $\VEC{y} = r^{-1} (\VEC{z}-\VEC{x})$, we get
  \dss{S}{y} \\
 &= \int_{\partial B_r(\VEC{x})} \graD u(\VEC{z}) \cdot \left(
   r^{-1} (\VEC{z} - \VEC{x}) \right) \, r^{1-n} \dss{S}{z}
-= r^{1-n} \int_{\partial B_r(\VEC{x})} \pdydx{u}{\VEC{\nu}} \dx{S} \ ,
+= r^{1-n} \int_{\partial B_r(\VEC{x})} \pdydx{u}{\nu} \dx{S} \ ,
 \end{align*}
 where we note that the outward unit normal vector to $\partial B_r(\VEC{x})$
 at $\VEC{z} \in \partial B_r(\VEC{x})$ is
-$\displaystyle \VEC{\nu}(\VEC{z}) = r^{-1}(\VEC{z}-\VEC{x})$.
+$\displaystyle \nu(\VEC{z}) = r^{-1}(\VEC{z}-\VEC{x})$.
 
 It follows from (\ref{laplace_green1}) with $\Omega = B_r(\VEC{x})$
 and $v=1$ on $\Omega$ that
 \[
-0 = = r^{1-n} \int_{\partial B_r(\VEC{x})} \pdydx{u}{\VEC{\nu}} \dx{S}
+0 = = r^{1-n} \int_{\partial B_r(\VEC{x})} \pdydx{u}{\nu} \dx{S}
 = r^{1-n} \int_{B_r(\VEC{x})} \Delta u \dx{\VEC{y}} \ .
 \]
 Since this is true for all $\VEC{x} \in \Omega$ and
@@ -442,7 +444,7 @@ $\Delta u \geq 0$ on $\Omega$.
 \stage{$\mathbf{\Leftarrow}$}  This is basically the proof given for
 Theorem~\ref{laplace_MVT}.  The only difference is that
 (\ref{MVTequ1}) shows that $\displaystyle \int_{\partial B_s(\VEC{x})}
-\pdydx{u}{\VEC{\nu}} \dss{S}{y} \geq 0$.
+\pdydx{u}{\nu} \dss{S}{y} \geq 0$.
 It then follows that
 $\displaystyle s \mapsto
 \int_{\partial B_1(\VEC{0})} u(\VEC{x} + s\VEC{y}) \dss{S}{y}$
@@ -461,14 +463,14 @@ $\displaystyle \overline{B_r(\VEC{z})}$, we may write
 \[
 \pdfdx{ \int_{\partial B_1(\VEC{0})} u(\VEC{z} + s\VEC{y}) \dss{S}{y} }{s}
 = \int_{\partial B_1(\VEC{0})} \pdfdx{ u(\VEC{z} + s\VEC{y})}{s} \dss{S}{y}
-= s^{1-n} \int_{\partial B_s(\VEC{x})} \pdydx{u}{\VEC{\nu}} \dx{S}
+= s^{1-n} \int_{\partial B_s(\VEC{x})} \pdydx{u}{\nu} \dx{S}
 \]
 for $0 < s < r$.
 It then follows from Green's identity (\ref{laplace_green1}) on
 $B_x(\VEC{x})$ with $v \equiv 1$ that
 \[
 \pdfdx{ \int_{\partial B_1(\VEC{0})} u(\VEC{z} + s\VEC{y}) \dss{S}{y} }{s}
-= s^{1-n} \int_{\partial B_s(\VEC{x})} \pdydx{u}{\VEC{\nu}} \dx{S}
+= s^{1-n} \int_{\partial B_s(\VEC{x})} \pdydx{u}{\nu} \dx{S}
 = s^{1-n} \int_{B_s{\VEC(x)}} \Delta u \dx{\VEC{y}} < 0
 \]
 for $0 < s < r$.  Hence, $s \mapsto M_u(\VEC{z},s)$ is a decreasing
@@ -867,13 +869,13 @@ Let $\displaystyle \Omega \subset \RR^n$ be an open bounded set.  If
 $\displaystyle u\in C^1(\overline{\Omega})$ is harmonic in $\Omega$, then
 \begin{equation} \label{laplace_pot3}
 u(\VEC{x}) = \int_{\partial \Omega} \left( u(\VEC{y})
-\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) -
-N(\VEC{x},\VEC{y})\,\pdydx{u}{\VEC{\nu}_{\VEC{y}}}(\VEC{y})\right)
+\pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y}) -
+N(\VEC{x},\VEC{y})\,\pdydx{u}{\nu_{\VEC{y}}}(\VEC{y})\right)
 \dss{S}{y} \quad , \quad \VEC{x} \in \Omega \ ,
 \end{equation}
-where $\displaystyle \pdydx{N}{\VEC{\nu}_{\VEC{y}}}$ denotes the
+where $\displaystyle \pdydx{N}{\nu_{\VEC{y}}}$ denotes the
 directional derivative of $\VEC{y} \mapsto N(\VEC{x},\VEC{y})$ in the
-direction of the outward unit normal $\VEC{\nu}(\VEC{y})$ to
+direction of the outward unit normal $\nu(\VEC{y})$ to
 $\partial \Omega$ at $\VEC{y}$
 \end{theorem}
 
@@ -885,9 +887,9 @@ Since $\Delta u = 0$ on $\Omega$, we get from Green's identity
 \int_{\Omega} u(\VEC{y}) \Delta_{\VEC{y}}
 N_{\epsilon}(\VEC{x},\VEC{y}) \dx{\VEC{y}}
 = \int_{\partial \Omega} \left( u(\VEC{y})
-\pdydx{N_{\epsilon}}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) -
+\pdydx{N_{\epsilon}}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y}) -
 N_{\epsilon}(\VEC{x},\VEC{y}) \,
-\pdydx{u}{\VEC{\nu}_{\VEC{y}}}(\VEC{y})\right) \dss{S}{y} \ .
+\pdydx{u}{\nu_{\VEC{y}}}(\VEC{y})\right) \dss{S}{y} \ .
 \end{equation}
 
 \stage{i}
@@ -918,33 +920,33 @@ Since $\VEC{x} \not\in \partial \Omega$ and $\partial \Omega$ is a
 compact subset of $\displaystyle \RR^n$, we have that
 \[
 \left| u(\VEC{y})
-\pdydx{N_{\epsilon}}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \right|
-\leq \left| u(\VEC{y}) \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) \right|
+\pdydx{N_{\epsilon}}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y}) \right|
+\leq \left| u(\VEC{y}) \pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y}) \right|
 \]
 for all $\VEC{y} \in \partial \Omega$ with
 $\displaystyle \VEC{y}\mapsto u(\VEC{y})
-\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})$ in
+\pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y})$ in
 $\displaystyle L^1(\partial \Omega)$.
 Moreover,
 \[
 \lim_{\epsilon \rightarrow 0}
-u(\VEC{y}) \pdydx{N_{\epsilon}}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})
-= u(\VEC{y}) \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})
+u(\VEC{y}) \pdydx{N_{\epsilon}}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y})
+= u(\VEC{y}) \pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y})
 \]
 for all $\VEC{y} \in \partial \Omega$.  We have similar results for 
 $\displaystyle N_{\epsilon}(\VEC{x},\VEC{y})
-\, \pdydx{u}{\VEC{\nu}_{\VEC{y}}}(\VEC{y})$; namely,
+\, \pdydx{u}{\nu_{\VEC{y}}}(\VEC{y})$; namely,
 \[
 \left| N_{\epsilon}(\VEC{x},\VEC{y})
-\pdydx{u}{\VEC{\nu}_{\VEC{y}}}(\VEC{y}) \right|
+\pdydx{u}{\nu_{\VEC{y}}}(\VEC{y}) \right|
 \leq h(\VEC{x},\VEC{y})
 \equiv
 \begin{cases}
 \displaystyle N(\VEC{x},\VEC{y})
-\, \pdydx{u}{\VEC{\nu}_{\VEC{y}}}(\VEC{y}) & \quad \text{if} \ n > 2 \\[0.8em]
+\, \pdydx{u}{\nu_{\VEC{y}}}(\VEC{y}) & \quad \text{if} \ n > 2 \\[0.8em]
 \displaystyle
 \frac{1}{\omega_2} \left( \left|\ln\left(\|\VEC{x}- \VEC{y}\|\right)\right|
-+1 \right) \, \pdydx{u}{\VEC{\nu}_{\VEC{y}}}(\VEC{y}) & \quad
++1 \right) \, \pdydx{u}{\nu_{\VEC{y}}}(\VEC{y}) & \quad
 \text{if} \ n = 2
 \end{cases}
 \]
@@ -955,9 +957,9 @@ Moreover,
 \[
 \lim_{\epsilon \rightarrow 0}
 N_{\epsilon}(\VEC{x},\VEC{y})
-\pdydx{u}{\VEC{\nu}_{\VEC{y}}}(\VEC{y})
+\pdydx{u}{\nu_{\VEC{y}}}(\VEC{y})
 = N(\VEC{x},\VEC{y})
-\pdydx{u}{\VEC{\nu}_{\VEC{y}}}(\VEC{y})
+\pdydx{u}{\nu_{\VEC{y}}}(\VEC{y})
 \]
 for all $\VEC{y} \in \partial \Omega$.
 
@@ -965,18 +967,18 @@ It follows from the Lebesgue dominate convergence theorem that the
 right hand side of (\ref{laplace_pot2}) converges to
 \[
 \int_{\partial \Omega} \left( u(\VEC{y})
-\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) - N(\VEC{x},\VEC{y}) \,
-\pdydx{u}{\VEC{\nu}_{\VEC{y}}}(\VEC{y})\right) \dss{S}{y} \ .
+\pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y}) - N(\VEC{x},\VEC{y}) \,
+\pdydx{u}{\nu_{\VEC{y}}}(\VEC{y})\right) \dss{S}{y} \ .
 \]
 \end{proof}
 
 \begin{rmk}
 Replacing $\displaystyle u\big|_{\partial \Omega}$ by $f$ and
-$\displaystyle \pdydx{u}{\VEC{\nu}}\bigg|_{\partial \Omega}$ by $g$
+$\displaystyle \pdydx{u}{\nu}\bigg|_{\partial \Omega}$ by $g$
 in (\ref{laplace_pot3}) does not generally give a solution of
 $\Delta u = 0$ in $\Omega$ with the boundary conditions
 $\displaystyle u\big|_{\partial \Omega} = f$ and
-$\displaystyle \pdydx{u}{\VEC{\nu}}\bigg|_{\partial \Omega} = g$.
+$\displaystyle \pdydx{u}{\nu}\bigg|_{\partial \Omega} = g$.
 There may not be a solution of $\Delta u = 0$ in $\Omega$ with such
 boundary conditions.  This is a consequence of the uniqueness theorem,
 Theorem~\ref{laplace_uniqu_th}, which states that the solution is
@@ -1007,8 +1009,8 @@ and $\displaystyle w \in C^{\infty}(\overline{B})$.  Hence, from
 Theorem~\ref{laplace_uhexp}, we have
 \begin{equation} \label{laplaceAnalExt}
 w(\VEC{x}) = \int_{\partial B} \left( w(\VEC{y})
-\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y}) -
-N(\VEC{x},\VEC{y})\,\pdydx{w}{\VEC{\nu}_{\VEC{y}}}(\VEC{y})\right)
+\pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y}) -
+N(\VEC{x},\VEC{y})\,\pdydx{w}{\nu_{\VEC{y}}}(\VEC{y})\right)
 \dss{S}{y}
 \end{equation}
 for $\VEC{x} \in B$.
@@ -1016,7 +1018,7 @@ for $\VEC{x} \in B$.
 Given $\VEC{y} \in \partial B$, the functions
 $\VEC{x} \mapsto N(\VEC{x},\VEC{y})$ and
 \[
-\VEC{x} \mapsto \pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})
+\VEC{x} \mapsto \pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y})
 = \frac{-1}{\omega_n \|\VEC{x}-\VEC{y}\|_2^n\,\|\VEC{y}-\VEC{x_0}\|_2} \, 
 (\VEC{x} - \VEC{y}) \cdot (\VEC{y}-\VEC{x}_0) 
 \]
@@ -1030,7 +1032,7 @@ functions to complex analytic (and so holomorphic) functions for
 More precisely, the real series expansion for 
 $\VEC{x} \mapsto N(\VEC{x},\VEC{y})$ and
 $\displaystyle \VEC{x} \mapsto
-\pdydx{N}{\VEC{\nu}_{\VEC{y}}}(\VEC{x},\VEC{y})$ can be used to
+\pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y})$ can be used to
 defined the complex extension since
 \[
 \| \VEC{x} -\VEC{x}_0 \|_2
@@ -1056,7 +1058,7 @@ and a solution for the
 {\bfseries Neumann Problem}\index{Poisson Equation!Neumann Problem}
 \begin{equation} \label{laplace_neum_probl}
 \Delta u = f \quad \text{in} \quad \Omega \qquad \text{with} \qquad
-\pdydx{u}{\VEC{\nu}}\bigg|_{\partial \Omega} = g \ .
+\pdydx{u}{\nu}\bigg|_{\partial \Omega} = g \ .
 \end{equation}
 
 There are a few issues to raise before attempting to solve the Dirichlet
@@ -1074,7 +1076,7 @@ $\tilde{\Omega}$ that
 \[
 \int_{\tilde{\Omega}} f(\VEC{x}) \dx{\VEC{x}}
 = \int_{\tilde{\Omega}} \Delta u(\VEC{x}) \dx{\VEC{x}}
-= \int_{\partial \tilde{\Omega}} \pdydx{u}{\VEC{\nu}}(\VEC{x}) \dss{S}{x}
+= \int_{\partial \tilde{\Omega}} \pdydx{u}{\nu}(\VEC{x}) \dss{S}{x}
 = \int_{\partial \tilde{\Omega}} g(\VEC{x}) \dss{S}{x} \ .
 \]
 \item For the Dirichlet, we may assume without loss of generality that
@@ -1126,12 +1128,12 @@ $f=0$ in $\Omega$ or $g=0$ on $\partial \Omega$.
 If $v$ satisfies
 \begin{equation} \label{laplace_pot7}
 \Delta v = f \quad \text{in} \quad \Omega \qquad \text{with}
-\qquad \pdydx{v}{\VEC{\nu}}\bigg|_{\partial \Omega} = 0 \ ,
+\qquad \pdydx{v}{\nu}\bigg|_{\partial \Omega} = 0 \ ,
 \end{equation}
 and $w$ satisfies
 \begin{equation} \label{laplace_pot8}
 \Delta w = 0 \quad \text{in} \quad \Omega \qquad \text{with}
-\qquad \pdydx{w}{\VEC{\nu}}\bigg|_{\partial \Omega} = g \ ,
+\qquad \pdydx{w}{\nu}\bigg|_{\partial \Omega} = g \ ,
 \end{equation}
 then $u=v+w$ satisfies (\ref{laplace_neum_probl}).  Moreover, if we
 can solve problems of the form (\ref{laplace_pot7}) then we can solve
@@ -1140,11 +1142,11 @@ problems of the form (\ref{laplace_pot8}) and vice-versa.
 Suppose that we can solve problems of the form (\ref{laplace_pot7}).
 Choose
 $\displaystyle \tilde{g} \in C^2(\Omega) \cap C^1(\overline{\Omega})$ such that
-$\displaystyle \pdydx{\tilde{g}}{\VEC{\nu}} = g$ on $\partial \Omega$.
+$\displaystyle \pdydx{\tilde{g}}{\nu} = g$ on $\partial \Omega$.
 Let $v$ be the solution of
 \[
 \Delta v = \Delta \tilde{g} \quad \text{in} \quad \Omega \qquad \text{with}
-\qquad \pdydx{v}{\VEC{\nu}}\bigg|_{\partial \Omega} = 0 \ .
+\qquad \pdydx{v}{\nu}\bigg|_{\partial \Omega} = 0 \ .
 \]
 Then $w=\tilde{g}-v$ satisfies (\ref{laplace_pot8}).
 
@@ -1162,8 +1164,8 @@ $\displaystyle \Delta \tilde{v} = \tilde{f}$ as we have seen before.
 Let $w$ be the solution of
 \[
 \Delta w = 0 \quad \text{in} \quad \Omega \qquad \text{with}
-\qquad \pdydx{w}{\VEC{\nu}}\bigg|_{\partial \Omega} =
-\pdydx{\tilde{v}}{\VEC{\nu}}\bigg|_{\partial \Omega} \ .
+\qquad \pdydx{w}{\nu}\bigg|_{\partial \Omega} =
+\pdydx{\tilde{v}}{\nu}\bigg|_{\partial \Omega} \ .
 \]
 Then $v=\tilde{v}-w$ satisfies (\ref{laplace_pot7}).
 \end{enumerate}
@@ -1335,16 +1337,16 @@ Thus
 \begin{split}
 &\int_{\Omega_{\epsilon}} \left( G_{\VEC{x}} \Delta G_{\VEC{y}} - G_{\VEC{y}}
 \Delta G_{\VEC{x}} \right) \dx{\VEC{z}}
-= \int_{\partial \Omega_{\epsilon}} \left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}} 
-- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dss{S}{z} \\
-& \qquad = \int_{\partial \Omega} \left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}} 
-- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dss{S}{z}
+= \int_{\partial \Omega_{\epsilon}} \left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\nu} 
+- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dss{S}{z} \\
+& \qquad = \int_{\partial \Omega} \left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\nu} 
+- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dss{S}{z}
 - \int_{\partial B_{\epsilon}(\VEC{x})}
-\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}} 
-- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dss{S}{z} \\
+\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\nu} 
+- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dss{S}{z} \\
 & \qquad - \int_{\partial B_{\epsilon}(\VEC{y})}
-\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}} 
-- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dss{S}{z} \ .
+\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\nu} 
+- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dss{S}{z} \ .
 \end{split}
 \end{equation}
 
@@ -1366,11 +1368,11 @@ definition of the Green's functions.  Thus, the first integral on the
 right hand side of (\ref{laplace_GequG}) is also null.  We get
 \begin{equation} \label{laplace_GequG_two}
 \int_{\partial B_{\epsilon}(\VEC{x})}
-\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}} 
-- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dss{S}{z}
+\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\nu} 
+- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dss{S}{z}
 + \int_{\partial B_{\epsilon}(\VEC{y})}
-\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}} 
-- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dss{S}{z} = 0
+\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\nu} 
+- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dss{S}{z} = 0
 \end{equation}
 for all $\epsilon >0$.
 
@@ -1379,13 +1381,13 @@ We consider the first integral in
 \begin{equation} \label{laplace_GequG_three}
 \begin{split} 
 &\int_{\partial B_{\epsilon}(\VEC{x})}
-\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}} 
-- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dss{S}{z} \\
+\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\nu} 
+- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dss{S}{z} \\
 &\qquad = \int_{\|\VEC{z}\|=1}
 \left( G_{\VEC{x}}(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 - G_{\VEC{y}}(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z}) \right)
+\,\pdydx{G_{\VEC{x}}}{\nu}(\VEC{x}+\epsilon \VEC{z}) \right)
 \epsilon^{n-1}\dss{S}{z} \ .
 \end{split}
 \end{equation}
@@ -1397,10 +1399,10 @@ given in the Definition of the Green's function.
 Since $u_{\VEC{x}}$ is continuous on $\overline{\Omega}$ by definition
 of Green's functions, and $G_{\VEC{y}}$ is continuously differentiable
 on $\Omega \setminus B_{\epsilon}(\VEC{y})$, then $u_{\VEC{x}}$ and
-$\displaystyle \pdydx{G_{\VEC{y}}}{\VEC{\nu}}$ are bounded on a
+$\displaystyle \pdydx{G_{\VEC{y}}}{\nu}$ are bounded on a
 bounded open neighbourhood $V \subset \Omega$ of $\VEC{x}$.  Suppose that
 $|u_{\VEC{x}}| < M_1$ and
-$\displaystyle \left| \pdydx{G_{\VEC{y}}}{\VEC{\nu}}\right| < M_2$
+$\displaystyle \left| \pdydx{G_{\VEC{y}}}{\nu}\right| < M_2$
 on $V$.
 
 Suppose that $\epsilon$ is small enough to have
@@ -1410,21 +1412,21 @@ we get for $n>2$ that
 \begin{align*}
 &\left| \int_{\|\VEC{z}\|=1}
 G_{\VEC{x}}(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \, \epsilon^{n-1} \dss{S}{z} \right| \\
 &\quad = \left| \int_{\|\VEC{z}\|=1}
 \left( N(-\epsilon\VEC{z}) - u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right)
-\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \,\epsilon^{n-1} \dss{S}{z} \right| \\
 &\quad = \left| \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{(2-n)\omega_n} \epsilon^{2-n} -
 u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z})  \right)
-\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}}(\VEC{x} + \epsilon \VEC{z})
+\,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x} + \epsilon \VEC{z})
 \, \epsilon^{n-1} \dss{S}{z} \right| \\
 &\quad \leq \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{(n-2)\omega_n} \epsilon^{2-n} +
 \left| u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right| \right)
-\left| \pdydx{G_{\VEC{y}}}{\VEC{\nu}}(\VEC{x} + \epsilon \VEC{z})
+\left| \pdydx{G_{\VEC{y}}}{\nu}(\VEC{x} + \epsilon \VEC{z})
 \right|\, \epsilon^{n-1} \dss{S}{z} \leq \left(\frac{\epsilon}{n-2} +
 \epsilon^{n-1} \omega_n M_1\right) M_2 \ . 
 \end{align*}
@@ -1432,28 +1434,28 @@ Similarly, we get fro $n=2$ that
 \begin{align*}
 &\left| \int_{\|\VEC{z}\|=1}
 G_{\VEC{x}}(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \, \epsilon \dss{S}{z} \right|
 = \left| \int_{\|\VEC{z}\|=1}
 \left( N(-\epsilon\VEC{z}) - u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right)
-\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \, \epsilon \dss{S}{z} \right| \\
 &\quad = \left| \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{\omega_2} \ln(\epsilon) -
 u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right)
-\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}}(\VEC{x} + \epsilon \VEC{z})
+\,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x} + \epsilon \VEC{z})
 \, \epsilon \dss{S}{z} \right| \\
 &\quad \leq \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{\omega_2} |\ln(\epsilon)|  +
 \left| u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right| \right)
-\left| \pdydx{G_{\VEC{y}}}{\VEC{\nu}}(\VEC{x} + \epsilon \VEC{z})
+\left| \pdydx{G_{\VEC{y}}}{\nu}(\VEC{x} + \epsilon \VEC{z})
 \right|\, \epsilon \dss{S}{z}
 \leq \left( \epsilon |\ln(\epsilon)| + \epsilon \omega_2 M_1 \right) M_2 \ . 
 \end{align*}
 We therefore have that
 $\displaystyle \int_{\|\VEC{z}\|=1}
 G_{\VEC{x}}(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \, \epsilon \dss{S}{z} \to 0$ 
 as $\epsilon \to 0$.
 
@@ -1463,32 +1465,32 @@ We now consider the second term of the integral in
 \begin{align*}
 & \int_{\|\VEC{z}\|=1}
 G_{\VEC{y}}(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{G_{\VEC{x}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \epsilon^{n-1}\dss{S}{z} \\
 & \qquad = \int_{\|\VEC{z}\|=1}
 G_{\VEC{y}}(\VEC{x}+\epsilon \VEC{z})
-\left( \pdydx{N}{\VEC{\nu}}(-\epsilon \VEC{z})
-- \pdydx{u_{\VEC{x}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z}) \right)
+\left( \pdydx{N}{\nu}(-\epsilon \VEC{z})
+- \pdydx{u_{\VEC{x}}}{\nu}(\VEC{x}+\epsilon \VEC{z}) \right)
 \epsilon^{n-1}\dss{S}{z} \ .
 \end{align*}
 
 Since $u_{\VEC{x}}$ is continuously differentiable on $\Omega$ by
 definition of the Green's functions, and $G_{\VEC{y}}$ is continuous
 on $\Omega \setminus B_{\epsilon}(\VEC{y})$, then $G_{\VEC{y}}$ and
-$\displaystyle \pdydx{u_{\VEC{x}}}{\VEC{\nu}}(\VEC{z})$ are bounded on a
+$\displaystyle \pdydx{u_{\VEC{x}}}{\nu}(\VEC{z})$ are bounded on a
 bounded open neighbourhood $V \subset \Omega$ of $\VEC{x}$.  Suppose that
 $|G_{\VEC{y}}| < M_3$ and
-$\displaystyle \left| \pdydx{u_{\VEC{x}}}{\VEC{\nu}}\right| < M_4$
+$\displaystyle \left| \pdydx{u_{\VEC{x}}}{\nu}\right| < M_4$
 on $V$.  For $\epsilon$ small enough to have
 $B_\epsilon(\VEC{x}) \subset V$, we get that
 \begin{align*}
 \left| \int_{\|\VEC{z}\|=1}
 G_{\VEC{y}}(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{u_{\VEC{x}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{u_{\VEC{x}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \, \epsilon^{n-1} \dss{S}{z} \right|
 & \leq \int_{\|\VEC{z}\|=1}
 \left| G_{\VEC{y}}(\VEC{x} + \epsilon \VEC{z}) \right|
-\, \left|\pdydx{u_{\VEC{x}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\, \left|\pdydx{u_{\VEC{x}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \right| \, \epsilon^{n-1} \dss{S}{z} \\
 & \leq M_3 M_4\, \omega_n\, \epsilon^{n-1}  \to 0
 \end{align*}
@@ -1498,7 +1500,7 @@ Moreover, for $n>2$, we have
 \begin{align*}
 &\int_{\|\VEC{z}\|=1}
 G_{\VEC{y}}(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{N}{\VEC{\nu}}(-\epsilon \VEC{z}) \, \epsilon^{n-1}\dss{S}{z}
+\,\pdydx{N}{\nu}(-\epsilon \VEC{z}) \, \epsilon^{n-1}\dss{S}{z}
 = \int_{\|\VEC{z}\|=1} G_{\VEC{y}}(\VEC{x}+\epsilon \VEC{z})
 \,\dfdx{ \left(\frac{1}{(2-n)\omega_n} \epsilon^{2-n}\right) }{\epsilon}
 \, \epsilon^{n-1}\dss{S}{z} \\
@@ -1512,7 +1514,7 @@ as $\epsilon \to 0$ and, for $n=2$, we have
 \begin{align*}
 &\int_{\|\VEC{z}\|=1}
 G_{\VEC{y}}(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{N}{\VEC{\nu}}(-\epsilon \VEC{z}) \, \epsilon \dss{S}{z}
+\,\pdydx{N}{\nu}(-\epsilon \VEC{z}) \, \epsilon \dss{S}{z}
 = \int_{\|\VEC{z}\|=1} G_{\VEC{y}}(\VEC{x}+\epsilon \VEC{z})
 \,\dfdx{ \left(\frac{1}{\omega_2} \ln(\epsilon) \right) }{\epsilon}
 \, \epsilon \dss{S}{z} \\
@@ -1529,11 +1531,11 @@ $\{ \VEC{z} : \|\VEC{z}\| = 1\}$ as $\epsilon \to 0$ because
 $G_{\VEC{y}}$ is continuous on $\overline{V}$ and so uniformly continuous
 on $\overline{V}$.
 
-Note that is $f(\VEC{x}) = g(\|\VEC{x}\|)$ and $\VEC{\nu}(\VEC{x})$ is
+Note that is $f(\VEC{x}) = g(\|\VEC{x}\|)$ and $\nu(\VEC{x})$ is
 the outward unit normal to $\partial B_\epsilon(\VEC{0})$ at the point
 $\VEC{x} \in \partial B_\epsilon(\VEC{x})$, then
 \[
-\pdydx{f}{\VEC{\nu}}(\VEC{x}) = \lim_{s\to 0}
+\pdydx{f}{\nu}(\VEC{x}) = \lim_{s\to 0}
 \frac{f\big(\VEC{x} + s(\VEC{x}/\|\VEC{x}\|)\big) - f(\VEC{x})}{s}
 = \lim_{s\to 0} \frac{g(\epsilon + s) - g(\epsilon)}{s}
 = \dydx{g}{\epsilon}(\epsilon) \ .
@@ -1541,7 +1543,7 @@ $\VEC{x} \in \partial B_\epsilon(\VEC{x})$, then
 Therefore, for $\VEC{x} \in \partial B_\epsilon(\VEC{0})$, we have
 that
 \[
-\pdydx{N}{\VEC{\nu}}(\VEC{x})
+\pdydx{N}{\nu}(\VEC{x})
 = \begin{cases}
 \displaystyle
 \dfdx{ \left(\frac{1}{(2-n)\omega_n} \epsilon^{2-n}\right) }{\epsilon}
@@ -1556,8 +1558,8 @@ that
 (i) and (ii) imply that 
 \begin{equation} \label{laplace_GequG_two_A}
 \int_{\partial B_{\epsilon}(\VEC{x})}
-\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}} 
-- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dss{S}{z}
+\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\nu} 
+- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dss{S}{z}
 \to -G_{\VEC{y}}(\VEC{x})
 \end{equation}
 as $\epsilon \to 0$.
@@ -1566,8 +1568,8 @@ as $\epsilon \to 0$.
 As we have done in (i) and (ii), we can prove that
 \begin{equation} \label{laplace_GequG_two_B}
 \int_{\partial B_{\epsilon}(\VEC{y})}
-\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\VEC{\nu}} 
-- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dss{S}{z}
+\left( G_{\VEC{x}}\,\pdydx{G_{\VEC{y}}}{\nu} 
+- G_{\VEC{y}}\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dss{S}{z}
 \to G_{\VEC{x}}(\VEC{y})
 \end{equation}
 as $\epsilon \to 0$.
@@ -1745,7 +1747,7 @@ continuous function.  The solution of the Dirichlet problem
 $\Delta u = 0$ in $\Omega$ with $u=g$ on $\partial \Omega$ is given by
 \[
 u(\VEC{x}) = \int_{\partial \Omega} g(\VEC{y})\,
-\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{y})\dss{S}{y}
+\pdydx{G_{\VEC{x}}}{\nu}(\VEC{y})\dss{S}{y}
 \quad , \quad \VEC{x} \in \Omega \  ,
 \]
 where $G_{\VEC{x}}(\VEC{y}) = G(\VEC{x},\VEC{y})$ for
@@ -1776,13 +1778,13 @@ $\Omega_{\epsilon}$ to get
 \begin{split}
 &\int_{\Omega_{\epsilon}} \left( G_{\VEC{x}} \Delta u
 - u\, \Delta G_{\VEC{x}} \right) \dx{\VEC{z}}
-= \int_{\partial \Omega_{\epsilon}} \left( G_{\VEC{x}}\,\pdydx{u}{\VEC{\nu}} 
-- u\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dx{S} \\
-& \qquad = \int_{\partial \Omega} \left( G_{\VEC{x}}\,\pdydx{u}{\VEC{\nu}} 
-- u\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dx{S}
+= \int_{\partial \Omega_{\epsilon}} \left( G_{\VEC{x}}\,\pdydx{u}{\nu} 
+- u\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dx{S} \\
+& \qquad = \int_{\partial \Omega} \left( G_{\VEC{x}}\,\pdydx{u}{\nu} 
+- u\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dx{S}
 - \int_{\partial B_{\epsilon}(\VEC{x})}
-\left( G_{\VEC{x}}\,\pdydx{u}{\VEC{\nu}} 
-- u\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dx{S}
+\left( G_{\VEC{x}}\,\pdydx{u}{\nu} 
+- u\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dx{S}
 \end{split}
 \]
 Since $u$ and $G_{\VEC{x}}$ are harmonic in $\Omega$,
@@ -1790,111 +1792,111 @@ $G_{\VEC{x}}(\VEC{y}) = 0$ for all $\VEC{y} \in \partial \Omega$ and
 $u(\VEC{y}) = g(\VEC{y})$ for all $\VEC{y} \in \partial \Omega$, we
 get
 \begin{equation} \label{lapDireq1}
-  0 = - \int_{\partial \Omega} g\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \dx{S}
+  0 = - \int_{\partial \Omega} g\,\pdydx{G_{\VEC{x}}}{\nu} \dx{S}
 - \int_{\partial B_{\epsilon}(\VEC{x})}
-\left( G_{\VEC{x}}\,\pdydx{u}{\VEC{\nu}} 
-- u\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dx{S}
+\left( G_{\VEC{x}}\,\pdydx{u}{\nu} 
+- u\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dx{S}
 \end{equation}
 for all $\epsilon >0$.
 
 We first consider the integral
 $\displaystyle \int_{\partial B_{\epsilon}(\VEC{x})}
-G_{\VEC{x}}\,\pdydx{u}{\VEC{\nu}} \dx{S}$.
+G_{\VEC{x}}\,\pdydx{u}{\nu} \dx{S}$.
 
 Let $u_{\VEC{x}}(\VEC{y}) = U(\VEC{x},\VEC{y})$ for
 $(\VEC{x},\VEC{y}) \in \Omega \times \overline{\Omega}$, where $U$ is
 given in the Definition of the Green's function.
 Since $u_{\VEC{x}}$ is continuous on $\overline{\Omega}$ by definition
 of Green's functions, and $u$ is continuously differentiable on
-$\Omega$, then $u_{\VEC{x}}$ and $\displaystyle \pdydx{u}{\VEC{\nu}}$
+$\Omega$, then $u_{\VEC{x}}$ and $\displaystyle \pdydx{u}{\nu}$
 are bounded on a bounded open neighbourhood $V \subset \Omega$ of
 $\VEC{x}$.  Suppose that $|u_{\VEC{x}}| < M_1$ and
-$\displaystyle \left| \pdydx{u}{\VEC{\nu}} \right| < M_2$ on $V$.
+$\displaystyle \left| \pdydx{u}{\nu} \right| < M_2$ on $V$.
 If $\epsilon$ is small enough to have $B_\epsilon(\VEC{x}) \subset V$,
 we get for $n>2$ that
 \begin{align*}
 &\left|\int_{\partial B_{\epsilon}(\VEC{x})}
-G_{\VEC{x}}\,\pdydx{u}{\VEC{\nu}} \dx{S}\right|
+G_{\VEC{x}}\,\pdydx{u}{\nu} \dx{S}\right|
 = \left| \int_{\|\VEC{z}\|=1}
 G_{\VEC{x}}(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{u}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{u}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \, \epsilon^{n-1} \dss{S}{z} \right| \\
 &\quad = \left| \int_{\|\VEC{z}\|=1}
 \left( N(-\epsilon\VEC{z}) - u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right)
-\,\pdydx{u}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{u}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \,\epsilon^{n-1} \dss{S}{z} \right| \\
 &\quad = \left| \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{(2-n)\omega_n} \epsilon^{2-n} -
 u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z})  \right)
-\,\pdydx{u}{\VEC{\nu}}(\VEC{x} + \epsilon \VEC{z})
+\,\pdydx{u}{\nu}(\VEC{x} + \epsilon \VEC{z})
 \, \epsilon^{n-1} \dss{S}{z} \right| \\
 &\quad \leq \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{(n-2)\omega_n} \epsilon^{2-n} +
 \left| u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right| \right)
-\left| \pdydx{u}{\VEC{\nu}}(\VEC{x} + \epsilon \VEC{z})
+\left| \pdydx{u}{\nu}(\VEC{x} + \epsilon \VEC{z})
 \right|\, \epsilon^{n-1} \dss{S}{z} \leq \left(\frac{\epsilon}{n-2} +
 \epsilon^{n-1} \omega_n M_1\right) M_2 \ . 
 \end{align*}
 Similarly, we get for $n=2$ that
 \begin{align*}
 &\left|\int_{\partial B_{\epsilon}(\VEC{x})}
-G_{\VEC{x}}\,\pdydx{u}{\VEC{\nu}} \dx{S}\right|
+G_{\VEC{x}}\,\pdydx{u}{\nu} \dx{S}\right|
 =\left| \int_{\|\VEC{z}\|=1}
 G_{\VEC{x}}(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{u}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{u}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \, \epsilon \dss{S}{z} \right| \\
 &\quad = \left| \int_{\|\VEC{z}\|=1}
 \left( N(-\epsilon\VEC{z}) - u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right)
-\,\pdydx{u}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{u}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \, \epsilon \dss{S}{z} \right| \\
 &\quad = \left| \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{\omega_2} \ln(\epsilon) -
 u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right)
-\,\pdydx{u}{\VEC{\nu}}(\VEC{x} + \epsilon \VEC{z})
+\,\pdydx{u}{\nu}(\VEC{x} + \epsilon \VEC{z})
 \, \epsilon \dss{S}{z} \right| \\
 &\quad \leq \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{\omega_2} |\ln(\epsilon)|  +
 \left| u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right| \right)
-\left| \pdydx{u}{\VEC{\nu}}(\VEC{x} + \epsilon \VEC{z})
+\left| \pdydx{u}{\nu}(\VEC{x} + \epsilon \VEC{z})
 \right|\, \epsilon \dss{S}{z}
 \leq \left( \epsilon |\ln(\epsilon)| + \epsilon \omega_2 M_1 \right) M_2 \ . 
 \end{align*}
 We therefore have that
 \[
 \int_{\partial B_{\epsilon}(\VEC{x})}
-G_{\VEC{x}}\,\pdydx{u}{\VEC{\nu}} \dx{S} \to 0
+G_{\VEC{x}}\,\pdydx{u}{\nu} \dx{S} \to 0
 \]
 as $\epsilon \to 0$.
 
 We now consider the integral
 \begin{align*}
 \int_{\partial B_\epsilon(\VEC{x})}
-u\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \dx{S}
+u\,\pdydx{G_{\VEC{x}}}{\nu} \dx{S}
 &=  \int_{\|\VEC{z}\|=1} u(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{G_{\VEC{x}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \epsilon^{n-1}\dss{S}{z} \\
 &= \int_{\|\VEC{z}\|=1} u(\VEC{x}+\epsilon \VEC{z})
-\left( \,\pdydx{N}{\VEC{\nu}}(-\epsilon \VEC{z})
-- \pdydx{u_{\VEC{x}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z}) \right)
+\left( \,\pdydx{N}{\nu}(-\epsilon \VEC{z})
+- \pdydx{u_{\VEC{x}}}{\nu}(\VEC{x}+\epsilon \VEC{z}) \right)
 \epsilon^{n-1}\dss{S}{z} \ .
 \end{align*}
 
 Since $u_{\VEC{x}}$ is continuously differentiable on $\Omega$ by
 definition of the Green's functions, and $u$ is continuous
 on $\Omega$, then $u$ and
-$\displaystyle \pdydx{u_{\VEC{x}}}{\VEC{\nu}}$ are bounded on a
+$\displaystyle \pdydx{u_{\VEC{x}}}{\nu}$ are bounded on a
 bounded open neighbourhood $V \subset \Omega$ of $\VEC{x}$.  Suppose that
 $|G_{\VEC{y}}| < M_3$ and
-$\displaystyle \left| \pdydx{u_{\VEC{x}}}{\VEC{\nu}}\right|< M_4$
+$\displaystyle \left| \pdydx{u_{\VEC{x}}}{\nu}\right|< M_4$
 on $V$.  We get for $\epsilon$
 small enough to have $B_\epsilon(\VEC{x}) \subset V$ that
 \begin{align*}
 \left| \int_{\|\VEC{z}\|=1} u(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{u_{\VEC{x}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\,\pdydx{u_{\VEC{x}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \, \epsilon^{n-1} \dss{S}{z} \right|
 & \leq \int_{\|\VEC{z}\|=1}
 \left| G_{\VEC{y}}(\VEC{x} + \epsilon \VEC{z}) \right|
-\, \left|\pdydx{u_{\VEC{x}}}{\VEC{\nu}}(\VEC{x}+\epsilon \VEC{z})
+\, \left|\pdydx{u_{\VEC{x}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \right| \, \epsilon^{n-1} \dss{S}{z} \\
 & \leq M_3 M_4\, \omega_n\, \epsilon^{n-1}  \to 0
 \end{align*}
@@ -1902,7 +1904,7 @@ as $\epsilon \to 0$.  Moreover, we get for $n>2$ that
 \begin{align*}
 &\int_{\|\VEC{z}\|=1}
 u(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{N}{\VEC{\nu}}(-\epsilon \VEC{z})\, \epsilon^{n-1}\dss{S}{z}
+\,\pdydx{N}{\nu}(-\epsilon \VEC{z})\, \epsilon^{n-1}\dss{S}{z}
 = \int_{\|\VEC{z}\|=1} u(\VEC{x}+\epsilon \VEC{z})
 \,\dfdx{ \left(\frac{1}{(2-n)\omega_n} \epsilon^{2-n}\right) }{\epsilon}
 \, \epsilon^{n-1}\dss{S}{z} \\
@@ -1916,7 +1918,7 @@ as $\epsilon \to 0$ and, we get for $n=2$ that
 \begin{align*}
 &\int_{\|\VEC{z}\|=1}
 u(\VEC{x}+\epsilon \VEC{z})
-\,\pdydx{N}{\VEC{\nu}}(-\epsilon \VEC{z})\, \epsilon \dss{S}{z}
+\,\pdydx{N}{\nu}(-\epsilon \VEC{z})\, \epsilon \dss{S}{z}
 = \int_{\|\VEC{z}\|=1} u(\VEC{x}+\epsilon \VEC{z})
 \,\dfdx{ \left(\frac{1}{\omega_2} \ln(\epsilon) \right) }{\epsilon}
 \, \epsilon \dss{S}{z} \\
@@ -1934,7 +1936,7 @@ on $\overline{V}$.
 
 It follows from (\ref{lapDireq1}) that
 $\displaystyle u(\VEC{x}) = \int_{\partial \Omega}
-g\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \dx{S}$.
+g\,\pdydx{G_{\VEC{x}}}{\nu} \dx{S}$.
 
 \begin{rmk}
 There is also a formal justification of the previous theorem.
@@ -1959,8 +1961,8 @@ $G_{\VEC{x}}$ on $\Omega$ though we do not have that
 $G_{\VEC{x}} \in C^1(\overline{\Omega}) \cap C^2(\Omega)$.
 We get
 \[
-\int_{\partial \Omega} \left( G_{\VEC{x}}\,\pdydx{u}{\VEC{\nu}} 
-- u\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}} \right) \dx{S}
+\int_{\partial \Omega} \left( G_{\VEC{x}}\,\pdydx{u}{\nu} 
+- u\,\pdydx{G_{\VEC{x}}}{\nu} \right) \dx{S}
 = \int_\Omega \left( G_{\VEC{x}} \Delta u -
 u \Delta G_{\VEC{x}} \right)\dx{\VEC{y}} \ .
 \]
@@ -1969,7 +1971,7 @@ $G_{\VEC{x}}(\VEC{y}) = G(\VEC{x},\VEC{y}) = 0$ for
 $\VEC{y} \in \partial \Omega$ and $\VEC{x} \in \Omega$,
 we get from (\ref{lapDireq2}) that
 \[
-\int_{\partial \Omega} u\, \pdydx{G_{\VEC{x}}}{\VEC{\nu}} \dx{S}
+\int_{\partial \Omega} u\, \pdydx{G_{\VEC{x}}}{\nu} \dx{S}
 = \int_\Omega u\, \Delta G_{\VEC{x}} \dx{\VEC{y}} = u(\VEC{x})  \ .
 \]
 \end{rmk}
@@ -1978,7 +1980,7 @@ we get from (\ref{lapDireq2}) that
 For $\VEC{x} \in \Omega$, consider
 $\displaystyle G_{\VEC{x}}(\VEC{y}) = G(\VEC{x},\VEC{y})$ for
 $\VEC{y} \in \overline{\Omega} \setminus \{\VEC{x}\}$.  The function
-$\displaystyle \VEC{y} \mapsto \pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{y})$
+$\displaystyle \VEC{y} \mapsto \pdydx{G_{\VEC{x}}}{\nu}(\VEC{y})$
 for $\VEC{y}\in \partial \Omega$ is called the
 {\bfseries Poisson Kernel}\index{Poisson Kernel} for $\Omega$.
 \end{defn}
@@ -2092,7 +2094,7 @@ $\displaystyle \VEC{y}\in \overline{\RR^n_+}$ with
 $\VEC{x} \neq \VEC{y}$.  The
 {\bfseries Poisson kernel}\index{Poisson Kernel} is
 \[
-\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{y}) = -\pdydx{G}{y_n}(\VEC{x},\VEC{y}) =
+\pdydx{G_{\VEC{x}}}{\nu}(\VEC{y}) = -\pdydx{G}{y_n}(\VEC{x},\VEC{y}) =
 \frac{x_n-y_n}{\omega_n} \|\VEC{x}-\VEC{y}\|^{-n}
 +\frac{x_n+y_n}{\omega_n} \|\tilde{\VEC{x}}-\VEC{y}\|^{-n}
 = \frac{2x_n}{\omega_n} \|\tilde{\VEC{x}}-\VEC{y}\|^{-n}
@@ -2116,7 +2118,7 @@ P_{x_n}(\breve{\VEC{x}}) \equiv \frac{2x_n}{\omega_n}\,
 Then
 \[
 u(\VEC{x}) = \int_{\partial \RR^n_+} g(\VEC{y})
-\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{y})\dss{S}{y}
+\pdydx{G_{\VEC{x}}}{\nu}(\VEC{y})\dss{S}{y}
 = \int_{\RR^{n-1}} g(\breve{\VEC{y}},0)
 P_{x_n}(\breve{\VEC{x}}-\breve{\VEC{y}})
 \dx{\breve{\VEC{y}}} = (g \ast P_{x_n})(\breve{\VEC{x}}) \ ,
@@ -2221,9 +2223,9 @@ The function $\VEC{x} \mapsto P_{x_n}( \breve{\VEC{x}} - \breve{\VEC{y}} )$
 is of class $\displaystyle C^\infty$ on $\displaystyle \RR^n_+$ for all
 $\displaystyle \breve{\VEC{y}} \in \partial \RR^{n-1}$.
 Choose $\delta>0$ and $b>a>0$.  Given $k\geq 0$ and a multi-index
-$\displaystyle \alpha \in \NN^{n-1}$, there exists $C>0$ such that
+$\displaystyle \VEC{\alpha} \in \NN^{n-1}$, there exists $C>0$ such that
 \[
-\left| \left( D^\alpha_{\breve{\VEC{x}}}
+\left| \left( D^{\VEC{\alpha}}_{\breve{\VEC{x}}}
 \pdfdxn{ P_{x_n}\left(\breve{\VEC{x}} - \breve{\VEC{y}}\right)}{x_n}{k} \right)
 \right| 
 \leq h(\breve{\VEC{y}}) =
@@ -2234,9 +2236,9 @@ C\|\breve{\VEC{y}}\|^{-n} & \quad \text{if}
 \end{cases}
 \]
 for $\|\breve{\VEC{x}}\|\leq \delta$ and $a \leq x_n \leq b$.   The constant
-$C$ depends only on $a$, $b$, $\delta$, $k$ and $\alpha$.  Thus
+$C$ depends only on $a$, $b$, $\delta$, $k$ and $\VEC{\alpha}$.  Thus
 \[
-\left|g(\breve{\VEC{y}})\, \left( D^\alpha_{\breve{\VEC{x}}}
+\left|g(\breve{\VEC{y}})\, \left( D^{\VEC{\alpha}}_{\breve{\VEC{x}}}
 \pdfdxn{ P_{x_n}\left(\breve{\VEC{x}} - \breve{\VEC{y}}\right)}{x_n}{k} \right)
 \right| \leq \left|g(\breve{\VEC{y}})h(\breve{\VEC{y}})\right|
 \]
@@ -2641,7 +2643,7 @@ g(\VEC{x}) & \quad \text{if} \ \VEC{x} \in \partial B_1(\VEC{0})
 \]
 where
 $\displaystyle P(\VEC{x},\VEC{y}) =
-\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{y})$ with
+\pdydx{G_{\VEC{x}}}{\nu}(\VEC{y})$ with
 $G_{\VEC{x}}(\VEC{y}) = G(\VEC{x},\VEC{y})$ for all
 $\VEC{y} \in \overline{B_1(\VEC{0})} \setminus \{\VEC{x}\}$.  Moreover,
 $u \in C(\overline{B_1(\VEC{0})})$.
@@ -2657,7 +2659,7 @@ for $\VEC{x}\in B_1(\VEC{0})$ and $\VEC{y} \in \partial B_1(\VEC{0})$.
 For $n>2$, we find using Lemma~\ref{laplace_diric_ball} that the
 Poisson kernel is
 \begin{align*}
-P(\VEC{x},\VEC{y}) &= \pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{y}) =
+P(\VEC{x},\VEC{y}) &= \pdydx{G_{\VEC{x}}}{\nu}(\VEC{y}) =
 \nabla_{\VEC{y}} G_{\VEC{x}}(\VEC{y}) \cdot \VEC{y} \\
 &= - \frac{1}{\omega_n} \left( \frac{1}{\| \VEC{x} - \VEC{y}\|^{n}}
 \, \left(\VEC{x}-\VEC{y}\right) \cdot \VEC{y} -
@@ -2865,17 +2867,18 @@ Thus $u$ is well defined on $B_1(\VEC{0})$.
 
 \stage{ii} Proceeding as we did in (i), we can show that, for any
 $0\leq a < b <1$, there exists a constant $C$ such that 
-$\displaystyle \big|g(\VEC{y})\, D^\alpha_{\VEC{x}} P(\VEC{x},\VEC{y})\big|
+$\displaystyle \big|g(\VEC{y})\,
+D^{\VEC{\alpha}}_{\VEC{x}} P(\VEC{x},\VEC{y})\big|
 \leq |g(\VEC{y})|$ for $a \leq \|\VEC{x} \| \leq b$ and
 $\VEC{y} \in \partial B_1(\VEC{0})$, and any multi-index
-$\alpha \in \NN^n$ with $|\alpha|\leq 2$.  Thus,
-$\displaystyle \VEC{y} \mapsto g(\VEC{y})\, D^\alpha_{\VEC{x}}
+$\VEC{\alpha} \in \NN^n$ with $|\VEC{\alpha}|\leq 2$.  Thus,
+$\displaystyle \VEC{y} \mapsto g(\VEC{y})\, D^{\VEC{\alpha}}_{\VEC{x}}
 P(\VEC{x},\VEC{y})$
 is bounded in absolute value by a function in
 $\displaystyle L^1(\partial B_1(\VEC{0}))$ for
 $a \leq \|\VEC{x} \| \leq b$ and
 $\VEC{y} \in \partial B_1(\VEC{0})$, and any multi-index
-$\displaystyle \alpha \in \NN^n$ with $|\alpha|<2$.  
+$\displaystyle \VEC{\alpha} \in \NN^n$ with $|\VEC{\alpha}|<2$.  
 We may therefore interchange the integral with respect to $\VEC{y}$
 that defined $u$ and the differential operator $\Delta_{\VEC{x}}$
 (see \cite{Flem}).  We get
@@ -3104,8 +3107,8 @@ $\RR^n$.  They will be quite useful later.  In particular, in the
 study of potential problem in the next chapter..
 
 Let $\displaystyle P_k
-= \bigg\{ \sum_{\alpha \in \NN^n,\ |\alpha| = k} a_{\alpha}
-\VEC{x}^{\alpha} : a_{\alpha} \in \RR  \bigg\}$
+= \big\{ \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k} a_{\VEC{\alpha}}
+\VEC{x}^{\VEC{\alpha}} : a_{\VEC{\alpha}} \in \RR  \big\}$
 and $H_k = \{ p \in P_k : \Delta p = 0 \}$.
 
 \begin{prop} \label{PkHkrPkm2}
@@ -3117,26 +3120,26 @@ $\displaystyle P_k = \bigoplus_{j=0}^{\intpt{k/2}} \|\VEC{x}\|^{2j} H_{k-2j}$.
 The direct sum in the statement of the proposition is based on a new
 scalar product on the space $P_k$.  Given $p,q \in P_k$, we define the
 scalar product of $p$ and $q$ as $\psP{p}{q} = p(\diff) q$, where
-for $\displaystyle p = \sum_{\alpha \in \NN^n,\ |\alpha| = k} a_{\alpha}
-\VEC{x}^{\alpha} \in P_k$, we set
-$\displaystyle p(\diff) =
-\sum_{\alpha \in \NN^n,\ |\alpha| = k} a_{\alpha} \diff^{\alpha}$.
+for $\displaystyle p = \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k}
+a_{\VEC{\alpha}} \VEC{x}^{\VEC{\alpha}} \in P_k$, we set
+$\displaystyle p(\diff) = \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k}
+a_{\VEC{\alpha}} \diff^{\VEC{\alpha}}$.
 It is easy to verify that this defines a scalar product on $P_k$.
 In particular, we have that
 \[
-\psP{\VEC{x}^\alpha}{\VEC{x}^\beta} =
+\psP{\VEC{x}^{\VEC{\alpha}}}{\VEC{x}^{\VEC{\beta}}} =
 \begin{cases}
-0 & \quad \text{if} \ \alpha \neq \beta \\
-\alpha! & \quad \text{if} \ \alpha = \beta \\
+0 & \quad \text{if} \ \VEC{\alpha} \neq \VEC{\beta} \\
+\VEC{\alpha}! & \quad \text{if} \ \VEC{\alpha} = \VEC{\beta} \\
 \end{cases}
 \]
 Hence, for
-$\displaystyle p = \sum_{\alpha \in \NN^n,\ |\alpha| = k} a_{\alpha}
-\VEC{x}^{\alpha}$ and
-$\displaystyle q = \sum_{\alpha \in \NN^n,\ |\alpha| = k} b_{\alpha}
-\VEC{x}^{\alpha}$, we have that
-$\displaystyle \psP{p}{q} = \sum_{\alpha \in \NN^n,\ |\alpha| = k} a_{\alpha}
-b_{\alpha} \, \alpha!$.
+$\displaystyle p = \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k}
+a_{\VEC{\alpha}} \VEC{x}^{\VEC{\alpha}}$ and
+$\displaystyle q = \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k}
+b_{\VEC{\alpha}} \VEC{x}^{\VEC{\alpha}}$, we have that
+$\displaystyle \psP{p}{q} = \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k}
+a_{\VEC{\alpha}} b_{\VEC{\alpha}} \, \VEC{\alpha}!$.
 
 We now show that the orthogonal complement of
 $\displaystyle \|\VEC{x}\|_2^2 P_{k-2}$
@@ -3144,8 +3147,8 @@ in $P_k$ is $H_k$.  Since $q \in P_k$ is in the orthogonal complement
 of $\displaystyle \|\VEC{x}\|_2^2 P_{k-2}$ if and only if
 $\displaystyle 0 = \psP{\|\VEC{x}\|_2^2\, p}{q} =  p(\diff) \Delta q
 = \psP{p}{\Delta q}$ for all $p \in P_{k-2}$, in particular for
-$\displaystyle p(\VEC{x}) = x^{\alpha}$ with $|\alpha| = k-2$, we get
-that $\Delta q = 0$.  Thus $q \in H_k$.
+$\displaystyle p(\VEC{x}) = x^{\VEC{\alpha}}$ with $|\VEC{\alpha}| = k-2$,
+we get that $\Delta q = 0$.  Thus $q \in H_k$.
 \end{proof}
 
 Since $\|\VEC{x}\|_2 = 1$ on
@@ -3188,16 +3191,16 @@ $\displaystyle L^2(S)$ is a sum of the $H_k\big|_S$.  To prove that it
 is a direct sum, we have to show that $H_i \perp H_j$ if $i \neq j$.  Before
 proving this result, we need to make the following observation.
 
-Given $\displaystyle p = \sum_{\alpha \in \NN^n,\ |\alpha| = k} a_{\alpha}
-\VEC{x}^{\alpha} \in P_k$, we have that
+Given $\displaystyle p = \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k}
+a_{\VEC{\alpha}} \VEC{x}^{\VEC{\alpha}} \in P_k$, we have that
 \begin{align*}
 \sum_{s=1}^n x_s \pdfdx{p}{x_s}(\VEC{x})
-& = \sum_{\alpha \in \NN^n,\ |\alpha| = k} a_{\alpha}
-\left( \sum_{s=1}^n x_s \pdydx{}{x_s} \VEC{x}^{\alpha} \right)
- =  \sum_{\alpha \in \NN^n,\ |\alpha| = k} a_{\alpha}
-\left( \sum_{s=1}^n \alpha_s \VEC{x}^{\alpha} \right) \\
-&=  \sum_{\alpha \in \NN^n,\ |\alpha| = k} a_{\alpha}
-\underbrace{\left( \sum_{s=1}^n \alpha_s\right)}_{=k} \VEC{x}^{\alpha}
+& = \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k} a_{\VEC{\alpha}}
+\left( \sum_{s=1}^n x_s \pdydx{}{x_s} \VEC{x}^{\VEC{\alpha}} \right)
+ =  \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k} a_{\VEC{\alpha}}
+\left( \sum_{s=1}^n \alpha_s \VEC{x}^{\VEC{\alpha}} \right) \\
+&=  \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k} a_{\VEC{\alpha}}
+\underbrace{\left( \sum_{s=1}^n \alpha_s\right)}_{=k} \VEC{x}^{\VEC{\alpha}}
 = k p(\VEC{x}) \ .
 \end{align*}
 The equation above is known as {\bfseries Euler's relation}\index{Euler's
@@ -3207,27 +3210,27 @@ Given $p\in H_i$ and $q \in H_j$ with $i \neq j$, we get from the Green's
 identity (\ref{laplace_green2}) on $B_1(\VEC{0})$ that
 \[
   0 = \int_{B_1(\VEC{0})} (p \Delta q - q \Delta p) \dx{\VEC{x}}
-= \int_S \left( p\,\pdydx{q}{\VEC{\nu}} - q \pdydx{p}{\VEC{\nu}} \right)
+= \int_S \left( p\,\pdydx{q}{\nu} - q \pdydx{p}{\nu} \right)
 \dss{S}{x} = (j - i) \int_S p\,q \dss{S}{x}
 = (j-i)\ps{p}{q} \ ,
 \]
 where we have use the fact that
 \[
- \pdydx{p}{\VEC{\nu}}(\VEC{x})
+ \pdydx{p}{\nu}(\VEC{x})
  = \graD p(\VEC{x}) \cdot \VEC{x}
  = \sum_{s=1}^n x_s \pdfdx{p}{x_s}(\VEC{x}) = 
  = i p(\VEC{x})
 \]
-and similarly $\displaystyle \pdydx{q}{\VEC{\nu}}(\VEC{x}) = j q(\VEC{x})$
+and similarly $\displaystyle \pdydx{q}{\nu}(\VEC{x}) = j q(\VEC{x})$
 for $\VEC{x} \in S$.  Thus $\ps{p}{q} = 0$.  Since $p$ and $q$ are
 arbitrary, $H_i \perp H_j$.
 \end{proof}
 
 A basis of $P_k$ is formed of the monomials
-$\displaystyle \VEC{x}^\alpha$ with
-$\displaystyle \alpha \in \NN^n$ and $|\alpha| = k$.  Suppose that you
-have a line of $n+k-1$ balls.  The number of possible monomials of
-degree $k$ is the number of way to remove $n-1$ balls among the
+$\displaystyle \VEC{x}^{\VEC{\alpha}}$ with
+$\displaystyle \VEC{\alpha} \in \NN^n$ and $|\VEC{\alpha}| = k$.
+Suppose that you have a line of $n+k-1$ balls.  The number of possible
+monomials of degree $k$ is the number of way to remove $n-1$ balls among the
 $n+k-1$ balls to create at most $n$ groups of balls.  The number of
 balls in the first group is the exponent of $x_1$, the number of balls
 in the second group is the exponent of $x_2$, and so on.  Thus
@@ -4048,12 +4051,12 @@ $\VEC{x} \in \partial \Omega \setminus \{\VEC{z}\}$.
 We now show that a bounded open set $\Omega$ with a boundary of class
 $C^2$ satisfies the barrier condition.   For each
 $\VEC{z} \in \partial \Omega$, there exist $\VEC{w}$ on the line
-$\displaystyle \{ \VEC{z} + t\VEC{\nu}(\VEC{z})) : t > 0 \}$
+$\displaystyle \{ \VEC{z} + t\nu(\VEC{z})) : t > 0 \}$
 and $s>0$ small enough such that
 $\displaystyle \overline{B_s(\VEC{w})} \cap \overline{\Omega} = \{\VEC{z}\}$
 because $\partial \Omega$ is a $C^2$-manifold \footnote{This can be
 proved using Lemma~\ref{pot_inequ} in the next chapter.}
-(Figure~\ref{Barrier1}).  As usual, $\VEC{\nu}(\VEC{z})$ is the
+(Figure~\ref{Barrier1}).  As usual, $\nu(\VEC{z})$ is the
 outward unit normal to $\partial \Omega$ at
 $\VEC{z} \in \partial \Omega$.  Let
 \[

@@ -13,7 +13,7 @@
   \selectfont}%
 \fi\endgroup%
 \begin{picture}(3687,1968)(889,-1630)
-\put(2476,179){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\VEC{\nu}(\VEC{x}_j)$}%
+\put(2476,179){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\nu(\VEC{x}_j)$}%
 }}}}
 \put(961,-401){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$S$}%
 }}}}

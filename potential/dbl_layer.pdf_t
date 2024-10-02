@@ -13,7 +13,7 @@
   \selectfont}%
 \fi\endgroup%
 \begin{picture}(3589,1948)(1152,-2848)
-\put(1167,-1315){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\VEC{\nu}(\VEC{x})$}%
+\put(1167,-1315){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\nu(\VEC{x})$}%
 }}}}
 \put(1783,-1988){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$O_\eta$}%
 }}}}
@@ -21,7 +21,7 @@
 }}}}
 \put(2966,-1933){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\VEC{x}$}%
 }}}}
-\put(4726,-1111){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\VEC{x}+t\VEC{\nu}(\VEC{x})$}%
+\put(4726,-1111){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\VEC{x}+t \nu(\VEC{x})$}%
 }}}}
 \put(4726,-1411){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\partial B_\delta(\VEC{x})$}%
 }}}}

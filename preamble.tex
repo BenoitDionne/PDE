@@ -721,7 +721,6 @@
 \newcommand{\IMG}{\mathcal{R}}      % For the range of a function, ...
 \newcommand{\KE}{\mathcal{N}}       % For the kernel of a function, ...
 \newcommand{\GR}{\mathcal{G}}       % For the graph of a function, ...
-\newcommand{\HW}{H_{\VEC{w}}}
 
 \DeclareMathOperator*{\esssup}{ess\;sup}
 \DeclareMathOperator*{\essinf}{ess\;inf}
@@ -746,7 +745,7 @@
 
 \newcommand{\Chi}{{\cal X}}        % \chi is to small for subscripts.
 
-\newcommand{\VEC}[1]{\mathbf{#1}}
+\newcommand{\VEC}[1]{{\bm{#1}}}
 \newcommand{\ps}[2]{ \left\langle{#1} , {#2}\right\rangle }
 \newcommand{\psP}[2]{ \left\langle{#1} : {#2}\right\rangle }
 \newcommand{\conj}[1]{\overline{#1}}
@@ -754,7 +753,7 @@
 \newcommand{\AP}{AP}
 \newcommand{\SN}[1]{\mathrm{S}_{#1}}
 \newcommand{\Sone}{S^1}
-\newcommand{\torus}[1]{\mathbf{T}^{#1}}
+\newcommand{\torus}[1]{\mathrm{T}^{#1}}
 \newcommand{\dist}[2]{\mathrm{dist}\left(#1,#2\right)}
 \newcommand{\sgm}[1]{\overline{#1}}
 \newcommand{\ii}{\VEC{i}}
@@ -763,6 +762,7 @@
 \newcommand{\nn}{$n\times n$\ }
 \newcommand{\nm}[2]{${#1}\times{#2}$\ }
 \newcommand{\intpt}[1]{\lfloor{#1}\rfloor}
+\newcommand{\HW}{H_{\VEC{w}}}
 
 \newcommand{\dx}[1]{\,\mathrm{d}{#1}}
 \newcommand{\dydx}[2]{\frac{\mathrm{d}#1}{\mathrm{d}{#2}}}
@@ -802,8 +802,8 @@
 \newcommand{\pps}[2]{\left\llangle{#1} , {#2}\right\rrangle } % pseudo scalar product
 
 % For the section of Fast Fourier Transform
-\newcommand{\fct}[1]{\mathbf{#1}}
-\newcommand{\fctt}[1]{\tilde{\mathbf{#1}}}
+\newcommand{\fct}[1]{{\bm{#1}}}
+\newcommand{\fctt}[1]{\tilde{{\bm{#1}}}}
 
 \newcommand{\NNN}{\mathcal{N}}
 \newcommand{\GL}[1]{\mathrm{GL}(#1)}

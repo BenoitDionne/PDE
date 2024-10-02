@@ -5,10 +5,11 @@
 
 Consider the linear partial differential equation
 \begin{equation} \label{distr_lPDE}
-L(\VEC{x}, \diff)u = \sum_{|\alpha|\leq m} a_\alpha(\VEC{x}) \diff^\alpha u = f
+L(\VEC{x}, \diff)u = \sum_{|\VEC{\alpha}|\leq m}
+a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}} u = f
 \end{equation}
 where $\displaystyle u \in C^m(\RR^n)$, $\displaystyle f \in C(\RR^n)$
-and $\displaystyle a_\alpha \in C^{|\alpha|}(\RR^n)$ for all
+and $\displaystyle a_{\VEC{\alpha}} \in C^{|\VEC{\alpha}|}(\RR^n)$ for all
 multi-indices involved in the sum.
 
 If we multiply both sides of the equation in (\ref{distr_lPDE}) by a
@@ -17,26 +18,27 @@ function $\displaystyle \phi \in C_c^\infty(\RR^n)$
 use integration by parts, we get
 \begin{align*}
 \int_{\RR^n} f(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}}
-&= \sum_{|\alpha|\leq m} \int_{\RR^n} a_\alpha(\VEC{x})
-\diff^\alpha u(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}} \\
-&= \sum_{|\alpha|\leq m} (-1)^{|\alpha|}\int_{\RR^n}
-u(\VEC{x}) \diff^\alpha \left(a_\alpha(\VEC{x})\phi(\VEC{x})\right)
-\dx{\VEC{x}} \ .
+&= \sum_{|\VEC{\alpha}|\leq m} \int_{\RR^n} a_{\VEC{\alpha}}(\VEC{x})
+\diff^{\VEC{\alpha}} u(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}} \\
+&= \sum_{|\VEC{\alpha}|\leq m} (-1)^{|\VEC{\alpha}|}\int_{\RR^n}
+u(\VEC{x}) \diff^{\VEC{\alpha}}
+\left(a_{\VEC{\alpha}}(\VEC{x})\phi(\VEC{x})\right) \dx{\VEC{x}} \ .
 \end{align*}
 
 Conversely, if there exists a function $\displaystyle u \in C^m(\RR^n)$
 such that
 \begin{equation} \label{distr_intE}
 \int_{\RR^n} f(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}}
-= \sum_{|\alpha|\leq m} (-1)^{|\alpha|}\int_{\RR^n}
-u(\VEC{x}) \diff^\alpha \left(a_\alpha(\VEC{x})\phi(\VEC{x})\right) \dx{\VEC{x}}
+= \sum_{|\VEC{\alpha}|\leq m} (-1)^{|\VEC{\alpha}|}\int_{\RR^n}
+u(\VEC{x}) \diff^{\VEC{\alpha}}
+\left(a_{\VEC{\alpha}}(\VEC{x})\phi(\VEC{x})\right) \dx{\VEC{x}}
 \end{equation}
 for all functions $\displaystyle \phi \in C_c^\infty(\RR^n)$,
 then integrations by parts allows us to rewrite this equation as
 \[
 \int_{\RR^n} f(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}}
-= \sum_{|\alpha|\leq m} \int_{\RR^n} a_\alpha(\VEC{x})
-\diff^\alpha u(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}}
+= \sum_{|\VEC{\alpha}|\leq m} \int_{\RR^n} a_{\VEC{\alpha}}(\VEC{x})
+\diff^{\VEC{\alpha}} u(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}}
 \]
 for all functions $\displaystyle \phi \in C_c^\infty(\RR^n)$.
 Since these functions are dense in the space of continuous complex valued
@@ -55,8 +57,8 @@ $\displaystyle C^m(\RR^n)$.
 Let $\displaystyle L^\ast(\VEC{x}, \diff)$ be the linear partial
 differential operator defined by
 \[
-L^\ast(\VEC{x}, \diff)\phi = \sum_{|\alpha|\leq m} (-1)^{|\alpha|}
-\diff^\alpha \left( a_\alpha(\VEC{x}) \phi \right)
+L^\ast(\VEC{x}, \diff)\phi = \sum_{|\VEC{\alpha}|\leq m} (-1)^{|\VEC{\alpha}|}
+\diff^{\VEC{\alpha}} \left( a_{\VEC{\alpha}}(\VEC{x}) \phi \right)
 \]
 for all $\displaystyle \phi \in C_c^\infty(\RR^n)$.  The
 operator $\displaystyle L^\ast(\VEC{x}, \diff)$ is called the
@@ -135,9 +137,10 @@ $\displaystyle \phi_j \rightarrow \phi$ if
 \item there exists a compact set $K$ such that
 $\supp \phi_j \subset K$ for all $j$ and $\supp \phi \subset K$.
 \item $\displaystyle \lim_{j\rightarrow \infty}
-\left\| \diff^\alpha \phi_j - \diff^\alpha \phi\right\|_{\infty,K} =0$
+\left\| \diff^{\VEC{\alpha}} \phi_j
+- \diff^{\VEC{\alpha}} \phi\right\|_{\infty,K} =0$
 for all multi-indices
-$\alpha = (\alpha_1,\alpha_2, \ldots, \alpha_n) \in \NN^n$.
+$\VEC{\alpha} = (\alpha_1,\alpha_2, \ldots, \alpha_n) \in \NN^n$.
 \end{enumerate}
 Recall that, for all continuous functions $\psi:\Omega \to \CC$ and
 compact sets $K\subset \Omega$,
@@ -168,8 +171,8 @@ $\displaystyle \DD_K = \left\{ u \in \DD(\RR^n) : \supp u \subset K \right\}$.
 A linear functional $u$ on $\DD(\Omega)$ is continuous if and only if
 for every compact set $K \subset \Omega$ there exist a constant $C_K$
 and an integer $N_K$ such that
-$\displaystyle \left| u(\phi) \right| \leq C_K \max_{|\alpha|\leq N_K}
-\left\| \diff^\alpha \phi \right\|_{\infty,K}$
+$\displaystyle \left| u(\phi) \right| \leq C_K \max_{|\VEC{\alpha}|\leq N_K}
+\left\| \diff^{\VEC{\alpha}} \phi \right\|_{\infty,K}$
 for all $\phi \in \DD_K$.
 \end{prop}
 
@@ -226,10 +229,11 @@ $\displaystyle K \subset \RR^n$ such that $\supp \phi_j \subset K$ for all $j$,
 $\supp \phi \subset K$, and
 \[
 \lim_{j\rightarrow \infty}
-\left\| \diff^\alpha \phi_k - \diff^\alpha \phi \right\|_{\infty,K} = 0
+\left\| \diff^{\VEC{\alpha}} \phi_k
+- \diff^{\VEC{\alpha}} \phi \right\|_{\infty,K} = 0
 \]
-for all multi-indices $\displaystyle \alpha \in \NN^n$.
-In particular, for $\alpha = \VEC{0}$, we get
+for all multi-indices $\displaystyle \VEC{\alpha} \in \NN^n$.
+In particular, for $\VEC{\alpha} = \VEC{0}$, we get
 \[
 \lim_{j\rightarrow \infty} \left\| \phi_k - \phi \right\|_{\infty,K} = 0 \ .
 \]
@@ -302,30 +306,32 @@ satisfies Proposition~\ref{distr_cont_cond}.
 Let $K$ be a compact subset of $\Omega$.  Since $u\in \DD'(\Omega)$,
 it follows from Proposition~\ref{distr_cont_cond} that there exist a
 constant $C_K$ and an integer $N_K$ such that
-$\displaystyle \left| u(\phi) \right| \leq C_K \max_{|\alpha|\leq N_K}
-\left\| \diff^\alpha \phi \right\|_{\infty,K}$ for all
+$\displaystyle \left| u(\phi) \right| \leq C_K \max_{|\VEC{\alpha}|\leq N_K}
+\left\| \diff^{\VEC{\alpha}} \phi \right\|_{\infty,K}$ for all
 $\phi \in \DD_K$.  According to Leibniz formula
 \[
-\diff^\alpha (f \phi) = \sum_{\beta \leq \alpha} c_{\alpha,\beta}
-\diff^{\alpha-\beta}f \,\diff^\beta \phi \ ,
+\diff^{\VEC{\alpha}} (f \phi) = \sum_{\VEC{\beta} \leq \VEC{\alpha}}
+c_{\VEC{\alpha},\VEC{\beta}}
+\diff^{\VEC{\alpha}-\VEC{\beta}}f \,\diff^{\VEC{\beta}} \phi \ ,
 \]
-where the coefficients $c_{\alpha,\beta}$ are constants.  This is a formula
-similar to the binomial formula.  Hence, there exists a constant $C_f$
-such that
+where the coefficients $c_{\VEC{\alpha},\VEC{\beta}}$ are constants.
+This is a formula similar to the binomial formula.  Hence, there
+exists a constant $C_f$ such that
 \[
-\| \diff^\alpha (f \phi) \|_{\infty} \leq C_f
-\max_{\beta\leq\alpha} \|\diff^\beta \phi\|_{\infty,K}
+\| \diff^{\VEC{\alpha}} (f \phi) \|_{\infty} \leq C_f
+\max_{\VEC{\beta}\leq\VEC{\alpha}} \|\diff^{\VEC{\beta}} \phi\|_{\infty,K}
 \]
-for all $\phi \in \DD_K$ and $|\alpha|\leq N_K$.  The constant $C_f$
-depends only of $\displaystyle \left\|\diff^{\alpha-\beta} f\right\|_{\infty,K}$
-and $c_{\alpha,\beta}$ for $\beta \leq \alpha$.
+for all $\phi \in \DD_K$ and $|\VEC{\alpha}|\leq N_K$.  The constant $C_f$
+depends only of
+$\displaystyle \left\|\diff^{\VEC{\alpha}-\VEC{\beta}} f\right\|_{\infty,K}$
+and $c_{\VEC{\alpha},\VEC{\beta}}$ for $\VEC{\beta} \leq \VEC{\alpha}$.
 We finally get that
 \[
 \left| (f u)(\phi) \right| =
-\left| u(f \phi) \right| \leq C_K \max_{|\alpha|\leq N_K}
-\left\| \diff^\alpha (f \phi) \right\|_{\infty,K}
-\leq C_K C_f \max_{|\alpha|\leq N_K}
-\left\| \diff^\alpha \phi \right\|_{\infty,K}
+\left| u(f \phi) \right| \leq C_K \max_{|\VEC{\alpha}|\leq N_K}
+\left\| \diff^{\VEC{\alpha}} (f \phi) \right\|_{\infty,K}
+\leq C_K C_f \max_{|\VEC{\alpha}|\leq N_K}
+\left\| \diff^{\VEC{\alpha}} \phi \right\|_{\infty,K}
 \]
 for all $\phi \in \DD_K$.
 \end{proof}
@@ -398,42 +404,43 @@ $\chi_a \to \delta$ in $\DD'(\RR)$.
 \section{Derivatives of Distributions}
 
 \begin{prop} \label{distr_der_def}
-If $u \in \DD'(\Omega)$ and $\alpha$ is a multi-index, then
+If $u \in \DD'(\Omega)$ and $\VEC{\alpha}$ is a multi-index, then
 \[
-v(\phi) = (-1)^{|\alpha|}u(\diff^\alpha \phi) \quad ,
+v(\phi) = (-1)^{|\VEC{\alpha}|}u(\diff^{\VEC{\alpha}} \phi) \quad ,
 \quad \phi \in \DD(\Omega) \ ,
 \]
 defines a distribution on $\Omega$.  We denote this distribution by
-$\displaystyle \diff^\alpha u$, the
+$\displaystyle \diff^{\VEC{\alpha}} u$, the
 {\bfseries partial derivative}\index{Distribution!Partial Derivative}
 of $u\in \DD'(\Omega)$.
 \end{prop}
 
 \begin{proof}
-\stage{i} $\displaystyle (\diff^\alpha u)(\phi)$ is well defined for all
-$\phi \in \DD(\Omega)$ because $\displaystyle \diff^\alpha \phi \in \DD(\Omega)$
+\stage{i} $\displaystyle (\diff^{\VEC{\alpha}} u)(\phi)$ is well defined for all
+$\phi \in \DD(\Omega)$ because
+$\displaystyle \diff^{\VEC{\alpha}} \phi \in \DD(\Omega)$
 for all $\phi\in \DD(\Omega)$.
 
-\stage{ii} It is easy to show that $\displaystyle \diff^\alpha u$ is a
+\stage{ii} It is easy to show that $\displaystyle \diff^{\VEC{\alpha}} u$ is a
 linear functional.
 
-\stage{iii} To prove that $\displaystyle \diff^\alpha u$ is
-continuous, we show that $\displaystyle \diff^\alpha u$ satisfies
+\stage{iii} To prove that $\displaystyle \diff^{\VEC{\alpha}} u$ is
+continuous, we show that $\displaystyle \diff^{\VEC{\alpha}} u$ satisfies
 Proposition~\ref{distr_cont_cond}.
 
 Let $K$ be a compact subset of $\Omega$.  Since $u\in \DD'(\Omega)$,
 it follows from Proposition~\ref{distr_cont_cond} that there exist a
 constant $C_K$ and an integer $N_K$ such that
-$\displaystyle \left| u(\phi) \right| \leq C_K \max_{|\beta|\leq N_K}
-\left\| \diff^\beta \phi \right\|_{\infty,K}$
+$\displaystyle \left| u(\phi) \right| \leq C_K \max_{|\VEC{\beta}|\leq N_K}
+\left\| \diff^{\VEC{\beta}} \phi \right\|_{\infty,K}$
 for all $\phi \in \DD_K$.  Hence
 \[
-\left| (\diff^\alpha u)(\phi) \right| =
-  \left| (-1)^{|\alpha|} u(\diff^\alpha \phi) \right|
-\leq C_K \max_{|\beta|\leq N_K}
-\left\| \diff^{\beta+\alpha} \phi \right\|_{\infty,K}
-\leq C_K \max_{|\beta|\leq N_K+|\alpha|}
-\left\| \diff^{\beta} \phi \right\|_{\infty,K}
+\left| (\diff^{\VEC{\alpha}} u)(\phi) \right| =
+  \left| (-1)^{|\VEC{\alpha}|} u(\diff^{\VEC{\alpha}} \phi) \right|
+\leq C_K \max_{|\VEC{\beta}|\leq N_K}
+\left\| \diff^{\VEC{\beta}+\VEC{\alpha}} \phi \right\|_{\infty,K}
+\leq C_K \max_{|\VEC{\beta}|\leq N_K+|\VEC{\alpha}|}
+\left\| \diff^{\VEC{\beta}} \phi \right\|_{\infty,K}
 \]
 for all $\phi \in \DD_K$.
 \end{proof}
@@ -443,40 +450,40 @@ example justifies this definition of derivative.
 
 \begin{egg}
 Suppose that $\displaystyle u \in C^k(\RR^n)$.  Show that the partial
-derivatives $\displaystyle \diff^\alpha u$ of the distribution $u$ on
-$\displaystyle \RR^n$ with $|\alpha|\leq k$
+derivatives $\displaystyle \diff^{\VEC{\alpha}} u$ of the distribution $u$ on
+$\displaystyle \RR^n$ with $|\VEC{\alpha}|\leq k$
 corresponds to the standard partial derivatives of the function $u$.  More
 precisely, show that the derivative of the distribution $u$ on
 $\displaystyle \RR^n$ is the distribution given by the standard
 derivative of the function $u$.
 
 Note that $\displaystyle u \in C^k(\RR^n)$ implies that standard derivative
-$\displaystyle \diff^\alpha u$ of $u$ is in $\displaystyle C(\RR^n)$
-for all $|\alpha|\leq k$ and
-so it is in $\displaystyle L_{loc}^1(\RR^n)$ for all $|\alpha|\leq k$.
-Thus, the standard derivative $\displaystyle \diff^\alpha u$ can define a
-distribution for all $|\alpha|\leq k$.
+$\displaystyle \diff^{\VEC{\alpha}} u$ of $u$ is in $\displaystyle C(\RR^n)$
+for all $|\VEC{\alpha}|\leq k$ and
+so it is in $\displaystyle L_{loc}^1(\RR^n)$ for all $|\VEC{\alpha}|\leq k$.
+Thus, the standard derivative $\displaystyle \diff^{\VEC{\alpha}} u$
+can define a distribution for all $|\VEC{\alpha}|\leq k$.
 
-Let $\alpha = (1,0,\ldots,0)$, the reasoning for other first order
+Let $\VEC{\alpha} = (1,0,\ldots,0)$, the reasoning for other first order
 partial derivatives is similar. There are two ways to look at
-$\displaystyle \diff^{\alpha} u$.
+$\displaystyle \diff^{\VEC{\alpha}} u$.
 
 \stage{i} The function $u$ can be used to define a
 distribution on $\displaystyle \RR^n$ because
 $\displaystyle u\in L_{loc}^1(\RR^n)$.  Hence, the 
 derivative of $u$ in the sense of distributions is
 \[
-\ps{\diff^\alpha u}{\phi} = -\ps{u}{\diff^\alpha \phi} =
+\ps{\diff^{\VEC{\alpha}} u}{\phi} = -\ps{u}{\diff^{\VEC{\alpha}} \phi} =
 -\int_{\RR^n} u(\VEC{x}) \pdydx{\phi}{x_1}(\VEC{x}) \dx{\VEC{x}}
 \quad , \quad \phi \in \DD(\Omega) \ .
 \]
 
-\stage{ii} The function $\displaystyle \diff^\alpha u$ can be used to define a
-distribution on $\displaystyle \RR^n$ because
-$\displaystyle \diff^\alpha u\in L_{loc}^1(\RR^n)$.
+\stage{ii} The function $\displaystyle \diff^{\VEC{\alpha}} u$ can be
+used to define a distribution on $\displaystyle \RR^n$ because
+$\displaystyle \diff^{\VEC{\alpha}} u\in L_{loc}^1(\RR^n)$.
 Hence, by definition,
 \[
-\ps{\diff^\alpha u}{\phi} = 
+\ps{\diff^{\VEC{\alpha}} u}{\phi} =
 \int_{\RR^n} (\diff_{x_1}u)(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}
 \quad , \quad \phi \in \DD(\Omega) \ .
 \]
@@ -490,10 +497,12 @@ However, for all $\displaystyle \phi \in \DD(\RR^n)$, we have
 \lim_{x_1\rightarrow +\infty}u(x_1,\VEC{y})\phi(x_1,\VEC{y})
 - \lim_{x_1\rightarrow -\infty}u(x_1,\VEC{y})\phi(x_1,\VEC{y}) \right. \\
 &\qquad \qquad \left. - \int_{-\infty}^\infty
-\diff^\alpha u(x_1,\VEC{y})\phi(x_1,\VEC{y})\dx{x_1} \right) \dx{\VEC{y}}\\
+\diff^{\VEC{\alpha}} u(x_1,\VEC{y})\phi(x_1,\VEC{y})\dx{x_1} \right)
+\dx{\VEC{y}}\\
 &\qquad = \int_{\RR^{n-1}} \left(\int_{-\infty}^\infty
-\diff^\alpha u(x_1,\VEC{y})\phi(x_1,\VEC{y})\dx{x_1} \right) \dx{\VEC{y}}
-= \int_{\RR^n} \diff^\alpha u(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}} \ ,
+\diff^{\VEC{\alpha}} u(x_1,\VEC{y})\phi(x_1,\VEC{y})\dx{x_1} \right)
+\dx{\VEC{y}}
+= \int_{\RR^n} \diff^{\VEC{\alpha}} u(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}} \ ,
 \end{align*}
 where we have used integration by parts for the differentiable functions
 $u$ and $\phi$, and
@@ -504,7 +513,8 @@ $u$ and $\phi$, and
 because $\phi$ has a compact support, so the support of $\phi$ is bounded.
 
 Thus, the action of the derivative of the distribution $u$ given in
-(i) is equal to the action of the distribution $\displaystyle \diff^\alpha u$
+(i) is equal to the action of the distribution
+$\displaystyle \diff^{\VEC{\alpha}} u$
 given in (ii) on $\displaystyle \DD(\RR^n)$.
 
 By Induction, one can show that this is also true for higher order
@@ -629,12 +639,13 @@ $f(x) = C$ for all $x \in ]a,b[$.
 
 \begin{prop} \label{distr_cdistr_cder}
 Suppose that $u \in C(\Omega)$.  Moreover, suppose that the derivative
-in the sense of distributions $\displaystyle \diff^\alpha u$ can be
-represented by a continuous function $g_\alpha:\Omega \to \CC$ for
-$|\alpha|\leq k$; namely,
+in the sense of distributions $\displaystyle \diff^{\VEC{\alpha}} u$ can be
+represented by a continuous function $g_{\VEC{\alpha}}:\Omega \to \CC$ for
+$|\VEC{\alpha}|\leq k$; namely,
 \[
-\ps{\diff^{\alpha} u}{\phi} = (-1)^{|\alpha|} \ps{u}{\diff^\alpha\phi}
-= \ps{g_\alpha}{\phi} = \int_{\Omega} g_{\alpha}(\VEC{x})
+\ps{\diff^{\VEC{\alpha}} u}{\phi} = (-1)^{|\VEC{\alpha}|}
+\ps{u}{\diff^{\VEC{\alpha}}\phi}
+= \ps{g_{\VEC{\alpha}}}{\phi} = \int_{\Omega} g_{\VEC{\alpha}}(\VEC{x})
 \phi(\VEC{x}) \dx{\VEC{x}}
 \]
 for all $\phi \in \DD(\Omega)$.  Then
@@ -643,22 +654,22 @@ $\displaystyle u \in C^k(\Omega)$.
 
 \begin{proof}
 \stage{$\mathbf{k=1}$}
-Let $g_\alpha \in C(\Omega)$ be the function representing
-$\displaystyle \diff^\alpha u$ for $\alpha = (1.0.\ldots,0)$, the
+Let $g_{\VEC{\alpha}} \in C(\Omega)$ be the function representing
+$\displaystyle \diff^{\VEC{\alpha}} u$ for $\VEC{\alpha} = (1.0.\ldots,0)$, the
 partial derivative of the distribution $u$ on $\Omega$ with respect to
-$x_1$.  The reasoning is similar for the other multi-indices $\alpha$
-such that $|\alpha|=1$.
+$x_1$.  The reasoning is similar for the other multi-indices $\VEC{\alpha}$
+such that $|\VEC{\alpha}|=1$.
 
 Since the standard derivative is a local concept, we may assume that
 $\displaystyle \Omega = \prod_{j=1}^n ]a_j,b_j[$.
 
 Choose $\VEC{y} \in \Omega$. Let
 \[
-v(\VEC{x}) = \int_{y_1}^{x_1} g_\alpha(s,\tilde{\VEC{x}}) \dx{s} +
+v(\VEC{x}) = \int_{y_1}^{x_1} g_{\VEC{\alpha}}(s,\tilde{\VEC{x}}) \dx{s} +
 u(y_1,\tilde{\VEC{x}})
 \]
 for $\VEC{x} = (x_1, \tilde{\VEC{x}}) \in \Omega$.
-Since $g_\alpha \in C(\Omega)$, we have that
+Since $g_{\VEC{\alpha}} \in C(\Omega)$, we have that
 \begin{align*}
 ]a_1,b_1[ & \rightarrow \CC \\
 x & \mapsto v(x,\tilde{\VEC{x}})
@@ -666,26 +677,26 @@ x & \mapsto v(x,\tilde{\VEC{x}})
 is differentiable in the classical sense for all
 $\displaystyle \tilde{\VEC{x}} \in \prod_{j=2}^n ]a_j,b_j[$.
 More precisely, $\displaystyle \pdydx{v}{x_1}(x,\tilde{\VEC{x}}) =
-g_\alpha(x,\tilde{\VEC{x}})$ for all $(x, \tilde{\VEC{x}}) \in \Omega$.
+g_{\VEC{\alpha}}(x,\tilde{\VEC{x}})$ for all $(x, \tilde{\VEC{x}}) \in \Omega$.
 The goal is to show that $u=v$ in $\Omega$.
 
 Consider
 \begin{equation} \label{distr_der_der}
-\int_\Omega \left(u(\VEC{x}) - v(\VEC{x})\right) \diff^\alpha
+\int_\Omega \left(u(\VEC{x}) - v(\VEC{x})\right) \diff^{\VEC{\alpha}}
 \phi(\VEC{x}) \dx{\VEC{x}}
-= \int_\Omega u(\VEC{x}) \diff^\alpha \phi(\VEC{x}) \dx{\VEC{x}} -
-\int_\Omega v(\VEC{x}) \diff^\alpha \phi(\VEC{x}) \dx{\VEC{x}}
+= \int_\Omega u(\VEC{x}) \diff^{\VEC{\alpha}} \phi(\VEC{x}) \dx{\VEC{x}} -
+\int_\Omega v(\VEC{x}) \diff^{\VEC{\alpha}} \phi(\VEC{x}) \dx{\VEC{x}}
 \end{equation}
 for $\phi \in \DD(\Omega)$.
 By definition of the derivative in the sense of distributions, we have
 \begin{equation} \label{distr_der_derA}
--\int_\Omega u(\VEC{x}) \diff^\alpha \phi(\VEC{x}) \dx{\VEC{x}} =
-\int_\Omega g_\alpha(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}
+-\int_\Omega u(\VEC{x}) \diff^{\VEC{\alpha}} \phi(\VEC{x}) \dx{\VEC{x}} =
+\int_\Omega g_{\VEC{\alpha}}(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}
 \end{equation}
 for all $\phi \in \DD(\Omega)$ by hypothesis.
 Moreover, using integration by parts, we have
 \begin{align}
-&\int_\Omega v(\VEC{x}) \diff^\alpha \phi(\VEC{x}) \dx{\VEC{x}} =
+&\int_\Omega v(\VEC{x}) \diff^{\VEC{\alpha}} \phi(\VEC{x}) \dx{\VEC{x}} =
 \int_{\prod_{j=2}^n]a_j,b_j[} \int_{a_1}^{b_1}
 v(x_1,\tilde{\VEC{x}}) \pdydx{\phi}{x_1}(x_1,\tilde{\VEC{x}})
 \dx{x_1} \dx{\tilde{\VEC{x}}} \nonumber \\
@@ -695,7 +706,7 @@ v(x_1,\tilde{\VEC{x}}) \pdydx{\phi}{x_1}(x_1,\tilde{\VEC{x}})
 \phi(x_1,\tilde{\VEC{x}}) \dx{x_1} \right) \dx{\tilde{\VEC{x}}}
 \nonumber \\
 &\quad = - \int_\Omega \pdydx{v}{x_1}(\VEC{x})\,\phi(\VEC{x}) \dx{\VEC{x}}
-= - \int_\Omega g_\alpha(\VEC{x})\,\phi(\VEC{x}) \dx{\VEC{x}}
+= - \int_\Omega g_{\VEC{\alpha}}(\VEC{x})\,\phi(\VEC{x}) \dx{\VEC{x}}
 \label{distr_der_derB}
 \end{align}
 for all $\phi \in \DD(\Omega)$, where we have use the fact that $\phi$
@@ -709,7 +720,7 @@ v(x_1,\tilde{\VEC{x}})\, \phi(x_1,\tilde{\VEC{x}})
 It follows from (\ref{distr_der_der}), (\ref{distr_der_derA}) and
 (\ref{distr_der_derB}) that
 \begin{equation} \label{distr_der_der2}
-\int_\Omega \left(u(\VEC{x}) - v(\VEC{x})\right) \diff^\alpha
+\int_\Omega \left(u(\VEC{x}) - v(\VEC{x})\right) \diff^{\VEC{\alpha}}
 \phi(\VEC{x}) \dx{\VEC{x}} = 0
 \end{equation}
 for all $\phi \in \DD(\Omega)$.
@@ -723,7 +734,7 @@ can rewrite (\ref{distr_der_der2}) as
 \[
 \int_{\prod_{j=2}^n]a_j,b_j[} \left( \int_{a_1}^{b_1}
 \left(u(x_1,\tilde{\VEC{x}}) - v(x_1,\tilde{\VEC{x}})\right)
-\diff^\alpha \phi_1(x_1) \dx{x_1} \right) \phi_2(\tilde{\VEC{x}})
+\diff^{\VEC{\alpha}} \phi_1(x_1) \dx{x_1} \right) \phi_2(\tilde{\VEC{x}})
 \dx{\tilde{\VEC{x}}} = 0
 \]
 for all $\phi_1 \in \DD(]a_1,b_1[)$ and
@@ -732,7 +743,7 @@ It follows that, for almost all
 $\displaystyle \tilde{\VEC{x}} \in \prod_{j=2}^n]a_j,b_j[$, we have
 \[
 \int_{a_1}^{b_1}
-\left(u(x_1,\tilde{\VEC{x}}) - v(x_1,\tilde{\VEC{x}})\right) \diff^\alpha
+\left(u(x_1,\tilde{\VEC{x}}) - v(x_1,\tilde{\VEC{x}})\right) \diff^{\VEC{\alpha}}
 \phi_1(x_1) \dx{x_1} = 0
 \]
 for all $\phi_1 \in \DD(]a_1,b_1[)$.
@@ -1060,9 +1071,9 @@ $\displaystyle u \ast \psi \in C^\infty(\RR^n)$.
 \begin{prop} \label{distr_comm_der}
 If $\displaystyle u\in \DD'(\RR^n)$ and
 $\displaystyle \phi\in \DD(\RR^n)$, then
-$\displaystyle \diff^\alpha(u\ast \phi)
-= u \ast \diff^\alpha \phi = \diff^\alpha u \ast \phi$
-for all multi-indices $\alpha$.
+$\displaystyle \diff^{\VEC{\alpha}}(u\ast \phi)
+= u \ast \diff^{\VEC{\alpha}} \phi = \diff^{\VEC{\alpha}} u \ast \phi$
+for all multi-indices $\VEC{\alpha}$.
 \end{prop}
 
 We may also define the convolution of two distributions if one of them
@@ -1365,11 +1376,11 @@ $\displaystyle (f\ast g)^\wedge = \hat{f}\,\hat{g}$.
 \item If $f$ is in $\displaystyle L^1(\RR^n)$, then
 $\displaystyle (f_{\VEC{z}})^\wedge(\VEC{y}) =
 e^{-i \VEC{z}\cdot\VEC{y}} \hat{f}(\VEC{y})$
-\item If $\displaystyle f \in C_c^m(\RR^n)$, $\alpha$ is a multi-index
-such that $|\alpha|\leq m$, and $p$ is the polynomial
-$\displaystyle p(\VEC{x}) = (-i\VEC{x})^\alpha$,
-then $\displaystyle (\diff^\alpha f)^\wedge = p \hat{f}$ and
-$\displaystyle (p f)^\wedge = \diff^\alpha\hat{f}$.
+\item If $\displaystyle f \in C_c^m(\RR^n)$, $\VEC{\alpha}$ is a multi-index
+such that $|\VEC{\alpha}|\leq m$, and $p$ is the polynomial
+$\displaystyle p(\VEC{x}) = (-i\VEC{x})^{\VEC{\alpha}}$,
+then $\displaystyle (\diff^{\VEC{\alpha}} f)^\wedge = p \hat{f}$ and
+$\displaystyle (p f)^\wedge = \diff^{\VEC{\alpha}}\hat{f}$.
 \end{enumerate}
 \end{prop}
 
@@ -1444,23 +1455,26 @@ Decreasing Functions} on $\displaystyle \RR^n$ (also called
 {\bfseries Schwartz class}\index{Functions!Schwartz Class}) is the space of all
 functions $\displaystyle f \in C^\infty(\RR^n)$ such that
 \[
-\sup_{\VEC{x} \in \RR^n} \left| \VEC{x}^\alpha \diff^\beta f(\VEC{x})
-\right| < \infty
+\sup_{\VEC{x} \in \RR^n} \left| \VEC{x}^{\VEC{\alpha}}
+\diff^{\VEC{\beta}} f(\VEC{x}) \right| < \infty
 \]
-for all multi-indices $\alpha$ and $\beta$.  A locally convex topology
-is defined on $\SS(\RR^n)$ with the help of the norms defined by
+for all multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$.  A locally
+convex topology is defined on $\SS(\RR^n)$ with the help of the norms
+defined by
 \[
-\sup_{|\alpha|\leq k} \sup_{\VEC{x} \in \RR^n} \left( 1 + \|\VEC{x}\|_2^2\right)^2
-\left| \diff^\alpha f(\VEC{x}) \right|
+\sup_{|\VEC{\alpha}|\leq k} \sup_{\VEC{x} \in \RR^n}
+\left( 1 + \|\VEC{x}\|_2^2\right)^2
+\left| \diff^{\VEC{\alpha}} f(\VEC{x}) \right|
 \]
 for $k \geq 0$.  We will not elaborate on this subject but the
 interested reader may consult \cite{RuFA,ReeSim} for more information.
 
 If $\displaystyle f \in \SS(\RR^n)$, we have that
-$\displaystyle \VEC{x}^\alpha \diff^\beta f$ itself vanishes at infinity
-for all multi-indices $\alpha$ and $\beta$.
-Moreover, $\displaystyle \VEC{x}^\alpha \diff^\beta f \in L^1(\RR^n)$
-for all multi-indices $\alpha$ and $\beta$.  To prove this, choose
+$\displaystyle \VEC{x}^{\VEC{\alpha}} \diff^{\VEC{\beta}} f$ itself
+vanishes at infinity for all multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$.
+Moreover,
+$\displaystyle \VEC{x}^{\VEC{\alpha}}\diff^{\VEC{\beta}} f \in L^1(\RR^n)$
+for all multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$.  To prove this, choose
 $k > n/2$ and $C>0$.  Since $f$ vanishes at infinity, there exists $r>0$
 such that
 $\displaystyle \|\VEC{x}\|^{2k}\, \left| f(\VEC{x}) \right| < C$ for
@@ -1478,10 +1492,11 @@ C \int_{\|\VEC{x}\|> r} \|\VEC{x}\|^{-2k} \dx{\VEC{x}} < \infty
 because $f$ is locally integrable, the integral of $|f|$ on
 $\{ \VEC{x} : \|\VEC{x}\| \leq r \}$ is finite, and\\
 $\displaystyle \int_{\|\VEC{x}\|> r} \|\VEC{x}\|^{-2k} \dx{\VEC{x}} < \infty$
-since $2k >n$.  For all multi-indices $\alpha$ and $\beta$, this
+since $2k >n$.  For all multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$, this
 reasoning can be applied to
-$\displaystyle \VEC{x}^\alpha \diff^\beta f$ instead of $f$ to
-show that $\displaystyle \VEC{x}^\alpha \diff^\beta f \in L^1(\RR^n)$.
+$\displaystyle \VEC{x}^{\VEC{\alpha}} \diff^{\VEC{\beta}} f$ instead of $f$ to
+show that
+$\displaystyle \VEC{x}^{\VEC{\alpha}} \diff^{\VEC{\beta}} f \in L^1(\RR^n)$.
 
 Hence, the Fourier transform of rapidly decreasing functions and their
 derivatives exists.
@@ -1514,46 +1529,48 @@ Hence, we may define $\hat{f}(\VEC{z})$ for $\displaystyle \VEC{z} \in \CC^n$ by
 \]
 $\hat{f}$ is an entire function because
 $\displaystyle\VEC{z} \mapsto  e^{i \VEC{z}\cdot \VEC{x}}$ is an entire function
-and, for any multi-index $\alpha$, complex
-derivatives $\displaystyle \diff_{\VEC{z}}^\alpha$ and integration
+and, for any multi-index $\VEC{\alpha}$, complex
+derivatives $\displaystyle \diff_{\VEC{z}}^{\VEC{\alpha}}$ and integration
 can be interchanged.
 
 If $\displaystyle f \in \DD(\RR^n)$, choose $r$ large enough such that
 $\supp f \subset \{ \VEC{x} : \|\VEC{x}\| < r \}$.  Then, for any
-multi-index $\alpha$,
+multi-index $\VEC{\alpha}$,
 \begin{align}
-\left| \VEC{z}^\alpha \hat{f}(\VEC{z}) \right|
-&= \left| (i)^{|\alpha|} \big(\diff^\alpha f\big)^\wedge(\VEC{z}) \right|
-= \left| \int_{\RR^n} e^{-i \VEC{z}\cdot\VEC{x}} \diff^\alpha f(\VEC{x})
+\left| \VEC{z}^{\VEC{\alpha}} \hat{f}(\VEC{z}) \right|
+&= \left| (i)^{|\VEC{\alpha}|} \big(\diff^{\VEC{\alpha}}
+f\big)^\wedge(\VEC{z}) \right|
+= \left| \int_{\RR^n} e^{-i \VEC{z}\cdot\VEC{x}} \diff^{\VEC{\alpha}} f(\VEC{x})
   \dx{\mu(\VEC{x})} \right| \nonumber \\
 &\leq \int_{\|\VEC{x}\| < r} \left| e^{-i \VEC{z}\cdot\VEC{x}}\right|\,
-\left|\diff^\alpha f(\VEC{x})\right| \dx{\mu(\VEC{x})}
+\left|\diff^{\VEC{\alpha}} f(\VEC{x})\right| \dx{\mu(\VEC{x})}
 \leq e^{r \|\IM \VEC{z}\|_2}\,\int_{\|\VEC{x}\| < r}
-\left|\diff^\alpha f(\VEC{x})\right| \dx{\mu(\VEC{x})} \nonumber \\
+\left|\diff^{\VEC{\alpha}} f(\VEC{x})\right| \dx{\mu(\VEC{x})} \nonumber \\
 & = e^{r \|\IM \VEC{z}\|_2}\,\int_{\RR^n}
-\left|\diff^\alpha f(\VEC{x})\right| \dx{\mu(\VEC{x})}
+\left|\diff^{\VEC{\alpha}} f(\VEC{x})\right| \dx{\mu(\VEC{x})}
 \label{proof_distr_four_f} 
 \end{align}
 for all $\displaystyle \VEC{z} \in \CC^n$.
 Hence, for $\|\IM \VEC{z} \|_2 \leq c$, we have
 \[
-\left| \VEC{z}^\alpha \hat{f}(\VEC{z}) \right|
+\left| \VEC{z}^{\VEC{\alpha}} \hat{f}(\VEC{z}) \right|
 \leq e^{r c}
-\int_{\RR^n} \left|\diff^{\alpha} f(\VEC{x})\right| \dx{\mu(\VEC{x})}
+\int_{\RR^n} \left|\diff^{\VEC{\alpha}} f(\VEC{x})\right| \dx{\mu(\VEC{x})}
 < \infty \ .
 \]
 
-Given any two multi-indices $\alpha$ and $\beta$, to prove that
-$\displaystyle \VEC{z}^\alpha \diff^\beta \hat{f}(\VEC{z})$ is
+Given any two multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$, to prove that
+$\displaystyle \VEC{z}^{\VEC{\alpha}} \diff^{\VEC{\beta}} \hat{f}(\VEC{z})$ is
 uniformly bounded for $\|\IM \VEC{z} \|_2 \leq c$, we use the relation
 \[
-\VEC{z}^\alpha \diff^\beta \hat{f}(\VEC{z}) =
-\VEC{z}^\alpha \big( (-i \VEC{x})^\beta f\big)^{\wedge} (\VEC{z})
-= (-i)^{|\beta|} \VEC{z}^\alpha
-\left(\VEC{x}^\beta f \right)^{\wedge}(\VEC{z})
+\VEC{z}^{\VEC{\alpha}} \diff^{\VEC{\beta}} \hat{f}(\VEC{z}) =
+\VEC{z}^{\VEC{\alpha}} \big( (-i \VEC{x})^{\VEC{\beta}} f\big)^{\wedge} (\VEC{z})
+= (-i)^{|\VEC{\beta}|} \VEC{z}^{\VEC{\alpha}}
+\left(\VEC{x}^{VEC{\beta}} f \right)^{\wedge}(\VEC{z})
 \]
-to reduce the problem to the previous case with $\displaystyle \VEC{x}^\beta f$
-instead of $f$ where $\displaystyle \VEC{x}^\beta f \in \DD(\RR^n)$.
+to reduce the problem to the previous case with
+$\displaystyle \VEC{x}^{\VEC{\beta}} f$
+instead of $f$ where $\displaystyle \VEC{x}^{\VEC{\beta}} f \in \DD(\RR^n)$.
 \end{proof}
 
 The Fourier transform can only be defined on a subset of the space
@@ -1660,10 +1677,11 @@ $\displaystyle \phi \in \SS(\RR^n)$.
 \item The Fourier transform (\ref{distr_fourierTD}) is a continuous
 linear bijection from $\displaystyle \SS'(\RR^n)$ into itself and its
 inverse is continuous.
-\item If $\displaystyle u \in \SS'(\RR^n)$, $\alpha$ is a multi-index,
-and $p$ is the polynomial $\displaystyle p(\VEC{x}) = (i\VEC{x})^\alpha$, then
-$\displaystyle (\diff^\alpha u)^\wedge = p\, \hat{u}$ and
-$\displaystyle (p^\vee u)^\wedge = \diff^\alpha\hat{u}$.
+\item If $\displaystyle u \in \SS'(\RR^n)$, $\VEC{\alpha}$ is a multi-index,
+and $p$ is the polynomial
+$\displaystyle p(\VEC{x}) = (i\VEC{x})^{\VEC{\alpha}}$, then
+$\displaystyle (\diff^{\VEC{\alpha}} u)^\wedge = p\, \hat{u}$ and
+$\displaystyle (p^\vee u)^\wedge = \diff^{\VEC{\alpha}}\hat{u}$.
 \item If $\displaystyle u \in \SS'(\RR^n)$ and
 $\displaystyle \phi \in \SS(\RR^n)$, then
 $\displaystyle u\ast \phi \in C^\infty(\RR^n)$ and
@@ -1680,18 +1698,19 @@ We will only prove the first part of (2).  The reader should consult
 the references for the proofs of the other results.
 
 By definition, we have that
-$\displaystyle (\diff^\alpha u)(\phi) = (-1)^\alpha u(\diff^\alpha \phi)$
+$\displaystyle (\diff^{\VEC{\alpha}} u)(\phi) = (-1)^{\VEC{\alpha}}
+u(\diff^{\VEC{\alpha}} \phi)$
 for all $\displaystyle \phi \in \SS(\RR^n)$.  Hence,
 \[
-(\diff^\alpha u)^\wedge (\phi)
-= (\diff^\alpha u)(\hat{\phi})
-= (-1)^\alpha u\big(\diff^\alpha \hat{\phi}\big)
-= (-1)^\alpha u\big((-i\VEC{x})^\alpha \hat{\phi})
-= (i\VEC{x})^\alpha u\big( \hat{\phi})
-= (i\VEC{x})^\alpha \hat{u}(\phi)
+(\diff^{\VEC{\alpha}} u)^\wedge (\phi)
+= (\diff^{\VEC{\alpha}} u)(\hat{\phi})
+= (-1)^{|\VEC{\alpha}|} u\big(\diff^{\VEC{\alpha}} \hat{\phi}\big)
+= (-1)^{|\VEC{\alpha}|} u\big((-i\VEC{x})^{\VEC{\alpha}} \hat{\phi})
+= (i\VEC{x})^{\VEC{\alpha}} u\big( \hat{\phi})
+= (i\VEC{x})^{\VEC{\alpha}} \hat{u}(\phi)
 \]
 for all $\displaystyle \phi \in \SS(\RR^n)$.  Thus,
-$\displaystyle (\diff^\alpha u)^\wedge = p \hat{u}$ in the sense of
+$\displaystyle (\diff^{\VEC{\alpha}} u)^\wedge = p \hat{u}$ in the sense of
 distributions.
 \end{proof}
 
@@ -1763,18 +1782,19 @@ presentation is given in \cite{Smo}.
 Let $\displaystyle \Omega \subset \RR^n$ be an open set and consider
 the linear partial differential equation
 \begin{equation} \label{distr_lPDE2}
-L(\VEC{x},\diff)u = \sum_{|\alpha|\leq m} a_\alpha \diff^\alpha u = f
+L(\VEC{x},\diff)u = \sum_{|\VEC{\alpha}|\leq m} a_{\VEC{\alpha}}
+\diff^{\VEC{\alpha}} u = f
 \end{equation}
 where $u:\Omega \rightarrow \CC$, $f:\Omega \rightarrow \CC$ is
-continuous and $a_\alpha:\Omega \rightarrow \CC$ is of class
-$\displaystyle C^{|\alpha|}$ for all multi-indices involved in the sum.
+continuous and $a_{\VEC{\alpha}}:\Omega \rightarrow \CC$ is of class
+$\displaystyle C^{|\VEC{\alpha}|}$ for all multi-indices involved in the sum.
 
 As in the introduction of the present chapter, let
 $\displaystyle L^\ast(\VEC{x}, \diff)$ 
 be the adjoint of $L(\VEC{x}, \diff)$ defined by
 \[
-L^\ast(\VEC{x},\diff)\phi = \sum_{|\alpha|\leq m} (-1)^{|\alpha|}
-\diff^\alpha \left(a_\alpha \phi \right) \quad , \quad \phi \in
+L^\ast(\VEC{x},\diff)\phi = \sum_{|\VEC{\alpha}|\leq m} (-1)^{|\VEC{\alpha}|}
+\diff^{\VEC{\alpha}} \left(a_{\VEC{\alpha}} \phi \right) \quad , \quad \phi \in
 \DD(\Omega) \ .
 \]
 A {\bfseries strong solution}\index{Strong Solution} or a
@@ -1789,10 +1809,11 @@ for all $\phi \in \DD(\Omega)$.
 
 Consider the linear partial differential equation with constant coefficients
 \begin{equation} \label{distr_lPDE3}
-L(\VEC{x},\diff)u = \sum_{|\alpha|\leq m} a_\alpha \diff^\alpha u = f \  ,
+L(\VEC{x},\diff)u = \sum_{|\VEC{\alpha}|\leq m} a_{\VEC{\alpha}}
+\diff^{\VEC{\alpha}} u = f \  ,
 \end{equation}
-where $a_\alpha \in \RR$ for all multi-indices $\alpha$ involved in the
-sum, $\displaystyle u:\RR^n \rightarrow \CC$ and
+where $a_{\VEC{\alpha}} \in \RR$ for all multi-indices $\VEC{\alpha}$
+involved in the sum, $\displaystyle u:\RR^n \rightarrow \CC$ and
 $\displaystyle f \in \DD(\RR^n)$.
 
 We assume that the coordinates are such that
@@ -1804,7 +1825,8 @@ We show that there exists a solution $\displaystyle u \in C^\infty(\RR^n)$ for
 
 We have that $\displaystyle L(\VEC{x},\diff)\hat{u} = (p\, u)^\wedge$, where
 \begin{equation} \label{distr_lPDE3_ex1}
-p(\VEC{y}) = \sum_{|\alpha|\leq m} a_\alpha (-i\VEC{y})^\alpha \ .
+p(\VEC{y}) = \sum_{|\VEC{\alpha}|\leq m} a_{\VEC{\alpha}}
+(-i\VEC{y})^{\VEC{\alpha}} \ .
 \end{equation}
 Let $\lambda_1(\breve{\VEC{y}})$, $\lambda_2(\breve{\VEC{y}})$, \ldots,
 $\lambda_m(\breve{\VEC{y}})$ be the roots of
@@ -1962,9 +1984,9 @@ S = \{\VEC{y} = (\breve{\VEC{y}}, y_n) \in \RR^{n-1}\times \CC :
 Since $|\IM y_n|\leq m$ in the domain of integration, the
 exponential in the definition of $u$ is bounded by $\displaystyle e^{m x_n}$.
 It follows that
-$\displaystyle \VEC{y} \mapsto \diff_{\VEC{x}}^\alpha
+$\displaystyle \VEC{y} \mapsto \diff_{\VEC{x}}^{\VEC{\alpha}}
 e^{-i\, \VEC{x}\cdot\VEC{y}} \frac{\hat{f}(\VEC{y})}{p(\VEC{y})}$
-is rapidly decreasing on $S$ for all multi-indices $\alpha$.
+is rapidly decreasing on $S$ for all multi-indices $\VEC{\alpha}$.
 Hence, we may interchange derivative and integral in the definition of
 $u$.  Thus $u$ is of class $\displaystyle C^\infty$.
 
@@ -2105,7 +2127,7 @@ L(\VEC{x},\diff) u = L(\VEC{x},\diff)(F \ast f)
 \begin{theorem}[Malgrange-Ehrempreis] \label{malgr_Ehr}
 Every differential linear operator with constant coefficients
 \begin{equation} \label{distr_lPDE4}
-L(\VEC{x},\diff) = \sum_{|\alpha|\leq m} a_\alpha \diff^\alpha
+L(\VEC{x},\diff) = \sum_{|\VEC{\alpha}|\leq m} a_{\VEC{\alpha}} \diff^{\VEC{\alpha}}
 \end{equation}
 has a fundamental solution on $\displaystyle \RR^n$.
 \index{Malgrange-Ehrempreis' Theorem}
@@ -2129,7 +2151,7 @@ that $L(\VEC{x},\diff)F = \delta$.
 \stage{i} Let $\displaystyle K \subset \RR^n$ be a compact set.  We will find a
 constant $C_K$ and an integer $N_K$, such that
 \[
-\left|F(\phi)\right| \leq C_K \sum_{|\alpha|\leq N_K} \|\diff^\alpha
+\left|F(\phi)\right| \leq C_K \sum_{|\VEC{\alpha}|\leq N_K} \|\diff^{\VEC{\alpha}}
 \phi\|_{\infty,K}
 \]
 for all $\phi \in \DD_K$.
@@ -2160,17 +2182,17 @@ $\IM y_n = \kappa(\breve{\VEC{y}})$.  Hence,
 &\quad = C_2 \sup_{\|\IM \VEC{y}\| \leq m} \left\{
 \left( 1+\|\VEC{y}\|^2 \right)^{n+1}
 \left| \hat{\phi}^\vee(\VEC{y}) \right| \right\}
-\leq C_3 \sum_{|\alpha|\leq 2(n+1)} \|\diff^\alpha \phi\|_\infty
+\leq C_3 \sum_{|\VEC{\alpha}|\leq 2(n+1)} \|\diff^{\VEC{\alpha}} \phi\|_\infty
 \end{align*}
 for all $\phi \in \DD_K$ and some constant $C_3$.
 The last inequality above is proved using the relation
 \[
-\left| \VEC{y}^\alpha \hat{\phi}(\VEC{y}) \right|
+\left| \VEC{y}^{\VEC{\alpha}} \hat{\phi}(\VEC{y}) \right|
 \leq e^{r\|\IM \VEC{y}\|_2}\,\int_{\RR^n}
-\left|\diff^\alpha \phi(\VEC{x})\right| \dx{\mu(\VEC{x})}
+\left|\diff^{\VEC{\alpha}} \phi(\VEC{x})\right| \dx{\mu(\VEC{x})}
 \]
 for $\displaystyle \VEC{y} \in \CC^n$ and
-$\displaystyle \alpha \in \NN^n$ that we have obtained in
+$\displaystyle \VEC{\alpha} \in \NN^n$ that we have obtained in
 (\ref{proof_distr_four_f}) of the proof of Proposition~\ref{distr_four_f},
 where $r$ is such that $K \subset B_r(\VEC{0})$.
 Thus, the constant $C_3$ depends on $K$.
@@ -2180,10 +2202,12 @@ $\displaystyle \ps{L(\VEC{x},\diff) F}{\phi}
 = \ps{F}{L^\ast(\VEC{x},\diff) \phi}$
 for $\phi \in \DD(\RR^n)$ where
 $\displaystyle L^\ast(\VEC{x},\diff)
-= \sum_{|\alpha|\leq m} (-1)^{|\alpha|} a_\alpha \diff^{\alpha}$.
+= \sum_{|\VEC{\alpha}|\leq m} (-1)^{|\VEC{\alpha}|} a_{\VEC{\alpha}}
+\diff^{\VEC{\alpha}}$.
 Let
 \[
-p^\ast(\VEC{y}) = \sum_{|\alpha|\leq m} a_\alpha (i \VEC{y})^\alpha \ .
+p^\ast(\VEC{y}) = \sum_{|\VEC{\alpha}|\leq m}
+a_{\VEC{\alpha}} (i \VEC{y})^{\VEC{\alpha}} \ .
 \]
 Then
 \[
@@ -2216,8 +2240,9 @@ equality is a consequence of the inverse Fourier transform.
 \begin{defn}
 Let $\Omega$ be an open subset of $\displaystyle \RR^n$.  The
 differential operator
-$\displaystyle L(\VEC{x},\diff)u = \sum_{|\alpha|\leq m} a_\alpha \diff^\alpha u$,
-where the $\displaystyle a_\alpha\in C^\infty(\Omega)$, is
+$\displaystyle L(\VEC{x},\diff)u = \sum_{|\VEC{\alpha}|\leq m}
+a_{\VEC{\alpha}} \diff^{\VEC{\alpha}} u$,
+where the $\displaystyle a_{\VEC{\alpha}}\in C^\infty(\Omega)$, is
 {\bfseries hypoelliptic}%
 \index{Linear Partial Differential Operator!Hypoelliptic} if
 $\displaystyle L(\VEC{x},\diff)u \in C^\infty(\Omega)$ implies that
@@ -2271,10 +2296,11 @@ $\displaystyle f\ast v \in C^\infty(\RR^n\setminus \supp v)$.
 \begin{theorem} \label{distr_hypoTH}
 Consider the differential operator
 \[
-L(\VEC{x},\diff)u = \sum_{|\alpha|\leq m} a_\alpha \diff^\alpha u \ ,
+L(\VEC{x},\diff)u = \sum_{|\VEC{\alpha}|\leq m} a_{\VEC{\alpha}}
+\diff^{\VEC{\alpha}} u \ ,
 \]
-where $a_\alpha \in \RR$ for all multi-indices $\alpha$.  The following
-sentences are equivalent.
+where $a_{\VEC{\alpha}} \in \RR$ for all multi-indices $\VEC{\alpha}$.
+The following sentences are equivalent.
 \begin{enumerate}
 \item There exists a fundamental solution of $L(\VEC{x},\diff)$ of
 class $\displaystyle C^\infty$ on $\displaystyle \RR^n\setminus \{\VEC{0}\}$.

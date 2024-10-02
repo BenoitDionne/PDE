@@ -1,4 +1,4 @@
-\chapter{Wave Equation in $\RR^n$} \label{ChapWaveEqunD}
+\chapter{Wave Equation in $\mathbf{\RR^n}$} \label{ChapWaveEqunD}
 
 \section{The Cauchy Problem}
 
@@ -40,9 +40,10 @@ other eigenvalue is $1>0$.
 An hyper-surface $S \subset \RR^n \times \RR$ is called
 {\bfseries space-like}\index{Wave Equation!Space-Like} if its normal vector
 \[
-\VEC{\nu}(\VEC{x},t) = (\VEC{v}(\VEC{x},t) , w(\VEC{x},t) )
+\nu(\VEC{x},t) = (v(\VEC{x},t),w(\VEC{x},t) ) \ ,
 \]
-satisfies $|w(\VEC{x},t)| > \| \VEC{v}(\VEC{x},t) \|$ for all
+where $v:S \to \RR^n$ and $w:S \to \RR$,
+satisfies $|w(\VEC{x},t)| > \|v(\VEC{x},t) \|$ for all
 $(\VEC{x},t) \in S$.
 \end{defn}
 
@@ -54,12 +55,12 @@ then $S$ is space-like if the normal to $S$ at a point
 $(\VEC{x}_0,t_0) \in S$ is inside the cone $\|\VEC{x}\| = |t|$.  In
 particular, if $S$ is the hyperplane $t=0$, then $S$ is space-like
 because the outward normal to
-$S$ is $\VEC{\nu}(\VEC{x},0) = (\VEC{0},-1)$ for all $(\VEC{x},0)$.
+$S$ is $\nu(\VEC{x},0) = (\VEC{0},-1)$ for all $(\VEC{x},0)$.
 
 \pdfF{wave_equ_Rn/wave_fig6}{Space-like surface}{Graphical
 interpretation of space-like surface for the wave equation.}{wave_FIG6}
 
-The condition $\|\VEC{v}(\VEC{x},t)\| < |w(\VEC{x},t)|$ is necessary
+The condition $\|v(\VEC{x},t)\| < |w(\VEC{x},t)|$ is necessary
 to get a smooth change of coordinates
 \begin{align*}
 \RR^n \times \RR &\rightarrow \RR^n \times \RR \\
@@ -70,7 +71,7 @@ $S$ to the surface $t=0$.
 
 \begin{rmk}
 The hyperplane $t=0$ is not a characteristic surface because
-$\displaystyle Q(\,(\VEC{x},0), \VEC{\nu}(\VEC{x},0)\,) = 1$ for all
+$\displaystyle Q(\,(\VEC{x},0), \nu(\VEC{x},0)\,) = 1$ for all
 $\VEC{x} \in \RR^n$.
 \end{rmk}
 
@@ -164,9 +165,9 @@ Using the divergence theorem in the hyperplane $t$ constant, we get
 = \int_{B_t} \diV_\VEC{x} \left( \pdydx{u}{t} \graD_{\VEC{x}} u \right)
 \dx{\VEC{x}}
 = \int_{\partial B_t} \pdydx{u}{t} \left( \graD_{\VEC{x}} u \cdot
-\VEC{\nu} \right) \dss{S}{x} \  ,
+\nu \right) \dss{S}{x} \  ,
 \]
-where $\VEC{\nu}(\VEC{x})$ is the unit normal to the surface
+where $\nu(\VEC{x})$ is the unit normal to the surface
 $\partial B_t$ at $\VEC{x} \in \partial B_t$ in the hyperplane $t$
 constant which is pointing outside $B_t$.
 Moreover,
@@ -185,19 +186,19 @@ Thus
 \sum_{j=1}^n \pdydxnm{u}{x_j}{t}{2}{}{} \pdydx{u}{x_j} \right)
 \dx{\VEC{x}} =
 \int_{\partial B_t} \pdydx{u}{t} \left( \graD_{\VEC{x}} u \cdot
-\VEC{\nu} \right) \dss{S}{x} \ .
+\nu \right) \dss{S}{x} \ .
 \]
 We end up with
 \[
 \dydx{E}{t} = \int_{\partial B_t} \pdydx{u}{t} \left( \graD_{\VEC{x}} u \cdot
-\VEC{\nu} \right) \dss{S}{x}
+\nu \right) \dss{S}{x}
 - \frac{1}{2} \int_{\partial B_t} \left( \left(\pdydx{u}{t}\right)^2 
 + \|\graD_{\VEC{x}} u \|^2 \right)\dss{S}{x}
 \]
 for $0 <t < t_0$.  From Schwarz inequality, we get
 \[
-\left| \pdydx{u}{t} \left(\graD_{\VEC{x}} u \cdot \VEC{\nu} \right) \right|
- \leq \left| \pdydx{u}{t} \right| \| \graD_{\VEC{x}} u \|\,\|\VEC{\nu}\|
+\left| \pdydx{u}{t} \left(\graD_{\VEC{x}} u \cdot \nu \right) \right|
+ \leq \left| \pdydx{u}{t} \right| \| \graD_{\VEC{x}} u \|\,\|\nu\|
 = \left| \pdydx{u}{t} \right| \| \graD_{\VEC{x}} u \|
 \leq \frac{1}{2} \left( \left(\pdydx{u}{t}\right)^2 +
 \|\graD_{\VEC{x}} u \|^2 \right) \ ,
@@ -270,12 +271,14 @@ polynomial in $\Delta$.
 \stage{$\Rightarrow$}
 Suppose that
 \[
-L(\VEC{x},\diff) = \sum_{|\alpha|\leq k} a_\alpha(\VEC{x}) D^\alpha
+L(\VEC{x},\diff) = \sum_{|\VEC{\alpha}|\leq k}
+a_{\VEC{\alpha}}(\VEC{x}) D^{\VEC{\alpha}}
 \]
 for some positive integer $k$, where
-$\displaystyle \diff^\alpha = \frac{\partial^{|\alpha|}}{\partial x_1^{\alpha_1}
+$\displaystyle \diff^{\VEC{\alpha}}
+= \frac{\partial^{|\VEC{\alpha}|}}{\partial x_1^{\alpha_1}
 \partial x_2^{\alpha_2} \ldots \partial x_n^{\alpha_n}}$ for all
-multi-indices $\alpha$ as usual.
+multi-indices $\VEC{\alpha}$ as usual.
 
 $L(\VEC{x},\diff)$ commutes with translations means that
 $\displaystyle \big(L(\VEC{x},\diff)u\big)(\VEC{x}+\VEC{y}) =
@@ -283,26 +286,30 @@ L(\VEC{x},\diff)\big( u(\VEC{x}+\VEC{y}) \big)$ for all
 $\displaystyle u\in C^k(\RR^n)$, and for
 all $\VEC{x}$ and $\VEC{y}$ in $\RR^n$.  Namely,
 \begin{align} \label{laplace_op1}
-\sum_{|\alpha|\leq k} a_\alpha(\VEC{x}+\VEC{y}) \diff^\alpha u(\VEC{x}+\VEC{y})
-= \sum_{|\alpha|\leq k} a_\alpha(\VEC{x}) \diff^\alpha u(\VEC{x}+\VEC{y})
+\sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}(\VEC{x}+\VEC{y})
+\diff^{\VEC{\alpha}} u(\VEC{x}+\VEC{y})
+= \sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}(\VEC{x})
+\diff^{\VEC{\alpha}} u(\VEC{x}+\VEC{y})
 \end{align}
 for all $\displaystyle u\in C^k(\RR^n)$, and for all $\VEC{x}$ and
 $\VEC{y}$ in $\displaystyle \RR^n$.  If
-$\displaystyle u(\VEC{x}) = \VEC{x}^\alpha$ for some multi-indices
-$\alpha$ such that $|\alpha|\leq k$, then
-$\displaystyle \diff^\beta u(\VEC{x})
-= \frac{\alpha!}{(\alpha-\beta)!} \VEC{x}^{\alpha-\beta}$
-for $\beta \leq \alpha$ and $0$ otherwise.  In particular,
-$\diff^\alpha u(\VEC{x}) = \alpha!$.  With $\VEC{y} = - \VEC{x}$,
+$\displaystyle u(\VEC{x}) = \VEC{x}^{\VEC{\alpha}}$ for some multi-indices
+$\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq k$, then
+$\displaystyle \diff^{\VEC{\beta}} u(\VEC{x})
+= \frac{\VEC{\alpha}!}{(\VEC{\alpha}-\VEC{\beta})!}
+\VEC{x}^{\VEC{\alpha}-\VEC{\beta}}$
+for $\VEC{\beta} \leq \VEC{\alpha}$ and $0$ otherwise.  In particular,
+$\diff^{\VEC{\alpha}} u(\VEC{x}) = \VEC{\alpha}!$.  With $\VEC{y} = - \VEC{x}$,
 (\ref{laplace_op1}) becomes
 \[
-\alpha! a_\alpha(\VEC{0}) = \alpha! a_\alpha(\VEC{x}) \ .
+\VEC{\alpha}! a_{\VEC{\alpha}}(\VEC{0})
+= \VEC{\alpha}! a_{\VEC{\alpha}}(\VEC{x}) \ .
 \]
-Since $\VEC{x}$ is arbitrary, $a_\alpha$ is a constant.
-Since the multi-index $\alpha$ is arbitrary, $L(D)$ has constant
+Since $\VEC{x}$ is arbitrary, $a_{\VEC{\alpha}}$ is a constant.
+Since the multi-index $\VEC{\alpha}$ is arbitrary, $L(D)$ has constant
 coefficients.  Since $L(D)$ obviously commutes with translations when
 the coefficients are constant, we have shown that $L(D)$ commutes with
-translations if and only if the coefficients $a_\alpha$ are constant.
+translations if and only if the coefficients $a_{\VEC{\alpha}}$ are constant.
 
 We have for all $u\in C^k(\RR^n)$ that
 \[
@@ -310,7 +317,8 @@ We have for all $u\in C^k(\RR^n)$ that
 \]
 where
 \[
-p(\VEC{y}) = \sum_{|\alpha|\leq k} a_{\alpha} (i\VEC{y})^\alpha \ .
+p(\VEC{y}) = \sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}
+(i\VEC{y})^{\VEC{\alpha}} \ .
 \]
 For $R$ a rotation, we have
 \begin{align*}
@@ -320,8 +328,7 @@ u(\VEC{x}) \dx{\VEC{x}}
 u(\VEC{x}) \dx{\VEC{x}} \\
 &= \int_{\RR^n} e^{-i \VEC{y} \cdot\VEC{z}}
 u(R\VEC{z}) | \det R | \dx{\VEC{z}}
-= \int_{\RR^n} e^{-i \VEC{y} \cdot\VEC{z}}
-u(R\VEC{z}) \dx{\VEC{z}}
+= \int_{\RR^n} e^{-i \VEC{y} \cdot\VEC{z}} u(R\VEC{z}) \dx{\VEC{z}}
 = (u \circ R)^\wedge(\VEC{y}) \ ,
 \end{align*}
 where we have use the fact that $|\det R| = 1$ for rotations.
@@ -338,9 +345,11 @@ if $p$ is radial; namely, $p(\VEC{y}) = p(R\VEC{y})$ for all $\VEC{y}$
 and all rotation $R$ or, in other words, $p$ depends only of the radius
 $r=\|\VEC{y}\|_2$.
 
-If $\displaystyle p(\VEC{y}) = \sum_{|\alpha|\leq k} a_{\alpha} (i\VEC{y})^\alpha$
+If $\displaystyle p(\VEC{y}) = \sum_{|\VEC{\alpha}|\leq k}
+a_{\VEC{\alpha}} (i\VEC{y})^{\VEC{\alpha}}$
 is radial, then $\displaystyle
-p_j(\VEC{y}) = \sum_{|\alpha|=j} a_{\alpha} (i\VEC{y})^\alpha$ is
+p_j(\VEC{y}) = \sum_{|\VEC{\alpha}|=j} a_{\VEC{\alpha}}
+(i\VEC{y})^{\VEC{\alpha}}$ is
 radial for $0\leq j \leq k$ by homogeneity because rotations preserve the
 degree of $p_j$.  Thus $p_j$ is an homogeneous polynomial of degree
 $j$ in $\displaystyle \|\VEC{y}\|_2$;

@@ -12,8 +12,8 @@
   \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
   \selectfont}%
 \fi\endgroup%
-\begin{picture}(3687,1674)(889,-1333)
-\put(2476,179){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\VEC{\nu}(\VEC{x})$}%
+\begin{picture}(3687,1656)(889,-1330)
+\put(2476,179){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\nu(\VEC{x})$}%
 }}}}
 \put(4561,-841){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$T_{\VEC{x}}$}%
 }}}}

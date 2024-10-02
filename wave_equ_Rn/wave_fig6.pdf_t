@@ -12,7 +12,7 @@
   \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
   \selectfont}%
 \fi\endgroup%
-\begin{picture}(6856,2057)(-554,-1426)
+\begin{picture}(6856,2045)(-554,-1426)
 \put(491,-701){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$x_2$}%
 }}}}
 \put(-539,-1126){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$x_1$}%
@@ -29,7 +29,7 @@
 }}}}
 \put(4126,-211){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}to the point $(\VEC{x}_0,t_0)$}%
 }}}}
-\put(-344,369){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\VEC{n}(\VEC{x}_0,t_0)=(\VEC{v}(\VEC{x}_0,t_0), w(\VEC{x}_0,t_0)$}%
+\put(-344,369){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$n(\VEC{x}_0,t_0)=(v(\VEC{x}_0,t_0), w(\VEC{x}_0,t_0)$}%
 }}}}
 \put(2141,-796){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\VEC{v}$}%
 }}}}
