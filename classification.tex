@@ -1035,18 +1035,18 @@ We get the system
 0 & -1 \\
 x & 0
 \end{pmatrix}
-\pdydx{\VEC{v}}{x}
+\pdydx{v}{x}
 +
 \begin{pmatrix}
 1 & 0 \\
 2x^2 & 0
 \end{pmatrix}
-\pdydx{\VEC{v}}{y}
+\pdydx{v}{y}
 =
 \begin{pmatrix}
 0 \\ v_1+1
 \end{pmatrix} \quad , \quad
-\VEC{v} =
+v =
 \begin{pmatrix}
 v_1 \\ v_2
 \end{pmatrix} \ .
@@ -1061,18 +1061,18 @@ Let $\displaystyle \LL(\RR^n)$ be the space of \nn matrices.  A
 \index{System of Linear First Order Partial Differential Equations} is
 a system of the form
 \begin{equation} \label{classif_SPDE1}
-A(x,y) \pdydx{\VEC{v}}{x}(x,y) + B(x,y) \pdydx{\VEC{v}}{y}(x,y) =
-\VEC{c}\left(x,y,\VEC{v}(x,y)\right) \ ,
+A(x,y) \pdydx{v}{x}(x,y) + B(x,y) \pdydx{v}{y}(x,y) =
+c\left(x,y,v(x,y)\right) \ ,
 \end{equation}
 where $\displaystyle A:\RR^2\rightarrow \LL(\RR^n)$,
 $\displaystyle B:\RR^2\rightarrow \LL(\RR^n)$ and
-$\displaystyle \VEC{c}:\RR^{2+n}\rightarrow \RR^n$ are continuous functions.
+$\displaystyle c:\RR^{2+n}\rightarrow \RR^n$ are continuous functions.
 If we combine the condition
 \begin{equation} \label{classif_SPDE1_cond}
-\VEC{v}\big|_\Gamma = \VEC{f}
+v\big|_\Gamma = f
 \end{equation}
 for some curve $\Gamma$ in the plane and some function
-$\displaystyle \VEC{f}:\Gamma \rightarrow \RR^n$ with
+$\displaystyle f:\Gamma \rightarrow \RR^n$ with
 (\ref{classif_SPDE1}), then we get the general form of the
 {\bfseries Cauchy Problem}\index{Cauchy Problem} for systems of first
 order partial differential equation. 
@@ -1099,7 +1099,7 @@ where $x_0:I\rightarrow \RR$ and $y_0:I\rightarrow \RR$ are
 differentiable functions, and $I$ is an open interval.  The condition
 on $\Gamma$ that $\VEC{v}$ must satisfy is of the form
 \begin{equation} \label{classif_SPDE1_c1}
-\VEC{v}(x_0(s),y_0(s)) = \VEC{f}(s)
+v(x_0(s),y_0(s)) = f(s)
 \end{equation}
 for $s\in I$.
 
@@ -1107,15 +1107,15 @@ There are two differential (systems of) equations that must be
 satisfied on $\Gamma$.
 \begin{equation} \label{classif_SPDE1_c2}
 \begin{split}
-&A(x_0(s),y_0(s)) \pdydx{\VEC{v}}{x}(x_0(s),y_0(s)) + B(x_0(s),y_0(s))
-\pdydx{\VEC{v}}{y}(x_0(s),y_0(s)) \\
-&\qquad =\VEC{c}\left(x_0(s),y_0(s),\VEC{v}(x_0(s),y_0(s))\right)
+&A(x_0(s),y_0(s)) \pdydx{v}{x}(x_0(s),y_0(s)) + B(x_0(s),y_0(s))
+\pdydx{v}{y}(x_0(s),y_0(s)) \\
+&\qquad =c\left(x_0(s),y_0(s),v(x_0(s),y_0(s))\right)
 \end{split}
 \end{equation}
 and
 \begin{equation} \label{classif_SPDE1_c3}
-x_0'(s)\pdydx{\VEC{v}}{x}(x_0(s),y_0(s)) +
-y_0'(s)\pdydx{\VEC{v}}{y}(x_0(s),y_0(s)) = \dfdx{\VEC{f}}{s}(s) \ .
+x_0'(s)\pdydx{v}{x}(x_0(s),y_0(s)) +
+y_0'(s)\pdydx{v}{y}(x_0(s),y_0(s)) = \dfdx{f}{s}(s) \ .
 \end{equation}
 The second equation being the derivative of (\ref{classif_SPDE1_c1})
 with respect to $s$.
@@ -1125,22 +1125,22 @@ with respect to $s$.
 left) yields
 \begin{align*}
 & \left( y_0'(s)A(x_0(s),y_0(s)) - x_0'(s)B(x_0(s),y_0(s)) \right)
-\pdydx{\VEC{v}}{x}(x_0(s),y_0(s)) \\
-&\qquad = \left( y_0'(s) \VEC{c}(x_0(s),y_0(s),\VEC{v}(x_0(s),y_0(s)))
-- B(x_0(s),y_0(s))\,\dfdx{\VEC{f}}{s}(s)\right)
+\pdydx{v}{x}(x_0(s),y_0(s)) \\
+&\qquad = \left( y_0'(s) c(x_0(s),y_0(s),v(x_0(s),y_0(s)))
+- B(x_0(s),y_0(s))\,\dfdx{f}{s}(s)\right)
 \end{align*}
 and (\ref{classif_SPDE1_c2}) multiplied by $x_0'(s)$ minus
 (\ref{classif_SPDE1_c3}) multiplied by $A(x_0(s),y_0(s))$ (from the
 left) yields
 \begin{align*}
 &\left( x_0'(s)B(x_0(s),y_0(s)) - y_0'(s)A(x_0(s),y_0(s)) \right)
-\pdydx{\VEC{v}}{y}(x_0(s),y_0(s)) \\
-&\qquad = \left( x_0'(s) \VEC{c}(x_0(s),y_0(s),\VEC{v}(x_0(s),y_0(s)))
-- A(x_0(s),y_0(s))\,\dfdx{\VEC{f}}{s}(s)\right) \ .
+\pdydx{v}{y}(x_0(s),y_0(s)) \\
+&\qquad = \left( x_0'(s) c(x_0(s),y_0(s),v(x_0(s),y_0(s)))
+- A(x_0(s),y_0(s))\,\dfdx{f}{s}(s)\right) \ .
 \end{align*}
 The first system can be solved for
-$\displaystyle \pdydx{\VEC{v}}{x}(x_0(s),y_0(s))$ and the second for
-$\displaystyle \pdydx{\VEC{v}}{y}(x_0(s),y_0(s))$ if the matrix
+$\displaystyle \pdydx{v}{x}(x_0(s),y_0(s))$ and the second for
+$\displaystyle \pdydx{v}{y}(x_0(s),y_0(s))$ if the matrix
 \begin{equation} \label{classif_SPDE1_c4}
 \left( x_0'(s)B(x_0(s),y_0(s)) - y_0'(s)A(x_0(s),y_0(s)) \right)
 \end{equation}
@@ -1180,7 +1180,7 @@ Q\left(x,y, \pdydx{\mu}{x}(x,y), \pdydx{\mu}{y}(x,y) \right)
 is singular for all $(x,y) \in \Gamma$.
 
 \subsection{Classification of Linear Partial Differential Equations in
-$\displaystyle \RR^n$}
+$\mathbf{\RR^n}$}
 
 Though it is possible to reduce a linear partial differential equation
 of order greater than one to a system of linear first order partial
@@ -1192,15 +1192,15 @@ principal symbol for such a system (see \cite{RenRog}).  For this
 reason, we present only the
 classification of general linear partial differential equations of the form
 \begin{equation} \label{classif_gen_class}
-L(\VEC{x}, \diff)u = \sum_{|\alpha|\leq m} a_\alpha(\VEC{x})
-\diff^\alpha u = f \ ,
+L(\VEC{x}, \diff)u = \sum_{|\VEC{\alpha}|\leq m} a_{\VEC{\alpha}}(\VEC{x})
+\diff^{\VEC{\alpha}} u = f \ ,
 \end{equation}
 where $\displaystyle u:\RR^n \rightarrow \RR$ is at least of class
 $\displaystyle C^m$, $\displaystyle f:\RR^n \rightarrow \RR$ is continuous and
-$\displaystyle a_\alpha:\RR^n \rightarrow \RR$ is of class
+$\displaystyle a_{\VEC{\alpha}}:\RR^n \rightarrow \RR$ is of class
 $\displaystyle C^\infty$ for all multi-indices involved in the sum.
 We will relax the conditions on $f$
-and $a_\alpha$ starting in Chapter~\ref{elliptic_PDEs}.
+and $a_{\VEC{\alpha}}$ starting in Chapter~\ref{elliptic_PDEs}.
 
 \begin{defn}
 A subset $S$ of $\displaystyle \RR^n$ is an
@@ -1224,8 +1224,8 @@ have the following definitions.
 
 \begin{defn} \label{char_surf_hd_def}
 Consider the Cauchy problem given by (\ref{classif_gen_class}) with
-conditions on $u$ and its (directional) derivatives of order $\alpha$
-with $|\alpha|<m$ on a hyper-surface $S$.  Them $S$ is a
+conditions on $u$ and its (directional) derivatives of order $\VEC{\alpha}$
+with $|\VEC{\alpha}|<m$ on a hyper-surface $S$.  Them $S$ is a
 {\bfseries characteristic surface}\index{Characteristic Surface}
 for this Cauchy problem if (\ref{classif_gen_class}) and the
 conditions on $u$ and its (directional) derivatives are not
@@ -1240,7 +1240,8 @@ associated to the linear partial differential operator
 $\displaystyle L(\VEC{x}, \diff)$ defined in
 (\ref{classif_gen_class}) is
 \begin{equation} \label{classif_gen_princ_symb}
-Q(\VEC{x}, \VEC{\xi}) = \sum_{|\alpha|=m} a_\alpha(\VEC{x}) \VEC{\xi}^\alpha
+Q(\VEC{x}, \VEC{\xi}) = \sum_{|\VEC{\alpha}|=m}
+a_{\VEC{\alpha}}(\VEC{x}) \VEC{\xi}^\alpha
 \end{equation}
 for $\VEC{x}$ and $\VEC{\xi}$ in $\displaystyle \RR^n$.
 \end{defn}
@@ -1332,19 +1333,20 @@ partial differential operator must be even.
 Let $L(\VEC{x}, \diff)$ be an elliptic linear partial differential
 operator of order $m$ at $\displaystyle \VEC{x} \in \RR^n$, $n>1$.
 \begin{enumerate}
-\item If $\displaystyle a_\alpha:\RR^n \rightarrow \RR$ for all
-multi-indices $\alpha$ such that $|\alpha|=m$, then $m$ is even.
+\item If $\displaystyle a_{\VEC{\alpha}}:\RR^n \rightarrow \RR$ for all
+multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|=m$, then $m$ is even.
 Moreover, the associated principal symbol $Q(\VEC{x}, \VEC{\xi})$ is
 either positive for all $\VEC{\xi} \neq \VEC{0}$ or negative for all
 $\VEC{\xi} \neq \VEC{0}$.
-\item If $\displaystyle a_\alpha:\RR^n \rightarrow \CC$ for some multi-indices
-$\alpha$ such that $|\alpha|=m$ and $n>2$, then $m$ is even.
+\item If $\displaystyle a_{\VEC{\alpha}}:\RR^n \rightarrow \CC$ for
+some multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|=m$ and
+$n>2$, then $m$ is even.
 \end{enumerate}
 \end{prop}
 
 \begin{proof}
-\stage{i} Suppose that $\displaystyle a_\alpha:\RR^n\rightarrow \RR$ for all
-multi-indices $\alpha$ such that $|\alpha|=m$.
+\stage{i} Suppose that $\displaystyle a_{\VEC{\alpha}}:\RR^n\rightarrow \RR$
+for all multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|=m$.
 
 Moreover, suppose that their exist $\VEC{\xi}_1$ and $\VEC{\xi}_2$ in
 $\displaystyle \RR^n$ such that
@@ -1374,8 +1376,9 @@ that $\displaystyle Q(\VEC{x}, -\VEC{\xi}) = (-1)^mQ(\VEC{x}, \VEC{\xi})$
 and $\displaystyle Q(\VEC{x}, \VEC{\xi})$ are of the same sign.  This
 is possible only if $m$ is even.
 
-\stage{ii} Suppose that $\displaystyle a_\alpha:\RR^n\rightarrow \CC$ for some
-multi-indices $\alpha$ such that $|\alpha|=m$ and $n>2$.
+\stage{ii} Suppose that
+$\displaystyle a_{\VEC{\alpha}}:\RR^n\rightarrow \CC$ for some
+multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|=m$ and $n>2$.
 
 For each $\displaystyle \VEC{y} \in \RR^{n-1}$, let
 \[
@@ -1416,7 +1419,7 @@ differential equations in Chapter~\ref{elliptic_PDEs}, elliptic
 operator in general is not strong enough.  We need to request a little
 more from our elliptic operators.
 Though we may not use this full generality later, we assume that the
-coefficients $a_\alpha$ in the linear partial differential operator
+coefficients $a_{\VEC{\alpha}}$ in the linear partial differential operator
 $L(\VEC{x}, \diff)$ defined in (\ref{classif_gen_class}) are complex
 valued functions.
 
@@ -1469,11 +1472,11 @@ for all $\VEC{x} \in \Omega$.  It follows that
   \left| Q(\VEC{x}, \VEC{\xi}) \right| \geq  C \|\VEC{\xi}\|^m
 \]
 for all $\displaystyle \VEC{\xi} \in \RR^n$ and $\VEC{x} \in \Omega$.
-If we also assume that all the coefficients $a_\alpha$ in
+If we also assume that all the coefficients $a_{\VEC{\alpha}}$ in
 $L(\VEC{x},\diff)$ are functions from $\displaystyle \RR^n$ to $\RR$, then
 $\RE\, Q(\VEC{x}, \VEC{\xi}) = Q(\VEC{x}, \VEC{\xi})$ and thus
 $L(\VEC{x}, \diff)$ is strongly elliptic on $\Omega$
-because we can always multiply the $a_{\alpha}$ by $1$ or $-1$ to get
+because we can always multiply the $a_{\VEC{\alpha}}$ by $1$ or $-1$ to get
 the right sign for the definition of strongly elliptic.
 \end{rmk}
 
@@ -1496,9 +1499,9 @@ This is not a more general definition than Definition~\ref{strong_ell_form}
 because we can always multiply the linear partial differential
 equation by $\displaystyle (-1)^{m/2}/\gamma$ to obtain a linear partial
 differential equation equivalent to the original one.  The
-coefficients $a_\alpha$ of the original linear partial differential
+coefficients $a_{\VEC{\alpha}}$ of the original linear partial differential
 equation are replaced by the coefficients
-$\displaystyle (-1)^{m/2} a_\alpha/\gamma$ in the new linear partial
+$\displaystyle (-1)^{m/2} a_{\VEC{\alpha}}/\gamma$ in the new linear partial
 differential equation and thus
 (\ref{strong_ell_formEq2}) is reduced to (\ref{strong_ell_formEq1}).
 \end{rmk}
