@@ -5,10 +5,10 @@ To simplify the presentation of the results about linear elliptic partial
 differential equations in this chapter, we introduce a new notation
 for the derivatives in the sense of distributions. Let $\Omega$ be an
 open subset of $\displaystyle \RR^n$ and $u$ be a distribution on $\Omega$.  If
-$\alpha = \VEC{e}_j$, then we denote the derivative
-$\diff^\alpha u$ in the sense of distribution by $\diff_{x_j} u$.  If
-$\alpha = \VEC{e}_{j_1} + 3 \VEC{e}_{j_2}$,
-then we denote the derivative $\displaystyle \diff^\alpha u$ in the
+$\VEC{\alpha} = \VEC{e}_j$, then we denote the derivative
+$\diff^{\VEC{\alpha}} u$ in the sense of distribution by $\diff_{x_j} u$.  If
+$\VEC{\alpha} = \VEC{e}_{j_1} + 3 \VEC{e}_{j_2}$,
+then we denote the derivative $\displaystyle \diff^{\VEC{\alpha}} u$ in the
 sense of distribution by $\diff_{x_{j_1}x_{j_2}x_{j_2}x_{j_2}} u$.  And so on.
 Obviously, if $u$ is sufficiently differentiable with locally
 integrable derivatives, then $\displaystyle \diff_{x_j} u = \pdydx{u}{x_j}$
@@ -93,7 +93,7 @@ assumption that $\displaystyle f \in L^2([a.b])$.  Recall that
 $\displaystyle H^1_0(]a,b[)$ is the completion of $\DD(]a,b[)$ in
 $\displaystyle L^2(]a.b[)$ with respect to the norm
 \begin{equation} \label{ell_example1_eq3}
-\| f \|_{1,2} = \left( \sum_{|\alpha|\leq 1} \| \diff^\alpha f \|_2^2
+\| f \|_{1,2} = \left( \sum_{|\VEC{\alpha}|\leq 1} \| \diff^{\VEC{\alpha}} f \|_2^2
 \right)^{1/2} \ ,
 \end{equation}
 where $\|\cdot\|_2$ is the usual norm on $\displaystyle L^2(]a,b[)$.
@@ -396,13 +396,15 @@ Weak Solutions of Elliptic Problems} \label{CSWSsection}
 
 We consider strongly elliptic linear operators of the form
 \begin{equation} \label{ell_op1} 
-L(\VEC{x}, \diff) = \sum_{|\gamma|\leq m} a_\gamma(\VEC{x}) \diff^\gamma \ ,
+L(\VEC{x}, \diff) = \sum_{|\VEC{\gamma}|\leq m} a_{\VEC{\gamma}}(\VEC{x})
+\diff^{\VEC{\gamma}} \ ,
 \end{equation}
-where the coefficients $a_\gamma$ are all of class
+where the coefficients $a_{\VEC{\gamma}}$ are all of class
 $\displaystyle C^\infty(\RR^n)$.
 Recall that an elliptic linear operator paused
 on a bounded open set $\Omega$ is strongly elliptic on $\Omega$ if
-$a_\gamma:\overline{\Omega} \to \RR$ is continuous for all $\gamma$.
+$a_{\VEC{\gamma}}:\overline{\Omega} \to \RR$ is continuous for all
+$\VEC{\gamma}$.
 According to Proposition~\ref{classif_ell_even},, it is also of even
 order; namely, $m$ is even.  If $n>2$ and some of the coefficients are
 complex valued functions, then the order is also even.
@@ -411,23 +413,26 @@ We assume that any one of these necessary conditions is satisfied.
 It is useful to write $L(\VEC{x},\diff)$ in the {\bfseries divergence form}%
 \index{Linear Partial Differential Operator!Divergence Form}
 \begin{equation} \label{ell_op2}
-L(\VEC{x},\diff)u = \sum_{|\alpha|,|\beta|\leq m/2} (-1)^{|\alpha|} \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u\right) \ ,
+L(\VEC{x},\diff)u = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq m/2}
+(-1)^{|\VEC{\alpha}|} \diff^{\VEC{\alpha}}
+\left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u\right) \ ,
 \end{equation}
-where $\displaystyle b_{\alpha,\beta} \in C^\infty(\Omega)$ for all
-multi-indices $\alpha$ and $\beta$.
+where $\displaystyle b_{\VEC{\alpha},\VEC{\beta}} \in C^\infty(\Omega)$ for all
+multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$.
 
 If the linear differential operator $L(\VEC{x},\diff)$ is given in the
 divergence form (\ref{ell_op2}), then the principal symbol takes the
 form
 \[
-Q_{df}(\VEC{x}, \VEC{\xi}) = \sum_{|\alpha|=|\beta|=m/2} \VEC{\xi}^\alpha
-b_{\alpha,\beta}(\VEC{x}) \VEC{\xi}^\beta \quad , \quad \VEC{x} \in
-\RR^n \ \text{and} \ \VEC{\xi} \in \RR^n \ .
+Q_{df}(\VEC{x}, \VEC{\xi}) = \sum_{|\VEC{\alpha}|=|\VEC{\beta}|=m/2}
+\VEC{\xi}^{\VEC{\alpha}}
+b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \VEC{\xi}^{\VEC{\beta}} \quad ,
+\quad \VEC{x} \in \RR^n \ \text{and} \ \VEC{\xi} \in \RR^n \ .
 \]
 If we compare (\ref{ell_op1}) and (\ref{ell_op2}), we find that
-$\displaystyle a_\gamma = (-1)^{m/2} \sum_{\alpha+\beta=\gamma} b_{\alpha,\beta}$
-for $|\gamma|= m$.
+$\displaystyle a_{\VEC{\gamma}} = (-1)^{m/2}
+\sum_{\VEC{\alpha}+\VEC{\beta}=\VEC{\gamma}} b_{\VEC{\alpha},\VEC{\beta}}$
+for $|\VEC{\gamma}|= m$.
 We may therefore modify Definition~\ref{strong_ell_form} as
 follows.  The linear differential operator $L(\VEC{x},\diff)$ given in
 (\ref{ell_op2}) is {\bfseries strongly elliptic}\index{Linear Partial
@@ -465,14 +470,16 @@ a strong $q$-extension property with $q\geq m/2$.  Let $k = m/2$.
 We consider the Dirichlet problem
 \begin{equation} \label{ell_PDE1}
 \begin{split}
-L(\VEC{x}, \diff)u &= \sum_{|\alpha|,|\beta|\leq k} (-1)^{|\alpha|} \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u\right) = f \quad , \quad
+L(\VEC{x}, \diff)u &= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+(-1)^{|\alpha|} \diff^{\VEC{\alpha}}
+\left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u\right)
+= f \quad , \quad
 \VEC{x} \in \Omega \ ,\\
-\pdydxn{u}{\VEC{\nu}}{j}(\VEC{x}) &= 0 \quad , \quad
+\pdydxn{u}{\nu}{j}(\VEC{x}) &= 0 \quad , \quad
 \VEC{x} \in \partial \Omega \ \text{and}\  0 \leq j < k \ ,
 \end{split}
 \end{equation}
-where $L(\VEC{x}, \diff)$ is at least elliptic and $\VEC{\nu}(\VEC{x})$ is
+where $L(\VEC{x}, \diff)$ is at least elliptic and $\nu(\VEC{x})$ is
 the outward unit normal vector to $\partial \Omega$ at
 $\VEC{x} \in \partial \Omega$.
 
@@ -487,14 +494,14 @@ for (\ref{ell_PDE1}) is a function
 $\displaystyle u \in C^{2k}_b(\Omega) \cap C^{k-1}_b(\overline{\Omega})$
 such that
 \[
-L(\VEC{x},\diff)u(\VEC{x}) = \sum_{|\alpha|,|\beta|\leq k}
-(-1)^{|\alpha|} \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u(\VEC{x}) \right) =
-f(\VEC{x}) \quad , \quad \VEC{x} \in \Omega \ ,
+L(\VEC{x},\diff)u(\VEC{x}) = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+(-1)^{|\VEC{\alpha}|} \diff^{\VEC{\alpha}}
+\left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}}
+u(\VEC{x}) \right) = f(\VEC{x}) \quad , \quad \VEC{x} \in \Omega \ ,
 \]
 and
 \[
-\pdydxn{u}{\VEC{\nu}}{j}(\VEC{x}) = 0 \quad , \quad
+\pdydxn{u}{\nu}{j}(\VEC{x}) = 0 \quad , \quad
 \VEC{x} \in \partial \Omega \ \text{and}\ 0 \leq j < k \ .
 \]
 All partial and directional derivatives are in the classical sense.
@@ -508,8 +515,9 @@ $\displaystyle u \in H^{2k,2}(\Omega) \cap H^{k,2}_0(\Omega) \subset
 \DD'(\Omega)$ such that
 \[
 \ps{ L(\VEC{x},\diff)u}{\phi} =
-\sum_{|\alpha|,|\beta|\leq k} \ps{ (-1)^{|\alpha|} \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u \right) }{\phi} = \ps{f}{\phi}
+\sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k} \ps{ (-1)^{|\VEC{\alpha}|}
+\diff^{\VEC{\alpha}} \left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u \right) }{\phi} = \ps{f}{\phi}
 \]
 for all $\displaystyle \phi \in \DD(\Omega)$,
 where $\ps{v}{\phi} \equiv v(\phi)$ for $v\in \DD'(\Omega)$ and
@@ -530,39 +538,41 @@ for all $\displaystyle \displaystyle v \in H^{k,2}_0(\Omega)$, where
 \begin{split}
 B : H^{k,2}(\Omega) \times H^{k,2}(\Omega) & \rightarrow \CC \\
 (v,u) &\mapsto
-\sum_{|\alpha|,|\beta|\leq k}
-\ps{\diff^\alpha v}{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}_2
+\sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+\ps{\diff^{\VEC{\alpha}} v}{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u}_2
 \end{split}
 \end{equation}
 and $\displaystyle \ps{v}{u}_2
 = \int_\Omega v(\VEC{x})\overline{u(\VEC{x})} \dx{\VEC{x}}$
 for $\displaystyle u,v \in L^2(\Omega)$ is the scalar product in
 $\displaystyle L^2(\Omega)$.  Moreover, we assume that the
-coefficients $b_{\alpha,\beta}$ are bounded on $\Omega$.
+coefficients $b_{\VEC{\alpha},\VEC{\beta}}$ are bounded on $\Omega$.
 
 The mapping $B$ is well defined.  Suppose that
-$\left| b_{\alpha,\beta}(\VEC{x})\right| \leq M$ for all 
+$\left| b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})\right| \leq M$ for all 
 $\VEC{x}\in \Omega$, where $M$ is a constant.  Then,
 \begin{align*}
 \left| B(v,u) \right| &=
-\left| \sum_{|\alpha|,|\beta|\leq k}
-\int_\Omega \overline{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u(\VEC{x})}\,
-\diff^\alpha v(\VEC{x}) \dx{\VEC{x}} \right|
-\leq \sum_{|\alpha|,|\beta|\leq k} M
-\int_\Omega \left| \overline{\diff^\beta u(\VEC{x})}\,
-\diff^\alpha v(\VEC{x})\right| \dx{\VEC{x}} \\
-&\leq \sum_{|\alpha|,|\beta|\leq k} M
-\left( \int_\Omega \left|\diff^\beta u(\VEC{x})\right|^2
+\left| \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+\int_\Omega \overline{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u(\VEC{x})}\,
+\diff^{\VEC{\alpha}} v(\VEC{x}) \dx{\VEC{x}} \right|
+\leq \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k} M
+\int_\Omega \left| \overline{\diff^{\VEC{\beta}} u(\VEC{x})}\,
+\diff^{\VEC{\alpha}} v(\VEC{x})\right| \dx{\VEC{x}} \\
+&\leq \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k} M
+\left( \int_\Omega \left|\diff^{\VEC{\beta}} u(\VEC{x})\right|^2
 \dx{\VEC{x}}\right)^{1/2}
-\left( \int_\Omega \left|\diff^\alpha v(\VEC{x})\right|^2
+\left( \int_\Omega \left|\diff^{\VEC{\alpha}} v(\VEC{x})\right|^2
 \dx{\VEC{x}}\right)^{1/2} \\
-&\leq \left(\sum_{|\alpha|,|\beta|\leq k} M \right)
+&\leq \left(\sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k} M \right)
 \| u\|_{k,2}\, \| v\|_{k,2}
 = C \| u\|_{k,2} \, \| v\|_{k,2} < \infty
 \end{align*}
 for all $\displaystyle (v,u) \in H^{k,2}(\Omega) \times H^{k,2}(\Omega)$,
 where we have used Schwarz inequality for the second inequality and
-set $\displaystyle C = \sum_{|\alpha|,|\beta|\leq k} M $.
+set $\displaystyle C = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k} M $.
 
 Since
 \begin{enumerate}
@@ -594,15 +604,18 @@ to the Laplacian.  Recall that $\diff_x$, $\diff_y$, \ldots denote derivatives
 in the sense of distributions.
 \end{rmk}
 
-Suppose that $\displaystyle b_{\alpha,\beta}\in C^{|\alpha|}_b(\Omega)$
-for all multi-indices $\alpha$ and $\beta$ involved in the sum in
+Suppose that $\displaystyle b_{\VEC{\alpha},\VEC{\beta}}\in
+C^{|\VEC{\alpha}|}_b(\Omega)$
+for all multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$ involved in the sum in
 (\ref{ell_PDE1}).  Moreover, suppose that $f\in C_b(\Omega)$, and
 $\displaystyle u \in C^{2k}_b(\Omega)\cap C^{k-1}_b(\overline{\Omega})$
 satisfy (\ref{ell_PDE2}) for all $\displaystyle v \in C^{k}_c(\Omega)$.  Using
 integration by parts, (\ref{ell_PDE2}) yields
 \[
-\int_\Omega \left( \overline{\sum_{|\alpha|,|\beta|\leq k} (-1)^\alpha \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u(\VEC{x})\right)}\right)
+\int_\Omega \left( \overline{\sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+(-1)^{\VEC{\alpha}} \diff^{\VEC{\alpha}}
+\left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}}
+u(\VEC{x})\right)}\right)
 v(\VEC{x}) \dx{\VEC{x}} = \int_\Omega \overline{f(\VEC{x})} v(\VEC{x})
 \dx{\VEC{x}}
 \]
@@ -612,8 +625,9 @@ dense in $\displaystyle L^2(\Omega)$, and $L(\VEC{x},\diff)u$ and $f$
 are continuous on $\Omega$, we must have that
 \[
 L(\VEC{x},\diff)u(\VEC{x}) =
-\sum_{|\alpha|,|\beta|\leq k} (-1)^{|\alpha|} \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u(\VEC{x})\right) = f(\VEC{x})
+\sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k} (-1)^{|\VEC{\alpha}|} \diff^{\VEC{\alpha}}
+\left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}}
+u(\VEC{x})\right) = f(\VEC{x})
 \quad , \quad \VEC{x} \in \Omega \ .
 \]
 Moreover, since $\displaystyle u \in H^{k,2}_0(\Omega)$ because we assume that
@@ -623,7 +637,7 @@ conditions in (\ref{ell_PDE1}) are satisfied in the classical sense.
 So $u$ is the classical solution of (\ref{ell_PDE1}).
 
 \begin{defn} \label{ell_wf_Dir_probl}
-If $\displaystyle b_{\alpha,\beta} \in C^\infty_b(\Omega)$ and
+If $\displaystyle b_{\VEC{\alpha},\VEC{\beta}} \in C^\infty_b(\Omega)$ and
 $\displaystyle f \in L^2(\Omega)$,
 a {\bfseries weak solution}\index{Dirichlet Problem!Weak Solution}
 for (\ref{ell_PDE2}) is a function
@@ -651,7 +665,7 @@ L(\VEC{x}, \diff)u(\VEC{x}) &= -\sum_{i,j=1}^n
 \quad , \quad \VEC{x} \in \partial \Omega \ ,
 \end{split}
 \end{equation}
-where $\VEC{\nu}(\VEC{x})$ is the outward unit normal to
+where $\nu(\VEC{x})$ is the outward unit normal to
 $\partial \Omega$ at $\VEC{x} \in \partial \Omega$.  We also assume
 that $\displaystyle b_{i,j} \in C^\infty(\overline{\Omega})$ for all
 $i$ and $j$, and $\displaystyle b_0 \in C^\infty(\overline{\Omega})$.
@@ -660,7 +674,7 @@ If we let $B$ be the \nn matrix with components $b_{i,j}$ for
 $1\leq i,j\leq n$, then the boundary condition in (\ref{ell_PDE4}) can
 be rewritten
 \[
-\left( \graD u(\VEC{x}) \right)^\top B(\VEC{x})\, \VEC{\nu}(\VEC{x}) = 0
+\left( \graD u(\VEC{x}) \right)^\top B(\VEC{x})\, \nu(\VEC{x}) = 0
 \quad , \quad \VEC{x} \in \partial \Omega \ .
 \]
 
@@ -677,7 +691,7 @@ b_i(\VEC{x}) \diff_{x_i} u(\VEC{x}) +
 \]
 where $\displaystyle b_i = \frac{1}{h}\pdydx{h}{x_i}$ for $1 \leq i \leq n$,
 and the boundary condition becomes
-$\displaystyle \pdydx{u}{\VEC{\nu}} = 0$ on $\partial \Omega$.
+$\displaystyle \pdydx{u}{\nu} = 0$ on $\partial \Omega$.
 \end{egg}
 
 As for the Dirichlet Problem, We have already considered two
@@ -868,11 +882,12 @@ $\displaystyle H^{k,2}(\Omega)$ containing
 $\displaystyle H^{k,2}_0(\Omega)$.  We consider the elliptic partial 
 differential equation
 \[
-L(\VEC{x}, \diff)u = \sum_{|\alpha|,|\beta|\leq k} (-1)^{|\alpha|} \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u\right) = f
+L(\VEC{x}, \diff)u = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+(-1)^{|\VEC{\alpha}|} \diff^{\VEC{\alpha}}
+\left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u\right) = f
 \]
-on $\Omega$, where the coefficients $b_{\alpha,\beta}$ are all of class
-$\displaystyle C^\infty_b(\Omega)$ and $f\in L^2(\Omega)$.
+on $\Omega$, where the coefficients $b_{\VEC{\alpha},\VEC{\beta}}$ are
+all of class $\displaystyle C^\infty_b(\Omega)$ and $f\in L^2(\Omega)$.
 
 \begin{defn}
 A set $\{P_j(\VEC{x},\diff) \}_{j\in J}$ of differential operators defined
@@ -889,17 +904,17 @@ of the operator $P_j(\VEC{x},\diff)$.
 
 The best known normal set of operators for a partial differential
 equation of order $m=2k$ in divergence form is
-$\displaystyle \left\{ \pdydxnS{}{\VEC{\nu}}{j} \right\}_{j=0}^{k-1}$
+$\displaystyle \left\{ \pdydxnS{}{\nu}{j} \right\}_{j=0}^{k-1}$
 in a tubular neighbourhood $O_\mu$ of $\partial \Omega$,
-where $\VEC{\nu}(\VEC{x})$ is the outward unit normal to
+where $\nu(\VEC{x})$ is the outward unit normal to
 $\partial \Omega$ at $\VEC{x}\in \partial \Omega$.
-Recall that we have defined $\displaystyle \pdydxS{u}{\VEC{\nu}}$
+Recall that we have defined $\displaystyle \pdydxS{u}{\nu}$
 for $u:\Omega_\mu \to \RR$ in Section~\ref{subsect_SLpot} as
 \[
-\pdydxS{u}{\VEC{\nu}}(\VEC{z}_t)
-\equiv \dfdx{u\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big)}{t}
-= \graD u(\VEC{z}_t) \cdot \VEC{\nu}(\VEC{x})
-= \graD u\big(\VEC{x}+t\VEC{\nu}(\VEC{x})\big) \cdot \VEC{\nu}(\VEC{x})
+\pdydxS{u}{\nu}(\VEC{z}_t)
+\equiv \dfdx{u\big(\VEC{x}+t\nu(\VEC{x})\big)}{t}
+= \graD u(\VEC{z}_t) \cdot \nu(\VEC{x})
+= \graD u\big(\VEC{x}+t\nu(\VEC{x})\big) \cdot \nu(\VEC{x})
 \]
 for $\VEC{z}_t = \VEC{x} + t\nu(\VEC{x})$ with $\VEC{x} \in \partial \Omega$
 and $|t|< \mu$.
@@ -910,8 +925,9 @@ Let
 \begin{split}
 B : H^{k,2}(\Omega) \times H^{k,2}(\Omega) & \rightarrow \CC \\
 (v,u) &\mapsto
-\sum_{|\alpha|,|\beta|\leq k}
-\ps{\diff^\alpha v}{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}_2
+\sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+\ps{\diff^{\VEC{\alpha}} v}{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u}_2
 \end{split}
 \end{equation}
 be the Dirichlet form associated to $L(\VEC{x},\diff)$.  Given a normal
@@ -943,7 +959,7 @@ $P_j(\VEC{x},\diff)g=g_j$ on $\partial \Omega$ for $0\leq j<k$.
 
 \begin{proof}
 \stage{i} Suppose that
-$\displaystyle P_j(\VEC{x},\diff) = \pdydxnS{}{\VEC{\nu}}{j}$ on a
+$\displaystyle P_j(\VEC{x},\diff) = \pdydxnS{}{\nu}{j}$ on a
 tubular neighbourhood $O_\epsilon$ of $\partial \Omega$ as given
 by Theorem~\ref{pot_TBN}.  Choose $\phi\in C^\infty_c(\RR)$ such that
 $\displaystyle \supp \phi \subset ]-\epsilon/2, \epsilon/2[$ and
@@ -954,7 +970,7 @@ Consider the function $\displaystyle g:\RR^n \rightarrow \RR$ defined by
 g(\VEC{x}) =
 \begin{cases}
 \displaystyle \phi(t) \sum_{j=0}^k \frac{t^j}{j!} g_j(\VEC{y}) &\quad
-\text{if} \ \VEC{x} = \VEC{y} + t\, \VEC{\nu}(\VEC{y}) \
+\text{if} \ \VEC{x} = \VEC{y} + t\, \nu(\VEC{y}) \
 \text{with} \ \VEC{y} \in \partial \Omega \ \text{and} \
 -\epsilon < t < \epsilon \\[0.7em]
 0 & \quad \text{if} \ \VEC{x} \not\in O_\epsilon
@@ -963,8 +979,8 @@ g(\VEC{x}) =
 We have that $\displaystyle g\in C^\infty_c(\RR^n)$,
 $\displaystyle \supp g \subset O_\epsilon$ and
 \[
-\big( P_j(\VEC{x},\diff)g\big)(\VEC{y}) = \pdydxnS{g}{\VEC{\nu}}{j}(\VEC{y})
-= \pdydxn{g}{t}{j}\big(\VEC{y}+t\, \VEC{\nu}(\VEC{y})\big)\bigg|_{t=0}
+\big( P_j(\VEC{x},\diff)g\big)(\VEC{y}) = \pdydxnS{g}{\nu}{j}(\VEC{y})
+= \pdydxn{g}{t}{j}\big(\VEC{y}+t\, \nu(\VEC{y})\big)\bigg|_{t=0}
 = g_j(\VEC{y})
 \]
 for $\VEC{y} \in \partial \Omega$.
@@ -972,7 +988,7 @@ for $\VEC{y} \in \partial \Omega$.
 \stage{ii} The general form of $P_j(\VEC{x},\diff)$ is
 \[
 P_j(\VEC{x},\diff) = \sum_{i=0}^j Q_{j,i}(\VEC{x},\diff)\,
-\pdydxn{}{\VEC{\nu}}{i} \  ,
+\pdydxn{}{\nu}{i} \  ,
 \]
 where $Q_{j,i}(\VEC{x},\diff)$ is a differential operator involving only
 directional derivatives in directions tangent to $\partial \Omega$ and
@@ -985,7 +1001,7 @@ operator $P_j(\VEC{x},\diff)$ by definition of a normal set of differential
 operators.
 
 Hence $P_j(\VEC{x},\diff)g=g_j$ for $0\leq j < k$ is equivalent to
-$\displaystyle \pdydxn{g}{\VEC{\nu}}{j} = f_j$ for $0\leq j < k$, where
+$\displaystyle \pdydxn{g}{\nu}{j} = f_j$ for $0\leq j < k$, where
 the $f_j$ are given recursively by $\displaystyle f_0 = \frac{g_0}{q_0}$
 and
 $\displaystyle f_j = \frac{1}{q_j} \left( g_j - \sum_{i=0}^{j-1}
@@ -993,7 +1009,7 @@ Q_{j,i}(\VEC{x},\diff) f_i \right)$
 for $j=1$, $2$, \ldots, $k-1$.
 
 The problem is reduced to (i); namely, to find $g$ such
-that $\displaystyle \pdydxn{g}{\VEC{\nu}}{j} = f_j$ for $0\leq j < k$.
+that $\displaystyle \pdydxn{g}{\nu}{j} = f_j$ for $0\leq j < k$.
 \end{proof}
 
 The following examples were suggested in \cite{FoPDE}.
@@ -1001,9 +1017,10 @@ The following examples were suggested in \cite{FoPDE}.
 \begin{egg}
 Consider the partial differential equation
 \begin{equation} \label{ABCegg1eq0}
-L(\VEC{x}, \diff)u(\VEC{x}) = \sum_{|\alpha|,|\beta|\leq k}
-(-1)^{|\alpha|} \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u(\VEC{x})\right) = f(\VEC{x})
+L(\VEC{x}, \diff)u(\VEC{x}) = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+(-1)^{|\VEC{\alpha}|} \diff^{\VEC{\alpha}}
+\left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}}
+u(\VEC{x})\right) = f(\VEC{x})
 \quad , \quad \VEC{x} \in \Omega \ ,
 \end{equation}
 where no boundary conditions are given.  To find the
@@ -1012,13 +1029,13 @@ where no boundary conditions are given.  To find the
 \index{Elliptic Partial Differential Equation!Natural Boundary Conditions}
 associated to this
 problem, consider the normal family of differential operators 
-$\displaystyle \left\{ \pdydxnS{}{\VEC{\nu}}{j} \right\}_{j=0}^{k-1}$.
+$\displaystyle \left\{ \pdydxnS{}{\nu}{j} \right\}_{j=0}^{k-1}$.
 According to Theorem~\ref{ell_adj_BCs}, there exists a set of
 differential operators $\displaystyle \{ \tilde{P}_j\}_{j=k}^{2k-1}$
 such that
 \begin{equation} \label{ABCegg1eq1}
 B(v,u) - \ps{v}{L(\VEC{x},\diff)u} =
-\sum_{j=0}^{k-1} \int_{\partial \Omega} \pdydxnS{v}{\VEC{\nu}}{j}(\VEC{x}) \,
+\sum_{j=0}^{k-1} \int_{\partial \Omega} \pdydxnS{v}{\nu}{j}(\VEC{x}) \,
 \overline{\tilde{P}_{2k-1-j}(u)(\VEC{x})} \dx{S}
 \end{equation}
 for all $\displaystyle v,u \in C^{2k}_c(\overline{\Omega})$,
@@ -1208,23 +1225,26 @@ for $\displaystyle f \in H^{t,2}(\RR^n)$, where $C= C_1 Q_1 Q_3$.
 \begin{lemma} \label{ell_garding2}
 Let $\Omega$ be a bounded open subset of $\displaystyle \RR^n$.  Suppose that
 \[
-L(\VEC{x},\diff)u = \sum_{|\alpha|,|\beta|= k} (-1)^\alpha \diff^\alpha
-\left( b_{\alpha,\beta} \diff^\beta u\right)
+L(\VEC{x},\diff)u = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k} (-1)^{\VEC{\alpha}}
+\diff^{\VEC{\alpha}} \left( b_{\VEC{\alpha},\VEC{\beta}}
+\diff^{\VEC{\beta}} u\right)
 \]
 is strongly elliptic on $\overline{\Omega}$, where
-$b_{\alpha,\beta} \in \CC$ for all $\alpha$ and $\beta$.  Then
+$b_{\VEC{\alpha},\VEC{\beta}} \in \CC$ for all $\VEC{\alpha}$ and
+$\VEC{\beta}$.  Then
 \[
 \begin{split}
 B : H^{k,2}_0(\Omega) \times H^{k,2}_0(\Omega) & \rightarrow \CC \\
 (v,u) &\mapsto
-\sum_{|\alpha|,|\beta|= k}
-\ps{\diff^\alpha v}{b_{\alpha,\beta} \diff^\beta u}_2
+\sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\ps{\diff^{\VEC{\alpha}} v}{b_{\VEC{\alpha},\VEC{\beta}} \diff^{\VEC{\beta}} u}_2
 \end{split}
 \]
 is coercive.  Namely, there exists $K>0$ such that
 \[
-\RE B(u,u) = \RE \sum_{|\alpha|,|\beta|= k}
-\ps{\diff^\alpha u}{b_{\alpha,\beta} \diff^\beta u}_2 \geq K \|u\|_{k,2,\Omega}^2
+\RE B(u,u) = \RE \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\ps{\diff^{\VEC{\alpha}} u}{b_{\VEC{\alpha},\VEC{\beta}}
+\diff^{\VEC{\beta}} u}_2 \geq K \|u\|_{k,2,\Omega}^2
 \]
 for $\displaystyle u  \in H^{k,2}_0(\Omega)$.
 \end{lemma}
@@ -1243,20 +1263,22 @@ From Proposition~\ref{sob_expand_WKP}, we have that
 $\displaystyle \underline{u}\in H^{k,2}(\RR^n)$.
 Using Plancherel theorem, Theorem~\ref{distr_plancherel}, we may write
 \begin{align*}
-B(u,u) &= \sum_{|\alpha|,|\beta|= k} \overline{b_{\alpha,\beta}}
-\int_{\Omega} \overline{\diff^\beta u(\VEC{x})}\, \diff^\alpha u(\VEC{x})
+B(u,u) &= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\overline{b_{\VEC{\alpha},\VEC{\beta}}} \int_{\Omega}
+\overline{\diff^{\VEC{\beta}} u(\VEC{x})}\, \diff^{\VEC{\alpha}} u(\VEC{x})
 \dx{\VEC{x}}
-= \sum_{|\alpha|,|\beta|= k} \overline{b_{\alpha,\beta}}
-\int_{\RR^n} \overline{\diff^\beta \underline{u}(\VEC{x})}\,
-\diff^\alpha \underline{u}(\VEC{x}) \dx{\VEC{x}} \\
-&= \sum_{|\alpha|,|\beta|= k} \overline{b_{\alpha,\beta}}
-\int_{\RR^n} \overline{(\diff^\beta \underline{u})^\wedge(\VEC{x})}\,
-(\diff^\alpha \underline{u})^\wedge(\VEC{x}) \dx{\VEC{x}}
-= \sum_{|\alpha|,|\beta|= k} \overline{b_{\alpha,\beta}}
-\int_{\RR^n} (i\VEC{x})^\beta (-i\VEC{x})^\alpha
+= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k} \overline{b_{\VEC{\alpha},\VEC{\beta}}}
+\int_{\RR^n} \overline{\diff^{\VEC{\beta}} \underline{u}(\VEC{x})}\,
+\diff^{\VEC{\alpha}} \underline{u}(\VEC{x}) \dx{\VEC{x}} \\
+&= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k} \overline{b_{\VEC{\alpha},\VEC{\beta}}}
+\int_{\RR^n} \overline{(\diff^{\VEC{\beta}} \underline{u})^\wedge(\VEC{x})}\,
+(\diff^{\VEC{\alpha}} \underline{u})^\wedge(\VEC{x}) \dx{\VEC{x}}
+= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k} \overline{b_{\VEC{\alpha},\VEC{\beta}}}
+\int_{\RR^n} (i\VEC{x})^{\VEC{\beta}} (-i\VEC{x})^{\VEC{\alpha}}
 \left| \hat{\underline{u}}(\VEC{x}) \right|^2 \dx{\VEC{x}} \\
-&= \int_{\RR^n} \left( \sum_{|\alpha|,|\beta|= k} \overline{b_{\alpha,\beta}}
-\,\VEC{x}^\beta \VEC{x}^\alpha \right)
+&= \int_{\RR^n} \left( \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\overline{b_{\VEC{\alpha},\VEC{\beta}}} \,\VEC{x}^{\VEC{\beta}}
+\VEC{x}^{\VEC{\alpha}} \right)
 \left| \hat{\underline{u}}(\VEC{x}) \right|^2 \dx{\VEC{x}}
 \end{align*}
 for $\displaystyle u \in H^{k,2}_0(\Omega)$.
@@ -1264,20 +1286,20 @@ Since $L(\VEC{x},\diff)$ is strongly elliptic on $\overline{\Omega}$,
 there exists $\theta_1 >0$ such that
 \begin{equation} \label{ell_garding2_theta}
 \RE\, Q(\VEC{x}, \VEC{\xi}) = \RE
-\sum_{|\alpha|,|\beta|=k} b_{\alpha,\beta} \VEC{\xi}^\beta
-\VEC{\xi}^\alpha \geq \theta_1 \|\VEC{\xi}\|^{2k}
+\sum_{|\VEC{\alpha}|,|\VEC{\beta}|=k} b_{\VEC{\alpha},\VEC{\beta}}
+\VEC{\xi}^{\VEC{\beta}} \VEC{\xi}^{\VEC{\alpha}} \geq \theta_1 \|\VEC{\xi}\|^{2k}
 \end{equation}
 for $\displaystyle \xi \in \RR^n$.  Thus,
 \begin{align*}
 \RE B(u,u) &\geq \theta_1 \int_{\RR^n} \| \VEC{x} \|^{2k}
 \left| \hat{\underline{u}}(\VEC{x}) \right|^2 \dx{\VEC{x}}
-\geq \theta_2 \sum_{|\alpha|=k} \int_{\RR^n}
-\left| \VEC{x}^\alpha \right|^2 
+\geq \theta_2 \sum_{|\VEC{\alpha}|=k} \int_{\RR^n}
+\left| \VEC{x}^{\VEC{\alpha}} \right|^2 
 \left| \hat{\underline{u}}(\VEC{x}) \right|^2 \dx{\VEC{x}} \\
-&= \theta_2 \sum_{|\alpha|=k} \int_{\RR^n} \left|
-(\diff^\alpha \underline{u})^\wedge (\VEC{x}) \right|^2 \dx{\VEC{x}} 
-= \theta_2 \sum_{|\alpha|=k} \int_{\RR^n}
-\left| \diff^\alpha \underline{u}(\VEC{x}) \right|^2 \dx{\VEC{x}}
+&= \theta_2 \sum_{|\VEC{\alpha}|=k} \int_{\RR^n} \left|
+(\diff^{\VEC{\alpha}} \underline{u})^\wedge (\VEC{x}) \right|^2 \dx{\VEC{x}} 
+= \theta_2 \sum_{|\VEC{\alpha}|=k} \int_{\RR^n}
+\left| \diff^{\VEC{\alpha}} \underline{u}(\VEC{x}) \right|^2 \dx{\VEC{x}}
 \geq \theta_3 \| \underline{u} \|_{k,2,\RR^n}^2             
 \end{align*}
 for $\displaystyle u \in H^{k,2}_0(\Omega)$, where
@@ -1288,12 +1310,12 @@ from the Poincaré's inequality, Theorem~\ref{sob_pt_carre}.
 Moreover, for the second inequality, we have used the relation
 \[
 \| \VEC{x} \|^{2k} = \left( \sum_{j=1}^n x_j^2 \right)^{k}
-\geq C \left( \sum_{|\alpha|=k} \VEC{x}^{2\alpha} \right)
-= C \left( \sum_{|\alpha|=k} \left|\VEC{x}^\alpha\right|^2 \right)
+\geq C \left( \sum_{|\VEC{\alpha}|=k} \VEC{x}^{2\VEC{\alpha}} \right)
+= C \left( \sum_{|\VEC{\alpha}|=k} \left|\VEC{x}^{\VEC{\alpha}}\right|^2 \right)
 \]
 for $\displaystyle \VEC{x} \in \RR^n$,
 where $\displaystyle 1/C = \max_{\|\VEC{x}\|=1}
-\sum_{|\alpha|=k} \VEC{x}^{2\alpha}$,
+\sum_{|\VEC{\alpha}|=k} \VEC{x}^{2\alpha}$,
 and taken $\theta_2 = C \theta_1$.
 
 Since $\underline{u}(\VEC{x}) = 0$ for
@@ -1306,18 +1328,20 @@ $K=\theta_3$ to get the conclusion of the lemma.
 \begin{lemma} \label{ell_garding3}
 Let $\Omega$ be a bounded open subset of $\displaystyle \RR^n$.  Suppose that
 \[
-L(\VEC{x},\diff)u = \sum_{|\alpha|,|\beta|= k} (-1)^\alpha \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u\right)
+L(\VEC{x},\diff)u = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+(-1)^{\VEC{\alpha}} \diff^{\VEC{\alpha}}
+\left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u\right)
 \]
 is strongly elliptic on $\overline{\Omega}$, where
-$b_{\alpha,\beta} \in C(\overline{\Omega})$ for all
-$\alpha$ and $\beta$.  Then
+$b_{\VEC{\alpha},\VEC{\beta}} \in C(\overline{\Omega})$ for all
+$\VEC{\alpha}$ and $\VEC{\beta}$.  Then
 \[
 \begin{split}
 B : H^{k,2}_0(\Omega) \times H^{k,2}_0(\Omega) & \rightarrow \RR \\
 (v,u) &\mapsto
-\sum_{|\alpha|,|\beta|= k}
-\ps{\diff^\alpha v}{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}_2
+\sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\ps{\diff^{\VEC{\alpha}} v}{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u}_2
 \end{split}
 \]
 is weakly coercive.
@@ -1331,64 +1355,73 @@ $\displaystyle u\in H^{k,2}_0(\Omega)$ such that $\supp u$ is small enough.
 Given $\VEC{z} \in \Omega$, we write $B(u,u)$ as
 \begin{equation} \label{ell_garding3_B}
 B(u,u) =
-\sum_{|\alpha|,|\beta|= k}
-\ps{\diff^\alpha u}{
-\left(b_{\alpha,\beta}(\VEC{x})-b_{\alpha,\beta}(\VEC{z})\right)\diff^\beta u}_2
-+ \sum_{|\alpha|,|\beta|= k}
-\ps{\diff^\alpha u}{b_{\alpha,\beta}(\VEC{z}) \diff^\beta u}_2
+\sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\ps{\diff^{\VEC{\alpha}} u}{
+\left(b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+-b_{\VEC{\alpha},\VEC{\beta}}(\VEC{z})\right)\diff^{\VEC{\beta}} u}_2
++ \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\ps{\diff^{\VEC{\alpha}} u}{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{z})
+\diff^{\VEC{\beta}} u}_2
 \end{equation}
 for $\displaystyle u \in H^{k,2}_0(\Omega)$.
 Since $L(\VEC{x},\diff)$ is strongly elliptic on $\overline{\Omega}$,
 there exists $\theta_1 >0$ such that
 \begin{equation} \label{ell_garding3_theta1}
-\RE\, Q(\VEC{z}, \VEC{\xi}) = \RE
-\sum_{|\alpha|,|\beta|=k} b_{\alpha,\beta}(\VEC{z}) \VEC{\xi}^\beta
-\VEC{\xi}^\alpha \geq \theta_1 \|\VEC{\xi}\|^{2k}
+\RE\, Q(\VEC{z}, \VEC{\xi}) = \RE \sum_{|\VEC{\alpha}|,|\VEC{\beta}|=k}
+b_{\VEC{\alpha},\VEC{\beta}}(\VEC{z}) \VEC{\xi}^{\VEC{\beta}}
+\VEC{\xi}^{\VEC{\alpha}} \geq \theta_1 \|\VEC{\xi}\|^{2k}
 \end{equation}
-for all $\displaystyle \xi \in \RR^n$ and $\VEC{z}\in \overline{\Omega}$.
+for all $\displaystyle \VEC{\xi} \in \RR^n$ and $\VEC{z}\in \overline{\Omega}$.
 It follows that $\theta_1$ in (\ref{ell_garding2_theta}) in
 the proof of Lemma~\ref{ell_garding2} may be assumed to be independent of
 $\VEC{z} \in \overline{\Omega}$.  Therefore, we may assume that the
 constant $K>0$ for the coercive property in Lemma~\ref{ell_garding2}
 is independent of $\VEC{z} \in \overline{\Omega}$; namely,
 \begin{equation} \label{ell_garding_local1}
-\RE \sum_{|\alpha|,|\beta|= k}
-\ps{\diff^\alpha u}
-{b_{\alpha,\beta}(\VEC{z}) \diff^\beta u}_2 \geq K \|u\|_{k,2,\Omega}^2
+\RE \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\ps{\diff^{\VEC{\alpha}} u}
+{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{z}) \diff^{\VEC{\beta}} u}_2
+\geq K \|u\|_{k,2,\Omega}^2
 \end{equation}
 for $\displaystyle u \in H^{k,2}_0(\Omega)$ and $\VEC{z} \in \Omega$.
-Since the $b_{\alpha,\beta}$ are continuous on $\overline{\Omega}$ by
-hypothesis and $\overline{\Omega}$ is compact because $\Omega$ is
-bounded, we have that the $b_{\alpha,\beta}$ are uniformly continuous on
+Since the $b_{\VEC{\alpha},\VEC{\beta}}$ are continuous on
+$\overline{\Omega}$ by hypothesis and $\overline{\Omega}$ is compact
+because $\Omega$ is bounded, we have that the
+$b_{\VEC{\alpha},\VEC{\beta}}$ are uniformly continuous on
 $\overline{\Omega}$.  Thus, there exists $\delta >0$ such that
-$\displaystyle \sum_{|\alpha|,|\beta|= k}
-\left|b_{\alpha,\beta}(\VEC{x}_1)-b_{\alpha,\beta}(\VEC{x}_2)\right|
-< \frac{K}{2}$
+$\displaystyle \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\left|b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}_1)
+-b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}_2)\right| < \frac{K}{2}$
 for $\displaystyle \left| \VEC{x}_1- \VEC{x}_2 \right| < \delta$ and
 $\VEC{x}_1, \VEC{x}_2 \in \overline{\Omega}$.
 Hence, for all $\VEC{z} \in \Omega$ and all
 $\displaystyle u \in H^{k,2}_0(\Omega)$ with
 $\supp u \subset B_\delta(\VEC{z}) \cap \Omega$, we have
 \begin{align}
-&\left| \sum_{|\alpha|,|\beta|= k} \int_{\Omega}
-\overline{\left(b_{\alpha,\beta}(\VEC{x})-b_{\alpha,\beta}(\VEC{z})\right)
-\diff^\beta u(\VEC{x})}\, \diff^\alpha u(\VEC{x}) \dx{\VEC{x}} \right|
+&\left| \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k} \int_{\Omega}
+\overline{\left(b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+-b_{\VEC{\alpha},\VEC{\beta}}(\VEC{z})\right)
+\diff^{\VEC{\beta}} u(\VEC{x})}\, \diff^{\VEC{\alpha}} u(\VEC{x})
+\dx{\VEC{x}} \right|
 \nonumber \\
-& \leq \sum_{|\alpha|,|\beta|= k} \int_{\Omega}
-\left|b_{\alpha,\beta}(\VEC{x})-b_{\alpha,\beta}(\VEC{z})\right|
-\left| \diff^\beta u(\VEC{x})\right|\,
-\left| \diff^\alpha u(\VEC{x}) \right|\dx{\VEC{x}} \nonumber \\
+& \leq \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k} \int_{\Omega}
+\left|b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+-b_{\VEC{\alpha},\VEC{\beta}}(\VEC{z})\right|
+\left| \diff^{\VEC{\beta}} u(\VEC{x})\right|\,
+\left| \diff^{\VEC{\alpha}} u(\VEC{x}) \right|\dx{\VEC{x}} \nonumber \\
 & \leq \sup_{\VEC{x}\in B_\delta(\VEC{z}) \cap \Omega}
-\left( \sum_{|\alpha|,|\beta|= k}
-\left|b_{\alpha,\beta}(\VEC{x})-b_{\alpha,\beta}(\VEC{z})\right| \right)
-\int_{\Omega} \left| \diff^\beta u(\VEC{x})\right|\,
-\left| \diff^\alpha u(\VEC{x}) \right|\dx{\VEC{x}} \nonumber \\
+\left( \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\left|b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+-b_{\VEC{\alpha},\VEC{\beta}}(\VEC{z})\right| \right)
+\int_{\Omega} \left| \diff^{\VEC{\beta}} u(\VEC{x})\right|\,
+\left| \diff^{\VEC{\alpha}} u(\VEC{x}) \right|\dx{\VEC{x}} \nonumber \\
 & \leq \sup_{\VEC{x}\in B_\delta(\VEC{z}) \cap \Omega}
-\left( \sum_{|\alpha|,|\beta|= k}
-\left|b_{\alpha,\beta}(\VEC{x})-b_{\alpha,\beta}(\VEC{z})\right| \right)
-\left( \int_{\Omega} \left| \diff^\beta u(\VEC{x})\right|^2 \dx{\VEC{x}}
+\left( \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\left|b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+-b_{\VEC{\alpha},\VEC{\beta}}(\VEC{z})\right| \right)
+\left( \int_{\Omega} \left| \diff^{\VEC{\beta}} u(\VEC{x})\right|^2 \dx{\VEC{x}}
 \right)^{1/2}
-\left( \int_{\Omega} \left| \diff^\alpha u(\VEC{x}) \right|^2 \dx{\VEC{x}}
+\left( \int_{\Omega} \left| \diff^{\VEC{\alpha}} u(\VEC{x}) \right|^2 \dx{\VEC{x}}
 \right)^{1/2} \nonumber \\
 & < \frac{K}{2} \|u\|_{k,2,\Omega}^2 \ . \label{ell_garding_local2}
 \end{align}
@@ -1418,27 +1451,31 @@ We have that $\psi_j \in C^\infty(\overline{\Omega})$ for all $j$ and
 $\displaystyle \sum_{j=1}^J |\psi_j(\VEC{x})|^2 = 1$ for all
 $\VEC{x}\in \overline{\Omega}$.  Hence,
 \begin{align*}
-B(u,u) &= \sum_{|\alpha|,|\beta|= k}
-\ps{\diff^\alpha u}{ \sum_{j=1}^J |\psi_j(\VEC{x})|^2\,
-b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}_2
-= \sum_{|\alpha|,|\beta|= k} \sum_{j=1}^J \ps{\diff^\alpha u}
-{|\psi_j(\VEC{x})|^2\, b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}_2 \\
-&= \sum_{|\alpha|,|\beta|= k} \sum_{j=1}^J
-\ps{\psi_j \diff^\alpha u}{b_{\alpha,\beta}(\VEC{x})\,\psi_j \diff^\beta u}_2
-= Q_1(u) + Q_2(u)
+B(u,u) &= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\ps{\diff^{\VEC{\alpha}} u}{ \sum_{j=1}^J |\psi_j(\VEC{x})|^2\,
+b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u}_2
+= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k} \sum_{j=1}^J \ps{\diff^{\VEC{\alpha}} u}
+{|\psi_j(\VEC{x})|^2\, b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u}_2 \\
+&= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k} \sum_{j=1}^J
+\ps{\psi_j \diff^{\VEC{\alpha}} u}{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\,\psi_j \diff^{\VEC{\beta}} u}_2 = Q_1(u) + Q_2(u)
 \end{align*}
 for $\displaystyle u \in H^{k,2}_0(\Omega)$, where
 \begin{align*}
-Q_1(u) &= \sum_{|\alpha|,|\beta|= k} \sum_{j=1}^J
-\ps{\diff^\alpha\left( \psi_j\, u\right)}
-{b_{\alpha,\beta}(\VEC{x})\,\diff^\beta\left( \psi_j\, u\right)}_2
+Q_1(u) &= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k} \sum_{j=1}^J
+\ps{\diff^{\VEC{\alpha}}\left( \psi_j\, u\right)}
+{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})\,\diff^{\VEC{\beta}}
+\left( \psi_j\, u\right)}_2
 \intertext{and}
-Q_2(u) &= \sum_{|\alpha|,|\beta|= k} \sum_{j=1}^J
-\ps{\diff^\alpha\left( \psi_j\, u\right)}{b_{\alpha,\beta}(\VEC{x})
-\left(\psi_j \diff^\beta u - \diff^\beta\left( \psi_j\, u\right)\right)}_2 \\
-&\qquad + \sum_{|\alpha|,|\beta|= k} \sum_{j=1}^J
-\ps{\psi_J \diff^\alpha u - \diff^\alpha\left( \psi_j\, u\right)}
-{b_{\alpha,\beta}(\VEC{x})\psi_j \diff^\beta u}_2 \ .
+Q_2(u) &= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k} \sum_{j=1}^J
+\ps{\diff^{\VEC{\alpha}}\left( \psi_j\, u\right)}
+{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\left(\psi_j \diff^{\VEC{\beta}} u - \diff^{\VEC{\beta}}
+\left( \psi_j\, u\right)\right)}_2 \\
+&\qquad + \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k} \sum_{j=1}^J
+\ps{\psi_J \diff^{\VEC{\alpha}} u - \diff^{\VEC{\alpha}}\left( \psi_j\, u\right)}
+{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})\psi_j \diff^{\VEC{\beta}} u}_2 \ .
 \end{align*}
 Since $\displaystyle \psi_j\,u \in H^{k.2}_0(\Omega)$ has compact support in
 $B_\delta(\VEC{z}_j)$ for all $j$, we have from part (i) that
@@ -1448,68 +1485,75 @@ $B_\delta(\VEC{z}_j)$ for all $j$, we have from part (i) that
 However,
 \begin{align}
 \sum_{j=1}^J  \| \psi_j \, u \|_{k,2,\Omega}^2 &\geq
-\sum_{j=1}^J  \sum_{|\alpha| = k}
-\ps{\diff^\alpha\left( \psi_j \, u\right)}
-{\diff^\alpha\left( \psi_j \, u\right)}_2 \nonumber \\
-&= \sum_{j=1}^J  \sum_{|\alpha| = k}
-\ps{\psi_j \,\diff^\alpha u}{\psi_j \, \diff^\alpha u}_2
-+ \sum_{j=1}^J  \sum_{|\alpha|= k}
-\ps{\diff^\alpha\left( \psi_j \, u\right)}
-{\diff^\alpha\left( \psi_j \, u\right) - \psi_j \diff^\alpha u}_2 \nonumber \\
-&\qquad + \sum_{j=1}^J  \sum_{|\alpha|= k}
-\ps{\diff^\alpha\left( \psi_j \, u\right) - \psi_j \diff^\alpha u}{\psi_j \diff^\alpha u}_2
+\sum_{j=1}^J  \sum_{|\VEC{\alpha}| = k}
+\ps{\diff^{\VEC{\alpha}} \left( \psi_j \, u\right)}
+{\diff^{\VEC{\alpha}} \left( \psi_j \, u\right)}_2 \nonumber \\
+&= \sum_{j=1}^J  \sum_{|\VEC{\alpha}| = k}
+\ps{\psi_j \,\diff^{\VEC{\alpha}} u}{\psi_j \, \diff^{\VEC{\alpha}} u}_2
++ \sum_{j=1}^J  \sum_{|\VEC{\alpha}|= k}
+\ps{\diff^{\VEC{\alpha}}\left( \psi_j \, u\right)}
+{\diff^{\VEC{\alpha}}\left( \psi_j \, u\right)
+- \psi_j \diff^{\VEC{\alpha}} u}_2 \nonumber \\
+&\qquad + \sum_{j=1}^J  \sum_{|\VEC{\alpha}|= k}
+\ps{\diff^{\VEC{\alpha}}\left( \psi_j \, u\right)
+- \psi_j \diff^{\VEC{\alpha}} u}{\psi_j \diff^{\VEC{\alpha}} u}_2
 \ , \label{ell_garding_idx4}
 \end{align}
 where
 \[
-\sum_{j=1}^J  \sum_{|\alpha| = k}
-\ps{\psi_j \,\diff^\alpha u}{\psi_j \, \diff^\alpha u}_2
-= \sum_{|\alpha| = k}
-\ps{\diff^\alpha u}{ \sum_{j=1}^J |\psi_j|^2 \,\diff^\alpha u}_2
-= \sum_{|\alpha| = k} \ps{\diff^\alpha u}{\diff^\alpha u}_2
+\sum_{j=1}^J  \sum_{|\VEC{\alpha}| = k}
+\ps{\psi_j \,\diff^{\VEC{\alpha}} u}{\psi_j \, \diff^{\VEC{\alpha}} u}_2
+= \sum_{|\VEC{\alpha}| = k}
+\ps{\diff^{\VEC{\alpha}} u}{ \sum_{j=1}^J |\psi_j|^2 \,\diff^{\VEC{\alpha}} u}_2
+= \sum_{|\VEC{\alpha}| = k} \ps{\diff^{\VEC{\alpha}} u}{\diff^{\VEC{\alpha}} u}_2
 \geq C_2 \|u\|_{k,2,\Omega}^2
 \]
 for $\displaystyle u \in H^{k,2}_0(\Omega)$ and
 some constant $C_2>0$ provided by the Poincaré's ineguality,
 Theorem~\ref{sob_pt_carre}, and
 \begin{align*}
-& \left| \sum_{j=1}^J \sum_{|\alpha|= k}
-\ps{\diff^\alpha\left( \psi_j \, u\right)}
-{\diff^\alpha\left( \psi_j \, u\right) - \psi_j \diff^\alpha u}_2
-+ \sum_{j=1}^J  \sum_{|\alpha|= k}
-\ps{\diff^\alpha\left( \psi_j \, u\right) - \psi_j \diff^\alpha u}{\psi_j \diff^\alpha u}_2
-\right| \\
-&\qquad \leq \sum_{\substack{|\alpha|,|\beta|\leq k\\|\alpha|+|\beta|<2k}}
-\int_\Omega \left| A_{\alpha,\beta}(\VEC{x})\right|
-\left| \diff^\alpha u(\VEC{x}) \right|
-\left| \diff^\beta u(\VEC{x}) \right| \dx{\VEC{x}} \\
-&\qquad \leq \sum_{\substack{|\alpha|,|\beta|\leq k\\|\alpha|+|\beta|<2k}}
-\sup_{\VEC{x} \in \overline{\Omega}} \left| A_{\alpha,\beta}(\VEC{x})\right|
-\int_\Omega \left| \diff^\alpha u(\VEC{x}) \right|
-\left| \diff^\beta u(\VEC{x}) \right| \dx{\VEC{x}} \\
-&\qquad \leq \sum_{\substack{|\alpha|,|\beta|\leq k\\|\alpha|+|\beta|<2k}}
-\sup_{\VEC{x} \in \overline{\Omega}} \left| A_{\alpha,\beta}(\VEC{x})\right|
-\left( \int_\Omega \left| \diff^\alpha u(\VEC{x}) \right|^2
+& \left| \sum_{j=1}^J \sum_{|\VEC{\alpha}|= k}
+\ps{\diff^{\VEC{\alpha}}\left( \psi_j \, u\right)}
+{\diff^{\VEC{\alpha}}\left( \psi_j \, u\right) - \psi_j \diff^{\VEC{\alpha}} u}_2
++ \sum_{j=1}^J  \sum_{|\VEC{\alpha}|= k}
+\ps{\diff^{\VEC{\alpha}}\left( \psi_j \, u\right)
+- \psi_j \diff^{\VEC{\alpha}} u}{\psi_j \diff^{\VEC{\alpha}} u}_2 \right| \\
+&\qquad \leq \sum_{\substack{|\VEC{\alpha}|,|\VEC{\beta}|\leq k\\
+|\VEC{\alpha}|+|\VEC{\beta}|<2k}}
+\int_\Omega \left| A_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})\right|
+\left| \diff^{\VEC{\alpha}} u(\VEC{x}) \right|
+\left| \diff^{\VEC{\beta}} u(\VEC{x}) \right| \dx{\VEC{x}} \\
+&\qquad \leq \sum_{\substack{|\VEC{\alpha}|,|\VEC{\beta}|\leq k\\
+|\VEC{\alpha}|+|\VEC{\beta}|<2k}} \sup_{\VEC{x} \in \overline{\Omega}}
+\left| A_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})\right|
+\int_\Omega \left| \diff^{\VEC{\alpha}} u(\VEC{x}) \right|
+\left| \diff^{\VEC{\beta}} u(\VEC{x}) \right| \dx{\VEC{x}} \\
+&\qquad \leq \sum_{\substack{|\VEC{\alpha}|,|\VEC{\beta}|\leq k\\
+|\VEC{\alpha}|+|\VEC{\beta}|<2k}} \sup_{\VEC{x} \in \overline{\Omega}}
+\left| A_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})\right|
+\left( \int_\Omega \left| \diff^{\VEC{\alpha}} u(\VEC{x}) \right|^2
 \dx{\VEC{x}}\right)^{1/2}
-\left( \int_\Omega \left| \diff^\beta u(\VEC{x}) \right|^2 \dx{\VEC{x}}
+\left( \int_\Omega \left| \diff^{\VEC{\beta}} u(\VEC{x}) \right|^2 \dx{\VEC{x}}
 \right)^{1/2} \\
-&\qquad \leq \sum_{\substack{|\alpha|,|\beta|\leq k\\|\alpha|+|\beta|<2k}}
-\sup_{\VEC{x} \in \overline{\Omega}} \left| A_{\alpha,\beta}(\VEC{x})\right|
+&\qquad \leq \sum_{\substack{|\VEC{\alpha}|,|\VEC{\beta}|\leq k\\
+|\VEC{\alpha}|+|\VEC{\beta}|<2k}} \sup_{\VEC{x} \in \overline{\Omega}}
+\left| A_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})\right|
 \|u\|_{k,2,\Omega} \|u\|_{k-1,2,\Omega}
 \leq C_3 \|u\|_{k,2,\Omega} \|u\|_{k-1,2,\Omega} 
 \end{align*}
 for $\displaystyle u \in H^{k,2}_0(\Omega)$, where
 \[
-C_3 = \sum_{\substack{|\alpha|,|\beta|\leq k\\|\alpha|+|\beta|<2k}}
-\sup_{\VEC{x} \in \overline{\Omega}} \left| A_{\alpha,\beta}(\VEC{x})\right|
-\geq 0 \  .
+C_3 = \sum_{\substack{|\VEC{\alpha}|,|\VEC{\beta}|\leq
+k\\|\VEC{\alpha}|+|\VEC{\beta}|<2k}} \sup_{\VEC{x} \in \overline{\Omega}}
+\left| A_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})\right| \geq 0 \  .
 \]
-Note that $C_3 < \infty$ because the $A_{\alpha,\beta}$ are
-polynomial expressions in $\displaystyle \diff^\gamma \psi_j$ for
-$1\leq j \leq J$ and 
-multi-indices $\gamma$ such that $|\gamma|\leq k$.  Thus the
-$A_{\alpha,\beta}$ are continuous functions on $\overline{\Omega}$.  Hence, for
-all multi-indices $\alpha$ and $\beta$, the maximum of $|A_{\alpha,\beta}|$
+Note that $C_3 < \infty$ because the $A_{\VEC{\alpha},\VEC{\beta}}$ are
+polynomial expressions in $\displaystyle \diff^{\VEC{\gamma}} \psi_j$ for
+$1\leq j \leq J$ and multi-indices $\VEC{\gamma}$ such that
+$|\VEC{\gamma}|\leq k$.  Thus the $A_{\VEC{\alpha},\VEC{\beta}}$ are
+continuous functions on $\overline{\Omega}$.  Hence, for
+all multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$, the
+maximum of $|A_{\VEC{\alpha},\VEC{\beta}}|$
 on $\overline{\Omega}$ exists.  We have shown that
 \[
 \RE Q_1(u) \geq C_1C_2 \|u\|_{k,2}^2
@@ -1583,14 +1627,16 @@ $\lambda = (C_1C_3 + C_4)^2 C_5/(2C_1C_2)$.
 Let $\Omega$ be a bounded open subset of $\displaystyle \RR^n$ with a
 boundary of class $\displaystyle C^2$.  Suppose that
 \[
-L(\VEC{x},\diff)u = \sum_{|\alpha|,|\beta|\leq k} (-1)^\alpha \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u\right) \  ,
+L(\VEC{x},\diff)u = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+(-1)^{\VEC{\alpha}} \diff^{\VEC{\alpha}}
+\left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u\right) \  ,
 \]
 is strongly elliptic on $\overline{\Omega}$.  Moreover, suppose that
-$\displaystyle b_{\alpha,\beta} \in C(\overline{\Omega})$ for
-$|\alpha|=|\beta|=k$ and
-$\displaystyle b_{\alpha,\beta} \in L^\infty(\Omega)$ for
-$|\alpha|+|\beta|<2k$ with $|\alpha|,|\beta|\leq k$.  Then 
+$\displaystyle b_{\VEC{\alpha},\VEC{\beta}} \in C(\overline{\Omega})$ for
+$|\VEC{\alpha}|=|\VEC{\beta}|=k$ and
+$\displaystyle b_{\VEC{\alpha},\VEC{\beta}} \in L^\infty(\Omega)$ for
+$|\VEC{\alpha}|+|\VEC{\beta}|<2k$ with $|\VEC{\alpha}|,|\VEC{\beta}|\leq k$.
+Then
 $\displaystyle B : H^{k,2}_0(\Omega) \times H^{k,2}_0(\Omega)\rightarrow \CC$
 defined in (\ref{ell_PDE3}) is weakly coercive.
 \index{G\r{a}rding's Inequality}
@@ -1599,17 +1645,20 @@ defined in (\ref{ell_PDE3}) is weakly coercive.
 \begin{proof}
 Let
 \[
-B(v,u) = \sum_{|\alpha|,|\beta|\leq k}
-\ps{\diff^\alpha v}{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}_2 
-= B_1(v,u) + B_2(v,u)
+B(v,u) = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+\ps{\diff^{\VEC{\alpha}} v}{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u}_2  = B_1(v,u) + B_2(v,u)
 \]
 for $\displaystyle u, v \in H^{k,2}_0(\Omega)$, where
 \[
-B_1(v,u) = \sum_{|\alpha|,|\beta|= k}
-\ps{\diff^\alpha v}{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}_2
+B_1(v,u) = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|= k}
+\ps{\diff^{\VEC{\alpha}} v}{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u}_2
 \quad \text{and} \quad
-B_2(v,u) = \sum_{\substack{|\alpha|,|\beta|\leq k\\|\alpha|+\beta|<2k}}
-\ps{\diff^\alpha v}{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}_2 \ .
+B_2(v,u) = \sum_{\substack{|\VEC{\alpha}|,|\VEC{\beta}|\leq k\\
+|\VEC{\alpha}|+|\VEC{\beta}|<2k}}
+\ps{\diff^{\VEC{\alpha}} v}{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u}_2 \ .
 \]
 From Lemma~\ref{ell_garding3}, there exist $C_1>0$ and $\lambda_1 >0$
 such that
@@ -1621,37 +1670,45 @@ for $\displaystyle u \in H^{k,2}_0(\Omega)$.
 Moreover, using Schwarz inequality, we get
 \begin{align}
 \left| B_2(u,u) \right|
-&= \bigg| \sum_{\substack{|\alpha|,|\beta|\leq k\\|\alpha|+\beta|<2k}}
-\ps{\diff^\alpha u}{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}_2 \bigg|
-\leq \sum_{\substack{|\alpha|,|\beta|\leq k\\|\alpha|+\beta|<2k}}
-\int_{\Omega} \left| b_{\alpha,\beta}(\VEC{x})\right|\,
-\left| \diff^\beta u(\VEC{x}) \right| \,
-\left| \diff^\alpha u(\VEC{x}) \right| \dx{\VEC{x}} \nonumber \\
-&\leq \sum_{\substack{|\alpha|,|\beta|\leq k\\|\alpha|+\beta|<2k}}
-\| b_{\alpha,\beta} \|_{\infty}
-\int_{\Omega} \left| \diff^\beta u(\VEC{x}) \right| \,
-\left| \diff^\alpha u(\VEC{x}) \right| \dx{\VEC{x}} \nonumber \\
-&\leq \sum_{\substack{|\alpha|,|\beta|\leq k\\|\alpha|+|\beta|<2k}}
-\| b_{\alpha,\beta} \|_{\infty}
-\left( \int_\Omega \left| \diff^\alpha u(\VEC{x}) \right|^2
+&= \bigg| \sum_{\substack{|\VEC{\alpha}|,|\VEC{\beta}|\leq k\\
+|\VEC{\alpha}|+|\VEC{\beta}|<2k}}
+\ps{\diff^{\VEC{\alpha}} u}{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u}_2 \bigg|
+\leq \sum_{\substack{|\VEC{\alpha}|,|\VEC{\beta}|\leq k\\
+|\VEC{\alpha}|+|\VEC{\beta}|<2k}}
+\int_{\Omega} \left| b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})\right|\,
+\left| \diff^{\VEC{\beta}} u(\VEC{x}) \right| \,
+\left| \diff^{\VEC{\alpha}} u(\VEC{x}) \right| \dx{\VEC{x}} \nonumber \\
+&\leq \sum_{\substack{|\VEC{\alpha}|,|\VEC{\beta}|\leq k\\
+|\VEC{\alpha}|+|\VEC{\beta}|<2k}}
+\| b_{\VEC{\alpha},\VEC{\beta}} \|_{\infty}
+\int_{\Omega} \left| \diff^{\VEC{\beta}} u(\VEC{x}) \right| \,
+\left| \diff^{\VEC{\alpha}} u(\VEC{x}) \right| \dx{\VEC{x}} \nonumber \\
+&\leq \sum_{\substack{|\VEC{\alpha}|,|\VEC{\beta}|\leq k\\
+|\VEC{\alpha}|+|\VEC{\beta}|<2k}}
+\| b_{\VEC{\alpha},\VEC{\beta}} \|_{\infty}
+\left( \int_\Omega \left| \diff^{\VEC{\alpha}} u(\VEC{x}) \right|^2
 \dx{\VEC{x}}\right)^{1/2}
-\left( \int_\Omega \left| \diff^\beta u(\VEC{x}) \right|^2 \dx{\VEC{x}}
+\left( \int_\Omega \left| \diff^{\VEC{\beta}} u(\VEC{x}) \right|^2 \dx{\VEC{x}}
 \right)^{1/2} \nonumber \\
-&\leq \sum_{\substack{|\alpha|,|\beta|\leq k\\|\alpha|+|\beta|<2k}}
-\| b_{\alpha,\beta} \|_{\infty}
+&\leq \sum_{\substack{|\VEC{\alpha}|,|\VEC{\beta}|\leq k\\
+|\VEC{\alpha}|+|\VEC{\beta}|<2k}}
+\| b_{\VEC{\alpha},\VEC{\beta}} \|_{\infty}
 \|u\|_{k,2,\Omega} \|u\|_{k-1,2,\Omega} \leq C_2 \|u\|_{k,2,\Omega}
 \|u\|_{k-1,2,\Omega} \label{ell_garding_idx8}
 \end{align}
 for $\displaystyle u \in H^{k,2}_0(\Omega)$, where
 \[
-C_2 = \sum_{\substack{|\alpha|,|\beta|\leq k\\|\alpha|+|\beta|<2k}}
-\| b_{\alpha,\beta} \|_{\infty} \geq 0 \ .
+C_2 = \sum_{\substack{|\VEC{\alpha}|,|\VEC{\beta}|\leq k\\
+|\VEC{\alpha}|+|\VEC{\beta}|<2k}}
+\| b_{\VEC{\alpha},\VEC{\beta}} \|_{\infty} \geq 0 \ .
 \]
 Note that the essential supremum
-$\displaystyle \| b_{\alpha,\beta} \|_{\infty}$ is finite
-for all multi-indices $\alpha$ and $\beta$ because
-$b_{\alpha,\beta} \in L^\infty(\Omega)$ for $|\alpha|,|\beta|\leq k$
-and $|\alpha|+|\beta|<2k$.
+$\displaystyle \| b_{\VEC{\alpha},\VEC{\beta}} \|_{\infty}$ is finite
+for all multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$ because
+$b_{\VEC{\alpha},\VEC{\beta}} \in L^\infty(\Omega)$ for
+$|\VEC{\alpha}|,|\VEC{\beta}|\leq k$
+and $|\VEC{\alpha}|+|\VEC{\beta}|<2k$.
 
 If we substitute $a= \sqrt{C_1} \|u\|_{k,2,\Omega}$ and
 $\displaystyle b = \frac{C_2}{\sqrt{C_1}}\|u\|_{k-1,2,\Omega}$ in
@@ -1713,14 +1770,15 @@ G\r{a}rding's inequality.
 \begin{theorem}
 Let $\Omega$ be a bounded open subset of $\displaystyle \RR^n$.  consider
 \[
-L(\VEC{x},\diff)u = \sum_{|\alpha|,|\beta|\leq k} (-1)^\alpha \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u\right) \ ,
+L(\VEC{x},\diff)u = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+(-1)^{\VEC{\alpha}} \diff^{\VEC{\alpha}}
+\left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u\right) \ ,
 \]
-where $\displaystyle b_{\alpha,\beta} \in C(\overline{\Omega})$ for
-$|\alpha|=|\beta|=k$ and
-$\displaystyle b_{\alpha,\beta} \in L^\infty(\Omega)$ for
-$|\alpha|+|\beta|<2k$ with $|\alpha|,|\beta|\leq k$.  If
-$\displaystyle B : H^{k,2}_0(\Omega) \times H^{k,2}_0(\Omega)
+where $\displaystyle b_{\VEC{\alpha},\VEC{\beta}} \in C(\overline{\Omega})$ for
+$|\VEC{\alpha}|=|\VEC{\beta}|=k$ and
+$\displaystyle b_{\VEC{\alpha},\VEC{\beta}} \in L^\infty(\Omega)$ for
+$|\VEC{\alpha}|+|\VEC{\beta}|<2k$ with $|\VEC{\alpha}|,|\VEC{\beta}|\leq k$.
+If $\displaystyle B : H^{k,2}_0(\Omega) \times H^{k,2}_0(\Omega)
 \rightarrow \CC$ defined in (\ref{ell_PDE3}) is weakly coercive, then
 $L(\VEC{x},\diff)$ is strongly elliptic on $\Omega$.
 \end{theorem}
@@ -1773,17 +1831,18 @@ subspace of $\displaystyle H^{k,2}(\Omega)$ such that
 $\displaystyle H^{k,2}_0(\Omega) \subset X$.
 Given $\displaystyle f \in L^2(\Omega)$, let
 \begin{equation} \label{ell_exist_1}
-B(v,u) = \sum_{|\alpha|,|\beta|\leq k}
-\ps{\diff^\alpha v}{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}_2
-= \ps{v}{f}_2 \quad , \quad u,v \in X \ ,
+B(v,u) = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+\ps{\diff^{\VEC{\alpha}} v}{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u}_2 = \ps{v}{f}_2 \quad , \quad u,v \in X \ ,
 \end{equation}
 be a variational formulation of the problem
 \begin{equation} \label{ell_exist_2}
-L(\VEC{x},\diff)u = \sum_{|\alpha|,|\beta|\leq k} (-1)^\alpha \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u\right) = f \  ,
+L(\VEC{x},\diff)u = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+(-1)^{\VEC{\alpha}} \diff^{\VEC{\alpha}}
+\left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u\right) = f \  ,
 \end{equation}
-where $\displaystyle b_{\alpha,\beta} \in L^\infty(\Omega)$ for all
-$\alpha$ and $\beta$.
+where $\displaystyle b_{\VEC{\alpha},\VEC{\beta}} \in L^\infty(\Omega)$ for all
+$\VEC{\alpha}$ and $\VEC{\beta}$.
 If $B$ is coercive on $X$, then there exists a one-to-one, bounded
 linear mapping $F:L^2(\Omega) \rightarrow X$ such that $F(f)$ is a
 weak solution of (\ref{ell_exist_1}); namely,
@@ -1828,13 +1887,16 @@ $\displaystyle H^{k,2}_0(\Omega)$ and let $f$ be an element of
 $\displaystyle L^2(\Omega)$ as in
 the previous theorem.  The formal adjoint operator associated to
 \[
-L(\VEC{x},\diff)u = \sum_{|\alpha|,|\beta|\leq k} (-1)^\alpha \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u\right)
+L(\VEC{x},\diff)u = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+(-1)^{\VEC{\alpha}} \diff^{\VEC{\alpha}}
+\left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u\right)
 \]
 is
 \[
-L^\ast(\VEC{x},\diff)v = \sum_{|\alpha|,|\beta|\leq k} (-1)^\beta \diff^\beta
-\left( \overline{b_{\alpha,\beta}(\VEC{x})} \diff^\alpha v\right) \  .
+L^\ast(\VEC{x},\diff)v = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k}
+(-1)^{\VEC{\beta}} \diff^{\VEC{\beta}}
+\left( \overline{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})}
+\diff^{\VEC{\alpha}} v\right) \  .
 \]
 A variational formulation of $L(\VEC{x},\diff)u = f$ is to find
 $u\in X$ such that
@@ -1845,9 +1907,9 @@ for all $v \in X$, where $B$ is defined in the previous theorem.  Similarly, A
 variational formulation of $L^\ast(\VEC{x},\diff)v = f$ is to find
 $v\in X$ such that
 \begin{equation} \label{ell_var_adj2}
-B^\ast(u,v) = \sum_{|\alpha|,|\beta|\leq k} 
-\ps{\diff^\beta u}{\overline{b_{\alpha,\beta}(\VEC{x})} \diff^\alpha v}_2
-= \ps{u}{f}_2
+B^\ast(u,v) = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k} 
+\ps{\diff^{\VEC{\beta}} u}{\overline{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})}
+\diff^{\VEC{\alpha}} v}_2 = \ps{u}{f}_2
 \end{equation}
 for all $u \in X$.  Since
 \begin{equation} \label{ell_Bs_B}
@@ -2001,7 +2063,7 @@ item (2) of the theorem.  Item (3) is a consequence of (2).
 In our previous discussion, we have assumed that the boundary
 conditions of the Dirichlet problem (\ref{ell_PDE1}) were homogeneous.
 More precisely, we have assumed that
-$\displaystyle \pdydxn{u}{\VEC{\nu}}{j} = 0$ on
+$\displaystyle \pdydxn{u}{\nu}{j} = 0$ on
 $\partial \Omega$ for $0 \leq j < k$.  However, more
 general boundary conditions can be considered.   \label{ellRmkNhom}
 
@@ -2011,10 +2073,11 @@ conditions.  Consider
 \begin{equation} \label{ell_nh_dirichlet}
 \begin{split}
 L(\VEC{x}, \diff)u(\VEC{x})
-&= \sum_{|\alpha|,|\beta|\leq k} (-1)^{|\alpha|} \diff^\alpha
-\left( b_{\alpha,\beta}(\VEC{x}) \diff^\beta u(\VEC{x})\right) = f(\VEC{x}) \quad
+&= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq k} (-1)^{|\VEC{\alpha}|}
+\diff^{\VEC{\alpha}} \left( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u(\VEC{x})\right) = f(\VEC{x}) \quad
 , \quad \VEC{x} \in \Omega \ ,\\
-\pdydxn{u}{\VEC{\nu}}{j}(\VEC{x}) &= g_j(\VEC{x}) \quad , \quad
+\pdydxn{u}{\nu}{j}(\VEC{x}) &= g_j(\VEC{x}) \quad , \quad
 \VEC{x} \in \partial \Omega \ \text{and}\ 0 \leq j < k \ ,
 \end{split}
 \end{equation}
@@ -2022,7 +2085,7 @@ where the functions $g_j:\partial \Omega \rightarrow \CC$ are nice
 functions.  For instance, $g_j \in C^\infty(\partial \Omega)$ for all $j$.
 
 First, find $\displaystyle g\in H^{2k,2}(\RR^n)$ such that
-$\displaystyle \pdydxn{g}{\VEC{\nu}}{j} = g_j$ on $\partial \Omega$ for
+$\displaystyle \pdydxn{g}{\nu}{j} = g_j$ on $\partial \Omega$ for
 $0 \leq j < k$.  According to Theorem~\ref{ell_normal_BCs}, such a
 function $g$ can be found if
 $\displaystyle g_j \in C^\infty(\partial \Omega)$ for
@@ -2031,7 +2094,7 @@ only if $v=u-g$ is a solution
 \begin{align*}
 L(\VEC{x}, \diff)v(\VEC{x}) &= f(\VEC{x}) - L(\VEC{x},\diff) g(\VEC{x}) \quad
 , \quad \VEC{x} \in \Omega \ ,\\
-\pdydxn{v}{\VEC{\nu}}{j}(\VEC{x}) &= 0 \quad , \quad
+\pdydxn{v}{\nu}{j}(\VEC{x}) &= 0 \quad , \quad
 \VEC{x} \in \partial \Omega \ \text{and}\ 0 \leq j < k\ .
 \end{align*}
 \end{rmk}
@@ -2168,7 +2231,7 @@ Find the weak solution of the Neumann Problem          \label{eggNewmanBdr}
 \begin{equation} \label{ell_example4_eq1}
 \begin{split}
 -\Delta u + u &= f \quad \text{in} \quad \Omega \\
-\pdydx{u}{\VEC{\nu}} &= 0 \quad \text{on} \quad \partial \Omega
+\pdydx{u}{\nu} &= 0 \quad \text{on} \quad \partial \Omega
 \end{split}
 \end{equation}
 where $\displaystyle f \in L^2(\Omega)$.
@@ -2192,12 +2255,12 @@ v \dx{\VEC{x}} = 0
 for all $\displaystyle v \in C^1(\overline{\Omega})$.
 We get from Green's identity (\ref{laplace_green1}) that
 \[
-\int_{\partial \Omega} v\,\pdydx{u}{\VEC{\nu}} \dss{S}{x}
+\int_{\partial \Omega} v\,\pdydx{u}{\nu} \dss{S}{x}
 = \int_\Omega \left( v \Delta u + \graD u \cdot \graD v \right)
 \dx{\VEC{x}}
 \]
 for all $\displaystyle v \in C^1(\overline{\Omega})$.
-Since $\displaystyle \pdydx{u}{\VEC{\nu}} = 0$ on $\partial \Omega$, we
+Since $\displaystyle \pdydx{u}{\nu} = 0$ on $\partial \Omega$, we
 get
 \[
 \int_\Omega  v \Delta u \dx{\VEC{x}} =
@@ -2249,7 +2312,7 @@ If the weak solution $u$ is in $\displaystyle C^2(\overline{\Omega})$,
 we get from (\ref{ell_example4_eq2}) and Green's identity (\ref{laplace_green1})
 that
 \begin{equation} \label{ell_GW_classic}
-\int_{\partial \Omega} v\,\pdydx{u}{\VEC{\nu}} \dss{S}{x}
+\int_{\partial \Omega} v\,\pdydx{u}{\nu} \dss{S}{x}
 + \int_\Omega \left( - v\, \Delta u + u\, v - f\, v \right) \dx{\VEC{x}} = 0
 \end{equation}
 for all $\displaystyle v \in C^1(\overline{\Omega})$.
@@ -2270,15 +2333,15 @@ $\displaystyle -\Delta u + u -f = 0$ everywhere on $\Omega$ since
 $\displaystyle u\in C^2(\Omega)$.  Back to (\ref{ell_GW_classic}),
 this implies that
 \[
-\int_{\partial \Omega} v\,\pdydx{u}{\VEC{\nu}} \dss{S}{x} = 0
+\int_{\partial \Omega} v\,\pdydx{u}{\nu} \dss{S}{x} = 0
 \]
 for all $\displaystyle v \in C^1(\overline{\Omega})$.
 Since $\displaystyle C^1(\overline{\Omega})\big|_{\partial \Omega}
 \supset \DD(\partial \Omega)$ is dense in $L^2(\partial \Omega)$,
-we get $\displaystyle \pdydx{u}{\VEC{\nu}} =0$ almost everywhere on
+we get $\displaystyle \pdydx{u}{\nu} =0$ almost everywhere on
 $\partial \Omega$ (using the measure along $\partial \Omega$).  Since
 $\displaystyle u\in C^2(\overline{\Omega})$, this implies that
-$\displaystyle \pdydx{u}{\VEC{\nu}}(\VEC{x}) =0$ for all
+$\displaystyle \pdydx{u}{\nu}(\VEC{x}) =0$ for all
 $\VEC{x} \in \partial \Omega$.
 \end{egg}
 
@@ -2425,9 +2488,9 @@ definition of a weakly coercive sequilinear form if $B$ is weakly
 coercive, or $\lambda =0$ if $B$ is coercive.
 \item The eigenvalues $\displaystyle \{\lambda_j\}_{j=1}^\infty$ can
 be arranged in an increasing sequence converging to $+\infty$.
-\item If the coefficients $b_{\alpha,\beta}$ of $L(\VEC{x},\diff)$ are
-all of class $\displaystyle C^\infty(\Omega)$, then the eigenvectors
-$u_j$ are all in $\displaystyle C^\infty(\Omega)$.
+\item If the coefficients $b_{\VEC{\alpha},\VEC{\beta}}$ of
+$L(\VEC{x},\diff)$ are all of class $\displaystyle C^\infty(\Omega)$,
+then the eigenvectors $u_j$ are all in $\displaystyle C^\infty(\Omega)$.
 \end{enumerate}
 \end{theorem}
 
@@ -2526,9 +2589,9 @@ following results.
 \item There exists an orthonormal basis $\displaystyle \{u_j\}_{j=1}^\infty$ of
 $\displaystyle L^2(\Omega)$ consisting of eigenvectors of $L(\VEC{x},\diff)$.
 \item $\displaystyle u_j \in C^\infty(\overline{\Omega})$ for all $j$.
-\item If $\VEC{\nu}(\VEC{x})$ denotes the outward unit normal to
+\item If $\nu(\VEC{x})$ denotes the outward unit normal to
 $\partial \Omega$ at $\VEC{x} \in \partial \Omega$, then
-$\displaystyle \pdydxn{u_j}{\VEC{\nu}}{i}=0$ on $\partial \Omega$
+$\displaystyle \pdydxn{u_j}{\nu}{i}=0$ on $\partial \Omega$
 for $0 \leq i < k$.
 \item The eigenvalues are real, isolated and can be arranged in a
 increasing sequence in absolute value that converges to $+\infty$.
@@ -2583,8 +2646,8 @@ Section~\ref{ell_sect_RB} later.  As for item (3), this result
 follows from Proposition~\ref{sob_w0_trad2}.
 Since $\displaystyle u_j \in H^{k,2}_0(\Omega) \cap C^\infty(\overline{\Omega})$,
 Proposition~\ref{sob_w0_trad2} implies that
-$\displaystyle \diff^\alpha u_j(\VEC{x}) = 0$ for all
-$\VEC{x} \in \partial \Omega$ and $|\alpha|<k$. 
+$\displaystyle \diff^{\VEC{\alpha}} u_j(\VEC{x}) = 0$ for all
+$\VEC{x} \in \partial \Omega$ and $|\VEC{\alpha}|<k$. 
 \end{proof}
 
 \begin{cor}
@@ -2953,7 +3016,7 @@ $b_{i,j}$ for $1\leq i,j\leq n$ is symmetric.  We have the following results.
 \item There exists an orthonormal basis $\displaystyle \{u_j\}_{j=1}^\infty$ of
 $\displaystyle L^2(\Omega)$ consisting of eigenvectors of $L(\VEC{x},\diff)$.
 \item $\displaystyle u_j \in C^\infty(\overline{\Omega})$ for all $j$.
-\item If $\VEC{\nu}(\VEC{x})$ denotes the outward unit normal to
+\item If $\nu(\VEC{x})$ denotes the outward unit normal to
 $\partial \Omega$ at $\VEC{x} \in \partial \Omega$, then
 \[
 \sum_{i,j=1}^n b_{i,j}(\VEC{x}) \pdydx{u_k}{x_j}(\VEC{x})\,\nu_i(\VEC{x})= 0
@@ -3046,7 +3109,7 @@ From the Green's identity (\ref{laplace_green1}), we have
 \begin{align*}
 \int_\Omega \nabla u(\VEC{x}) \cdot \nabla v(\VEC{x}) \dx{\VEC{x}}
 &= \int_{\partial \Omega} v(\VEC{x})
-\pdydx{u}{\VEC{\nu}}(\VEC{x}) \dss{S}{x} -
+\pdydx{u}{\nu}(\VEC{x}) \dss{S}{x} -
 \int_{\Omega} v(\VEC{x}) \Delta u(\VEC{x}) \dx{\VEC{x}} \\
 &= - \int_{\Omega} v(\VEC{x}) \Delta u(\VEC{x}) \dx{\VEC{x}}
 = \lambda \int_{\Omega} v(\VEC{x}) u(\VEC{x}) \dx{\VEC{x}}
@@ -3054,9 +3117,9 @@ From the Green's identity (\ref{laplace_green1}), we have
 for all functions $v \in \DD(\Omega)$.  Thus,
 (\ref{laplace_vf}) follows by density of $\DD(\Omega)$ in
 $\displaystyle H_0^1(\Omega)$.  Recall that
-$\displaystyle \pdydx{u}{\VEC{\nu}}(\VEC{x})$ is the directional
+$\displaystyle \pdydx{u}{\nu}(\VEC{x})$ is the directional
 derivative of $u$ at $\VEC{x}\in \partial \Omega$ in the direction of
-the outward unit normal $\VEC{\nu}(\VEC{x})$ to the surface
+the outward unit normal $\nu(\VEC{x})$ to the surface
 $\partial \Omega$ at $\VEC{x}$.
 
 Since $-\Delta$ is strongly elliptic and the sequilinear form $B$ of
@@ -3151,10 +3214,12 @@ $\displaystyle L^2$-norm on $\displaystyle L^2(\Omega\times\Omega)$.
 Let $\Omega$ be an open subset of $\displaystyle \RR^n$.  In this section, we
 consider the elliptic operator 
 \begin{equation} \label{ell_reg_ellOp}
-L(\VEC{x},\diff) = \sum_{|\alpha|\leq k} a_\alpha(\VEC{x}) \diff^\alpha
+L(\VEC{x},\diff) = \sum_{|\VEC{\alpha}|\leq k}
+a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}}
 \end{equation}
-with $\displaystyle a_\alpha \in C^\infty(\Omega)$ for all $\alpha$.  Some
-additional constraints may be imposed on the $a_\alpha$ in some occasions.
+with $\displaystyle a_{\VEC{\alpha}} \in C^\infty(\Omega)$ for all
+$\VEC{\alpha}$.  Some additional constraints may be imposed on the
+$a_{\VEC{\alpha}}$ in some occasions. 
 
 The goal of this section is to determine in which space the solution
 of an elliptic partial differential equation belongs to.
@@ -3377,29 +3442,31 @@ $\displaystyle \Delta_{h\VEC{e}_j}^q f =
 for $q>1$.
 We also define $\Delta^0_{h\VEC{e}_j}$ as
 $\displaystyle \Delta^0_{h\VEC{e}_j} f = f$ for $h \in \RR$.
-For $\VEC{h} \in \RR^n$ and $\alpha \in \NN^n$ with $h_j \neq 0$ for
+For $\VEC{h} \in \RR^n$ and $\VEC{\alpha} \in \NN^n$ with $h_j \neq 0$ for
 $\alpha_j \neq 0$, let
 \[
-\Delta_{\VEC{h}}^\alpha f = \Delta_{h_n\VEC{e}_n}^{\alpha_n} 
+\Delta_{\VEC{h}}^{\VEC{\alpha}} f = \Delta_{h_n\VEC{e}_n}^{\alpha_n} 
 \Delta_{h_{n-1}\VEC{e}_{n-1}}^{\alpha_{n-1}} \ldots
 \Delta_{h_1\VEC{e}_1}^{\alpha_1} f \ .
 \]
-$\displaystyle \Delta_{\VEC{h}}^\alpha$ is independent of the order of the
-difference quotients $\displaystyle \Delta_{h_i\VEC{e}_i}^{\alpha_i}$ chosen.
+$\displaystyle \Delta_{\VEC{h}}^{\VEC{\alpha}}$ is independent of the
+order of the difference quotients
+$\displaystyle \Delta_{h_i\VEC{e}_i}^{\alpha_i}$ chosen.
 We also have that
-$\displaystyle \Delta_{\VEC{h}}^\mu \left( \Delta_{\VEC{h}}^\nu f\right)
-= \Delta_{\VEC{h}}^\nu \left( \Delta_{\VEC{h}}^\mu f\right)$ for all
-multi-indices $\mu$ and $\nu$ in $\displaystyle \NN^n$.
+$\displaystyle \Delta_{\VEC{h}}^{\VEC{\alpha}}
+\left( \Delta_{\VEC{h}}^{\VEC{\beta}} f\right)
+= \Delta_{\VEC{h}}^{\VEC{\alpha}} \left( \Delta_{\VEC{h}}^{\VEC{\beta}} f\right)$
+for all multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$ in $\displaystyle \NN^n$.
 If $\displaystyle f \in H^k(\RR^n)$, it is useful to note that
-$\displaystyle \diff^\mu\left( \Delta_{\VEC{h}}^\nu f \right)
-= \Delta_{\VEC{h}}^\nu \left(\diff^\mu f \right)$ for all
-multi-indices $\mu$ and $\nu$ in $\displaystyle \NN^n$ with
-$|\mu|\leq k$, where the
+$\displaystyle \diff^{\VEC{\alpha}}\left( \Delta_{\VEC{h}}^{\VEC{\beta}} f \right)
+= \Delta_{\VEC{h}}^{\VEC{\beta}} \left(\diff^{\VEC{\alpha}} f \right)$ for all
+multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$ in $\displaystyle \NN^n$ with
+$|\VEC{\alpha}|\leq k$, where the
 derivative is in the sense of distribution.  The proofs of these
 statements is left to the reader.
 
-The {\bfseries adjoint} of $\displaystyle \Delta_{\VEC{h}}^\alpha$ is
-$\displaystyle (-1)^{|\alpha|}\Delta_{-\VEC{h}}^\alpha$.  The
+The {\bfseries adjoint} of $\displaystyle \Delta_{\VEC{h}}^{\VEC{\alpha}}$ is
+$\displaystyle (-1)^{|\VEC{\alpha}|}\Delta_{-\VEC{h}}^{\VEC{\alpha}}$.  The
 corollary to the next result justifies this definition.  The nest
 result will occasionally be useful later.
 
@@ -3410,19 +3477,19 @@ suppose that there exists $\delta$ such that
 $\supp f + B_{k\delta}(\VEC{0}) \subset \Omega$ and
 $\supp g + B_{k\delta}(\VEC{0}) \subset \Omega$, then
 \[
-\int_{\Omega} \left(\Delta^\alpha_{\VEC{h}} f\right) g \dx{\VEC{x}}
-= (-1)^{|\alpha|}   
-\int_{\Omega} f\,\left(\Delta^\alpha_{-\VEC{h}} g\right) \dx{\VEC{x}}
+\int_{\Omega} \left(\Delta^{\VEC{\alpha}}_{\VEC{h}} f\right) g \dx{\VEC{x}}
+= (-1)^{|\VEC{\alpha}|}
+\int_{\Omega} f\,\left(\Delta^{\VEC{\alpha}}_{-\VEC{h}} g\right) \dx{\VEC{x}}
 \]
-for all multi-indices $\alpha$ such that $|\alpha|\leq k$, and all
+for all multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq k$, and all
 $\displaystyle \VEC{h} \in \RR^n$ such that $\|\VEC{h}\|<\delta$.
 \end{prop}
 
 \begin{proof}
-\stage{i} We first consider $\alpha = \alpha_j \VEC{e}_j$ with
+\stage{i} We first consider $\VEC{\alpha} = \alpha_j \VEC{e}_j$ with
 $\alpha_j \leq k$ and $\|\VEC{y}\|< \delta$.  We have that
 \begin{align*}
-\int_{\Omega} \left(\Delta^\alpha_{\VEC{h}} f (\VEC{x})\right)
+\int_{\Omega} \left(\Delta^{\VEC{\alpha}}_{\VEC{h}} f (\VEC{x})\right)
 g(\VEC{x}) \dx{\VEC{x}}
 &= \int_{\Omega} \left(\Delta^{\alpha_j}_{h_j \VEC{e}_j} f(\VEC{x})\right)
 g(\VEC{x}) \dx{\VEC{x}} \\
@@ -3437,7 +3504,7 @@ g(\VEC{x})\dx{\VEC{x}} \ .
 Using the substitution $\VEC{y} = \VEC{x} + (\alpha_j-i)h_j\VEC{e}_j$,
 we get
 \begin{align*}
-\int_{\Omega} \left(\Delta^\alpha_{\VEC{h}} f (\VEC{x})\right)
+\int_{\Omega} \left(\Delta^{\VEC{\alpha}}_{\VEC{h}} f (\VEC{x})\right)
 g(\VEC{x}) \dx{\VEC{x}}
 &= \frac{1}{h_j^{\alpha_j}} \sum_{i=0}^{\alpha_1} (-i)^i \binom{\alpha_j}{i}
 \int_{\Omega} f(\VEC{y}) g\big(\VEC{y} - (\alpha_j-i) h_j \VEC{e}_j\big)
@@ -3457,7 +3524,7 @@ for all $i$.
 
 \stage{ii} For the general case, we proceed recursively using (i).
 \begin{align*}
-\int_{\Omega} \left(\Delta^\alpha_{\VEC{h}} f (\VEC{x})\right) g(\VEC{x})
+\int_{\Omega} \left(\Delta^{\VEC{\alpha}}_{\VEC{h}} f (\VEC{x})\right) g(\VEC{x})
 \dx{\VEC{x}}
 &= \int_{\Omega} \left(
 \Delta_{h_n\VEC{e}_n}^{\alpha_n} \Delta_{h_{n-1}\VEC{e}_{n-1}}^{\alpha_{n-1}} \ldots
@@ -3471,8 +3538,8 @@ for all $i$.
 \int_{\Omega} f(\VEC{x}) \left( \Delta_{-h_1\VEC{e}_1}^{\alpha_1} \ldots
 \Delta_{-h_{n-1}\VEC{e}_{n-1}}^{\alpha_{n-1}} \Delta_{-h_n\VEC{e}_n}^{\alpha_n}
 g(\VEC{x})\right) \dx{\VEC{x}} \\
-&= (-1)^{|\alpha|} \int_{\Omega} f(\VEC{x})
-\left(\Delta^\alpha_{-\VEC{h}} g (\VEC{x})\right) \dx{\VEC{x}} \ .
+&= (-1)^{|\VEC{\alpha}|} \int_{\Omega} f(\VEC{x})
+\left(\Delta^{\VEC{\alpha}}_{-\VEC{h}} g (\VEC{x})\right) \dx{\VEC{x}} \ .
 \qedhere
 \end{align*}
 \end{proof}
@@ -3480,11 +3547,11 @@ g(\VEC{x})\right) \dx{\VEC{x}} \\
 \begin{cor}
 Suppose that $\displaystyle f,g \in L^2(\RR^n)$.  Then
 \[
-\int_{\RR^n} \left(\Delta^\alpha_{\VEC{h}} f\right) g \dx{\VEC{x}}
-= (-1)^{|\alpha|}   
-\int_{\RR^n} f\,\left(\Delta^\alpha_{-\VEC{h}} g\right) \dx{\VEC{x}}
+\int_{\RR^n} \left(\Delta^{\VEC{\alpha}}_{\VEC{h}} f\right) g \dx{\VEC{x}}
+= (-1)^{|\VEC{\alpha}|}
+\int_{\RR^n} f\,\left(\Delta^{\VEC{\alpha}}_{-\VEC{h}} g\right) \dx{\VEC{x}}
 \]
-for all multi-indices $\alpha$ and all $\displaystyle \VEC{h} \in \RR^n$.
+for all multi-indices $\VEC{\alpha}$ and all $\displaystyle \VEC{h} \in \RR^n$.
 \end{cor}
 
 \begin{proof}
@@ -3495,20 +3562,21 @@ proposition are satisfied for all $\delta>0$ and $k \in \NN$.
 
 \begin{prop} \label{ell_reg_prop3}
 Given $\displaystyle f\in H^{s,2}(\RR^n)$ and
-$\displaystyle \alpha \in \NN^n$, we have that
+$\displaystyle \VEC{\alpha} \in \NN^n$, we have that
 \begin{equation} \label{ellRegProp3Eq1}
-\big\|\diff^\alpha f\big\|_{s,\rho} = \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\big\|\Delta^\alpha_{\VEC{h}} f\big\|_{s,\rho} \ ,
+\big\|\diff^{\VEC{\alpha}} f\big\|_{s,\rho} = \limsup_{\VEC{h}\rightarrow \VEC{0}}
+\big\|\Delta^{\VEC{\alpha}}_{\VEC{h}} f\big\|_{s,\rho} \ ,
 \end{equation}
 where the possibility of both sides to be infinite is not ruled out.
-It follows that $\displaystyle \diff^\alpha f \in H^{s,2}(\RR^n)$ if and only if
-$\displaystyle \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\big\|\Delta^\alpha_{\VEC{h}} f\big\|_{s,\rho}$ is finite.
+It follows that $\displaystyle \diff^{\VEC{\alpha}} f \in H^{s,2}(\RR^n)$
+if and only if $\displaystyle \limsup_{\VEC{h}\rightarrow \VEC{0}}
+\big\|\Delta^{\VEC{\alpha}}_{\VEC{h}} f\big\|_{s,\rho}$ is finite.
 
-Moreover, $\displaystyle \left\| \Delta^\alpha_{\VEC{h}} f  \right\|_{s,\rho}
-\leq \left\| \diff^\alpha f\right|_{s,\rho}$ for all
+Moreover,
+$\displaystyle \left\| \Delta^{\VEC{\alpha}}_{\VEC{h}} f  \right\|_{s,\rho}
+\leq \left\| \diff^{\VEC{\alpha}} f\right|_{s,\rho}$ for all
 $\displaystyle f\in H^{s,2}(\RR^n)$, $\VEC{h} \in \RR^n$ and
-$\displaystyle \alpha \in \NN^n$ with $h_j \neq 0$ for $\alpha_j \neq 0$.
+$\displaystyle \VEC{\alpha} \in \NN^n$ with $h_j \neq 0$ for $\alpha_j \neq 0$.
 \end{prop}
 
 \begin{proof}
@@ -3522,18 +3590,18 @@ e^{-i \VEC{r}\cdot\VEC{y}} \hat{f}(\VEC{y})$.
 
 We prove by induction that
 \begin{equation} \label{ellRegProp3Eq2}
-\left(\Delta^\alpha_{\VEC{h}} f\right)^\wedge(\VEC{y})
+\left(\Delta^{\VEC{\alpha}}_{\VEC{h}} f\right)^\wedge(\VEC{y})
 = \prod_{j=1}^m \left(\frac{(2i)^{\alpha_j}}
 {h_j^{\alpha_j}} e^{i h_j y_j \alpha_j/2}
 \sin^{\alpha_j}\left(\frac{h_j y_j}{2}\right) \right)\hat{f}(\VEC{y})
 \end{equation}
 for $\VEC{h} = (h_1,\ldots,h_m,0,\ldots,0)$ and
-$\alpha = (\alpha_1,\ldots,\alpha_m,0,\ldots,0)$.
+$\VEC{\alpha} = (\alpha_1,\ldots,\alpha_m,0,\ldots,0)$.
 
-For $\VEC{h} = (h_1,0,\ldots,0$ and $\alpha = (\alpha_1,0,\ldots,0)$,
+For $\VEC{h} = (h_1,0,\ldots,0$ and $\VEC{\alpha} = (\alpha_1,0,\ldots,0)$,
 we have that
 \begin{align*}
-\left(\Delta^\alpha_{\VEC{h}} f \right)^\wedge(\VEC{y})
+\left(\Delta^{\VEC{\alpha}}_{\VEC{h}} f \right)^\wedge(\VEC{y})
 &= \left(\Delta^{\alpha_1}_{h_1 \VEC{e}_1} f \right)^\wedge(\VEC{y})
 = \frac{1}{h_1^{\alpha_1}} \sum_{j_1=0}^{\alpha_1} (-1)^{j_1}
 \binom{\alpha_1}{j_1}
@@ -3549,12 +3617,12 @@ So (\ref{ellRegProp3Eq2}) is true for $m=1$.
 
 Suppose that (\ref{ellRegProp3Eq2}) is true for $m < n$.  If
 $\VEC{h} = (h_1,\ldots,h_{m+1},0,\ldots,0)$ and\\
-$\alpha = (\alpha_1,\ldots,\alpha_{m+1},0,\ldots,0)$, let
+$\VEC{\alpha} = (\alpha_1,\ldots,\alpha_{m+1},0,\ldots,0)$, let
 $\tilde{\VEC{h}} = (h_1,\ldots,h_m,0,\ldots,0)$ and
-$\tilde{\alpha} = (\alpha_1,\ldots,\alpha_m,0,\ldots,0)$.  Then,
+$\tilde{\VEC{\alpha}} = (\alpha_1,\ldots,\alpha_m,0,\ldots,0)$.  Then,
 \begin{align*}
-&\left(\Delta^\alpha_{\VEC{h}} f \right)^\wedge(\VEC{y})
-= \left( \Delta^{\tilde{\alpha}}_{\tilde{\VEC{h}}}
+&\left(\Delta^{\VEC{\alpha}}_{\VEC{h}} f \right)^\wedge(\VEC{y})
+= \left( \Delta^{\tilde{\VEC{\alpha}}}_{\tilde{\VEC{h}}}
 \left( \Delta^{\alpha_{m+1}}_{h_{m+1}\VEC{e}_{m+1}} f \right)\right)^\wedge
 (\VEC{y})
 = \prod_{j=1}^m \left(\frac{(2i)^{\alpha_j}}{h_j^{\alpha_j}}
@@ -3582,59 +3650,62 @@ Since $\displaystyle \left| \frac{2}{h_j}
 \sin\left(\frac{h_j y_j}{2}\right)\right| \leq |y_j|$ for all $j$, we
 get from (\ref{ellRegProp3Eq2}) that
 \begin{equation} \label{ellRegProp3Eq3}
-\left| \left(\Delta^\alpha_{\VEC{h}} f\right)^\wedge(\VEC{y}) \right|
+\left| \left(\Delta^{\VEC{\alpha}}_{\VEC{h}} f\right)^\wedge(\VEC{y}) \right|
 \leq \prod_{j=1}^n \left| y_j \right|^{\alpha_j}
 \,\left| \hat{f}(\VEC{y})\right|
 = \left| \prod_{j=1}^n y_j^{\alpha_j} \,\hat{f}(\VEC{y})\right|
-= \left| \VEC{y}^\alpha \,\hat{f}(\VEC{y})\right|
+= \left| \VEC{y}^{\VEC{\alpha}} \,\hat{f}(\VEC{y})\right|
 \end{equation}
 for all $\displaystyle \VEC{y} \in \RR^n$.  Moreover, since
 $\displaystyle \lim_{h_j \to 0} \frac{2}{h_j} \sin\left(\frac{h_j y_j}{2}\right)
 = y_j$ for all $j$, we get from (\ref{ellRegProp3Eq2}) that
 \begin{equation} \label{ellRegProp3Eq4}
-\lim_{\VEC{h}\to \VEC{0}}  \left(\Delta^\alpha_{\VEC{h}} f\right)^\wedge(\VEC{y})
-= i^{|\alpha|} \prod_{j=1}^n y_j^{\alpha_j} \,\hat{f}(\VEC{y})
-= (i\VEC{y})^\alpha \,\hat{f}(\VEC{y})
+\lim_{\VEC{h}\to \VEC{0}}  \left(\Delta^{\VEC{\alpha}}_{\VEC{h}}
+f\right)^\wedge(\VEC{y})
+= i^{|\VEC{\alpha}|} \prod_{j=1}^n y_j^{\alpha_j} \,\hat{f}(\VEC{y})
+= (i\VEC{y})^{\VEC{\alpha}} \,\hat{f}(\VEC{y})
 \end{equation}
 for all $\displaystyle \VEC{y} \in \RR^n$.
 
-\stage{i} If $\displaystyle \diff^\alpha f \in H^{s,2}(\RR^n)$, then
+\stage{i} If $\displaystyle \diff^{\VEC{\alpha}} f \in H^{s,2}(\RR^n)$, then
 it follows from (\ref{ellRegProp3Eq3}) that
 \begin{equation} \label{ellRegProp3Eq5}
 \begin{split}
 (1+\|\VEC{y}\|_2^2)^s
-\left| (\Delta^\alpha_{\VEC{h}} f)^\wedge (\VEC{y}) \right|^2
+\left| (\Delta^{\VEC{\alpha}}_{\VEC{h}} f)^\wedge (\VEC{y}) \right|^2
 &\leq (1+\|\VEC{y}\|_2^2)^s
-\left| \VEC{y}^\alpha \,\hat{f}(\VEC{y})\right|^2 \\
-&= (1+\|\VEC{y}\|_2^2)^s \left| (\diff^\alpha f)^\wedge(\VEC{y})\right|^2
+\left| \VEC{y}^{\VEC{\alpha}} \,\hat{f}(\VEC{y})\right|^2 \\
+&= (1+\|\VEC{y}\|_2^2)^s \left| (\diff^{\VEC{\alpha}} f)^\wedge(\VEC{y})\right|^2
 \in L(\RR^n)
 \end{split}
 \end{equation}
 for all $\displaystyle \VEC{y} \in \RR^n$, and from (\ref{ellRegProp3Eq4}) that
 \[
 \lim_{\VEC{h}\to \VEC{0}} \, (1+\|\VEC{y}\|_2^2)^s
-\left|(\Delta^\alpha_{\VEC{h}} f)^\wedge(\VEC{y})\right|^2
-= (1+\|\VEC{y}\|_2^2)^s \left|(i \VEC{y})^\alpha \,\hat{f}(\VEC{y})\right|^2
-= (1+\|\VEC{y}\|_2^2)^s \left| (\diff^\alpha f)^\wedge(\VEC{y})\right|^2
+\left|(\Delta^{\VEC{\alpha}}_{\VEC{h}} f)^\wedge(\VEC{y})\right|^2
+= (1+\|\VEC{y}\|_2^2)^s \left|(i \VEC{y})^{\VEC{\alpha}}
+\,\hat{f}(\VEC{y})\right|^2
+= (1+\|\VEC{y}\|_2^2)^s \left| (\diff^{\VEC{\alpha}} f)^\wedge(\VEC{y})\right|^2
 \]
 for all $\displaystyle \VEC{y} \in \RR^n$.  Hence, we get from the Lebesgue
 Dominate Convergence Theorem that
 \[
-\lim_{\VEC{h}\rightarrow \VEC{0}} \big\|\Delta^\alpha_{\VEC{h}} f\big\|_{s,\rho}
-= \big\|\diff^\alpha f\big\|_{s,\rho} \ .
+\lim_{\VEC{h}\rightarrow \VEC{0}}
+\big\|\Delta^{\VEC{\alpha}}_{\VEC{h}} f\big\|_{s,\rho}
+= \big\|\diff^{\VEC{\alpha}} f\big\|_{s,\rho} \ .
 \]
 
 \stage{ii} Let us suppose that
 $\displaystyle \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\big\|\Delta^\alpha_{\VEC{h}} f\big\|_{s,\rho}$ is finite but
-$\big\|\diff^\alpha f\big\|_{s,\rho} = \infty$; namely,\\
-$\displaystyle \int_{\RR^n} \left| \VEC{y}^\alpha \hat{f}(\VEC{y})\right|^2
-(1 + \|\VEC{y}\|_2^2)^s \dx{\VEC{y}} = \infty$ (see item (1) in
-Remark~\ref{ell_reg_prop3_rmk} below).
+\big\|\Delta^{\VEC{\alpha}}_{\VEC{h}} f\big\|_{s,\rho}$ is finite but
+$\big\|\diff^{\VEC{\alpha}} f\big\|_{s,\rho} = \infty$; namely,\\
+$\displaystyle \int_{\RR^n} \left| \VEC{y}^{\VEC{\alpha}}
+\hat{f}(\VEC{y})\right|^2 (1 + \|\VEC{y}\|_2^2)^s \dx{\VEC{y}} = \infty$
+(see item (1) in Remark~\ref{ell_reg_prop3_rmk} below).
 
 Therefore, given $M>0$, there exists $R>0$ such that
 \[
-\int_{\|\VEC{y}\|\leq R} \left| \VEC{y}^\alpha\hat{f}(\VEC{y})\right|^2
+\int_{\|\VEC{y}\|\leq R} \left| \VEC{y}^{\VEC{\alpha}}\hat{f}(\VEC{y})\right|^2
 (1+\|\VEC{y}\|_2^2)^s \dx{\VEC{y}} > M \ .
 \]
 
@@ -3651,7 +3722,7 @@ $\displaystyle |h_j| < 2P/R$.
 
 Therefore, we have for $\displaystyle \|h\|_2 < 2P/R$ that
 \begin{align*}
-&\left\| \Delta^\alpha_{\VEC{h}} f \right\|_{s,\rho}^2
+&\left\| \Delta^{\VEC{\alpha}}_{\VEC{h}} f \right\|_{s,\rho}^2
 = \int_{\RR^n} \prod_{j=1}^n \left| \frac{(2i)^{\alpha_j}}{h_j^{\alpha_j}}
 e^{i h_j y_j \alpha_j/2} \sin^{\alpha_j}\left(\frac{h_j y_j}{2}\right) \right|^2
 \,\left| \hat{f}(\VEC{y})\right|^2 (1+\|\VEC{y}\|_2^2)^s \dx{\VEC{y}} \\
@@ -3666,20 +3737,19 @@ e^{i h_j y_j \alpha_j/2} \sin^{\alpha_j}\left(\frac{h_j y_j}{2}\right) \right|^2
 &\qquad \geq \int_{\|\VEC{y}\|\leq R}
 \prod_{j=1}^n \left( \frac{|y_j|^{\alpha_j}}{2^{\alpha_j}} \right)^2
 \,\left| \hat{f}(\VEC{y})\right|^2 (1+\|\VEC{y}\|_2^2)^s \dx{\VEC{y}} \\
-&\qquad = \frac{1}{2^{2|\alpha|}} \int_{\|\VEC{y}\|\leq R}
-\left| \VEC{y}^\alpha \, \hat{f}(\VEC{y}) \right|^2
+&\qquad = \frac{1}{2^{2|\VEC{\alpha}|}} \int_{\|\VEC{y}\|\leq R}
+\left| \VEC{y}^{\VEC{\alpha}} \, \hat{f}(\VEC{y}) \right|^2
 (1+\|\VEC{y}\|_2^2)^s \dx{\VEC{y}}
-> \frac{M}{2^{2|\alpha|}} \ .
+> \frac{M}{2^{2|\VEC{\alpha}|}} \ .
 \end{align*}
-
 Since this is true for all $M>0$, we get that
 $\displaystyle \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\big\|\Delta^\alpha_{\VEC{h}} f\big\|_{s,\rho} = \infty$.
+\big\|\Delta^{\VEC{\alpha}}_{\VEC{h}} f\big\|_{s,\rho} = \infty$.
 This contradicts our hypothesis, therefore we must have that
 $\displaystyle
-\int_{\RR^n} \left| \VEC{y}^\alpha \hat{f}(\VEC{y})\right|^2
+\int_{\RR^n} \left| \VEC{y}^{\VEC{\alpha}} \hat{f}(\VEC{y})\right|^2
 (1 + \|\VEC{y}\|_2^2)^s \dx{\VEC{y}} < \infty$
-and so $\displaystyle \diff^\alpha f \in H^{s,2}(\RR^n)$ (see
+and so $\displaystyle \diff^{\VEC{\alpha}} f \in H^{s,2}(\RR^n)$ (see
 item (2) in Remark~\ref{ell_reg_prop3_rmk} below).
 
 \stage{iii}  The last conclusion of the proposition follows
@@ -3690,68 +3760,70 @@ from (\ref{ellRegProp3Eq5}).
 \begin{enumerate}
 \item If $\displaystyle f \in H^{s,2}(\RR^n)$, then $f$ is a temperate
 distribution.  It follows from Proposition~\ref{distr_frr_tempD}
-that $\displaystyle \left(\diff^\alpha f\right)^\wedge =
-(i\VEC{y})^\alpha \hat{f}$ in the sense of distribution.  So
-$\displaystyle \left(\diff^\alpha f\right)^\wedge$ is also represented
+that $\displaystyle \left(\diff^{\VEC{\alpha}} f\right)^\wedge =
+(i\VEC{y})^{\VEC{\alpha}} \hat{f}$ in the sense of distribution.  So
+$\displaystyle \left(\diff^{\VEC{\alpha}} f\right)^\wedge$ is also represented
 by a measurable function.  However, there is no guarantee that
-$\displaystyle (1+\|\VEC{y}\|_2^2)^{s/2} \left(\diff^\alpha f\right)^\wedge$
-is in $L^2(\RR^n)$; namely, that
-$\displaystyle \left|\diff^\alpha f \right\|_{s,\rho}$
+$\displaystyle (1+\|\VEC{y}\|_2^2)^{s/2} \left(\diff^{\VEC{\alpha}}
+f\right)^\wedge$ is in $L^2(\RR^n)$; namely, that
+$\displaystyle \left|\diff^{\VEC{\alpha}} f \right\|_{s,\rho}$
 is finite.
 \item If $\displaystyle
-\int_{\RR^n} \left| \VEC{y}^\alpha \hat{f}(\VEC{y})\right|^2
+\int_{\RR^n} \left| \VEC{y}^{\VEC{\alpha}} \hat{f}(\VEC{y})\right|^2
 (1 + \|\VEC{y}\|_2^2)^s \dx{\VEC{y}} < \infty$ and $s \geq 0$, then
-$\displaystyle \left(\diff^\alpha f\right)^\wedge
-= (i\VEC{y})^\alpha \hat{f} \in L^2(\RR^n)$ in the sense of distributions.
+$\displaystyle \left(\diff^{\VEC{\alpha}} f\right)^\wedge
+= (i\VEC{y})^{\VEC{\alpha}} \hat{f} \in L^2(\RR^n)$ in the sense of
+distributions.
 It follows from Plancherel theorem, Theorem~\ref{distr_plancherel},
 that there exists $\displaystyle g \in L^2(\RR^n)$
-such that $\displaystyle (\diff^\alpha f)^\wedge = \hat{g}$ in the sense of
-distributions.  As we have shown in the proof of
+such that $\displaystyle (\diff^{\VEC{\alpha}} f)^\wedge = \hat{g}$ in
+the sense of distributions.  As we have shown in the proof of
 Theorem~\ref{sob_wk2_wk2}, this implies that
-$\displaystyle \diff^\alpha f = g \in L^2(\RR^n)$ in the sense of
+$\displaystyle \diff^{\VEC{\alpha}} f = g \in L^2(\RR^n)$ in the sense of
 distributions.  
 \item  From the proof of the previous proposition, we have that
 $\displaystyle \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\|\Delta^\alpha_{\VEC{h}} f\|_{s,\rho} < \infty$ implies that
-$\displaystyle \diff^\alpha f \in H^{s,2}(\RR^n)$, and that we have in fact
-$\displaystyle \lim_{\VEC{h}\rightarrow \VEC{0}}
-\|\Delta^\alpha_{\VEC{h}} f\|_{s,\rho}
-= \|\diff^\alpha f\|_{s,\rho}$.
+\|\Delta^{\VEC{\alpha}}_{\VEC{h}} f\|_{s,\rho} < \infty$ implies that
+$\displaystyle \diff^{\VEC{\alpha}} f \in H^{s,2}(\RR^n)$, and that we
+have in fact $\displaystyle \lim_{\VEC{h}\rightarrow \VEC{0}}
+\|\Delta^{\VEC{\alpha}}_{\VEC{h}} f\|_{s,\rho}
+= \|\diff^{\VEC{\alpha}} f\|_{s,\rho}$.
 \end{enumerate}
 \end{rmkList}
 
 Given $\displaystyle \phi \in \SS(\RR^n)$, we define the linear operator
-$\displaystyle [\Delta^\alpha_{\VEC{h}}, \phi]$ on
+$\displaystyle [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi]$ on
 $\displaystyle H^{s,2}(\RR^n)$ as
 \[
-[\Delta^\alpha_{\VEC{h}}, \phi]f = \Delta^\alpha_{\VEC{h}} \left( \phi f \right) -
-\phi \Delta^\alpha_\VEC{h} f
+[\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi]f
+= \Delta^{\VEC{\alpha}}_{\VEC{h}} \left( \phi f \right) -
+\phi \Delta^{\VEC{\alpha}}_\VEC{h} f
 \]
 for $\displaystyle f \in H^{s,2}(\RR^n)$.
 
 We will also refer below to the following order relation between multi-indices.
-Two multi-indices $\alpha$ and $\beta$ satisfy
-$\alpha \leq \beta$ if $\alpha_j \leq \beta_j$ for all $j$,
-and $\alpha < \beta$ if $\alpha_j \leq \beta_j$ for all $j$ and there
-exists at least one $j$ such that $\alpha_j < \beta_j$.
+Two multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$ satisfy
+$\VEC{\alpha} \leq \VEC{\beta}$ if $\alpha_j \leq \beta_j$ for all $j$,
+and $\VEC{\alpha} < \VEC{\beta}$ if $\alpha_j \leq \beta_j$ for all
+$j$ and there exists at least one $j$ such that $\alpha_j < \beta_j$.
 
 \begin{prop} \label{ell_reg_prop1}
 Suppose that $\displaystyle \phi \in \SS(\RR^n)$,
-$\displaystyle \alpha \in \NN^n$, $\displaystyle \VEC{h}\in \RR^n$
+$\displaystyle \VEC{\alpha} \in \NN^n$, $\displaystyle \VEC{h}\in \RR^n$
 and $s \in \RR$.  Then,
 \begin{align*}
-[\Delta^\alpha_{\VEC{h}}, \phi]: H^{s,2}(\RR^n) &\rightarrow 
-H^{s-|\alpha|+1,2}(\RR^n) \\
-f &\mapsto \Delta^\alpha_{\VEC{h}} \left( \phi f \right) -
-\phi \Delta^\alpha_\VEC{h} f
+[\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi]: H^{s,2}(\RR^n) &\rightarrow 
+H^{s-|\VEC{\alpha}|+1,2}(\RR^n) \\
+f &\mapsto \Delta^{\VEC{\alpha}}_{\VEC{h}} \left( \phi f \right) -
+\phi \Delta^{\VEC{\alpha}}_\VEC{h} f
 \end{align*}
 is a bounded operator and the bound is independent of $\VEC{h}$.
 \end{prop}
 
 \begin{proof}
-The case $|\alpha|=0$ is trivial.
+The case $|\VEC{\alpha}|=0$ is trivial.
   
-\stage{i} We consider the case $|\alpha|=1$.  We have that
+\stage{i} We consider the case $|\VEC{\alpha}|=1$.  We have that
 \begin{align*}
 [\Delta_{h_j\VEC{e}_j},\phi] f
 &= \Delta_{h_j\VEC{e}_j} \left( \phi\, f \right) -
@@ -3823,38 +3895,41 @@ have that
 \left|\hat{\phi}(\VEC{y} -\VEC{z})\right| \dx{\VEC{y}} \\
 &\leq 2^s (2\pi)^{-n/2} \int_{\RR^n} \left(1+\|\VEC{w}\|^2\right)^{s}
 \, |\VEC{w}| \, \left|\hat{\phi}(\VEC{w})\right|\dx{\VEC{w}}
-\equiv D_{s,1} < \infty
+\equiv R_{s,1} < \infty
 \end{align*}
 for all $\displaystyle \VEC{z}\in \RR^n$, $h_j \in \RR$ and $j$
 because $\displaystyle \hat{\phi} \in \SS(\RR^n)$ by
 Proposition~\ref{distr_frr_tempT}.  Likewise,
 \begin{align*}
-\int_{\RR^n} |K_{j,h_j}(\VEC{y}, \VEC{z})| \dx{\rho(\VEC{z})}
-&= (2\pi)^{-n/2}\int_{\RR^n} \left| \left(\Delta_{h_j\VEC{e}_j} \phi\right)^\wedge
-(\VEC{y} - \VEC{z})\right|\dx{\VEC{z}}
-\leq (2\pi)^{-n/2} \int_{\RR^n} |\VEC{y}-\VEC{z}|\,
-\left|\hat{\phi}(\VEC{y} -\VEC{z}) \right|\dx{\VEC{z}} \\
-&\leq  (2\pi)^{-n/2}\int_{\RR^n} |\VEC{w}|\,
-\left|\hat{\phi}(\VEC{w})\right|\dx{\VEC{w}} \equiv D_{s,2} < \infty
+&\int_{\RR^n} |K_{j,h_j}(\VEC{y}, \VEC{z})| \dx{\rho(\VEC{z})}
+= (2\pi)^{-n/2}\int_{\RR^n} \left| \left(\Delta_{h_j\VEC{e}_j} \phi\right)^\wedge
+(\VEC{y} - \VEC{z})\right|\dx{\VEC{z}} \\
+&\qquad \leq (2\pi)^{-n/2} \int_{\RR^n} |\VEC{y}-\VEC{z}|\,
+\left|\hat{\phi}(\VEC{y} -\VEC{z}) \right|\dx{\VEC{z}}
+\leq  (2\pi)^{-n/2}\int_{\RR^n} |\VEC{w}|\,
+\left|\hat{\phi}(\VEC{w})\right|\dx{\VEC{w}} \equiv R_{s,2} < \infty
 \end{align*}
 for all $\displaystyle \VEC{y}\in \RR^n$, $h_j \in \RR$ and $j$  because
 $\displaystyle \hat{\phi} \in \SS(\RR^n)$ by Proposition~\ref{distr_frr_tempT}.
 
 We have that (\ref{DeltaBoundOpEq1}) is satisfied for all $h_j$ and
 $j$ with $C_{j,h_j}$ replaced by\\
-$D_s = \max\{D_{s,1},D_{s,2}\}$.  Hence
+$R_s = \max\{R_{s,1},R_{s,2}\}$.  Hence
 \begin{equation} \label{DeltaBoundOpEq2}
 \left\| \left[ \Delta_{h_j\VEC{e}_j} ,\phi \right] f \right\|_{s,\rho}
-\leq D_s \left\| f \right\|_{s,\rho}
+\leq R_s \left\| f \right\|_{s,\rho}
 \end{equation}
-for all $h_j \in \RR$ and $j$.  This proves the proposition for $|\alpha|=1$.
+for all $h_j \in \RR$ and $j$.  This proves the proposition for
+$|\VEC{\alpha}|=1$.
 
-\stage{ii}  We now consider the case where $|\alpha|>1$.
-We have that $\displaystyle [\Delta^\alpha_{\VEC{h}}, \phi] f$
-is a finite sum of terms of the form $\displaystyle \Delta^{\mu}_{\VEC{h}} \left[
-\Delta_{h_j \VEC{e}_j}, \phi\right] \Delta^{\eta}_{\VEC{h}}f$,
-where $|\mu|+1+|\eta| = |\alpha|$; to be precise,
-$\eta+\mu + \VEC{e}_j = \alpha$ and $1 \leq j \leq n$.  For instance,
+\stage{ii}  We now consider the case where $|\VEC{\alpha}|>1$.
+We have that $\displaystyle [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f$
+is a finite sum of terms of the form
+$\displaystyle \Delta^{\VEC{\mu}}_{\VEC{h}} \left[
+\Delta_{h_j \VEC{e}_j}, \phi\right] \Delta^{\VEC{\eta}}_{\VEC{h}}f$,
+where $|\VEC{\mu}|+1+|\VEC{\eta}| = |\VEC{\alpha}|$; to be precise,
+$\VEC{\eta}+\VEC{\mu} + \VEC{e}_j = \VEC{\alpha}$ and
+$1 \leq j \leq n$.  For instance,
 \begin{align}
 \left[\Delta^2_{h_1\VEC{e}_1+h_2\VEC{e}_2} ,\phi\right] f
 &=\left[\Delta_{h_2\VEC{e}_2} \Delta_{h_1\VEC{e}_1} ,\phi\right] f
@@ -3869,91 +3944,99 @@ $\eta+\mu + \VEC{e}_j = \alpha$ and $1 \leq j \leq n$.  For instance,
 \left( \Delta_{h_1\VEC{e}_1} f\right) \ .
 \label{DeltaBoundOpEq3}
 \end{align}
-This in fact proves the claim for $|\alpha|=2$.  We leave it to the
-reader to prove by induction on $|\alpha|$ that the claim is true for
-all $\alpha$.  Note that (\ref{DeltaBoundOpEq3}) can be generalized to
+This in fact proves the claim for $|\VEC{\alpha}|=2$.  We leave it to the
+reader to prove by induction on $|\VEC{\alpha}|$ that the claim is true for
+all $\VEC{\alpha}$.  Note that (\ref{DeltaBoundOpEq3}) can be generalized to
 \[
-\left[\Delta_{\VEC{h}}^{\beta} \Delta_{\VEC{h}}^{\nu} ,\phi\right] f
-= \Delta_{\VEC{h}}^{\beta} \left[ \Delta_{\VEC{h}}^{\nu} ,\phi \right] f
-+ \left[ \Delta_{\VEC{h}}^{\beta}, \phi\right]
-\left( \Delta_{\VEC{h}}^{\nu} f\right)
+\left[\Delta_{\VEC{h}}^{\VEC{\beta}} \Delta_{\VEC{h}}^{\VEC{\nu}} ,\phi\right] f
+= \Delta_{\VEC{h}}^{\VEC{\beta}} \left[ \Delta_{\VEC{h}}^{\VEC{\nu}}
+,\phi \right] f
++ \left[ \Delta_{\VEC{h}}^{\VEC{\beta}}, \phi\right]
+\left( \Delta_{\VEC{h}}^{\VEC{\nu}} f\right)
 \]
-for multi-indices $\beta$ and $\nu$.
+for any multi-indices $\VEC{\beta}$ and $\VEC{\nu}$.
 
 We also have from Propositions~\ref{sob_DinDm} and \ref{ell_reg_prop3}
 that
 \begin{equation} \label{DeltaBoundOpEq4}
-\left\| \Delta^{\beta}_{\VEC{h}} g \right\|_{t,\rho}
-\leq \left\| \diff^{\beta} g \right\|_{t,\rho}
-\leq \left\| g \right\|_{t+|\beta|,\rho}
+\left\| \Delta^{\VEC{\beta}}_{\VEC{h}} g \right\|_{t,\rho}
+\leq \left\| \diff^{\VEC{\beta}} g \right\|_{t,\rho}
+\leq \left\| g \right\|_{t+|\VEC{\beta}|,\rho}
 \end{equation}
 for all $t\in \RR$, $\displaystyle g \in H^{t,2}(\RR^n)$,
 $\displaystyle \VEC{h} \in \RR^n$ and
-$\displaystyle \beta \in \NN^n$ with $h_j \neq 0$ for
+$\displaystyle \VEC{\beta} \in \NN^n$ with $h_j \neq 0$ for
 $\beta_j \neq 0$.  Hence,
 \begin{align*}
-\left\| \Delta^{\mu}_{\VEC{h}} \left[
-\Delta_{h_j \VEC{e}_j}, \phi\right] \Delta^{\eta}_{\VEC{h}} f
-\right\|_{s-|\alpha|+1,\rho}
+\left\| \Delta^{\VEC{\mu}}_{\VEC{h}} \left[
+\Delta_{h_j \VEC{e}_j}, \phi\right] \Delta^{\VEC{\eta}}_{\VEC{h}} f
+\right\|_{s-|\VEC{\alpha}|+1,\rho}
 &\leq \left\| \left[ \Delta_{h_j \VEC{e}_j}, \phi\right]
-\Delta^{\eta}_{\VEC{h}} f\right\|_{s-|\alpha|+|\mu|+1,\rho}
-\leq D_{s-|\alpha|+|\mu|+1}
-\left\| \Delta^{\eta}_{\VEC{h}} f \right\|_{s-|\alpha|+|\mu|+1,\rho} \\
-& \leq D_{s-|\alpha|+|\mu|+1} \left\| f \right\|_{s-|\alpha|+|\mu|+|\eta|+1,\rho}
-= D_{s-|\alpha|+|\mu|+1} \|f\|_{s,\rho} \ .
+\Delta^{\VEC{\eta}}_{\VEC{h}}
+f\right\|_{s-|\VEC{\alpha}|+|\VEC{\mu}|+1,\rho}
+\leq R_{s-|\VEC{\alpha}|+|\VEC{\mu}|+1}
+\left\| \Delta^{\VEC{\eta}}_{\VEC{h}} f
+\right\|_{s-|\VEC{\alpha}|+|\VEC{\mu}|+1,\rho} \\
+& \leq R_{s-|\VEC{\alpha}|+|\VEC{\mu}|+1}
+\left\| f \right\|_{s-|\VEC{\alpha}|+|\VEC{\mu}|+|\VEC{\eta}|+1,\rho}
+= R_{s-|\VEC{\alpha}|+|\VEC{\mu}|+1} \|f\|_{s,\rho} \ .
 \end{align*}
-
 We finally get that
 $\displaystyle 
-\left\| [\Delta^\alpha_{\VEC{h}}, \phi] f \right\|_{s-|\alpha|+1,\rho}
+\left\| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f \right\|_{s-|\VEC{\alpha}|+1,\rho}
 \leq C \|f\|_{s,\rho}$, where
-$\displaystyle C = \sum_{|\mu|+|\nu|+1 = |\alpha|} D_{s-|\alpha|+|\mu|+1}$.
+$\displaystyle C = \sum_{|\VEC{\mu}|+|\VEC{\nu}|+1 = |\VEC{\alpha}|}
+R_{s-|\VEC{\alpha}|+|\VEC{\mu}|+1}$.
 \end{proof}
 
 \begin{cor} \label{ell_reg_cor1}
 Suppose that $L(\VEC{x},\diff)$ is the elliptic operator defined
-in (\ref{ell_reg_ellOp}) with $\displaystyle a_\alpha \in \SS(\RR^n)$
-for all $\alpha$.  Moreover, suppose that
-$\displaystyle \beta \in \NN^n$, $\displaystyle \VEC{h}\in \RR^n$ and
-$s \in \RR$.  Then, the operator
+in (\ref{ell_reg_ellOp}) with $\displaystyle a_{\VEC{\alpha}} \in \SS(\RR^n)$
+for all $\VEC{\alpha}$.  Moreover, suppose that
+$\displaystyle \VEC{\beta} \in \NN^n$, $\displaystyle \VEC{h}\in \RR^n$ and
+$s \in \RR$.  Then the operator
 \[
-[\Delta^\beta_{\VEC{h}}, L(\VEC{x},\diff)]
-= \Delta^\beta_{\VEC{h}} \circ L(\VEC{x},\diff) - L(\VEC{x},\diff)
-\circ \Delta^\beta_{\VEC{h}}
+[\Delta^{\VEC{\beta}}_{\VEC{h}}, L(\VEC{x},\diff)]
+= \Delta^{\VEC{\beta}}_{\VEC{h}} \circ L(\VEC{x},\diff) - L(\VEC{x},\diff)
+\circ \Delta^{\VEC{\beta}}_{\VEC{h}}
 \]
 is a bounded operator from $\displaystyle H^{s,2}(\RR^n)$ into
-$\displaystyle H^{s-k-|\beta|+1,2}(\RR^n)$ with the bound independent of $h$.
+$\displaystyle H^{s-k-|\VEC{\beta}|+1,2}(\RR^n)$ with the bound
+independent of $h$.
 \end{cor}
 
 \begin{proof}
-Since $\displaystyle \diff^\alpha$ commutes with
-$\displaystyle \Delta_{\VEC{h}}^\beta$, we get that
+Since $\displaystyle \diff^{\VEC{\alpha}}$ commutes with
+$\displaystyle \Delta_{\VEC{h}}^{\VEC{\beta}}$, we get that
 \begin{align*}
-[\Delta^\beta_{\VEC{h}}, L] f(\VEC{x}) &=
-\Delta^\beta_{\VEC{h}}\bigg(\sum_{|\alpha|\leq k} a_\alpha(\VEC{x})
-\diff^\alpha f(\VEC{x}) \bigg) -
-\sum_{|\alpha|\leq k} a_\alpha(\VEC{x}) \diff^\alpha
-\left(\Delta^\beta_{\VEC{h}} f(\VEC{x}) \right) \\
-&= \sum_{|\alpha|\leq k} \left( \Delta^\beta_{\VEC{h}}\left( a_\alpha(\VEC{x})
-\diff^\alpha f(\VEC{x}) \right) - a_\alpha(\VEC{x})
-\Delta^\beta_{\VEC{h}} \left( \diff^\alpha f(\VEC{x}) \right) \right)
-= \sum_{|\alpha|\leq k} \left[ \Delta^\beta_{\VEC{h}}, a_\alpha \right])
-\diff^\alpha f(\VEC{x})
+[\Delta^{\VEC{\beta}}_{\VEC{h}}, L] f(\VEC{x}) &=
+\Delta^{\VEC{\beta}}_{\VEC{h}}\bigg(\sum_{|\VEC{\alpha}|\leq k}
+a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}} f(\VEC{x}) \bigg) -
+\sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}}
+\left(\Delta^{\VEC{\beta}}_{\VEC{h}} f(\VEC{x}) \right) \\
+&= \sum_{|\VEC{\alpha}|\leq k} \left( \Delta^{\VEC{\beta}}_{\VEC{h}}
+\left( a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}} f(\VEC{x}) \right)
+- a_{\VEC{\alpha}}(\VEC{x}) \Delta^{\VEC{\beta}}_{\VEC{h}}
+\left( \diff^{\VEC{\alpha}} f(\VEC{x}) \right) \right)
+= \sum_{|\VEC{\alpha}|\leq k} \left[ \Delta^{\VEC{\beta}}_{\VEC{h}},
+a_{\VEC{\alpha}} \right]) \diff^{\VEC{\alpha}} f(\VEC{x})
 \end{align*}
 for all $\displaystyle f \in H^{s,2}(\RR^n)$.  It follows from
 Propositions~\ref{sob_DinDm} and \ref{ell_reg_prop1} that
 \begin{align*}
-\left\| [\Delta^\beta_{\VEC{h}}, L] f \right\|_{s-k-|\beta|+1,\rho}
-&\leq \sum_{|\alpha|\leq k} \left\|\left[ \Delta^\beta_{\VEC{h}}, a_\alpha \right])
-\diff^\alpha f \right\|_{s-k-|\beta|+1,\rho}
-\leq \sum_{|\alpha|\leq k} C_{a_\alpha,\beta}
-\left\| \diff^\alpha f \right\|_{s-k,\rho} \\
-&\leq \sum_{|\alpha|\leq k} C_{a_\alpha,\beta}
-\left\| f \right\|_{s-k+|\alpha|,\rho}
-\leq \bigg( \sum_{|\alpha|\leq k} C_{a_\alpha,\beta}\bigg)
+\left\| [\Delta^{\VEC{\beta}}_{\VEC{h}}, L] f \right\|_{s-k-|\VEC{\beta}|+1,\rho}
+&\leq \sum_{|\VEC{\alpha}|\leq k} \left\|\left[ \Delta^{\VEC{\beta}}_{\VEC{h}},
+a_{\VEC{\alpha}} \right])
+\diff^{\VEC{\alpha}} f \right\|_{s-k-|\VEC{\beta}|+1,\rho}
+\leq \sum_{|\VEC{\alpha}|\leq k} C_{a_{\VEC{\alpha}},\VEC{\beta}}
+\left\| \diff^{\VEC{\alpha}} f \right\|_{s-k,\rho} \\
+&\leq \sum_{|\VEC{\alpha}|\leq k} C_{a_{\VEC{\alpha}},\VEC{\beta}}
+\left\| f \right\|_{s-k+|\VEC{\alpha}|,\rho}
+\leq \bigg( \sum_{|\VEC{\alpha}|\leq k} C_{a_{\VEC{\alpha}},\VEC{\beta}}\bigg)
 \left\| f \right\|_{s,\rho} \ ,
 \end{align*}
-where the constants $C_{a_\alpha,\beta}$ are independent of $\VEC{h}$.
+where the constants $C_{a_\VEC{\alpha},\VEC{\beta}}$ are independent
+of $\VEC{h}$.
 \end{proof}
 
 Using Theorem~\ref{sob_Rp_ext}, we may prove the following corollary
@@ -3966,30 +4049,31 @@ Let $\displaystyle \Omega_r = \RR^n_+ \cap B_r(\VEC{0})$ for some $r>0$.
 If the support of $\displaystyle f\in H^{k,2}(\RR^n)$ is a subset of
 $\displaystyle \Omega_{r,0} = (\RR^n \setminus \RR^n_-) \cap
 B_r(\VEC{0})$ (Figure~\ref{ellOmegaR}) and
-$\alpha \in \NN^n$ is a multi-index with $\alpha_n=0$, then
-$\displaystyle \diff^\alpha f \in H^{k,2}(\Omega_r)$ if and only if
+$\VEC{\alpha} \in \NN^n$ is a multi-index with $\alpha_n=0$, then
+$\displaystyle \diff^{\VEC{\alpha}} f \in H^{k,2}(\Omega_r)$ if and only if
 \[
-A_{f,\alpha} \equiv \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\|\Delta^\alpha_{\VEC{h}} f\|_{k,\Omega_r} < \infty \ .
+A_{f,\VEC{\alpha}} \equiv \limsup_{\VEC{h}\rightarrow \VEC{0}}
+\|\Delta^{\VEC{\alpha}}_{\VEC{h}} f\|_{k,\Omega_r} < \infty \ .
 \]
-In particular, if $\displaystyle \diff^\alpha f \in H^{k,2}(\Omega_r)$,
+In particular, if $\displaystyle \diff^{\VEC{\alpha}} f \in H^{k,2}(\Omega_r)$,
 then there exists a constant $C$, independent of $f$ and $r$, such that 
-$\displaystyle \left\| \diff^\alpha f \right\|_{k,\Omega_r} \leq
-C A_{f,\alpha}$.
+$\displaystyle \left\| \diff^{\VEC{\alpha}} f \right\|_{k,\Omega_r} \leq
+C A_{f,\VEC{\alpha}}$.
 \end{cor}
 
 \begin{proof}
 According to Theorem~\ref{sob_Rp_ext}, there exists a strong
 $k$-extension operator $E$ on $\displaystyle \RR^n_+ $ and a strong
-$(k-|\alpha|)$-extension operator $E_\alpha$ on
+$(k-|\VEC{\alpha}|)$-extension operator $E_{\VEC{\alpha}}$ on
 $\displaystyle \RR^n_+$ such that
-$\displaystyle \diff^\alpha (E(g)) = E_\alpha(\diff^\alpha g)$
+$\displaystyle \diff^{\VEC{\alpha}} (E(g)) =
+E_{\VEC{\alpha}}(\diff^{\VEC{\alpha}} g)$
 for all $\displaystyle g \in H^{k,2}(\RR^n_+)$.
 Since $\alpha_n=0$, a quick look at the proof of
-Theorem~\ref{sob_Rp_ext} shows that $E_\alpha = E$.
-Moreover, we also see that 
-$\displaystyle E\left( \Delta^\alpha_{\VEC{h}} g\right) =
-\Delta^\alpha_{\VEC{h}} E(g)$
+Theorem~\ref{sob_Rp_ext} shows that $E_{\VEC{\alpha}} = E$.
+Moreover, we also see that
+$\displaystyle E\left( \Delta^{\VEC{\alpha}}_{\VEC{h}} g\right) =
+\Delta^{\VEC{\alpha}}_{\VEC{h}} E(g)$
 for all $\displaystyle g \in H^{k,2}(\RR^n_+)$ because $\alpha_n=0$.
 
 We have that $\displaystyle E:H^{k,2}(\RR^n_+) \to H^{k,2}(\RR^n)$ is a
@@ -4008,82 +4092,83 @@ C_3 \left\|g \right\|_{k,2,\RR^n} \leq \left\|g \right\|_{k,\rho}
 \]
 for all $\displaystyle g \in H^{k,2}(\RR^n)$.
 
-\stage{i} Suppose that $\displaystyle \diff^\alpha f \in H^{k,2}(\Omega_r)$.
+\stage{i} Suppose that $\displaystyle \diff^{\VEC{\alpha}} f
+\in H^{k,2}(\Omega_r)$.
 Since $\supp f \subset \Omega_{r,0}$, we have that\\
-$\displaystyle \left\|\diff^\alpha f\right\|_{k,2,\RR^n_+}
-= \displaystyle \left\|\diff^\alpha f \right\|_{k,2,\Omega_r} < \infty$.
+$\displaystyle \left\|\diff^{\VEC{\alpha}} f\right\|_{k,2,\RR^n_+}
+= \displaystyle \left\|\diff^{\VEC{\alpha}} f \right\|_{k,2,\Omega_r} < \infty$.
 Hence,
 \[
-\left\| \diff^\alpha E(f) \right\|_{k,\rho} 
-= \left\| E(\diff^\alpha f)\right\|_{k,\rho}
-\leq C_2 \left\| E(\diff^\alpha f)\right\|_{k,2,\RR^n} \leq C_1 C_2
-\left\| \diff^\alpha f\right\|_{k,2,\RR^n_+} < \infty \ .
+\left\| \diff^{\VEC{\alpha}}a E(f) \right\|_{k,\rho} 
+= \left\| E(\diff^{\VEC{\alpha}} f)\right\|_{k,\rho}
+\leq C_2 \left\| E(\diff^{\VEC{\alpha}} f)\right\|_{k,2,\RR^n} \leq C_1 C_2
+\left\| \diff^{\VEC{\alpha}} f\right\|_{k,2,\RR^n_+} < \infty \ .
 \]
 Thus, according to Proposition~\ref{ell_reg_prop3},
 \[
-\limsup_{\VEC{h}\rightarrow \VEC{0}} \big\|\Delta^\alpha_{\VEC{h}} E(f)
-\big\|_{k,\rho} = \big\|\diff^\alpha E(f)\big\|_{k,\rho} < \infty \ .
+\limsup_{\VEC{h}\rightarrow \VEC{0}} \big\|\Delta^{\VEC{\alpha}}_{\VEC{h}} E(f)
+\big\|_{k,\rho} = \big\|\diff^{\VEC{\alpha}} E(f)\big\|_{k,\rho} < \infty \ .
 \]
 It follows that
 \begin{align*}
-A_{f,\alpha} &\equiv \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\left\|\Delta^\alpha_{\VEC{h}} f\right\|_{k,2,\Omega_r}
+A_{f,\VEC{\alpha}} &\equiv \limsup_{\VEC{h}\rightarrow \VEC{0}}
+\left\|\Delta^{\VEC{\alpha}}_{\VEC{h}} f\right\|_{k,2,\Omega_r}
 = \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\left\| E(\Delta^\alpha_{\VEC{h}} f)\right \|_{k,2,\Omega_r}
+\left\| E(\Delta^{\VEC{\alpha}}_{\VEC{h}} f)\right \|_{k,2,\Omega_r}
 \leq \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\left\| E(\Delta^\alpha_{\VEC{h}} f)\right \|_{k,2,\RR^n} \\
+\left\| E(\Delta^{\VEC{\alpha}}_{\VEC{h}} f)\right \|_{k,2,\RR^n} \\
 &\leq C_3^{-1} \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\left\| E(\Delta^\alpha_{\VEC{h}} f)\right \|_{k,\rho}
+\left\| E(\Delta^{\VEC{\alpha}}_{\VEC{h}} f)\right \|_{k,\rho}
 < \infty \ .
 \end{align*}
 
-\stage{ii} Suppose $A_{f,\alpha} < \infty$.
+\stage{ii} Suppose $A_{f,\VEC{\alpha}} < \infty$.
 Since $\supp f$ is a compact subset of the bounded set $\Omega_{r,0}$,
 there exists $\delta >0$ such that
-$|\alpha| \VEC{h} + \supp f \subset \Omega_{r,0}$
+$|\VEC{\alpha}| \VEC{h} + \supp f \subset \Omega_{r,0}$
 for $\|\VEC{h}\| < \delta$ with $h_n = 0$.  Thus,
-$\displaystyle \supp \Delta^\alpha_{\VEC{h}} f \subset \Omega_{r,0}$ for
+$\displaystyle \supp \Delta^{\VEC{\alpha}}_{\VEC{h}} f \subset \Omega_{r,0}$ for
 $\|\VEC{h}\| < \delta$ without constraints on $h_n$ since we assume
 that $\alpha_n = 0$.  Hence,
 \begin{align}
 &\limsup_{\VEC{h}\rightarrow \VEC{0}}
-  \left\| \Delta^\alpha_{\VEC{h}} E(f)\right \|_{k,\rho}
+  \left\| \Delta^{\VEC{\alpha}}_{\VEC{h}} E(f)\right \|_{k,\rho}
 = \limsup_{\VEC{h}\rightarrow \VEC{0}}
-  \left\| E(\Delta^\alpha_{\VEC{h}} f)\right \|_{k,\rho}
+  \left\| E(\Delta^{\VEC{\alpha}}_{\VEC{h}} f)\right \|_{k,\rho}
 \leq C_2 \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\left\| E(\Delta^\alpha_{\VEC{h}} f)\right \|_{k,2,\RR^n} \nonumber \\
+\left\| E(\Delta^{\VEC{\alpha}}_{\VEC{h}} f)\right \|_{k,2,\RR^n} \nonumber \\
 &\qquad \leq C_1 C_2 \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\left\| \Delta^\alpha_{\VEC{h}} f\right \|_{k,2,\RR^n_+}
+\left\| \Delta^{\VEC{\alpha}}_{\VEC{h}} f\right \|_{k,2,\RR^n_+}
 = C_1 C_2 \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\left\| \Delta^\alpha_{\VEC{h}} f\right \|_{k,2,\Omega_r}
-= C_1 C_2 A_{f,\alpha} < \infty \ ,
+\left\| \Delta^{\VEC{\alpha}}_{\VEC{h}} f\right \|_{k,2,\Omega_r}
+= C_1 C_2 A_{f,\VEC{\alpha}} < \infty \ ,
 \label{ellRegCor3Eq1}
 \end{align}
 where we have used the fact that
-$\displaystyle \supp \Delta^\alpha_{\VEC{h}} f \subset \Omega_{r,0}$
+$\displaystyle \supp \Delta^{\VEC{\alpha}}_{\VEC{h}} f \subset \Omega_{r,0}$
 for $\|\VEC{h}\| < \delta$ for the second to last equality in the
 previous expression.
 It follows from Proposition~\ref{ell_reg_prop3} that 
-$\displaystyle \diff^\alpha E(f) \in H^{k,2}(\RR^n)$.
+$\displaystyle \diff^{\VEC{\alpha}} E(f) \in H^{k,2}(\RR^n)$.
 Since $\displaystyle \Omega_r \subset \RR^n$, we have that
-$\displaystyle \diff^\alpha E(f) \in H^{k,2}(\Omega_r)$.  Since
+$\displaystyle \diff^{\VEC{\alpha}} E(f) \in H^{k,2}(\Omega_r)$.  Since
 $E(f) = f$ on $\displaystyle \RR^n_+ \supset \Omega_r$, we have that
-$\displaystyle \diff^\alpha f \in H^{k,2}(\Omega_r)$.
+$\displaystyle \diff^{\VEC{\alpha}} f \in H^{k,2}(\Omega_r)$.
 
 \stage{iii} It also follows from Proposition~\ref{ell_reg_prop3}
-that $\displaystyle \left\|\diff^\alpha E(f)\right\|_{k,\rho}
+that $\displaystyle \left\|\diff^{\VEC{\alpha}} E(f)\right\|_{k,\rho}
 = \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\left\| \Delta^\alpha_{\VEC{h}} E(f)\right \|_{k,\rho}$.
+\left\| \Delta^{\VEC{\alpha}}_{\VEC{h}} E(f)\right \|_{k,\rho}$.
 Hence, we get from (\ref{ellRegCor3Eq1}) that
 \begin{align*}
-\left\|\diff^\alpha f\right\|_{k,2,\Omega_r}
-&= \left\| \diff^\alpha E(f) \right\|_{k,2,\RR^n_+}
-\leq \left\|\diff^\alpha E(f)\right\|_{k,2,\RR^n}
-\leq C_3^{-1} \left\|\diff^\alpha E(f)\right\|_{k,\rho} \\
+\left\|\diff^{\VEC{\alpha}} f\right\|_{k,2,\Omega_r}
+&= \left\| \diff^{\VEC{\alpha}} E(f) \right\|_{k,2,\RR^n_+}
+\leq \left\|\diff^{\VEC{\alpha}} E(f)\right\|_{k,2,\RR^n}
+\leq C_3^{-1} \left\|\diff^{\VEC{\alpha}} E(f)\right\|_{k,\rho} \\
 &= C_3^{-1} \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\left\| \Delta^\alpha_{\VEC{h}} E(f)\right \|_{k,\rho}
-\leq C_1 C_2 C_3^{-1} A_{f,\alpha}
-= C A_{f,\alpha} \ ,
+\left\| \Delta^{\VEC{\alpha}}_{\VEC{h}} E(f)\right \|_{k,\rho}
+\leq C_1 C_2 C_3^{-1} A_{f,\VEC{\alpha}}
+= C A_{f,\VEC{\alpha}} \ ,
 \end{align*}
 where $C= C_1 C_2 C_3^{-1}$.  Note that $C$ is independent of $f$ and $r$
 because $C_1$ depends only on $E$, and $C_2$ and $C_3$ depend only on
@@ -4101,120 +4186,135 @@ regularity of solutions at the boundary in Section~\ref{ell_sect_RB}.
 
 \begin{prop} \label{ell_reg_prop4}
 Suppose that $\displaystyle \phi \in \SS(\RR^n)$,
-$\displaystyle \alpha \in \NN^n$, $\displaystyle \VEC{h}\in \RR^n$
+$\displaystyle \VEC{\alpha} \in \NN^n$, $\displaystyle \VEC{h}\in \RR^n$
 and $s \in \RR$.  Then,
 there exists a positive constant $C$ independent of $\VEC{h}$ such that
 \begin{equation} \label{ellRegProp4Eq1}
-\| [\Delta^\alpha_{\VEC{h}}, \phi] f \|_{s,\rho} \leq C
-\sum_{\beta<\alpha} \| \diff^\beta f\|_{s,\rho}
+\| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f \|_{s,\rho} \leq C
+\sum_{\VEC{\beta}<\VEC{\alpha}} \| \diff^{\VEC{\beta}} f\|_{s,\rho}
 \end{equation}
 for all $\displaystyle f \in H^{s,2}(\RR^n)$.
 The possibility that the right hand side be $\infty$ is not ruled out.
 \end{prop}
 
 \begin{proof}
-The case $|\alpha|=0$ is trivial.
-The case $|\alpha|=1$ follows word for word from (i) in the proof of
+The case $|\VEC{\alpha}|=0$ is trivial.
+The case $|\VEC{\alpha}|=1$ follows word for word from (i) in the proof of
 Proposition~\ref{ell_reg_prop1}.  Namely, we get that
 \[
 \left\| \left[ \Delta_{h_j\VEC{e}_j} ,\phi \right] f \right\|_{s,2,\rho}
-\leq D_{\phi,s} \left\| f \right\|_{s,2,\rho}
+\leq R_{\phi,s} \left\| f \right\|_{s,2,\rho}
 \]
-for all $h_j \in \RR$ and $j$, where $D_{\phi,s}$ is a positive constant that
+for all $h_j \in \RR$ and $j$, where $R_{\phi,s}$ is a positive constant that
 depends on $s\in \RR$ and $\displaystyle \phi \in \DD(\RR^n)$ only.  We get
-(\ref{ellRegProp4Eq1}) for $|\alpha|=1$ if $C=D_{\phi,s}$.
+(\ref{ellRegProp4Eq1}) for $|\VEC{\alpha}|=1$ if $C=R_{\phi,s}$.
 
-We now consider the case $|\alpha|>1$.  As was mentioned
+We now consider the case $|\VEC{\alpha}|>1$.  As was mentioned
 in (ii) of the prove of Proposition~\ref{ell_reg_prop1}, we have that
-$\displaystyle [\Delta^\alpha_{\VEC{h}}, \phi] f$
+$\displaystyle [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f$
 is a finite sum of terms of the form
-$\displaystyle \Delta^{\eta}_{\VEC{h}} \left[
-\Delta_{h_j \VEC{e}_j}, \phi\right] \Delta^{\mu}_{\VEC{h}} f$,
-where $\eta+\mu+\VEC{e}_j = \alpha$ and $1\leq j \leq n$.
+$\displaystyle \Delta^{\VEC{\eta}}_{\VEC{h}} \left[
+\Delta_{h_j \VEC{e}_j}, \phi\right] \Delta^{\VEC{\mu}}_{\VEC{h}} f$,
+where $\VEC{\eta}+\VEC{\mu}+\VEC{e}_j = \VEC{\alpha}$ and $1\leq j \leq n$.
 
 We have from Proposition~\ref{ell_reg_prop3} that
-$\displaystyle \left\| \Delta^{\beta}_{\VEC{h}} g \right\|_{t,\rho}
-\leq \left\| \diff^{\beta} g \right\|_{t,\rho}$
+$\displaystyle \left\| \Delta^{\VEC{\beta}}_{\VEC{h}} g \right\|_{t,\rho}
+\leq \left\| \diff^{\VEC{\beta}} g \right\|_{t,\rho}$
 for all $t\in \RR$, $\displaystyle g \in H^{t,2}(\RR^n)$,
-$\displaystyle \VEC{h} \in \RR^n$ and $\displaystyle \beta \in \NN^n$
+$\displaystyle \VEC{h} \in \RR^n$ and $\displaystyle \VEC{\beta} \in \NN^n$
 with $h_j \neq 0$ for $\beta_j \neq 0$.
 
 We also have that
 \begin{align*}
-\diff^\eta\left[ \Delta^\beta_{\VEC{y}}, \phi\right| g
-&= \diff^\eta \left( \Delta^\beta_{\VEC{y}} (\phi g) - \phi
-\Delta^\beta_{\VEC{y}} u \right)
-= \Delta^\beta_{\VEC{y}} \diff^\eta(\phi g) - \diff^\eta \left(\phi
-\Delta^\beta_{\VEC{y}} u \right) \\
-&= \Delta^\beta_{\VEC{y}} \left(\sum_{\zeta+\xi = \eta}
-\binom{\eta}{\xi} \diff^\zeta \phi \, \diff^\xi g \right)
-- \left(\sum_{\zeta+\xi = \eta}
-\binom{\eta}{\xi} \diff^\zeta \phi \,
-\diff^\xi \left( \Delta^\beta_{\VEC{y}} g \right) \right) \\
-&= \sum_{\zeta+\xi = \eta} \binom{\eta}{\xi} \Big(
-\Delta^\beta_{\VEC{y}} \left( \diff^\zeta \phi \, \diff^\xi g \right)
-- \diff^\zeta \phi \, \left( \Delta^\beta_{\VEC{y}} \diff^\xi g \right) \Big)
-= \sum_{\zeta+\xi = \eta} \binom{\eta}{\xi}
-\left[ \Delta^\beta_{\VEC{y}} , \diff^\zeta \phi \right] \diff^\xi g
+\diff^{\VEC{\eta}}\left[ \Delta^{\VEC{\beta}}_{\VEC{y}}, \phi\right| g
+&= \diff^{\VEC{\eta}} \left( \Delta^{\VEC{\beta}}_{\VEC{y}} (\phi g) - \phi
+\Delta^{\VEC{\beta}}_{\VEC{y}} u \right)
+= \Delta^{\VEC{\beta}}_{\VEC{y}} \diff^{\VEC{\eta}}(\phi g)
+- \diff^{\VEC{\eta}} \left(\phi
+\Delta^{\VEC{\beta}}_{\VEC{y}} u \right) \\
+&= \Delta^{\VEC{\beta}}_{\VEC{y}} \left(\sum_{\VEC{\zeta}+\VEC{\xi} = \VEC{\eta}}
+\binom{\VEC{\eta}}{\VEC{\xi}}
+\diff^{\VEC{\zeta}} \phi \, \diff^{\VEC{\xi}} g \right)
+- \left(\sum_{\VEC{\zeta}+\VEC{\xi} = \VEC{\eta}}
+\binom{\VEC{\eta}}{\VEC{\xi}} \diff^{\VEC{\zeta}} \phi \,
+\diff^{\VEC{\xi}} \left( \Delta^{\VEC{\beta}}_{\VEC{y}} g \right) \right) \\
+&= \sum_{\VEC{\zeta}+\VEC{\xi} = \VEC{\eta}} \binom{\VEC{\eta}}{\VEC{\xi}} \Big(
+\Delta^{\VEC{\beta}}_{\VEC{y}} \left( \diff^{\VEC{\zeta}} \phi \,
+\diff^{\VEC{\xi}} g \right)
+- \diff^{\VEC{\zeta}} \phi \, \left( \Delta^{\VEC{\beta}}_{\VEC{y}}
+\diff^{\VEC{\xi}} g \right) \Big)
+= \sum_{\VEC{\zeta}+\VEC{\xi} = \VEC{\eta}} \binom{\VEC{\eta}}{\VEC{\xi}}
+\left[ \Delta^{\VEC{\beta}}_{\VEC{y}} , \diff^{\VEC{\zeta}} \phi \right]
+\diff^{\VEC{\xi}} g
 \end{align*}
-for all multi-indices $\beta$ and $\eta$ in $\NN^n$,
-and $\displaystyle g \in H^{|\eta|}(\RR^n)$. The previous
+for all multi-indices $\VEC{\beta}$ and $\VEC{\eta}$ in $\NN^n$,
+and $\displaystyle g \in H^{|\VEC{\eta}|}(\RR^n)$. The previous
 equality is in the sense of distributions.
 
 The inequality in (\ref{ellRegProp4Eq1}) is obviously true if
-$\displaystyle \diff^\beta f \not\in H^{s,2}(\RR^n)$ for some $\beta$.
+$\displaystyle \diff^{\VEC{\beta}} f \not\in H^{s,2}(\RR^n)$ for some
+$\VEC{\beta}$.
 The right hand side of (\ref{ellRegProp4Eq1}) is then $\infty$.  So, we may
-assume that $\displaystyle \diff^\beta f \in H^{s,2}(\RR^n)$ for all
-$\beta < \alpha$.
+assume that $\displaystyle \diff^{\VEC{\beta}} f \in H^{s,2}(\RR^n)$ for all
+$\VEC{\beta} < \VEC{\alpha}$.
 
 Hence,
 \begin{align*}
-&\left\| \Delta^{\eta}_{\VEC{h}} \left[
-\Delta_{h_j \VEC{e}_j}, \phi\right] \Delta^{\mu}_{\VEC{h}} f \right\|_{s,\rho}
-\leq \left\| \diff^\eta \left[ \Delta_{h_j \VEC{e}_j}, \phi\right]
-\Delta^{\mu}_{\VEC{h}} f\right\|_{s,\rho} \\
-&\qquad \leq \sum_{\xi+\zeta = \eta} \binom{\eta}{\xi}
-\Big\| \left[ \Delta_{h_j\VEC{e}_j} , \diff^\zeta \phi \right] \diff^\xi
-\left(\Delta^\mu_{\VEC{h}} f\right) \Big\|_{s,\rho}
-\leq \sum_{\xi+\zeta = \eta} \binom{\eta}{\xi}
-D_{\diff^\zeta \phi,s}
-\Big\| \diff^\xi \left(\Delta^\mu_{\VEC{h}} f\right) \Big\|_{s,\rho} \\
-&\qquad =\sum_{\xi+\zeta = \eta} \binom{\eta}{\xi} D_{\diff^\zeta \phi,s}
-\Big\| \Delta^\mu_{\VEC{h}} \left(\diff^\xi f\right) \Big\|_{s,\rho}
-\leq \sum_{\xi+\zeta = \eta} \binom{\eta}{\xi}
-D_{\diff^\zeta \phi,s} \Big\| \left(\diff^{\xi+\mu} f\right) \Big\|_{s,\rho} \ ,
+&\left\| \Delta^{\VEC{\eta}}_{\VEC{h}} \left[
+\Delta_{h_j \VEC{e}_j}, \phi\right] \Delta^{\VEC{\mu}}_{\VEC{h}} f
+\right\|_{s,\rho}
+\leq \left\| \diff^{\VEC{\eta}} \left[ \Delta_{h_j \VEC{e}_j}, \phi\right]
+\Delta^{\VEC{\mu}}_{\VEC{h}} f\right\|_{s,\rho} \\
+&\qquad \leq \sum_{\VEC{\xi}+\VEC{\zeta} = \VEC{\eta}}
+\binom{\VEC{\eta}}{\VEC{\xi}}
+\Big\| \left[ \Delta_{h_j\VEC{e}_j} , \diff^{\VEC{\zeta}} \phi \right]
+\diff^{\VEC{\xi}} \left(\Delta^{\VEC{\mu}}_{\VEC{h}} f\right) \Big\|_{s,\rho}
+\leq \sum_{\VEC{\xi}+\VEC{\zeta} = \VEC{\eta}} \binom{\VEC{\eta}}{\VEC{\xi}}
+R_{\diff^{\VEC{\zeta}} \phi,s}
+\Big\| \diff^{\VEC{\xi}} \left(\Delta^{\VEC{\mu}}_{\VEC{h}} f\right)
+\Big\|_{s,\rho} \\
+&\qquad =\sum_{\VEC{\xi}+\VEC{\zeta} = \VEC{\eta}}
+\binom{\VEC{\eta}}{\VEC{\xi}} R_{\diff^{\VEC{\zeta}} \phi,s}
+\Big\| \Delta^{\VEC{\mu}}_{\VEC{h}}
+\left(\diff^{\VEC{\xi}} f\right) \Big\|_{s,\rho}
+\leq \sum_{\VEC{\xi}+\VEC{\zeta} = \VEC{\eta}} \binom{\VEC{\eta}}{\VEC{\xi}}
+R_{\diff^{\VEC{\zeta}} \phi,s}
+\Big\| \left(\diff^{\VEC{\xi}+\VEC{\mu}} f\right) \Big\|_{s,\rho} \ ,
 \end{align*}
 where the last inequality comes from Proposition~\ref{ell_reg_prop3}.
 We then get that
 \begin{align*}
 \left\| \left[ \Delta_{h_j\VEC{e}_j} ,\psi \right] f \right\|_{s,\rho}
-&\leq \sum_{j=1}^n \,
-\sum_{\eta+\mu+\VEC{e}_j \leq \alpha} \left\| \Delta^{\eta}_{\VEC{h}} \left[
-\Delta_{h_j \VEC{e}_j}, \phi\right] \Delta^{\mu}_{\VEC{h}} f \right\|_{s,\rho} \\
-&\leq \sum_{j=1}^n \,
-\sum_{\eta+\mu+\VEC{e}_j \leq \alpha} \, \sum_{\xi+\zeta = \eta} \binom{\eta}{\xi}
-D_{\diff^\zeta \phi,s} \Big\| \left(\diff^{\xi+\mu} f\right) \Big\|_{s,\rho} \\
-&= \sum_{j=1}^n \, \sum_{\substack{\mu \leq \alpha - \VEC{e}_j \\
-\text{ if } \alpha_j >0}} \, \sum_{\xi \leq \eta = \alpha - \VEC{e}_j - \mu}
-\binom{\eta}{\xi} D_{\diff^{\eta- \xi} \phi,s}
-\Big\| \left(\diff^{\xi+\mu} f\right) \Big\|_{s,\rho} \ .
+&\leq \sum_{j=1}^n \, \sum_{\VEC{\eta}+\VEC{\mu}+\VEC{e}_j \leq \VEC{\alpha}}
+\left\| \Delta^{\VEC{\eta}}_{\VEC{h}} \left[ \Delta_{h_j \VEC{e}_j},
+\phi\right] \Delta^{\VEC{\mu}}_{\VEC{h}} f \right\|_{s,\rho} \\
+&\leq \sum_{j=1}^n \, \sum_{\VEC{\eta}+\VEC{\mu}+\VEC{e}_j \leq \VEC{\alpha}} \,
+\sum_{\VEC{\xi}+\VEC{\zeta} = \VEC{\eta}} \binom{\VEC{\eta}}{\VEC{\xi}}
+R_{\diff^{\VEC{\zeta}} \phi,s}
+\Big\| \left(\diff^{\VEC{\xi}+\VEC{\mu}} f\right) \Big\|_{s,\rho} \\
+&= \sum_{j=1}^n \, \sum_{\substack{\VEC{\mu} \leq \VEC{\alpha} - \VEC{e}_j \\
+\text{ if } \alpha_j >0}} \,
+\sum_{\VEC{\xi} \leq \VEC{\eta} = \VEC{\alpha} - \VEC{e}_j - \VEC{\mu}}
+\binom{\VEC{\eta}}{\VEC{\xi}} R_{\diff^{\VEC{\eta}- \VEC{\xi}} \phi,s}
+\Big\| \left(\diff^{\VEC{\xi}+\VEC{\mu}} f\right) \Big\|_{s,\rho} \ .
 \end{align*}
 
-We have that $\xi + \mu \leq \alpha - \VEC{e}_j < \alpha$.  Thus, we
-get (\ref{ellRegProp4Eq1}) if $C$ is the maximum of\\
-$\displaystyle \binom{\eta}{\xi} D_{\diff^{\eta - \xi} \phi,s}$ for
-$\mu \leq \alpha - \VEC{e}_j$ if $\alpha_j >0$ and
-$\xi \leq \eta = \alpha - \VEC{e}_j - \mu$.
+We have that $\VEC{\xi} + \VEC{\mu} \leq \VEC{\alpha} - \VEC{e}_j <
+\VEC{\alpha}$.  Thus, we get (\ref{ellRegProp4Eq1}) if $C$ is the maximum of\\
+$\displaystyle \binom{\VEC{\eta}}{\VEC{\xi}}
+R_{\diff^{\VEC{\eta} - \VEC{\xi}} \phi,s}$ for
+$\VEC{\mu} \leq \VEC{\alpha} - \VEC{e}_j$ if $\alpha_j >0$ and
+$\VEC{\xi} \leq \VEC{\eta} = \VEC{\alpha} - \VEC{e}_j - \VEC{\mu}$.
 \end{proof}
 
 \begin{cor} \label{ell_reg_cor2}
 Let $\displaystyle \Omega_r = \RR^n_+ \cap B_r(\VEC{0})$ for some $r>0$.
 Suppose that $\displaystyle \phi \in \SS(\RR^n)$
-and that $\alpha$ is a multi-index with $k = |\alpha|$ and
+and that $\VEC{\alpha}$ is a multi-index with $k = |\VEC{\alpha}|$ and
 $\alpha_n=0$.  There exists a constant $C$ such that, for all $0 < \delta <1$,
 \begin{equation} \label{ellRegCor2Eq1}
-\| [\Delta^\alpha_{\VEC{h}}, \phi] f \|_{k,2,\Omega_r} \leq C
-\sum_{\beta<\alpha} \| \diff^\beta f\|_{k,2,\Omega_r}
+\| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f \|_{k,2,\Omega_r} \leq C
+\sum_{\VEC{\beta}<\VEC{\alpha}} \| \diff^{\VEC{\beta}} f\|_{k,2,\Omega_r}
 \end{equation}
 for $\displaystyle f \in H^{k,2}(\Omega_r)$ with
 $\displaystyle \supp f \subset \Omega_{\delta r,0}
@@ -4225,15 +4325,15 @@ $\|\VEC{h}\|<(1-\delta)r$.
 \begin{proof}
 According to Theorem~\ref{sob_Rp_ext}, there exists a strong
 $k$-extension operator $E$ on $\displaystyle \RR^n_+ $ and a strong
-$(k-|\beta|)$-extension operator $E_\beta$ on
+$(k-|\VEC{\beta}|)$-extension operator $E_{\VEC{\beta}}$ on
 $\displaystyle \RR^n_+$ such that
-$\displaystyle \diff^\beta (E(g)) = E_\beta(\diff^\beta g)$
+$\displaystyle \diff^{\VEC{\beta}} (E(g)) = E_{\VEC{\beta}}(\diff^{\VEC{\beta}} g)$
 for all $\displaystyle g \in H^{k,2}(\RR^n_+)$, where
-$|\beta|\leq k$.  Since $\alpha_n=0$, a quick look at the proof of
-Theorem~\ref{sob_Rp_ext} shows that $E_\beta = E$.
+$|\VEC{\beta}|\leq k$.  Since $\alpha_n=0$, a quick look at the proof of
+Theorem~\ref{sob_Rp_ext} shows that $E_{\VEC{\beta}} = E$.
 Moreover, we also see that 
-$\displaystyle E\left( \Delta^\alpha_{\VEC{h}} f\right) =
-\Delta^\alpha_{\VEC{h}} E(f)$ because $\alpha_n=0$.
+$\displaystyle E\left( \Delta^{\VEC{\alpha}}_{\VEC{h}} f\right) =
+\Delta^{\VEC{\alpha}}_{\VEC{h}} E(f)$ because $\alpha_n=0$.
 
 Since $E$ is a strong $k$-extension operator $E$ on
 $\displaystyle \RR^n_+ $, we
@@ -4258,51 +4358,57 @@ constants $C_2$ and $C_3$.
 From Proposition~\ref{ell_reg_prop4}, there exists a positive constant $C_0$
 independent of $\VEC{h}$ such that
 \[
-\| [\Delta^\alpha_{\VEC{h}}, \phi] g \|_{k,\rho} \leq C_0
-\sum_{\beta<\alpha} \| \diff^\beta g\|_{k,\rho}
+\| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] g \|_{k,\rho} \leq C_0
+\sum_{\VEC{\beta}<\VEC{\alpha}} \| \diff^{\VEC{\beta}} g\|_{k,\rho}
 \]
 for all $\displaystyle g \in H^{k,2}(\RR^n)$.
 
 The inequality in (\ref{ellRegCor2Eq1}) is obviously true if
-$\displaystyle \diff^\beta f \not\in H^{k,2}(\Omega_r)$ for some
-$\beta$.  The right hand side of (\ref{ellRegCor2Eq1}) is then
+$\displaystyle \diff^{\VEC{\beta}} f \not\in H^{k,2}(\Omega_r)$ for some
+$\VEC{\beta}$.  The right hand side of (\ref{ellRegCor2Eq1}) is then
 $\infty$.  So, we may assume that
-$\displaystyle \diff^\beta f \in H^{k,2}(\Omega_r)$ for all $\beta < \alpha$.
+$\displaystyle \diff^{\VEC{\beta}} f \in H^{k,2}(\Omega_r)$ for all
+$\VEC{\beta} < \VEC{\alpha}$.
 Since $\supp f$ is a compact subset of the bounded set
 $\Omega_{\delta r,0}$,
 we have that
 \[
-\left\|E(\diff^\beta f)\right\|_{k,\rho}
-\leq C_2 \left\|E(\diff^\beta f)\right\|_{k,2,\RR^n}
-\leq C_1 C_2 \left\|\diff^\beta f\right\|_{k,2,\RR^n_+}
-= C_1 C_2 \left\|\diff^\beta f\right\|_{k,2,\Omega_r}
+\left\|E(\diff^{\VEC{\beta}} f)\right\|_{k,\rho}
+\leq C_2 \left\|E(\diff^{\VEC{\beta}} f)\right\|_{k,2,\RR^n}
+\leq C_1 C_2 \left\|\diff^{\VEC{\beta}} f\right\|_{k,2,\RR^n_+}
+= C_1 C_2 \left\|\diff^{\VEC{\beta}} f\right\|_{k,2,\Omega_r}
 < \infty
 \]
-for all $\beta < \alpha$.  Thus,
-$\displaystyle E(\diff^\beta f) \in H^{k,2}(\RR^n)$
-for all $\beta < \alpha$.
+for all $\VEC{\beta} < \VEC{\alpha}$.  Thus,
+$\displaystyle E(\diff^{\VEC{\beta}} f) \in H^{k,2}(\RR^n)$
+for all $\VEC{\beta} < \VEC{\alpha}$.
 
 Moreover, since $\supp f$ is a compact subset of the bounded set
 $\Omega_{\delta r,0}$, we have that
-$|\alpha| \VEC{h} + \supp f \subset \Omega_{r,0}$
+$|\VEC{\alpha}| \VEC{h} + \supp f \subset \Omega_{r,0}$
 for $\|\VEC{h}\| < (1-\delta)r$ with $h_n = 0$.    Thus,
-$\displaystyle \supp \Delta^\alpha_{\VEC{h}} f \subset \Omega_{r,0}$ for
+$\displaystyle \supp \Delta^{\VEC{\alpha}}_{\VEC{h}} f \subset \Omega_{r,0}$ for
 $\|\VEC{h}\| < (1-\delta)r$ without constraints on $h_n$ since we assume
 that $\alpha_n = 0$.  Hence,
-$\displaystyle \supp [\Delta^\alpha_{\VEC{h}}, \phi] f \subset \Omega_{r,0}$.
+$\displaystyle \supp [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f
+\subset \Omega_{r,0}$.
 
 Hence, for $\|\VEC{h}\| < (1-\delta)r$, we have that
 \begin{align*}
-&\| [\Delta^\alpha_{\VEC{h}}, \phi] f \|_{k,2,\Omega_r}
-= \| [\Delta^\alpha_{\VEC{h}}, \phi] E(f) \|_{k,2,\RR^n_+}
-\leq \| [\Delta^\alpha_{\VEC{h}}, \phi] E(f) \|_{k,2,\RR^n}
-\leq C_3^{-1} \| [\Delta^\alpha_{\VEC{h}}, \phi] E(f) \|_{k,\rho} \\
-&\qquad \leq C_0 C_3^{-1} \sum_{\beta<\alpha} \| \diff^\beta E(f) \|_{k,\rho}
-\leq C_0 C_2 C_3^{-1} \sum_{\beta<\alpha} \| \diff^\beta E(f)  \|_{k,2,\RR^n}
-= C_0 C_2 C_3^{-1} \sum_{\beta<\alpha} \| E(\diff^\beta f) \|_{k,2,\RR^n}\\
+&\| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f \|_{k,2,\Omega_r}
+= \| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] E(f) \|_{k,2,\RR^n_+}
+\leq \| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] E(f) \|_{k,2,\RR^n}
+\leq C_3^{-1} \| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] E(f) \|_{k,\rho} \\
+&\qquad \leq C_0 C_3^{-1} \sum_{\VEC{\beta}<\VEC{\alpha}}
+\| \diff^{\VEC{\beta}} E(f) \|_{k,\rho}
+\leq C_0 C_2 C_3^{-1} \sum_{\VEC{\beta}<\VEC{\alpha}} \|
+\diff^{\VEC{\beta}} E(f)  \|_{k,2,\RR^n}
+= C_0 C_2 C_3^{-1} \sum_{\VEC{\beta}<\VEC{\alpha}} \
+E(\diff^{\VEC{\beta}} f) \|_{k,2,\RR^n}\\
 &\qquad \leq C_0 C_1 C_2 C_3^{-1}
-\sum_{\beta<\alpha} \| \diff^\beta f \|_{k,2,\RR^n_+}
-=  C_0 C_1 C_2 C_3^{-1} \sum_{\beta<\alpha} \| \diff^\beta f \|_{k,2,\Omega_r} \ .
+\sum_{\VEC{\beta}<\VEC{\alpha}} \| \diff^{\VEC{\beta}} f \|_{k,2,\RR^n_+}
+=  C_0 C_1 C_2 C_3^{-1} \sum_{\VEC{\beta}<\VEC{\alpha}}
+\| \diff^{\VEC{\beta}} f \|_{k,2,\Omega_r} \ .
 \end{align*}
 This gives (\ref{ellRegCor2Eq1}) with $C = C_0 C_1 C_2 C_3^{-1}$.
 \end{proof}
@@ -4311,24 +4417,24 @@ This gives (\ref{ellRegCor2Eq1}) with $C = C_0 C_1 C_2 C_3^{-1}$.
 The proof of Corollary~\ref{ell_reg_cor2} can be slightly modified
 to show that there exists a constant $C$ such that, for all $0 < \delta <1$, 
 \[
-  \| [\Delta^\alpha_{\VEC{h}}, \phi] f \|_{k,\Omega_r}
-\leq C \| f \|_{k+|\alpha|-1,\Omega_r}
+  \| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f \|_{k,\Omega_r}
+\leq C \| f \|_{k+|\VEC{\alpha}|-1,\Omega_r}
 \]
-for $f \in H^{k+|\alpha|-1,2}(\Omega_r)$ with
+for $f \in H^{k+|\VEC{\alpha}|-1,2}(\Omega_r)$ with
 $\displaystyle \supp f \subset \Omega_{\delta r,0}
 = (\RR^n \setminus \RR^n_-) \cap B_{\delta r}(\VEC{0})$ and
 $\|\VEC{h}\|<(1-\delta)r$.
 Note that this conclusion is not as strong as the conclusion of
-Corollary~\ref{ell_reg_cor2} because $\beta < \alpha$ is more
-restrictive than $|\beta| < |\alpha|$ as we have in the definition of 
-$\displaystyle \| \cdot \|_{k+|\alpha|-1,2,\Omega_r}$.
+Corollary~\ref{ell_reg_cor2} because $\VEC{\beta} < \VEC{\alpha}$ is more
+restrictive than $|\VEC{\beta}| < |\VEC{\alpha}|$ as we have in the
+definition of $\displaystyle \| \cdot \|_{k+|\VEC{\alpha}|-1,2,\Omega_r}$.
 
 According to Theorem~\ref{sob_Rp_Totalext}, there exists a total
 extension operator $E$ on $\displaystyle \RR^n_+ $.  From a quick look
 at the definition of $E$ given in the sketch of the proof of
 Theorem~\ref{sob_Rp_Totalext}, we see
-that $\displaystyle E\left( \Delta^\alpha_{\VEC{h}} f\right) =
-\Delta^\alpha_{\VEC{h}} E(f)$ because $\alpha_n=0$.
+that $\displaystyle E\left( \Delta^{\VEC{\alpha}}_{\VEC{h}} f\right) =
+\Delta^{\VEC{\alpha}}_{\VEC{h}} E(f)$ because $\alpha_n=0$.
 
 Since $E$ is a total extension operator $E$ on $\displaystyle \RR^n_+ $, we
 have for every $q \in \NN$ that
@@ -4341,7 +4447,8 @@ $\displaystyle \left\| E(g) \right\|_{q,2,\RR^n} \leq C_1
 
 To prove our claim, we will need the equivalence of the norms
 $\displaystyle \left\|\cdot\right\|_{q,2,\RR^n}$ and 
-$\displaystyle \left\|\cdot\right\|_{q,\rho}$ for $q=k$ and $q=k+|\alpha|-1$.
+$\displaystyle \left\|\cdot\right\|_{q,\rho}$ for $q=k$ and
+$q=k+|\VEC{\alpha}|-1$.
 Namely,
 \[
 C_{q,3} \left\|g \right\|_{q,2,\RR^n} \leq \left\|g \right\|_{k,\rho}
@@ -4353,29 +4460,31 @@ constants $C_{q,2}$ and $C_{q,3}$.
 From Proposition~\ref{ell_reg_prop1}, there exists a positive constant $C_0$
 independent of $\VEC{h}$ such that
 \[
-\left\| [\Delta^\alpha_{\VEC{h}}, \phi] g \right\|_{k,\rho}
-\leq C_0 \| g \|_{k+|\alpha|-1,\rho}
+\left\| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] g \right\|_{k,\rho}
+\leq C_0 \| g \|_{k+|\VEC{\alpha}|-1,\rho}
 \]
-for all $g \in H^{k+|\alpha|-1,2}(\RR^n)$.
+for all $g \in H^{k+|\VEC{\alpha}|-1,2}(\RR^n)$.
 
 As we stated in the proof of Corollary~\ref{ell_reg_cor2},
-we have that $|\alpha| \VEC{h} + \supp f \subset \Omega_{r,0}$
+we have that $|\VEC{\alpha}| \VEC{h} + \supp f \subset \Omega_{r,0}$
 for $\|\VEC{h}\| < (1-\delta)r$ with $h_n = 0$.    Thus,
-$\displaystyle \supp \Delta^\alpha_{\VEC{h}} f \subset \Omega_{r,0}$ for
+$\displaystyle \supp \Delta^{\VEC{\alpha}}_{\VEC{h}} f \subset \Omega_{r,0}$ for
 $\|\VEC{h}\| < \delta$ without constraints on $h_n$ since we assume
 that $\alpha_n = 0$.  Hence,
-$\displaystyle \supp [\Delta^\alpha_{\VEC{h}}, \phi] f \subset \Omega_{r,0}$
+$\displaystyle \supp [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f
+\subset \Omega_{r,0}$
 and
 \begin{align*}
-&\| [\Delta^\alpha_{\VEC{h}}, \phi] f \|_{k,2,\Omega_r}
-\leq \| [\Delta^\alpha_{\VEC{h}}, \phi] E(f) \|_{k,2,\RR^n}
-\leq C_{k,3}^{-1} \| [\Delta^\alpha_{\VEC{h}}, \phi] E(f) \|_{k,\rho}
-\leq C_0 C_{k,3}^{-1} \| E(f) \|_{k+|\alpha|-1,\rho} \\
-&\qquad \leq C_0 C_1 C_{k+|\alpha|-1,3}^{-1} \| f \|_{k+|\alpha|-1,2,\RR^n_+}
-= C_0 C_1 C_{k+|\alpha|-1,3}^{-1} \| f \|_{k+|\alpha|-1,2,\Omega_r}
-= C \| f \|_{k+|\alpha|-1,2,\Omega_r} \ ,
+&\| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f \|_{k,2,\Omega_r}
+\leq \| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] E(f) \|_{k,2,\RR^n}
+\leq C_{k,3}^{-1} \| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] E(f) \|_{k,\rho}
+\leq C_0 C_{k,3}^{-1} \| E(f) \|_{k+|\VEC{\alpha}|-1,\rho} \\
+&\qquad \leq C_0 C_1 C_{k+|\VEC{\alpha}|-1,3}^{-1}
+\| f \|_{k+|\VEC{\alpha}|-1,2,\RR^n_+}
+= C_0 C_1 C_{k+|\VEC{\alpha}|-1,3}^{-1} \| f \|_{k+|\VEC{\alpha}|-1,2,\Omega_r}
+= C \| f \|_{k+|\VEC{\alpha}|-1,2,\Omega_r} \ ,
 \end{align*}
-where $C = C_0 C_1 C_{k+|\alpha|-1,,3}^{-1}$.
+where $C = C_0 C_1 C_{k+|\VEC{\alpha}|-1,,3}^{-1}$.
 \end{rmk}
 
 \subsection{Local Regularity} \index{Local Regularity}
@@ -4416,23 +4525,25 @@ for $\displaystyle u \in H^{s,2}_0(\Omega)$.
 
 \begin{proof}
 \stage{i} We first consider the elliptic operator
-$\displaystyle L_1(\VEC{x},\diff) = \sum_{|\alpha|= k} a_\alpha \diff^\alpha$,
-where we assume that the coefficients $a_\alpha$ are constant.  We
+$\displaystyle L_1(\VEC{x},\diff) = \sum_{|\VEC{\alpha}|= k}
+a_{\VEC{\alpha}} \diff^{\VEC{\alpha}}$,
+where we assume that the coefficients $a_{\VEC{\alpha}}$ are constant.  We
 have that
 \[
  \left(L_1(\VEC{x},\diff) u \right)^\wedge(\VEC{y})
-= (-i)^k \sum_{|\alpha|= k} a_\alpha \VEC{y}^\alpha \,
+= (-i)^k \sum_{|\VEC{\alpha}|= k} a_{\VEC{\alpha}} \VEC{y}^{\VEC{\alpha}} \,
 \hat{u}(\VEC{y})
 \]
 for all $\displaystyle u \in H^{s,2}(\RR^n)$.  Since
 $L_1(\VEC{x},\diff)$ is elliptic, there exists a constant $C_0>0$ such that
 \[
-\bigg|\sum_{|\alpha|= k} a_\alpha \VEC{y}^\alpha\bigg| \geq  C_0 \|\VEC{y}\|^k
+\bigg|\sum_{|\VEC{\alpha}|= k} a_{\VEC{\alpha}}
+\VEC{y}^{\VEC{\alpha}}\bigg| \geq  C_0 \|\VEC{y}\|^k
 \]
 for all $\VEC{y} \in \RR^n$.  thus,
 \[
  \Big| \left(L_1(\VEC{x},\diff) u \right)^\wedge(\VEC{y}) \Big|
-= \bigg|\sum_{|\alpha|= k} a_\alpha \VEC{y}^\alpha \bigg| \,
+= \bigg|\sum_{|\VEC{\alpha}|= k} a_{\VEC{\alpha}} \VEC{y}^{\VEC{\alpha}}\bigg| \,
 \left|\hat{u}(\VEC{y})\right|
 \geq C_0 \|\VEC{y}\|^k \, \left|\hat{u}(\VEC{y})\right|
 \]
@@ -4474,39 +4585,41 @@ where $\displaystyle C_1^2 = 2^k \max\{1,1/C_0^2\}$.  We get
 
 \stage{ii} We now consider the elliptic operator
 $\displaystyle L_2(\VEC{x},\diff)
-= \sum_{|\alpha|= k} a_\alpha(\VEC{x}) \diff^\alpha$,
-where we assume that $\displaystyle a_\alpha \in \DD(\RR^n)$.  We may make this
-assumption because we assume that the $a_\alpha$ are of class
-$\displaystyle C^\infty$ in an open neighbourhood $U$ of $\overline{\Omega}$.
+= \sum_{|\VEC{\alpha}|= k} a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}}$,
+where we assume that $\displaystyle a_{\VEC{\alpha}} \in \DD(\RR^n)$.
+We may make this assumption because we assume that the $a_{\VEC{\alpha}}$ are
+of class $\displaystyle C^\infty$ in an open neighbourhood $U$ of
+$\overline{\Omega}$.
 Therefore, we may choose $\phi \in \DD(\RR^n)$ such that
 $\supp \phi \subset U$ and $\phi(\VEC{x}) = 1$ for all
 $\VEC{x} \in \overline{\Omega}$, and set
 \[
-\tilde{a}_{\alpha}(\VEC{x})
+\tilde{a}_{\VEC{\alpha}}(\VEC{x})
 = \begin{cases}
-\phi(\VEC{x}) a_{\alpha}(\VEC{x}) & \quad \text{if} \ \VEC{x} \in U \\
+\phi(\VEC{x}) a_{\VEC{\alpha}}(\VEC{x}) & \quad \text{if} \ \VEC{x} \in U \\
 0 & \quad \text{if} \ \VEC{x} \in \RR^n \setminus U
 \end{cases}
 \]
-to get functions $\displaystyle \tilde{a}_{\alpha} \in \DD(\RR^n)$ such that
-$\tilde{a}_\alpha = a_\alpha$ on $\Omega$.  Therefore, the
-elliptic partial differential equation on $\Omega$ is not changed if
-we replace the coefficients $a_\alpha$ by the coefficients $\tilde{a}_\alpha$.
+to get functions $\displaystyle \tilde{a}_{\VEC{\alpha}} \in \DD(\RR^n)$
+such that $\tilde{a}_{\VEC{\alpha}} = a_{\VEC{\alpha}}$ on $\Omega$.
+Therefore, the elliptic partial differential equation on $\Omega$ is
+not changed if we replace the coefficients $a_{\VEC{\alpha}}$ by the
+coefficients $\tilde{a}_\alpha$.
 This is what we do.  From now on, we drop the tilde to simplify the notation.
 
-Since $\graD a_\alpha$ is continuous and has a compact support,
+Since $\graD a_{\VEC{\alpha}}$ is continuous and has a compact support,
 we have that
 \[
-K = \sup_{\VEC{x} \in \RR^n} \|\graD a_\alpha (\VEC{x}) \|_2 < \infty \ .
+K = \sup_{\VEC{x} \in \RR^n} \|\graD a_{\VEC{\alpha}} (\VEC{x}) \|_2 < \infty \ .
 \]
 Therefore, from the Mean Value Theorem, we get that
 \begin{equation} \label{ellRegInEq2}
-\left| a_{\alpha}(\VEC{x}_1) - a_\alpha(\VEC{x}_2) \right| \leq K
+\left| a_{\VEC{\alpha}}(\VEC{x}_1) - a_{\VEC{\alpha}}(\VEC{x}_2) \right| \leq K
 \|\VEC{x}_1 - \VEC{x}_2 \|_2
 \end{equation}
 for all $\displaystyle \VEC{x}_1, \VEC{x}_2 \in \RR^n$.  Since there
-is a finite number of $a_\alpha$, we may assume that
-(\ref{ellRegInEq2}) is true for all $\alpha$ with $|\alpha|=k$
+is a finite number of $a_{\VEC{\alpha}}$, we may assume that
+(\ref{ellRegInEq2}) is true for all $\VEC{\alpha}$ with $|\VEC{\alpha}|=k$
 and all $\displaystyle \VEC{x}_1, \VEC{x}_2 \in \RR^n$.
 
 Given $\VEC{x}_0 \in \overline{\Omega}$ and $\delta >0$,
@@ -4518,29 +4631,31 @@ $\displaystyle \supp u \subset B_\delta(\VEC{x}_0)$.
 Then it follows
 from Lemma~\ref{ell_reg_lemma1} that there exists a constant $C_3$ such that
 \begin{align*}
-\left\| \big(a_\alpha - a_\alpha(\VEC{x}_0)\big)
-\diff^\alpha u \right\|_{s-k,\rho}
-&= \left\| \big(a_\alpha - a_\alpha(\VEC{x}_0)\big)\,\psi_{\VEC{x}_0}\,
-\diff^\alpha u \right\|_{s-k,\rho} \\
+\left\| \big(a_{\VEC{\alpha}} - a_{\VEC{\alpha}}(\VEC{x}_0)\big)
+\diff^{\VEC{\alpha}} u \right\|_{s-k,\rho}
+&= \left\| \big(a_{\VEC{\alpha}} - a_{\VEC{\alpha}}(\VEC{x}_0)\big)
+\,\psi_{\VEC{x}_0}\, \diff^{\VEC{\alpha}} u \right\|_{s-k,\rho} \\
 &\leq (2\pi)^{n/2}
-\sup_{\VEC{x} \in \RR^n} \big| (a_\alpha(\VEC{x}) -
-a_\alpha(\VEC{x}_0)) \psi_{\VEC{x}_0} \big|\,
-\big\|\diff^\alpha  u\big\|_{s-k,\rho} \\
+\sup_{\VEC{x} \in \RR^n} \big| (a_{\VEC{\alpha}}(\VEC{x}) -
+a_{\VEC{\alpha}}(\VEC{x}_0)) \psi_{\VEC{x}_0} \big|\,
+\big\|\diff^{\VEC{\alpha}}  u\big\|_{s-k,\rho} \\
 &\qquad
-+ C_3 \left\|(a_\alpha - a_\alpha(\VEC{x}_0))
++ C_3 \left\|(a_{\VEC{\alpha}} - a_{\VEC{\alpha}}(\VEC{x}_0))
 \psi_{\VEC{x}_0}\right\|_{|s-k-1|+1+t,\rho}
-\, \big\|\diff^\alpha u \big\|_{s-k-1,\rho} \\
-&\leq C_2 \delta \, \big\|\diff^\alpha u\big\|_{s-k,\rho}
-+ C_4 \, \big\|\diff^\alpha u \big\|_{s-k-1,\rho} 
+\, \big\|\diff^{\VEC{\alpha}} u \big\|_{s-k-1,\rho} \\
+&\leq C_2 \delta \, \big\|\diff^{\VEC{\alpha}} u\big\|_{s-k,\rho}
++ C_4 \, \big\|\diff^{\VEC{\alpha}} u \big\|_{s-k-1,\rho} 
 \leq C_2 \delta \, \|u\|_{s,\rho}
 + C_4 \, \|u \|_{s-1,\rho}  \ ,
 \end{align*}
 where $t > n/2$ is arbitrary but fixed,
 $\displaystyle C_2 = 2 (2\pi)^{n/2}K$ and \\
 $\displaystyle C_4 \geq C_3 \max_{\VEC{x}_0 \in \overline{\Omega}}
-\|(a_\alpha - a_\alpha(\VEC{x}_0))\psi_{\VEC{x}_0}\|_{|s-k-1|+1+t,\rho}$.
+\|(a_{\VEC{\alpha}} - a_{\VEC{\alpha}}(\VEC{x}_0))
+\psi_{\VEC{x}_0}\|_{|s-k-1|+1+t,\rho}$.
 Such a maximum exists because $\overline{\Omega}$ is compact
-and $\VEC{x}_0 \mapsto (a_\alpha - a_\alpha(\VEC{x}_0))\psi_{\VEC{x}_0}$
+and $\VEC{x}_0 \mapsto (a_{\VEC{\alpha}} -
+a_{\VEC{\alpha}}(\VEC{x}_0))\psi_{\VEC{x}_0}$
 is a continuous mapping from $\overline{\Omega}$ into
 $\displaystyle H^{|s-k-1|+1+t}(\RR^n)$.  Recall that
 $\psi_{\VEC{x}_0}(\VEC{x}) = \psi(\VEC{x} - \VEC{x}_0)$ for all
@@ -4550,12 +4665,13 @@ Hence, $C_4$ is independent of $\VEC{x}_0 \in \overline{\Omega}$.
 We then have that
 \[
 \left\| L_2(\VEC{x},\diff) u - L_2(\VEC{x}_0,\diff) u\right\|_{s-k,\rho}
-\leq \sum_{|\alpha|=k} \left\| \big(a_\alpha - a_\alpha(\VEC{x}_0)\big)
-\diff^\alpha u \right\|_{s-k,\rho}
+\leq \sum_{|\VEC{\alpha}|=k} \left\| \big(a_{\VEC{\alpha}}
+- a_{\VEC{\alpha}}(\VEC{x}_0)\big)
+\diff^{\VEC{\alpha}} u \right\|_{s-k,\rho}
 \leq C_2 \delta N \| u \|_{s,\rho}
 +C_4 N \| u \|_{s-1,\rho} \ ,
 \]
-where $\displaystyle N = \sum_{|\alpha|=k} 1$.  From
+where $\displaystyle N = \sum_{|\VEC{\alpha}|=k} 1$.  From
 (\ref{ellRegInEq1}) with $L_1(\VEC{x},\diff)$ replaced by
 $L_2(\VEC{x}_0,\diff)$ which has constant coefficients, we get
 \begin{align*}
@@ -4593,8 +4709,8 @@ where $\displaystyle C_5 = 2C_1(1+C_4N)$.
 
 \stage{iii} As in (ii), we still consider the elliptic operator
 $\displaystyle L_2(\VEC{x},\diff)
-= \sum_{|\alpha|= k} a_\alpha(\VEC{x}) \diff^\alpha$,
-where we assume that $a_\alpha \in \DD(\RR^n)$.
+= \sum_{|\alpha|= k} a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}}$,
+where we assume that $a_{\VEC{\alpha}} \in \DD(\RR^n)$.
 Since $\overline{\Omega}$ is compact, there exists a finite subset 
 $\displaystyle \{x_i\}_{i=1}^I$ of $\overline{\Omega}$ such that
 $\displaystyle \left\{B_\delta(x_i)\right\}_{i=1}^I$ is an open cover
@@ -4640,29 +4756,29 @@ Since
 \[
 L_2(\VEC{x},\diff)(\phi_i\,\underline{u})
 - \left(L_2(\VEC{x},\diff)\phi_i\right) \,\underline{u}
-= \sum_{|\alpha|\leq k-1} \psi_{\alpha} \diff^\alpha \underline{u} \ ,
+= \sum_{|\alpha|\leq k-1} \psi_{\VEC{\alpha}} \diff^{\VEC{\alpha}} \underline{u} \ ,
 \]
-where $\displaystyle \psi_\alpha \in \DD(\RR^n)$, we get from
+where $\displaystyle \psi_{\VEC{\alpha}} \in \DD(\RR^n)$, we get from
 Proposition~\ref{sob_DinDm} and Proposition~\ref{sob_T_dd_wk2} that
 \begin{align}
 &\big\|L_2(\VEC{x},\diff)(\phi_i\,\underline{u})
 - \phi_i\, L_2(\VEC{x},\diff)\underline{u} \big\|_{s-k,\rho}
-= \Big\| \sum_{|\alpha|\leq k-1} \psi_{\alpha} \diff^\alpha \underline{u}
-\Big\|_{s-k,\rho}
-\leq \sum_{|\alpha|\leq k-1} \big\| \psi_{\alpha} \diff^\alpha \underline{u}
-\big\|_{s-k,\rho} \nonumber \\
-&\quad = \sum_{|\alpha|\leq k-1} D_{\alpha,s-k}
-\big\|\diff^\alpha \underline{u} \big\|_{s-k,\rho}
-\leq \sum_{|\alpha|\leq k-1} D_{\alpha,s-k}
-\big\| \underline{u} \big\|_{s-k+|\alpha|,\rho}
-\leq \bigg( \sum_{|\alpha|\leq k-1} D_{\alpha,s-k} \bigg)
+= \Big\| \sum_{|\VEC{\alpha}|\leq k-1} \psi_{\alpha}
+\diff^{\VEC{\alpha}} \underline{u} \Big\|_{s-k,\rho}
+\leq \sum_{|\VEC{\alpha}|\leq k-1} \big\| \psi_{\VEC{\alpha}}
+\diff^{\VEC{\alpha}} \underline{u} \big\|_{s-k,\rho} \nonumber \\
+&\quad = \sum_{|\VEC{\alpha}|\leq k-1} R_{\VEC{\alpha},s-k}
+\big\|\diff^{\VEC{\alpha}} \underline{u} \big\|_{s-k,\rho}
+\leq \sum_{|\VEC{\alpha}|\leq k-1} R_{\VEC{\alpha},s-k}
+\big\| \underline{u} \big\|_{s-k+|\VEC{\alpha}|,\rho}
+\leq \bigg( \sum_{|\VEC{\alpha}|\leq k-1} R_{\VEC{\alpha},s-k} \bigg)
 \big\| \underline{u} \big\|_{s-1,\rho} \label{ellRegInEq7}
 \end{align}
-for some constants $D_{\alpha,s-k}>0$.
+for some constants $R_{\VEC{\alpha},s-k}>0$.
 As we did before, since there are a finite number of $\phi_i$, we may
-assume that the $D_{\alpha,s-k}>0$ are large
+assume that the $R_{\VEC{\alpha},s-k}>0$ are large
 enough for (\ref{ellRegInEq7}) to be true for all $i$.
-If $\displaystyle C_8 = \sum_{|\alpha|\leq k-1} D_{\alpha,s-k}$,
+If $\displaystyle C_8 = \sum_{|\VEC{\alpha}|\leq k-1} R_{\VEC{\alpha},s-k}$,
 we get that
 \begin{equation} \label{ellRegInEq8}
 \big\|L_2(\VEC{x},\diff)(\phi_i\,\underline{u})
@@ -4687,7 +4803,7 @@ where $C_9 = I C_5 \max\{ C_6 + C_8, C_7\}$.
 $L(\VEC{x},\diff)$ given in (\ref{ell_reg_in_eqt}).  We have that
 $L(\VEC{x},\diff) = L_2(\VEC{x},\diff) + L_3(\VEC{x},\diff)$, where
 $\displaystyle L_3(\VEC{x},\diff)
-= \sum_{|\alpha|< k} a_\alpha(\VEC{x}) \diff^\alpha$.
+= \sum_{|\alpha|< k} a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}}$.
 We have that
 \begin{equation} \label{ellRegInEq10}
 \big\|\underline{u}\big\|_{s,\rho} \leq C_9
@@ -4814,37 +4930,46 @@ We have that
 \begin{align*}
 &\left[ L(\VEC{x},\diff), \phi\right] v
 = L(\VEC{x},\diff) (\phi\, v) - \phi\, L(\VEC{x},\diff) v
-= \sum_{|\alpha|\leq k} a_\alpha(\VEC{x}) \diff^\alpha (\phi\, v)
-- \phi\, \sum_{|\alpha|\leq k} a_\alpha(\VEC{x}) \diff^\alpha v \\
-&\qquad = \sum_{|\alpha|\leq k} a_\alpha(\VEC{x})
-\left( \sum_{|\alpha_1|+|\alpha_2|=|\alpha|} b_{\alpha_1,\alpha_2}
-  \big(\diff^{\alpha_1} \phi\big)\big(\diff^{\alpha_2} v\big) \right)
-- \phi\, \sum_{|\alpha|\leq k} a_\alpha(\VEC{x}) \diff^\alpha v \\
-&\qquad = \sum_{|\alpha_2|\leq k} \left( \sum_{|\alpha_1|\leq k-|\alpha_2|} 
-a_{\alpha_1+\alpha_2}(\VEC{x})\, b_{\alpha_1,\alpha_2}
-\big(\diff^{\alpha_1} \phi\big) \right) \diff^{\alpha_2} v
-- \phi\, \sum_{|\alpha|\leq k} a_\alpha(\VEC{x}) \diff^\alpha v \\
-&\qquad =\sum_{|\alpha_2|\leq k} \left( \sum_{|\alpha_1|\leq k-|\alpha_2|} 
-a_{\alpha_1+\alpha_2}(\VEC{x})\, b_{\alpha_1,\alpha_2}
-\big(\diff^{\alpha_1} \phi\big) - a_{\alpha_2}(\VEC{x})\,\phi \right)
-\diff^{\alpha_2} v
-= \sum_{|\alpha_2|< k} A_{\alpha_2}(\VEC{x}) \diff^{\alpha_2} v
+= \sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}(\VEC{x})
+\diff^{\VEC{\alpha}} (\phi\, v)
+- \phi\, \sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}(\VEC{x})
+\diff^{\VEC{\alpha}} v \\
+&\qquad = \sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}(\VEC{x})
+\left( \sum_{|\VEC{\nu}|+|\VEC{\eta}|=|\VEC{\alpha}|}
+b_{\VEC{\nu},\VEC{\eta}}
+\big(\diff^{\VEC{\nu}} \phi\big)\big(\diff^{\VEC{\eta}} v\big) \right)
+- \phi\, \sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}(\VEC{x})
+\diff^{\VEC{\alpha}} v \\
+&\qquad = \sum_{|\VEC{\eta}|\leq k} \left(
+\sum_{|\VEC{\nu}|\leq k-|\VEC{\eta}|} 
+a_{\VEC{\nu}+\VEC{\eta}}(\VEC{x})\, b_{\VEC{\nu},\VEC{\eta}}
+\big(\diff^{\VEC{\nu}} \phi\big) \right) \diff^{\VEC{\eta}} v
+- \phi\, \sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}(\VEC{x})
+\diff^{\VEC{\alpha}} v \\
+&\qquad =\sum_{|\VEC{\eta}|\leq k} \left(
+\sum_{|\VEC{\nu}|\leq k-|\VEC{\eta}|} 
+a_{\VEC{\nu}+\VEC{\eta}}(\VEC{x})\, b_{\VEC{\nu},\VEC{\eta}}
+\big(\diff^{\VEC{\nu}} \phi\big) - a_{\VEC{\eta}}(\VEC{x})\,\phi \right)
+\diff^{\VEC{\eta}} v
+= \sum_{|\VEC{\eta}|< k} A_{\VEC{\eta}}(\VEC{x}) \diff^{\VEC{\eta}} v
 \end{align*}
 for $\displaystyle v \in H^{s,2}(\RR^n)$,
-where the coefficients $A_{\alpha_2}$ are in $\displaystyle \DD(\RR^n)$.
-Note that $\displaystyle a_{\alpha_1+\alpha_2}(\VEC{x})\, b_{\alpha_1,\alpha_2}
-\big(\diff^{\alpha_1} \phi\big) - a_{\alpha_2}(\VEC{x})\phi = 0$ for
-$|\alpha_2| = k$ because $|\alpha_1|=0$ and $b_{\alpha_1,\alpha_2} = 1$.
+where the coefficients $A_{\VEC{\eta}}$ are in $\displaystyle \DD(\RR^n)$.
+Note that $\displaystyle a_{\VEC{\nu}+\VEC{\eta}}(\VEC{x})\,
+b_{\VEC{\nu},\VEC{\eta}}
+\big(\diff^{\VEC{\nu}} \phi\big) - a_{\VEC{\eta}}(\VEC{x})\phi = 0$ for
+$|\VEC{\eta}| = k$ because $|\VEC{\nu}|=0$ and
+$b_{\VEC{\nu},\VEC{\eta}} = 1$.
 It follows from Propositions Propositions~\ref{sob_DinDm} and
 \ref{sob_T_dd_wk2} that there exist
-constants $C_{\alpha_2}$ such that
+constants $C_{\VEC{\eta}}$ such that
 \begin{equation} \label{ellRegInLem1Eq1}
-\left\| A_{\alpha_2}(\VEC{x}) \diff^{\alpha_2} v \right\|_{s-k+1,\rho}
-\leq C_{\alpha_2} \left\| \diff^{\alpha_2} v \right\|_{s-k+1,\rho}
-\leq C_{\alpha_2} \left\| v \right\|_{s-k+|\alpha_2|+1,\rho}
-\leq C_{\alpha_2} \left\| v \right\|_{s,\rho}
+\left\| A_{\VEC{\eta}}(\VEC{x}) \diff^{\VEC{\eta}} v \right\|_{s-k+1,\rho}
+\leq C_{\VEC{\eta}} \left\| \diff^{\VEC{\eta}} v \right\|_{s-k+1,\rho}
+\leq C_{\VEC{\eta}} \left\| v \right\|_{s-k+|\VEC{\eta}|+1,\rho}
+\leq C_{\VEC{\eta}} \left\| v \right\|_{s,\rho}
 \end{equation}
-for $\displaystyle v \in H^{s+1,2}(\RR^n)$ and $|\alpha_2|<k$.  Thus
+for $\displaystyle v \in H^{s+1,2}(\RR^n)$ and $|\VEC{\eta}|<k$.  Thus
 $\left[ L(\VEC{x},\diff), \phi\right]$ is a bounded mapping from
 $\displaystyle H^{s,2}(\RR^n)$ into $\displaystyle H^{s-k+1,2}(\RR^n)$.
 \end{proof}
@@ -4980,12 +5105,15 @@ We have for all $\displaystyle \mu \in \DD(\RR^n)$ that
 \begin{align*}
 &\left(\psi_{j+1} L(\VEC{x},\diff) (\psi_j u)\right)(\mu)
 = \left(L(\VEC{x},\diff) (\psi_j u)\right) (\psi_{j+1} \mu)
-= \sum_{|\alpha|\leq k} a_\alpha(\VEC{x}) \diff^\alpha(\psi_j u)(\psi_{j+1} \mu) \\
-&\qquad = \sum_{|\alpha|\leq k} (-1)^{|\alpha|} a_\alpha(\VEC{x})
-\left(\psi_j u\right) \left(\diff^\alpha(\psi_{j+1} \mu)\right)
-= \sum_{|\alpha|\leq k} (-1)^{|\alpha|} a_\alpha(\VEC{x}) u
-\left(\diff^\alpha(\psi_{j+1} \mu)\right) \\
-&\qquad = \sum_{|\alpha|\leq k} a_\alpha(\VEC{x}) \diff^\alpha u (\psi_{j+1} \mu)
+= \sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}(\VEC{x})
+\diff^{\VEC{\alpha}}(\psi_j u)(\psi_{j+1} \mu) \\
+&\qquad = \sum_{|\VEC{\alpha}|\leq k} (-1)^{|\VEC{\alpha}|}
+a_{\VEC{\alpha}}(\VEC{x})
+\left(\psi_j u\right) \left(\diff^{\VEC{\alpha}}(\psi_{j+1} \mu)\right)
+= \sum_{|\VEC{\alpha}|\leq k} (-1)^{|\VEC{\alpha}|} a_{\VEC{\alpha}}(\VEC{x}) u
+\left(\diff^{\VEC{\alpha}}(\psi_{j+1} \mu)\right) \\
+&\qquad = \sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}(\VEC{x})
+\diff^{\VEC{\alpha}} u (\psi_{j+1} \mu)
 = L(\VEC{x},\diff) (\psi_{j+1} \mu)
 = \psi_{j+1} L(\VEC{x},\diff) (\mu)
 = (\psi_{j+1} f)(\mu) \ ,
@@ -4995,7 +5123,7 @@ $\displaystyle \left(\psi_j u\right)(\eta) = u(\psi_j \eta) = u(\eta)$
 for all test functions $\eta \in \DD(\Omega)$ with
 $\supp \eta \subset U_j$ because
 $\psi_j(\VEC{x}) = 1$ for all $\VEC{x} \in U_j$.  Moreover, 
-$\displaystyle \supp \diff^\alpha(\psi_{j+1} \xi) \subset U_j$.
+$\displaystyle \supp \diff^{\VEC{\alpha}}(\psi_{j+1} \xi) \subset U_j$.
 Hence,
 \begin{align*}
 L(\VEC{x},\diff)(\psi_{j+1} u)
@@ -5084,10 +5212,11 @@ boundary plays a significant role.
 Let $\Omega$ be a bounded open subset of $\displaystyle \RR^n$.  In
 this section, we consider the elliptic operator 
 \begin{equation} \label{ell_reg_LDBound}
-L(\VEC{x},\diff) = \sum_{|\alpha|\leq 2} a_\alpha(\VEC{x}) \diff^\alpha
+L(\VEC{x},\diff) = \sum_{|\VEC{\alpha}|\leq 2}
+a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}}
 \end{equation}
-on $\overline{\Omega}$ with $\displaystyle a_\alpha \in \SS(\RR^n)$
-for all $\alpha$.  Our main result is the next theorem.
+on $\overline{\Omega}$ with $\displaystyle a_{\VEC{\alpha}} \in \SS(\RR^n)$
+for all $\VEC{\alpha}$.  Our main result is the next theorem.
 For this theorem, we go back to the divergence form of the
 elliptic operator $L(\VEC{x},\diff)$ presented in
 Section~\ref{CSWSsection}.
@@ -5100,8 +5229,9 @@ $\displaystyle X = H^{1,2}(\Omega)$ or
 $\displaystyle X = H^{1,2}_0(\Omega)$, and suppose that
 $u\in X$ is a solution of the variational problem
 \[
-B(v,u) = \sum_{|\alpha|,|\beta|\leq 1}
-\int_\Omega \overline{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}\, \diff^\alpha v
+B(v,u) = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
+\int_\Omega \overline{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u}\, \diff^{\VEC{\alpha}} v
 \dx{\VEC{x}} = \int_\Omega \overline{f}\,v \dx{\VEC{x}}
 \]
 for $\displaystyle v \in X$,
@@ -5117,7 +5247,7 @@ depending only on $\Omega$ such that
 \end{theorem}
 
 The proof of Theorem~\ref{ell_regular} will be a consequence of the
-following proposition.  Moreover, we will only prove the theorem for
+next proposition.  Moreover, we will only prove the theorem for
 elliptic operators of order two; namely, $m=2$ and $k=1$.
 
 We need a little lemma first.
@@ -5125,10 +5255,10 @@ We need a little lemma first.
 \begin{lemma} \label{ellRegProp3Omega}
 Let $\Omega$ be an open subset of $\displaystyle \RR^n$, and $k$ and $q$ be two
 integers.  There exists a constant $C$ such that
-$\displaystyle \left\| \Delta^\gamma_{\VEC{h}} f  \right\|_{k,2,\Omega}
-\leq C \left\| \diff^\gamma f\right|_{k,2,\Omega}$ for all
+$\displaystyle \left\| \Delta^{\VEC{\gamma}}_{\VEC{h}} f  \right\|_{k,2,\Omega}
+\leq C \left\| \diff^{\VEC{\gamma}} f\right|_{k,2,\Omega}$ for all
 $\displaystyle f\in H^{k,2}(\Omega)$ with compact support in $\Omega$,
-multi-indices $\gamma$ such that $|\gamma|\leq q$, and
+multi-indices $\VEC{\gamma}$ such that $|\VEC{\gamma}|\leq q$, and
 $\displaystyle \VEC{h} \in \RR^n$ such that
 $\displaystyle \supp f + B_{q\|\VEC{h}\|}(\VEC{0}) \subset \Omega$.
 \end{lemma}
@@ -5138,8 +5268,8 @@ We have from Lemma~\ref{sob_denselem1} that
 $\displaystyle \underline{f} \in H^{k,2}(\RR^n)$.  It follows from
 Proposition~\ref{ell_reg_prop3} that
 \[
-\left\| \Delta^\gamma_{\VEC{h}}\, \underline{f}  \right\|_{k,2,\rho}
-\leq \left\| \diff^\gamma \underline{f}\right|_{k,2,\rho} \ .
+\left\| \Delta^{\VEC{\gamma}}_{\VEC{h}}\, \underline{f}  \right\|_{k,2,\rho}
+\leq \left\| \diff^{\VEC{\gamma}} \underline{f}\right|_{k,2,\rho} \ .
 \]
 
 Since the norms $\|\cdot\|_{k,2,\RR^n}$ and $\|\cdot\|_{k,\rho}$ are
@@ -5149,20 +5279,22 @@ equivalent, there exist positive constants $C_1$ and $C_2$ such
 \]
 for all $\displaystyle g \in H^{k,2}(\RR^n)$.
 
-Since $\displaystyle \supp \diff^\alpha f \subset \diff f
+Since $\displaystyle \supp \diff^{\VEC{\alpha}} f \subset \diff f
 \subset \Omega$ and
-$\displaystyle \supp \Delta^\gamma_{\VEC{h}} f \subset
+$\displaystyle \supp \Delta^{\VEC{\gamma}}_{\VEC{h}} f \subset
 \supp f + B_{q\|\VEC{h}\|}(\VEC{0}) \subset \Omega$, we have that
-$\displaystyle \diff^\alpha \underline{f} = \underline{\diff^\alpha f}$
-and $\displaystyle \Delta^\gamma_{\VEC{h}} \underline{f}
-= \underline{\Delta^\gamma_{\VEC{h}} f}$.  Thus,
+$\displaystyle \diff^{\VEC{\alpha}} \underline{f}
+= \underline{\diff^{\VEC{\alpha}} f}$
+and $\displaystyle \Delta^{\VEC{\gamma}}_{\VEC{h}} \underline{f}
+= \underline{\Delta^{\VEC{\gamma}}_{\VEC{h}} f}$.  Thus,
 \begin{align*}
-\left\| \Delta^\gamma_{\VEC{h}} f  \right\|_{k,2,\Omega}
-&= \left\| \Delta^\gamma_{\VEC{h}}\, \underline{f}  \right\|_{k,2,\RR^n}
-\leq C_1^{-1} \left\| \Delta^\gamma_{\VEC{h}}\, \underline{f}  \right\|_{k,\rho}
-\leq C_1^{-1} \left\| \diff^\gamma \underline{f}  \right\|_{k,\rho} \\
-&\leq C_1^{-1} C_2 \left\| \diff^\gamma \underline{f} \right|_{k,2,\RR^n}
-= C \left\| \diff^\gamma f \right|_{k,2,\Omega}
+\left\| \Delta^{\VEC{\gamma}}_{\VEC{h}} f  \right\|_{k,2,\Omega}
+&= \left\| \Delta^{\VEC{\gamma}}_{\VEC{h}}\, \underline{f}  \right\|_{k,2,\RR^n}
+\leq C_1^{-1} \left\| \Delta^{\VEC{\gamma}}_{\VEC{h}}\, \underline{f}
+\right\|_{k,\rho} 
+\leq C_1^{-1} \left\| \diff^{\VEC{\gamma}} \underline{f}  \right\|_{k,\rho} \\
+&\leq C_1^{-1} C_2 \left\| \diff^{\VEC{\gamma}} \underline{f} \right|_{k,2,\RR^n}
+= C \left\| \diff^{\VEC{\gamma}} f \right|_{k,2,\Omega}
 \end{align*}
 with $C = C_1^{-1} C_2$.  Note that $C$ does not depend of $f$ or $\VEC{h}$.
 \end{proof}
@@ -5181,8 +5313,9 @@ Suppose that $\displaystyle f \in H^{q,2}(\Omega_r)$ for some $r>0$.
 If $u\in X$ is a solution of the variational problem
 \begin{equation} \label{ell_var_reg}
 B(v,u) =
-\sum_{|\alpha|,|\beta|\leq 1}
-\int_{\Omega_r} \overline{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}\, \diff^\alpha v
+\sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
+\int_{\Omega_r} \overline{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u}\, \diff^{\VEC{\alpha}} v
 \dx{\VEC{x}} = \int_{\Omega_r} \overline{f}\,v \dx{\VEC{x}}
 \end{equation}
 for $\displaystyle v \in X_r$, where $B$ is weakly coercive, then
@@ -5196,15 +5329,17 @@ $\rho<r$ and there exists a constant $C = C(q,\rho)$ such that
 
 \begin{proof}
 \subI{Claim A} If $\rho<r$ and $j<q+2$, then
-$\displaystyle \diff^\gamma u \in H^{1,2}(\Omega_{\rho})$ for all
-multi-indices $\gamma$ such that $|\gamma|\leq j$ and $\gamma_n =0$.
+$\displaystyle \diff^{\VEC{\gamma}} u \in H^{1,2}(\Omega_{\rho})$ for all
+multi-indices $\VEC{\gamma}$ such that $|\VEC{\gamma}|\leq j$ and
+$\gamma_n =0$.
 Moreover, there exists a positive constant $C_1 = C_1(j,\rho)$ such that
 \begin{equation} \label{ell_reg_B1}
-\|\diff^\gamma u\|_{1.2,\Omega_\rho} \leq C_1
+\|\diff^{\VEC{\gamma}} u\|_{1.2,\Omega_\rho} \leq C_1
 \left( \left\|f\right\|_{q,2,\Omega_r}
 + \left\|u\right\|_{1,2,\Omega_r} \right)
 \end{equation}
-for all multi-indices $\gamma$ such that $|\gamma| \leq j$ and $\gamma_n =0$.
+for all multi-indices $\VEC{\gamma}$ such that $|\VEC{\gamma}| \leq j$
+and $\gamma_n =0$.
 
 The proof is by induction on $j$.  The claim is obviously true for
 $j=0$.  Suppose that the claim is true for $0\leq j < q+1$.  Let
@@ -5213,29 +5348,32 @@ $\displaystyle r_2 = \frac{\rho+2r}{3}$.  We have $\rho <r_1<r_2< r$.
 
 The induction hypothesis applied to the domain $\Omega_{r_2}$ instead
 of $\Omega_\rho$ says that
-$\displaystyle \diff^\gamma u \in H^{1,2}(\Omega_{r_2})$ for
-all multi-indices $\gamma$ with $|\gamma|\leq j$ and $\gamma_n = 0$, and
+$\displaystyle \diff^{\VEC{\gamma}} u \in H^{1,2}(\Omega_{r_2})$ for
+all multi-indices $\VEC{\gamma}$ with $|\VEC{\gamma}|\leq j$ and
+$\gamma_n = 0$, and
 there exists a positive constant $C_2 = C_2(j,r_2)$ such that
 \begin{equation} \label{ell_reg_B2}
-\|\diff^\gamma u\|_{1,2,\Omega_{r_2}} \leq C_2 \left( \|f\|_{q,2,\Omega_r}
+\|\diff^{\VEC{\gamma}} u\|_{1,2,\Omega_{r_2}} \leq C_2 \left( \|f\|_{q,2,\Omega_r}
 + \|u\|_{1,2,\Omega_r} \right)
 \end{equation}
-for all multi-indices $\gamma$ such that $|\gamma|\leq j$ and $\gamma_n =0$.
+for all multi-indices $\VEC{\gamma}$ such that $|\VEC{\gamma}|\leq j$
+and $\gamma_n =0$.
 
 Choose $\displaystyle \psi \in \DD(\RR^n)$ such that
 $\supp \psi \subset B_{r_1}(\VEC{0})$ and $\psi = 1$ on $B_{\rho}(\VEC{0})$.
 Let $\gamma$ be a multi-index such that $|\gamma|=j+1$ with $\gamma_n=0$.
 If $\displaystyle \|\VEC{h}\| < (r_2-r_1)/(j+1)$,
-then $\displaystyle \Delta_{\VEC{h}}^\gamma (\psi u) \in X_{r_2}$ because
+then $\displaystyle \Delta_{\VEC{h}}^{\VEC{\gamma}} (\psi u) \in X_{r_2}$ because
 $\supp \psi \subset B_{r_1}(\VEC{0})$, and
-$\displaystyle \Delta_{\VEC{h}}^\gamma v \in X_{r_2}$ for $v \in X_{r_1}$.  In
+$\displaystyle \Delta_{\VEC{h}}^{\VEC{\gamma}} v \in X_{r_2}$ for
+$v \in X_{r_1}$.  In
 the sequel, we always assume that $\|\VEC{h}\|$ satisfies
 $\displaystyle \|\VEC{h}\| < (r_2-r_1)/(j+1)$.
 
 \stage{i} We prove that there exists a constant
 $C_3= C_3(j,r_2,\psi)$ such that
 \begin{equation} \label{ell_reg_B3}
-\left| B\left(v,\Delta_{\VEC{h}}^\gamma(\psi u)\right) \right|
+\left| B\left(v,\Delta_{\VEC{h}}^{\VEC{\gamma}}(\psi u)\right) \right|
 \leq C_3 \|v\|_{1,2,\Omega_{r_2}} \left( \|f\|_{q,2,\Omega_r} +
 \|u\|_{1,2,\Omega_r} \right)
 \end{equation}
@@ -5244,100 +5382,109 @@ for all $v \in X_{r_2}$.
 Since the difference quotient operator (\ref{ell_diffQuot}) commutes
 with the derivative operator, we get
 \begin{align*}
-&B\left(v,\Delta_{\VEC{h}}^\gamma(\psi u)\right) =
-\sum_{|\alpha|,|\beta|\leq 1}
-\int_{\Omega_r} \overline{b_{\alpha,\beta}(\VEC{x})
-\diff^\beta \Delta_{\VEC{h}}^\gamma(\psi u)}\, \diff^\alpha v \dx{\VEC{x}} \\
-&\qquad = \sum_{|\alpha|,|\beta|\leq 1}
-\int_{\Omega_r} \overline{b_{\alpha,\beta}(\VEC{x})
-\Delta_{\VEC{h}}^\gamma \diff^\beta (\psi u)}\, \diff^\alpha v \dx{\VEC{x}}
-= \sum_{|\alpha|,|\beta|\leq 1}
+&B\left(v,\Delta_{\VEC{h}}^{\VEC{\gamma}}(\psi u)\right) =
+\sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
+\int_{\Omega_r} \overline{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} \Delta_{\VEC{h}}^{\VEC{\gamma}}(\psi u)}\,
+\diff^{\VEC{\alpha}} v \dx{\VEC{x}} \\
+&\qquad = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
+\int_{\Omega_r} \overline{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\Delta_{\VEC{h}}^{\VEC{\gamma}} \diff^{\VEC{\beta}} (\psi u)}\,
+\diff^{\VEC{\alpha}} v \dx{\VEC{x}}
+= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
 \int_{\Omega_r} \overline{
-\Delta_{\VEC{h}}^\gamma \left(b_{\alpha,\beta}(\VEC{x})
-\diff^\beta (\psi u)\right)} \, \diff^\alpha v \dx{\VEC{x}} + E_1
+\Delta_{\VEC{h}}^{\VEC{\gamma}} \left(b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} (\psi u)\right)} \, \diff^{\VEC{\alpha}} v \dx{\VEC{x}} + E_1
 \end{align*}
 for all $v \in X_{r_2}$, where
 \begin{align*}
-E_1(v,u) &= \sum_{|\alpha|,|\beta|\leq 1}
-\int_{\Omega_r} \overline{\bigg( b_{\alpha,\beta}(\VEC{x})
-\Delta_{\VEC{h}}^\gamma \diff^\beta (\psi u) - 
-\Delta_{\VEC{h}}^\gamma \left(b_{\alpha,\beta}(\VEC{x})
-\diff^\beta (\psi u)\right)\bigg)} \, \diff^\alpha v \dx{\VEC{x}} \\
-&= \sum_{|\alpha|,|\beta|\leq 1}
-\int_{\Omega_r} \overline{-[\Delta_{\VEC{h}}^\gamma,
-b_{\alpha,\beta}(\VEC{x})] \diff^\beta (\psi u) }\, \diff^\alpha v \dx{\VEC{x}}
+E_1(v,u) &= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
+\int_{\Omega_r} \overline{\bigg( b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\Delta_{\VEC{h}}^{\VEC{\gamma}} \diff^{\VEC{\beta}} (\psi u) - 
+\Delta_{\VEC{h}}^{\VEC{\gamma}} \left(b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} (\psi u)\right)\bigg)} \,
+\diff^{\VEC{\alpha}} v \dx{\VEC{x}} \\
+&= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
+\int_{\Omega_r} \overline{-[\Delta_{\VEC{h}}^{\VEC{\gamma}},
+b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})]
+\diff^{\VEC{\beta}} (\psi u) }\, \diff^{\VEC{\alpha}} v \dx{\VEC{x}}
 \end{align*}
 for all $v \in X_{r_2}$.
 Furthermore, we may write
 \begin{equation} \label{ell_RB_foot}
-B\left(v,\Delta_{\VEC{h}}^\gamma(\psi u)\right)
-= \sum_{|\alpha|,|\beta|\leq 1}
+B\left(v,\Delta_{\VEC{h}}^{\VEC{\gamma}}(\psi u)\right)
+= \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
 \int_{\Omega_r} \overline{
-\Delta_{\VEC{h}}^\gamma \left(b_{\alpha,\beta}(\VEC{x}) \left( \psi
-\diff^\beta u\right) \right)} \, \diff^\alpha v \dx{\VEC{x}} + E_1 + E_2
+\Delta_{\VEC{h}}^{\VEC{\gamma}} \left(b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\left( \psi \diff^{\VEC{\beta}} u\right) \right)} \,
+\diff^{\VEC{\alpha}} v \dx{\VEC{x}} + E_1 + E_2
 \end{equation}
 for all $v \in X_{r_2}$,
 where
 \[
-E_2(v,u) = \sum_{|\alpha|,|\beta|\leq 1}
+E_2(v,u) = \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
 \int_{\Omega_r} \overline{
-\Delta_{\VEC{h}}^\gamma \left(b_{\alpha,\beta}(\VEC{x})
-\left(\diff^\beta( \psi u) - \psi \diff^\beta u\right) \right)}
-\, \diff^\alpha v \dx{\VEC{x}}
+\Delta_{\VEC{h}}^{\VEC{\gamma}} \left(b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\left(\diff^{\VEC{\beta}}( \psi u) - \psi \diff^{\VEC{\beta}} u\right) \right)}
+\, \diff^{\VEC{\alpha}} v \dx{\VEC{x}}
 \]
 for all $v \in X_{r_2}$.  It follows from Proposition~\ref{DiffQuotientAdjoint}
 that
 \[
-B\left(v,\Delta_{\VEC{h}}^\gamma(\psi u)\right) =
-(-1)^{j+1} \sum_{|\alpha|,|\beta|\leq 1}
-\int_{\Omega_r} \overline{ b_{\alpha,\beta}(\VEC{x})
-\left(\psi \diff^\beta u\right)} \,
-\Delta_{-\VEC{h}}^\gamma \diff^\alpha v \dx{\VEC{x}} + E_1 + E_2
+B\left(v,\Delta_{\VEC{h}}^{\VEC{\gamma}}(\psi u)\right) =
+(-1)^{j+1} \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
+\int_{\Omega_r} \overline{ b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\left(\psi \diff^{\VEC{\beta}} u\right)} \,
+\Delta_{-\VEC{h}}^{\VEC{\gamma}} \diff^{\VEC{\alpha}} v \dx{\VEC{x}} + E_1 + E_2
 \]
 for all $v \in X_{r_2}$.
 Again, since the difference quotient operator commutes with the
 derivative operator, we get  
 \begin{align*}
-B\left(v,\Delta_{\VEC{h}}^\gamma(\psi u)\right)
-&= (-1)^{j+1} \sum_{|\alpha|,|\beta|\leq 1}
-\int_{\Omega_r}  \overline{ b_{\alpha,\beta}(\VEC{x})
-\left(\psi\, \diff^\beta u\right)}
-\, \diff^\alpha \Delta_{-\VEC{h}}^\gamma v \dx{\VEC{x}} + E_1 + E_2 \\
-&= (-1)^{j+1} \sum_{|\alpha|,|\beta|\leq 1}
-\int_{\Omega_r} \left(\overline{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u} \right)
-\, \diff^\alpha \left( \overline{\psi} \Delta_{-\VEC{h}}^\gamma v\right)
-\dx{\VEC{x}} + E_1 + E_2 + E_3
+B\left(v,\Delta_{\VEC{h}}^{\VEC{\gamma}}(\psi u)\right)
+&= (-1)^{j+1} \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
+\int_{\Omega_r}  \overline{ b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\left(\psi\, \diff^{\VEC{\beta}} u\right)}
+\, \diff^{\VEC{\alpha}} \Delta_{-\VEC{h}}^{\VEC{\gamma}} v\dx{\VEC{x}}
++ E_1 + E_2 \\
+&= (-1)^{j+1} \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
+\int_{\Omega_r} \left(\overline{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u} \right) \, \diff^{\VEC{\alpha}} \left( \overline{\psi}
+\Delta_{-\VEC{h}}^{\VEC{\gamma}} v\right) \dx{\VEC{x}} + E_1 + E_2 + E_3
 \end{align*}
 for all $v \in X_{r_2}$, where
 \[
-E_3(v,u) = (-1)^{j+1} \sum_{|\alpha|,|\beta|\leq 1}
-\int_{\Omega_r} \left(\overline{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u}\right) \,
-\left(\overline{\psi} \diff^\alpha \Delta_{-\VEC{h}}^\gamma v -
-\diff^\alpha \left( \overline{\psi} \Delta_{-\VEC{h}}^\gamma v\right)\right)
-\dx{\VEC{x}}
+E_3(v,u) = (-1)^{j+1} \sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
+\int_{\Omega_r} \left(\overline{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u}\right) \,
+\left(\overline{\psi} \diff^{\VEC{\alpha}} \Delta_{-\VEC{h}}^{\VEC{\gamma}} v -
+\diff^{\VEC{\alpha}} \left( \overline{\psi}
+\Delta_{-\VEC{h}}^{\VEC{\gamma}} v\right)\right) \dx{\VEC{x}}
 \]
 for all $v \in X_{r_2}$.  Finally, since
-$\displaystyle \overline{\psi} \Delta_{-\VEC{h}}^\gamma v \in X_{r_2} \subset X$,
-we have from (\ref{ell_var_reg}) that
+$\displaystyle \overline{\psi} \Delta_{-\VEC{h}}^{\VEC{\gamma}} v
+\in X_{r_2} \subset X$, we have from (\ref{ell_var_reg}) that
 \begin{align*}
-B\left(v,\Delta_{\VEC{h}}^\gamma(\psi u)\right)
+B\left(v,\Delta_{\VEC{h}}^{\VEC{\gamma}}(\psi u)\right)
 &= (-1)^{j+1} \int_{\Omega_r}
-\left( \overline{\psi} \Delta_{-\VEC{h}}^\gamma v\right)\,\overline{f}
+\left( \overline{\psi} \Delta_{-\VEC{h}}^{\VEC{\gamma}} v\right)\,\overline{f}
 \dx{\VEC{x}} +E_1 + E_2 + E_3 = E_1 + E_2 + E_3 + E_4
 \end{align*}
 for all $v \in X_{r_2}$, where
 \begin{align*}
 E_4(v,u) &= (-1)^{j+1} \int_{\Omega_r}
-\left( \Delta_{-\VEC{h}}^\gamma v \right)\,\overline{\psi\, f} \dx{\VEC{x}}
+\left( \Delta_{-\VEC{h}}^{\VEC{\gamma}} v \right)\,\overline{\psi\, f}
+\dx{\VEC{x}}
 = (-1)^{j+1} \int_{\Omega_r}
-\left( \Delta^{\tilde{\gamma}}_{-\VEC{h}} \left(\Delta_{-h_i \VEC{e}_i} v \right)
+\left( \Delta^{\tilde{\VEC{\gamma}}}_{-\VEC{h}}
+\left(\Delta_{-h_i \VEC{e}_i} v \right)
 \right) \,\overline{\psi\, f} \dx{\VEC{x}} \\
 &= - \int_{\Omega_r} \left(\Delta_{h_i \VEC{e}_i} v \right)
-\,\overline{\Delta^{\tilde{\gamma}}_{\VEC{h}} (\psi\, f)} \dx{\VEC{x}}
+\,\overline{\Delta^{\tilde{\VEC{\gamma}}}_{\VEC{h}} (\psi\, f)} \dx{\VEC{x}}
 \end{align*}
 for all $v \in X_{r_2}$, where we have selected $1 \leq i < n$ such
-that $\gamma_i >0$ and set $\tilde{\gamma} = \gamma - \VEC{e}_i$.
-So $|\tilde{\gamma}| = j$ with $\tilde{\gamma}_n = 0$.
+that $\gamma_i >0$ and set $\tilde{\VEC{\gamma}} = \VEC{\gamma} - \VEC{e}_i$.
+So $|\tilde{\VEC{\gamma}}| = j$ with $\tilde{\gamma}_n = 0$.
 We have used Proposition~\ref{DiffQuotientAdjoint} for the last
 equality in the expression above.
 
@@ -5352,16 +5499,18 @@ we may use Schwarz inequality in $\displaystyle L^2(\Omega_r)$ and
 Corollary~\ref{ell_reg_cor2} to get a constant $Q_1$ such that
 \begin{align*}
 &\left| E_1(u,v) \right| \leq 
-\sum_{|\alpha|,|\beta|\leq 1}
-\left\| \diff^\alpha v\right\|_{2,\Omega_{r_2}} \, \left\|[\Delta_{\VEC{h}}^\gamma,
-b_{\alpha,\beta}(\VEC{x})] \diff^\beta (\psi u) \right\|_{2,\Omega_{r_2}} \\
+\sum_{|\VEC{\alpha}|,|\VEC{\beta}|\leq 1}
+\left\| \diff^{\VEC{\alpha}} v\right\|_{2,\Omega_{r_2}} \,
+\left\|[\Delta_{\VEC{h}}^{\VEC{\gamma}},
+b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})] \diff^{\VEC{\beta}} (\psi u)
+\right\|_{2,\Omega_{r_2}} \\
 &\qquad \leq Q_1 \|v\|_{1,2,\Omega_{r_2}}
-\sum_{\eta<\gamma,\, |\beta|\leq 1}
-\| \diff^\eta \diff^\beta (\psi u) \|_{2,\Omega_{r_2}}
+\sum_{\VEC{\eta}<\VEC{\gamma},\, |\VEC{\beta}|\leq 1}
+\| \diff^{\VEC{\eta}} \diff^{\VEC{\beta}} (\psi u) \|_{2,\Omega_{r_2}}
 \leq Q_1 \|v\|_{1,2,\Omega_{r_2}}
-\sum_{\eta<\gamma} \| \diff^\eta u \|_{1,2,\Omega_{r_2}} \\
+\sum_{\VEC{\eta}<\VEC{\gamma}} \| \diff^{\VEC{\eta}} u \|_{1,2,\Omega_{r_2}} \\
 &\qquad \leq Q_1 \|v\|_{1,2,\Omega_{r_2}}
-\sum_{|\eta|\leq j,\, \eta_n=0} \| \diff^\eta u \|_{1,2,\Omega_{r_2}}
+\sum_{|\VEC{\eta}|\leq j,\, \eta_n=0} \| \diff^{\VEC{\eta}} u \|_{1,2,\Omega_{r_2}}
 \end{align*}
 for all $v \in X_{r_2}$.  It follows from (\ref{ell_reg_B2}), our
 induction hypothesis, that
@@ -5370,52 +5519,58 @@ induction hypothesis, that
 \left( \|f\|_{q,2,\Omega_r} + \|u\|_{1,2,\Omega_r} \right)
 \]
 for all $v \in X_{r_2}$, where
-$\displaystyle C_{E_1} = Q_1 C_2 \sum_{|\eta|\leq j,\,\eta_n=0} 1$.
+$\displaystyle C_{E_1} = Q_1 C_2 \sum_{|\VEC{\eta}|\leq j,\,\eta_n=0} 1$.
 
 For $E_2$, we have
 \[
-\diff^\beta( \psi u) - \psi \diff^\beta u =
+\diff^{\VEC{\beta}}( \psi u) - \psi \diff^{\VEC{\beta}} u =
 \begin{cases}
-(\diff^\beta \psi ) u  & \quad \text{if} \ |\beta|=1 \\
-0 & \quad \text{if} \ |\beta| = 0
+(\diff^{\VEC{\beta}} \psi ) u  & \quad \text{if} \ |\VEC{\beta}|=1 \\
+0 & \quad \text{if} \ |\VEC{\beta}| = 0
 \end{cases}
 \]
 Hence, we get from Schwarz inequality in $\displaystyle L^2(\Omega_r)$ that
 \begin{align*}
 &\left| E_2(u,v) \right|
-\leq \sum_{|\beta|= 1,\,|\alpha|\leq 1}
-\left\| \diff^\alpha v\right\|_{2,\Omega_{r_2}} \,
-\left\| \Delta_{\VEC{h}}^\gamma \left( b_{\alpha,\beta}
-(\diff^\beta \psi) u \right)\right\|_{2,\Omega_{r_2}} \\
-&\quad \leq \left\|v\right\|_{1,2,\Omega_{r_2}}
-\sum_{|\beta|= 1,\,|\alpha|\leq 1} \left\| 
-\Delta_{\VEC{h}}^\gamma \left( b_{\alpha,\beta} (\diff^\beta \psi) u \right)
-\right\|_{2,\Omega_{r_2}}
+\leq \sum_{|\VEC{\beta}|= 1,\,|\VEC{\alpha}|\leq 1}
+\left\| \diff^{\VEC{\alpha}} v\right\|_{2,\Omega_{r_2}} \,
+\left\| \Delta_{\VEC{h}}^{\VEC{\gamma}} \left( b_{\VEC{\alpha},\VEC{\beta}}
+(\diff^{\VEC{\beta}} \psi) u \right)\right\|_{2,\Omega_{r_2}} \\
+&\leq \left\|v\right\|_{1,2,\Omega_{r_2}}
+\sum_{|\VEC{\beta}|= 1,\,|\VEC{\alpha}|\leq 1} \left\| 
+\Delta_{\VEC{h}}^{\VEC{\gamma}} \left( b_{\VEC{\alpha},\VEC{\beta}}
+(\diff^{\VEC{\beta}} \psi) u \right) \right\|_{2,\Omega_{r_2}}
 \leq P_1 \left\|v\right\|_{1,2,\Omega_{r_2}}
-\sum_{|\beta|= 1,\,|\alpha|\leq 1} \left\| 
-\diff^\gamma \left( b_{\alpha,\beta} (\diff^\beta \psi) u \right)
-\right\|_{2,\Omega_{r_2}} \\
-&\quad \leq P_1 \left\|v\right\|_{1,2,\Omega_{r_2}}
-\sum_{|\beta|=1,\,|\alpha|\leq 1} \left(
-\sum_{\eta \leq \gamma} Q_{\alpha,\beta,\eta}
-\| \diff^\eta u \|_{2,\Omega_{r_2}} \right)
+\sum_{|\VEC{\beta}|= 1,\,|\VEC{\alpha}|\leq 1} \left\| 
+\diff^{\VEC{\gamma}} \left( b_{\VEC{\alpha},\VEC{\beta}}
+(\diff^{\VEC{\beta}} \psi) u \right) \right\|_{2,\Omega_{r_2}} \\
+&\leq P_1 \left\|v\right\|_{1,2,\Omega_{r_2}}
+\sum_{|\VEC{\beta}|=1,\,|\VEC{\alpha}|\leq 1} \left(
+\sum_{\VEC{\eta} \leq \VEC{\gamma}} Q_{\VEC{\alpha},\VEC{\beta},\VEC{\eta}}
+\| \diff^{\VEC{\eta}} u \|_{2,\Omega_{r_2}} \right)
 = P_1 \left\|v\right\|_{1,2,\Omega_{r_2}}
-\sum_{\eta \leq \gamma} \Big( \sum_{|\beta|=1,\,|\alpha|\leq 1}
- Q_{\alpha,\beta,\eta} \Big) \left\| \diff^\eta u \right\|_{2,\Omega_{r_2}} \\
-&\quad \leq P_1 Q_2 \left\|v\right\|_{1,2,\Omega_{r_2}} \sum_{\eta \leq \gamma}
-\| \diff^\eta u \|_{2,\Omega_{r_2}}
-\leq P_1 Q_2 \left\|v\right\|_{1,2,\Omega_{r_2}} \sum_{|\eta|\leq j,\,\eta_n=0}
-\left\| \diff^\eta u \right\|_{1,2,\Omega_{r_2}}
+\sum_{\VEC{\eta} \leq \VEC{\gamma}} \Big(
+\sum_{|\VEC{\beta}|=1,\,|\VEC{\alpha}|\leq 1}
+Q_{\VEC{\alpha},\VEC{\beta},\VEC{\eta}} \Big)
+\left\| \diff^{\VEC{\eta}} u \right\|_{2,\Omega_{r_2}} \\
+&\leq P_1 Q_2 \left\|v\right\|_{1,2,\Omega_{r_2}}
+\sum_{\VEC{\eta} \leq \VEC{\gamma}}
+\| \diff^{\VEC{\eta}} u \|_{2,\Omega_{r_2}}
+\leq P_1 Q_2 \left\|v\right\|_{1,2,\Omega_{r_2}}
+\sum_{|\VEC{\eta}|\leq j,\,\eta_n=0}
+\left\| \diff^{\VEC{\eta}} u \right\|_{1,2,\Omega_{r_2}}
 \end{align*}
 for all $v \in X_{r_2}$, where $P_1$ is a constant given by
 Lemma~\ref{ellRegProp3Omega} with $\Omega = \Omega_{r_2}$ and $k=0$.
-Moreover, the constants $Q_{\alpha,\beta,\eta}$ are summations of
-terms of the form
-$\displaystyle \sup_{\VEC{x} \in \overline{\Omega}} \left|\diff^{\mu}
-b_{\alpha,\beta}(\VEC{x})\diff^{\beta+\nu} \psi(\VEC{x}) \right|$
-for $\mu+\nu \leq \gamma - \eta$, and
-$\displaystyle Q_2 = \max_{\eta \leq \gamma} \sum_{|\beta|=1,\,|\alpha|\leq 1}
-Q_{\alpha,\beta,\eta}$.
+Moreover, the constants $Q_{\VEC{\alpha},\VEC{\beta},\VEC{\eta}}$ are
+summations of terms of the form
+$\displaystyle \sup_{\VEC{x} \in \overline{\Omega}} \left|\diff^{\VEC{\mu}}
+b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})\diff^{\VEC{\beta}+\VEC{\nu}}
+\psi(\VEC{x}) \right|$
+for $\VEC{\mu}+\VEC{\nu} \leq \VEC{\gamma} - \VEC{\eta}$, and
+$\displaystyle Q_2 = \max_{\VEC{\eta} \leq \VEC{\gamma}}
+\sum_{|\VEC{\beta}|=1,\,|\VEC{\alpha}|\leq 1}
+Q_{\VEC{\alpha},\VEC{\beta},\VEC{\eta}}$.
 
 As for $E_1$, we can use the induction
 hypothesis to find a constant $C_{E_2}$ such that
@@ -5427,70 +5582,81 @@ for all $v \in X_{r_2}$.
 
 For $E_3$, we have
 \[
-\overline{\psi} \diff^\alpha \Delta_{-\VEC{h}}^\gamma v -
-\diff^\alpha \left( \overline{\psi} \Delta_{-\VEC{h}}^\gamma v \right)
+\overline{\psi} \diff^{\VEC{\alpha}} \Delta_{-\VEC{h}}^{\VEC{\gamma}} v -
+\diff^{\VEC{\alpha}} \left( \overline{\psi}
+\Delta_{-\VEC{h}}^{\VEC{\gamma}} v \right)
 = \begin{cases}
-- \left( \diff^\alpha \overline{\psi} \right) \,
-\Delta_{-\VEC{h}}^\gamma v & \quad \text{if} \ |\alpha|=1 \\
-0 & \quad \text{if} \ |\alpha| = 0
+- \left( \diff^{\VEC{\alpha}} \overline{\psi} \right) \,
+\Delta_{-\VEC{h}}^{\VEC{\gamma}} v & \quad \text{if} \ |\VEC{\alpha}|=1 \\
+0 & \quad \text{if} \ |\VEC{\alpha}| = 0
 \end{cases}
 \]
 Hence,
 \[
-\left| E_3(v,u) \right| = \left| \sum_{|\alpha|=1,\,|\beta|\leq 1}
-\int_{\Omega_r} \overline{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u} \,
-\left( \left( \diff^\alpha \overline{\psi} \right) \, \Delta_{-\VEC{h}}^\gamma v
-\right) \dx{\VEC{x}} \right|
+\left| E_3(v,u) \right| = \left| \sum_{|\VEC{\alpha}|=1,\,|\VEC{\beta}|\leq 1}
+\int_{\Omega_r} \overline{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u} \,
+\left( \left( \diff^{\VEC{\alpha}} \overline{\psi} \right) \,
+\Delta_{-\VEC{h}}^{\VEC{\gamma}} v \right) \dx{\VEC{x}} \right|
 \]
 for all $v \in X_{r_2}$.  Choose $i$ such that $\gamma_i \neq 0$ and set
-$\tilde{\gamma} = \gamma - \VEC{e}_i$.  Using
+$\tilde{\VEC{\gamma}} = \VEC{\gamma} - \VEC{e}_i$.  Using
 proposition~\ref{DiffQuotientAdjoint}, we get
 \begin{align*}
 \left| E_3(v,u) \right|
-&= \left| \sum_{|\alpha|=1,\,|\beta|\leq 1}
-\int_{\Omega_r} \overline{b_{\alpha,\beta}(\VEC{x}) \diff^\beta u \,
-\diff^\alpha \psi} \, \left(\Delta^{\tilde{\gamma}}_{-\VEC{h}}
+&= \left| \sum_{|\VEC{\alpha}|=1,\,|\VEC{\beta}|\leq 1}
+\int_{\Omega_r} \overline{b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})
+\diff^{\VEC{\beta}} u \,
+\diff^{\VEC{\alpha}} \psi} \, \left(\Delta^{\tilde{\VEC{\gamma}}}_{-\VEC{h}}
 \left(\Delta_{-h_i \VEC{e}_i} v \right) \right) \dx{\VEC{x}} \right| \\
-&= \left| (-1)^{|\tilde{\gamma}|} \sum_{|\alpha|= 1,\,|\beta|\leq 1}
-\int_{\Omega_r} \overline{ \Delta_{\VEC{h}}^{\tilde{\gamma}} \left(
-b_{\alpha,\beta}(\VEC{x}) \diff^\beta u \, \diff^\alpha \psi \right)} \,
+&= \left| (-1)^{|\tilde{\VEC{\gamma}}|}
+\sum_{|\VEC{\alpha}|= 1,\,|\VEC{\beta}|\leq 1}
+\int_{\Omega_r} \overline{ \Delta_{\VEC{h}}^{\tilde{\VEC{\gamma}}} \left(
+b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u \,
+\diff^{\VEC{\alpha}} \psi \right)} \,
 \Delta_{-h_i\VEC{e}_i} v \dx{\VEC{x}} \right|
 \end{align*}
 for all $v \in X_{r_2}$.
 
 It follows from Schwarz inequality in $L^2(\Omega_r)$ that
 \begin{align*}
-&\left| E_3(v,u) \right| \leq \sum_{|\alpha|= 1,\,|\beta|\leq 1}
+&\left| E_3(v,u) \right| \leq \sum_{|\VEC{\alpha}|= 1,\,|\VEC{\beta}|\leq 1}
 \left\| \Delta_{-h_i \VEC{e}_i} v \right\|_{2,\Omega_{r_2}}
-\left\| \Delta_{\VEC{h}}^{\tilde{\gamma}} \left(
-b_{\alpha,\beta}(\VEC{x}) \diff^\beta u \, \diff^\alpha \psi \right)
-\right\|_{2,\Omega_{r_2}} \\
-&\qquad \leq P_1^2 \sum_{|\alpha|= 1,\,|\beta|\leq 1}
+\left\| \Delta_{\VEC{h}}^{\tilde{\VEC{\gamma}}} \left(
+b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u
+\, \diff^{\VEC{\alpha}} \psi \right) \right\|_{2,\Omega_{r_2}} \\
+&\qquad \leq P_1^2 \sum_{|\VEC{\alpha}|= 1,\,|\VEC{\beta}|\leq 1}
 \left\| \diff_{x_i} v \right\|_{2,\Omega_{r_2}}
-\left\| \diff^{\tilde{\gamma}} \left(
-b_{\alpha,\beta}(\VEC{x}) \diff^\beta u \, \diff^\alpha \psi \right)
-\right\|_{2,\Omega_{r_2}} \\
+\left\| \diff^{\tilde{\VEC{\gamma}}} \left(
+b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u \,
+\diff^{\VEC{\alpha}} \psi \right) \right\|_{2,\Omega_{r_2}} \\
 &\qquad \leq P_1^2
-\left\| v \right\|_{1,2,\Omega_{r_2}} \sum_{|\alpha|= 1 ,|\beta|\leq 1} \left(
-\sum_{\eta \leq \tilde{\gamma}} \tilde{Q}_{\alpha,\beta,\eta}
-\| \diff^{\beta+\eta} u \|_{2,\Omega_{r_2}} \right) \\
+\left\| v \right\|_{1,2,\Omega_{r_2}}
+\sum_{|\VEC{\alpha}|= 1 ,|\VEC{\beta}|\leq 1} \left(
+\sum_{\VEC{\eta} \leq \tilde{\VEC{\gamma}}}
+\tilde{Q}_{\VEC{\alpha},\VEC{\beta},\VEC{\eta} }
+\| \diff^{\VEC{\beta}+\VEC{\eta}} u \|_{2,\Omega_{r_2}} \right) \\
 &\qquad = P_1^2 \left\|v\right\|_{1,2,\Omega_{r_2}}
-\sum_{\eta \leq \tilde{\gamma}} \Big( \sum_{|\alpha|=1,\,|\beta|\leq 1}
-\tilde{Q}_{\alpha,\beta,\eta} \Big)
-\left\| \diff^\eta u \right\|_{1,2,\Omega_{r_2}} \\
+\sum_{\VEC{\eta} \leq \tilde{\VEC{\gamma}}} \Big(
+\sum_{|\VEC{\alpha}|=1,\,|\VEC{\beta}|\leq 1}
+\tilde{Q}_{\VEC{\alpha},\VEC{\beta},\VEC{\eta}} \Big)
+\left\| \diff^{\VEC{\eta}} u \right\|_{1,2,\Omega_{r_2}} \\
 &\qquad \leq Q_3 \left\| v \right\|_{1,2,\Omega_{r_2}}
-\sum_{\eta \leq \tilde{\gamma}} \left\| \diff^\eta u \right\|_{1,2,\Omega_{r_2}}
+\sum_{\VEC{\eta} \leq \tilde{\VEC{\gamma}}} \left\|
+\diff^{\VEC{\eta}} u \right\|_{1,2,\Omega_{r_2}}
 \leq Q_3 \left\| v \right\|_{1,2,\Omega_r}
-\sum_{|\eta| \leq j,\, \eta_n=0} \left\| u \right\|_{1,2,\Omega_{r_2}}
+\sum_{|\VEC{\eta}| \leq j,\, \eta_n=0} \left\| u \right\|_{1,2,\Omega_{r_2}}
 \end{align*}
 for all $v \in X_{r_2}$, where $P_1$ is defined above.  Moreover,
-the constants $\tilde{Q}_{\alpha,\beta,\eta}$ are summations of terms
-of the form
-$\displaystyle \sup_{\VEC{x} \in \overline{\Omega_r}} \left|\diff^{\mu}
-b_{\alpha,\beta}(\VEC{x})\diff^{\alpha+\nu} \psi(\VEC{x}) \right|$
-for $\mu+\nu \leq \tilde{\gamma} - \eta$, and
-$\displaystyle Q_3 = P_1^2 \max_{\eta \leq \tilde{\gamma}}
-\sum_{|\beta|=1,\,|\alpha|\leq 1} \tilde{Q}_{\alpha,\beta,\eta}$.  
+the constants $\tilde{Q}_{\VEC{\alpha},\VEC{\beta},\VEC{\eta}}$ are
+summations of terms of the form
+$\displaystyle \sup_{\VEC{x} \in \overline{\Omega_r}} \left|\diff^{\VEC{\mu}}
+b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x})\diff^{\VEC{\alpha}+\VEC{\nu}}
+\psi(\VEC{x}) \right|$
+for $\VEC{\mu}+\VEC{\nu} \leq \tilde{\VEC{\gamma}} - \VEC{\eta}$, and
+$\displaystyle Q_3 = P_1^2 \max_{\VEC{\eta} \leq \tilde{\VEC{\gamma}}}
+\sum_{|\VEC{\beta}|=1,\,|\VEC{\alpha}|\leq 1}
+\tilde{Q}_{\VEC{\alpha},\VEC{\beta},\VEC{\eta}}$.
 
 As for $E_1$ and $E_2$, we can use the induction
 hypothesis to find a constant $C_{E_3}$ such that
@@ -5505,30 +5671,33 @@ Using Schwarz inequality in $\displaystyle L^2(\Omega_r)$, we get
 \begin{align*}
 \left| E_4(v,u) \right| &\leq
 \left\| \Delta_{-h_i \VEC{e}_i}^{\VEC{e}_i} v \right\|_{2,\Omega_r} \,
-\left\| \Delta_{\VEC{h}}^{\tilde{\gamma}}\,\left( \psi f \right)
+\left\| \Delta_{\VEC{h}}^{\tilde{\VEC{\gamma}}}\,\left( \psi f \right)
 \right\|_{2,\Omega_r}
 \leq P_1^2 \|\diff_{x_i} v \|_{2,\Omega_r} \,
-\left\| \diff^{\tilde{\gamma}}\,\left( \psi f \right) \right\|_{2,\Omega_r} \\
+\left\| \diff^{\tilde{\VEC{\gamma}}}\,\left( \psi f \right)
+\right\|_{2,\Omega_r} \\
 &\leq P_1^2 \|v \|_{1,2,\Omega_r} \,
-\left\| \diff^{\tilde{\gamma}}\,\left( \psi f \right) \right\|_{2,\Omega_r}
+\left\| \diff^{\tilde{\VEC{\gamma}}}\,\left( \psi f \right) \right\|_{2,\Omega_r}
 \leq C_{E_4} \|v \|_{1,2,\Omega_{r_2}} \, \| f \|_{q,2,\Omega_r}
 \end{align*}
 for all $v \in X_r$, where $P_1$ is defined above and $C_{E_4}$ is
 defined as it follows.  The last inequality comes from
-$|\tilde{\gamma}| \leq j \leq k$ since 
+$|\tilde{\VEC{\gamma}}| \leq j \leq k$ since 
 we assume that $j < k+1$, and the relation
 \[
-\left\| \diff^{\tilde{\gamma}}\,\left( \psi f \right) \right\|_{2,\Omega_r}
-\leq \sum_{\mu+\nu=\tilde{\gamma}} \binom{\tilde{\gamma}}{\nu}
-\left\| \diff^{\mu} f \right\|_{2,\Omega_r}\,
-\left\|\diff^{\nu} \psi \right\|_{2,\Omega_r}
-\leq \left( \sum_{\nu \leq\tilde{\gamma}} \binom{\tilde{\gamma}}{\nu}
-\left\|\diff^{\nu} \psi \right\|_{2,\Omega_r} \right)
+\left\| \diff^{\tilde{\VEC{\gamma}}}\,\left( \psi f \right) \right\|_{2,\Omega_r}
+\leq \sum_{\VEC{\mu}+\VEC{\nu}=\tilde{\VEC{\gamma}}}
+\binom{\tilde{\VEC{\gamma}}}{\VEC{\nu}}
+\left\| \diff^{\VEC{\mu}} f \right\|_{2,\Omega_r}\,
+\left\|\diff^{\VEC{\nu}} \psi \right\|_{2,\Omega_r}
+\leq \left( \sum_{\VEC{\nu} \leq\tilde{\VEC{\gamma}}}
+\binom{\tilde{\VEC{\gamma}}}{\VEC{\nu}}
+\left\|\diff^{\VEC{\nu}} \psi \right\|_{2,\Omega_r} \right)
 \left\| f \right\|_{q,2,\Omega_r} \ .
 \]
 We therefore have that $\displaystyle C_{E_4} = P_1^2 
-\sum_{\nu \leq\tilde{\gamma}} \binom{\tilde{\gamma}}{\nu}
-\left\|\diff^{\nu} \psi \right\|_{2,\Omega_r}$.  Hence,
+\sum_{\VEC{\nu} \leq\tilde{\VEC{\gamma}}} \binom{\tilde{\VEC{\gamma}}}{\VEC{\nu}}
+\left\|\diff^{\VEC{\nu}} \psi \right\|_{2,\Omega_r}$.  Hence,
 \[
 \left| E_4(v,u) \right| \leq C_{E_4} \|v\|_{1,2,\Omega_{r_2}}
 \left( \|f\|_{q,2,\Omega_r} + \|u\|_{1,2,\Omega_r} \right)
@@ -5546,52 +5715,57 @@ definition of a weakly coercive form applied to $B$; namely,
 \RE B(v,v) \geq C_0 \|v\|_{1,2}^2 - \lambda \|v\|_2^2
 \end{equation}
 for all $v \in X_r$.  If we substitute
-$\displaystyle v = \Delta^\alpha_{\VEC{h}} (\psi u)$ in
+$\displaystyle v = \Delta^{\VEC{\alpha}}_{\VEC{h}} (\psi u)$ in
 (\ref{ell_wcREG}) and use (\ref{ell_reg_B3}), we get that
 \begin{align*}
-\left\| \Delta^\gamma_{\VEC{h}} (\psi u) \right\|_{1,2,\Omega_{r_2}}^2
-&\leq \frac{1}{C_0} \left( \left| B\left(\Delta^\gamma_{\VEC{h}} (\psi u),
-\Delta^\gamma_{\VEC{h}} (\psi u)\right)\right| + \lambda
-\left\|\Delta^\gamma_{\VEC{h}} (\psi u)\right\|_{2,\Omega_{r_2}}^2 \right)\\
+\left\| \Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u) \right\|_{1,2,\Omega_{r_2}}^2
+&\leq \frac{1}{C_0} \left( \left| B\left(\Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u),
+\Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u)\right)\right| + \lambda
+\left\|\Delta^{\VEC{\gamma}}_{\VEC{h}}
+(\psi u)\right\|_{2,\Omega_{r_2}}^2 \right)\\
 &\leq \frac{1}{C_0} \left(
-C_3 \left\|\Delta^\gamma_{\VEC{h}} (\psi u)\right\|_{1,2,\Omega_{r_2}}
+C_3 \left\|\Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u)\right\|_{1,2,\Omega_{r_2}}
 \left( \|f\|_{q,2,\Omega_r} + \|u\|_{1,2,\Omega_r}\right) + \lambda
-\left\|\Delta^\gamma_{\VEC{h}} (\psi u)\right\|_{2,\Omega_{r_2}}^2 \right) \\
+\left\|\Delta^{\VEC{\gamma}}_{\VEC{h}}
+(\psi u)\right\|_{2,\Omega_{r_2}}^2 \right) \\
 &\leq \frac{1}{C_0} \left(
-C_3 \left\|\Delta^\gamma_{\VEC{h}} (\psi u)\right\|_{1,2,\Omega_{r_2}}
+C_3 \left\|\Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u)\right\|_{1,2,\Omega_{r_2}}
 \left( \|f\|_{q,2,\Omega_r} + \|u\|_{1,2,\Omega_r}\right) \right. \\
 &\qquad \left. + \lambda
-\left\|\Delta^\gamma_{\VEC{h}} (\psi u)\right\|_{2,\Omega_{r_2}}\,
-\left\|\Delta^\gamma_{\VEC{h}} (\psi u)\right\|_{1,2,\Omega_{r_2}} \right) \ .
+\left\|\Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u)\right\|_{2,\Omega_{r_2}}\,
+\left\|\Delta^{\VEC{\gamma}}_{\VEC{h}}
+(\psi u)\right\|_{1,2,\Omega_{r_2}} \right) \ .
 \end{align*}
 Hence,
 \[
-\left\| \Delta^\gamma_{\VEC{h}} (\psi u) \right\|_{1,2,\Omega_{r_2}}
+\left\| \Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u) \right\|_{1,2,\Omega_{r_2}}
 \leq \frac{1}{C_0} \left(
 C_3 \left( \|f\|_{q,2,\Omega_r} + \|u\|_{1,2,\Omega_r}\right) + \lambda
-\left\|\Delta^\gamma_{\VEC{h}} (\psi u)\right\|_{2,\Omega_{r_2}}\,
+\left\|\Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u)\right\|_{2,\Omega_{r_2}}\,
 \right) \ .
 \]
 Choose $i$ such that $\gamma_i \neq 0$ and set
-$\tilde{\gamma} = \alpha - \VEC{e}_i$.
-From (\ref{ell_reg_B2}), that we can use because $|\tilde{\gamma}|\leq j$,
+$\tilde{\VEC{\gamma}} = \VEC{\alpha} - \VEC{e}_i$.
+From (\ref{ell_reg_B2}), that we can use because
+$|\tilde{\VEC{\gamma}}|\leq j$,
 we find that
 \begin{align*}
-\left\| \Delta^\gamma_{\VEC{h}} (\psi u) \right|_{2,\Omega_{r_2}}
-&= \left\| \Delta_{h_i\VEC{e}_1}^{\VEC{e}_i} \Delta^{\tilde{\gamma}}_{\VEC{h}}
+\left\| \Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u) \right|_{2,\Omega_{r_2}}
+&= \left\| \Delta_{h_i\VEC{e}_1}^{\VEC{e}_i} \Delta^{\tilde{\VEC{\gamma}}}_{\VEC{h}}
 (\psi u) \right\|_{2,\Omega_{r_2}}
-\leq P_1 \left\| \diff^{\VEC{e}_i} \left( \Delta^{\tilde{\gamma}}_{\VEC{h}}
+\leq P_1 \left\| \diff^{\VEC{e}_i} \left( \Delta^{\tilde{\VEC{\gamma}}}_{\VEC{h}}
 (\psi u) \right) \right\|_{2,\Omega_{r_2}}
-\leq P_1 \left\| \Delta^{\tilde{\gamma}}_{\VEC{h}}
+\leq P_1 \left\| \Delta^{\tilde{\VEC{\gamma}}}_{\VEC{h}}
 (\psi u) \right\|_{1,2,\Omega_{r_2}} \\
-&\leq P_1 P_2 \left\| \diff^{\tilde{\gamma}} (\psi u) \right\|_{1,2,\Omega_{r_2}}
+&\leq P_1 P_2 \left\| \diff^{\tilde{\VEC{\gamma}}} (\psi u)
+\right\|_{1,2,\Omega_{r_2}}
 \leq C_4 \left( \|f\|_{q,2,\Omega_r} + \|u\|_{1,2,\Omega_r} \right)
 \end{align*}
 for $\|\VEC{h}\| < (r_2-r_1)/(j+1)$, where $P_1$ is defined above,
 $P_2$ is a constant given by Lemma~\ref{ellRegProp3Omega} with
 $\Omega = \Omega_{r_2}$ and $k=1$, and $C_4 = P_1 P_2 C_2$.  Hence,
 \begin{align*}
-\left\| \Delta^\gamma_{\VEC{h}} (\psi u) \right\|_{1,2,\Omega_{r_2}}
+\left\| \Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u) \right\|_{1,2,\Omega_{r_2}}
 &\leq \frac{1}{C_0} \big(
 C_3 \left( \|f\|_{q,2,\Omega_r} + \|u\|_{1,2,\Omega_r}\right) + \lambda
 C_4 \left( \|f\|_{q,2,\Omega_r} + \|u\|_{1,2,\Omega_r} \right) \big) \\
@@ -5601,128 +5775,135 @@ C_4 \left( \|f\|_{q,2,\Omega_r} + \|u\|_{1,2,\Omega_r} \right) \big) \\
 With $\displaystyle C_5 = \max \left\{ C_2 ,
 \frac{1}{C_0} \left( C_3 + \lambda C_4 \right) \right\}$, we get
 \begin{equation} \label{ell_reg_fn1}
-\left\| \Delta^\gamma_{\VEC{h}} (\psi u) \right\|_{1,2,\Omega_{r_2}}
+\left\| \Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u) \right\|_{1,2,\Omega_{r_2}}
 \leq C_5 \left( \|f\|_{q,2,\Omega_r} + \|u\|_{1,2,\Omega_r}\right)
 \end{equation}
-for all multi-indices $\gamma$ such that $|\gamma|\leq j+1$ and
-$\alpha_n=0$, and all $\VEC{h}$ such that $\|\VEC{h}\|< (r_2-r_1)/(j+1)$.
+for all multi-indices $\VEC{\gamma}$ such that $|\VEC{\gamma}|\leq j+1$ and
+$\gamma_n=0$, and all $\VEC{h}$ such that $\|\VEC{h}\|< (r_2-r_1)/(j+1)$.
 
 We have from Corollary~\ref{ell_reg_cor3} that
-$\displaystyle \diff^\gamma (\psi u) \in H^{1,2}(\Omega_{r_2})$
+$\displaystyle \diff^{\VEC{\gamma}} (\psi u) \in H^{1,2}(\Omega_{r_2})$
 because
 $\displaystyle \limsup_{\VEC{h}\rightarrow \VEC{0}}
-\|\Delta^\gamma_{\VEC{h}} f\|_{q,2,\Omega_r}
+\|\Delta^{\VEC{\gamma}}_{\VEC{h}} f\|_{q,2,\Omega_r}
 \leq C_5 \left( \|f\|_{q,2,\Omega_r} + \|u\|_{1,2,\Omega_r}\right) < \infty$,
 and there exists a constant $C_6$ such that
 \begin{equation} \label{ell_reg_fn2}
-\left\| \diff^\gamma (\psi u) \right\|_{1,2,\Omega_{r_2}} \leq C_6
-\left\| \Delta^\gamma_{\VEC{h}} (\psi u) \right\|_{1,2,\Omega_{r_2}}
+\left\| \diff^{\VEC{\gamma}} (\psi u) \right\|_{1,2,\Omega_{r_2}} \leq C_6
+\left\| \Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u) \right\|_{1,2,\Omega_{r_2}}
 \end{equation}
 for some (in fact infinitely many) values of $\VEC{h}$ such that
 $\|\VEC{h}\| < (r_2-r_1)/(j+1)$.  Since $\psi = 1$ on $\Omega_\rho$, we
 have that
 \begin{equation} \label{ell_reg_fn3}
-\left\| \diff^\gamma u \right\|_{1,2,\Omega_{\rho}} \leq
-\left\| \diff^\gamma (\psi u) \right\|_{1,2,\Omega_{r_2}} \ .
+\left\| \diff^{\VEC{\gamma}} u \right\|_{1,2,\Omega_{\rho}} \leq
+\left\| \diff^{\VEC{\gamma}} (\psi u) \right\|_{1,2,\Omega_{r_2}} \ .
 \end{equation}
 It follows from (\ref{ell_reg_fn1}), (\ref{ell_reg_fn2}) and
 (\ref{ell_reg_fn3}) that
 \[
-\left\| \diff^\gamma u \right\|_{1,2,\Omega_{\rho}} \leq C_1
+\left\| \diff^{\VEC{\gamma}} u \right\|_{1,2,\Omega_{\rho}} \leq C_1
 \left( \|f\|_{q,2,\Omega_r} + \|u\|_{1,2,\Omega_r}\right)
 \]
-for all multi-indices $\gamma$ such that $|\gamma|\leq j+1$ and
+for all multi-indices $\VEC{\gamma}$ such that $|\VEC{\gamma}|\leq j+1$ and
 $\gamma_n =0$, where $C_1 = C_5 C_6$.  This complete the proof of
 claim A.
 
 \subI{Claim B} Assume that $\rho<r$, $j\leq q+2$ and
-$\gamma$ is a multi-index such that $|\gamma|\leq q+2$ and
+$\VEC{\gamma}$ is a multi-index such that $|\VEC{\gamma}|\leq q+2$ and
 $\gamma_n \leq j$.  Then,
-$\displaystyle \diff^\gamma u \in L^2(\Omega_\rho)$ and there
+$\displaystyle \diff^{\VEC{\gamma}} u \in L^2(\Omega_\rho)$ and there
 exists a constant $C_7=C_7(j,\rho)$ such that
 \begin{equation} \label{ell_claim2a}
-\left\|\diff^\gamma u \right\|_{2,\Omega_\rho} \leq C_7 \left(
+\left\|\diff^{\VEC{\gamma}} u \right\|_{2,\Omega_\rho} \leq C_7 \left(
 \left\|f\right\|_{q,2,\Omega_r} + \left\|u\right\|_{1,2,\Omega_r} \right) \ .
 \end{equation}
 
 The proof is by induction on $j$.  Claim A shows
 that this new claim is true for $j=0$ and $j=1$.  If $\gamma_n=0$, let
-$\tilde{\gamma} = \gamma - \VEC{e}_i$ for one index $0\leq i <n$ such that
-$\alpha_i>0$.  If $\gamma_n=1$, let $\tilde{\gamma} = \gamma - \VEC{e}_n$.
-Then $|\tilde{\gamma}|<q+2$ with $\tilde{\gamma}_n =0$.  Hence, from
+$\tilde{\VEC{\gamma}} = \VEC{\gamma} - \VEC{e}_i$ for one index $0\leq i <n$
+such that $\alpha_i>0$.  If $\gamma_n=1$, let
+$\tilde{\VEC{\gamma}} = \VEC{\gamma} - \VEC{e}_n$.
+Then $|\tilde{\VEC{\gamma}}|<q+2$ with $\tilde{\gamma}_n =0$.  Hence, from
 claim A, we have that
 \[
-\left\|\diff^\gamma u \right\|_{2,\Omega_\rho}
-\leq \left\|\diff^{\tilde{\gamma}} u \right\|_{1,2,\Omega_\rho}
+\left\|\diff^{\VEC{\gamma}} u \right\|_{2,\Omega_\rho}
+\leq \left\|\diff^{\tilde{\VEC{\gamma}}} u \right\|_{1,2,\Omega_\rho}
 \leq C_1(q+1,\rho) \left( \left\|f\right\|_{q,2,\Omega_r}
 + \left\|u\right\|_{1,2,\Omega_r} \right) \ .
 \]
 So $C_7(j,\rho) = C_1(q+1,\rho)$ for $j=0$ and $j=1$ is acceptable. 
 
 Suppose that $j\geq 2$ and that the claim is true for $\gamma_n<j$.
-Consider $\gamma$ such that $|\gamma| \leq q+2$ and $\gamma_n = j$.
-Let $\tilde{\gamma} = \gamma - 2 \VEC{e}_n$.
+Consider $\VEC{\gamma}$ such that $|\VEC{\gamma}| \leq q+2$ and
+$\gamma_n = j$.  Let $\tilde{\VEC{\gamma}} = \VEC{\gamma} - 2 \VEC{e}_n$.
 Since the operator
 $\displaystyle
-L(\VEC{x},\diff)u = \sum_{|\alpha|\leq 2} a_\alpha(\VEC{x}) \diff^\alpha u$,
+L(\VEC{x},\diff)u = \sum_{|\VEC{\alpha}|\leq 2} a_{\VEC{\alpha}}(\VEC{x})
+\diff^{\VEC{\alpha}} u$,
 the initial formulation of the variational problem
 (\ref{ell_var_reg}), is elliptic on $\overline{\Omega}$, we must have
-for $\beta = (0,0,\ldots,0,2)$ that
-$a_{\beta}(\VEC{x}) \neq 0$ for all $\VEC{x} \in \overline{\Omega}$.
+for $\VEC{\beta} = (0,0,\ldots,0,2)$ that
+$a_{\VEC{\beta}}(\VEC{x}) \neq 0$ for all $\VEC{x} \in \overline{\Omega}$.
 We may therefore rewrite $L(\VEC{x},\diff)u = f$ as
 \[
-\diff^\beta u = \frac{1}{a_\beta} \left( f -
-\sum_{|\alpha|\leq 2,\, \alpha_n\neq 2} a_\alpha \diff^\alpha u \right)
+\diff^{\VEC{\beta}} u = \frac{1}{a_{\VEC{\beta}}} \left( f -
+\sum_{|\VEC{\alpha}|\leq 2,\, \alpha_n\neq 2} a_{\VEC{\alpha}}
+\diff^{\VEC{\alpha}} u \right)
 \]
 on $\Omega$.  Thus,
 \begin{align*}
-\diff^\gamma u &= \diff^{\tilde{\gamma}} \diff^\beta u
-= \diff^{\tilde{\gamma}}\left(
-\frac{1}{a_\beta} f \right) - \diff^{\tilde{\gamma}} \left( \frac{1}{a_\beta}
-\sum_{|\alpha|\leq 2,\, \alpha_n\neq 2} a_\alpha \diff^\alpha u \right) \\
-&= \sum_{|\alpha|\leq q} g_\alpha \diff^\alpha f
-- \sum_{|\alpha|\leq q+2,\, \alpha_n\leq j-1} h_\alpha \diff^\alpha u \ ,
+\diff^{\VEC{\gamma}} u &= \diff^{\tilde{\VEC{\gamma}}} \diff^{\VEC{\beta}} u
+= \diff^{\tilde{\VEC{\gamma}}}\left(
+\frac{1}{a_{\VEC{\beta}}} f \right) - \diff^{\tilde{\VEC{\gamma}}}
+\left( \frac{1}{a_{\VEC{\beta}}}
+\sum_{|\VEC{\alpha}|\leq 2,\, \alpha_n\neq 2} a_{\VEC{\alpha}}
+\diff^{\VEC{\alpha}} u \right) \\
+&= \sum_{|\VEC{\alpha}|\leq q} g_{\VEC{\alpha}} \diff^{\VEC{\alpha}} f
+- \sum_{|\VEC{\alpha}|\leq q+2,\, \alpha_n\leq j-1} h_{\VEC{\alpha}}
+\diff^{\VEC{\alpha}} u \ ,
 \end{align*}
-where the $\displaystyle g_\alpha, h_\alpha \in C^\infty(\overline{\Omega})$
-for all $\alpha$.  The constraints on the indices for the second sum come
+where the $\displaystyle g_{\VEC{\alpha}}, h_{\VEC{\alpha}}
+\in C^\infty(\overline{\Omega})$
+for all $\VEC{\alpha}$.  The constraints on the indices for the second sum come
 from $\tilde{\gamma}_n \leq j-2$ and $\alpha_n <2$.  Hence,
 \begin{align*}
-\left\| \diff^\gamma u \right\|_{2,\Omega_\rho}
-&\leq \sum_{|\alpha|\leq q} \left(
-\sup_{\VEC{x}\in \overline{\Omega}_r} \left| g_\alpha(\VEC{x}) \right|
-\left\| \diff^\alpha f \right\|_{2,\Omega_\rho}\right)
-+ \sum_{|\alpha|\leq q+2,\, \alpha_n\leq j-1} \left(
-\sup_{\VEC{x}\in \overline{\Omega}_r} \left| h_\alpha(\VEC{x}) \right|
-\left\| \diff^\alpha u \right\|_{2,\Omega_\rho} \right) \ .
+\left\| \diff^{\VEC{\gamma}} u \right\|_{2,\Omega_\rho}
+&\leq \sum_{|\VEC{\alpha}|\leq q} \left(
+\sup_{\VEC{x}\in \overline{\Omega}_r} \left| g_{\VEC{\alpha}}(\VEC{x}) \right|
+\left\| \diff^{\VEC{\alpha}} f \right\|_{2,\Omega_\rho}\right)
++ \sum_{|\VEC{\alpha}|\leq q+2,\, \alpha_n\leq j-1} \left(
+\sup_{\VEC{x}\in \overline{\Omega}_r} \left| h_{\VEC{\alpha}}(\VEC{x}) \right|
+\left\| \diff^{\VEC{\alpha}}u \right\|_{2,\Omega_\rho} \right) \ .
 \end{align*}
 Since
 \[
-\left\| \diff^\alpha f \right\|_{2,\Omega_\rho} \leq
+\left\| \diff^{\VEC{\alpha}} f \right\|_{2,\Omega_\rho} \leq
 \left\| f \right\|_{q,2,\Omega_\rho} \leq
 \left\| f \right\|_{q,2,\Omega_r}
 \]
-for $|\alpha|\leq q$ and
+for $|\VEC{\alpha}|\leq q$ and
 \[
-\left\| \diff^\alpha u \right\|_{2,\Omega_\rho} \leq
+\left\| \diff^{\VEC{\alpha}} u \right\|_{2,\Omega_\rho} \leq
 C_7(j-1,\rho) \left(
 \left\|f\right\|_{q,2,\Omega_r} + \left\|u\right\|_{1,2,\Omega_r} \right)
 \]
-for $|\alpha|\leq q+2$ with $\alpha_n\leq j-1$ by induction, we get
+for $|\VEC{\alpha}|\leq q+2$ with $\alpha_n\leq j-1$ by induction, we get
 \[
-\left\| \diff^\gamma u \right\|_{2,\Omega_\rho}
+\left\| \diff^{\VEC{\gamma}} u \right\|_{2,\Omega_\rho}
 \leq A \left\| f \right\|_{q,2,\Omega_r} +
 B \left( \left\|f\right\|_{q,2,\Omega_r} +
 \left\|u\right\|_{1,2,\Omega_r} \right) \ ,
 \]
 where
-$\displaystyle A = \sum_{|\alpha|\leq q}
-\sup_{\VEC{x}\in \overline{\Omega}_r} \left| g_\alpha(\VEC{x}) \right|$
+$\displaystyle A = \sum_{|\VEC{\alpha}|\leq q}
+\sup_{\VEC{x}\in \overline{\Omega}_r} \left| g_{\VEC{\alpha}}(\VEC{x}) \right|$
 and
-$\displaystyle B = C_7(j-1,\rho) \sum_{|\alpha|\leq q+2,\, \alpha_n\leq j-1}
-\sup_{\VEC{x}\in \overline{\Omega}_r} \left| h_\alpha(\VEC{x}) \right|$.
+$\displaystyle B = C_7(j-1,\rho) \sum_{|\VEC{\alpha}|\leq q+2,\, \alpha_n\leq j-1}
+\sup_{\VEC{x}\in \overline{\Omega}_r} \left| h_{\VEC{\alpha}}(\VEC{x}) \right|$.
 Hence,
 \[
-\left\|\diff^\gamma u \right\|_{2,\Omega_\rho} \leq C_7(j,\rho) \left(
+\left\|\diff^{\VEC{\gamma}} u \right\|_{2,\Omega_\rho} \leq C_7(j,\rho) \left(
 \left\|f\right\|_{q,2,\Omega_r} + \left\|u\right\|_{1,2,\Omega_r}
 \right)
 \]
@@ -5731,20 +5912,22 @@ with $C_7(j,\rho) = A+B$.  This complete the proof of Claim B.
 \stage{C} To complete the proof, let
 $\displaystyle \tilde{C} = \max_{0\leq j \leq q+2} C_7(j.\rho)$, where the
 $C_7(j,\rho)$ are given by claim B.  Thus
-$\displaystyle \diff^\alpha u \in L^2(\Omega_\rho)$ and
+$\displaystyle \diff^{\VEC{\alpha}} u \in L^2(\Omega_\rho)$ and
 \[
-\left\|\diff^\alpha u \right\|_{2,\Omega_\rho} \leq \tilde{C} \left(
+\left\|\diff^{\VEC{\alpha}} u \right\|_{2,\Omega_\rho} \leq \tilde{C} \left(
 \left\|f\right\|_{q,2,\Omega_r} + \left\|u\right\|_{1,2,\Omega_r}
 \right)
 \]
-for all multi-indices $\alpha$ such that $|\alpha|\leq q+2$.  It follows
+for all multi-indices $\VEC{\alpha}$ such that
+$|\VEC{\alpha}|\leq q+2$.  It follows
 that $u \in H^{k+2,2}(\Omega_\rho)$ and
 \[
 \left\|u \right\|_{q+2,2,\Omega_\rho} \leq C \left(
 \left\|f\right\|_{q,2,\Omega_r} + \left\|u\right\|_{1,2,\Omega_r}
 \right)
 \]
-for $\displaystyle C = \tilde{C} \Big(\sum_{|\alpha|\leq q+2} 1\Big)^{1/2}$.
+for $\displaystyle C = \tilde{C}
+\Big(\sum_{|\VEC{\alpha}|\leq q+2} 1\Big)^{1/2}$.
 \end{proof}
 
 Before giving the proof of Theorem~\ref{ell_regular}, we
@@ -5770,13 +5953,13 @@ The proof is identical to the proof of Lemma~\ref{ell_reg_in_lem1}
 with $\displaystyle \RR^n$ replaced by $\Omega$ except that
 (\ref{ellRegInLem1Eq1}) becomes
 \[
-\left\| A_{\alpha_2}(\VEC{x}) \diff^{\alpha_2} v \right\|_{q-k+1,2,\Omega}
-\leq C_{\alpha_2} \left\| \diff^{\alpha_2} v \right\|_{q-k+1,2,\Omega}
-\leq C_{\alpha_2} \left\| v \right\|_{q-k+|\alpha_2|+1,2,\Omega}
-\leq C_{\alpha_2} \left\| v \right\|_{q,2,\Omega} \ ,
+\left\| A_{\VEC{\eta}}(\VEC{x}) \diff^{\VEC{\eta}} v \right\|_{q-k+1,2,\Omega}
+\leq C_{\VEC{\eta}} \left\| \diff^{\VEC{\eta}} v \right\|_{q-k+1,2,\Omega}
+\leq C_{\VEC{\eta}} \left\| v \right\|_{q-k+|\VEC{\eta}|+1,2,\Omega}
+\leq C_{\VEC{\eta}} \left\| v \right\|_{q,2,\Omega} \ ,
 \]
 where Proposition~\ref{sob_T_dd_wkp} is used to get the constants
-$C_{\alpha_2}$ and the definition of the norm $\|\cdot\|_{m,2,\Omega}$
+$C_{\VEC{\eta}}$ and the definition of the norm $\|\cdot\|_{m,2,\Omega}$
 with $m\in \NN$ is used to get the second inequality.
 \end{proof}
 
@@ -6142,7 +6325,7 @@ $\displaystyle u \in C^\infty(\Omega)$.
 We only have to show that
 \[
 u(\VEC{x}) = w(\VEC{x}) \equiv \int_{\partial \Omega} g(\VEC{y})\,
-\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{y})\dss{S}{y}
+\pdydx{G_{\VEC{x}}}{\nu}(\VEC{y})\dss{S}{y}
 \]
 for all $\VEC{x} \in \Omega$.
 
@@ -6158,20 +6341,20 @@ $\displaystyle u_j \in C^\infty(\overline{\Omega})$.  Hence, as it was
 proved after Theorem~\ref{laplace_dirichlet2}, we have that
 \begin{equation} \label{ell_THG2_equ}
 u_j(\VEC{x}) = \int_{\partial \Omega} u_j(\VEC{y})\,
-\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{y})\dss{S}{y}
+\pdydx{G_{\VEC{x}}}{\nu}(\VEC{y})\dss{S}{y}
 = \int_{\partial \Omega} g_j(\VEC{y})\,
-\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{y})\dss{S}{y}
+\pdydx{G_{\VEC{x}}}{\nu}(\VEC{y})\dss{S}{y}
 \end{equation}
 for all $\displaystyle \VEC{x} \in \Omega$.
 If $j \rightarrow \infty$, the right side of (\ref{ell_THG2_equ})
 converges to
 \[
 \int_{\partial \Omega} g(\VEC{y})\,
-\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{y})\dss{S}{y}
+\pdydx{G_{\VEC{x}}}{\nu}(\VEC{y})\dss{S}{y}
 \]
-because $\displaystyle g_j(\VEC{y})\,\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{y})$
+because $\displaystyle g_j(\VEC{y})\,\pdydx{G_{\VEC{x}}}{\nu}(\VEC{y})$
 converges uniformly to $\displaystyle g(\VEC{y})\,
-\pdydx{G_{\VEC{x}}}{\VEC{\nu}}(\VEC{y})$ on $\partial \Omega$.
+\pdydx{G_{\VEC{x}}}{\nu}(\VEC{y})$ on $\partial \Omega$.
 For the left side of (\ref{ell_THG2_equ}), we apply the maximum
 principle, Corollary~\ref{laplace_cHMP}, to $u_j-u$ to conclude that
 \[
@@ -6695,12 +6878,12 @@ v: \overline{\Omega} & \rightarrow \RR \\
 Suppose that $\Omega$ is bounded.  Then
 $\displaystyle v \in L^2(\Omega) \cap L^1(\Omega)$ because
 $v$ is continuous on the compact set $\overline{\Omega}$.  Moreover,
-for any multi-index $\alpha$ with $|\alpha|=1$, we have
-$\displaystyle \diff^\alpha v = g'(u-K) \diff^\alpha u$ in the sense
-of distributions with $|g'|\leq 1$ and
-$\displaystyle \diff^\alpha u\in L^2(\Omega)$
+for any multi-index $\VEC{\alpha}$ with $|\VEC{\alpha}|=1$, we have
+$\displaystyle \diff^{\VEC{\alpha}} v = g'(u-K) \diff^{\VEC{\alpha}} u$
+in the sense of distributions with $|g'|\leq 1$ and
+$\displaystyle \diff^{\VEC{\alpha}} u\in L^2(\Omega)$
 because $\displaystyle u \in H^{1,2}(\Omega)$.  Thus,
-$\displaystyle \diff^\alpha v \in L^2(\Omega)$.
+$\displaystyle \diff^{\VEC{\alpha}} v \in L^2(\Omega)$.
 Therefore, $\displaystyle v\in H^{1,2}(\Omega)$.
 
 Since $\displaystyle v\in H^{1,2}(\Omega) \cap C(\overline{\Omega})$ and
@@ -6755,8 +6938,9 @@ $-K_0$ such that
 \]
 Hence $|g(u-K_0)| \leq |u|$.  Since $\displaystyle u \in L^2(\Omega)$,
 we have that $\displaystyle v = g(u-K_0) \in L^2(\Omega)$.  The proof that
-$\displaystyle \diff^\alpha v \in L^2(\Omega)$ for the multi-index
-$\alpha$ such that $|\alpha|=1$ is identical to the proof given in (i.a).
+$\displaystyle \diff^{\VEC{\alpha}} v \in L^2(\Omega)$ for the multi-index
+$\VEC{\alpha}$ such that $|\VEC{\alpha}|=1$ is identical to the proof
+given in (i.a).
 As in (i.a), $\displaystyle v\in H^{1,2}(\Omega) \cap C(\overline{\Omega})$ and
 $v(\VEC{x}) = g(u(\VEC{x})-K_0) = 0$ for $\VEC{x}\in \partial \Omega$
 implies that $\displaystyle v\in H^{1,2}_0(\Omega)$.

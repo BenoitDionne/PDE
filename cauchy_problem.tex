@@ -8,8 +8,8 @@ The {\bfseries Cauchy Problem}\index{Cauchy Problem} is to find a function
 $\displaystyle u: \RR^n \rightarrow \RR$ such that
 \begin{equation}\label{cp_GPDE}
 G\left(\VEC{x},
-\left\{ \diff^\alpha u\left(\VEC{x}\right) : \alpha \in \NN^n \ , \
-  |\alpha|\leq m \right\} \right) = 0
+\left\{ \diff^{\VEC{\alpha}} u\left(\VEC{x}\right) : \VEC{\alpha} \in \NN^n \ , \
+  |\VEC{\alpha}|\leq m \right\} \right) = 0
 \end{equation}
 for $\displaystyle \VEC{x} \in \RR^n$,
 \begin{equation}\label{cp_GPDE_cond}
@@ -41,8 +41,8 @@ S = \left\{ \VEC{x} \in \RR^n : x_n = 0 \right\} \ .
 Hence the Cauchy Problem becomes
 \begin{equation} \label{cauchy_GPDE}
 F\left(\VEC{x},
-\left\{ \diff^\alpha u\left(\VEC{x}\right) : \alpha \in \NN^n \ , \ 
-|\alpha| \leq m \right\} \right) = 0
+\left\{ \diff^{\VEC{\alpha}} u\left(\VEC{x}\right) :
+\VEC{\alpha} \in \NN^n \ , \  |\VEC{\alpha}| \leq m \right\} \right) = 0
 \end{equation}
 for $\displaystyle \VEC{x} \in \RR^n$,
 \[
@@ -56,21 +56,22 @@ functions.  Moreover, let us assume that $u$ is also analytic.
 From $u(x_1,x_2, \ldots, x_{n-1},0) = f_0(x_1,x_2, \ldots, x_{n-1})$,
 we can compute
 \[
-\diff^\alpha u(x_1, x_2, \ldots, x_{n-1}, 0) =
-\diff^\alpha f_0(x_1, x_2, \ldots, x_{n-1})
+\diff^{\VEC{\alpha}} u(x_1, x_2, \ldots, x_{n-1}, 0) =
+\diff^{\VEC{\alpha}} f_0(x_1, x_2, \ldots, x_{n-1})
 \]
-for all $\displaystyle \alpha \in \NN^n$ with $\alpha_n = 0$.
+for all $\displaystyle \VEC{\alpha} \in \NN^n$ with $\alpha_n = 0$.
 From $\displaystyle \pdydx{u}{x_n}(x_1,x_2, \ldots, x_{n-1},0)
 = f_1(x_1,x_2, \ldots, x_{n-1})$,
 we can compute
 \[
-\diff^\alpha u(x_1, x_2, \ldots, x_{n-1}, 0) =
-\diff^\alpha f_1(x_1, x_2, \ldots, x_{n-1})
+\diff^{\VEC{\alpha}} u(x_1, x_2, \ldots, x_{n-1}, 0) =
+\diff^{\VEC{\alpha}} f_1(x_1, x_2, \ldots, x_{n-1})
 \]
-for all $\displaystyle \alpha \in \NN^n$ with $\alpha_n = 1$.
+for all $\displaystyle \VEC{\alpha} \in \NN^n$ with $\alpha_n = 1$.
 Proceeding like this for the derivative of $u$ up to order $m-1$, we
-can compute $\displaystyle \diff^\alpha u(x_1, x_2, \ldots, x_{n-1}, 0)$ for
-all $\displaystyle \alpha \in \NN^n$ with $\alpha_n < m$.
+can compute
+$\displaystyle \diff^{\VEC{\alpha}} u(x_1, x_2, \ldots, x_{n-1}, 0)$ for
+all $\displaystyle \VEC{\alpha} \in \NN^n$ with $\alpha_n < m$.
 
 The problem is to compute
 $\displaystyle \pdydxn{u}{x_n}{j}(x_1,x_2,\ldots,x_{n-1},0)$ for $j\geq m$.
@@ -79,8 +80,9 @@ $\displaystyle \pdydxn{u}{x_n}{m}$ for $\VEC{x}$ near the hyper-surface $S$.
 Namely, we assume that we can write
 \begin{equation} \label{cauchy_CK_cond}
 \displaystyle \pdydxn{u}{x_n}{m} = H\left(\VEC{x},
-\left\{ \diff^\alpha u\left(\VEC{x}\right) : \alpha \in \NN^n \ , \ 
-|\alpha| \leq m \ , \, \alpha \neq m \VEC{e}_n \right\} \right)
+\left\{ \diff^{\VEC{\alpha}} u\left(\VEC{x}\right) :
+\VEC{\alpha} \in \NN^n \ , \ 
+|\VEC{\alpha}| \leq m \ , \, \VEC{\alpha} \neq m \VEC{e}_n \right\} \right)
 \end{equation}
 for $\displaystyle \VEC{x} \in \RR^n$ near $S$, where, as usual,
 $\displaystyle \left\{ \VEC{e}_1, \VEC{e}_2, \ldots, \VEC{e}_n\right\}$ 
@@ -97,16 +99,17 @@ can be computed.  Since we assume that $u$ is analytic, we can write
 for $\VEC{x}$ near $\VEC{p}$ that
 \[
 u\left(\VEC{x}\right) =
-\sum_{\alpha \in \NN^n} \frac{1}{\alpha!}
-\diff^\alpha u\left(\VEC{a}\right) \left( \VEC{x}- \VEC{p} \right)^\alpha \ ,
+\sum_{\VEC{\alpha} \in \NN^n} \frac{1}{\VEC{\alpha}!}
+\diff^{\VEC{\alpha}} u\left(\VEC{a}\right)
+\left( \VEC{x}- \VEC{p} \right)^{\VEC{\alpha}} \ ,
 \]
 where
 \[
-\alpha! = \alpha_1!\,\alpha_2!\ldots \alpha_n!
+\VEC{\alpha}! = \alpha_1!\,\alpha_2!\ldots \alpha_n!
 \]
 and
 \[
-\left( \VEC{x}- \VEC{p} \right)^\alpha =
+\left( \VEC{x}- \VEC{p} \right)^{\VEC{\alpha}} =
 \left(x_1-p_1\right)^{\alpha_1}\,\left(x_2-p_2\right)^{\alpha_2}\ldots
 \left(x_n-p_n\right)^{\alpha_n} \ .
 \]
@@ -136,14 +139,17 @@ instance.
 \begin{theorem}[Holmgren] \label{HolmgrenTheo}
 Consider the m$^{th}$ order linear partial differential equation
 \[
-L(\VEC{x}, \diff)u = \sum_{|\alpha|\leq m} a_\alpha(\VEC{x}) \diff^\alpha u = 0
+L(\VEC{x}, \diff)u = \sum_{|\VEC{\alpha}|\leq m}
+a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}} u = 0
 \]
 on $\displaystyle \RR^n$, where the functions
-$\displaystyle a_\alpha:\RR^n \rightarrow \RR$
+$\displaystyle a_{\VEC{\alpha}}:\RR^n \rightarrow \RR$
 are real analytic. Suppose that $S$ is an analytic non-characteristic
 hyper-surface.  Then, the unique solution of class $\displaystyle C^m(\RR^n)$
-which satisfy the Cauchy conditions $\displaystyle \diff^\alpha u = 0$
-on $S$ for all multi-indices $\alpha$ with $|\alpha|<m$ is $u=0$ on $R$.
+which satisfy the Cauchy conditions
+$\displaystyle \diff^{\VEC{\alpha}} u = 0$
+on $S$ for all multi-indices $\VEC{\alpha}$ with
+$|\VEC{\alpha}|<m$ is $u=0$ on $R$.
 \end{theorem}
 
 \cite{J} proves a little bit more general version of Holmgren's theorem.
@@ -168,12 +174,13 @@ $\displaystyle \left\{ S_\lambda \right\}_{\lambda \in ]a,b[}$ is an
 \end{defn}
 
 \begin{theorem}[Holmgren]
-Consider the m$^{th}$ order linear partial differential equation
+Consider the $m^{th}$ order linear partial differential equation
 \[
-L(\VEC{x}, \diff)u = \sum_{|\alpha|\leq m} a_\alpha(\VEC{x}) \diff^\alpha u = 0
+L(\VEC{x}, \diff)u = \sum_{|\VEC{\alpha}|\leq m}
+a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}} u = 0
 \]
 on an open set $\Omega$ of $\displaystyle \RR^n$, where the functions
-$a_\alpha:\Omega\rightarrow \RR$ are real analytic. Suppose that
+$a_{\VEC{\alpha}}:\Omega\rightarrow \RR$ are real analytic. Suppose that
 $\displaystyle \left\{ S_\lambda \right\}_{\lambda \in ]a,b[}$ is an
 analytic field for $\Omega$.\\
 Let
@@ -189,16 +196,17 @@ hyper-surfaces, and
 $\Omega_\mu \cap R$ is a closed subset of $\Omega$ (with
 the induced topology on $\Omega$) for all $\mu \in ]a,b[$, then the
 unique solution of class $\displaystyle C^m(\overline{R})$ which
-satisfy the Cauchy conditions $\displaystyle \diff^\alpha u = 0$ on
-$Z$ for all multi-indices $\alpha$ with $|\alpha|<m$ is $u=0$ on $R$.
+satisfy the Cauchy conditions $\displaystyle \diff^{\VEC{\alpha}} u = 0$ on
+$Z$ for all multi-indices $\VEC{\alpha}$ with $|\VEC{\alpha}|<m$
+is $u=0$ on $R$.
 \end{theorem}
 
 If $\displaystyle R\subset \RR^n$, recall that
 $\displaystyle f \in C^m(\overline{R})$ means that
 $\displaystyle f\in C(\overline{R}) \cap C^m(R)$ and
-$\displaystyle \diff^\alpha f$ can be extended
-continuously to $\overline{R}$ for all multi-indices $\alpha$ with
-$|\alpha|\leq m$.
+$\displaystyle \diff^{\VEC{\alpha}} f$ can be extended
+continuously to $\overline{R}$ for all multi-indices $\VEC{\alpha}$ with
+$|\VEC{\alpha}|\leq m$.
 
 The proof of Theorem~\ref{HolmgrenTheo} consists in fact in
 constructing a specific analytic field.
@@ -295,7 +303,8 @@ analytic at $t=0$.
 \end{proof}
 
 \begin{rmk}
-Given $\displaystyle (x_0,y_0,t_0) \in \RR^3$, we define a translation in $\RR^3$ by
+Given $\displaystyle (x_0,y_0,t_0) \in \RR^3$, we define a translation
+in $\RR^3$ by
 \begin{align*}
 T:\RR^3 &\to \RR^3 \\
  (x,y,t) &\mapsto (x+x_0,y+y_0, t+t_0 +2y_0x - 2x_0 y)
@@ -304,8 +313,8 @@ If $L(x,y,\diff)$ is the Lewy operator defined in Theorem~\ref{Lewy}, we have
 $\displaystyle L(x,y,\diff)(u \circ T) = \left(L(x,y,\diff)u\right) \circ T$
 for any function $\displaystyle u \in C^1(\RR^3)$.
 Thus, solving $L(x,y,\diff)u = f(t)$ near $(x_0,y_0,t_0)$ is
-equivalent to solving $L(s,y,\diff)(u\circ T) = f(t+t_0+2y_0x - 2x_0y)$ near the
-origin.  It follows from Lewy's Theorem that there is no solution of
+equivalent to solving $L(s,y,\diff)(u\circ T) = f(t+t_0+2y_0x - 2x_0y)$
+near the origin.  It follows from Lewy's Theorem that there is no solution of
 class $C^1$ of $L(x,y,\diff)u = f(t)$ near $(x_0,y_0,t_0)$ unless $f$ is
 analytic at $t=-t_0-2y_0x + 2x_0y$.
 

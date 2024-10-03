@@ -8,7 +8,8 @@ few results about Sobolev spaces and often not in their most general
 form.  We refer the reader to \cite{Ad} for a thorough coverage of the
 subject.
 
-\section{The $\displaystyle W^{k,p}$ spaces} \label{sobolev_def}
+\section{The $\displaystyle \mathbf{W^{k,p}}$
+spaces} \label{sobolev_def}
 
 \begin{defn} \label{sob_1st_wkp}
 Let $\Omega$ be an open subset of $\displaystyle \RR^n$.  For $k\in \NN$ and
@@ -16,10 +17,11 @@ $p$ a positive integer or $\infty$, the
 {\bfseries Sobolev space}\index{Sobolev Space!$\displaystyle W^{k,p}(\Omega)$}
 $\displaystyle W^{k,p}(\Omega)$ is the space defined by
 \[
-W^{k,p}(\Omega) = \left\{ f \in L^p(\Omega) : \diff^\alpha f \in
-  L^p(\Omega) \ , \ |\alpha| \leq k \right\} \ ,
+W^{k,p}(\Omega) = \left\{ f \in L^p(\Omega) : \diff^{\VEC{\alpha}} f \in
+L^p(\Omega) \ , \ \VEC{\alpha} \in \NN^n \ \text{and}
+\ |\VEC{\alpha}| \leq k \right\} \ ,
 \]
-where the derivatives $\displaystyle \diff^\alpha$ are derivatives in
+where the derivatives $\displaystyle \diff^{\VEC{\alpha}}$ are derivatives in
 the sense of distributions.
 \end{defn}
 
@@ -27,9 +29,10 @@ We can define a norm on $\displaystyle W^{k,p}(\Omega)$ by
 \begin{equation} \label{sob_norm_wkp}
 \| f \|_{k,p} =
 \begin{cases}
-\displaystyle \left( \sum_{|\alpha|\leq k} \| \diff^\alpha f \|_p^p \right)^{1/p}&
+\displaystyle \left( \sum_{|\VEC{\alpha}|\leq k} \|
+\diff^{\VEC{\alpha}} f \|_p^p \right)^{1/p}&
 \quad \text{if} \quad 0 < p < \infty \\
-\displaystyle \max_{|\alpha|\leq k} \| \diff^\alpha f \|_\infty &
+\displaystyle \max_{|\VEC{\alpha}|\leq k} \| \diff^{\VEC{\alpha}} f \|_\infty &
 \quad \text{if} \quad p = \infty
 \end{cases}
 \end{equation}
@@ -55,30 +58,31 @@ $\displaystyle W^{k,p}(\Omega)$ is also separable.
 \end{theorem}
 
 \begin{proof}
-Let $\displaystyle \left\{ \alpha_1, \alpha_2, \ldots, \alpha_N \right\}$,
-where $\displaystyle N = \sum_{|\alpha|\leq k} 1$, be an ordering of
-the multi-indices $\displaystyle \alpha \in \NN^n$ such that
-$|\alpha|\leq k$.  We assume that $\alpha_1 = (0, 0, \ldots, 0)$.
-Consider the mapping
+Let $\displaystyle \left\{ \VEC{\alpha}_1, \VEC{\alpha}_2, \ldots,
+\VEC{\alpha}_N \right\}$,
+where $\displaystyle N = \sum_{|\VEC{\alpha}|\leq k} 1$, be an ordering of
+the multi-indices $\displaystyle \VEC{\alpha} \in \NN^n$ such that
+$|\VEC{\alpha}|\leq k$.  We assume that
+$\VEC{\alpha}_1 = (0, 0, \ldots, 0)$.  Consider the mapping
 \begin{align*}
 T: W^{k,p}(\Omega) & \rightarrow (L^p(\Omega))^N \\
-f &\mapsto \left( \diff^{\alpha_1} f , \diff^{\alpha_2} f, \ldots,
-\diff^{\alpha_N} f \right)
+f &\mapsto \left( \diff^{\VEC{\alpha}_1} f , \diff^{\VEC{\alpha}_2} f, \ldots,
+\diff^{\VEC{\alpha}_N} f \right)
 \end{align*}
 This is an isometry if the norm on $\displaystyle (L^p(\Omega))^N$ is
 the norm
 \[
 \| \VEC{f} \|_{p} =
 \begin{cases}
-\displaystyle \left( \sum_{j=0}^N \| f_{\alpha_j} \|_p^p \right)^{1/p} &
+\displaystyle \left( \sum_{j=0}^N \| f_{\VEC{\alpha}_j} \|_p^p \right)^{1/p} &
 \quad \text{if} \ 0 < p < \infty \\
-\displaystyle \max_{1\leq j \leq N} \| f_{\alpha_j} \|_\infty &
+\displaystyle \max_{1\leq j \leq N} \| f_{\VEC{\alpha}_j} \|_\infty &
 \quad \text{if} \ p = \infty
 \end{cases}
 \]
 for $\displaystyle \VEC{f} \in (L^p(\Omega))^N$.
 
-\stage{i}  We do the case $1<p<\infty$ and leave the cases $p =1$ and
+\stage{i}  We consider the case $1<p<\infty$ and leave the cases $p =1$ and
 $p=\infty$ to the reader.
 
 We prove that $\displaystyle W^{k,p}(\Omega)$ is complete
@@ -86,52 +90,53 @@ by proving that $T$ is a closed mapping. Suppose that
 $\displaystyle \left\{f_j \right\}_{j=1}^\infty \subset W^{k,p}(\Omega)$
 is such that $\displaystyle \left\{T(f_j) \right\}_{j=1}^\infty$
 converges to $\VEC{g}$ in $\displaystyle (L^p(\Omega))^N$.  Then
-$\displaystyle \left\{ \diff^{\alpha_i} f_j \right\}_{j=1}^\infty$
-converge to $g_{\alpha_i}$ in $\displaystyle L^p(\Omega)$ for
-$1\leq i \leq N$.  In particular, for $\alpha_1$, we have that
+$\displaystyle \left\{ \diff^{\VEC{\alpha}_i} f_j \right\}_{j=1}^\infty$
+converge to $g_{\VEC{\alpha}_i}$ in $\displaystyle L^p(\Omega)$ for
+$1\leq i \leq N$.  In particular, for $\VEC{\alpha}_1$, we have that
 $\displaystyle \left\{ f_j \right\}_{j=1}^\infty$
-converges to $g \equiv g_{\alpha_1}$ in $\displaystyle L^p(\Omega)$.
+converges to $g \equiv g_{\VEC{\alpha}_1}$ in $\displaystyle L^p(\Omega)$.
 
 Since $\displaystyle L^p$ convergence implies convergence in the
 sense of distributions, we have that
-$\displaystyle g_{\alpha_i} = \diff^{\alpha_i} g$ almost everywhere for all
-$0\leq i \leq N$.  To prove this statement, we use the definition of
-the derivative in the sense of distributions to write
+$\displaystyle g_{\VEC{\alpha}_i} = \diff^{\VEC{\alpha}_i} g$ almost
+everywhere for all $0\leq i \leq N$.  To prove this statement, we use
+the definition of the derivative in the sense of distributions to write
 \[
-\int_\Omega \diff^{\alpha_i} f_j(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}} =
-(-1)^{|\alpha_i|} \int_\Omega f_j(\VEC{x}) \diff^{\alpha_i} \phi(\VEC{x})
-\dx{\VEC{x}}
+\int_\Omega \diff^{\VEC{\alpha}_i} f_j(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}} =
+(-1)^{|\VEC{\alpha}_i|} \int_\Omega f_j(\VEC{x})
+\diff^{\VEC{\alpha}_i} \phi(\VEC{x}) \dx{\VEC{x}}
 \]
 for all $\phi \in \DD(\Omega)$.  As $j\rightarrow \infty$, the
 integral on the left converges to
-$\displaystyle \int_\Omega g_{\alpha_i}(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}$
+$\displaystyle \int_\Omega g_{\VEC{\alpha}_i}(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}$
 for all $\phi\in \DD(\Omega)$ because
 \begin{align*}
-&\left| \int_\Omega \diff^{\alpha_i} f_j(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}
-- \int_\Omega g_{\alpha_i}(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}} \right|
-\leq \int_\Omega \left| \diff^{\alpha_i} f_j(\VEC{x}) - g_{\alpha_i}(\VEC{x})
+&\left| \int_\Omega \diff^{\VEC{\alpha}_i} f_j(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}
+- \int_\Omega g_{\VEC{\alpha}_i}(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}} \right|
+\leq \int_\Omega \left| \diff^{\VEC{\alpha}_i}
+f_j(\VEC{x}) - g_{\VEC{\alpha}_i}(\VEC{x})
 \right| \, \left| \phi(\VEC{x}) \right| \dx{\VEC{x}} \\
 &\qquad \leq
-\left(\int_\Omega \left| \diff^{\alpha_i} f_j(\VEC{x}) - g_{\alpha_i}(\VEC{x})
-\right|^p \dx{\VEC{x}} \right|^{1/p}
+\left(\int_\Omega \left| \diff^{\VEC{\alpha}_i} f_j(\VEC{x})
+- g_{\VEC{\alpha}_i}(\VEC{x}) \right|^p \dx{\VEC{x}} \right|^{1/p}
 \left( \int_\Omega \left| \phi(\VEC{x}) \right|^q \dx{\VEC{x}} \right)^{1/q}
 \to 0 \quad \text{as} \quad j \to \infty
 \end{align*}
 by assumption, where $1/p + 1/q = 1$.  Similarly,
 the integral on the right converges to
 \[
-(-1)^{|\alpha_i|} \int_\Omega g(\VEC{x}) \diff^{\alpha_i} \phi(\VEC{x})
-\dx{\VEC{x}} = \int_\Omega \diff^{\alpha_i} g(\VEC{x}) \phi(\VEC{x})
+(-1)^{|\VEC{\alpha}_i|} \int_\Omega g(\VEC{x}) \diff^{\VEC{\alpha}_i} \phi(\VEC{x})
+\dx{\VEC{x}} = \int_\Omega \diff^{\VEC{\alpha}_i} g(\VEC{x}) \phi(\VEC{x})
 \dx{\VEC{x}}
 \]
 for all $\phi\in \DD(\Omega)$.  Hence,
 \[
- \int_\Omega g_{\alpha_i}(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}
-= \int_\Omega \diff^{\alpha_i} g(\VEC{x}) \phi(\VEC{x})
-\dx{\VEC{x}}
+ \int_\Omega g_{\VEC{\alpha}_i}(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}
+= \int_\Omega \diff^{\VEC{\alpha}_i} g(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}
 \]
 for all $\phi\in \DD(\Omega)$ and all $i$.  Thus,
-$\displaystyle g_{\alpha_i} = \diff^{\alpha_i} g$ almost everywhere for all $i$.
+$\displaystyle g_{\VEC{\alpha}_i} = \diff^{\VEC{\alpha}_i} g$ almost
+everywhere for all $i$.
 
 \stage{ii} To prove that $\displaystyle W^{k,p}(\Omega)$ is separable for
 $0\leq p < \infty$, it is enough to note that
@@ -163,59 +168,63 @@ is equivalent to the norm
 $C_1$ and $C_2$, such that
 \[
 C_1 \left( 1 + \|\VEC{y}\|_2^2\right)^k \leq
-\sum_{|\alpha|\leq k} \left|\VEC{y}^{2\alpha}\right| \leq
+\sum_{|\VEC{\alpha}|\leq k} \left|\VEC{y}^{2\VEC{\alpha}}\right| \leq
 C_2 \left( 1 + \|\VEC{y}\|_2^2\right)^k
 \]
-for $\displaystyle \VEC{y} \in \RR^n$.
+for $\displaystyle \VEC{y} \in \RR^n$..
 
 \stage{i.a} Since
-$\displaystyle \left| \VEC{y}^\alpha \right| \leq 1$
+$\displaystyle \left| \VEC{y}^{\VEC{\alpha}} \right| \leq 1$
 for $\|\VEC{y}\|_2 \leq 1$, and
-$\displaystyle \left| \VEC{y}^\alpha \right| \leq
-\|\VEC{y}\|_2^{|\alpha|} \leq \|\VEC{y}\|_2^{k}$
-for $\|\VEC{y}\|_2 \geq 1$ and $|\alpha|\leq k$, we get
+$\displaystyle \left| \VEC{y}^{\VEC{\alpha}} \right| \leq
+\|\VEC{y}\|_2^{|\VEC{\alpha}|} \leq \|\VEC{y}\|_2^{k}$
+for $\|\VEC{y}\|_2 \geq 1$ and $|\VEC{\alpha}|\leq k$, we get
 \[
-\sum_{|\alpha|\leq k} \left|\VEC{y}^{2\alpha}\right| 
-= \sum_{|\alpha|\leq k} \left|\VEC{y}^{\alpha}\right|^2 \leq
+\sum_{|\VEC{\alpha}|\leq k} \left|\VEC{y}^{2\VEC{\alpha}}\right| 
+= \sum_{|\VEC{\alpha}|\leq k} \left|\VEC{y}^{\VEC{\alpha}}\right|^2 \leq
 C_2 \max\left\{ 1, \|\VEC{y}\|_2^{2k} \right\}
 \leq C_2 \left( 1 + \|\VEC{y}\|_2^2\right)^k
 \]
 for $\displaystyle \VEC{y} \in \RR^n$, where
-$\displaystyle C_2 = \sum_{|\alpha|\leq k} 1$.
+$\displaystyle C_2 = \sum_{|\VEC{\alpha}|\leq k} 1$.
 
 \stage{i.b} Let
 \begin{equation} \label{sob_equi_Hk}
-C_1' = \min_{\|\VEC{y}\|=1} \sum_{|\alpha|= k} \left|\VEC{y}^{2\alpha}\right| \ .
+C_1' = \min_{\|\VEC{y}\|=1} \sum_{|\VEC{\alpha}|= k}
+\left|\VEC{y}^{2\VEC{\alpha}}\right| \ .
 \end{equation}
-Since $\displaystyle \sum_{|\alpha|= k} \left|\VEC{y}^{2\alpha}\right|$ is 
+Since $\displaystyle \sum_{|\VEC{\alpha}|= k}
+\left|\VEC{y}^{2\VEC{\alpha}}\right|$ is 
 continuous on the compact set $\{\VEC{y} : \|\VEC{y}\|_2=1\}$, the
 minimum is reached at a point $\VEC{w} \neq \VEC{0}$ in $\RR^n$.
 If $w_j \neq 0$, then $\displaystyle \left| w_j^{2k}\right| >0$ and thus
-$\displaystyle C_1' = \sum_{|\alpha|= k} \left|\VEC{w}^{2\alpha}\right| >0$.
+$\displaystyle C_1' = \sum_{|\VEC{\alpha}|= k}
+\left|\VEC{w}^{2\VEC{\alpha}}\right| >0$.
 Given $\VEC{y} \neq \VEC{0}$, let $\VEC{z} = \|\VEC{y}\|_2^{-1} \VEC{y}$.
 Since $\|\VEC{z}\|_2 = 1$, we get from
-$\displaystyle \sum_{|\alpha|= k} \left|\VEC{z}^{2\alpha}\right| \geq
+$\displaystyle \sum_{|\VEC{\alpha}|= k} \left|\VEC{z}^{2\VEC{\alpha}}\right| \geq
 C_1' >0$ that
-$\displaystyle \sum_{|\alpha|= k} \left|\VEC{y}^{2\alpha}\right| \geq C_1'
-\|\VEC{y}\|_2^{2k}$
-because $\displaystyle \sum_{|\alpha|= k} \left|\VEC{z}^{2\alpha}\right|$
+$\displaystyle \sum_{|\VEC{\alpha}|= k} \left|\VEC{y}^{2\VEC{\alpha}}\right|
+\geq C_1' \|\VEC{y}\|_2^{2k}$
+because $\displaystyle \sum_{|\VEC{\alpha}|= k}
+\left|\VEC{z}^{2\VEC{\alpha}}\right|$
 is an homogeneous function of degree $2k$.  We have that
 \begin{align*}
 \left(1+\|\VEC{y}\|_2^2\right)^k &\leq
 2^k \max\left\{1, \|\VEC{y}\|_2^{2k}\right\}
 \leq 2^k \left( 1+ \|\VEC{y}\|_2^{2k}\right)
-\leq 2^k \left( 1 + \frac{1}{C_1' } \sum_{|\alpha|= k}
-\left|\VEC{y}^{2\alpha}\right| \right) \\
-&\leq 2^k C_1'' \left( 1 + \sum_{|\alpha|= k}
-\left|\VEC{y}^{2\alpha}\right| \right)
-\leq 2^k C_1'' \sum_{|\alpha|\leq k} \left|\VEC{y}^{2\alpha}\right|
+\leq 2^k \left( 1 + \frac{1}{C_1' } \sum_{|\VEC{\alpha}|= k}
+\left|\VEC{y}^{2\VEC{\alpha}}\right| \right) \\
+&\leq 2^k C_1'' \left( 1 + \sum_{|\VEC{\alpha}|= k}
+\left|\VEC{y}^{2\VEC{\alpha}}\right| \right)
+\leq 2^k C_1'' \sum_{|\VEC{\alpha}|\leq k} \left|\VEC{y}^{2\VEC{\alpha}}\right|
 \end{align*}
 for $\displaystyle \VEC{y} \in \RR^n$, where
 $\displaystyle C_1'' = \max \{ 1 , 1/C_1'\}$.
 Finally, this is
 \[
 C_1 \left(1+\|\VEC{y}\|^2\right)^k
-\leq \sum_{|\alpha|\leq k} \left|\VEC{y}^{2\alpha}\right|
+\leq \sum_{|\VEC{\alpha}|\leq k} \left|\VEC{y}^{2\VEC{\alpha}}\right|
 \]
 for $\displaystyle \VEC{y} \in \RR^n$, where
 $\displaystyle C_1 = 1/(2^k C_1'')$.
@@ -225,48 +234,50 @@ $\displaystyle C_1 = 1/(2^k C_1'')$.
 \|f\|_{k,\rho} < \infty
 &\Leftrightarrow \int_{\RR^n} \left| \hat{f}(\VEC{y})\right|^2
 \big( 1 + \|\VEC{y}\|_2^2\big)^k \dx{\VEC{y}} < \infty
-\Leftrightarrow \int_{\RR^n} \left| \VEC{y}^\alpha \hat{f}(\VEC{y}) \right|^2
-< \infty \ \text{for all} \ |\alpha| \leq k \\
-&\Leftrightarrow \VEC{y}^\alpha \hat{f}(\VEC{y}) \in L^2(\RR^n)
- \ \text{for all} \ |\alpha| \leq k  
-\Leftrightarrow \diff^\alpha f \in L^2(\RR^2) 
-  \ \text{for all} \ |\alpha| \leq k \\
+\Leftrightarrow \int_{\RR^n} \left| \VEC{y}^{\VEC{\alpha}}
+\hat{f}(\VEC{y}) \right|^2 < \infty \ \text{for all} \ |\VEC{\alpha}| \leq k \\
+&\Leftrightarrow \VEC{y}^{\VEC{\alpha}} \hat{f}(\VEC{y}) \in L^2(\RR^n)
+ \ \text{for all} \ |\VEC{\alpha}| \leq k  
+\Leftrightarrow \diff^{\VEC{\alpha}} f \in L^2(\RR^2) 
+  \ \text{for all} \ |\VEC{\alpha}| \leq k \\
 &\Leftrightarrow \|f\|_{k,2} < \infty \ ,
 \end{align*}
 where the second to last equivalence is due to 
 Plancherel theorem, Theorem~\ref{distr_plancherel}.  To be
 more precise, we saw in Proposition~\ref{distr_frr_tempD} that 
-$\displaystyle (\diff^\alpha u)^\wedge = (i \VEC{y})^\alpha \hat{u}$ in the
+$\displaystyle (\diff^{\VEC{\alpha}} u)^\wedge
+= (i \VEC{y})^{\VEC{\alpha}} \hat{u}$ in the
 sense of distributions for all $\displaystyle u \in \SS'(\RR^n)$ and
-multi-index $\alpha$.
-Therefore, $\displaystyle (\diff^\alpha u)^\wedge \in L^2(\RR^n)$ if and only if
-$\displaystyle (i \VEC{y})^\alpha \hat{u} \in L^2(\RR^n)$.  It follows
+multi-index $\VEC{\alpha}$.
+Therefore, $\displaystyle (\diff^{\VEC{\alpha}} u)^\wedge \in L^2(\RR^n)$
+if and only if
+$\displaystyle (i \VEC{y})^{\VEC{\alpha}} \hat{u} \in L^2(\RR^n)$.  It follows
 from Plancherel theorem that there exists $\displaystyle g \in L^2(\RR^n)$
-such that $\displaystyle (\diff^\alpha f)^\wedge = \hat{g}$ in the sense of
-distributions if and only if
-$\displaystyle (i \VEC{y})^\alpha \hat{f} \in L^2(\RR^n)$.
-But $\displaystyle (\diff^\alpha f)^\wedge = \hat{g}$ in the sense of
+such that $\displaystyle (\diff^{\VEC{\alpha}} f)^\wedge = \hat{g}$ in
+the sense of distributions if and only if
+$\displaystyle (i \VEC{y})^{\VEC{\alpha}} \hat{f} \in L^2(\RR^n)$.
+But $\displaystyle (\diff^{\VEC{\alpha}} f)^\wedge = \hat{g}$ in the sense of
 distributions means that
-$\displaystyle (\diff^\alpha f)(\hat{\phi}) = g(\hat{\phi})$
+$\displaystyle (\diff^{\VEC{\alpha}} f)(\hat{\phi}) = g(\hat{\phi})$
 for all $\phi \in \SS(\RR^n)$.  From
 Proposition~\ref{distr_frr_tempT}, this means that
-$\displaystyle (\diff^\alpha f)(\phi) = g(\phi)$
+$\displaystyle (\diff^{\VEC{\alpha}} f)(\phi) = g(\phi)$
 for all $\phi \in \SS(\RR^n)$.  Therefore,
-$\displaystyle \diff^\alpha f = g \in L^2(\RR^n)$ in the sense of
+$\displaystyle \diff^{\VEC{\alpha}} f = g \in L^2(\RR^n)$ in the sense of
 distributions.
 Thus, the two norms describe the same space $\displaystyle W^{k,2}(\RR^n)$.
 
 Moreover, since
-$\displaystyle (\diff^\alpha f)^\wedge(\VEC{y})
-=(i\VEC{y})^\alpha \hat{f}(\VEC{y})$
+$\displaystyle (\diff^{\VEC{\alpha}} f)^\wedge(\VEC{y})
+=(i\VEC{y})^{\VEC{\alpha}} \hat{f}(\VEC{y})$
 for $\displaystyle \VEC{y}\in \RR^n$ and
 $\displaystyle f \in W^{k,2}(\RR^n)$, we get from Plancherel theorem that
 \[
-\sum_{|\alpha|\leq k} \| \diff^\alpha f \|_2^2 =
-\sum_{|\alpha|\leq k} \| (\diff^\alpha f)^\wedge \|_2^2 =
-\sum_{|\alpha|\leq k} \| \VEC{y}^\alpha \hat{f}(\VEC{y}) \|_2^2 =
-\int_{\RR^n} \left( \sum_{|\alpha|\leq k}
-\left|\VEC{y}^{2\alpha}\right| \right)
+\sum_{|\alpha|\leq k} \| \diff^{\VEC{\alpha}} f \|_2^2 =
+\sum_{|\alpha|\leq k} \| (\diff^{\VEC{\alpha}} f)^\wedge \|_2^2 =
+\sum_{|\alpha|\leq k} \| \VEC{y}^{\VEC{\alpha}} \hat{f}(\VEC{y}) \|_2^2 =
+\int_{\RR^n} \left( \sum_{|\VEC{\alpha}|\leq k}
+\left|\VEC{y}^{2{\VEC{\alpha}}}\right| \right)
 \, \left| \hat{f}(\VEC{y}) \right|^2 \dx{\VEC{y}} \ .
 \]
 Thus, it follows from (i) that $\displaystyle C_1 \|f\|_{k,\rho}^2
@@ -302,32 +313,32 @@ proposition.
 
 \begin{prop} \label{sob_DinDm}
 For $s\in \RR$, $\displaystyle f\in W^{s,2}(\RR^n)$ if and only if
-$\displaystyle \diff^\alpha f \in W^{s-|\alpha|,2}(\RR^n)$ for all
-multi-indices $\alpha$ such that $|\alpha|\leq s$.  Moreover,
-$\displaystyle \diff^\alpha$ is a bounded operator
+$\displaystyle \diff^{\VEC{\alpha}} f \in W^{s-|\VEC{\alpha}|,2}(\RR^n)$ for all
+multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq s$.  Moreover,
+$\displaystyle \diff^{\VEC{\alpha}}$ is a bounded operator
 from $\displaystyle W^{s,2}(\RR^n)$ to
-$\displaystyle W^{s-|\alpha|,2}(\RR^n)$ for $|\alpha|\leq s$.  To be
+$\displaystyle W^{s-|\VEC{\alpha}|,2}(\RR^n)$ for $|\VEC{\alpha}|\leq s$.  To be
 more precise
-$\displaystyle \|\diff^\alpha f\|_{s-|\alpha|,\rho}
+$\displaystyle \|\diff^{\VEC{\alpha}} f\|_{s-|\VEC{\alpha}|,\rho}
 \leq \|f\|_{s,\rho}$ for $\displaystyle f\in W^{s,2}(\RR^n)$.
 \end{prop}
 
 \begin{proof}
 Note that the result is trivial if $s$ is a non-negative integer
 because it is obvious that
-$\displaystyle \|\diff^\alpha f\|_{s-|\alpha|,2} \leq
-\|\diff^\alpha f\|_{s,2}$ for all $\displaystyle f \in W^{s,2}(\RR^n)$
+$\displaystyle \|\diff^{\VEC{\alpha}} f\|_{s-|\VEC{\alpha}|,2} \leq
+\|\diff^{\VEC{\alpha}} f\|_{s,2}$ for all $\displaystyle f \in W^{s,2}(\RR^n)$
 by definition of the norm $\|\cdot\|_{s,2}$.
 
-For $\displaystyle f \in W^{s,2}(\RR^n)$ and a multi-index $\alpha$
-such that $|\alpha| \leq s$, we have that
+For $\displaystyle f \in W^{s,2}(\RR^n)$ and a multi-index $\VEC{\alpha}$
+such that $|\VEC{\alpha}| \leq s$, we have that
 \begin{align}
-\|\diff^\alpha f\|_{s-|\alpha|,\rho}^2 &= \int_{\RR^n}
-\left| (\diff^\alpha f)^\wedge(\VEC{y}) \right|^2
-(1+\|\VEC{y}\|^2)^{s-|\alpha|} \dx{\VEC{y}}
+\|\diff^{\VEC{\alpha}} f\|_{s-|\VEC{\alpha}|,\rho}^2 &= \int_{\RR^n}
+\left| (\diff^{\VEC{\alpha}} f)^\wedge(\VEC{y}) \right|^2
+(1+\|\VEC{y}\|^2)^{s-|\VEC{\alpha}|} \dx{\VEC{y}}
 = \int_{\RR^n}
-\left|\hat{f}(\VEC{y}) \right|^2 \, \left| \VEC{y}^\alpha \right|^2
-(1+\|\VEC{y}\|^2)^{s-|\alpha|} \dx{\VEC{y}} \nonumber \\
+\left|\hat{f}(\VEC{y}) \right|^2 \, \left| \VEC{y}^{\VEC{\alpha}} \right|^2
+(1+\|\VEC{y}\|^2)^{s-|\VEC{\alpha}|} \dx{\VEC{y}} \nonumber \\
 &\leq \int_{\RR^n} \left|\hat{f}(\VEC{y}) \right|^2 \,
 \left( 1 + \|\VEC{y}\|^2\right)^s \dx{\VEC{y}} = \|f\|_{s,\rho}^2
 < \infty \ . \label{sob_DinDmEQ}
@@ -335,17 +346,18 @@ such that $|\alpha| \leq s$, we have that
 
 It follows from (\ref{sob_DinDmEQ}) that
 $\displaystyle f\in W^{s,2}(\RR^n)$ implies
-$\displaystyle \diff^\alpha f \in W^{s-|\alpha|,2}(\RR^n)$
-for all multi-indices $\alpha$ such that $|\alpha|\leq s$.
+$\displaystyle \diff^{\VEC{\alpha}} f \in W^{s-|\VEC{\alpha}|,2}(\RR^n)$
+for all multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq s$.
 
 Moreover, (\ref{sob_DinDmEQ}) proves that
-$\displaystyle \diff^\alpha$ is a bounded operator
+$\displaystyle \diff^{\VEC{\alpha}}$ is a bounded operator
 of norm less than $1$ from $\displaystyle W^{s,2}(\RR^n)$ to
-$\displaystyle W^{s-|\alpha|,2}(\RR^n)$ for $|\alpha|\leq s$.
+$\displaystyle W^{s-|\VEC{\alpha}|,2}(\RR^n)$ for $|\VEC{\alpha}|\leq s$.
 
-Conversely, if $\displaystyle \diff^\alpha f \in W^{s-|\alpha|,2}(\RR^n)$ for
-all multi-indices $\alpha$ such that $|\alpha|\leq s$, then
-$\displaystyle f\in W^{s,2}(\RR^n)$ if we take $\alpha = (0,0,\ldots,0)$.
+Conversely, if $\displaystyle \diff^{\VEC{\alpha}} f \in
+W^{s-|\VEC{\alpha}|,2}(\RR^n)$ for
+all multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq s$, then
+$\displaystyle f\in W^{s,2}(\RR^n)$ if we take $\VEC{\alpha} = (0,0,\ldots,0)$.
 \end{proof}
 
 \subsection{Dense Subsets}
@@ -390,7 +402,8 @@ f(\VEC{x}) & \quad \text{if} \ \VEC{x} \in \Omega_1 \\
 \end{cases}
 \]
 Then $\displaystyle \underline{f} \in W^{k,p}(\Omega_2)$.  In particular,
-$\displaystyle \diff^\alpha \underline{f} = \underline{\diff^\alpha f}$
+$\displaystyle \diff^{\VEC{\alpha}} \underline{f}
+= \underline{\diff^{\VEC{\alpha}} f}$
 almost everywhere and in the sense of distributions on $\Omega_2$
 for $|\alpha|\leq k$.
 \end{lemma}
@@ -413,35 +426,40 @@ $\displaystyle \psi = \sum_{j=1}^J \psi_j$. \label{FOOTNOTE1}}.
 
 Since
 \[
-\int_{\Omega_2} \left|\underline{\diff^\alpha f}(\VEC{x})\right|^p
+\int_{\Omega_2} \left|\underline{\diff^{\VEC{\alpha}} f}(\VEC{x})\right|^p
 \dx{\VEC{x}} = 
-\int_{\Omega_1} \left| \diff^\alpha f(\VEC{x}) \right|^p \dx{\VEC{x}} < \infty
+\int_{\Omega_1} \left| \diff^{\VEC{\alpha}} f(\VEC{x}) \right|^p
+\dx{\VEC{x}} < \infty
 \]
-for $|\alpha|\leq k$, we get that
-$\displaystyle \underline{\diff^\alpha f}$ defines a
-distribution in $\displaystyle L^p(\Omega_2)$ for $|\alpha|\leq k$.
+for $|\VEC{\alpha}|\leq k$, we get that
+$\displaystyle \underline{\diff^{\VEC{\alpha}} f}$ defines a
+distribution in $\displaystyle L^p(\Omega_2)$ for $|\VEC{\alpha}|\leq k$.
 Hence,
 \begin{align*}
-(\diff^\alpha \underline{f})(\phi)
-&= (-1)^{|\alpha|} \int_{\Omega_2} \underline{f}(\VEC{x})
-\diff^\alpha \phi(\VEC{x})\dx{\VEC{x}}
-= (-1)^{|\alpha|} \int_{\Omega_1} f(\VEC{x})
-\diff^\alpha (\psi \phi)(\VEC{x})\dx{\VEC{x}} \\
-&= \int_{\Omega_1} \diff^\alpha f(\VEC{x}) (\psi \phi)(\VEC{x})\dx{\VEC{x}}
-= \int_{\Omega_1} \diff^\alpha f(\VEC{x}) \phi(\VEC{x})\dx{\VEC{x}} \\
-&= \int_{\Omega_2} \underline{\diff^\alpha f}(\VEC{x}) \phi(\VEC{x})\dx{\VEC{x}}
-= (\underline{\diff^\alpha f}) (\phi)
+(\diff^{\VEC{\alpha}} \underline{f})(\phi)
+&= (-1)^{|\VEC{\alpha}|} \int_{\Omega_2} \underline{f}(\VEC{x})
+\diff^{\VEC{\alpha}} \phi(\VEC{x})\dx{\VEC{x}}
+= (-1)^{|\VEC{\alpha}|} \int_{\Omega_1} f(\VEC{x})
+\diff^{\VEC{\alpha}} (\psi \phi)(\VEC{x})\dx{\VEC{x}} \\
+&= \int_{\Omega_1} \diff^{\VEC{\alpha}} f(\VEC{x})
+(\psi \phi)(\VEC{x})\dx{\VEC{x}}
+= \int_{\Omega_1} \diff^{\VEC{\alpha}} f(\VEC{x}) \phi(\VEC{x})\dx{\VEC{x}} \\
+&= \int_{\Omega_2} \underline{\diff^{\VEC{\alpha}} f}(\VEC{x})
+\phi(\VEC{x})\dx{\VEC{x}}
+= (\underline{\diff^{\VEC{\alpha}} f}) (\phi)
 \end{align*}
-for $\phi \in \DD(\Omega_2)$ and $|\alpha|\leq k$.  The second and fourth
+for $\phi \in \DD(\Omega_2)$ and $|\VEC{\alpha}|\leq k$.  The second and fourth
 equality are a consequence of $\phi \psi = \phi$ on $K$.  The third
 equality comes from $\displaystyle f \in W^{k,p}(\Omega_1)$ and
 $\psi \phi \in \DD(\Omega_1)$.
-Thus $\displaystyle \diff^\alpha \underline{f} = \underline{\diff^\alpha f}$
-almost everywhere in $\RR^n$.
+Thus $\displaystyle \diff^{\VEC{\alpha}} \underline{f}
+= \underline{\diff^{\VEC{\alpha}} f}$
+almost everywhere in $\displaystyle \RR^n$.
 \end{proof}
 
 It is also interesting to note that, as a distribution,
-$\displaystyle \diff^\alpha \underline{f}\,\big|_{\Omega_1} = \diff^\alpha f$.
+$\displaystyle \diff^{\VEC{\alpha}} \underline{f}\,\big|_{\Omega_1}
+= \diff^{\VEC{\alpha}} f$.
 
 \begin{lemma} \label{sob_denselem4}
 Suppose that $\Omega$ is an open subset of $\displaystyle \RR^n$,
@@ -460,9 +478,10 @@ f(\VEC{x}) & \quad \text{if} \ \VEC{x} \in \Omega \\
 Then $\displaystyle \underline{f} \in W^{k,p}(V)$, where
 $\displaystyle V = \RR^n \setminus S$.
 In particular,
-$\displaystyle \diff^\alpha \underline{f} = \underline{\diff^\alpha f}$
+$\displaystyle \diff^{\VEC{\alpha}} \underline{f}
+= \underline{\diff^{\VEC{\alpha}} f}$
 almost everywhere and in the sense of distributions on $V$
-for $|\alpha|\leq k$.
+for $|\VEC{\alpha}|\leq k$.
 \end{lemma}
 
 \footnotetext{The lemma is obvious if
@@ -471,14 +490,15 @@ $\supp f \cap \partial \Omega = \partial \Omega$.}
 \begin{proof}
 Since
 \[
-\int_V \left|\underline{\diff^\alpha f}(\VEC{x})\right|^p \dx{\VEC{x}} = 
-\int_{\Omega} \left| \diff^\alpha f(\VEC{x}) \right|^p \dx{\VEC{x}} < \infty
+\int_V \left|\underline{\diff^{\VEC{\alpha}} f}(\VEC{x})\right|^p \dx{\VEC{x}} = 
+\int_{\Omega} \left| \diff^{\VEC{\alpha}} f(\VEC{x}) \right|^p \dx{\VEC{x}}
+< \infty
 \]
-for $|\alpha|\leq k$, we get that
-$\displaystyle \underline{\diff^\alpha f}$ defines a
-distribution included in $\displaystyle L^p(V)$ for $|\alpha|\leq k$.
+for $|\VEC{\alpha}|\leq k$, we get that
+$\displaystyle \underline{\diff^{\VEC{\alpha}} f}$ defines a
+distribution included in $\displaystyle L^p(V)$ for $|\VEC{\alpha}|\leq k$.
 
-Given $\phi \in \DD(V)$ and $|\alpha|\leq k$, let
+Given $\phi \in \DD(V)$ and $|\VEC{\alpha}|\leq k$, let
 $K = \supp f\, \cap\, \supp\, \phi$.  Since $\supp\, \phi \subset V$, so
 $\supp\, \phi\, \cap\, S = \emptyset$, and
 $\supp f \subset \overline{\Omega}$ with  
@@ -494,21 +514,22 @@ footnote on page~\pageref{FOOTNOTE1}}.
 
 We have that
 \begin{align*}
-(\diff^\alpha \underline{f})(\phi)
-&= (-1)^{|\alpha|} \int_V \underline{f}(\VEC{x})
-\diff^\alpha \phi(\VEC{x})\dx{\VEC{x}}
-= (-1)^{|\alpha|} \int_{\Omega} f(\VEC{x})
-\diff^\alpha (\psi \phi)(\VEC{x})\dx{\VEC{x}} \\
-&= \int_{\Omega} \diff^\alpha f(\VEC{x}) (\psi \phi)(\VEC{x})\dx{\VEC{x}}
-= \int_{\Omega} \diff^\alpha f(\VEC{x}) \phi(\VEC{x})\dx{\VEC{x}} \\
-&= \int_V \underline{\diff^\alpha f}(\VEC{x}) \phi(\VEC{x})\dx{\VEC{x}}
-= (\underline{\diff^\alpha f}) (\phi) \ .
+(\diff^{\VEC{\alpha}} \underline{f})(\phi)
+&= (-1)^{|\VEC{\alpha}|} \int_V \underline{f}(\VEC{x})
+\diff^{\VEC{\alpha}} \phi(\VEC{x})\dx{\VEC{x}}
+= (-1)^{|\VEC{\alpha}|} \int_{\Omega} f(\VEC{x})
+\diff^{\VEC{\alpha}} (\psi \phi)(\VEC{x})\dx{\VEC{x}} \\
+&= \int_{\Omega} \diff^{\VEC{\alpha}} f(\VEC{x}) (\psi \phi)(\VEC{x})\dx{\VEC{x}}
+= \int_{\Omega} \diff^{\VEC{\alpha}} f(\VEC{x}) \phi(\VEC{x})\dx{\VEC{x}} \\
+&= \int_V \underline{\diff^{\VEC{\alpha}} f}(\VEC{x}) \phi(\VEC{x})\dx{\VEC{x}}
+= (\underline{\diff^{\VEC{\alpha}} f}) (\phi) \ .
 \end{align*}
 The second and fourth equality are a
 consequence of $\phi \psi = \phi$ in $K$.  The third equality comes
 from $\displaystyle f \in W^{k,p}(\Omega)$ and $\psi \phi \in \DD(\Omega)$.
 Since $\phi \in \DD(V)$ and $|\alpha|\leq k$ are arbitrary,
-we get $\displaystyle \diff^\alpha \underline{f} = \underline{\diff^\alpha f}$
+we get $\displaystyle \diff^{\VEC{\alpha}} \underline{f}
+= \underline{\diff^{\VEC{\alpha}} f}$
 almost everywhere in $V$.
 \end{proof}
 
@@ -548,8 +569,7 @@ all $\epsilon$.  In particular, $\displaystyle \supp (\underline{f} \ast
 \end{lemma}
 
 \footnotetext{
-One such
-function is
+One such function is
 \[
 \psi(\VEC{x}) =
 \begin{cases}
@@ -566,72 +586,75 @@ $\displaystyle \underline{f} \in L^p(\RR^n)$.
 It follows from Proposition~\ref{distr_smooth_convol} that 
 $\displaystyle \underline{f} \ast \psi_{\epsilon} \in C^\infty(\RR^n)$.
 
-Given $|\alpha|\leq k$, since
-$\displaystyle \underline{\diff^\alpha f} \in L^p(\RR^n)$ because
-$\displaystyle \supp\, \underline{\diff^\alpha f} \subset
+Given $|\VEC{\alpha}|\leq k$, since
+$\displaystyle \underline{\diff^{\VEC{\alpha}} f} \in L^p(\RR^n)$ because
+$\displaystyle \supp\, \underline{\diff^{\VEC{\alpha}} f} \subset
 \supp f \subset \Omega$ and
-$\displaystyle \diff^\alpha f \in L^p(\Omega)$, we get from
+$\displaystyle \diff^{\VEC{\alpha}} f \in L^p(\Omega)$, we get from
 Theorem~\ref{distr_sp_young} that
-$\displaystyle \underline{\diff^\alpha f} \ast \psi_\epsilon \in L^p(\RR^n)$.
+$\displaystyle \underline{\diff^{\VEC{\alpha}} f} \ast
+\psi_\epsilon \in L^p(\RR^n)$.
 
 For $\epsilon < \dist{\partial \Omega}{U}$, $\phi \in \DD(U)$ and
-$|\alpha|\leq k$, we have that
+$|\VEC{\alpha}|\leq k$, we have that
 \begin{align*}
-&\diff^\alpha(\underline{f} \ast \psi_\epsilon)(\phi)
-= (-1)^{|\alpha|} \int_{\RR^n}
-(\underline{f} \ast \psi_\epsilon)\, \diff^\alpha \phi \dx{\VEC{x}}  \\
-&\quad = (-1)^{|\alpha|} \int_{\RR^n}
+&\diff^{\VEC{\alpha}}(\underline{f} \ast \psi_\epsilon)(\phi)
+= (-1)^{|\VEC{\alpha}|} \int_{\RR^n}
+(\underline{f} \ast \psi_\epsilon)\, \diff^{\VEC{\alpha}} \phi \dx{\VEC{x}}  \\
+&\quad = (-1)^{|\VEC{\alpha}|} \int_{\RR^n}
 \left( \int_{\RR^n} \underline{f}(\VEC{y}-\VEC{x})\,
-\psi_\epsilon (\VEC{y}) \dx{\VEC{y}} \right) \diff^\alpha \phi(\VEC{x})
+\psi_\epsilon (\VEC{y}) \dx{\VEC{y}} \right) \diff^{\VEC{\alpha}} \phi(\VEC{x})
 \dx{\VEC{x}} \\
-&\quad = (-1)^{|\alpha|} \int_{\RR^n} \left( \int_{\RR^n}
-\underline{f}(\VEC{y}-\VEC{x})\, \diff^\alpha \phi(\VEC{x}) \dx{\VEC{x}}
+&\quad = (-1)^{|\VEC{\alpha}|} \int_{\RR^n} \left( \int_{\RR^n}
+\underline{f}(\VEC{y}-\VEC{x})\, \diff^{\VEC{\alpha}} \phi(\VEC{x}) \dx{\VEC{x}}
 \right) \psi_\epsilon (\VEC{y}) \dx{\VEC{y}} \\
-&\quad = (-1)^{|\alpha|} \int_{B_\epsilon(\VEC{0})}
+&\quad = (-1)^{|\VEC{\alpha}|} \int_{B_\epsilon(\VEC{0})}
 \left( \int_{U} f(\VEC{y}-\VEC{x})\,
-\diff^\alpha \phi(\VEC{x}) \dx{\VEC{x}}
+\diff^{\VEC{\alpha}} \phi(\VEC{x}) \dx{\VEC{x}}
 \right) \psi_\epsilon (\VEC{y}) \dx{\VEC{y}} \\
-&\quad = \int_{B_\epsilon(\VEC{0})}
-\left( \int_{U} \diff^\alpha f(\VEC{y}-\VEC{x})\, \phi(\VEC{x}) \dx{\VEC{x}}
+&\quad = \int_{B_\epsilon(\VEC{0})} \left( \int_{U} \diff^{\VEC{\alpha}}
+f(\VEC{y}-\VEC{x})\, \phi(\VEC{x}) \dx{\VEC{x}}
 \right) \psi_\epsilon (\VEC{y}) \dx{\VEC{y}}
-= \int_U \left( \int_{B_\epsilon(\VEC{0})} \diff^\alpha f (\VEC{y}-\VEC{x})\,
+= \int_U \left( \int_{B_\epsilon(\VEC{0})} \diff^{\VEC{\alpha}}
+f (\VEC{y}-\VEC{x})\,
 \psi_\epsilon (\VEC{y}) \dx{\VEC{y}} \right) \phi(\VEC{x}) \dx{\VEC{x}} \\
-&\quad = \int_U \left( \int_{\RR^n} \underline{\diff^\alpha f}
+&\quad = \int_U \left( \int_{\RR^n} \underline{\diff^{\VEC{\alpha}} f}
 (\VEC{y}-\VEC{x})\,
 \psi_\epsilon (\VEC{y}) \dx{\VEC{y}} \right) \phi(\VEC{x}) \dx{\VEC{x}}
-= \int_{U} \left( \underline{\diff^\alpha f} \ast
+= \int_{U} \left( \underline{\diff^{\VEC{\alpha}} f} \ast
 \psi_\epsilon \right) \phi \dx{\VEC{x}} \ ,
 \end{align*}
 where the fourth and seventh equality are a consequence of
 $\displaystyle \underline{f}(\VEC{y} - \VEC{x}) = f(\VEC{y}-\VEC{x})$
 and\\
-$\displaystyle \underline{\diff^\alpha f}(\VEC{y} - \VEC{x})
-= \diff^\alpha f(\VEC{y}-\VEC{x})$ respectively 
+$\displaystyle \underline{\diff^{\VEC{\alpha}} f}(\VEC{y} - \VEC{x})
+= \diff^{\VEC{\alpha}} f(\VEC{y}-\VEC{x})$ respectively 
 for $\VEC{x} \in U$ and $\VEC{y} \in B_\epsilon(\VEC{0})$ because
 $U + B_\epsilon(\VEC{0}) \subset \Omega$ for our choice of $\epsilon$.
 We have use integration by parts for the fifth equality with
 $\supp \phi \subset U$.
 
 Since the previous relation is true for all $\phi \in \DD(U)$, we get that
-$\displaystyle \diff^\alpha(\underline{f} \ast \psi_\epsilon)
-= \underline{\diff^\alpha f} \ast \psi_\epsilon$ almost everywhere in
+$\displaystyle \diff^{\VEC{\alpha}}(\underline{f} \ast \psi_\epsilon)
+= \underline{\diff^{\VEC{\alpha}} f} \ast \psi_\epsilon$ almost everywhere in
 $U$.  It follows that
-$\displaystyle \diff^\alpha(\underline{f} \ast \psi_\epsilon)\big|_U \in L^p(U)$.
-Since this is true for all $|\alpha|\leq k$, we get that
-$\displaystyle \diff^\alpha(\underline{f} \ast \psi_\epsilon)\big|_U
-\in W^{p,k}(U)$
+$\displaystyle \diff^{\VEC{\alpha}}(\underline{f} \ast
+\psi_\epsilon)\big|_U \in L^p(U)$.
+Since this is true for all $|\VEC{\alpha}|\leq k$, we get that
+$\displaystyle \diff^{\VEC{\alpha}}(\underline{f} \ast \psi_\epsilon)\big|_U
+\in W^{p,k}(U)$.
 
 We get from Proposition~\ref{distr_limit_convol} that
 \[
-\left\| \diff^\alpha(\underline{f} \ast \psi_\epsilon)
-- \diff^\alpha f \right\|_{p,U}
-= \left\| \underline{\diff^\alpha f} \ast \psi_\epsilon
-- \diff^\alpha f \right\|_{p,U}
-\leq \left\| \underline{\diff^\alpha f} \ast \psi_\epsilon -
-\underline{\diff^\alpha f} \right\|_{p,\RR^n} \to 0 \quad \text{as} \quad
+\left\| \diff^{\VEC{\alpha}}(\underline{f} \ast \psi_\epsilon)
+- \diff^{\VEC{\alpha}} f \right\|_{p,U}
+= \left\| \underline{\diff^{\VEC{\alpha}} f} \ast \psi_\epsilon
+- \diff^{\VEC{\alpha}} f \right\|_{p,U}
+\leq \left\| \underline{\diff^{\VEC{\alpha}} f} \ast \psi_\epsilon -
+\underline{\diff^{\VEC{\alpha}} f} \right\|_{p,\RR^n} \to 0 \quad \text{as} \quad
 \epsilon \to 0^+ \ .
 \]
-Since this is true for all $|\alpha| \leq k$, we get that
+Since this is true for all $|\VEC{\alpha}| \leq k$, we get that
 $\displaystyle \left\| \underline{f} \ast \psi_\epsilon - f \right\|_{p,k,U}$
 as $\epsilon \to 0^+$.
 
@@ -671,36 +694,39 @@ for $\VEC{x} \in U$.  This follows from
 \]
 because $\delta \VEC{y} + U \subset \Omega$.
 
-Given $\phi \in \DD(U)$ and $|\alpha| \leq k$, we can use integration by
+Given $\phi \in \DD(U)$ and $|\VEC{\alpha}| \leq k$, we can use integration by
 parts to get
 \begin{align*}
-\diff^\alpha f_\delta (\phi)
-&= (-1)^{|\alpha|} \int_U f(\VEC{x}+\delta\VEC{y})
-\diff^\alpha \phi(\VEC{x}) \dx{\VEC{x}}
-= \int_U \diff^\alpha f(\VEC{x}+\delta\VEC{y}) \phi(\VEC{x}) \dx{\VEC{x}} \\
-&= \int_U (\diff^\alpha f)_\delta(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}
+\diff^{\VEC{\alpha}} f_\delta (\phi)
+&= (-1)^{|\VEC{\alpha}|} \int_U f(\VEC{x}+\delta\VEC{y})
+\diff^{\VEC{\alpha}} \phi(\VEC{x}) \dx{\VEC{x}}
+= \int_U \diff^{\VEC{\alpha}} f(\VEC{x}+\delta\VEC{y}) \phi(\VEC{x})
+\dx{\VEC{x}} \\
+&= \int_U (\diff^{\VEC{\alpha}} f)_\delta(\VEC{x}) \phi(\VEC{x}) \dx{\VEC{x}}
 \end{align*}
 because $\VEC{x}+\delta\VEC{y} \in \Omega$ for all $\VEC{x} \in U$
 and $\supp \phi \subset U$.  Thus, 
-$\displaystyle \diff^\alpha f_\delta = (\diff^\alpha f)_\delta \in L^p(U)$
+$\displaystyle \diff^{\VEC{\alpha}} f_\delta
+= (\diff^{\VEC{\alpha}} f)_\delta \in L^p(U)$
 \footnote{As it is so for a sufficiently differentiable function $f$.}
 according to the remark at the beginning of the proof with
-$\displaystyle g = \diff^\alpha f$.  Since this is true for all
-multi-indices $\alpha$ such that $|\alpha|\leq k$, we get that
+$\displaystyle g = \diff^{\VEC{\alpha}} f$.  Since this is true for all
+multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq k$, we get that
 $\displaystyle f_\delta \in W^{k,p}(U)$.
 
 \stage{ii}
-We fix the multi-index $\alpha$ such that $|\alpha|\leq k$.
+We fix the multi-index $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq k$.
 Given $\epsilon >0$, since $\DD(\Omega)$ is dense in
 $\displaystyle L^p(\Omega)$, there exists $\phi \in \DD(\Omega)$
-such that $\displaystyle \|\diff^\alpha f - \phi\|_{p,\Omega} < \epsilon/3$.
+such that
+$\displaystyle \|\diff^{\VEC{\alpha}} f - \phi\|_{p,\Omega} < \epsilon/3$.
 We then have that
-$\displaystyle \|\diff^\alpha f - \phi\|_{p,U} \leq
-\|\diff^\alpha f - \phi\|_{p,\Omega} < \epsilon/3$
+$\displaystyle \|\diff^{\VEC{\alpha}} f - \phi\|_{p,U} \leq
+\|\diff^{\VEC{\alpha}} f - \phi\|_{p,\Omega} < \epsilon/3$
 and
-$\displaystyle \|\diff^\alpha f_\delta - \phi_\delta \|_{p,U}
-= \| (\diff^\alpha f)_\delta - \phi_\delta \|_{p,U}
-\leq \|\diff^\alpha f - \phi\|_{p,\Omega} < \epsilon/3$
+$\displaystyle \|\diff^{\VEC{\alpha}} f_\delta - \phi_\delta \|_{p,U}
+= \| (\diff^{\VEC{\alpha}} f)_\delta - \phi_\delta \|_{p,U}
+\leq \|\diff^{\VEC{\alpha}} f - \phi\|_{p,\Omega} < \epsilon/3$
 for all $0\leq \delta < d$
 because $\VEC{x}+\delta\VEC{y} \in \Omega$ for all $\VEC{x} \in U$
 when $0\leq \delta < d$.
@@ -714,17 +740,18 @@ $\| \phi_\delta - \phi\|_{p,U} < \epsilon/3$ for $0\leq \delta < \delta_0$.
 
 Hence,
 \[
-\|\diff^\alpha f_\delta - \diff^\alpha f \|_{p,U} \leq
-\|\diff^\alpha f_\delta - \phi_\delta \|_{p,U}
+\|\diff^{\VEC{\alpha}} f_\delta - \diff^{\VEC{\alpha}} f \|_{p,U} \leq
+\|\diff^{\VEC{\alpha}} f_\delta - \phi_\delta \|_{p,U}
 + \| \phi_\delta - \phi\|_{p,U} 
-+ \| \phi - \diff^\alpha f\|_{p,U} < \epsilon
++ \| \phi - \diff^{\VEC{\alpha}} f\|_{p,U} < \epsilon
 \]
 for $0\leq \delta < \delta_0$.  Thus,
-$\displaystyle \|\diff^\alpha f_\delta - \diff^\alpha f \|_{p,U} \to 0$ as
-$\delta \to 0^+$.  Since this is true for all multi-indices $\alpha$ such
-that $|\alpha|\leq k$, we get that
-$\displaystyle \|\diff^\alpha f_\delta - \diff^\alpha f \|_{k,p,U} \to 0$ as
-$\delta \to 0^+$.
+$\displaystyle \|\diff^{\VEC{\alpha}} f_\delta
+- \diff^{\VEC{\alpha}} f \|_{p,U} \to 0$ as
+$\delta \to 0^+$.  Since this is true for all multi-indices $\VEC{\alpha}$ such
+that $|\VEC{\alpha}|\leq k$, we get that
+$\displaystyle \|\diff^{\VEC{\alpha}} f_\delta
+- \diff^{\VEC{\alpha}} f \|_{k,p,U} \to 0$ as $\delta \to 0^+$.
 \end{proof}
 
 \begin{theorem} \label{DDRRnDWkp}
@@ -754,17 +781,17 @@ $\displaystyle W^{k,p}(\Omega)$ with bounded support.
 Choose $\displaystyle \phi\in \DD(\RR^n)$ such that
 $\phi(\VEC{x}) = 1$ for $\|\VEC{x}\|_2 \leq 1$ and
 $\phi(\VEC{x}) = 0$ for $\|\VEC{x}\|_2 > 2$, let $M$ be a constant such
-that $\displaystyle |\diff^{\alpha}\phi(\VEC{x})| \leq M$ for all
+that $\displaystyle |\diff^{\VEC{\alpha}}\phi(\VEC{x})| \leq M$ for all
 $\displaystyle \VEC{x} \in \RR^n$ and
-$|\alpha| \leq k$.
+$|\VEC{\alpha}| \leq k$.
 
 Given $\delta >0$, let $\displaystyle \phi_\delta \in \DD(\RR^n)$ be
 the function defined
 $\displaystyle \phi_\delta(\VEC{x}) = \phi\left(\delta \VEC{x}\right)$
 for $\displaystyle \VEC{x} \in \RR^n$.  For $\delta \leq 1$, we have that
-$\displaystyle |\diff^{\alpha} \phi_\delta(\VEC{x})| \leq
-\delta^{|\alpha|} M \leq M$ for all
-$\displaystyle \VEC{x} \in \RR^n$ and $|\alpha| \leq k$.
+$\displaystyle |\diff^{\VEC{\alpha}} \phi_\delta(\VEC{x})| \leq
+\delta^{|\VEC{\alpha}|} M \leq M$ for all
+$\displaystyle \VEC{x} \in \RR^n$ and $|\VEC{\alpha}| \leq k$.
 
 Given $\displaystyle f \in W^{k,p}(\Omega)$, let
 $f_\delta = \phi_\delta f$ on $\Omega$.  We have that $f_\delta$ has a bounded
@@ -772,30 +799,31 @@ support; namely,
 $\displaystyle \phi_\delta f \subset \Omega \cap B_{2/\delta}(\VEC{0})$.
 Moreover, $\displaystyle \phi_\delta f \in W^{k,p}(\Omega)$ because
 \[
-\diff^{\alpha} f_\delta = \sum_{\beta\leq \alpha} \binom{\alpha}{\beta}
-\diff^{\alpha-\beta} \phi_{\delta} \diff^{\beta} f \ ,
+\diff^{\VEC{\alpha}} f_\delta = \sum_{\VEC{\beta}\leq \VEC{\alpha}}
+\binom{\VEC{\alpha}}{\VEC{\beta}}
+\diff^{\VEC{\alpha}-\VEC{\beta}} \phi_{\delta} \diff^{\VEC{\beta}} f \ ,
 \]
-where $\beta \leq \alpha$ means $\beta_j \leq \alpha_j$ for all $j$
-and $\displaystyle \binom{\alpha}{\beta} = 
+where $\VEC{\beta} \leq \VEC{\alpha}$ means $\beta_j \leq \alpha_j$ for all $j$
+and $\displaystyle \binom{\VEC{\alpha}}{\VEC{\beta}} = 
 \prod_{j=1}^n \binom{\alpha_j}{\beta_j}$.  We are obviously talking
 about derivative in the sense of distributions.
 In particular, we have that
 \[
-\left\| \diff^{\alpha} f_\delta \right\|_p
-\leq M \sum_{\beta\leq \alpha} \binom{\alpha}{\beta}
-\left\| \diff^{\beta} f \right\|_p < \infty
+\left\| \diff^{\VEC{\alpha}} f_\delta \right\|_p
+\leq M \sum_{\VEC{\beta}\leq \VEC{\alpha}} \binom{\VEC{\alpha}}{\VEC{\beta}}
+\left\| \diff^{\VEC{\beta}} f \right\|_p < \infty
 \]
-for $0 < \delta \leq 1$ and $|\alpha| \leq k$.  Moreover, it follows
+for $0 < \delta \leq 1$ and $|\VEC{\alpha}| \leq k$.  Moreover, it follows
 from the Lebesgue Dominated Convergence Theorem that
 \[
 \left\| f - f_\delta \right\|_{k,p,\Omega}
 \leq 2 \left(
-\sum_{|\alpha|\leq k} \int_{\VEC{x} \in \Omega \setminus B_{1/\delta}(\VEC{0})}
-\left| \diff^\alpha f(\VEC{x} \right|^p \dx{\VEC{x}} \right)^{1/p} \to 0 
+\sum_{|\VEC{\alpha}|\leq k} \int_{\VEC{x} \in \Omega \setminus B_{1/\delta}(\VEC{0})}
+\left| \diff^{\VEC{\alpha}} f(\VEC{x} \right|^p \dx{\VEC{x}} \right)^{1/p} \to 0 
 \quad \text{as} \quad \delta \to 0^+
 \]
-because $\displaystyle \diff^{\alpha}f \in L^p(\Omega)$ for all
-$|\alpha| \leq k$.  Hence, we have shown that every member of
+because $\displaystyle \diff^{\VEC{\alpha}}f \in L^p(\Omega)$ for all
+$|\VEC{\alpha}| \leq k$.  Hence, we have shown that every member of
 $\displaystyle W^{k,p}(\Omega)$ can be approximated by members of
 $\displaystyle W^{k,p}(\Omega)$ with bounded support.
 
@@ -804,7 +832,8 @@ has a bounded support.  Let
 $\displaystyle K = \supp f \subset \overline{\Omega}$.
 For each bounded open set $U_{\VEC{x}}$ provided in the definition of
 segment property, choose an open set
-$V_\VEC{x}$ such that $\displaystyle \overline{V_\VEC{x}} \subset U_{\VEC{x}}$.
+$V_{\VEC{x}}$ such that
+$\displaystyle \overline{V_{\VEC{x}}} \subset U_{\VEC{x}}$.
 Let
 $\displaystyle Q = K \setminus \bigcup_{\VEC{x} \in \partial \Omega} V_{\VEC{x}}$.
 We have that $Q \subset \Omega$ because
@@ -926,13 +955,15 @@ respect to the norm $\|\cdot\|_{k,p,\Omega}$.
 To prove this statement, consider the continuous linear functional
 \begin{align*}
 T: W^{k,p}(\Omega) & \rightarrow \RR \\
-v &\mapsto \int_{\Omega} \left( \sum_{|\alpha|\leq k} \diff^\alpha u(\VEC{y})
-\diff^\alpha v(\VEC{y})\right) \dx{\VEC{y}}
+v &\mapsto \int_{\Omega} \left( \sum_{|\VEC{\alpha}|\leq k}
+\diff^{\VEC{\alpha}} u(\VEC{y})
+\diff^{\VEC{\alpha}} v(\VEC{y})\right) \dx{\VEC{y}}
 \end{align*}
 where $\displaystyle u \in C^\infty(\overline{\Omega})$ is a
 non-trivial function satisfying
 \begin{equation} \label{sob_not dense}
-\sum_{|\alpha|\leq k} (-1)^\alpha \diff^{2\alpha} u(\VEC{y}) = 0 \  ,
+\sum_{|\VEC{\alpha}|\leq k} (-1)^{\VEC{\alpha}} \diff^{2\VEC{\alpha}}
+u(\VEC{y}) = 0 \ ,
 \end{equation}
 for $\VEC{y} \in \Omega$.  Such function $u$ can be found by the
 method of separation of variables applied to \ref{sob_not dense} on an
@@ -977,21 +1008,22 @@ $\supp f\ast \psi_\epsilon \subset \supp f + B_\epsilon(\VEC{0})$.
 \begin{proof}
 We have from Young's inequality,
 Theorem~\ref{distr_sp_young}, that
-$\displaystyle \diff^\alpha f \ast \psi_\epsilon \in L^p(\RR^n)$ for all
-$|\alpha|\leq k$ because $\displaystyle f \in W^{k,p}(\RR^n)$ implies that
-$\displaystyle \diff^\alpha f \in L^p(\RR^n)$ for all $|\alpha|\leq k$.
+$\displaystyle \diff^{\VEC{\alpha}} f \ast \psi_\epsilon \in L^p(\RR^n)$ for all
+$|\VEC{\alpha}|\leq k$ because $\displaystyle f \in W^{k,p}(\RR^n)$ implies that
+$\displaystyle \diff^{\VEC{\alpha}} f \in L^p(\RR^n)$ for all
+$|\VEC{\alpha}|\leq k$.
 Moreover, from Proposition~\ref{distr_comm_der}, we have
-$\displaystyle \diff^\alpha(f \ast \psi_\epsilon) =  \diff^\alpha f
+$\displaystyle \diff^{\VEC{\alpha}}(f \ast \psi_\epsilon) = \diff^{\VEC{\alpha}} f
 \ast \psi_\epsilon$ in the sense of distributions.  Thus
 $\displaystyle f \ast \psi_\epsilon \in W^{k,p}(\RR^n)$.
 
 We have from Proposition~\ref{distr_limit_convol} that
 \[
-\| \diff^\alpha(f \ast \psi_\epsilon) - \diff^\alpha f \|_{p}
-= \| \diff^\alpha f \ast \psi_\epsilon - \diff^\alpha f \|_{p}
+\| \diff^{\VEC{\alpha}}(f \ast \psi_\epsilon) - \diff^{\VEC{\alpha}} f \|_{p}
+= \| \diff^{\VEC{\alpha}} f \ast \psi_\epsilon - \diff^{\VEC{\alpha}} f \|_{p}
 \rightarrow 0 \quad \text{as}\quad \epsilon \rightarrow 0^+
 \]
-for $|\alpha|\leq k$.  Thus,
+for $|\VEC{\alpha}|\leq k$.  Thus,
 $\displaystyle \| (f \ast \psi_\epsilon) - f \|_{k,p} \rightarrow 0$
 as $\epsilon \rightarrow 0^+$.
 
@@ -1035,11 +1067,11 @@ $f \ast \phi_{\epsilon}$ has compact support.  Thus,
 $\displaystyle f \ast \phi_{\epsilon} \in \DD(\RR^n)$.  Moreover, from 
 Proposition~\ref{distr_limit_convol}, we have that
 \[
-  \diff^{\alpha} (f \ast \phi_\epsilon)
-  = (\diff^\alpha f) \ast \phi_\epsilon \to \diff^\alpha f
+  \diff^{\VEC{\alpha}} (f \ast \phi_\epsilon)
+  = (\diff^{\VEC{\alpha}} f) \ast \phi_\epsilon \to \diff^{\VEC{\alpha}} f
 \quad \text{as} \quad \epsilon \to 0^+
 \]
-in $\displaystyle L^p(\RR^n)$ for all $|\alpha| \leq k$.  Thus,
+in $\displaystyle L^p(\RR^n)$ for all $|\VEC{\alpha}| \leq k$.  Thus,
 $f \ast \phi_{\epsilon} \to f$ in $\displaystyle W^{k,p}(\RR^n)$ as
 $\epsilon \to 0^+$.
 \end{proof}
@@ -1140,37 +1172,38 @@ $\displaystyle \RR^n$.  Then,
 $\displaystyle W^{k,p}(\Omega_2)\big|_{\Omega_1} \subset W^{k,p}(\Omega_1)$.  More
 precisely, if $\displaystyle f \in W^{k,p}(\Omega_2)$, then
 $\displaystyle f\big|_{\Omega_1} \in W^{k,p}(\Omega_1)$ and
-$\displaystyle \diff^\alpha \left(f\big|_{\Omega_1}\right) =
-\left( \diff^\alpha f \right)\big|_{\Omega_1}$ for $|\alpha| \leq k$.
+$\displaystyle \diff^{\VEC{\alpha}} \left(f\big|_{\Omega_1}\right) =
+\left( \diff^{\VEC{\alpha}} f \right)\big|_{\Omega_1}$ for
+$|\VEC{\alpha}| \leq k$.
 \end{lemma}
 
 \begin{proof}
 Given $\displaystyle f \in W^{k,p}(\Omega_2)$, we have that
-$\displaystyle (\diff^\alpha f)\big|_{\Omega_1} \in L^p(\Omega_1)$ for
-all multi-indices $\alpha$ such that $|\alpha|\leq k$ because
-$\displaystyle \int_{\Omega_1} |\diff^\alpha f|^p \dx{\VEC{x}} \leq 
-\int_{\Omega_2} |\diff^\alpha f|^p \dx{\VEC{x}} < \infty$
-for all $\alpha$ such that $|\alpha|\leq k$.  In
+$\displaystyle (\diff^{\VEC{\alpha}} f)\big|_{\Omega_1} \in L^p(\Omega_1)$ for
+all multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq k$ because
+$\displaystyle \int_{\Omega_1} |\diff^{\VEC{\alpha}} f|^p \dx{\VEC{x}} \leq 
+\int_{\Omega_2} |\diff^{\VEC{\alpha}} f|^p \dx{\VEC{x}} < \infty$
+for all $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq k$.  In
 particular, this implies that 
 $\displaystyle f\big|_{\Omega_1}$ defines a proper distribution on $\Omega_1$.
 
-Moreover, for $|\alpha| \leq k$, we have that
+Moreover, for $|\VEC{\alpha}| \leq k$, we have that
 \begin{align*}
-\diff^\alpha \left(f\big|_{\Omega_1}\right)(\phi)
-&= (-1)^{|\alpha|} \int_{\Omega_1} f\big|_{\Omega_1}(\VEC{x})
-\,\diff^{\alpha}\phi(\VEC{x}) \dx{\VEC{x}}
-= (-1)^{|\alpha|} \int_{\Omega_2} f(\VEC{x}) \diff^{\alpha}\phi(\VEC{x})
-\dx{\VEC{x}} \\
-&= \int_{\Omega_2} \diff^\alpha f(\VEC{x}) \, \phi(\VEC{x}) \dx{\VEC{x}}
-= \int_{\Omega_1} \left(\diff^\alpha f(\VEC{x})\right)\big|_{\Omega_1} \,
+\diff^{\VEC{\alpha}} \left(f\big|_{\Omega_1}\right)(\phi)
+&= (-1)^{|\VEC{\alpha}|} \int_{\Omega_1} f\big|_{\Omega_1}(\VEC{x})
+\,\diff^{\VEC{\alpha}}\phi(\VEC{x}) \dx{\VEC{x}}
+= (-1)^{|\VEC{\alpha}|} \int_{\Omega_2} f(\VEC{x})
+\diff^{\VEC{\alpha}}\phi(\VEC{x}) \dx{\VEC{x}} \\
+&= \int_{\Omega_2} \diff^{\VEC{\alpha}} f(\VEC{x}) \, \phi(\VEC{x}) \dx{\VEC{x}}
+= \int_{\Omega_1} \left(\diff^{\VEC{\alpha}} f(\VEC{x})\right)\big|_{\Omega_1} \,
 \phi(\VEC{x}) \dx{\VEC{x}}
 \end{align*}
 for all $\phi \in \DD(\Omega_1) \subset \DD(\Omega_2)$, where we
 assume that a test function $\phi$ on $\Omega_1$ is extended to a test
 function $\phi$ on $\Omega_2$ by
 $\phi(\VEC{x}) = 0$ for $\VEC{x} \in \Omega_2 \setminus \Omega_1$.  Hence,
-$\displaystyle \diff^\alpha \left(f\big|_{\Omega_1}\right) =
-\left( \diff^\alpha f \right)\big|_{\Omega_1}$.
+$\displaystyle \diff^{\VEC{\alpha}} \left(f\big|_{\Omega_1}\right) =
+\left( \diff^{\VEC{\alpha}} f \right)\big|_{\Omega_1}$.
 \end{proof}
 
 \begin{theorem} \label{sob_Cinfty_dense}
@@ -1262,7 +1295,7 @@ $\displaystyle \epsilon_j < \frac{1}{(j+1)(j+2)}$ such that
 \left\| \left( (\phi_j\,\underline{f}) \ast \psi_{\epsilon_j}\right)
 - (\phi_j\,f) \right\|_{k,p,\Omega}  < \frac{\delta}{2^j Q}
 \]
-for $j>0$, where $\displaystyle Q^p = \sum_{\|\alpha|\leq k} 1$.
+for $j>0$, where $\displaystyle Q^p = \sum_{|\VEC{\alpha}|\leq k} 1$.
 
 Consider $h_{j-1}:\Omega \to \RR$ defined by
 \[
@@ -1281,8 +1314,8 @@ h_{j-1}\big|_{\Omega_{j-1}} = (f - \phi)\big|_{\Omega_{j-1}}
 on $\Omega_{j-1}$ because $\displaystyle \sum_{i=1}^j \phi_j(\VEC{x}) =1$ for
 all $\VEC{x}\in \Omega_{j-1}$, we get
 \begin{align}
-&\left\|\diff^\alpha h_{j-1}\right\|_{p,\Omega}
-= \left\|\diff^\alpha h_{j-1}\right\|_{p,\Omega_{j-1}}
+&\left\|\diff^{\VEC{\alpha}} h_{j-1}\right\|_{p,\Omega}
+= \left\|\diff^{\VEC{\alpha}} h_{j-1}\right\|_{p,\Omega_{j-1}}
 \leq \left\| f - \phi \right\|_{k,p,\Omega_{j-1}}
 = \left\| \sum_{i=1}^j \phi_i f -
 \sum_{i=1}^j (\phi_i\,\underline{f}) \ast \psi_{\epsilon_i}
@@ -1294,7 +1327,7 @@ all $\VEC{x}\in \Omega_{j-1}$, we get
 \leq \sum_{i=1}^\infty \frac{\delta}{2^i Q} = \frac{\delta}{Q}
 \label{HequalsWEq1}
 \end{align}
-for all multi-indices $\alpha$ such that $|\alpha| \leq k$.
+for all multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}| \leq k$.
 Thus $\displaystyle h_{j-1} \in W^{k,p}(\Omega)$ for all $j$.
 Note that
 $\displaystyle \sum_{i=1}^j (\phi_i\,\underline{f}) \ast \psi_{\epsilon_i}
@@ -1302,13 +1335,13 @@ $\displaystyle \sum_{i=1}^j (\phi_i\,\underline{f}) \ast \psi_{\epsilon_i}
 
 Since
 $\displaystyle
-h^\alpha_{j-1}(\VEC{x}) \to \diff^\alpha (f-\phi)(\VEC{x})$
-as $j \to \infty$ for all $\VEC{x} \in \Omega$ and multi-indices $\alpha$ with
-$|\alpha| \leq k$, we get from (\ref{HequalsWEq1}) and the Lebesgue
-Monotone Convergence Theorem that
-$\displaystyle \left\| \diff^\alpha (f - \phi)
-\right\|_{p,\Omega} \leq \delta/Q$ for all multi-indices $\alpha$ with
-$|\alpha| \leq k$.  Hence,
+\diff^{\VEC{\alpha}} h_{j-1}(\VEC{x}) \to \diff^{\VEC{\alpha}} (f-\phi)(\VEC{x})$
+as $j \to \infty$ for all $\VEC{x} \in \Omega$ and multi-indices
+$\VEC{\alpha}$ with $|\VEC{\alpha}| \leq k$, we get from
+(\ref{HequalsWEq1}) and the Lebesgue Monotone Convergence Theorem that
+$\displaystyle \left\| \diff^{\VEC{\alpha}} (f - \phi)
+\right\|_{p,\Omega} \leq \delta/Q$ for all multi-indices $\VEC{\alpha}$ with
+$|\VEC{\alpha}| \leq k$.  Hence,
 $\displaystyle \left\| f -\phi \right\|_{k,p,\Omega} \leq \delta$.
 
 \stage{iii} We have that $\phi \in S$ because
@@ -1547,7 +1580,7 @@ It follows from Propositions~\ref{sob_T_dd_wk2} and
 $\displaystyle W^{s,2}(\RR^n) \subset W^{s,2}_{loc}(\Omega)$
 for every open set $\displaystyle \Omega \subset \RR^n$.
 
-\section{The $\displaystyle W^{k,p}_0$ spaces}
+\section{The $\displaystyle \mathbf{W^{k,p}_0}$ spaces}
 
 \begin{defn}
 Let $\Omega$ be an open subset of $\displaystyle \RR^n$.
@@ -1568,9 +1601,9 @@ If $\displaystyle \Omega \subset \RR^n$ is a bounded open set, we will
 show when studying the trace operators in Section~\ref{sectTraceOp}
 that the space $\displaystyle W^{k,p}_0(\Omega)$ generalizes the space
 of functions $\displaystyle f \in C^k(\Omega) \cap C^{k-1}(\overline{\Omega})$
-such that $\displaystyle \pdydxn{f}{\VEC{\nu}}{j}(\VEC{x}) = 0$ for all
+such that $\displaystyle \pdydxn{f}{\nu}{j}(\VEC{x}) = 0$ for all
 $\VEC{x} \in \partial \Omega$ and $0 \leq j <k$, where
-$\VEC{\nu}(\VEC{x})$ is the outward unit normal to $\partial \Omega$
+$\nu(\VEC{x})$ is the outward unit normal to $\partial \Omega$
 at $\VEC{x} \in \partial \Omega$.  See Theorem~\ref{H0TraceOmega}.
 
 The next proposition generalizes Lemma~\ref{sob_denselem1}.
@@ -1588,9 +1621,10 @@ f(\VEC{x}) & \quad \text{if} \ \VEC{x} \in \Omega \\
 \end{cases}
 \]
 If $\displaystyle f \in W^{k,p}_0(\Omega)$, then
-$\displaystyle \diff^\alpha \underline{f} = \underline{\diff^\alpha f}$
+$\displaystyle \diff^{\VEC{\alpha}} \underline{f}
+= \underline{\diff^{\VEC{\alpha}} f}$
 in the sense of distributions on $\displaystyle \RR^n$ for
-$|\alpha|\leq k$.  In particular,
+$|\VEC{\alpha}|\leq k$.  In particular,
 $\displaystyle \underline{f} \in W^{k,p}(\RR^n)$.
 \end{prop}
 
@@ -1602,24 +1636,25 @@ $\|\cdot\|_{k,p}$.
 
 \stage{i} We first prove that
 \[
-\int_\Omega \diff^\alpha \phi_i(\VEC{x}) \psi(\VEC{x}) \dx{\VEC{x}}
-\rightarrow \int_\Omega \diff^\alpha f(\VEC{x}) \psi(\VEC{x}) \dx{\VEC{x}}
+\int_\Omega \diff^{\VEC{\alpha}} \phi_i(\VEC{x}) \psi(\VEC{x}) \dx{\VEC{x}}
+\rightarrow \int_\Omega \diff^{\VEC{\alpha}} f(\VEC{x}) \psi(\VEC{x})
+\dx{\VEC{x}}
 \quad \text{as}\quad i \rightarrow \infty
 \]
-for any bounded function $\psi$ with bounded support and $|\alpha|\leq k$.
+for any bounded function $\psi$ with bounded support and $|\VEC{\alpha}|\leq k$.
 According to Hölders' inequality,
 \begin{align*}
-&\left|\int_\Omega \diff^\alpha \phi_i(\VEC{x}) \psi(\VEC{x}) \dx{\VEC{x}}
-- \int_\Omega \diff^\alpha f(\VEC{x}) \psi(\VEC{x}) \dx{\VEC{x}}\right|
-\leq  \int_\Omega \left| \diff^\alpha \phi_i(\VEC{x}) -
-\diff^\alpha f(\VEC{x})\right|\,
+&\left|\int_\Omega \diff^{\VEC{\alpha}} \phi_i(\VEC{x}) \psi(\VEC{x})
+\dx{\VEC{x}}
+- \int_\Omega \diff^{\VEC{\alpha}} f(\VEC{x}) \psi(\VEC{x}) \dx{\VEC{x}}\right|
+\leq  \int_\Omega \left| \diff^{\VEC{\alpha}} \phi_i(\VEC{x}) -
+\diff^{\VEC{\alpha}} f(\VEC{x})\right|\,
 \left| \psi(\VEC{x}) \right| \dx{\VEC{x}} \\
-&\quad \leq \left( \int_\Omega \left| \diff^\alpha \phi_i(\VEC{x})
-- \diff^\alpha f(\VEC{x})\right|^p
-\dx{\VEC{x}} \right)^{1/p} \left(
+&\quad \leq \left( \int_\Omega \left| \diff^{\VEC{\alpha}} \phi_i(\VEC{x})
+- \diff^{\VEC{\alpha}} f(\VEC{x})\right|^p \dx{\VEC{x}} \right)^{1/p} \left(
 \int_\Omega \left| \psi(\VEC{x}) \right|^q \dx{\VEC{x}} \right)^{1/q} \\
-&\quad = C \left( \int_\Omega \left| \diff^\alpha \phi_i(\VEC{x})
-- \diff^\alpha f(\VEC{x})\right|^p \dx{\VEC{x}} \right)^{1/p}
+&\quad = C \left( \int_\Omega \left| \diff^{\VEC{\alpha}} \phi_i(\VEC{x})
+- \diff^{\VEC{\alpha}} f(\VEC{x})\right|^p \dx{\VEC{x}} \right)^{1/p}
 \leq C \| \phi_i - f \|_{k,p} \rightarrow 0 \quad \text{as} \quad
 i\rightarrow \infty \ ,
 \end{align*}
@@ -1634,38 +1669,42 @@ $\displaystyle C = \left(
 \int_{\Omega} \left| f(\VEC{x}) \right|^p \dx{\VEC{x}} < \infty \ ,
 \]
 the function $\underline{f}$ defines a distribution on $\displaystyle \RR^n$.
-Hence, for $|\alpha|\leq k$, we get from (i) that
+Hence, for $|\VEC{\alpha}|\leq k$, we get from (i) that
 \begin{align*}
-(\diff^\alpha \underline{f})(\phi)
-&= (-1)^{|\alpha|} \int_{\RR^n} \underline{f}(\VEC{x})
-\diff^\alpha \phi(\VEC{x})\dx{\VEC{x}}
-= (-1)^{|\alpha|} \int_{\Omega} f(\VEC{x})
-\diff^\alpha \phi(\VEC{x})\dx{\VEC{x}} \\
-&= (-1)^{|\alpha|} \lim_{i\rightarrow \infty}
-\int_{\Omega} \phi_i(\VEC{x}) \diff^\alpha \phi(\VEC{x})\dx{\VEC{x}}
+(\diff^{\VEC{\alpha}} \underline{f})(\phi)
+&= (-1)^{|\VEC{\alpha}|} \int_{\RR^n} \underline{f}(\VEC{x})
+\diff^{\VEC{\alpha}} \phi(\VEC{x})\dx{\VEC{x}}
+= (-1)^{|\VEC{\alpha}|} \int_{\Omega} f(\VEC{x})
+\diff^{\VEC{\alpha}} \phi(\VEC{x})\dx{\VEC{x}} \\
+&= (-1)^{|\VEC{\alpha}|} \lim_{i\rightarrow \infty}
+\int_{\Omega} \phi_i(\VEC{x}) \diff^{\VEC{\alpha}} \phi(\VEC{x})\dx{\VEC{x}}
 = \lim_{i\rightarrow \infty}
-\int_{\Omega} \diff^\alpha \phi_i(\VEC{x}) \phi(\VEC{x})\dx{\VEC{x}} \\
-&= \int_{\Omega} \diff^\alpha f(\VEC{x}) \phi(\VEC{x})\dx{\VEC{x}}
-= \int_{\RR^n} \underline{\diff^\alpha f}(\VEC{x}) \phi(\VEC{x})\dx{\VEC{x}}
-= (\underline{\diff^\alpha f}) (\phi)
+\int_{\Omega} \diff^{\VEC{\alpha}} \phi_i(\VEC{x}) \phi(\VEC{x})\dx{\VEC{x}} \\
+&= \int_{\Omega} \diff^{\VEC{\alpha}} f(\VEC{x}) \phi(\VEC{x})\dx{\VEC{x}}
+= \int_{\RR^n} \underline{\diff^{\VEC{\alpha}} f}(\VEC{x})
+\phi(\VEC{x})\dx{\VEC{x}}
+= (\underline{\diff^{\VEC{\alpha}} f}) (\phi)
 \end{align*}
 for $\displaystyle \phi \in \DD(\RR^n)$.
-Thus $\displaystyle \diff^\alpha \underline{f} = \underline{\diff^\alpha f}$
+Thus $\displaystyle \diff^{\VEC{\alpha}} \underline{f}
+= \underline{\diff^{\VEC{\alpha}} f}$
 almost everywhere in $\displaystyle \RR^n$.
 
-\stage{iii} We have that $\displaystyle \diff^\alpha \underline{f}
-= \underline{\diff^\alpha f} \in L^p(\RR^n)$ for $|\alpha| \leq k$ because
+\stage{iii} We have that $\displaystyle \diff^{\VEC{\alpha}} \underline{f}
+= \underline{\diff^{\VEC{\alpha}} f} \in L^p(\RR^n)$ for
+$|\VEC{\alpha}|\leq k$ because 
 \[
-\left( \int_{\RR^n} \left|\underline{\diff^\alpha f}(\VEC{x})\right|^p
+\left( \int_{\RR^n} \left|\underline{\diff^{\VEC{\alpha}} f}(\VEC{x})\right|^p
 \dx{\VEC{x}}\right)^{1/p} = 
-\left( \int_{\Omega} \left| \diff^\alpha f(\VEC{x}) \right|^p
+\left( \int_{\Omega} \left| \diff^{\VEC{\alpha}} f(\VEC{x}) \right|^p
 \dx{\VEC{x}}\right)^{1/p} < \infty
 \]
 since $\displaystyle f \in W^{k,p}(\Omega)$.  Thus,
 $\displaystyle \underline{f} \in W^{k,p}(\RR^n)$.
 
 It is also interesting to note that, as a distribution,
-$\displaystyle \diff^\alpha \underline{f}\,\big|_{\Omega} = \diff^\alpha f$.
+$\displaystyle \diff^{\VEC{\alpha}} \underline{f}\,\big|_{\Omega}
+= \diff^{\VEC{\alpha}} f$.
 \end{proof}
 
 \begin{lemma} \label{sob_w0_trad1}
@@ -1884,7 +1923,7 @@ $\displaystyle W^{k,p}_0(\Omega) \subsetneqq W^{k,p}(\Omega)$ when $\Omega$ is a
 bounded open subset of $\RR^n$ and $p,k\geq 1$.
 \end{egg}
 
-\section{The $\displaystyle H^{k,p}$ spaces} \label{WequalH}
+\section{The $\displaystyle \mathbf{H^{k,p}}$ spaces} \label{WequalH}
 
 We introduce in this section the spaces $\displaystyle H^{k,p}(\Omega)$ and
 $\displaystyle H^{k,p}_0(\Omega)$ for $k \in \NN$ and
@@ -1930,12 +1969,12 @@ with respect to the norm $\|\cdot\|_{k,p}$ defined in
 Let $H$ be the closure of $\displaystyle C^\infty(\overline{\Omega})$ in
 $\displaystyle L^p(\Omega)$ with respect to the norm $\|\cdot\|_{k,p}$.
 If $\displaystyle f\in C^\infty(\overline{\Omega})$, then
-$\displaystyle \diff^\alpha f$ is a
+$\displaystyle \diff^{\VEC{\alpha}} f$ is a
 continuous function on the compact set $\overline{\Omega}$ for all
-multi-indices $\alpha$.  It follows that
-$\displaystyle \|\diff^\alpha f\big|_{\Omega}\|_p \leq
-\|\diff^\alpha f\big|_{\overline{\Omega}}\|_p < \infty$ for all
-multi-indices $\alpha$.  Thus,
+multi-indices $\VEC{\alpha}$.  It follows that
+$\displaystyle \|\diff^{\VEC{\alpha}} f\big|_{\Omega}\|_p \leq
+\|\diff^{\VEC{\alpha}} f\big|_{\overline{\Omega}}\|_p < \infty$ for all
+multi-indices $\VEC{\alpha}$.  Thus,
 $\displaystyle \left\|f\big|_{\Omega} \right\|_{k,p} < \infty$ for all
 $\displaystyle f\in C^\infty(\overline{\Omega})$.  Hence,
 $\displaystyle C^\infty(\overline{\Omega}) \subset S$, where $S$ is given in
@@ -2299,39 +2338,42 @@ $\displaystyle H^{-k,2}(\Omega)$.
 Let $\Omega$ be an open subset of $\displaystyle \RR^n$.  Every
 $\displaystyle F\in H^{-k,2}(\Omega)$ can be expressed as
 \begin{equation} \label{sob_dual_form}
-\ps{F}{f} = F(f) = \sum_{|\alpha|\leq k} \int_\Omega F_\alpha \,\diff^\alpha f
+\ps{F}{f} = F(f) = \sum_{|\VEC{\alpha}|\leq k} \int_\Omega
+F_{\VEC{\alpha}}\,\diff^{\VEC{\alpha}} f
 \end{equation}
-for all $\displaystyle f \in H^{k,2}_0(\Omega)$, where the $F_\alpha$
+for all $\displaystyle f \in H^{k,2}_0(\Omega)$, where the $F_{\VEC{\alpha}}$
 are some functions in $\displaystyle L^2(\Omega)$.
 \end{theorem}
 
 \begin{rmk}
 Since $\DD(\Omega)$ is dense in $\displaystyle H^{k,2}_0(\Omega)$,
 (\ref{sob_dual_form}) is equivalent to
-$\displaystyle F = \sum_{|\alpha|\leq k} (-1)^\alpha \diff^\alpha F_\alpha$
-in the sense of distribution.
+$\displaystyle F = \sum_{|\VEC{\alpha}|\leq k} (-1)^{|\VEC{\alpha}|}
+\diff^{\VEC{\alpha}} F_{\VEC{\alpha}}$ in the sense of distribution.
 \end{rmk}
 
 \begin{proof}
-Let $\displaystyle \left\{ \alpha_1, \alpha_2, \ldots, \alpha_N \right\}$,
-where $\displaystyle N = \sum_{|\alpha|\leq k} 1$, be an ordering of
-the multi-indices $\displaystyle \alpha \in \NN^n$ such that $|\alpha|\leq k$.
+Let $\displaystyle \left\{ \VEC{\alpha}_1, \VEC{\alpha}_2, \ldots,
+\VEC{\alpha}_N \right\}$,
+where $\displaystyle N = \sum_{|\VEC{\alpha}|\leq k} 1$, be an ordering of
+the multi-indices $\displaystyle \VEC{\alpha} \in \NN^n$ such that
+$|\VEC{\alpha}|\leq k$.
 Consider the mapping
 \begin{align*}
 T: H^{k,2}_0(\Omega) & \rightarrow (L^2(\Omega))^N \\
-f &\mapsto \left( \diff^{\alpha_1} f , \diff^{\alpha_2} f, \ldots,
-\diff^{\alpha_N} f \right)
+f &\mapsto \left( \diff^{\VEC{\alpha}_1} f , \diff^{\VEC{\alpha}_2} f, \ldots,
+\diff^{\VEC{\alpha}_N} f \right)
 \end{align*}
 where $\displaystyle (L^2(\Omega))^N$ is an Hilbert space with the
 scalar product defined by
 $\displaystyle \ps{\VEC{f}}{\VEC{g}}_2 =
-\sum_{j=0}^N \int_\Omega f_{\alpha_j} g_{\alpha_j}$
+\sum_{j=0}^N \int_\Omega f_{\VEC{\alpha}_j} g_{\VEC{\alpha}_j}$
 for all $\displaystyle \VEC{f}, \VEC{g} \in (L^2(\Omega))^N$.
 $T$ is a linear mapping preserving the norm if the norm on
 $\displaystyle (L^2(\Omega))^N$ is the norm induced by the scalar
 product; namely,
 $\displaystyle \| \VEC{f} \|_2 =
-\left( \sum_{j=0}^N \| f_{\alpha_j} \|_2^2 \right)^{1/2}$
+\left( \sum_{j=0}^N \| f_{\VEC{\alpha}_j} \|_2^2 \right)^{1/2}$
 for all $\displaystyle \VEC{f} \in (L^2(\Omega))^N$.
 Let $\displaystyle R = T(H^{k,2}_0(\Omega))$.  Since $T$ preserves the
 norm (so $T$ is a closed mapping), $R$ is a closed subspace of
@@ -2352,10 +2394,11 @@ operators is induced by the norm $\|\cdot\|_2$ on
 $\displaystyle (L^2(\Omega))^N$.
 
 Using Riesz representation theorem, there exist
-$\displaystyle F_\alpha \in L^2(\Omega)$ for $|\alpha|\leq k$ such that
+$\displaystyle F_{\VEC{\alpha}} \in L^2(\Omega)$ for
+$|\VEC{\alpha}|\leq k$ such that
 \[
 \ps{F}{f} = \ps{Q}{T(f)} = Q(T(f))
-= \sum_{j=0}^N \int_\Omega F_{\alpha_j} \diff^\alpha f 
+= \sum_{j=0}^N \int_\Omega F_{\alpha_j} \diff^{\VEC{\alpha}} f 
 \]
 for all $\displaystyle f \in H^{k,2}_0(\Omega)$.
 \end{proof}
@@ -2449,11 +2492,12 @@ Given $\displaystyle f \in W^{k,p}(\RR^n_+)$,
 \left( \bigcup_{j=1}^{k+1} \left\{
 (x_1,x_2,\ldots,x_{n-1},-(1/j)x_n): \VEC{x} \in \supp f \right\} \right) \ .
 \]
-Moreover, for all multi-indices $\alpha$ such that $|\alpha|\leq k$,
-there exists a strong $(k-|\alpha|)$-extension operator $E_\alpha$ on
+Moreover, for all multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq k$,
+there exists a strong $(k-|\VEC{\alpha}|)$-extension operator
+$E_{\VEC{\alpha}}$ on
 $\displaystyle \RR^n_+$ such that
-$\displaystyle \diff^\alpha (E(f)) = E_\alpha(\diff^\alpha f)$ for all
-$\displaystyle f \in W^{k,p}(\RR^n_+)$.
+$\displaystyle \diff^{\VEC{\alpha}} (E(f)) = E_{\VEC{\alpha}}
+(\diff^{\VEC{\alpha}} f)$ for all $\displaystyle f \in W^{k,p}(\RR^n_+)$.
 \end{theorem}
 
 \begin{rmk}
@@ -2468,7 +2512,8 @@ the linear equation $A \VEC{a} = \VEC{u}$, where $A$ is the
 Vandermonde matrix defined by $\displaystyle A_{i,j} = (-j)^{i-1}$ for
 $1 \leq i,j \leq k+1$ and $u_j = 1$ for $1 \leq j \leq k+1$.  The
 $a_j$ will be used in the definition of the extension operators $E$
-and $E_\alpha$ to ensure that $E(\phi)$ and $E_\alpha(\phi)$ are
+and $E_{\VEC{\alpha}}$ to ensure that $E(\phi)$ and
+$E_{\VEC{\alpha}}(\phi)$ are
 sufficiently differentiable functions on $\displaystyle \RR^n$.
 
 Let
@@ -2482,7 +2527,7 @@ E(\phi)(\VEC{x})
 \]
 and
 \[
-E_\alpha(\phi)(\VEC{x})
+E_{\VEC{\alpha}}(\phi)(\VEC{x})
 = \begin{cases}
 \phi(\VEC{x}) & \quad \text{if} \ \VEC{x} \in \RR^n_+ \cup \RR^n_0 \\
 \displaystyle \sum_{j=1}^{k+1} (-j)^{\alpha_n} a_j \phi(\breve{\VEC{x}},-jx_n)
@@ -2499,49 +2544,51 @@ We have that $E(\phi)$ is of class $\displaystyle C^m$ on
 $\displaystyle \RR^n_+ \cup \RR^n_-$ for all $\phi \in S$.
 Moreover,
 \[
-\diff^\alpha (E(\phi))(\VEC{x}) 
-= \sum_{j=1}^{k+1} (-j)^{\alpha_n} a_j (\diff^{\alpha} \phi)
+\diff^{\VEC{\alpha}} (E(\phi))(\VEC{x}) 
+= \sum_{j=1}^{k+1} (-j)^{\alpha_n} a_j (\diff^{\VEC{\alpha}} \phi)
 (\breve{\VEC{x}},-jx_n)
-= E_\alpha(\diff^\alpha \phi)(\VEC{x}))
+= E_{\VEC{\alpha}}(\diff^{\VEC{\alpha}} \phi)(\VEC{x}))
 \]
-for $|\alpha| \leq m$ and $\displaystyle \VEC{x} \in \RR^n_-$ and obviously
+for $|\VEC{\alpha}| \leq m$ and $\displaystyle \VEC{x} \in \RR^n_-$
+and obviously
 \[
-\diff^\alpha (E(\phi))(\VEC{x}) = E_\alpha(\diff^\alpha \phi)(\VEC{x}))
-= \diff^\alpha \phi (\VEC{x})
+\diff^{\VEC{\alpha}} (E(\phi))(\VEC{x}) = E_{\VEC{\alpha}}
+(\diff^{\VEC{\alpha}} \phi)(\VEC{x})) = \diff^{\VEC{\alpha}} \phi (\VEC{x})
 \]
-for $|\alpha| \leq m$ and $\displaystyle \VEC{x} \in \RR^n_+$.  Moreover,
-we have that
+for $|\VEC{\alpha}| \leq m$ and $\displaystyle \VEC{x} \in \RR^n_+$.
+Moreover, we have that
 \[
 \lim_{\substack{\VEC{x}\to (\breve{\VEC{z}},0)\\x_n<0}}
-\diff^\alpha (E(\phi))(\VEC{x}) 
+\diff^{\VEC{\alpha}} (E(\phi))(\VEC{x}) 
 = \sum_{j=1}^{k+1} (-j)^{\alpha_n} a_j
 \bigg( \lim_{\substack{\VEC{x}\to (\breve{\VEC{z}},0)\\x_n>0}}
-(\diff^{\alpha} \phi)(\VEC{x}) \bigg) =
+(\diff^{\VEC{\alpha}} \phi)(\VEC{x}) \bigg) =
 \lim_{\substack{\VEC{x}\to (\breve{\VEC{z}},0)\\x_n>0}}
-\diff^\alpha (E(\phi))(\VEC{x})
+\diff^{\VEC{\alpha}} (E(\phi))(\VEC{x})
 \]
-for $|\alpha| \leq m$
+for $|\VEC{\alpha}| \leq m$
 because $\displaystyle \sum_{j=1}^{k+1} (-j)^{\alpha_n}a_j = 1$ for
 $0 \leq \alpha_n \leq m \leq k$.  Thus, $E(\phi) \in C^m(\RR^n)$ for
 $\phi \in S$.
 
 To prove that $E$ is a bounded linear operator, we note that
 \begin{align*}
-\| E(\phi) \|_{m,p,\RR^n}
-&= \left( \sum_{|\alpha|\leq m} \|\diff^\alpha E(\phi)\|_p^p \right)^{1/p}
-= \left( \sum_{|\alpha|\leq m} \int_{\RR^n}
-\left|\diff^\alpha (E(\phi))(\VEC{x}) \right|^p \dx{\VEC{x}} \right)^{1/p} \\
-&= \left( \sum_{|\alpha|\leq m} \left( \int_{\RR^n_+}
-\left|\diff^\alpha \phi(\VEC{x}) \right|^p \dx{\VEC{x}}
+\| E(\phi) \|_{m,p,\RR^n} &= \left( \sum_{|\VEC{\alpha}|\leq m}
+\|\diff^{\VEC{\alpha}} E(\phi)\|_p^p \right)^{1/p}
+= \left( \sum_{|\VEC{\alpha}|\leq m} \int_{\RR^n}
+\left|\diff^{\VEC{\alpha}} (E(\phi))(\VEC{x}) \right|^p
+\dx{\VEC{x}} \right)^{1/p} \\
+&= \left( \sum_{|\VEC{\alpha}|\leq m} \left( \int_{\RR^n_+}
+\left|\diff^{\VEC{\alpha}} \phi(\VEC{x}) \right|^p \dx{\VEC{x}}
 + \int_{\RR^n_-} \left|\sum_{j=1}^{k+1} (-j)^{\alpha_n} a_j
-\diff^\alpha \phi(\breve{\VEC{x}},-j x_n)\right|^p \dx{\VEC{x}}
+\diff^{\VEC{\alpha}} \phi(\breve{\VEC{x}},-j x_n)\right|^p \dx{\VEC{x}}
 \right) \right)^{1/p} \\
-&\leq \bigg( \sum_{|\alpha|\leq m} \bigg( \int_{\RR^n_+}
-\left|\diff^\alpha \phi(\VEC{x}) \right|^p \dx{\VEC{x}} \\
+&\leq \bigg( \sum_{|\VEC{\alpha}|\leq m} \bigg( \int_{\RR^n_+}
+\left|\diff^{\VEC{\alpha}} \phi(\VEC{x}) \right|^p \dx{\VEC{x}} \\
 &\qquad + \sum_{\substack{0\leq s_1 \leq s_2 \leq \ldots \leq s_p \leq p\\
   s_1+s_2+\ldots+s_p = p\\
   1\leq j_1 < j_2 < \ldots <j_p \leq k+1}} c_{s_1,s_2,\ldots,s_p}
-  \int_{\RR^n_+} \prod_{i=1}^p \left| (-j_i)^{\alpha_n} \diff^\alpha
+  \int_{\RR^n_+} \prod_{i=1}^p \left| (-j_i)^{\alpha_n} \diff^{\VEC{\alpha}}
 \phi(\breve{\VEC{x}},-j_i x_n)\right|^{s_i} \dx{\VEC{x}}
 \bigg) \bigg)^{1/p} \ ,
 \end{align*}
@@ -2552,25 +2599,26 @@ factors with $j_i=0$ are removed from the products.
 Using the generalized Hölder's inequality with
 $\displaystyle \sum_{i=1}^p \frac{1}{p/s_i} = 1$, we get
 \begin{align*}
-&\int_{\RR^n_+} \prod_{i=1}^p \left| (-j_i)^{\alpha_n} \diff^\alpha
+&\int_{\RR^n_+} \prod_{i=1}^p \left| (-j_i)^{\alpha_n} \diff^{\VEC{\alpha}}
 \phi(\breve{\VEC{x}},-j_i x_n)\right|^{s_i} \dx{\VEC{x}}
-\leq \prod_{i=1}^p \left( \int_{\RR^n_+} \left| (-j_i)^{\alpha_n} \diff^\alpha
+\leq \prod_{i=1}^p \left( \int_{\RR^n_+} \left| (-j_i)^{\alpha_n}
+\diff^{\VEC{\alpha}}
 \phi(\breve{\VEC{x}},-j_i x_n)\right|^p \dx{\VEC{x}} \right)^{s_i/p} \\
 &\qquad = \prod_{i=1}^p \left( \int_{\RR^n_+} j_i^{\alpha_n p-1} \left|
- \diff^\alpha \phi(\VEC{x})\right|^p \dx{\VEC{x}} \right)^{s_i/p}
+ \diff^{\VEC{\alpha}} \phi(\VEC{x})\right|^p \dx{\VEC{x}} \right)^{s_i/p}
 = \left( \prod_{i=1}^p j_i^{(\alpha_n p-1)s_i/p} \right) 
-\int_{\RR^n_+} \left| \diff^\alpha \phi(\VEC{x})\right|^p \dx{\VEC{x}} \ ,
+\int_{\RR^n_+} \left| \diff^{\VEC{\alpha}} \phi(\VEC{x})\right|^p \dx{\VEC{x}} \ ,
 \end{align*}
 where we have used the substitution $x_n \to -x_n/j_i$ for each of the
 integrals in the product to obtain the first equality.  Therefore,
 \begin{align}
 \| E(\phi) \|_{m,p,\RR^n}
-&\leq \bigg( \sum_{|\alpha|\leq m} \bigg( 1
+&\leq \bigg( \sum_{|\VEC{\alpha}|\leq m} \bigg( 1
 + \sum_{\substack{0\leq s_1 \leq s_2 \leq \ldots \leq s_p \leq p\\
   s_1+s_2+\ldots+s_p = p\\
   1\leq j_1 < j_2 < \ldots <j_p \leq k+1}} c_{s_1,s_2,\ldots,s_p}
 \left( \prod_{i=1}^p j_i^{(\alpha_n p-1)s_i/p} \right) \bigg) 
-\int_{\RR^n_+} \left| \diff^\alpha \phi(\VEC{x}) \right|^p \dx{\VEC{x}}
+\int_{\RR^n_+} \left| \diff^{\VEC{\alpha}} \phi(\VEC{x}) \right|^p \dx{\VEC{x}}
   \bigg)^{1/p} \nonumber \\
 & \leq C \| \phi \|_{m,p,\RR^n_+} \label{sobRpExtEq1}
 \end{align}
@@ -2582,7 +2630,7 @@ s_1+s_2+\ldots+s_p = p\\
 1\leq j_1 < j_2 < \ldots <j_p \leq k+1}} c_{s_1,s_2,\ldots,s_p}
 \left( \prod_{i=1}^p j_i^{(m p-1)s_i/p} \right) \bigg)^p \ ,
 \]
-where $\displaystyle N = \sum_{|\alpha|\leq m} 1$.
+where $\displaystyle N = \sum_{|\VEC{\alpha}|\leq m} 1$.
 
 Since $E$ is defined by extension from the dense set $S$ in
 $\displaystyle W^{m,p}(\RR^n_+)$ according to Theorem~\ref{DDRRnDWkp},
@@ -2592,14 +2640,15 @@ $\displaystyle E: W^{m,p}(\RR^n_+) \to W^{m,p}(\RR^n)$ is a $(m,p)$-extension
 operator on $\displaystyle \RR^n_+$ for all
 $0\leq m \leq k$ and $0<p<\infty$.
 
-To prove that $E_\alpha$ is a strong $(k-|\alpha|)$-extension operator
-on $\displaystyle \RR^n_+$, we note that
-$\displaystyle \diff^{\beta} (E_\alpha(\phi))
-= E_\alpha(\diff^{\beta} \phi) = E_{\alpha+\beta}(\phi)$ for all
-$\phi \in S$ and $0\leq |\beta| \leq k - |\alpha|$.  Then, we repeat
-the previous arguments with $E$ and $\alpha$ replaced by $E_\alpha$
-and $\beta$ respectively, and
-$\displaystyle W^{m,p}(\RR^n_+)$ for $0 \leq m \leq k-|\alpha|$.
+To prove that $E_{\VEC{\alpha}}$ is a strong
+$(k-|\VEC{\alpha}|)$-extension operator on $\displaystyle \RR^n_+$, we note that
+$\displaystyle \diff^{\VEC{\beta}} (E_{\VEC{\alpha}}(\phi))
+= E_{\VEC{\alpha}}(\diff^{\VEC{\beta}} \phi)
+= E_{\VEC{\alpha}+\VEC{\beta}}(\phi)$ for all
+$\phi \in S$ and $0\leq |\VEC{\beta}| \leq k - |\VEC{\alpha}|$.  Then,
+we repeat the previous arguments with $E$ and $\VEC{\alpha}$ replaced
+by $E_{\VEC{\alpha}}$ and $\VEC{\beta}$ respectively, and
+$\displaystyle W^{m,p}(\RR^n_+)$ for $0 \leq m \leq k-|\VEC{\alpha}|$.
 \end{proof}
 
 There is a version of the previous theorem for total extension operators.
@@ -2621,8 +2670,8 @@ is dense in $\displaystyle W^{k,p}(\RR^n_+)$ according to
 Theorem~\ref{DDRRnDWkp}, it is enough to define the extension operators
 on $S$.
 
-Let $\psi:\RR \to [0,1]$ be a function of class $C^\infty$ such that
-$\psi(x) = 1$ for $x \leq 1/2$ and $\psi(x) = 0$ for $x \geq 1$.
+Let $\psi:\RR \to [0,1]$ be a function of class $\displaystyle C^\infty$
+such that $\psi(x) = 1$ for $x \leq 1/2$ and $\psi(x) = 0$ for $x \geq 1$.
 We consider the operator $E$ defined on $S$ by
 \[
 E(\phi)(\VEC{x})
@@ -2700,11 +2749,11 @@ of any $J+1$ sets $U_j$ is empty.
 $\displaystyle \psi_j(U_j\cap \Omega) = B_{1}(\VEC{0}) \cap \RR^n_+$.
 \item There exists $C>0$ such that
 \[
-\sup_{\VEC{x}\in U_j} |\diff^\alpha\psi_{j,s}(\VEC{x})| < C
+\sup_{\VEC{x}\in U_j} |\diff^{\VEC{\alpha}}\psi_{j,s}(\VEC{x})| < C
 \quad \text{and} \quad
-\sup_{\VEC{x}\in B_{1}(\VEC{0})} |\diff^\alpha\psi^{-1}_{j,s}(\VEC{x})| < C
+\sup_{\VEC{x}\in B_{1}(\VEC{0})} |\diff^{\VEC{\alpha}}\psi^{-1}_{j,s}(\VEC{x})| < C
 \]
-for all multi-indices $\alpha$ with $0\leq|\alpha|\leq k$, all
+for all multi-indices $\VEC{\alpha}$ with $|\VEC{\alpha}|\leq k$, all
 $j > 0$, and all $s \in \{1,2,\ldots, n\}$.  Recall that
 $\psi_{j,s}$ denoted the $s$ component of $\psi_j$ with a similar
 meaning for $\displaystyle \psi^{-1}_{j,s}$.
@@ -2842,8 +2891,8 @@ for $\VEC{x} \in \Omega$, and
 \end{equation}
 where $Q$ is a constant that depends on
 $\displaystyle \sup_{\VEC{x} \in \RR^n}
-\left|\diff^\alpha \phi_j(\VEC{x}) \right|$
-for $0 \leq j \leq J$ and $|\alpha| \leq m$.
+\left|\diff^{\VEC{\alpha}} \phi_j(\VEC{x}) \right|$
+for $0 \leq j \leq J$ and $|\VEC{\alpha}| \leq m$.
 
 Note that $F$ does not depend on $0 \leq m \leq k$ or $0 < p < \infty$
 as it is the case for the strong $k$-extension operator $E$ used
@@ -2887,7 +2936,7 @@ equations.  However, there are some fundamental results that we could
 not ignore because of their significance even if we may not use them
 later.
 
-\subsection{In $\RR$}
+\subsection{In $\mathbf{\RR}$}
 
 Before looking at results in higher dimensions, it is interesting to
 consider $\displaystyle H^{1,p}(I)$, where $I$ is an open interval
@@ -2978,7 +3027,7 @@ It follows from the previous theorem that
 $\displaystyle H^{1,p}(I) \subset C(\overline{I})$.  We prove more
 general and stronger results in the next section.
 
-\subsection{In $\RR^n$}
+\subsection{In $\displaystyle \mathbf{\RR^n}$}
 
 To illustrate the complexity of the results about imbeddings, we
 summarize some of the results listed in \cite{Br}.
@@ -2992,13 +3041,13 @@ summarize some of the results listed in \cite{Br}.
 & $\displaystyle H^{1,p}(\RR^n) \rightarrow L^{q}(\RR^n)$
 & $\displaystyle H^{1,p}(\RR^n) \rightarrow L^{\infty}(\RR^n)$ \\
 & for $p \leq q \leq p'$ & & \\
-& continuous & continuous & continuous \\
+& is continuous. & is continuous. & is continuous. \\
 \hline
 \rule{0pt}{1.2em} $\Omega$ open, and $\partial \Omega$
 & $\displaystyle H^{1,p}(\Omega) \rightarrow L^{p'}(\Omega)$
 & $\displaystyle H^{1,p}(\Omega) \rightarrow L^{q}(\Omega)$
 & $\displaystyle H^{1,p}(\Omega) \rightarrow L^{\infty}(\Omega)$ \\
-bounded and of & continuous & continuous & continuous \\
+bounded and of & is continuous. & is continuous. & is continuous. \\
 class $C^1$ & & & \\
 \hline
 \rule{0pt}{1.2em} $\Omega$ open and
@@ -3006,7 +3055,8 @@ class $C^1$ & & & \\
 & $\displaystyle H^{1,p}(\Omega) \rightarrow L^{q}(\Omega)$
 & $\displaystyle H^{1,p}(\Omega) \rightarrow C(\overline{\Omega})$ \\
 bounded, and & for $1 \leq q < p'$ & & \\
-$\partial \Omega$ of class $\displaystyle C^1$ & compact & compact & compact \\
+$\partial \Omega$ of class $\displaystyle C^1$ & is compact. & is compact.
+& is compact. \\
 \hline
 \end{tabular}
 \end{center}
@@ -3037,14 +3087,16 @@ is continuous.  \index{Sobolev's Lemma}
 \begin{proof}
 Let $f$ be an element of $\displaystyle \SS(\RR^n) \subset H^{s,2}(\RR^n)$.
 Note that $\displaystyle \DD(\RR^n) \subset H^{s,2}(\RR^n)$ could also
-have been used.  Assume that $|\alpha|\leq k$.
+have been used.
 
-Since $\displaystyle (\diff^\alpha f)^\wedge(\VEC{y}) =
-(i\,\VEC{y})^\alpha \hat{f}(\VEC{y})$, we get from Schwarz
+Assume that $|\VEC{\alpha}|\leq k$.
+Since $\displaystyle (\diff^{\VEC{\alpha}} f)^\wedge(\VEC{y}) =
+(i\,\VEC{y})^{\VEC{\alpha}} \hat{f}(\VEC{y})$, we get from Schwarz
 inequality that
 \begin{align*}
-\| (\diff^\alpha f)^\wedge \|_1 &= 
-\int_{\RR^n} \left| (-i\,\VEC{y})^\alpha \hat{f}(\VEC{y}) \right| \dx{\VEC{y}}
+\| (\diff^{\VEC{\alpha}} f)^\wedge \|_1 &= 
+\int_{\RR^n} \left| (-i\,\VEC{y})^{\VEC{\alpha}} \hat{f}(\VEC{y}) \right|
+\dx{\VEC{y}}
 \leq \int_{\RR^n} (1+\|\VEC{y}\|^2)^{k/2} \left| \hat{f}(\VEC{y}) \right|
 \dx{\VEC{y}} \\
 & =\int_{\RR^n} (1+\|\VEC{y}\|^2)^{(k-s)/2}
@@ -3060,21 +3112,22 @@ C = \left( \int_{\RR^n} (1+\|\VEC{y}\|^2)^{k-s} \dx{\VEC{y}} \right)^{1/2}
 < \infty
 \]
 because $k-s < -n/2$.  Note that the constant $C$ does not depend on
-$f$ but only on $s$ and $k$.  Since $\displaystyle \diff^\alpha f$, and
-$\displaystyle (\diff^\alpha f)^\wedge$ are in
+$f$ but only on $s$ and $k$.  Since $\displaystyle \diff^{\VEC{\alpha}} f$, and
+$\displaystyle (\diff^{\VEC{\alpha}} f)^\wedge$ are in
 $\displaystyle L^1(\RR^n)$, we
 get from Proposition~\ref{distr_inv_four_transf} that
-$\displaystyle ((\diff^\alpha f)^\wedge)^\vee \in C_0(\RR^n)$,
-$\displaystyle ((\diff^\alpha f)^\wedge)^\vee = \diff^\alpha f$ almost
+$\displaystyle ((\diff^{\VEC{\alpha}} f)^\wedge)^\vee \in C_0(\RR^n)$,
+$\displaystyle ((\diff^{\VEC{\alpha}} f)^\wedge)^\vee
+= \diff^{\VEC{\alpha}} f$ almost
 everywhere, and
 \[
-  \|\diff^\alpha f\|_\infty \leq \|(\diff^\alpha f)^\wedge \|_1
-  \leq C \| f \|_{s,\rho} \ .
+\|\diff^{\VEC{\alpha}} f\|_\infty \leq \|(\diff^{\VEC{\alpha}} f)^\wedge \|_1
+\leq C \| f \|_{s,\rho} \ .
 \]
-Since this is true for all $|\alpha|\leq k$, we have
-that
+Since this is true for all $|\VEC{\alpha}|\leq k$, we have that
 \begin{equation}\label{sob_sob_inequ}
-\max_{|\alpha|\leq k} \|\diff^\alpha f\|_{\infty} \leq C \| f \|_{s,\rho}
+\max_{|\VEC{\alpha}|\leq k} \|\diff^{\VEC{\alpha}} f\|_{\infty}
+\leq C \| f \|_{s,\rho}
 \end{equation}
 for all $\displaystyle f \in \SS(\RR^n)$.  Since
 $\displaystyle \SS(\RR^n)$ is dense in
@@ -3110,15 +3163,17 @@ $\psi = 1$ on $\overline{V}$,  $|\psi|\leq 1$ and define $F = \psi f$.
 It follows from Proposition~\ref{sob_T_dd_wk2} that
 $\displaystyle F \in H^{s,2}(\RR^n)$.
 
-For $|\alpha|\leq k$, since $\displaystyle \diff^\alpha F \in L^2(\RR^n)$
+For $|\VEC{\alpha}|\leq k$, since
+$\displaystyle \diff^{\VEC{\alpha}} F \in L^2(\RR^n)$
 has a compact support, we also have that
-$\displaystyle \diff^\alpha F \in L^1(\RR^n)$.
-Since $\displaystyle (\diff^\alpha F)^\wedge(\VEC{y}) =
-(i\,\VEC{y})^\alpha \hat{F}(\VEC{y})$, as we did for $f$ in the proof
+$\displaystyle \diff^{\VEC{\alpha}} F \in L^1(\RR^n)$.
+Since $\displaystyle (\diff^{\VEC{\alpha}} F)^\wedge(\VEC{y}) =
+(i\,\VEC{y})^{\VEC{\alpha}} \hat{F}(\VEC{y})$, as we did for $f$ in the proof
 of the previous theorem, we get from Schwarz inequality that
 \begin{align*}
-\| (\diff^\alpha F)^\wedge \|_1 &= 
-\int_{\RR^n} \left| (-i\,\VEC{y})^\alpha \hat{F}(\VEC{y}) \right| \dx{\VEC{y}}
+\| (\diff^{\VEC{\alpha}} F)^\wedge \|_1 &= 
+\int_{\RR^n} \left| (-i\,\VEC{y})^{\VEC{\alpha}} \hat{F}(\VEC{y}) \right|
+\dx{\VEC{y}}
 \leq \int_{\RR^n} (1+\|\VEC{y}\|^2)^{k/2} \left| \hat{F}(\VEC{y}) \right|
 \dx{\VEC{y}} \\
 & = \int_{\RR^n} (1+\|\VEC{y}\|^2)^{(k-s)/2}
@@ -3128,19 +3183,20 @@ of the previous theorem, we get from Schwarz inequality that
 \dx{\VEC{y}}\right)^{1/2}
 = C_1 \| F \|_{s,\rho}
 \end{align*}
-for $|\alpha|\leq k$, where
+for $|\VEC{\alpha}|\leq k$, where
 $\displaystyle
 C = \left( \int_{\RR^n} (1+\|\VEC{y}\|^2)^{k-s} \dx{\VEC{y}} \right)^{1/2}
 < \infty$ because $k-s < -n/2$.
 
 Since
-$\displaystyle \diff^\alpha F$ and $\displaystyle (\diff^\alpha F)^\wedge$
+$\displaystyle \diff^{\VEC{\alpha}} F$ and
+$\displaystyle (\diff^{\VEC{\alpha}} F)^\wedge$
 are in $\displaystyle L^1(\RR^n)$, we
 get from Proposition~\ref{distr_inv_four_transf} that the inverse Fourier
-transform of $\displaystyle (\diff^\alpha F)^\wedge$ is in
+transform of $\displaystyle (\diff^{\VEC{\alpha}} F)^\wedge$ is in
 $\displaystyle C_0(\RR^n)$
-and is equal to $\displaystyle \diff^\alpha F$ almost everywhere
-for $|\alpha| \leq k$.  From Proposition~\ref{distr_cdistr_cder}, we
+and is equal to $\displaystyle \diff^{\VEC{\alpha}} F$ almost everywhere
+for $|\VEC{\alpha}| \leq k$.  From Proposition~\ref{distr_cdistr_cder}, we
 get that $\displaystyle F\in C^k(\RR^n)$.  Since this is true for any
 bounded open subset $V$ of $\displaystyle \RR^n$ and $f=F$ on $V$, then
 $\displaystyle f\in C^k(\RR^n)$.
@@ -3160,17 +3216,17 @@ $\displaystyle H^{s,2}(\RR^n)$ for some $s\in \RR$.
 If $u$ is a distribution and $K = \supp u$ is compact, it follows from
 Proposition~\ref{distr_cont_cond} that there exist a constant $C_1$ and 
 an integer $N$ such that
-$\displaystyle \left| u(\phi) \right| \leq C_1 \max_{|\alpha|\leq N}
-\left\| \diff^\alpha \phi \right\|_{K,\infty}$ for all $\phi \in \DD_K$.
+$\displaystyle \left| u(\phi) \right| \leq C_1 \max_{|\VEC{\alpha}|\leq N}
+\left\| \diff^{\VEC{\alpha}} \phi \right\|_{K,\infty}$ for all $\phi \in \DD_K$.
 Thus,
-$\displaystyle \left| u(\phi) \right| \leq C_1 \max_{|\alpha|\leq N}
-\left\| \diff^\alpha \phi \right\|_{\infty}$
+$\displaystyle \left| u(\phi) \right| \leq C_1 \max_{|\VEC{\alpha}|\leq N}
+\left\| \diff^{\VEC{\alpha}} \phi \right\|_{\infty}$
 for all $\displaystyle \phi \in \DD(\RR^n)$ because $K = \supp u$.
 
 From Theorem~\ref{sob_TheSobLemma}, Sobolev's Lemma, there exists a
 constant $C$ such that\\
-$\displaystyle \max_{|\alpha|\leq N}
-\left\| \diff^\alpha \phi \right\|_{\infty} \leq C \|\phi\|_{s,2}$
+$\displaystyle \max_{|\VEC{\alpha}|\leq N}
+\left\| \diff^{\VEC{\alpha}} \phi \right\|_{\infty} \leq C \|\phi\|_{s,2}$
 for all $\displaystyle \phi \in \DD(\RR^n)$ if $s > N+ n/2$.  Thus,
 $\displaystyle \left| u(\phi) \right| \leq C C_1 \|\phi\|_{s,2}$
 for all $\displaystyle \phi \in \DD(\RR^n)$.
@@ -3219,10 +3275,10 @@ functions of exponent $\mu$}\index{Hölder Continuous Functions of
 Exponent $\mu$} on the open set $\displaystyle \Omega \subset \RR^n$,
 denoted $\displaystyle C^{k,\mu}(\overline{\Omega})$, is
 the set of all functions $\displaystyle f \in C_{bu}^k(\overline{\Omega})$
-such that, for each multi-index $\alpha$ satisfying $|\alpha|\leq k$,
-there exists a constant $K$ such that
+such that, for each multi-index $\VEC{\alpha}$ satisfying
+$|\VEC{\alpha}|\leq k$, there exists a constant $K$ such that
 \[
-  \left| \diff^\alpha f(\VEC{x}) - \diff^\alpha f(\VEC{y}) \right|
+  \left| \diff^{\VEC{\alpha}} f(\VEC{x}) - \diff^{\VEC{\alpha}} f(\VEC{y}) \right|
   \leq K \|\VEC{x} - \VEC{y} \|^{\mu}
 \]
 for all $\VEC{x}, \VEC{y} \in \Omega$.
@@ -3233,9 +3289,9 @@ The spaces of Hölder continuous functions have several properties:
 \item $\displaystyle C^{k,\mu}(\overline{\Omega})$ is a Banach space
 with respect to the norm
 \[
-\|f\| = \|f\|_{k,\infty,\Omega} + \max_{0\leq |\alpha|\leq k}
+\|f\| = \|f\|_{k,\infty,\Omega} + \max_{0\leq |\VEC{\alpha}|\leq k}
 \ \sup_{\substack{\VEC{x},\VEC{y} \in \Omega\\ \VEC{x} \neq \VEC{y}}}
-\frac{\big|\diff^\alpha f(\VEC{x}) - \diff^\alpha f(\VEC{y})\big|}
+\frac{\big|\diff^{\VEC{\alpha}} f(\VEC{x}) - \diff^{\VEC{\alpha}} f(\VEC{y})\big|}
 {\|\VEC{x}-\VEC{y}\|^{\mu}} \ .
 \]
 \item $\displaystyle C^{k,\mu_2}(\overline{\Omega})
@@ -3278,50 +3334,54 @@ is compact.
 
 \begin{proof}
 \stage{i} To proof that $\displaystyle I: H^{m,2}(\Omega) \to
-C^k_b(\overline{\Omega})$ is compact when $\Omega$ is bounded, we first
+C^k_{bu}(\overline{\Omega})$ is compact when $\Omega$ is bounded, we first
 show that it is enough to prove that the imbedding
-$\displaystyle i: H^{m-k,2}(\Omega) \to C^0_b(\overline{\Omega})$ is
+$\displaystyle i: H^{m-k,2}(\Omega) \to C^0_{bu}(\overline{\Omega})$ is
 compact. Suppose that
 $\displaystyle i: H^{m-k,2}(\Omega) \to C_{bu}^0(\overline{\Omega})$
-is compact and that $\{\alpha_0 , \alpha_1, \ldots, \alpha_N\}$ is an
-ordering of the multi-indices $\alpha$ such that $|\alpha| \leq k$.
+is compact and that $\{\VEC{\alpha}_1 , \VEC{\alpha}_2, \ldots,
+\VEC{\alpha}_N\}$ is an ordering of the multi-indices $\VEC{\alpha}$ such
+that $|\VEC{\alpha}| \leq k$. 
 Let $\displaystyle \left\{ f_i \right\}_{i=1}^\infty$ be a bounded
 sequence in $\displaystyle H^{m,2}(\Omega)$.
 \begin{itemize}
 \item Then,
-$\displaystyle \left\{ \diff^{\alpha_0} f_i \right\}_{i=1}^\infty$ be a bounded
-sequence in
-$\displaystyle H^{m-|\alpha_0|,2}(\Omega) \subset H^{m-k,2}(\Omega)$.
+$\displaystyle \left\{ \diff^{\VEC{\alpha}_1} f_i \right\}_{i=1}^\infty$
+is a bounded sequence in
+$\displaystyle H^{m-|\VEC{\alpha}_0|,2}(\Omega) \subset H^{m-k,2}(\Omega)$.
 Since we assume that
 $\displaystyle i: H^{m-k,2}(\Omega) \to C_{bu}^0(\overline{\Omega})$
 is compact, there exists a subsequence
-$\displaystyle \left\{ f_{\alpha_0,i} \right\}_{i=1}^\infty$
+$\displaystyle \left\{ f_{\VEC{\alpha}_1,i} \right\}_{i=1}^\infty$
 of $\displaystyle \left\{ f_i \right\}_{i=1}^\infty$
 such that
-$\displaystyle \left\{ \diff^{\alpha_0} f_{\alpha_0,i} \right\}_{i=1}^\infty$
+$\displaystyle \left\{ \diff^{\VEC{\alpha}_1} f_{\VEC{\alpha}_1,i}
+\right\}_{i=1}^\infty$
 converges in $\displaystyle C_{bu}^0(\overline{\Omega})$.
 \item We now have that
-$\displaystyle \left\{ \diff^{\alpha_1} f_{\alpha_0,i}
+$\displaystyle \left\{ \diff^{\VEC{\alpha}_2} f_{\VEC{\alpha}_1,i}
 \right\}_{i=1}^\infty$ is
 a bounded sequence in
 $\displaystyle H^{m-|\alpha_1|,2}(\Omega) \subset H^{m-k,2}(\Omega)$.
 Since we assume that
 $\displaystyle i: H^{m-k,2}(\Omega) \to C_{bu}^0(\overline{\Omega})$
 is compact, there exists a subsequence
-$\displaystyle \left\{ f_{\alpha_1,i} \right\}_{i=1}^\infty$
-of $\displaystyle \left\{ f_{\alpha_0,i} \right\}_{i=1}^\infty$
+$\displaystyle \left\{ f_{\VEC{\alpha}_2,i} \right\}_{i=1}^\infty$
+of $\displaystyle \left\{ f_{\VEC{\alpha}_1,i} \right\}_{i=1}^\infty$
 such that
-$\displaystyle \left\{ \diff^{\alpha_1} f_{\alpha_0,i} \right\}_{i=1}^\infty$
+$\displaystyle \left\{ \diff^{\VEC{\alpha}_2} f_{\alpha_2,i}
+\right\}_{i=1}^\infty$
 converges in $\displaystyle C_{bu}^0(\overline{\Omega})$.
 \item and so on until we reach $\alpha_N$.
 \end{itemize}
 The sequence
-$\displaystyle \left\{ f_{\alpha_N,i} \right\}_{i=1}^\infty$ is such
+$\displaystyle \left\{ f_{\VEC{\alpha}_N,i} \right\}_{i=1}^\infty$ is such
 that
-$\displaystyle \left\{ \diff^\alpha f_{\alpha_N,i} \right\}_{i=1}^\infty$
-converges in $C_{bu}^0(\overline{\Omega})$ for all multi-indices $\alpha$
-such that $|\alpha|\leq k$.  Thus,
-$\displaystyle \left\{ \diff^\alpha f_{\alpha_N,i} \right\}_{i=1}^\infty$
+$\displaystyle \left\{ \diff^{\VEC{\alpha}} f_{\VEC{\alpha}_N,i}
+\right\}_{i=1}^\infty$
+converges in $C_{bu}^0(\overline{\Omega})$ for all multi-indices $\VEC{\alpha}$
+such that $|\VEC{\alpha}|\leq k$.  Thus,
+$\displaystyle \left\{ f_{\VEC{\alpha}_N,i} \right\}_{i=1}^\infty$
 converges in $C_{bu}^k(\overline{\Omega})$.
 
 \stage{ii} Choose $j \geq 0$ such that $m-k -j >n/2 \geq m-k-j-1$ and
@@ -3338,7 +3398,7 @@ $\displaystyle i_3 : C^{0,\mu}(\overline{\Omega})
 \to C_{bu}^0(\overline{\Omega})$ is
 compact.  It follows that Proposition~\ref{fu_an_comp_cont} that
 $\displaystyle i = i_3 \circ i_2 \circ i_1:
-H^{m-k,2}(\Omega) \to C^0_b(\overline{\Omega})$ is
+H^{m-k,2}(\Omega) \to C^0_{bu}(\overline{\Omega})$ is
 compact.
 \end{proof}
 
@@ -3514,8 +3574,8 @@ $\displaystyle H^{k_1,2}(\RR^n)$.
 Let $\displaystyle \Omega \subset \RR^n$ be an open subset contained
 in the region $\displaystyle R= \{ \VEC{x} \in \RR^n : a < x_n < b \}$.  Let
 \begin{equation} \label{sob_pc_norm}
-\|f \|_{k,2,\ast} = \left( \sum_{|\alpha|=k}
-\| \diff^\alpha f \|_{2,\Omega}^2 \right)^{1/2}
+\|f \|_{k,2,\ast} = \left( \sum_{|\VEC{\alpha}|=k}
+\| \diff^{\VEC{\alpha}} f \|_{2,\Omega}^2 \right)^{1/2}
 \end{equation}
 for $\displaystyle f \in H^{k,2}_0(\Omega)$.
 Then, there exists a constant $C$ such that
@@ -3535,29 +3595,29 @@ $\|\cdot\|_{k,2,\Omega}$.  \label{ell_equivNorms}
 \begin{proof}
 We only need to prove that there exists a constant $C$ such that
 \begin{equation} \label{sobPtCarreEq1}
-  \| \diff^\alpha f \|_{2,\Omega} \leq C \|f\|_{k,2,\ast}
+  \| \diff^{\VEC{\alpha}} f \|_{2,\Omega} \leq C \|f\|_{k,2,\ast}
 \end{equation}
 for $\displaystyle f \in H^{k,2}_0(\Omega)$ and $|\alpha|<k$.
 
-Recall that the $\displaystyle \diff^\alpha$ are derivatives in the sense of
-distributions.  Moreover, it is enough to proof (\ref{sobPtCarreEq1}) for
-$f \in \DD(\Omega)$ since $\DD(\Omega)$ is dense in
+Recall that the $\displaystyle \diff^{\VEC{\alpha}}$ are derivatives
+in the sense of distributions.  Moreover, it is enough to proof
+(\ref{sobPtCarreEq1}) for $f \in \DD(\Omega)$ since $\DD(\Omega)$ is dense in
 $\displaystyle H^{1,2}_0(\Omega)$
 by definition.  We have that
-$\displaystyle \| \diff^\alpha g \|_{2,\Omega} \leq \|g\|_{k,2}$
+$\displaystyle \| \diff^{\VEC{\alpha}} g \|_{2,\Omega} \leq \|g\|_{k,2}$
 and $\displaystyle \|g\|_{k,2,\ast} \leq \|g\|_{k,2,\Omega}$ for
-$\displaystyle g \in H^{k,2}_0(\Omega)$ and $0\leq |\alpha|<k$.  Hence, if
+$\displaystyle g \in H^{k,2}_0(\Omega)$ and $0\leq |\VEC{\alpha}|<k$.  Hence, if
 $\displaystyle \left\{\phi_i\right\}_{i=1}^\infty$ converges to 
 $\displaystyle f \in H^{k,2}_0(\Omega)$ according to the norm
 $\|\cdot\|_{k,2,\Omega}$, then
-$\displaystyle \| \diff^\alpha \phi_i \|_{2,\Omega}
-\rightarrow \| \diff^\alpha f \|_{2,\Omega}$
+$\displaystyle \| \diff^{\VEC{\alpha}} \phi_i \|_{2,\Omega}
+\rightarrow \| \diff^{\VEC{\alpha}} f \|_{2,\Omega}$
 and $\displaystyle \|\phi_i\|_{k,2,\ast} \rightarrow \|f\|_{k,2,\ast}$
 as $i\rightarrow \infty$.  So,
-$\displaystyle \| \diff^\alpha \phi_i \|_{2,\Omega}
+$\displaystyle \| \diff^{\VEC{\alpha}} \phi_i \|_{2,\Omega}
 \leq C \|\phi_i\|_{k,2,\ast}$ for
 all $i$ implies that
-$\displaystyle \| \diff^\alpha f \|_{2,\Omega} \leq C \|f\|_{k,2,\ast}$.
+$\displaystyle \| \diff^{\VEC{\alpha}} f \|_{2,\Omega} \leq C \|f\|_{k,2,\ast}$.
 
 The proof of (\ref{sobPtCarreEq1}) is by induction on $k$.  Consider $k=1$.
 
@@ -3596,28 +3656,30 @@ We assume that (\ref{sobPtCarreEq1}) is true for $k=j$ and consider the claim
 for $k=j+1$.  Note that
 $\displaystyle H^{j+1,2}_0(\Omega) \subset H^{j,2}_0(\Omega)$.
 By induction, there exists a constant $C_1$ such that
-$\displaystyle \| \diff^\alpha \phi \|_{2,\Omega}
+$\displaystyle \| \diff^{\VEC{\alpha}} \phi \|_{2,\Omega}
 \leq C_1 \|\phi\|_{j,2,\ast}$ for 
-all $\phi \in \DD(\Omega)$ and $|\alpha| < j$.  So we only have to prove that
-there exists a constant $C_2$ such that
-$\displaystyle \| \diff^\alpha \phi \|_{2,\Omega}
+all $\phi \in \DD(\Omega)$ and $|\VEC{\alpha}| < j$.  So we only have
+to prove that there exists a constant $C_2$ such that
+$\displaystyle \| \diff^{\VEC{\alpha}} \phi \|_{2,\Omega}
 \leq C_2 \|\phi\|_{j+1,2,\ast}$ for
-$|\alpha|=j$ and $\phi \in \DD(\Omega)$.
+$|\VEC{\alpha}|=j$ and $\phi \in \DD(\Omega)$.
 
-The reasoning for $k=1$ applied to $\displaystyle \diff^\alpha \phi$
+The reasoning for $k=1$ applied to $\displaystyle \diff^{\VEC{\alpha}} \phi$
 instead of $\phi$ shows
-that $\displaystyle \|\diff^\alpha \phi\|_{2,\Omega} \leq
-(b-a) \| \diff^\alpha \phi \|_{1,2,\ast}$
-for $|\alpha|=j$ and $\phi \in \DD(\Omega)$.  But
+that $\displaystyle \|\diff^{\VEC{\alpha}} \phi\|_{2,\Omega} \leq
+(b-a) \| \diff^{\VEC{\alpha}} \phi \|_{1,2,\ast}$
+for $|\VEC{\alpha}|=j$ and $\phi \in \DD(\Omega)$.  But
 \[
-\| \diff^\alpha \phi \|_{1,2,\ast}^2 = 
-\sum_{j=1}^n \left\| \diff^{\VEC{e}_j} \diff^\alpha \phi \right\|_{2,\Omega}^2 \leq
-\sum_{|\alpha|=j+1} \| \diff^\alpha \phi \|_{2,\Omega}^2 = \|\phi\|_{j+1,2,\ast}^2
+\| \diff^{\VEC{\alpha}} \phi \|_{1,2,\ast}^2 = 
+\sum_{j=1}^n \left\| \diff^{\VEC{e}_j} \diff^{\VEC{\alpha}}
+\phi \right\|_{2,\Omega}^2 \leq
+\sum_{|\VEC{\alpha}|=j+1} \| \diff^{\VEC{\alpha}} \phi \|_{2,\Omega}^2
+= \|\phi\|_{j+1,2,\ast}^2
 \]
 for all $\phi \in \DD(\Omega)$.  Thus, with $C_2=b-a$, we have
-$\displaystyle \| \diff^\alpha \phi \|_{2,\Omega}
+$\displaystyle \| \diff^{\VEC{\alpha}} \phi \|_{2,\Omega}
 \leq C_2 \|\phi\|_{j+1,2,\ast}$ for
-$|\alpha|=j$ and $\phi \in \DD(\Omega)$.
+$|\VEC{\alpha}|=j$ and $\phi \in \DD(\Omega)$.
 This proves (\ref{sobPtCarreEq1}) for $k=j+1$ with $C=C_1 C_2$, and
 complete the proof by induction.
 \end{proof}
@@ -3649,35 +3711,35 @@ for all $\displaystyle u \in C^1(\overline{\Omega})$.
 \end{prop}
 
 \begin{proof}
-Let $\VEC{\nu}(\VEC{z})$ be the outward unit normal to
+Let $\nu(\VEC{z})$ be the outward unit normal to
 $\partial \Omega$ at $\VEC{z} \in \partial \Omega$ and
 $N_\eta$ be a tubular neighbourhood of $\partial \Omega$; in
 particular,
-$\displaystyle N_\eta = \left\{ \VEC{x} + t\, \VEC{\nu}(\VEC{x}) : \VEC{x} \in
+$\displaystyle N_\eta = \left\{ \VEC{x} + t\, \nu(\VEC{x}) : \VEC{x} \in
 \partial \Omega \ , \ |t|<\eta \right\}$.
 
 Choose $\displaystyle \phi \in \DD(\RR)$ such that $|\phi|\leq 1$,
 $\phi(0)=1$ and $\supp \phi \subset ]-\eta,\eta[$.
-We extend $\displaystyle \VEC{\nu}:\partial \Omega \rightarrow \RR^n$
+We extend $\displaystyle \nu:\partial \Omega \rightarrow \RR^n$
 to $\displaystyle \RR^n$ as follows.
 \[
-\VEC{\nu}(\VEC{z}) =
+\nu(\VEC{z}) =
 \begin{cases}
-\phi(t)\VEC{\nu}(\VEC{x}) & \quad \text{if}
-\ \VEC{z} = \VEC{x}+t\VEC{\nu}(\VEC{x}) \ \text{with} \ 
+\phi(t)\nu(\VEC{x}) & \quad \text{if}
+\ \VEC{z} = \VEC{x}+t\nu(\VEC{x}) \ \text{with} \ 
 \VEC{x} \in \partial \Omega\ \text{and} \ |t|<\eta \ . \\
 0 & \quad \text{if}\ \VEC{z} \not\in N_\eta
 \end{cases}
 \]
-Note that $\displaystyle \VEC{\nu} \in C^1(\RR^n)$ has a compact support inside
+Note that $\displaystyle \nu \in C^1(\RR^n)$ has a compact support inside
 $N_\eta$.  Using the divergence theorem, we find that
 \begin{align*}
 &\left| \int_{\partial \Omega} |u(\VEC{x})|^2 \dss{S}{x} \right|
 = \left| \int_{\partial \Omega} \left( |u(\VEC{x})|^2
-\VEC{\nu}(\VEC{x})\right)\cdot \VEC{\nu}(\VEC{x}) \dss{S}{x}
+\nu(\VEC{x})\right)\cdot \nu(\VEC{x}) \dss{S}{x}
 \right|
 = \left| \int_{\Omega} \diV \left( |u(\VEC{x})|^2
-\VEC{\nu}(\VEC{x})\right) \dx{\VEC{x}} \right| \\
+\nu(\VEC{x})\right) \dx{\VEC{x}} \right| \\
 &\qquad = \left| \int_{\Omega} \sum_{j=1}^n
 \left( u(\VEC{x}) \overline{\pdydx{u}{x_j}}(\VEC{x}) \nu_j(\VEC{x})
 + \overline{u}(\VEC{x}) \pdydx{u}{x_j}(\VEC{x}) \nu_j(\VEC{x})
@@ -4549,20 +4611,21 @@ $\displaystyle \left\{\xi_i\right\}_{i=1}^\infty \subset
 $\displaystyle \tilde{\xi}_i \equiv \xi_i\big|_{\overline{\RR^n_+}} \to f$ in
 $\displaystyle H^k(\RR^n_+)$ as $i \to \infty$.
 
-Suppose that $\displaystyle \alpha \in \NN^n$ is a multi-index such
-that $|\alpha| \leq k$ and $0 \leq \alpha_n = m \leq k$.  Let
-$\alpha' = (\alpha_1, \ldots, \alpha_{n-1},0)$.  We get from
+Suppose that $\displaystyle \VEC{\alpha} \in \NN^n$ is a multi-index such
+that $|\VEC{\alpha}| \leq k$ and $0 \leq \alpha_n = m \leq k$.  Let
+$\VEC{\alpha}' = (\alpha_1, \ldots, \alpha_{n-1},0)$.  We get from
 integration by parts that
 \begin{align}
-&\diff^\alpha \underline{\tilde{\xi}}_i(\phi)
-= (-1)^{|\alpha|} \int_{\RR^n}
-\underline{\tilde{\xi}}_i\, \diff^\alpha \phi \dx{\VEC{x}}
-= (-1)^{|\alpha|} \int_{\RR^n_+} \tilde{\xi}_i \diff^\alpha \phi \dx{\VEC{x}}
+&\diff^{\VEC{\alpha}} \underline{\tilde{\xi}}_i(\phi)
+= (-1)^{|\VEC{\alpha}|} \int_{\RR^n}
+\underline{\tilde{\xi}}_i\, \diff^{\VEC{\alpha}} \phi \dx{\VEC{x}}
+= (-1)^{|\VEC{\alpha}|} \int_{\RR^n_+} \tilde{\xi}_i
+\diff^{\VEC{\alpha}} \phi \dx{\VEC{x}}
 \nonumber \\
 &\quad = \sum_{j=0}^{m-1} (-1)^{m+j} \int_{\RR^{n-1}}
-\left( \pdfdxn{\diff^{\alpha'} \tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \right)
+\left( \pdfdxn{\diff^{\VEC{\alpha}'} \tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \right)
 \pdydxn{\phi}{x_n}{m-j-1}(\VEC{z},0) 
-\dx{\VEC{z}} + \int_{\RR^n_+} \left(\diff^\alpha \tilde{\xi}_i\right)\,
+\dx{\VEC{z}} + \int_{\RR^n_+} \left(\diff^{\VEC{\alpha}} \tilde{\xi}_i\right)\,
 \phi \dx{\VEC{x}}   \label{H0TraceEq1}
 \end{align}
 for all $\displaystyle \phi \in \DD(\RR^n)$.  If $m=0$, the sum in the previous
@@ -4570,37 +4633,39 @@ expression is not present.
 
 We have for $0 \leq j <m$ that
 \[
-\pdfdxn{\diff^{\alpha'} \tilde{\xi}_i}{x_n}{j}(\VEC{z},0)
-= \diff^{\alpha'} \pdfdxn{\tilde{\xi}_i}{x_n}{j}(\VEC{z},0)
-= \diff^{\alpha'}  T_j\left( \tilde{\xi}_i \right) \to 
-\diff^{\alpha'}  T_j(f) = 0
+\pdfdxn{\diff^{\VEC{\alpha}'} \tilde{\xi}_i}{x_n}{j}(\VEC{z},0)
+= \diff^{\VEC{\alpha}'} \pdfdxn{\tilde{\xi}_i}{x_n}{j}(\VEC{z},0)
+= \diff^{\VEC{\alpha}'}  T_j\left( \tilde{\xi}_i \right) \to 
+\diff^{\VEC{\alpha}'}  T_j(f) = 0
 \]
-in $\displaystyle H^{k-|\alpha'|-j -1/2}(\RR^{n-1})$ as $i \to \infty$
+in $\displaystyle H^{k-|\VEC{\alpha}'|-j -1/2}(\RR^{n-1})$ as $i \to \infty$
 because
 $\displaystyle T_j\left( \tilde{\xi}_i \right) \to  T_j(f)$ in
 $\displaystyle H^{k-j -1/2}(\RR^{n-1})$ and
-$\displaystyle \diff^{\alpha'}$ is a bounded operator from
+$\displaystyle \diff^{\VEC{\alpha}'}$ is a bounded operator from
 $\displaystyle H^{k-j -1/2}(\RR^{n-1})$ to
-$\displaystyle H^{k-|\alpha'|-j -1/2}(\RR^{n-1})$ according to 
+$\displaystyle H^{k-|\VEC{\alpha}'|-j -1/2}(\RR^{n-1})$ according to 
 Theorem~\ref{sob_DinDm}.
 
 Since $\displaystyle H^{k-j -1/2}(\RR^{n-1}) \subset H^0(\RR^{n-1})$
 because $\|g\|_{0,\rho} \leq \|g\|_{k-j -1/2,\rho}$ for all
 $\displaystyle g \in H^{k-j -1/2}(\RR^{n-1})$, we have that
-$\displaystyle \pdfdxn{\diff^{\alpha'} \tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \to 0$
+$\displaystyle \pdfdxn{\diff^{\VEC{\alpha}'}
+\tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \to 0$
 in $\displaystyle H^0(\RR^{n-1})$ as $i \to \infty$ for $0 \leq j <m$.
 From Plancherel theorem, we get
-$\displaystyle \pdfdxn{\diff^{\alpha'} \tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \to 0$
+$\displaystyle \pdfdxn{\diff^{\VEC{\alpha}'}
+\tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \to 0$
 in $\displaystyle L^2(\RR^{n-1})$ as $i \to \infty$ for $0 \leq j <m$.
 It then follows from Schwarz inequality that
 \begin{align*}
 &\left| \int_{\RR^{n-1}}
-\left( \pdfdxn{\diff^{\alpha'} \tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \right)
+\left( \pdfdxn{\diff^{\VEC{\alpha}'} \tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \right)
 \pdydxn{\phi}{x_n}{m-j-1}(\VEC{z},0) 
 \dx{\VEC{z}} \right| \\
 & \qquad \leq
 \left( \int_{R^{n-1}} \left(
-\pdfdxn{\diff^{\alpha'} \tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \right)^2
+\pdfdxn{\diff^{\VEC{\alpha}'} \tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \right)^2
 \dx{\VEC{z}} \right)^{1/2}
 \left( \int_{R^{n-1}} \left( \pdydxn{\phi}{x_n}{m-j-1}(\VEC{z},0) \right)^2
 \dx{\VEC{z}} \right)^{1/2} \to 0
@@ -4609,29 +4674,30 @@ as $i \to \infty$ for $0 \leq j <m$.
 Since $\displaystyle \xi_i\big|_{\overline{\RR^n_+}} \to f$ in
 $\displaystyle H^k(\RR^n_+)$ as $i \to \infty$, it also follows from Schwarz
 inequality that
-$\displaystyle \int_{\RR^n_+} \left(\diff^\alpha
+$\displaystyle \int_{\RR^n_+} \left(\diff^{\VEC{\alpha}}
 \tilde{\xi}_i\right)\, \phi \dx{\VEC{x}}
-\to \int_{\RR^n_+} \left(\diff^\alpha f\right) \, \phi \dx{\VEC{x}}$
+\to \int_{\RR^n_+} \left(\diff^{\VEC{\alpha}} f\right) \, \phi \dx{\VEC{x}}$
 as $i \to \infty$.
 
 If $i \to \infty$ in (\ref{H0TraceEq1}), we then
 get that
 \[
-\diff^\alpha \underline{f} (\phi)
-= (-1)^{|\alpha|} \int_{\RR^n}
-\underline{f}\, \diff^\alpha \phi \dx{\VEC{x}}
-= \int_{\RR^n_+} \left(\diff^\alpha f \right)\, \phi \dx{\VEC{x}}
-= \int_{\RR^n} \underline{\diff^\alpha f}\, \phi \dx{\VEC{x}}
+\diff^{\VEC{\alpha}} \underline{f} (\phi)
+= (-1)^{|\VEC{\alpha}|} \int_{\RR^n}
+\underline{f}\, \diff^{\VEC{\alpha}} \phi \dx{\VEC{x}}
+= \int_{\RR^n_+} \left(\diff^{\VEC{\alpha}} f \right)\, \phi \dx{\VEC{x}}
+= \int_{\RR^n} \underline{\diff^{\VEC{\alpha}} f}\, \phi \dx{\VEC{x}}
 \]
 for all $\displaystyle \phi \in \DD(\RR^n)$ \footnote{Note that
 $\underline{\tilde{\xi}}_i \to \underline{f}$ as distributions on
 $\displaystyle \RR^n$, not necessarily in $\displaystyle H^k(\RR^n)$.}.
-Thus, we have for all $|\alpha| \leq k$
-that $\displaystyle \diff^\alpha \underline{f} = \underline{\diff^\alpha f}$
-and $\displaystyle \diff^\alpha \underline{f} \in L^2(\RR^n)$ because
+Thus, we have for all $|\VEC{\alpha}| \leq k$
+that $\displaystyle \diff^{\VEC{\alpha}} \underline{f}
+= \underline{\diff^{\VEC{\alpha}} f}$
+and $\displaystyle \diff^{\VEC{\alpha}} \underline{f} \in L^2(\RR^n)$ because
 \[
-\int_{\RR^n} \left|\underline{\diff^\alpha f}\right|^2 \dx{\VEC{x}}
-= \int_{\RR^n_+} \left|\diff^\alpha f\right|^2 \dx{\VEC{x}} < \infty
+\int_{\RR^n} \left|\underline{\diff^{\VEC{\alpha}} f}\right|^2 \dx{\VEC{x}}
+= \int_{\RR^n_+} \left|\diff^{\VEC{\alpha}} f\right|^2 \dx{\VEC{x}} < \infty
 \]
 since $\displaystyle f \in H^k(\RR^n_+)$.
 Therefore, $\displaystyle \underline{f} \in H^k(\RR^n)$.
@@ -4761,7 +4827,8 @@ $\displaystyle C^k$-regularity condition.  If
 $\displaystyle f \in C^{k-1}\left(\overline{\Omega}\right) \cap H^k(\Omega)$,
 then
 $\displaystyle f \in H^k_0(\Omega)$ if and only if
-$\displaystyle \diff^\alpha f =0$ on $\partial \Omega$ for $|\alpha|<k$
+$\displaystyle \diff^{\VEC{\alpha}} f =0$ on $\partial \Omega$ for
+$|\VEC{\alpha}|<k$.
 \end{prop}
 
 \begin{proof}
@@ -4821,16 +4888,17 @@ We now show that $g_m \rightarrow f_j$ in $\displaystyle H^1_0(\Omega)$.
 Since $\displaystyle H^1_0(\Omega)$ is closed, this will prove that
 $\displaystyle f_j \in h^1_0(\Omega)$.
 
-Let $\alpha$ be a multi-index such that $|\alpha|\leq 1$.  We first prove
-that $\displaystyle \diff^\alpha g_m(\VEC{x}) \rightarrow
-\diff^\alpha f_j(\VEC{x})$ as $m\rightarrow \infty$ for almost all
+Let $\VEC{\alpha}$ be a multi-index such that $|\VEC{\alpha}|\leq 1$.
+We first prove that $\displaystyle \diff^{\VEC{\alpha}} g_m(\VEC{x}) \rightarrow
+\diff^{\VEC{\alpha}} f_j(\VEC{x})$ as $m\rightarrow \infty$ for almost all
 $\VEC{x}\in \Omega$.
-Since $\displaystyle \diff^\alpha g_m(\VEC{x})=0$ for all $m$ and
+Since $\displaystyle \diff^{\VEC{\alpha}} g_m(\VEC{x})=0$ for all $m$ and
 $\VEC{x} \in \Omega \setminus \supp f_j$ because
-$\displaystyle \diff^\alpha f_j(\VEC{x})=0$ for all
+$\displaystyle \diff^{\VEC{\alpha}} f_j(\VEC{x})=0$ for all
 $\VEC{x} \in \Omega \setminus \supp f_j$,
 we trivially have that
-$\displaystyle \diff^\alpha g_m(\VEC{x}) \rightarrow \diff^\alpha f_j(\VEC{x})$
+$\displaystyle \diff^{\VEC{\alpha}} g_m(\VEC{x})
+\rightarrow \diff^{\VEC{\alpha}} f_j(\VEC{x})$
 as $m\rightarrow \infty$ for all $\VEC{x} \in \Omega \setminus \supp f_j$.
 Given $\VEC{x} \in \Omega$ such that $f_j(\VEC{x}) \neq 0$.
 Choose $\displaystyle C> 2$ and let $M$ be a positive integer such that
@@ -4839,20 +4907,22 @@ norm, there exists a neighbourhood $U\subset \Omega$ of $\VEC{x}$ such that
 $\displaystyle M \left|f_j(\VEC{y})\right|\geq 2$ for $\VEC{y} \in U$.
 Hence, $g_m(\VEC{y}) = f_j(\VEC{y})$ for $m\geq M$ and $\VEC{y} \in U$.
 We deduce that
-$\displaystyle \diff^\alpha g_m(\VEC{x}) = \diff^\alpha f(\VEC{x})$
+$\displaystyle \diff^{\VEC{\alpha}} g_m(\VEC{x})
+= \diff^{\VEC{\alpha}} f(\VEC{x})$
 for $m\geq M$. 
-Thus $\displaystyle \diff^\alpha g_m(\VEC{x}) \rightarrow
-\diff^\alpha f_j(\VEC{x})$ as
+Thus $\displaystyle \diff^{\VEC{\alpha}} g_m(\VEC{x}) \rightarrow
+\diff^{\VEC{\alpha}} f_j(\VEC{x})$ as
 $m\rightarrow \infty$.  Since this is true for all $\VEC{x} \in \Omega$ such
 that $f_j(\VEC{x}) \neq 0$, we have that
-$\displaystyle \diff^\alpha g_m \rightarrow \diff^\alpha f_j$ pointwise
+$\displaystyle \diff^{\VEC{\alpha}} g_m \rightarrow
+\diff^{\VEC{\alpha}} f_j$ pointwise
 on $\Omega$ almost everywhere as $m\rightarrow \infty$.  The only
 issue may be for $\VEC{x} \in \Omega \cap \partial (\supp f_j)$ where
 $f(\VEC{x}) = 0$ but this is a set of measure zero since $f$ is
 continuous on $\overline{\Omega}$.
 
-We now prove that $\displaystyle |\diff^\alpha g_m|^2$ is bounded by
-the integrable function $\displaystyle K |\diff^\alpha f_j|^2$ for all
+We now prove that $\displaystyle |\diff^{\VEC{\alpha}} g_m|^2$ is bounded by
+the integrable function $\displaystyle K |\diff^{\VEC{\alpha}} f_j|^2$ for all
 $m$, where $K$ is a constant.  For all $m \geq 1$ and
 $\VEC{x} \in \Omega$, we have
 \[
@@ -4860,12 +4930,12 @@ $\VEC{x} \in \Omega$, we have
 \left| \frac{1}{m} \xi(mf_j(\VEC{x})) \right|^2
 \leq \left| f_j(\VEC{x}) \right|^2
 \]
-because $|\xi(x)|\leq |x|$ for all $x \in \RR$.  For $|\alpha|=1$,
+because $|\xi(x)|\leq |x|$ for all $x \in \RR$.  For $|\VEC{\alpha}|=1$,
 $m \geq 1$ and $\VEC{x}\in \Omega$, we have that
 \[
-\left| \diff^\alpha g_m(\VEC{x}) \right|^2 =
-\left| \xi'(mf_j(\VEC{x})) \diff^\alpha f_j(\VEC{x}) \right|^2
-\leq K \left| \diff^\alpha f_j(\VEC{x}) \right|^2 \ ,
+\left| \diff^{\VEC{\alpha}} g_m(\VEC{x}) \right|^2 =
+\left| \xi'(mf_j(\VEC{x})) \diff^{\VEC{\alpha}} f_j(\VEC{x}) \right|^2
+\leq K \left| \diff^{\VEC{\alpha}} f_j(\VEC{x}) \right|^2 \ ,
 \]
 where
 \[
@@ -4875,14 +4945,15 @@ where
 Recall that $\xi(x) =0$ for $|x|<1$ and $\xi(x) = x$ for $x>2$.
 
 Since the sequence
-$\displaystyle \left\{ (\diff^\alpha g_m)^2 \right\}_{m=1}^\infty$ converges
-pointwise almost everywhere to $\displaystyle (\diff^\alpha f_j)^2$
+$\displaystyle \left\{ (\diff^{\VEC{\alpha}} g_m)^2 \right\}_{m=1}^\infty$
+converges pointwise almost everywhere to
+$\displaystyle (\diff^{\VEC{\alpha}} f_j)^2$
 and is bounded by the integrable function
-$\displaystyle K (\diff^\alpha f_j)^2$ on $\Omega$, we get from
+$\displaystyle K (\diff^{\VEC{\alpha}} f_j)^2$ on $\Omega$, we get from
 the Lebesgue Dominated Convergence Theorem that
-$\displaystyle \left\{ \diff^\alpha g_m \right\}_{m=1}^\infty$ converges
-to $\displaystyle \diff^\alpha f_j$ in $\displaystyle L^2(\Omega)$.
-Since $\alpha$ such that $|\alpha|\leq 1$ is arbitrary, we have
+$\displaystyle \left\{ \diff^{\VEC{\alpha}} g_m \right\}_{m=1}^\infty$ converges
+to $\displaystyle \diff^{\VEC{\alpha}} f_j$ in $\displaystyle L^2(\Omega)$.
+Since $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq 1$ is arbitrary, we have
 $\|g_m - f_j\|_{1,2,\Omega} \rightarrow 0$ as $m\rightarrow \infty$.
 
 \stage{$\mathbf{\Rightarrow}$}

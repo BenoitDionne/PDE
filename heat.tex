@@ -17,8 +17,8 @@ boundary conditions are
 \item $u(\VEC{x},t)=f(\VEC{x})$ for $\VEC{x} \in \partial \Omega$ and
 $t\geq 0$.  This means that the temperature is maintained to
 $f(\VEC{x})$ at $\VEC{x} \in \partial \Omega$ for all time.
-\item $\displaystyle \pdydx{u}{\VEC{\nu}}(\VEC{x},t) = g(\VEC{x})$ for
-$\VEC{x} \in \partial \Omega$ and $t\geq 0$, where $\VEC{\nu}(\VEC{x})$
+\item $\displaystyle \pdydx{u}{\nu}(\VEC{x},t) = g(\VEC{x})$ for
+$\VEC{x} \in \partial \Omega$ and $t\geq 0$, where $\nu(\VEC{x})$
 is the outward unit normal to the surface $\partial \Omega$ at
 $\VEC{x}\in \partial \Omega$.  This means that the flow of heat
 through $\VEC{x} \in \partial \Omega$ is $g(\VEC{x})$ for all time.
@@ -26,9 +26,9 @@ The most frequent situation is when $g=0$ on $\partial \Omega$;
 namely, the boundary of $\Omega$ is insulated and no heat flow in or
 out of $\Omega$.
 \item $u(\VEC{x},t)=f(\VEC{x})$ on some parts of $\partial \Omega$ and
-$\displaystyle \pdydx{u}{\VEC{\nu}}(\VEC{x},t) = g(\VEC{x})$ on the
+$\displaystyle \pdydx{u}{\nu}(\VEC{x},t) = g(\VEC{x})$ on the
 other parts of $\partial \Omega$ for all $t\geq 0$.
-\item $\displaystyle \pdydx{u}{\VEC{\nu}}(\VEC{x},t) + \alpha \left(
+\item $\displaystyle \pdydx{u}{\nu}(\VEC{x},t) + \alpha \left(
 u(\VEC{x},t) - u_o(\VEC{x},t)\right) = 0$ for
 $\VEC{x} \in \partial \Omega$ and $t\geq 0$,
 where $\alpha$ is a constant.  This means that the heat flow
@@ -324,14 +324,14 @@ where $f:\RR^n\rightarrow \RR$ is a function to be specified later.
 
 \begin{rmk}
 The hyperplane $t=0$ is a characteristic surface because the outward
-unit normal to this hyperplane is $\VEC{\nu}(\VEC{x},0) = (\VEC{0},-1)$ for
+unit normal to this hyperplane is $\nu(\VEC{x},0) = (\VEC{0},-1)$ for
 all $\displaystyle \VEC{x} \in \RR^n$, where $\VEC{0}$ is the origin
 in $\displaystyle \RR^n$, and 
 the principal symbol for the heat equation is
 \[
 Q((\VEC{x},t), (\VEC{y},s)) = \sum_{j=1}^n y_j^2 \ .
 \]
-Hence, $\displaystyle Q((\VEC{x},0), \VEC{\nu}(\VEC{x},0)) = 0$ for
+Hence, $\displaystyle Q((\VEC{x},0), \nu(\VEC{x},0)) = 0$ for
 all $\displaystyle \VEC{x} \in \RR^n$.
 \end{rmk}
 
@@ -441,11 +441,12 @@ Thus $\displaystyle u:\RR^n\times ]0,\infty[ \rightarrow \RR$ is well defined.
 \stage{ii} We prove that $u$ satisfies the heat equation.
 Proceeding as before, we can show that
 $\displaystyle \VEC{y} \mapsto f(\VEC{y})\, \left(
-D^\alpha_{\VEC{x}} \pdfdxn{K_t\left(\VEC{x} - \VEC{y}\right)}{t}{k} \right)$
+D^{\VEC{\alpha}}_{\VEC{x}} \pdfdxn{K_t\left(\VEC{x}
+- \VEC{y}\right)}{t}{k} \right)$
 for $\displaystyle \VEC{y} \in \RR^n$ is in
 $\displaystyle L^1(\RR^n)$ for $t>0$ whatever the
 choice of $k\geq 0$ and the multi-index
-$\displaystyle \alpha \in \NN^n$.  Hence, we
+$\displaystyle \VEC{\alpha} \in \NN^n$.  Hence, we
 may interchange the integral with respect to $\VEC{y}$ with the partial
 derivatives of any order with respect to the $x_i$'s and $t$.
 
