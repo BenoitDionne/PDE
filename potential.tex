@@ -1215,17 +1215,15 @@ Similarly, we get
 \left| \ln\left(\left\|\VEC{x}
 -\psi_{\VEC{x}_j}^{-1}(\VEC{w})\right\|\right)\right| \,
 \left| \det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w})\right| \dx{\VEC{w}} \\
-& \quad
-\leq \int_{\psi_{\VEC{x}_j}(S_{\VEC{x},\eta})}
+&\qquad \leq \int_{\psi_{\VEC{x}_j}(S_{\VEC{x},\eta})}
 \left| \ln\left( \left\|\psi_{\VEC{x}_j}(\VEC{x})-\VEC{w}\right\|\right)\right|
-\, \left| \det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w})\right| \dx{\VEC{w}}
-\leq Q \int_{B_{\eta}(\psi_{\VEC{x}_j}(\VEC{x}))}
+\, \left| \det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w})\right| \dx{\VEC{w}} \\
+&\qquad \leq Q \int_{B_{\eta}(\psi_{\VEC{x}_j}(\VEC{x}))}
 \left|\ln\left( \left\|\psi_{\VEC{x}_j}(\VEC{x})-\VEC{w}\right\|\right)\right|
-\dx{\VEC{w}} \\
-&\quad
+\dx{\VEC{w}}
 = Q \int_{\partial B_1(\VEC{0})} \int_0^\eta |\ln(r)|
-  r^{n-2} \dx{r} \dx{S}
-\leq Q \omega_{n-1} \left( \frac{|\ln(\eta)|\, \eta^{n-1}}{n-1}  +
+  r^{n-2} \dx{r} \dx{S} \\
+&\qquad \leq Q \omega_{n-1} \left( \frac{|\ln(\eta)|\, \eta^{n-1}}{n-1}  +
   \frac{\eta^{n-1}}{(n-1)^2}  \right) \ ,
 \end{align*}
 where again we have use the change of variables 
@@ -1405,47 +1403,47 @@ that
 = \int_{S \cap B_\epsilon(\VEC{x})}
 \left| A(\VEC{x},\VEC{y}) \,\ln(\|\VEC{x}-\VEC{y}\|) +
 B(\VEC{x},\VEC{y}) \right| \dss{S}{y} \\
-&\qquad \leq \|A\|_\infty \int_{S \cap B_\epsilon(\VEC{x})}
+&\quad \leq \|A\|_\infty \int_{S \cap B_\epsilon(\VEC{x})}
 \left|\ln(\|\VEC{x}-\VEC{y}\|) \right| \dss{S}{y} +
 \|B\|_\infty \int_{S \cap B_\epsilon(\VEC{x})}\dss{S}{y} \\
-&\qquad = \|A\|_\infty\sum_{j\in J}
+&\quad = \|A\|_\infty\sum_{j\in J}
 \int_{U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x})}
 \phi_{\VEC{x}_j}(\VEC{y})
 \left| \ln\left( \left\| \VEC{x} - \VEC{y} \right\|\right) \right|
 \dss{S}{\VEC{y}} + \|B\|_\infty \sum_{j\in J}
 \int_{U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x})} \phi_{\VEC{x}_j}(\VEC{y})
 \dss{S}{\VEC{y}} \\
-&\qquad \leq \|A\|_\infty\sum_{j\in J}
+&\quad \leq \|A\|_\infty\sum_{j\in J}
 \int_{U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x})}
 \left| \ln\left( \left\| \VEC{x} - \VEC{y} \right\|\right) \right|
 \dss{S}{\VEC{y}} + \|B\|_\infty \sum_{j\in J}
 \int_{U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x})}\dss{S}{\VEC{y}} \\
-&\qquad = \|A\|_\infty\sum_{j\in J}
+&\quad = \|A\|_\infty\sum_{j\in J}
 \int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))}
 \left| \ln\left( \left\| \VEC{x} - \psi_{\VEC{x}_j}^{-1}(\VEC{w}) 
 \right\|\right) \right|\, \left|\det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w}) \right|
 \dx{\VEC{w}} \\
-&\qquad \qquad + \|B\|_\infty \sum_{j\in J}
+&\quad \qquad + \|B\|_\infty \sum_{j\in J}
 \int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))}
 \left|\det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w}) \right| \dx{\VEC{w}} \\
-&\qquad \leq \|A\|_\infty Q \sum_{j\in J}
+&\quad \leq \|A\|_\infty Q \sum_{j\in J}
 \int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))}
 \left| \ln\left( \left\| \VEC{x} - \psi_{\VEC{x}_j}^{-1}(\VEC{w}) 
 \right\|\right) \right| \dx{\VEC{w}}
 + \|B\|_\infty Q \sum_{j\in J}
 \int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))} \dx{\VEC{w}} \\
-&\qquad \leq \|A\|_\infty Q \sum_{j\in J}
+&\quad \leq \|A\|_\infty Q \sum_{j\in J}
 \int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))}
 \left| \ln\left(
 \left\| \psi_{\VEC{x}_j}(\VEC{x}) - \VEC{w} \right\|\right) \right|
 \dx{\VEC{w}}
 + \|B\|_\infty Q \sum_{j\in J}
 \int_{\psi_{\VEC{x}_j}^{-1}(U_{\VEC{x}_j}\cap B_\epsilon(\VEC{x}))} \dx{\VEC{w}} \\
-&\qquad \leq \|A\|_\infty Q \sum_{j\in J} \int_{\partial B_1(\VEC{0})}
+&\quad \leq \|A\|_\infty Q \sum_{j\in J} \int_{\partial B_1(\VEC{0})}
 \int_0^{\epsilon} |\ln(r)| \,r^{n-2} \dx{r} \dx{S}
 + \|B\|_\infty Q \sum_{j\in J} \int_{\partial B_1(\VEC{0})}
 \int_0^{\epsilon} r^{n-2} \dx{r} \dx{S} \\
-&\qquad \leq \frac{\|A\|_\infty Q\, \omega_{n-1}
+&\quad \leq \frac{\|A\|_\infty Q\, \omega_{n-1}
 |J|\,\left( |\ln(\epsilon)| + 1 \right) \epsilon^{n-1}}{n-1}
 + \frac{\|B\|_\infty Q \omega_{n-1} |J|\, \epsilon^{n-1}}{n-1}
 < \infty
@@ -1482,14 +1480,14 @@ Note that
 \leq \frac{(|\ln(\epsilon)| + 1)\epsilon^{n-1}}{n-1}
 \]
 for $0 < \epsilon < 1$, and
-\[
+\begin{align*}
 \int_0^{\epsilon} |\ln(r)| \,r^{n-2} \dx{r} 
-= \frac{|\ln(\epsilon)|\epsilon^{n-1}}{n-1} -
-\frac{\epsilon^{n-1}}{(n-1)^2} + \frac{2}{(n-1)^2}
-\leq \frac{|\ln(\epsilon)|\epsilon^{n-1}}{n-1}
+&= \frac{|\ln(\epsilon)|\epsilon^{n-1}}{n-1} -
+\frac{\epsilon^{n-1}}{(n-1)^2} + \frac{2}{(n-1)^2} \\
+&\leq \frac{|\ln(\epsilon)|\epsilon^{n-1}}{n-1}
 + \frac{\epsilon^{n-1}}{(n-1)^2}
 \leq \frac{(|\ln(\epsilon)| + 1)\epsilon^{n-1}}{n-1}
-\]
+\end{align*}
 for $\epsilon >1$.
 \end{proof}
 
@@ -1695,15 +1693,15 @@ Choose a positive number $\delta_0 < \delta$ such that
 \]
 for $\VEC{y} \in S_{\VEC{x},\delta_0}$ and
 $\VEC{z} \in S\setminus S_{\VEC{x},2\delta}$.  Then,
-\[
-I_2(\VEC{x},\VEC{y}) = \int_{S\setminus S_{\VEC{x},2\delta}}
+\begin{align*}
+I_2(\VEC{x},\VEC{y}) &= \int_{S\setminus S_{\VEC{x},2\delta}}
 \left| K(\VEC{x},\VEC{z}) - K(\VEC{y},\VEC{z})\right|\,
-\left| f(\VEC{z}) \right|\dss{S}{z}
-\leq \|f\|_{\infty}
+\left| f(\VEC{z}) \right|\dss{S}{z} \\
+&\leq \|f\|_{\infty}
 \left( \frac{\epsilon}{2 \|f\|_\infty \,\int_{S\setminus S_{2\delta}} \dx{S}}
 \right) \int_{S\setminus S_{2\delta}}  \dx{S}
 < \frac{\epsilon}{2}
-\]
+\end{align*}
 for $\VEC{y} \in S_{\VEC{x},\delta_0}$.
 
 \stage{iii} Hence,
@@ -2259,8 +2257,8 @@ Lemma~\ref{pot_lem_dbl1} that
 \begin{align}
 \left| \pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y})\right| 
 &= \left| \frac{-1}{\omega_n \|\VEC{x}-\VEC{y}\|^n}\,(\VEC{x}-\VEC{y})
-\cdot \nu(\VEC{y}) \right|
-\leq \frac{1}{\omega_n \|\VEC{x}-\VEC{y}\|^n}\,\big(
+\cdot \nu(\VEC{y}) \right| \nonumber \\
+&\leq \frac{1}{\omega_n \|\VEC{x}-\VEC{y}\|^n}\,\big(
 \left|(\VEC{x}-\VEC{x}_o) \cdot \nu(\VEC{y}) \right|
 + \left| (\VEC{x}_o-\VEC{y}) \cdot \nu(\VEC{y}) \right| \big)
 \nonumber \\
@@ -2377,13 +2375,13 @@ $a = \|\VEC{x}-\VEC{x}_o\|$, we get
 \end{align}
 where we have used the substitution $r = a s$.
 The last integral converges because
-\[
+\begin{align*}
 \int_0^R \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s}
-= \int_0^1 \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s}
-+ \int_1^R \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s}
-\leq \underbrace{\int_0^1 \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s}}_{<\infty}
+&= \int_0^1 \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s}
++ \int_1^R \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s} \\
+&\leq \underbrace{\int_0^1 \frac{s^{n-2}}{(1 + s^2)^{n/2}} \dx{s}}_{<\infty}
 + \underbrace{\int_1^R \frac{1}{s^2} \dx{s}}_{<1}
-\]
+\end{align*}
 for $R >1$.
 
 It follows from (\ref{Bounddny2}), (\ref{Bounddny4}),
@@ -2607,7 +2605,7 @@ This is possible because $\phi$ is continuous on the compact
 set $S$.  So $\phi$ is uniformly continuous on
 $S$.
 
-We may also assume that $\eta$ is small enough such that
+We may also assume that $\eta$ is small enough such that \\
 $\displaystyle
 O_\eta = \left\{ \VEC{x} + t \nu(\VEC{x}) : \VEC{x} \in S
 \ \text{and} \ |t| < \eta \right\}$
@@ -2804,20 +2802,20 @@ $\displaystyle S_{\VEC{x},3\mu/2} =  B_{3\mu/2}(\VEC{x}) \cap S
 for all $\VEC{x} \in B_{\mu/2}(\VEC{z})$.
 Thus, we have for $n>2$ that
 \begin{align*}
-&\int_{S_{\VEC{z},\mu}}\left| N(\VEC{x},\VEC{y}) \right|\,
+\int_{S_{\VEC{z},\mu}}\left| N(\VEC{x},\VEC{y}) \right|\,
 |\phi(\VEC{y})| \dss{S}{y}
-\leq \|\phi\|_\infty \int_{S_{\VEC{x},3\mu/2}} \left| N(\VEC{x},\VEC{y}) \right|
-\dss{S}{y}
-= \frac{\|\phi\|_\infty}{(n-2)\omega_n}
+&\leq \|\phi\|_\infty \int_{S_{\VEC{x},3\mu/2}} \left| N(\VEC{x},\VEC{y}) \right|
+\dss{S}{y} \\
+&= \frac{\|\phi\|_\infty}{(n-2)\omega_n}
 \int_{S_{\VEC{x},3\mu/2}} \left\| \VEC{x} - \VEC{y}\right\|^{2-n} \dx{S}{y} \\
-&\qquad = \frac{\|\phi\|_\infty}{(n-2)\omega_n}
+& = \frac{\|\phi\|_\infty}{(n-2)\omega_n}
 \int_{\psi_{\VEC{x}_j}(S_{\VEC{x},3\mu/2})}
 \left\| \VEC{x} - \psi_{\VEC{x}_j}^{-1}(\VEC{w})\right\|^{2-n}
 \left| \det \diff \psi_{\VEC{x}_j}^{-1}(\VEC{w}) \right| \dx{\VEC{w}} \\
-&\qquad \leq \frac{\|\phi\|_\infty Q}{(n-2)\omega_n}
+& \leq \frac{\|\phi\|_\infty Q}{(n-2)\omega_n}
 \int_{\psi_{\VEC{x}_j}(S_{\VEC{x},3\mu/2})}
 \left\| \psi_{\VEC{x}_j}(\VEC{x}) - \VEC{w}\right \|^{2-n} \dx{\VEC{w}} \\
-&\qquad \leq \frac{\|\phi\|_\infty Q}{(n-2)\omega_n}
+& \leq \frac{\|\phi\|_\infty Q}{(n-2)\omega_n}
 \int_{\partial B_1(\VEC{0})} \int_0^{3\mu/2} \dx{r} \dx{S}
 = \frac{3\|\phi\|_\infty \omega_{n-1} Q\,\mu}{2(n-2)\omega_n}
 \end{align*}
@@ -2961,17 +2959,17 @@ $\displaystyle T_{K^\ast}:L^2(S)\rightarrow L^2(S)$ are
 compact operators.  Moreover, since $K$ and $\displaystyle K^\ast$ are
 real valued functions, we have
 \begin{align*}
-&\ps{\psi}{T_K\phi}_2 = \int_S \psi(\VEC{x}) \left(
+\ps{\psi}{T_K\phi}_2 &= \int_S \psi(\VEC{x}) \left(
 \overline{\int_S K(\VEC{x},\VEC{y})\phi(\VEC{y}) \dss{S}{y}} \right) \dss{S}{x}
 =\int_S \psi(\VEC{x}) \left(
 \int_S K(\VEC{x},\VEC{y})\overline{\phi(\VEC{y})} \dss{S}{y} \right)
 \dss{S}{x} \\
-&\quad =\int_S \left( \int_S K(\VEC{x},\VEC{y}) \psi(\VEC{x}) \dss{S}{x}
+&=\int_S \left( \int_S K(\VEC{x},\VEC{y}) \psi(\VEC{x}) \dss{S}{x}
 \right) \overline{\phi(\VEC{y})} \dss{S}{y}
 =\int_S \left(
 \int_S K^\ast(\VEC{y},\VEC{x}) \psi(\VEC{x}) \dss{S}{x}
-\right) \overline{\phi(\VEC{y})} \dss{S}{y} =
-\ps{T_{K^\ast} \psi}{\phi}_2
+\right) \overline{\phi(\VEC{y})} \dss{S}{y} \\
+&= \ps{T_{K^\ast} \psi}{\phi}_2
 \end{align*}
 for $\phi,\psi \in L^2(S)$.
 Thus $\displaystyle T_{K^\ast} = T_K^\ast$, the adjoint operator to $T_K$ on
@@ -3595,8 +3593,8 @@ Since $\displaystyle -\frac{1}{2} \Id + T_K$ and
 $\displaystyle \frac{1}{2} \Id + T_K$ are compact operators, it
 follows from Theorem~\ref{fu_an_comp_oper} that
 $\displaystyle \dim\ \KE \left(-\frac{1}{2} \Id + T_K\right) =
-\dim\ \KE \left(-\frac{1}{2} \Id + T_K^\ast \right)$
-and $\displaystyle \dim\ \KE \left(\frac{1}{2} \Id + T_K\right) =
+\dim\ \KE \left(-\frac{1}{2} \Id + T_K^\ast \right)$ and \\
+$\displaystyle \dim\ \KE \left(\frac{1}{2} \Id + T_K\right) =
 \dim\ \KE \left(\frac{1}{2} \Id + T_K^\ast \right)$.
 
 Since $\displaystyle V_+ = \KE \left(-\frac{1}{2} \Id + T_K\right)$
@@ -3974,7 +3972,7 @@ $\displaystyle \int_{\partial B_r(\VEC{0})} v \pdydx{u}{\nu}  \dx{S}$
 converge to $0$ as $r \to \infty$.
 
 Therefore, if we let $r \to \infty$ in (\ref{pot_L2_split1_E6}), we
-get from (\ref{pot_L2_split1_E4}) and (\ref{pot_L2_split1_E5}) that
+get from (\ref{pot_L2_split1_E4}) and (\ref{pot_L2_split1_E5}) that\\
 $\displaystyle \int_{\Omega} \|\graD u\|_2^2 \dx{\VEC{x}} = 0$.
 Thus $\graD u = 0$ on $\Omega$.  This shows that $u$ is
 constant on each component of $\Omega$.  From this, we
@@ -3994,7 +3992,7 @@ follows from Theorems~\ref{fu_an_comp_oper} and \ref{fu_an_RIOrth} that\\
 $\displaystyle  \IMG \left(-\frac{1}{2} \Id + T_K\right)
 = \left( \KE \left(-\frac{1}{2} \Id + T_K^\ast \right) \right)^\perp
 = W_+^\perp$
-and 
+and \\
 $\displaystyle \IMG \left(\frac{1}{2} \Id + T_K\right)
 = \left( \KE \left(\frac{1}{2} \Id + T_K^\ast \right) \right)^\perp
 = W_-^\perp$.

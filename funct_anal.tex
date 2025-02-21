@@ -461,9 +461,9 @@ c_n = \frac{1}{2\pi} \int_{-\pi}^{\pi} \, f(x) e^{-n x\, i} \dx{x} \quad
 
 In this section, we prove the following theorem.
 
-\begin{theorem}\label{faFsPwc}
-Let $f:\RR\to \CC$ be a $2\pi$-periodic, piecewise differentiable
-function.  Then
+\begin{theorem}
+Let $f:\RR\to \CC$ be a $2\pi$-periodic,     { \label{faFsPwc} }
+piecewise differentiable function.  Then
 \[
 \frac{f(x^+) + f(x^-)}{2} = \lim_{N\to \infty} \sum_{n=-N}^N c_n e^{n x\, i} \ ,
 \]
@@ -670,7 +670,7 @@ $\displaystyle b_n = \frac{1}{L} \int_{-L}^{L} f(x)
 If $f:\RR\rightarrow \RR$ is periodic of period $T = 2L$ and
 $\displaystyle f\big|_{[-L,L]} \in L^2[-L,L]$, the coefficients of the Fourier
 expansion are also given by
-$\displaystyle a_0 = \frac{1}{2L} \int_{\alpha}^{\alpha+2L} f(x) \dx{x}$,
+$\displaystyle a_0 = \frac{1}{2L} \int_{\alpha}^{\alpha+2L} f(x) \dx{x}$,\\
 $\displaystyle a_n = \frac{1}{L} \int_{\alpha}^{\alpha+2L} f(x)
 \cos\left(\frac{n\pi x}{L}\right) \dx{x}$ for $n \geq 1$ and
 $\displaystyle b_n = \frac{1}{L} \int_{\alpha}^{\alpha+2L} f(x)
@@ -1514,13 +1514,13 @@ $\displaystyle (\DO(A^\bullet),A^\bullet)$.  This proves (\ref{fu_an_dualHB}).
 It follows from Definition~\ref{fu_an_dualHB_def} that
 the mapping $\displaystyle A \mapsto A^\bullet$ if conjugate-linear
 because
-\[
+\begin{align*}
 A^\bullet(w) = v
-\Leftrightarrow \ps{A(x)}{w}_{H_2} = \ps{x}{v}_{H_1}
+& \Leftrightarrow \ps{A(x)}{w}_{H_2} = \ps{x}{v}_{H_1}
 \Leftrightarrow \ps{\lambda A(x)}{w}_{H_2} = \ps{\lambda x}{v}_{H_1}
-= \ps{x}{\overline{\lambda} v}_{H_1}
-\Leftrightarrow (\lambda A)^\bullet = \overline{\lambda} v
-\]
+= \ps{x}{\overline{\lambda} v}_{H_1} \\
+& \Leftrightarrow (\lambda A)^\bullet = \overline{\lambda} v
+\end{align*}
 for all $\lambda \in \CC$.  We have
 however that the mapping $\displaystyle A \mapsto A^\ast$ is linear.
 

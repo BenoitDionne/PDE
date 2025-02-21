@@ -252,8 +252,8 @@ and $\displaystyle y_2 = x^{\lambda_2} \sum_{n=0}^\infty b_n x^n$.
 If we substitute $\displaystyle y = x^\lambda \sum_{n=0}^\infty c_n x^n$ into
 $\displaystyle 2xy''+  y' + xy = 0$, we get
 \begin{align*}
-0 & = 2xy''+ y' + xy
-= 2 \sum_{n=0}^\infty (\lambda+n)(\lambda+n-1) c_n x^{\lambda+n-1}
+0 & = 2xy''+ y' + xy \\
+&= 2 \sum_{n=0}^\infty (\lambda+n)(\lambda+n-1) c_n x^{\lambda+n-1}
 + \sum_{n=0}^\infty (\lambda + n )c_n x^{\lambda+n-1}
 + \sum_{n=0}^\infty c_n x^{\lambda+n+1} \\
 &= 2 \sum_{n=-2}^\infty (\lambda+n+2)(\lambda+n+1) c_{n+2} x^{\lambda+n+1}
@@ -1519,11 +1519,11 @@ Since
 $\displaystyle y'= u' x^{1/2}+ u  x^{-1/2}/2$ and
 $\displaystyle y''= u'' x^{1/2}+ u' x^{-1/2} - u x^{-3/2}/4$,
 (\ref{BesselEX2}) becomes
-\[
-0 =x^2 \left(u'' x^{1/2}+ u' x^{-1/2} - \frac{1}{4} u x^{-3/2}\right)
-+\left(9x^2 + \frac{5}{36}\right) u x^{1/2}
-= x^{5/2} u'' + x^{3/2} u' + \left( 9  x^2 - \frac{1}{9}\right) u x^{1/2} \ .
-\]
+\begin{align*}
+0 &= x^2 \left(u'' x^{1/2}+ u' x^{-1/2} - \frac{1}{4} u x^{-3/2}\right)
++\left(9x^2 + \frac{5}{36}\right) u x^{1/2} \\
+&= x^{5/2} u'' + x^{3/2} u' + \left( 9  x^2 - \frac{1}{9}\right) u x^{1/2} \ .
+\end{align*}
 Hence, after multiplying both sides of the previous equality by
 $\displaystyle x^{1/2}$, we get
 \[
@@ -1604,7 +1604,7 @@ z^2 \dydxn{u}{z}{2} + z \dydx{u}{z}
 \]
 This is a Bessel equation with $\nu = 1/4$.  Its general solution is
 $\displaystyle u = A J_{1/4}(z) + B J_{-1/4}(z)$.  
-Hence, the general solution of (\ref{BesselEX3}) is
+Hence, the general solution of (\ref{BesselEX3}) is \\
 $\displaystyle y(x) = \sqrt{x}\, u(x)
 = A \sqrt{x} J_{1/4}\left(kx^2/2\right)
 + B \sqrt{x}\, J_{-1/4}\left(kx^2/2\right)$

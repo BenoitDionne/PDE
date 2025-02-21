@@ -937,7 +937,7 @@ conditions.  We will not provide an encyclopedic list of the results.
 The function
 $\displaystyle u_n(x,t) = \left(a_n\cos\left(\frac{n\pi t}{L}\right)
 + b_n \sin\left(\frac{n\pi t}{L}\right)\right)
-\sin\left(\frac{n\pi x}{L}\right)$ is called the
+\sin\left(\frac{n\pi x}{L}\right)$ is called the\\
 {\bfseries $\mathbf{n^{th}}$-normal mode}\index{Wave Equation!$n^{th}$-Normal
 Mode} or {\bfseries $\mathbf{n^{th}}$-harmonic}\index{Wave
 Equation!$n^{th}$-Harmonic}.  The first-harmonic is called the
@@ -1488,12 +1488,12 @@ $B_n$ and $C_n$, and $b_n$ comes from the product of $B_n$ and $D_n$.
 
 \subI{Initial condition}
 We seek a solution of the form
-\[
-u(x,t) = \sum_{n=1}^\infty u_n(x,t)
-= \sum_{n=1}^\infty \left( a_n\, \cos\left(\frac{(2n-1)\pi t}{10}\right)
+\begin{align*}
+u(x,t) &= \sum_{n=1}^\infty u_n(x,t) \\
+&= \sum_{n=1}^\infty \left( a_n\, \cos\left(\frac{(2n-1)\pi t}{10}\right)
  + b_n \sin\left(\frac{(2n-1)\pi t}{10}\right) \right)
 \sin\left(\frac{(2n-1)\pi x}{10}\right) \ .
-\]
+\end{align*}
 
 From $\displaystyle u(x,0) = 2 \sin\left(\frac{7 \pi x}{10}\right)$, we get
 \[
@@ -1800,13 +1800,13 @@ T_n(t) = A_n\cos\left(\frac{c n \pi t}{L}\right)
 for $t>0$ and $n>0$.
 
 The solution is
-\[
-u(x,t) = \left(\frac{L^2}{3}\,t^2 + B_0t + A_0\right)
-+ \sum_{n=1}^\infty 
+\begin{align*}
+u(x,t) &= \left(\frac{L^2}{3}\,t^2 + B_0t + A_0\right) \\
+&+ \sum_{n=1}^\infty 
 \left( A_n\cos\left(\frac{c n \pi t}{L}\right)
 + B_n \sin\left(\frac{c n \pi t}{L}\right) -
 \frac{4 L^4}{c^2n^4\pi^4} \right)\cos\left(\frac{n\pi x}{L}\right)
-\]
+\end{align*}
 for $0<x<L$ and $t>0$.
 
 From $\displaystyle u(x,0) = x^2(3L-2x)$, we get

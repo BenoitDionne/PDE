@@ -188,10 +188,10 @@ Since
 we get from the divergence theorem that
 \begin{equation} \label{shock_strong_cons}
 \begin{split}
-\int_{\partial B} \left( G(u) \psi, u \psi\right)\cdot \VEC{\nu} \dx{s}
-&=\int_B \left( \pdfdx{(u\psi)}{y} + \pdfdx{( G(u) \psi)}{x} \right)
+&\int_{\partial B} \left( G(u) \psi, u \psi\right)\cdot \VEC{\nu} \dx{s}
+=\int_B \left( \pdfdx{(u\psi)}{y} + \pdfdx{( G(u) \psi)}{x} \right)
 \dx{x}\dx{y} \\
-&= \int_B \left( u \pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x}
+&\quad = \int_B \left( u \pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x}
 \right) \dx{x}\dx{y}
 + \int_B \left( \pdydx{u}{y} + \pdfdx{G(u)}{x}\right) \psi \dx{x}\dx{y}
 \end{split}
@@ -212,12 +212,12 @@ Since $\displaystyle \pdydx{u}{y} + \pdfdx{G(u)}{x} = 0$ in
 $\RR\times [0,\infty[$ and $u(x,0) = h(x)$ for $x\in \RR$, it follows
 from (\ref{shock_strong_cons}) that
 \begin{align*}
--\int_{-a}^a h(x)\psi(x,0) \dx{x} &= -\int_{-a}^a u(x,0)\psi(x,0) \dx{x} \\
-&= \int_{-a}^a \int_0^b
+&-\int_{-a}^a h(x)\psi(x,0) \dx{x} = -\int_{-a}^a u(x,0)\psi(x,0) \dx{x} \\
+&\qquad = \int_{-a}^a \int_0^b
 \left( u \pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x} \right) \dx{y}\dx{x}
 + \int_{-a}^a \int_0^b  \left( \pdydx{u}{y} + \pdfdx{G(u)}{x}\right)
 \psi \dx{y}\dx{x} \\
-&= \int_{-a}^a \int_0^b
+&\qquad = \int_{-a}^a \int_0^b
 \left( u \pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x} \right) \dx{y}\dx{x} \ .
 \end{align*}
 We get the negative sign because $\VEC{\nu}(x,y) = (0,-1)$ on the segment
@@ -238,8 +238,8 @@ and any $\psi \in \DD(B)$, we get from
 -\int_{-a}^a u(x,0)\psi(x,0) \dx{x}
 &= \int_0^b \int_{-a}^a
 \left( u \pdydx{\psi}{y} + G(u)\,\pdydx{\psi}{x}
-\right) \dx{x}\dx{y}
-+ \int_0^b \int_{-a}^a
+\right) \dx{x}\dx{y} \\
+& \qquad \qquad+ \int_0^b \int_{-a}^a
 \left( \pdydx{u}{y} + \pdfdx{G(u)}{x}\right) \psi \dx{x}\dx{y} \\
 &= - \int_{-a}^a h(x)\psi(x,0) \dx{x} 
 + \int_0^b \int_{-a}^a
@@ -1358,14 +1358,14 @@ $R_{\alpha,-} = \{ (x,y) \in R : y < \alpha \}$.  We have from
 \end{align*}
 Given $\epsilon>0$, we can use (\ref{shock_uniqueEq10}) and (v) to
 choose a positive integer $J$ such that
-\[
+\begin{align*}
 \iint_{R_{\alpha,+}} \left|
 \left(u_2 - u_1 \right)\left({\cal G}^{[j]} - {\cal G}\right)
 \,\pdydx{\psi^{[j]}}{x} \right| \dx{y} \dx{x}
-\leq 2 H (Y-\alpha) P e^{C\tilde{M}(Y-\alpha)}
-\iint_{R_{\alpha,+}} \left|{\cal G}^{[j]} - {\cal G}\right| \dx{x}\dx{y}
-< \frac{\epsilon}{2}
-\]
+&\leq 2 H (Y-\alpha) P e^{C\tilde{M}(Y-\alpha)}
+\iint_{R_{\alpha,+}} \left|{\cal G}^{[j]} - {\cal G}\right| \dx{x}\dx{y} \\
+&< \frac{\epsilon}{2}
+\end{align*}
 for $j >J$.  Moreover,
 \begin{align*}
 &\iint_{R_{\alpha,-}} \left|
@@ -1857,12 +1857,13 @@ It will be useful later to know that
 \]
 and
 \begin{align*}
-&\lim_{u_1 \to u^-_1} \pdydxn{u_2}{u_1}{2}(u_1) \\
-&=\lim_{u_1 \to u^-_1}
-\frac{(u^-_1 -u_1)^{-3}\big(p(u_1) - p(u^-_1) +(u^-_1-u_1) p'(u_1)\big)^2
+&\lim_{u_1 \to u^-_1} \pdydxn{u_2}{u_1}{2}(u_1)
+=\lim_{u_1 \to u^-_1} \\
+&\quad \frac{(u^-_1 -u_1)^{-3}\big(p(u_1) - p(u^-_1) +(u^-_1-u_1) p'(u_1)\big)^2
 + 2 p''(u_1) (p(u_1)-p(u^-_1))/(u_1-u^-_1)}
 {4\big(-(p(u_1) - p(u^-_1))/(u_1 - u^-_1)\big)^{3/2}} \\
-&= \frac{0  + 2 p''(u^-_1) p'(u^-_1)}{4 \big(-p'(u^-_1)\big)^{3/2}}
+&\qquad \qquad
+= \frac{0  + 2 p''(u^-_1) p'(u^-_1)}{4 \big(-p'(u^-_1)\big)^{3/2}}
 = -\frac{p''(u^-_1)}{2 \sqrt{-p'(u^-_1)}} < 0 \ ,
 \end{align*}
 where we have used the fact that
@@ -1926,12 +1927,12 @@ As for (i), it will be useful later to know that
 \]
 and
 \begin{align*}
-&\lim_{u_1 \to u^-_1} \pdydxn{u_2}{u_1}{2}(u_1) \\
-&=\lim_{u_1 \to u^-_1}
-\frac{(u_1 -u^-_1)^{-3}\big(p(u_1) - p(u^-_1) +(u^-_1-u_1) p'(u_1)\big)^2
+&\lim_{u_1 \to u^-_1} \pdydxn{u_2}{u_1}{2}(u_1)
+=\lim_{u_1 \to u^-_1} \\
+&\quad \frac{(u_1 -u^-_1)^{-3}\big(p(u_1) - p(u^-_1) +(u^-_1-u_1) p'(u_1)\big)^2
 - 2 p''(u_1) (p(u_1)-p(u^-_1))/(u_1-u^-_1)}
 {4\big(-(p(u_1) - p(u^-_1))/(u_1 - u^-_1)\big)^{3/2}} \\
-&= \frac{0  - 2 p''(u^-_1) p'(u^-_1)}{4 \big(-p'(u^-_1)\big)^{3/2}}
+&\qquad \qquad = \frac{0  - 2 p''(u^-_1) p'(u^-_1)}{4 \big(-p'(u^-_1)\big)^{3/2}}
 = \frac{p''(u^-_1)}{2 \sqrt{-p'(u^-_1)}} > 0 \ .
 \end{align*}
 
@@ -1956,7 +1957,7 @@ eigenvector of $(\diff G)(w(z))$ associated to the eigenvalue $z$.
 
 We have already seen that
 $\displaystyle \diff G(\VEC{u}) = \begin{pmatrix} 0 & -1 \\
-p'(u_1) & 0 \end{pmatrix}$ has the eigenvalues
+p'(u_1) & 0 \end{pmatrix}$ has the eigenvalues\\
 $\lambda_1(\VEC{u}) = -\sqrt{-p'(u_1)}$ and
 $\lambda_2(\VEC{u}) = \sqrt{-p'(u_1)}$.
 

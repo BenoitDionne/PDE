@@ -598,27 +598,27 @@ $\displaystyle \underline{\diff^{\VEC{\alpha}} f} \ast
 For $\epsilon < \dist{\partial \Omega}{U}$, $\phi \in \DD(U)$ and
 $|\VEC{\alpha}|\leq k$, we have that
 \begin{align*}
-&\diff^{\VEC{\alpha}}(\underline{f} \ast \psi_\epsilon)(\phi)
-= (-1)^{|\VEC{\alpha}|} \int_{\RR^n}
+\diff^{\VEC{\alpha}}(\underline{f} \ast \psi_\epsilon)(\phi)
+&= (-1)^{|\VEC{\alpha}|} \int_{\RR^n}
 (\underline{f} \ast \psi_\epsilon)\, \diff^{\VEC{\alpha}} \phi \dx{\VEC{x}}  \\
-&\quad = (-1)^{|\VEC{\alpha}|} \int_{\RR^n}
+&= (-1)^{|\VEC{\alpha}|} \int_{\RR^n}
 \left( \int_{\RR^n} \underline{f}(\VEC{y}-\VEC{x})\,
 \psi_\epsilon (\VEC{y}) \dx{\VEC{y}} \right) \diff^{\VEC{\alpha}} \phi(\VEC{x})
 \dx{\VEC{x}} \\
-&\quad = (-1)^{|\VEC{\alpha}|} \int_{\RR^n} \left( \int_{\RR^n}
+&= (-1)^{|\VEC{\alpha}|} \int_{\RR^n} \left( \int_{\RR^n}
 \underline{f}(\VEC{y}-\VEC{x})\, \diff^{\VEC{\alpha}} \phi(\VEC{x}) \dx{\VEC{x}}
 \right) \psi_\epsilon (\VEC{y}) \dx{\VEC{y}} \\
-&\quad = (-1)^{|\VEC{\alpha}|} \int_{B_\epsilon(\VEC{0})}
+&= (-1)^{|\VEC{\alpha}|} \int_{B_\epsilon(\VEC{0})}
 \left( \int_{U} f(\VEC{y}-\VEC{x})\,
 \diff^{\VEC{\alpha}} \phi(\VEC{x}) \dx{\VEC{x}}
 \right) \psi_\epsilon (\VEC{y}) \dx{\VEC{y}} \\
-&\quad = \int_{B_\epsilon(\VEC{0})} \left( \int_{U} \diff^{\VEC{\alpha}}
+&= \int_{B_\epsilon(\VEC{0})} \left( \int_{U} \diff^{\VEC{\alpha}}
 f(\VEC{y}-\VEC{x})\, \phi(\VEC{x}) \dx{\VEC{x}}
-\right) \psi_\epsilon (\VEC{y}) \dx{\VEC{y}}
-= \int_U \left( \int_{B_\epsilon(\VEC{0})} \diff^{\VEC{\alpha}}
+\right) \psi_\epsilon (\VEC{y}) \dx{\VEC{y}} \\
+&= \int_U \left( \int_{B_\epsilon(\VEC{0})} \diff^{\VEC{\alpha}}
 f (\VEC{y}-\VEC{x})\,
 \psi_\epsilon (\VEC{y}) \dx{\VEC{y}} \right) \phi(\VEC{x}) \dx{\VEC{x}} \\
-&\quad = \int_U \left( \int_{\RR^n} \underline{\diff^{\VEC{\alpha}} f}
+&= \int_U \left( \int_{\RR^n} \underline{\diff^{\VEC{\alpha}} f}
 (\VEC{y}-\VEC{x})\,
 \psi_\epsilon (\VEC{y}) \dx{\VEC{y}} \right) \phi(\VEC{x}) \dx{\VEC{x}}
 = \int_{U} \left( \underline{\diff^{\VEC{\alpha}} f} \ast
@@ -645,15 +645,15 @@ $\displaystyle \diff^{\VEC{\alpha}}(\underline{f} \ast \psi_\epsilon)\big|_U
 \in W^{p,k}(U)$.
 
 We get from Proposition~\ref{distr_limit_convol} that
-\[
+\begin{align*}
 \left\| \diff^{\VEC{\alpha}}(\underline{f} \ast \psi_\epsilon)
 - \diff^{\VEC{\alpha}} f \right\|_{p,U}
-= \left\| \underline{\diff^{\VEC{\alpha}} f} \ast \psi_\epsilon
-- \diff^{\VEC{\alpha}} f \right\|_{p,U}
-\leq \left\| \underline{\diff^{\VEC{\alpha}} f} \ast \psi_\epsilon -
+&= \left\| \underline{\diff^{\VEC{\alpha}} f} \ast \psi_\epsilon
+- \diff^{\VEC{\alpha}} f \right\|_{p,U} \\
+&\leq \left\| \underline{\diff^{\VEC{\alpha}} f} \ast \psi_\epsilon -
 \underline{\diff^{\VEC{\alpha}} f} \right\|_{p,\RR^n} \to 0 \quad \text{as} \quad
 \epsilon \to 0^+ \ .
-\]
+\end{align*}
 Since this is true for all $|\VEC{\alpha}| \leq k$, we get that
 $\displaystyle \left\| \underline{f} \ast \psi_\epsilon - f \right\|_{p,k,U}$
 as $\epsilon \to 0^+$.
@@ -875,7 +875,8 @@ f_i(\VEC{x}) & \quad \text{if} \ \VEC{x} \in \Omega \\
 If $\supp f_i \subset \Omega$, then we have from
 Lemma~\ref{sob_denselem1} that
 $\displaystyle \underline{f}_i \in W^{k,p}(\RR^n)$
-and from Lemma~\ref{sob_denselem2} (with $\Omega$ and $U$ replaced by
+and from\\
+Lemma~\ref{sob_denselem2} (with $\Omega$ and $U$ replaced by
 $\displaystyle \RR^n$ and $\Omega$ respectively) that
 $\displaystyle \underline{f}_i \ast \psi_\epsilon \in \DD(\RR^n)$ and
 \[
@@ -2612,15 +2613,15 @@ $\displaystyle \sum_{i=1}^p \frac{1}{p/s_i} = 1$, we get
 where we have used the substitution $x_n \to -x_n/j_i$ for each of the
 integrals in the product to obtain the first equality.  Therefore,
 \begin{align}
-\| E(\phi) \|_{m,p,\RR^n}
-&\leq \bigg( \sum_{|\VEC{\alpha}|\leq m} \bigg( 1
+&\| E(\phi) \|_{m,p,\RR^n} \nonumber \\
+&\quad \leq \bigg( \sum_{|\VEC{\alpha}|\leq m} \bigg( 1
 + \sum_{\substack{0\leq s_1 \leq s_2 \leq \ldots \leq s_p \leq p\\
   s_1+s_2+\ldots+s_p = p\\
   1\leq j_1 < j_2 < \ldots <j_p \leq k+1}} c_{s_1,s_2,\ldots,s_p}
 \left( \prod_{i=1}^p j_i^{(\alpha_n p-1)s_i/p} \right) \bigg) 
 \int_{\RR^n_+} \left| \diff^{\VEC{\alpha}} \phi(\VEC{x}) \right|^p \dx{\VEC{x}}
   \bigg)^{1/p} \nonumber \\
-& \leq C \| \phi \|_{m,p,\RR^n_+} \label{sobRpExtEq1}
+&\quad \leq C \| \phi \|_{m,p,\RR^n_+} \label{sobRpExtEq1}
 \end{align}
 for all $\phi \in S$, $0\leq m \leq k$ and $0<p<\infty$, where
 \[
@@ -3623,7 +3624,8 @@ The proof of (\ref{sobPtCarreEq1}) is by induction on $k$.  Consider $k=1$.
 
 We write $\displaystyle \VEC{x}\in \RR^n$ as
 $\VEC{x} = (\breve{\VEC{x}}, x_n)$ with
-$\displaystyle \breve{\VEC{x}} \in \RR^{n-1}$ and $x_n \in \RR$.  Since
+$\displaystyle \breve{\VEC{x}} \in \RR^{n-1}$ and $x_n \in \RR$.
+Since \\
 $\displaystyle \phi(\VEC{x})
 = \int_a^{x_n} \pdydx{\phi}{x_n}(\breve{\VEC{x}}, t) \dx{t}$
 for $\phi \in \DD(\Omega)$, we get from Schwarz inequality that
@@ -3637,12 +3639,12 @@ for $\phi \in \DD(\Omega)$, we get from Schwarz inequality that
 \end{align*}
 for $\VEC{x} \in \Omega$ and $\phi \in \DD(\Omega)$.  Hence,
 \begin{align*}
-\|\phi\|_{2,\Omega}^2 &= \int_\Omega \left|\phi(\VEC{x})\right|^2\dx{\VEC{x}} 
+& \|\phi\|_{2,\Omega}^2 = \int_\Omega \left|\phi(\VEC{x})\right|^2\dx{\VEC{x}} 
 = \int_R \left|\phi(\VEC{x})\right|^2\dx{\VEC{x}}
 \leq (b-a) \int_a^b \int_{\RR^{n-1}} \left(
 \int_a^{x_n} \left| \pdydx{\phi}{x_n} (\breve{\VEC{x}},t)\right|^2 \dx{t}\right)
 \dx{\breve{\VEC{x}}} \dx{x_n} \\
-& \leq (b-a) \int_a^b \left( \int_{\RR^{n-1}}
+&\quad \leq (b-a) \int_a^b \left( \int_{\RR^{n-1}}
 \int_a^b \left| \pdydx{\phi}{x_n} (\breve{\VEC{x}},t)\right|^2 \dx{t}
 \dx{\breve{\VEC{x}}} \right) \dx{x_n}
 = (b-a)^2 \left\| \pdydx{\phi}{x_n} \right\|_{2,\Omega}^2 \leq (b-a)^2
@@ -3904,8 +3906,8 @@ Moreover,
 \begin{align*}
 \hat{g}(\VEC{w}) &= \int_{\RR^{n-1}} \left( \int_{-\infty}^\infty
 (\phi_{\VEC{z}})^\wedge(y) \dx{\mu(y)} \right)
-e^{-i\VEC{w}\cdot \VEC{z}} \dx{\mu(\VEC{z})}
-= \int_{-\infty}^\infty \left( \int_{\RR^{n-1}} 
+e^{-i\VEC{w}\cdot \VEC{z}} \dx{\mu(\VEC{z})} \\
+&= \int_{-\infty}^\infty \left( \int_{\RR^{n-1}} 
 (\phi_{\VEC{z}})^\wedge(y) e^{-i\VEC{w}\cdot \VEC{z}}
 \dx{\mu(\VEC{z})} \right) \dx{\mu(y)} \\
 &= \int_{-\infty}^\infty \left( \int_{\RR^{n-1}} 
@@ -3918,16 +3920,16 @@ for all $\displaystyle \VEC{w}\in \RR^{n-1}$.
 Hence, using Schwarz inequality, we get
 \begin{align*}
 &\|g\|_{k-1/2,\rho}^2 = \int_{\RR^{n-1}} \left| \hat{g}(\VEC{w})
-\right|^2 \left( 1 + \|\VEC{w}\|^2\right)^{k-1/2} \dx{\VEC{w}}
-= \int_{\RR^{n-1}} \left|
+\right|^2 \left( 1 + \|\VEC{w}\|^2\right)^{k-1/2} \dx{\VEC{w}} \\
+&\ = \int_{\RR^{n-1}} \left|
 \int_{-\infty}^\infty \hat{\phi}(\VEC{w},y) \dx{\mu(y)}
 \right|^2 \left( 1 + \|\VEC{w}\|^2\right)^{k-1/2} \dx{\VEC{w}} \\
-&\quad = \int_{\RR^{n-1}} \left|
+&\ = \int_{\RR^{n-1}} \left|
 \int_{-\infty}^\infty \hat{\phi}(\VEC{w},y)
 \left( 1 + \|\VEC{w}\|^2 + y^2\right)^{k/2}
 \left( 1 + \|\VEC{w}\|^2 + y^2\right)^{-k/2} \dx{\mu(y)}
 \right|^2 \left( 1 + \|\VEC{w}\|^2\right)^{k-1/2} \dx{\VEC{w}} \\
-&\quad \leq \int_{\RR^{n-1}}
+&\ \leq \int_{\RR^{n-1}}
 \left[\left( \int_{-\infty}^\infty \left|\hat{\phi}(\VEC{w},y)\right|^2
 \left( 1 + \|\VEC{w}\|^2 + y^2\right)^k \dx{\mu(y)} \right)
 \left( \int_{-\infty}^\infty \left( 1 + \|\VEC{y}\|^2 + y^2\right)^{-k}
@@ -3945,15 +3947,15 @@ However, with the substitution $y = \sqrt{1+\|\VEC{w}\|^2}\, z$, we get
 \]
 Therefore,
 \begin{align*}
-\|g\|_{k-1/2,\rho}^2 &\leq 
+&\|g\|_{k-1/2,\rho}^2 \leq 
 \int_{\RR^{n-1}} \left[
 \left( \int_{-\infty}^\infty \left|\hat{\phi}(\VEC{w},y)\right|^2
 \left( 1 + \|\VEC{w}\|^2+y^2\right)^k \dx{\mu(y)} \right) \right. \\
-& \qquad \left.
+& \qquad \qquad \left.
 \left( \frac{1}{\left(1+\|\VEC{w}\|^2\right)^{k-1/2}}
 \int_{-\infty}^\infty \left( 1 + z^2\right)^{-k} \dx{\mu(z)}
 \right) \left( 1 + \|\VEC{w}\|^2\right)^{k-1/2} \right] \dx{\VEC{w}} \\
-&= \int_{-\infty}^\infty \left( 1 + z^2\right)^{-k} \dx{\mu(z)}
+&\qquad = \int_{-\infty}^\infty \left( 1 + z^2\right)^{-k} \dx{\mu(z)}
 \int_{\RR^{n-1}} \int_{-\infty}^\infty \left|\hat{\phi}(\VEC{w},y)\right|^2
 \left( 1 + \|\VEC{w}\|^2+y^2\right)^k \dx{\mu(y)} \dx{\VEC{w}}
 = C \| \phi\|_{k,\rho}^2
@@ -4066,7 +4068,7 @@ for all $\displaystyle \phi \in \SS(\RR^{n-1})$.
 Since $\displaystyle \SS(\RR^{n-1})$ is dense in
 $\displaystyle H^{k-1/2}(\RR^{n-1})$.  We can
 extend $S$ to $\displaystyle H^{k-1/2}(\RR^{n-1})$ and still
-have
+have\\
 $\displaystyle \|S(f)\|_{k,\rho} = (2\pi)^{1/4} C^{-1/2} \|f\|_{k-1/2,\rho}$
 for all $\displaystyle f \in H^{k-1/2}(\RR^{n-1})$.
 
@@ -4168,21 +4170,21 @@ note that
 &\|S(\phi)\|_{k,\rho}^2
 = \int_{\RR^n} \left| \F(S(\phi))(\VEC{y}) \right|^2 \left( 1 + \|\VEC{y}\|^2\right)^k
 \dx{\VEC{y}} \\
-&\quad = \int_{\RR^n} \left|\pdfdxn{\left(
+& = \int_{\RR^n} \left|\pdfdxn{\left(
 \frac{(1+\|\breve{\VEC{y}}\|^2)^{k-j-1/2}}{C (1+ \|\VEC{y}\|^2)^{k-j}}
 \F(\phi)(\breve{\VEC{y}}) \right)}{y_n}{j} \right|^2
 \left( 1 + \|\VEC{y}\|^2\right)^k \dx{\VEC{y}} \\
-&\quad = \int_{\RR^{n-1}} \frac{1}{C^2} \left( \int_{\RR}
+& = \int_{\RR^{n-1}} \frac{1}{C^2} \left( \int_{\RR}
 \left| \pdfdxn{\left( \frac{1}{(1+ \|\VEC{y}\|^2)^{k-j}}
   \right)}{y_n}{j} \right|^2 (1 + \|\VEC{y}\|^2)^k  \dx{y_n} \right)
 (1+\|\breve{\VEC{y}}\|^2)^{2k-2j-1} \left| \F(\phi)(\breve{\VEC{y}}) \right|^2
   \dx{\breve{\VEC{y}}} \\
-&\quad = \int_{\RR^{n-1}} \frac{1}{C^2} \left( \frac{1}{(1+\|\breve{y}\|_2)^{k-j-1/2}}
+& = \int_{\RR^{n-1}} \frac{1}{C^2} \left( \frac{1}{(1+\|\breve{y}\|_2)^{k-j-1/2}}
 \int_{\RR} \left| \sum_{0 \leq s \leq \intpt{j/2}}
 C_{j,s} \frac{u^{j-2s}}{(1+u^2)^{k-s}} \right|^2 (1 + u^2)^k \dx{u} \right) \\
 &\hspace{20em} (1+\|\breve{\VEC{y}}\|^2)^{2k-2j-1} 
   \left|\F(\phi)(\breve{\VEC{y}}) \right|^2 \dx{\breve{\VEC{y}}} \\
-&\quad = Q_0^2  \int_{\RR^{n-1}}
+& = Q_0^2  \int_{\RR^{n-1}}
 (1+\|\breve{\VEC{y}}\|^2)^{k-j-1/2} \left| \F(\phi)(\breve{\VEC{y}}) \right|^2
   \dx{\breve{\VEC{y}}} = Q_0^2 \|\phi\|_{k-j-1/2.\rho}^2 \ ,
 \end{align*}
@@ -4648,7 +4650,7 @@ $\displaystyle H^{k-|\VEC{\alpha}'|-j -1/2}(\RR^{n-1})$ according to
 Theorem~\ref{sob_DinDm}.
 
 Since $\displaystyle H^{k-j -1/2}(\RR^{n-1}) \subset H^0(\RR^{n-1})$
-because $\|g\|_{0,\rho} \leq \|g\|_{k-j -1/2,\rho}$ for all
+because $\|g\|_{0,\rho} \leq \|g\|_{k-j -1/2,\rho}$ for all\\
 $\displaystyle g \in H^{k-j -1/2}(\RR^{n-1})$, we have that
 $\displaystyle \pdfdxn{\diff^{\VEC{\alpha}'}
 \tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \to 0$
@@ -5048,13 +5050,13 @@ respect to the norm $\displaystyle \|\cdot\|_{1,2,\overline{\RR^n_+}}$,
 and $\supp \tilde{f}_j$ and 
 $\supp \tilde{\eta}_i$ are subsets of the bounded set $B$ for all $i$,
 we get from Schwarz inequality that
-\[
+\begin{align*}
 \int_{\overline{\RR^n_+}} \left| \tilde{\eta}_i - \tilde{f}_j\right| \dx{\VEC{x}} 
-= \int_B \left| \tilde{\eta}_i - \tilde{f}_j\right| \dx{\VEC{x}}
-\leq \left(\int_B 1^2 \dx{\VEC{x}}\right)^{1/2}
+&= \int_B \left| \tilde{\eta}_i - \tilde{f}_j\right| \dx{\VEC{x}} \\
+&\leq \left(\int_B 1^2 \dx{\VEC{x}}\right)^{1/2}
 \left( \int_B \left( \tilde{\eta}_i - \tilde{f}_j\right)^2 \dx{\VEC{x}} 
 \right)^{1/2} \rightarrow 0 \quad \text{as} \quad i\rightarrow \infty \ .
-\]
+\end{align*}
 and
 \begin{align*}
 \int_{\overline{\RR^n_+}} \left| \pdydx{\tilde{\eta}_i}{x_m} -

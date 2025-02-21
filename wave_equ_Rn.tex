@@ -149,15 +149,15 @@ Since
 \pdydx{u}{t} \ ,
 \]
 we get
-\[
-\int_{B_t} \left( \pdydxn{u}{t}{2} \pdydx{u}{t} +
+\begin{align*}
+&\int_{B_t} \left( \pdydxn{u}{t}{2} \pdydx{u}{t} +
 \sum_{j=1}^n \pdydxnm{u}{x_j}{t}{2}{}{} \pdydx{u}{x_j} \right)
-\dx{\VEC{x}}
-= \int_{B_t} \left( \sum_{j=1}^n
+\dx{\VEC{x}} \\
+&\qquad \qquad = \int_{B_t} \left( \sum_{j=1}^n
 \pdfdx{ \left( \pdydx{u}{x_j} \pdydx{u}{t} \right) }{x_j}
 - \sum_{j=1}^n \pdydxn{u}{x_j}{2} \pdydx{u}{t} + 
 \pdydxn{u}{t}{2} \pdydx{u}{t} \right) \dx{\VEC{x}} \ .
-\]
+\end{align*}
 Using the divergence theorem in the hyperplane $t$ constant, we get
 \[
 \int_{B_t} \sum_{j=1}^n
@@ -389,16 +389,16 @@ for $r = \|\VEC{x}\|_2$.
 Let $r = \|\VEC{x}\|_2$.  Since
 $\displaystyle \pdydx{r}{x_j} = \frac{x_j}{r}$ for $1 \leq j \leq n$, we get
 \begin{align*}
-\Delta_{\VEC{x}} f(\VEC{x})
-&= \sum_{j=1}^n \pdfdx{\left(\pdfdx{\phi(r)}{x_j}\right)}{x_j}
+&\Delta_{\VEC{x}} f(\VEC{x})
+= \sum_{j=1}^n \pdfdx{\left(\pdfdx{\phi(r)}{x_j}\right)}{x_j}
 = \sum_{j=1}^n \pdfdx{\left(\phi'(r)\pdydx{r}{x_j}\right)}{x_j}
 = \sum_{j=1}^n \pdfdx{\left(\phi'(r) \frac{x_j}{r} \right)}{x_j} \\
-&= \sum_{j=1}^n \left( \left(\pdfdx{\phi'(r)}{x_j}\right) \frac{x_j}{r}
+&\quad = \sum_{j=1}^n \left( \left(\pdfdx{\phi'(r)}{x_j}\right) \frac{x_j}{r}
 + \phi'(r) \pdfdx{\left(\frac{x_j}{r}\right)}{x_j}\right)
 = \sum_{j=1}^n \left(
 \phi''(r) \left(\frac{x_j}{r}\right)^2 + \frac{1}{r} \phi'(r) -
 \frac{x_j^2}{r^3}\phi'(r) \right) \\
-&= \phi''(r)\left( \frac{1}{r^2}\sum_{j=1}^n x_j^2\right)
+&\quad = \phi''(r)\left( \frac{1}{r^2}\sum_{j=1}^n x_j^2\right)
 + \frac{n}{r}\, \phi'(r) - \left(\frac{1}{r^3}\sum_{j=1}^n x_j^2\right) \phi'(r)
 = \phi''(r) + \left(\frac{n}{r} - \frac{1}{r}\right) \phi'(r) \ .  \qedhere
 \end{align*}
@@ -518,7 +518,7 @@ spherical coordinates in $\displaystyle \RR^n$ any coordinates of the
 form $\VEC{x} = r \VEC{y}$ with $\|\VEC{y}\|=1$.}, the reader can verify that
 $\displaystyle \omega_n = 2 \pi^{n/2}/\Gamma(n/2)$ for
 $n>0$.  It is a nice calculus exercise whose solution can be found in
-\cite{FoPDE}).  In particular, $\omega_2 = 2\pi$ and $\omega_3 = 4\pi$. 
+\cite{FoPDE}.  In particular, $\omega_2 = 2\pi$ and $\omega_3 = 4\pi$. 
 
 \begin{rmk}
 This remark is for those familiar with the theory to measure and

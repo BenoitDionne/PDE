@@ -832,11 +832,12 @@ we have to show that
 \]
 Integration by parts yields
 \begin{align*}
-\ps{K^{[\epsilon]}}{-\pdfdx{\phi}{t} - \Delta_{\VEC{x}} \phi}
-&= \int_{\epsilon}^\infty \int_{\RR^n} K(\VEC{x},t) \left(
+&\ps{K^{[\epsilon]}}{-\pdfdx{\phi}{t} - \Delta_{\VEC{x}} \phi}
+= \int_{\epsilon}^\infty \int_{\RR^n} K(\VEC{x},t) \left(
 -\pdydx{\phi}{t}(\VEC{x},t) - \Delta_{\VEC{x}} \phi(\VEC{x},t)\right)
 \dx{\VEC{x}} \dx{t} \\
-&= \int_{\epsilon}^\infty \int_{\RR^n} \left( \pdydx{K}{t}(\VEC{x},t) 
+&\qquad\qquad
+= \int_{\epsilon}^\infty \int_{\RR^n} \left( \pdydx{K}{t}(\VEC{x},t) 
 -\Delta_{\VEC{x}} K(\VEC{x},t)\right) \phi(\VEC{x},t) \dx{\VEC{x}} \dx{t}
 + \int_{\RR^n} K(\VEC{x},\epsilon) \phi(\VEC{x},\epsilon) \dx{\VEC{x}}
 \end{align*}
@@ -1203,10 +1204,10 @@ We get
 \int_0^{\pi/2} x\sin(nx) \dx{x}
 % &= u(x)v(x)\bigg|_0^{\pi/2}-\int_0^{\pi/2} v(x) u'(x) \dx{x} \\
 &= -\frac{1}{n}\,x\cos(nx)\bigg|_0^{\pi/2}
-+ \frac{1}{n} \int_0^{\pi/2} \cos(nx) \dx{x}
-= -\frac{\pi}{2n}\cos\left(\frac{n\pi}{2}\right)
-+ \frac{1}{n^2} \sin(nx)\bigg|_0^{\pi/2} \\
-&= -\frac{\pi}{2n}\cos\left(\frac{n\pi}{2}\right) + \frac{1}{n^2}
++ \frac{1}{n} \int_0^{\pi/2} \cos(nx) \dx{x} \\
+&= -\frac{\pi}{2n}\cos\left(\frac{n\pi}{2}\right)
++ \frac{1}{n^2} \sin(nx)\bigg|_0^{\pi/2}
+= -\frac{\pi}{2n}\cos\left(\frac{n\pi}{2}\right) + \frac{1}{n^2}
 \sin\left(\frac{n\pi}{2}\right)
 \end{align*}
 Similarly, the second integral can be evaluated using integration by

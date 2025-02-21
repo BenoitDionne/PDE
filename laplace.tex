@@ -1414,42 +1414,44 @@ we get for $n>2$ that
 G_{\VEC{x}}(\VEC{x}+\epsilon \VEC{z})
 \,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \, \epsilon^{n-1} \dss{S}{z} \right| \\
-&\quad = \left| \int_{\|\VEC{z}\|=1}
+&\qquad = \left| \int_{\|\VEC{z}\|=1}
 \left( N(-\epsilon\VEC{z}) - u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right)
 \,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \,\epsilon^{n-1} \dss{S}{z} \right| \\
-&\quad = \left| \int_{\|\VEC{z}\|=1}
+&\qquad = \left| \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{(2-n)\omega_n} \epsilon^{2-n} -
 u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z})  \right)
 \,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x} + \epsilon \VEC{z})
 \, \epsilon^{n-1} \dss{S}{z} \right| \\
-&\quad \leq \int_{\|\VEC{z}\|=1}
+&\qquad \leq \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{(n-2)\omega_n} \epsilon^{2-n} +
 \left| u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right| \right)
 \left| \pdydx{G_{\VEC{y}}}{\nu}(\VEC{x} + \epsilon \VEC{z})
-\right|\, \epsilon^{n-1} \dss{S}{z} \leq \left(\frac{\epsilon}{n-2} +
+\right|\, \epsilon^{n-1} \dss{S}{z} \\
+&\qquad \leq \left(\frac{\epsilon}{n-2} +
 \epsilon^{n-1} \omega_n M_1\right) M_2 \ . 
 \end{align*}
-Similarly, we get fro $n=2$ that
+Similarly, we get for $n=2$ that
 \begin{align*}
 &\left| \int_{\|\VEC{z}\|=1}
 G_{\VEC{x}}(\VEC{x}+\epsilon \VEC{z})
 \,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
-\, \epsilon \dss{S}{z} \right|
-= \left| \int_{\|\VEC{z}\|=1}
+\, \epsilon \dss{S}{z} \right| \\
+&\qquad = \left| \int_{\|\VEC{z}\|=1}
 \left( N(-\epsilon\VEC{z}) - u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right)
 \,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \, \epsilon \dss{S}{z} \right| \\
-&\quad = \left| \int_{\|\VEC{z}\|=1}
+&\qquad = \left| \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{\omega_2} \ln(\epsilon) -
 u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right)
 \,\pdydx{G_{\VEC{y}}}{\nu}(\VEC{x} + \epsilon \VEC{z})
 \, \epsilon \dss{S}{z} \right| \\
-&\quad \leq \int_{\|\VEC{z}\|=1}
+&\qquad \leq \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{\omega_2} |\ln(\epsilon)|  +
 \left| u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right| \right)
 \left| \pdydx{G_{\VEC{y}}}{\nu}(\VEC{x} + \epsilon \VEC{z})
-\right|\, \epsilon \dss{S}{z}
+\right|\, \epsilon \dss{S}{z} \\
+&\qquad
 \leq \left( \epsilon |\ln(\epsilon)| + \epsilon \omega_2 M_1 \right) M_2 \ . 
 \end{align*}
 We therefore have that
@@ -1821,20 +1823,21 @@ G_{\VEC{x}}\,\pdydx{u}{\nu} \dx{S}\right|
 G_{\VEC{x}}(\VEC{x}+\epsilon \VEC{z})
 \,\pdydx{u}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \, \epsilon^{n-1} \dss{S}{z} \right| \\
-&\quad = \left| \int_{\|\VEC{z}\|=1}
+&\qquad = \left| \int_{\|\VEC{z}\|=1}
 \left( N(-\epsilon\VEC{z}) - u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right)
 \,\pdydx{u}{\nu}(\VEC{x}+\epsilon \VEC{z})
 \,\epsilon^{n-1} \dss{S}{z} \right| \\
-&\quad = \left| \int_{\|\VEC{z}\|=1}
+&\qquad = \left| \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{(2-n)\omega_n} \epsilon^{2-n} -
 u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z})  \right)
 \,\pdydx{u}{\nu}(\VEC{x} + \epsilon \VEC{z})
 \, \epsilon^{n-1} \dss{S}{z} \right| \\
-&\quad \leq \int_{\|\VEC{z}\|=1}
+&\qquad \leq \int_{\|\VEC{z}\|=1}
 \left( \frac{1}{(n-2)\omega_n} \epsilon^{2-n} +
 \left| u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right| \right)
 \left| \pdydx{u}{\nu}(\VEC{x} + \epsilon \VEC{z})
-\right|\, \epsilon^{n-1} \dss{S}{z} \leq \left(\frac{\epsilon}{n-2} +
+\right|\, \epsilon^{n-1} \dss{S}{z} \\
+& \qquad \leq \left(\frac{\epsilon}{n-2} +
 \epsilon^{n-1} \omega_n M_1\right) M_2 \ . 
 \end{align*}
 Similarly, we get for $n=2$ that
@@ -1992,7 +1995,7 @@ In this section, we consider
 \RR^n_+ = \left\{ \VEC{x} \in \RR^n : x_n >0 \right\} \ .
 \]
 We will also use the following notation.  If
-$\VEC{x} = (x_1, x_2, \ldots, x_n)$, then
+$\VEC{x} = (x_1, x_2, \ldots, x_n)$, then \\
 $\tilde{\VEC{x}} = (x_1, x_2, \ldots, x_{n-1}, -x_n)$.
 
 The {\bfseries Green's function}\index{Green's Function} on
@@ -2205,17 +2208,17 @@ P_{x_n}\left(\breve{\VEC{x}} - \breve{\VEC{y}}\right) \right|^q
 \]
 for $\displaystyle \frac{1}{p} + \frac{1}{q} = 1$.
 Similarly, for $p=1$,
-\[
+\begin{align*}
 \int_{\RR^{n-1}} \left| g(\breve{\VEC{y}})\,
 P_{x_n}\left(\breve{\VEC{x}} - \breve{\VEC{y}}\right) \right|
 \dx{\breve{\VEC{y}}}
-\leq \sup_{\breve{x} \in \RR^{n-1}} |P_{x_n}(\breve{\VEC{x}})|
+& \leq \sup_{\breve{x} \in \RR^{n-1}} |P_{x_n}(\breve{\VEC{x}})|
 \, \int_{\RR^{n-1}} \left|g(\breve{\VEC{y}}) \right|
-\dx{\breve{\VEC{y}}}
-\leq \frac{2}{\omega_n x_n^{n-1}}
+\dx{\breve{\VEC{y}}} \\
+&\leq \frac{2}{\omega_n x_n^{n-1}}
 \, \int_{\RR^{n-1}} \left|g(\breve{\VEC{y}}) \right| \dx{\breve{\VEC{y}}}
 < \infty \ .
-\]
+\end{align*}
 Thus $\displaystyle u:\RR^n_+\rightarrow \RR$ is well defined.
 
 \stage{ii} We show that $u$ is harmonic in $\displaystyle \RR^n_+$.
@@ -2377,15 +2380,15 @@ converges uniformly on $\displaystyle \RR^n_+$ to $u$ because
 \left| \int_{\breve{y} \in \RR^{n-1}}
 \big(g(\breve{\VEC{y}}) - g_k(\breve{\VEC{y}}) \big)
 P_{x_n}(\breve{\VEC{y}}-\breve{\VEC{x}}) \dx{\breve{\VEC{y}}} \right| \\
-&\quad \leq \sup_{\breve{\VEC{y}}\in \RR^{n-1}}
+&\qquad \leq \sup_{\breve{\VEC{y}}\in \RR^{n-1}}
 \big|g(\breve{\VEC{y}}) - g_k(\breve{\VEC{y}}) \big|
 \, \sup_{\VEC{x}\in\RR^n_+} \left| \int_{\breve{y} \in \RR^{n-1}}
 P_{x_n}(\breve{\VEC{y}}-\breve{\VEC{x}}) \dx{\breve{\VEC{y}}}\right| \\
-&\quad = \sup_{\breve{\VEC{y}}\in \RR^{n-1}}
+&\qquad = \sup_{\breve{\VEC{y}}\in \RR^{n-1}}
 \big|g(\breve{\VEC{y}}) - g_k(\breve{\VEC{y}}) \big|
 \, \sup_{\VEC{x}\in\RR^n_+} \left| \int_{\breve{y} \in \RR^{n-1}}
-P_{x_n}(\breve{\VEC{y}}) \dx{\breve{\VEC{y}}}\right|
-= \sup_{\breve{\VEC{y}}\in \RR^{n-1}}
+P_{x_n}(\breve{\VEC{y}}) \dx{\breve{\VEC{y}}}\right| \\
+&\qquad = \sup_{\breve{\VEC{y}}\in \RR^{n-1}}
 \big|g(\breve{\VEC{y}}) - g_k(\breve{\VEC{y}}) \big| \to 0 \quad
 \text{as} \quad k \to \infty \ ,
 \end{align*}
@@ -2431,8 +2434,8 @@ $\displaystyle \|\VEC{x}-\VEC{y}\|
 We have that
 \begin{align*}
 \|\VEC{x}-\VEC{y}\|^2 &= \ps{\VEC{x}-\VEC{y}}{\VEC{x}-\VEC{y}}
-= \|\VEC{x}\|^2 - 2 \ps{\VEC{x}}{\VEC{y}} + 1
-= \left\| \|\VEC{x}\|\VEC{y}\right\|^2  - 2
+= \|\VEC{x}\|^2 - 2 \ps{\VEC{x}}{\VEC{y}} + 1 \\
+&= \left\| \|\VEC{x}\|\VEC{y}\right\|^2  - 2
 \ps{\|\VEC{x}\|^{-1}\VEC{x}}{\|\VEC{x}\|\VEC{y}} +
 \left\|\|\VEC{x}\|^{-1}\VEC{x}\right\|^2 \\
 &= \ps{\|\VEC{x}\|^{-1} \VEC{x} - \|\VEC{x}\|\VEC{y}}
@@ -2659,16 +2662,15 @@ for $\VEC{x}\in B_1(\VEC{0})$ and $\VEC{y} \in \partial B_1(\VEC{0})$.
 For $n>2$, we find using Lemma~\ref{laplace_diric_ball} that the
 Poisson kernel is
 \begin{align*}
-& P(\VEC{x},\VEC{y}) = \pdydx{G_{\VEC{x}}}{\nu}(\VEC{y}) =
+P(\VEC{x},\VEC{y}) &= \pdydx{G_{\VEC{x}}}{\nu}(\VEC{y}) =
 \nabla_{\VEC{y}} G_{\VEC{x}}(\VEC{y}) \cdot \VEC{y} \\
-&\qquad
-= - \frac{1}{\omega_n} \left( \frac{1}{\| \VEC{x} - \VEC{y}\|^{n}}
+&= - \frac{1}{\omega_n} \left( \frac{1}{\| \VEC{x} - \VEC{y}\|^{n}}
 \, \left(\VEC{x}-\VEC{y}\right) \cdot \VEC{y} -
 \frac{\|\VEC{x}\|}
 {\left\| \, \|\VEC{x}\|^{-1}\VEC{x} - \|\VEC{x}\|\,\VEC{y}\, \right\|^{n}}
 \, \left( \|\VEC{x}\|^{-1}\VEC{x} - \|\VEC{x}\|\VEC{y}
-\right) \cdot \VEC{y} \right)
-= \frac{1-\|\VEC{x}\|^2}{\omega_n \|\VEC{x}-\VEC{y}\|^n}
+\right) \cdot \VEC{y} \right) \\
+&= \frac{1-\|\VEC{x}\|^2}{\omega_n \|\VEC{x}-\VEC{y}\|^n}
 \end{align*}
 for $\VEC{x} \in B_1(\VEC{0})\setminus \{\VEC{0}\}$ and
 $\VEC{y} \in \partial B_1(\VEC{0})$.  Similarly, for
@@ -2765,8 +2767,9 @@ for the original Dirichlet problem on $B_\rho(\VEC{x}_0)$.
 
 Before giving the proof of the previous theorem, we need a lemma.
 
-\begin{lemma} \label{laplace_l_exist_ball}
-We have
+{
+\begin{lemma}
+We have                 \label{laplaceLexistBall}
 \begin{equation}   \label{laplace_ident1}
 \int_{\partial B_1(\VEC{0})} P(\VEC{x},\VEC{y}) \dss{S}{y} = 1 \quad ,
 \quad \VEC{x} \in B_1(\VEC{0}) \ .
@@ -2779,6 +2782,7 @@ r\rightarrow 0
 \]
 uniformly for $\VEC{x}_0 \in \partial B_1(\VEC{0})$.
 \end{lemma}
+}
 
 \begin{proof}
 Since $\VEC{x} \rightarrow P(\VEC{x},\VEC{y})$
@@ -2849,7 +2853,7 @@ for all $\VEC{x}_0 \in \partial B_1(\VEC{0})$ and $r_0 <r < 1$.
 {$q$ is the distance between the region
 $\partial B_1(\VEC{0}) \setminus B_\epsilon(\VEC{x}_0)$ and the segment
 $\{ r\VEC{x}_0 : r >0 \}$ used in the proof of
-Lemma~\ref{laplace_l_exist_ball}.}{laplace_FIG3}
+Lemma~\ref{laplaceLexistBall}.}{laplace_FIG3}
 
 \begin{proof}[Proof of Theorem~\ref{laplace_exist_ball}]
 \stage{i} Since $\VEC{y} \rightarrow P(\VEC{x},\VEC{y})$ is continuous
@@ -2908,7 +2912,7 @@ V_{\VEC{x}} = \partial B_1(\VEC{0}) \cap B_\delta(\VEC{x})
 for all $\VEC{x} \in \partial B_1(\VEC{0})$.  We have
 $\displaystyle |g(\VEC{y}) - g(\VEC{x})| < \epsilon/2$ for all
 $\VEC{y} \in V_{\VEC{x}}$.
-According to Lemma~\ref{laplace_l_exist_ball}, there exists $r_0<1$
+According to Lemma~\ref{laplaceLexistBall}, there exists $r_0<1$
 closed to $1$ such that
 \[
 \int_{\partial B_1(\VEC{0})\setminus V_{\VEC{x}}}
@@ -2937,8 +2941,9 @@ P(r\VEC{x},\VEC{y}) \dss{S}{y}
 \left| g(\VEC{x}) -g(\VEC{y})\right| P(r\VEC{x},\VEC{y}) \dss{S}{y} \\
 &< \frac{\epsilon}{2} \int_{V_{\VEC{x}}} P(r\VEC{x},\VEC{y})
 \dss{S}{y} + 2 \|g\|_{\infty}
-\int_{\partial B_1(\VEC{0})\setminus V_{\VEC{x}}} P(r\VEC{x},\VEC{y}) \dss{S}{y}
-\leq \frac{\epsilon}{2} + 2 \|g\|_{\infty}
+\int_{\partial B_1(\VEC{0})\setminus V_{\VEC{x}}} P(r\VEC{x},\VEC{y})
+\dss{S}{y} \\
+&\leq \frac{\epsilon}{2} + 2 \|g\|_{\infty}
 \frac{\epsilon}{4\|g\|_{\infty}} < \epsilon
 \end{align*}
 for all $\VEC{x} \in \partial B_1(\VEC{0})$ and $r_0<r<1$, where again
@@ -3138,7 +3143,7 @@ Hence, for
 $\displaystyle p = \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k}
 a_{\VEC{\alpha}} \VEC{x}^{\VEC{\alpha}}$ and
 $\displaystyle q = \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k}
-b_{\VEC{\alpha}} \VEC{x}^{\VEC{\alpha}}$, we have that
+b_{\VEC{\alpha}} \VEC{x}^{\VEC{\alpha}}$, we have that\\
 $\displaystyle \psP{p}{q} = \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k}
 a_{\VEC{\alpha}} b_{\VEC{\alpha}} \, \VEC{\alpha}!$.
 
@@ -3872,24 +3877,25 @@ u(\VEC{z}) = \int_{\partial B_r(\VEC{x})} u(\VEC{y}) \,
 \frac{r^2-\|\VEC{z}-\VEC{x}\|^2}{r\, \omega_n \|\VEC{z}-\VEC{y}\|^n} \dss{S}{y}
 \]
 for $\VEC{z} \in B_r(\VEC{x})$.  Since
-\[
-(\VEC{z},\VEC{y}) \to
+\begin{align*}
+(\VEC{z},\VEC{y}) &\to
 \pdfdx{\left(\frac{r^2-\|\VEC{z}-\VEC{x}\|^2}
-{\|\VEC{z}-\VEC{y}\|^n}\right)}{z_j}
-= \frac{-2(z_j-x_j) \|\VEC{z}-\VEC{y}\|^n
+{\|\VEC{z}-\VEC{y}\|^n}\right)}{z_j} \\
+&\qquad = \frac{-2(z_j-x_j) \|\VEC{z}-\VEC{y}\|^n
 - n (z_j-y_j)(r^2 - \|\VEC{z}-\VEC{x}\|^2)
 \|\VEC{z}-\VEC{y}\|^{n-2}}{\|\VEC{z}-\VEC{y}\|^{2n}}
-\]
+\end{align*}
 is uniformly continuous on
 $\overline{B_s(\VEC{x})} \times \partial B_r(\VEC{x})$ for any $0<s<r$,
 we get
-\[
-\pdydx{u}{z_j}(\VEC{z}) = \frac{1}{r\,\omega_n}
+\begin{align*}
+&\pdydx{u}{z_j}(\VEC{z}) \\
+& = \frac{1}{r\,\omega_n}
 \int_{\partial B_r(\VEC{x})} u(\VEC{y}) \,
 \left( \frac{-2(z_j-x_j) \|\VEC{z}-\VEC{y}\|^n
 - n(z_j-y_j) (r^2 - \|\VEC{z}-\VEC{x}\|^2)
 \|\VEC{z}-\VEC{y}\|^{n-2}}{\|\VEC{z}-\VEC{y}\|^{2n}} \right) \dss{S}{y}
-\]
+\end{align*}
 for $\VEC{z} \in B_r(\VEC{x})$.  Since
 $\|\VEC{x}-\VEC{y}\| = r$ for $\VEC{y}\in \partial B_r(\VEC{x})$, we obtain
 \[
@@ -4528,7 +4534,7 @@ a_4 e^{12\pi/7} + b_4 e^{-12\pi/7} &= 0
 The solution of this system is
 $\displaystyle a_4 = \frac{-3 e^{-12\pi/7} }{e^{12\pi/7}-e^{-12\pi/7}}
 = \frac{-3 e^{-12\pi/7} }{2\sinh(12\pi/7)}$
-and
+and \\
 $\displaystyle b_4 = \frac{3\,e^{12\pi/7}}{e^{12\pi/7}-e^{-12\pi/7}}
 = \frac{3\,e^{12\pi/7}}{2\sinh(12\pi/7)}$.
 
@@ -4547,15 +4553,15 @@ a_n = -b_n = \frac{-2\cdot 7^3}{n^3\pi^3}\,\left((-1)^n - 1\right)\,
 
 The solution of the potential problem is
 \begin{align*}
-&u(x,y) = \frac{-3}{2\sinh(12\pi/7)}
+u(x,y) &= \frac{-3}{2\sinh(12\pi/7)}
   \left(e^{-12\pi/7 +4\pi x/7} - e^{12\pi/7 - 4\pi x /7}\right)
   \sin\left(\frac{4\pi y}{7}\right) \\
 &\qquad\qquad + \sum_{\substack{n=1\\n\neq 4}}^\infty
 \frac{2\cdot 7^3 (1 - (-1)^n)}{n^3\pi^3\sinh(3 n\pi/7)}
 \left(e^{n\pi x/7} - e^{-n\pi x/7}\right)\sin\left(\frac{n\pi y}{7}\right) \\
 &= \frac{-3}{\sinh(12\pi/7)}\sinh\left(\frac{4\pi(x-3)}{7}\right)
-\sin\left(\frac{4\pi y}{7}\right)
-+ \sum_{\substack{n=1\\n\neq 4}}^\infty
+\sin\left(\frac{4\pi y}{7}\right) \\
+&\qquad\qquad + \sum_{\substack{n=1\\n\neq 4}}^\infty
 \frac{7^3 (1 - (-1)^n)}{n^3\pi^3\sinh(3 n\pi/7)}
   \sinh\left(\frac{n\pi x}{7}\right)\sin\left(\frac{n\pi y}{7}\right) \ .
 \end{align*}
@@ -4568,7 +4574,7 @@ Find the solution of the following Dirichlet problem.
 \quad 0 < y < L \ \text{and} \ -L < x < L \ ,
 \]
 with the boundary conditions
-$u(x,0) = u(x,L) = 0$ for $-L<x<L$,
+$u(x,0) = u(x,L) = 0$ for $-L<x<L$,\\
 $u(-L,y) = 50 \sin\left(\pi y/(2L)\right)$ and
 $u(L,y) = 50 \sin\left(\pi y/(2L)\right)$ for $0<y<L$.
 
@@ -4733,7 +4739,7 @@ Solve the Laplace equation
 \Delta u = \pdydxn{u}{x}{2} + \pdydxn{u}{y}{2} = 0
 \quad , \quad 0 < x < a \ \text{and} \ 0 < y < b \ ,
 \]
-with the boundary conditions $u(x,0) = u(x,b) = 0$ for  $0<x<a$, and
+with the boundary conditions $u(x,0) = u(x,b) = 0$ for $0<x<a$, and \\
 $u(0,y) = 0.7 \sin\left(2\pi y/b\right)$ and
 $u(a,y) = y(b-y)$ for $0<y<b$.
 
@@ -6258,7 +6264,7 @@ r^2 \dydxn{\rho}{r}{2} + r \dydx{\rho}{r} + \left(\lambda r^2 -
 With $z = \lambda^{1/2} r$, we have
 $\displaystyle
 \dydx{V}{r} = \dydx{V}{z} \, \dydx{z}{r} = \lambda^{1/2} \dydx{V}{z}$
-and
+and \\
 $\displaystyle \dydxn{V}{r}{2} = \dfdx{ \left( \dydx{V}{r}\right) }{r} =
 \lambda^{1/2} \dfdx{ \left(\lambda^{1/2} \dydx{V}{z} \right) }{z}
 = \lambda \dydxn{V}{z}{2}$
