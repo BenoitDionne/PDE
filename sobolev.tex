@@ -677,7 +677,8 @@ $0 \leq \delta < d$, and
 define $f_\delta:U \to \RR$ by $f_\delta(\VEC{x}) = f(\VEC{x} + \delta \VEC{y})$
 for $\VEC{x} \in U$ and $0 \leq \delta < d$.  Then
 $\displaystyle f_\delta \in W^{k,p}(U)$ for $0 \leq \delta < d$ and
-$f_\delta \to f_0 = f$ in $\displaystyle W^{k,p}(U)$ as $\delta \to 0^+$.
+$f_\delta \to f_0 = f$ in $\displaystyle W^{k,p}(U)$ as
+$\displaystyle \delta \to 0^+$.
 \end{lemma}
 
 \begin{proof}
@@ -748,8 +749,8 @@ Hence,
 for $0\leq \delta < \delta_0$.  Thus,
 $\displaystyle \|\diff^{\VEC{\alpha}} f_\delta
 - \diff^{\VEC{\alpha}} f \|_{p,U} \to 0$ as
-$\delta \to 0^+$.  Since this is true for all multi-indices $\VEC{\alpha}$ such
-that $|\VEC{\alpha}|\leq k$, we get that
+$\displaystyle \delta \to 0^+$.  Since this is true for all
+multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq k$, we get that
 $\displaystyle \|\diff^{\VEC{\alpha}} f_\delta
 - \diff^{\VEC{\alpha}} f \|_{k,p,U} \to 0$ as $\delta \to 0^+$.
 \end{proof}
@@ -860,7 +861,8 @@ then we will have that $\displaystyle \xi = \sum_{i=1}^I \xi_i \in \DD(\RR^n)$
 and $\displaystyle \|f - \xi\|_{k,p,\Omega}
 \leq \sum_{i=1}^I \|f_i - \xi_i\|_{k,p,\Omega} < \epsilon$.  Because
 $\epsilon$ is arbitrary, this will prove that
-$\displaystyle \DD(\RR^n)\big|_{\Omega}$ is dense in $W^{k,p}(\Omega)$.
+$\displaystyle \DD(\RR^n)\big|_{\Omega}$ is dense in
+$\displaystyle W^{k,p}(\Omega)$.
 
 \stage{iii}
 Consider $\displaystyle \underline{f}_i : \RR^n \to \RR$ defined by
@@ -1074,7 +1076,7 @@ Proposition~\ref{distr_limit_convol}, we have that
 \]
 in $\displaystyle L^p(\RR^n)$ for all $|\VEC{\alpha}| \leq k$.  Thus,
 $f \ast \phi_{\epsilon} \to f$ in $\displaystyle W^{k,p}(\RR^n)$ as
-$\epsilon \to 0^+$.
+$\displaystyle \epsilon \to 0^+$.
 \end{proof}
 
 The next theorem is a version of Proposition~\ref{DDRRnDWkpV2} for
@@ -1422,7 +1424,7 @@ It follows that
 \end{proof}
 
 \begin{prop} \label{sob_T_dd_wk2}
-For $\phi \in \SS(\RR^n)$ and $s\in [0,\infty[$, the mapping
+For $\displaystyle \phi \in \SS(\RR^n)$ and $s\in [0,\infty[$, the mapping
 \begin{align*}
 T: W^{s,2}(\RR^n) &\rightarrow W^{s,2}(\RR^n) \\
 f &\mapsto \phi \,f 
@@ -2012,7 +2014,7 @@ is included in $\displaystyle H^{k,p}_0(\Omega)$, the closure of
 $\DD(\Omega)$ in $\displaystyle L^p(\Omega)$
 with respect to $\|\cdot\|_{k,p}$.
 
-But since $\DD(\Omega) \subset C^k_c(\Omega$, we also have that
+But since $\displaystyle \DD(\Omega) \subset C^k_c(\Omega$, we also have that
 $\displaystyle H^{k,p}_0(\Omega)$, the closure of
 $\displaystyle \DD(\Omega)$ in $\displaystyle L^p(\Omega)$ with
 respect to $\|\cdot\|_{k,p}$, is included in the closure of
@@ -2025,7 +2027,7 @@ is $\displaystyle H^{k,p}_0(\Omega)$.
 \end{rmkList}
 
 \begin{prop} \label{sob_WcontainsH}
-Let $\Omega$ be an open subset of $\RR^n$.  If
+Let $\Omega$ be an open subset of $\displaystyle \RR^n$.  If
 $k\in \NN$ and $p$ is a positive integer or $\infty$, then
 $\displaystyle H^{k,p}(\Omega) \subset W^{k,p}(\Omega)$ and
 $\displaystyle H^{k,p}_0(\Omega) = W^{k,p}_0(\Omega)$.
@@ -2053,7 +2055,7 @@ where the closure is with respect to the norm $\|\cdot\|_{k,p}$.
 
 The first question that comes to mind is whether
 $\displaystyle W^{k,p}(\Omega) = H^{k,p}(\Omega)$ whatever the open set
-$\Omega \subset \RR^n$.  The answer is positive for
+$\displaystyle \Omega \subset \RR^n$.  The answer is positive for
 $1\leq p < \infty$.  However, it is not always true for $p=\infty$.
 
 \begin{theorem} \label{sob_HequalsW}
@@ -3380,10 +3382,10 @@ $\displaystyle \left\{ f_{\VEC{\alpha}_N,i} \right\}_{i=1}^\infty$ is such
 that
 $\displaystyle \left\{ \diff^{\VEC{\alpha}} f_{\VEC{\alpha}_N,i}
 \right\}_{i=1}^\infty$
-converges in $C_{bu}^0(\overline{\Omega})$ for all multi-indices $\VEC{\alpha}$
-such that $|\VEC{\alpha}|\leq k$.  Thus,
+converges in $\displaystyle C_{bu}^0(\overline{\Omega})$ for all
+multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq k$.  Thus,
 $\displaystyle \left\{ f_{\VEC{\alpha}_N,i} \right\}_{i=1}^\infty$
-converges in $C_{bu}^k(\overline{\Omega})$.
+converges in $\displaystyle C_{bu}^k(\overline{\Omega})$.
 
 \stage{ii} Choose $j \geq 0$ such that $m-k -j >n/2 \geq m-k-j-1$ and
 $0<\mu<1$ such that $m-k -j > \mu + n/2 > n/2 \leq m-k-j-1$.
@@ -3405,7 +3407,7 @@ compact.
 
 \begin{theorem}[Rellich's Theorem] \label{sob_rell_th}
 Consider two integers $k_1$ and $k_2$ such that $0\leq k_1\leq k_2$.
-Let $\Omega \subset \RR^n$ be a bounded open set with the
+Let $\displaystyle \Omega \subset \RR^n$ be a bounded open set with the
 $(k_2,2)$-extension property.  Then, the inclusion
 $\displaystyle i:H^{k_2,2}(\Omega) \to H^{k_1,2}(\Omega)$ is a
 compact mapping.  In fact, every bounded sequence in

@@ -200,7 +200,7 @@ for all bounded open set $B \subset \RR\times [0,\infty[$
 and $\psi \in \DD(\RR\times [0,\infty[)$,
 where $\displaystyle \VEC{\nu}(x,y)$ is the outward unit normal to
 $\partial B$ at $(x,y) \in \partial B$.  We assume that $\partial B$
-is of class $C^1$ almost everywhere.
+is of class $\displaystyle C^1$ almost everywhere.
 
 Suppose that
 $\displaystyle u \in C^1(\RR \times ]0,\infty[) \cap C(\RR \times [0,\infty[)$
@@ -523,7 +523,8 @@ $u$.  Then, the solution $v$ must now satisfy the Rankine-Hugoniot formula
 \right)
 = \frac{2}{3} \left(\frac{(u^+)^2 + u^+ u^- + (u^-)^2}{u^+ + u^-}\right)
 \]
-where $v^+ = (u^+)/2$ and $v^- = (u^-)/2$.  But this is clearly not
+where $\displaystyle v^+ = (u^+)/2$ and
+$\displaystyle v^- = (u^-)/2$.  But this is clearly not
 possible for the same curve $\Gamma$.  The curve where the solution is
 discontinuous and where the shock wave is generated is not the same
 for both system.  The two shock waves travel at different speeds.
@@ -682,8 +683,9 @@ connecting $0$ to $1$.
 We assume that $\displaystyle u(x,0) = h(x) = u^-$ for $x<0$ and
 $\displaystyle u(x,0) = h(x) = u^+$ for $x>0$, and
 $\displaystyle G'(u^-)>0$.  The lines where $u$
-is constant are given by $x= G'(u^-) y + s$ for $s\neq 0$ where $u = u^-$,
-$x= G'(u^+) y + s$ for $s\neq 0$ where $u = u^+$,
+is constant are given by $\displaystyle x= G'(u^-) y + s$ for
+$s\neq 0$ where $u = u^-$,
+$\displaystyle x= G'(u^+) y + s$ for $s\neq 0$ where $\displaystyle u = u^+$,
 and $x = G'(\tilde{u}) y$ where $u = \tilde{u}$ is between
 $\displaystyle u^+$ and $\displaystyle u^-$.}{shock_fig13}
 
@@ -1223,15 +1225,15 @@ It follows from (\ref{shock_uniqueEq9}) and (\ref{shock_uniqueEq8}) that
 &\qquad \leq \frac{C \tilde{M}}{\alpha}   \label{shock_uniqueEq13}
 \end{align}
 for $x\in \RR$, $y \geq \alpha$ and $j\in \NN$ because
-$t u_2^{[j]}(x,y) + (1-t) u_1^{[j]}(x,y) \in D$
+$\displaystyle t u_2^{[j]}(x,y) + (1-t) u_1^{[j]}(x,y) \in D$
 for all $(x,y) \in \RR \times[0,\infty[$ and $t \in [0,1]$, and
 $\displaystyle m = \min_{u \in D} G''(u) > 0$ by hypothesis.
 
 Let $\displaystyle w_j(s,x,y) = \pdydx{x^{[j]}}{x}(s,x,y)$ for
 $s\in ]0,\infty[$,
 $(x,y) \in \RR \times ]0,\infty[$ and $j \in \NN$.\\
-Since $x^{[j]}(y,x,y) = x$ for all $(x,y) \in \RR \times ]0,\infty[$ and
-$j \in \NN$, we get that
+Since $\displaystyle x^{[j]}(y,x,y) = x$ for all
+$(x,y) \in \RR \times ]0,\infty[$ and $j \in \NN$, we get that
 $\displaystyle w_j(y,x,y) = 1$ for all $(x,y) \in \RR \times ]0,\infty[$
 and $j \in \NN$.  Moreover,
 \begin{align*}
@@ -1286,7 +1288,7 @@ and $j \in \NN$.
 We now consider $\displaystyle \pdydx{\psi^{[j]}}{x}(x,y)$ for
 $0 \leq y \leq \alpha$, $x\in \RR$ and $j \in \NN$.
 Let $\displaystyle V(f) \equiv \int_\RR |f'(x)|\dx{x}$ for all
-functions $f \in C^1(\RR)$.
+functions $\displaystyle f \in C^1(\RR)$.
 Since $\displaystyle \supp \psi^{[j]} \subset R$ for all $j \in \NN$,
 we have that $\displaystyle V(\psi^{[j]}_y) < \infty$
 for all $y \geq 0$ and $ j \in \NN$.
@@ -1331,7 +1333,8 @@ We also have that
 \big(x^{[j]}(1/N,x_{i+1},y) - x^{[j]}(1/N,x_i,y)\big)
 \end{align*}
 for some
-$w_i \in ]x^{[j]}(s_{1/n,x_i,y},x_i,y),x^{[j]}(s_{1/n,x_{i+1},y},x_{i+1},y)[$
+$\displaystyle w_i \in
+]x^{[j]}(s_{1/n,x_i,y},x_i,y),x^{[j]}(s_{1/n,x_{i+1},y},x_{i+1},y)[$
 for $1\leq i < N$.
 
 Taking the supremum over all possibles sequences
@@ -1583,7 +1586,8 @@ We consider the system
 \pdydx{u}{y} + \pdydx{G(u)}{x}
 = \pdydx{u}{y} + \diff G(u) \, \pdydx{u}{x} = \VEC{0} \ ,
 \end{equation}
-where $u:\RR\times [0,\infty[ \to \RR^n$ and $G:\RR^n \to \RR^n$
+where $\displaystyle u:\RR\times [0,\infty[ \to \RR^n$ and
+$\displaystyle G:\RR^n \to \RR^n$
 are sufficiently differentiable functions.
 
 If we assume that $u$ is discontinuous along the curve
@@ -1606,9 +1610,10 @@ to systems of conservation laws.
 From now on, we assume that (\ref{systConLawEq1}) is a
 {\bfseries strictly hyperbolic partial differential
 equation}\index{Strictly Hyperbolic Partial Differential Equation};
-namely, $\diff G(\VEC{u}) :\RR^n \to \RR^n$ has $n$ distinct eigenvalues
+namely, $\displaystyle \diff G(\VEC{u}) :\RR^n \to \RR^n$ has $n$
+distinct eigenvalues
 $\lambda_1(\VEC{u}) < \lambda_2(\VEC{u}) < \ldots < \lambda_n(\VEC{u})$
-for all $\VEC{u} \in \RR^n$.
+for all $\displaystyle \VEC{u} \in \RR^n$.
 
 \begin{defn}[Lax Shock Condition]  \label{LSCdef2}
 Suppose that the strong solution $u$ of (\ref{systConLawEq1}) is discontinuous
@@ -1744,8 +1749,8 @@ the section.
 The system of conservation laws (\ref{psystEq1}) can be expressed in
 the form (\ref{systConLawEq1}) with
 $\displaystyle G(\VEC{u}) = \begin{pmatrix} -u_2 \\ p(u_1) \end{pmatrix}$,
-where $p'(v) = -k\beta v^{-\beta-1} <0$ and
-$p''(v) = k\beta(\beta+1) v^{-\beta-2} >0$ for all $v \in \RR$
+where $\displaystyle p'(v) = -k\beta v^{-\beta-1} <0$ and
+$\displaystyle p''(v) = k\beta(\beta+1) v^{-\beta-2} >0$ for all $v \in \RR$
 \footnote{The results in this example are in fact true for all
 functions $p$ that satisfy $p'(v) < 0$ and $p''(v) > 0$ for all $v \in \RR$,
 not only for the specific $p$ of the $p$-system.}.
@@ -1818,7 +1823,7 @@ Since $\eta < 0$, we get that
 \eta = - \big((p(u_1) - p(u^-_1))/(u^-_1 - u_1)\big)^{1/2} \ .
 \end{equation}
 It also follows from (\ref{psystEq2}) that
-$-\sqrt{-p'(u_1)} < -\sqrt{-p'(u^-_1)}$.  Therefore,
+$\displaystyle -\sqrt{-p'(u_1)} < -\sqrt{-p'(u^-_1)}$.  Therefore,
 $\displaystyle p'(u_1) < p'(u^-_1)$.  Since
 $p''(v) > 0$ for all $v \in \RR$, we have that $p'$ is increasing and
 we must therefore have $\displaystyle u_1 < u^-_1$.
@@ -2169,15 +2174,17 @@ for all $y$.
 Since they will play an important role in studying strictly hyperbolic
 systems of conservation laws, we assume from now on that
 $\lambda_1(\VEC{u}) < \lambda_2(\VEC{u}) < \ldots < \lambda_n(\VEC{u})$
-are the eigenvalues of $\diff G(\VEC{u})$ for $\VEC{u} \in \RR^n$,
-and $q_i(\VEC{u}) \in \RR^n$ is a (right) eigenvector of $\diff G(\VEC{u})$
+are the eigenvalues of $\diff G(\VEC{u})$ for $\displaystyle \VEC{u} \in \RR^n$,
+and $\displaystyle q_i(\VEC{u}) \in \RR^n$ is a (right) eigenvector of
+$\diff G(\VEC{u})$
 associated to the eigenvalue $\lambda_i(\VEC{u})$ for $1 \leq i \leq n$.
 
 Hence, the $x$,$y$ characteristics associated to the system of
 conservation laws (\ref{systConLawEq1}) are given by
 $\rho'(y) = \lambda_i(u(\rho(y),y))$ for $1\leq i \leq n$.
 
-It is also going to be useful to assume that $p_i(\VEC{u}) \in \RR^n$
+It is also going to be useful to assume that
+$\displaystyle p_i(\VEC{u}) \in \RR^n$
 is a left eigenvector of $\diff G(\VEC{u})$ associated to the
 eigenvalue $\lambda_i(\VEC{u})$ for $1 \leq i \leq n$; 
 namely, $\displaystyle (p_i(\VEC{u}))^\top \diff G(\VEC{u})
@@ -2333,7 +2340,7 @@ associated to $q_i$.
 
 \begin{defn}
 A {\bfseries $\mathbf{i}$-Riemann invariant}\index{Conservation
-Laws!$i$-Riemann Invariant} on an open set $U \subset \RR^n$ is
+Laws!$i$-Riemann Invariant} on an open set $\displaystyle U \subset \RR^n$ is
 continuously differentiable function $v:U \to \RR$ such that
 $\displaystyle \graD v(\VEC{u}) \cdot q_i(\VEC{u}) = 0$
 for all $\VEC{u} \in U$.
@@ -2398,21 +2405,22 @@ are constant along the integral curves associated to $q_2$.
 
 \begin{rmk}
 Suppose that (\ref{systConLawEq1}) is a strictly hyperbolic system of
-conservation laws in $\RR^2$.  Moreover, suppose that
-$U \subset \RR^2$ is an open and connected set.
+conservation laws in $\displaystyle \RR^2$.  Moreover, suppose that
+$\displaystyle U \subset \RR^2$ is an open and connected set.
 
 Let $v_i:U \to \RR$ denotes the $i$-Riemann invariants for $i=1,2$.
 We have that $v_i$ is constant along integral curves associated to
 right eigenvector $q_j$ if $i \neq j$.  Since the right eigenvectors
 $q_1(\VEC{u})$ and $q_2(\VEC{u})$ are linearly independent for all
-$\VEC{u} \in \RR^2$, the integral curves associated to $q_1$ intersect
-transversely the integral curves associated to $q_2$.  Hence, using
-standard results in ordinary differential equation, we can show that
+$\displaystyle \VEC{u} \in \RR^2$, the integral curves associated to
+$q_1$ intersect transversely the integral curves associated to $q_2$.
+Hence, using standard results in ordinary differential equation, we
+can show that
 \begin{align*}
 \Phi : U & \to \Phi(U) \\
 \VEC{u} &\mapsto \big(v_1(\VEC{u}), v_2(\VEC{u})\big)
 \end{align*}
-defines an isomorphism and $\Phi(U) \subset \RR^2$ is open and
+defines an isomorphism and $\displaystyle \Phi(U) \subset \RR^2$ is open and
 connected.
 
 Since the right and left eigenvectors satisfy
@@ -2446,8 +2454,8 @@ are constant on $u(W)$, where $u$ is the solution defined in
 Example~\ref{eggRareWaveN} and $W \subset \RR\times [0,\infty[$ is the
 wedge where the rarefaction wave is defined.
 In fact, we have from (\ref{iRiemannInv}) that the $i$-Riemann invariants are
-constant on $\{ w(z) : z \in u(W) = [z^-,z^+]\}$ where $w$, used to
-define $u$ in Example~\ref{eggRareWaveN}, yields an integral
+constant on $\displaystyle \{ w(z) : z \in u(W) = [z^-,z^+]\}$ where
+$w$, used to define $u$ in Example~\ref{eggRareWaveN}, yields an integral
 curve associated to $q_i$.
 This property will become the base for the definition of 
 $\displaystyle i^{th}$-rarefaction wave.
@@ -2542,7 +2550,7 @@ analysis.
 \begin{theorem}
 Suppose that (\ref{systConLawEq1}) is a strictly hyperbolic system of
 conservation laws which is genuinely linear on an open set
-$U \subset \RR^n$.  For each $1 \leq i \leq n$ and
+$\displaystyle U \subset \RR^n$.  For each $1 \leq i \leq n$ and
 $\displaystyle \VEC{u}^- \in U$,
 if we select the eigenvectors $q_i(\VEC{u})$ such
 that $\graD \lambda_i(\VEC{u}) \cdot q_i(\VEC{u}) = 1$ for all
@@ -2743,10 +2751,11 @@ open neighbourhood of the origin and
 < \infty \ .
 \]
 We assume that $\Delta x / \Delta y > C$.  We select values
-$\VEC{u}_{j,k} \in \RR^n$ such that $k+j = 0 \mod{2}$ as it follows.
+$\displaystyle \VEC{u}_{j,k} \in \RR^n$ such that
+$k+j = 0 \mod{2}$ as it follows.
 We set $\VEC{u}_{j,0} = h((j+1)\Delta x + \theta_{j,0} \Delta x)$ for
 $j \in \ZZ$ even and $\theta_{j,0} \in [-1,1]$ randomly selected.  Suppose
-that we have $\VEC{u}_{j,k} \in \RR^n$
+that we have $\displaystyle \VEC{u}_{j,k} \in \RR^n$
 for $j\in \ZZ$ with $k+j =0 \mod{2}$ and $k\in \NN$ fixed.  For each
 $j \in \ZZ$ with $j+k \mod{2}$, we solve the Riemann problem
 \[
@@ -2831,9 +2840,10 @@ they are often equivalent to the Lax Shock Condition.  We mention a
 couple of possible extensions of the entropy condition.
 
 \begin{defn}
-Suppose that $G:\RR^n \to \RR^n$ in (\ref{systConLawEq1}) is of class
-$C^1$, and that $E,F:U\to \RR$ are two continuously differentiable
-functions defined on an open set $U \subset \RR^n$.  If
+Suppose that $\displaystyle G:\RR^n \to \RR^n$ in
+(\ref{systConLawEq1}) is of class $\displaystyle C^1$, and that
+$E,F:U\to \RR$ are two continuously differentiable
+functions defined on an open set $\displaystyle U \subset \RR^n$.  If
 $(\diff F)(\VEC{u}) = (\diff E)(\VEC{u}) (\diff G)(\VEC{u})$ for all
 $\VEC{u} \in U$,
 then $(E,F)$ is called an {\bfseries entropy pair}\index{Conservation
@@ -2849,15 +2859,16 @@ conservation laws in dimension higher than $2$.  There is however one
 type of systems of conservation laws for which we can always find a
 entropy pair.
 
-If $G$ is the gradient of a function $g:\RR^n \to \RR$,
+If $G$ is the gradient of a function $\displaystyle g:\RR^n \to \RR$,
 then the system of conservation laws is
 \begin{equation} \label{eggGradSyst}
 \pdydx{u}{y}(x,y) + \pdfdx{G(u(x,y))}{x}
 = \pdydx{u}{y}(x,y) + \pdfdx{(\diff g)(u(x,y))}{x} = 0 \ .
 \end{equation}
-We claim that $E(\VEC{u}) = \|\VEC{u}\|^2/2$ and
-$F(\VEC{u}) = \VEC{u}^\top (\diff g)(\VEC{u}) - g(\VEC{u})$ define
-an entropy pair for the (\ref{eggGradSyst}) on $\RR^n$.  This follows
+We claim that $\displaystyle E(\VEC{u}) = \|\VEC{u}\|^2/2$ and
+$\displaystyle F(\VEC{u}) = \VEC{u}^\top (\diff g)(\VEC{u}) - g(\VEC{u})$
+define an entropy pair for the (\ref{eggGradSyst}) on
+$\displaystyle \RR^n$.  This follows
 from
 \[
 (\diff E)(\VEC{u})\, (\diff G)(\VEC{u})
@@ -2886,10 +2897,11 @@ Therefore, if $(E,F)$ is an entropy pair, then
 for all $(x,y) \in \RR\times ]0,\infty[$.
 
 \begin{defn} \label{dnfEntroSol}
-A strong solution $u:\RR\times ]0,\infty[\to \RR^n$ of (\ref{systConLawEq1})
+A strong solution
+$\displaystyle u:\RR\times ]0,\infty[\to \RR^n$ of (\ref{systConLawEq1})
 is called an {\bfseries entropy solution}\index{Conservation
-Laws!Entropy Solution} if there exists an entropy pair $(E,F)$ on $\RR^n$
-such that
+  Laws!Entropy Solution} if there exists an entropy pair $(E,F)$ on
+$\displaystyle \RR^n$ such that
 \begin{equation} \label{EntroIneEq}
 -\int_{\RR}\int_{]0,\infty[}
 \left( E(u(x,y)) \pdydx{\psi}{y}(x,y) +
@@ -2908,7 +2920,8 @@ It follows from (\ref{EntroPairEq}) that we have equality to $0$ in
 $u$ is a strong solution.
 
 \begin{lemma}
-Suppose that $u:\RR\times [0,\infty[ \to \RR^n$ is a strong solution of
+Suppose that $\displaystyle u:\RR\times [0,\infty[ \to \RR^n$ is a
+strong solution of
 (\ref{systConLawEq1}) which is discontinuous along the curve
 $\displaystyle \Gamma = \left\{ (\gamma(y),y) : y \geq y_0 \right\}$ of
 class $\displaystyle C^1$ for some $y_0\geq 0$.  If $u$ is an entropy
@@ -2920,8 +2933,8 @@ solution associated to the entropy pair $(E,F)$ \footnotemark, then
 for all $\VEC{p}=(\gamma(y),y) \in \Gamma$.
 \end{lemma}
 
-\footnotetext{As usual, we assume that $u$ is of class $C^1$ on both
-sides of $\Gamma$.}
+\footnotetext{As usual, we assume that $u$ is of class $\displaystyle C^1$
+on both sides of $\Gamma$.}
 
 \begin{proof}
 The proof is very similar to the proof of the Rankine-Hugoniot formula
@@ -2961,7 +2974,8 @@ u\left(\VEC{p}+t\, \VEC{\nu}(\VEC{p})\right)
 \]
 for $\VEC{p} \in \Gamma$.
 Since $\displaystyle \pdfdx{E(u)}{y} + \pdfdx{F(u)}{x} = 0$ in
-$V_l$ because $u$ is of class $C^1$ on the left side of $\Gamma$, we get
+$V_l$ because $u$ is of class $\displaystyle C^1$ on the left side of
+$\Gamma$, we get that
 \begin{equation} \label{EntroPairRHeq2}
 \begin{split}
 & \iint_{V_l} \left( E(u(x,y)) \pdydx{\psi}{y}(x,y) +
@@ -2972,7 +2986,7 @@ F(u(x,y)) \pdydx{\psi}{x}(x,y) \right) \dx{y}\dx{x} \\
 \end{equation}
 
 Proceeding as we just did but using the second integral in
-(\ref{EntroPairRHeq1}), we get
+(\ref{EntroPairRHeq1}), we get that
 \begin{equation} \label{EntroPairRHeq3}
 \begin{split}
 & \iint_{V_r} \left( E(u(x,y)) \pdydx{\psi}{y}(x,y) +
@@ -3022,8 +3036,9 @@ at $\VEC{p} \in \Gamma$ pointing to the right of $\Gamma$.
 \end{proof}
 
 We say that a function $f:U \to \RR$, where $U$ is an open subset of
-$\RR^n$, is {\bfseries strictly convex}\index{Strictly Convex} on $U$ if
-$\diff^2 f(\VEC{u})$ (the Hessian matrix of $f$) is definite
+$\displaystyle \RR^n$, is
+{\bfseries strictly convex}\index{Strictly Convex} on $U$ if
+$\displaystyle \diff^2 f(\VEC{u})$ (the Hessian matrix of $f$) is definite
 positive for all $\VEC{u} \in U$.
 
 There is a relation between the entropy jump condition
@@ -3032,8 +3047,8 @@ There is a relation between the entropy jump condition
 \begin{theorem}
 Suppose that (\ref{systConLawEq1}) is a strictly hyperbolic and
 genuinely nonlinear system of conservation laws, and that
-$(E,F)$ is an entropy pair on $\RR^n$ with $E$ strictly convex on
-$\RR^n$.  In particular, we assume that $G$, $E$ and $F$ are
+$(E,F)$ is an entropy pair on $\displaystyle \RR^n$ with $E$ strictly convex on
+$\displaystyle \RR^n$.  In particular, we assume that $G$, $E$ and $F$ are
 sufficiently differentiable.
 If $u$ is a strong solution of (\ref{systConLawEq1}) which
 is discontinuous along the curve $\Gamma \subset \RR \times [0,\infty[$ of
@@ -3047,15 +3062,16 @@ is strictly satisfied.
 
 \begin{proof}
 We have from Theorem~\ref{genHugCurve} that
-$\VEC{u}^- = u^-(\VEC{p})$ is connected to $\VEC{u}^+ = u^+(\VEC{p})$ 
+$\displaystyle \VEC{u}^- = u^-(\VEC{p})$ is connected to
+$\displaystyle \VEC{u}^+ = u^+(\VEC{p})$ 
 by an $i$-shock (and therefore the Lax Shock Condition is satisfied)
 if and only if $\displaystyle u^-(\VEC{p}) = S_i(0)$ and
 $\displaystyle u^+(\VEC{p}) = S_i(s)$ for some $0 \leq i \leq 1$
 and $s<0$ \footnote{As stated, Theorem~\ref{genHugCurve} does not
 exactly imply this.  A closer look at the proof of this theorem is
-required to conclude that it is true if $\VEC{u}^+$ is close enough to
-$\VEC{u}^-$.  This is certainly what is illustrated with the
-$p$-system.}.  Moreover, we have that
+required to conclude that it is true if $\displaystyle \VEC{u}^+$ is
+close enough to $\displaystyle \VEC{u}^-$.  This is certainly what is
+illustrated with the $p$-system.}.  Moreover, we have that
 $\displaystyle G(S_i(s))-G(S_i(0))
 = \eta(s) \left(S_i(s) - S_i(0)\right)$
 with $\displaystyle \eta(0) = \lambda_i(S_i(0))$ and $\eta'(0) = 1/2$.
@@ -3071,7 +3087,7 @@ enough to $0$.  To prove this last statement, we prove that
 $\displaystyle H(0) = \dydx{H}{s}(0) = \dydxn{H}{s}{2}(0) = 0$ and
 $\displaystyle \dydxn{H}{s}{3}(0) > 0$.
 Hence, for $s<0$ close to $0$, the sign of $H(s)$ will be the sign of
-$s^3$.
+$\displaystyle s^3$.
 
 We obviously have that $H(0) = 0$.
 
@@ -3177,7 +3193,8 @@ more realistic system governing the physical phenomenon which is
 investigated.  To simplify the discussion that follows, we also assume
 that $A$ is constant.
 
-Suppose that $(E,F)$ is an entropy pair on an open subset $U \subset \RR^n$
+Suppose that $(E,F)$ is an entropy pair on an open subset
+$\displaystyle U \subset \RR^n$
 and that $\displaystyle u^{[\epsilon]}$ is a classical solution of
 (\ref{systConLawEq1Pert}).  If we multiply both sides of
 (\ref{systConLawEq1Pert}) by
@@ -3229,12 +3246,12 @@ for all $\psi \in \DD(\RR\times [0,\infty[)$ with $\psi(x,y) \geq 0$
 for all $(x,y) \in \RR\times [0,\infty[$.
 
 As usual, we assume that $E$ and $F$ are at least of class
-$C^2(\RR^n)$.  Moreover, suppose that $E$ is such that
+$\displaystyle C^2(\RR^n)$.  Moreover, suppose that $E$ is such that
 $\displaystyle \int_{\RR} \int_{[0,\infty[}
 \left( (\diff E)(u^{[\epsilon]}) \,
 A \pdydx{u^{[\epsilon]}}{x} \right) \pdydx{\psi}{x} \dx{y}\dx{x}$ is
 bounded independently of $\epsilon$.
-If $u^{[\epsilon]} \to u$ in the sense of distributions as
+If $\displaystyle u^{[\epsilon]} \to u$ in the sense of distributions as
 $\epsilon \to 0$, where $u$ is solution of (\ref{systConLawEq1}),
 then (\ref{viscSolEq1}) yields
 the entropy inequality (\ref{EntroIneEq}) associated to the pair
@@ -3274,7 +3291,8 @@ Entropy Condition}.  If we refer to the conservation law
 \frac{G(u^+(\VEC{p})) - G(u^-)(\VEC{p})}{u^+(\VEC{p}) - u^-(\VEC{p})}
 \leq \frac{G(u) - G(u^-(\VEC{p}))}{u - u^-(\VEC{p})}
 \]
-for all $u$ between $u^-(\VEC{p})$ and $u^+(\VEC{p})$, where
+for all $u$ between $\displaystyle u^-(\VEC{p})$ and
+$\displaystyle u^+(\VEC{p})$, where
 $\VEC{p}$ is a point on the curve $\Gamma \subset \RR\times [0,\infty[$
 where $u$ is discontinuous and a shock wave is generated.  Oleinik entropy
 condition implies Lax shock condition (\ref{LSCdef1}).  The converse

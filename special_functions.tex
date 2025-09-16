@@ -629,7 +629,7 @@ y(x) = c_0 x^\lambda + \sum_{n=1}^\infty
 \frac{(-2)^n c_0} {(\lambda +n)^2(\lambda +n-1)^2\cdots (\lambda + 1)^2}
 x^{n+\lambda}
 \]
-satisfies $xy''+ y' + 2y = \lambda^2 c_0 x^{\lambda -1}$.
+satisfies $\displaystyle xy''+ y' + 2y = \lambda^2 c_0 x^{\lambda -1}$.
 If $\lambda = 0$, we get the solution
 \[
 y_1(x) = c_0 + \sum_{n=1}^\infty
@@ -1113,7 +1113,7 @@ we have
 &= \frac{1}{2^n}\sum_{k=0}^{\intpt{n/2}} \frac{(-1)^k}{(n-k)!k!}
 \left( \dfdxn{x^{2n-2k}}{x}{n} \right)
 \end{align*}
-because the derivative of order $n$ of $x^{2n-2k}$ is zero for 
+because the derivative of order $n$ of $\displaystyle x^{2n-2k}$ is zero for 
 $2n-2k<n$; namely, $k > n/2$.  Since
 \[
 \dfdxn{\left(x^{2n-2k}\right)}{x}{n} =
@@ -1319,7 +1319,7 @@ x \dfdxn{(1-x^2)^{2m}}{x}{2m-1}\bigg|_0^1
 where the second and third equality come from
 $\displaystyle \dfdxn{(1-x^2)^{2m}}{x}{k}\Big|_{x=1} = 0$ for $k<2m$.
 The value of $\displaystyle \dfdxn{(1-x^2)^{2m}}{x}{2m-2}$ at $x=0$ is
-given by $(2m-2)!$ times the coefficient of $x^{2m-2}$ in
+given by $(2m-2)!$ times the coefficient of $\displaystyle x^{2m-2}$ in
 \[
 (1-x^2)^{2m} = \sum_{k=0}^{2m} \frac{(2m)!}{(2m-k)!k!} (-x^2)^k \ .
 \]
@@ -1408,7 +1408,7 @@ $\displaystyle \Gamma(n+1) = n!$ for $n \geq 0$.
 graph of the gamma function $y = \Gamma(\nu)$}{gamma_fig}
 
 We note that $\Gamma(1/2) = \sqrt{\pi}$.  This can easily be proved
-with a double integral.  With the substitution $t = s^2$ in
+with a double integral.  With the substitution $\displaystyle t = s^2$ in
 \[
 \Gamma\left(\frac{1}{2}\right) = \int_0^\infty e^{-t} t^{-1/2} \dx{t} \ ,
 \]
@@ -1782,7 +1782,7 @@ $p(t)=t$. $a=0$ and $b=R$.  If we require that $y$ be bounded near
 $0$ and $y(R)=0$, we get a regular singular Sturm-Liouville problem
 whose eigenvalues are
 $\displaystyle \lambda = \lambda_{n,k} = \left(\alpha_{n,k}/R\right)^2$,
-where $n > 0$ and $\alpha_{n,k}$ is the $n^{th}$ zero of $J_k(x)$.
+where $n > 0$ and $\alpha_{n,k}$ is the $\displaystyle n^{th}$ zero of $J_k(x)$.
 The eigenfunctions associated to $\lambda_{n,k}$ are multiple of
 $\displaystyle J_k\left(\alpha_{n,k} t/R\right)$.
 This comes from the fact that the bounded solution of
@@ -1793,7 +1793,7 @@ We ignore $n=0$ for $k>0$ because
 $\displaystyle J_k\left(\alpha_{0,k} t/R\right) = J_k\left(0\right) = 0$
 for all $t$ cannot be an eigenfunction.  The set
 $\displaystyle \left\{ J_k\left(\alpha_{n,k} t/R\right) : n \geq 1 \right\}$
-is complete and orthogonal in $L^2[0,R]$, where the
+is complete and orthogonal in $\displaystyle L^2[0,R]$, where the
 scalar product is defined by
 \[
 \ps{f}{g} = \int_0^R f(t)g(t) \, t \dx{t} \ .
@@ -1876,7 +1876,7 @@ We now turn our attention on the right hand side of (\ref{spv_neb}).
 Using integration by parts with
 $\displaystyle f(t) = \left(k^2 - \gamma_{n,k}^2 t^2\right)$
 and $\displaystyle g'(t) = \dfdx{\left( J_k^2(\gamma_{n,k}t)\right)}{t}$,
-so $f'(t) = - 2\gamma_{n,k}^2 t$ and
+so $\displaystyle f'(t) = - 2\gamma_{n,k}^2 t$ and
 $\displaystyle g(t) = J_k^2(\gamma_{n,k}t)$, we get
 \begin{align*}
 \int_0^R \left(k^2 - \gamma_{n,k}^2 t^2\right)

@@ -1,4 +1,4 @@
-\chapter{Wave Equation in $\mathbf{\RR^n}$} \label{ChapWaveEqunD}
+\chapter{Wave Equation in $\displaystyle \mathbf{\RR^n}$} \label{ChapWaveEqunD}
 
 \section{The Cauchy Problem}
 
@@ -34,15 +34,15 @@ Q((\VEC{x},t), (\VEC{\xi},r)) = r^2 - c^2 \sum_{i=1}^n \xi_i^2 =
 \end{pmatrix}
 \ ,
 \]
-where the matrix has all eigenvalues but one equal to $-c^2 <0$.  The
-other eigenvalue is $1>0$.
+where the matrix has all eigenvalues but one equal to
+$\displaystyle -c^2 <0$.  The other eigenvalue is $1>0$.
 \begin{defn}
-An hyper-surface $S \subset \RR^n \times \RR$ is called
+An hyper-surface $\displaystyle S \subset \RR^n \times \RR$ is called
 {\bfseries space-like}\index{Wave Equation!Space-Like} if its normal vector
 \[
 \nu(\VEC{x},t) = (v(\VEC{x},t),w(\VEC{x},t) ) \ ,
 \]
-where $v:S \to \RR^n$ and $w:S \to \RR$,
+where $\displaystyle v:S \to \RR^n$ and $w:S \to \RR$,
 satisfies $|w(\VEC{x},t)| > \|v(\VEC{x},t) \|$ for all
 $(\VEC{x},t) \in S$.
 \end{defn}
@@ -72,7 +72,7 @@ $S$ to the surface $t=0$.
 \begin{rmk}
 The hyperplane $t=0$ is not a characteristic surface because
 $\displaystyle Q(\,(\VEC{x},0), \nu(\VEC{x},0)\,) = 1$ for all
-$\VEC{x} \in \RR^n$.
+$\displaystyle \VEC{x} \in \RR^n$.
 \end{rmk}
 
 Since $L(\VEC{x},t,\diff)$ commutes with the application
@@ -98,7 +98,7 @@ c|t_0| \right\}
 \end{align*}
 for some point $(\VEC{x}_0,t_0)$ with $t_0<T$
 (Figure~\ref{wave_FIG7}). Suppose that
-$u \in C^2(R)$ satisfies\\
+$\displaystyle u \in C^2(R)$ satisfies\\
 $L(\VEC{x},t,\diff)u = 0$ on $R$,  $u=0$ on $B$ and 
 $\displaystyle \pdydx{u}{t} = 0$ on $B$.  Then $u=0$ on
 \[
@@ -221,8 +221,8 @@ $u=0$ on $\Omega$.
 \end{proof}
 
 \begin{rmk}
-Suppose that $F:\RR^n\times \RR\rightarrow \RR$ is a function of class
-$C^1$ and
+Suppose that $\displaystyle F:\RR^n\times \RR\rightarrow \RR$ is a
+function of class $\displaystyle C^1$ and
 \[
 G(t) = \int_{B_t} F(\VEC{x},t) \dx{\VEC{x}} \  ,
 \]
@@ -245,7 +245,7 @@ and
 \end{rmk}
 
 \begin{cor}
-If $u$ and $v$ in $C^2(\RR^n\times \RR)$ are two solutions of
+If $u$ and $v$ in $\displaystyle C^2(\RR^n\times \RR)$ are two solutions of
 (\ref{wave_nD}) satisfying the Cauchy (or initial) conditions
 (\ref{wave_nD_cond}), then $u=v$.
 \end{cor}
@@ -311,7 +311,7 @@ coefficients.  Since $L(D)$ obviously commutes with translations when
 the coefficients are constant, we have shown that $L(D)$ commutes with
 translations if and only if the coefficients $a_{\VEC{\alpha}}$ are constant.
 
-We have for all $u\in C^k(\RR^n)$ that
+We have for all $\displaystyle u\in C^k(\RR^n)$ that
 \[
 (L(\VEC{x},\diff)u)^\wedge(\VEC{y}) = p(\VEC{y}) \hat{u}(\VEC{y}) \ ,
 \]
@@ -423,10 +423,10 @@ $\displaystyle \phi''(r) + \frac{n-1}{r} \phi'(r) = 0$.
 With $w(r) = \phi'(r)$, this last equation becomes the separable first
 order ordinary differential equation
 $\displaystyle w'(r) + \frac{n-1}{r} w(r) = 0$
-whose solution is $w(r) = C r^{1-n}$ if $n\neq 1$, where $C$
+whose solution is $\displaystyle w(r) = C r^{1-n}$ if $n\neq 1$, where $C$
 is an arbitrary constant.
 
-For $n\neq 2$, we get $\phi(r) = b r^{2-n} + a$,
+For $n\neq 2$, we get $\displaystyle \phi(r) = b r^{2-n} + a$,
 where $b=C/(2-n)$ and $a$ is a constant.  For $n=2$, we get
 $\phi(r) = b\ln(r) + a$, where $b=C$ and $a$ is a constant.
 \end{proof}
@@ -477,10 +477,11 @@ For now, we do not need to assume that $n$ is odd.
 The spherical mean of $h$ has the following properties.
 \begin{enumerate}
 \item $M_h(\VEC{x},r) = M_h(\VEC{x},-r)$ for $r\in \RR$ and
-$\VEC{x} \in \RR^n$.
-\item $M_h \in C^k(\RR^n\times \RR)$ if $h \in C^k(\RR^n)$.
-\item $M_h(\VEC{x},0) = h(\VEC{x})$ for $\VEC{x} \in \RR^n$ if
-$h \in C(\RR^n)$.
+$\displaystyle \VEC{x} \in \RR^n$.
+\item $\displaystyle M_h \in C^k(\RR^n\times \RR)$ if
+$\displaystyle h \in C^k(\RR^n)$.
+\item $M_h(\VEC{x},0) = h(\VEC{x})$ for $\displaystyle \VEC{x} \in \RR^n$ if
+$\displaystyle h \in C(\RR^n)$.
 \end{enumerate}
 
 For $r\neq 0$, the change of variables $\VEC{z} = \VEC{x} + r \VEC{y}$
@@ -657,9 +658,10 @@ M_{\pdydxn{u}{t}{2}}\left((\VEC{x},t), r\right)
 - c^2 \left( \pdydxn{}{r}{2} + \left(\frac{n-1}{r}\right) \pdydx{}{r} \right)
 M_u\left((\VEC{x},t), r\right)
 \end{align*}
-and the fact that, for a continuous function $h:\RR^n\rightarrow \RR$,
+and the fact that, for a continuous function
+$\displaystyle h:\RR^n\rightarrow \RR$,
 $\displaystyle M_h\left(\VEC{x}, r\right) = 0$ for all
-$\VEC{x}\in\RR^n$ and $r \in \RR$ if and only if
+$\displaystyle \VEC{x}\in\RR^n$ and $r \in \RR$ if and only if
 $h(\VEC{x}) = 0$ for all $\displaystyle \VEC{x}\in\RR^n$.
 \end{proof}
 
@@ -795,7 +797,7 @@ g(\VEC{x})
 for $\displaystyle \VEC{x} \in \RR^n$.
 
 We solve (\ref{wave_nD_pr}) with the initial conditions
-(\ref{wave_nD_cond_pr}).  For $h\in C^{(n+1)/2}(\RR^n)$, let
+(\ref{wave_nD_cond_pr}).  For $\displaystyle h\in C^{(n+1)/2}(\RR^n)$, let
 \[
 v_h(\VEC{x},s) = T_{M_h(\VEC{x},\cdot), (n-1)/2}(s) \ .
 \]
@@ -926,7 +928,7 @@ We have
 - (ct-r)M_f(\VEC{x},ct-r) \right) + \frac{1}{2cr}
 \int_{ct-r}^{ct+r} s M_g(\VEC{x},s) \dx{s}\right)
 \end{align*}
-for $\VEC{x} \in \RR^3$ and $t\geq 0$.   However,
+for $\displaystyle \VEC{x} \in \RR^3$ and $t\geq 0$.   However,
 \begin{align*}
 &\lim_{r\rightarrow 0} \frac{1}{2r}\left( r M_f(\VEC{x},ct+r)
 +rM_f(\VEC{x},ct-r) \right)
@@ -986,7 +988,7 @@ u(\VEC{x},t) &= \frac{2}{1\cdot 3 \cdot 5 \cdot \ldots \cdot (n-1)
 \end{theorem}
 
 \begin{proof}
-If we consider $f$ and $g$ as functions in $\RR^{n+1}$ which are
+If we consider $f$ and $g$ as functions in $\displaystyle \RR^{n+1}$ which are
 independent of $x_{n+1}$, then the solution of (\ref{wave_nD}) with
 the initial conditions (\ref{wave_nD_cond}) is 
 \begin{equation} \label{WS_nD_even_Eq1}
@@ -1001,7 +1003,7 @@ u(\VEC{x},t) &= \frac{1}{1\cdot 3 \cdot 5 \cdot \ldots \cdot (n-1)
 \dss{S}{y} \right) \right) \ ,
 \end{split}
 \end{equation}
-where $\VEC{x}$ and $\VEC{y}$ are in $\RR^{n+1}$.
+where $\VEC{x}$ and $\VEC{y}$ are in $\displaystyle \RR^{n+1}$.
 
 If we write $\VEC{y} = (\tilde{\VEC{y}}, y_{n+1})$ and
 $\VEC{x} = (\tilde{\VEC{x}}, x_{n+1})$, then
@@ -1012,7 +1014,7 @@ f(\tilde{\VEC{x}}+ ct \tilde{\VEC{y}}) \dss{S}{y} \ .
 \]
 If we parameterize the upper part (i.e.\ $y_{n+1}>0$) and lower part
 (i.e.\ $y_{n+1}<0$) of the sphere of radius $1$ centred at the origin
-in $\RR^{n+1}$ with $y_{n+1} = \phi_{\pm}(\tilde{\VEC{y}}) =
+in $\RR^{n+1}$ with $\displaystyle y_{n+1} = \phi_{\pm}(\tilde{\VEC{y}}) =
 \pm \sqrt{1-\|\tilde{\VEC{y}}\|^2}$ for $\|\tilde{\VEC{y}}\|\leq 1$
 (Figure~\ref{wave_FIG8}), then the previous integral becomes
 \[
@@ -1239,7 +1241,7 @@ simple functions of the form
 u(x,y,t) = (A \cos (ckt) + B \sin (ckt))(C \cos (\mu x) +
 D \sin (\mu x))(E \cos (\nu y) + F \sin (\nu y))
 \]
-with $k^2 = \mu^2 + \nu^2$.
+with $\displaystyle k^2 = \mu^2 + \nu^2$.
 
 \begin{egg}
 Let $D =\left\{ (x,y) : 0 < x < 4 \ ,\ 0 < y < 2 \right\}$ and
@@ -1252,7 +1254,7 @@ with the boundary conditions
 $u(x,0,t) = u(x,2,t) = 0$ for $0<x<4$ and
 $u(0,y,t) = u(4,y,t) = 0$ for $0<y<2$,
 and the initial conditions
-$u(x,y,0) = (4x-x^2)(2y-y^2)$ and
+$\displaystyle u(x,y,0) = (4x-x^2)(2y-y^2)$ and
 $\displaystyle \pdydx{u}{t}(x,y,0) = 5\sin\left(\frac{3\pi x}{4}\right)
 \sin\left(\frac{7\pi y}{2}\right)$ for $(x,y) \in D$.
 
@@ -1262,7 +1264,7 @@ u(x,y,t) = \left(A \cos (ckt) + B \sin (ckt)\right)
 \left(C \cos (\mu x) + D \sin (\mu x)\right)
 \left(E \cos (\nu y) + F \sin (\nu y)\right)
 \]
-with $k^2 = \nu^2 + \mu^2$.
+with $\displaystyle k^2 = \nu^2 + \mu^2$.
 
 We get from $u(x,0,t) = 0$ that
 $\displaystyle E\left(A \cos (ckt) + B \sin (ckt)\right)\left(C \cos (\mu x)
@@ -1302,12 +1304,13 @@ B_{n,m} \sin (3 k_{n,m} t)\right)\sin\left(\frac{m\pi x}{4}\right)
 \sin\left(\frac{n\pi y}{2}\right) \ .
 \end{align*}
 
-From $u(x,y,0) = (4x-x^2)(2y-y^2)$, we get
+From $\displaystyle u(x,y,0) = (4x-x^2)(2y-y^2)$, we get
 \[
 \sum_{n,m=1}^\infty A_{n,m}\sin\left(\frac{m\pi x}{4}\right)
 \sin\left(\frac{n\pi y}{2}\right) = (4x-x^2)(2y-y^2) \ .
 \]
-This is the Fourier sine series in $\displaystyle L^2(D)$ of $(4x-x^2)(2y-y^2)$
+This is the Fourier sine series in $\displaystyle L^2(D)$ of
+$\displaystyle (4x-x^2)(2y-y^2)$
 \footnote{We leave it to the reader to generalize the concept of
 classical Fourier series in $L^2(I)$, where $I$ is an interval in
 $\RR$, to $L^2(D)$, where $D$ is a rectangle in $\RR^2$, using
@@ -1368,10 +1371,9 @@ u(x,y,t) &= \sum_{n,m=1}^\infty \frac{1024}{n^3 m^3 \pi^6} (1-(-1)^m)(1-(-1)^n)
 If we consider that the wave equation in the previous example describes the
 membrane of a square drum, the function
 $\displaystyle u_{n,m}(x,y)$ is the $n,m$-harmonic.  The
-first-harmonic is given by $n=m
-=1$.  The frequency of the
+first-harmonic is given by $n=m=1$.  The frequency of the
 first-harmonic is $3\sqrt{3}/4$.  However, the frequencies of the
-other harmonics are $3\sqrt{m^2/4 + n^2/2}\,/2$ with $n+m >2$ and
+other harmonics are $\displaystyle 3\sqrt{m^2/4 + n^2/2}\,/2$ with $n+m >2$ and
 $n.m>0$.  Hence, most of the other harmonics do not have frequencies
 which are integer multiples of $3\sqrt{3}/4$.  This is the reason why
 we cannot get an harmonious square drum.
@@ -1454,10 +1456,11 @@ $\displaystyle \pdydx{u}{t}(x,y,0) = g\left(\sqrt{x^2+y^2}\right)$ for
 $\displaystyle x^2 + y^2 \leq R^2$.
 
 Since the boundary and initial conditions are functions of
-the distance $r = \sqrt{x^2+y^2}$ between $(x,y)$ and the origin, we
-may use polar coordinates and assume that $u$ is a function of $r$ and
-$\theta$.  As is traditional, we keep the same notation for $u$ as a
-function of $(x,y)$ and $u$ as a function of $(r,\theta)$.
+the distance $\displaystyle r = \sqrt{x^2+y^2}$ between $(x,y)$ and
+the origin, we may use polar coordinates and assume that $u$ is a
+function of $r$ and $\theta$.  As is traditional, we keep the same
+notation for $u$ as a function of $(x,y)$ and $u$ as a function of
+$(r,\theta)$.
 So $u(x,y) = u(r,\theta)$ where $x = r\cos(\theta)$ and $y = r\sin(\theta)$.
 
 In polar coordinates, the boundary condition is
@@ -1478,7 +1481,7 @@ If we substitute $u(r,t) = F(r)G(t)$ in (\ref{wave_spv_we_pc}), we get
 F(r)\dydxn{G}{t}{2}(t) = c^2 \left( \dydxn{F}{r}{2}(r)G(t) +
   \frac{1}{r} \dydx{F}{r}(r)G(t) \right) \ .
 \]
-If we divide both side by $c^2F(r)G(t)$, we get
+If we divide both side by $\displaystyle c^2F(r)G(t)$, we get
 \[
 \frac{1}{c^2G(t)} \dydxn{G}{t}{2}(t) = \frac{1}{F(r)}
 \left(\dydxn{F}{r}{2}(r) + \frac{1}{r} \dydx{F}{r}(r)\right) \ .
@@ -1491,7 +1494,7 @@ is independent of $r$, both sides must be constant.  We have
 \]
 where $q$ is a constant.  This gives two ordinary differential equations,
 \begin{equation} \label{wave_spv_we_pcODE1}
-\dydxn{G}{t}{2}(t) - c^2 q G(t) = 0 
+\dydxn{G}{t}{2}(t) - c^2 q G(t) = 0
 \end{equation}
 and
 \begin{equation} \label{wave_spv_we_pcODE2}
@@ -1502,10 +1505,10 @@ $F(R)=0$.
 
 \subI{Simple Functions}
 To get a bounded solution of (\ref{wave_spv_we_pcODE1}) for all $t$, we
-must have $q\leq 0$.  Let $q= -k^2$.
+must have $q\leq 0$.  Let $\displaystyle q= -k^2$.
 
-We consider (\ref{wave_spv_we_pcODE2}) with $q= -k^2$ and the condition
-$F(R)=0$.  Let $s = kr$.  Since
+We consider (\ref{wave_spv_we_pcODE2}) with $\displaystyle q= -k^2$
+and the condition $F(R)=0$.  Let $s = kr$.  Since
 $\displaystyle \dydx{F}{r} = \dydx{F}{s} \dydx{s}{r} = k\dydx{F}{s}$
 and
 $\displaystyle \dydxn{F}{r}{2} = \dfdx{\left(\dydx{F}{r}\right)}{r}
@@ -1517,7 +1520,7 @@ k^2\dydxn{F}{s}{2}(s) + \frac{k^2}{s} \dydx{F}{s}(s) + k^2 F(s) = 0 \ .
 \]
 As usual, we keep the same name for $F$ as a function of $r$ or $s$.
 If we multiply both sides of the previous ordinary differential
-equation by $s^2/k^2$, we get
+equation by $\displaystyle s^2/k^2$, we get
 \[
 s^2\dydxn{F}{s}{2}(s) + s \dydx{F}{s}(s) + s^2 F(s) = 0 \ .
 \]
@@ -1529,15 +1532,16 @@ Since we are seeking bounded solutions, we must have
 $D = 0$ because the Bessel functions of the second kind are
 not bounded at the origin.
 
-The bounded solutions of (\ref{wave_spv_we_pcODE2}) with $q= -k^2$ are
+The bounded solutions of (\ref{wave_spv_we_pcODE2}) with
+$\displaystyle q= -k^2$ are
 therefore of the form $F(r) = C J_0\left(kr\right)$.  To determine
 $k$, we use the boundary condition $F(R)=0$.  From
 $F(R) = C\,J_0(kR)=0$, we get
 $k = \displaystyle k_n \equiv \alpha_{n,0}/R$ for $n>0$,
 where $\alpha_{n,0}$ for $n>0$ are the non-null zeros of $J_0$.
 We have shown that the bounded solutions of (\ref{wave_spv_we_pcODE2}) with
-$q= -k^2$ and satisfying $F(R)=0$ exist only for $k=k_n = \alpha_{n,o}/R$
-and are multiples of
+$\displaystyle q= -k^2$ and satisfying $F(R)=0$ exist only for
+$k=k_n = \alpha_{n,o}/R$ and are multiples of
 $\displaystyle F_n(r) \equiv J_0\left(\alpha_{n,0}r/R\right)$
 for $n>0$.
 
@@ -1596,9 +1600,10 @@ for $n > 0$.
 
 \begin{rmk}
 The simple function $u_n(r,t)$ of the previous example is called the
-{\bfseries $\mathbf{n^{th}}$-normal mode}\index{Wave Equation!$n^{th}$-Normal
-Mode} or {\bfseries $\mathbf{n^{th}}$-harmonic}\index{Wave
-Equation!$n^{th}$-Harmonic}.  
+{\bfseries $\displaystyle \mathbf{n^{th}}$-normal
+mode}\index{Wave Equation!$n^{th}$-Normal
+Mode} or {\bfseries $\displaystyle \mathbf{n^{th}}$-harmonic}\index{Wave
+Equation!$n^{th}$-Harmonic}.
 The first-harmonic is called the
 {\bfseries fundamental harmonic}\index{Wave Equation!Fundamental Harmonic}.
 Its frequency is $\displaystyle c\alpha_{n,0}/(2\pi R)$.
@@ -1610,8 +1615,9 @@ $\displaystyle r_{n,i} = \alpha_{i,0}R/\alpha_{n,0}$
 for $0<i<n$.  The modal lines are not evenly distributed.
 
 If we imagine that the domain of $u$ defined by
-$x^2 + y^2 \leq R^2$ is the membrane of a circular drum, then the modal
-lines $x^2 + y^2 \leq r_{n,i}^2$ are regions of the membrane that not
+$\displaystyle x^2 + y^2 \leq R^2$ is the membrane of a circular drum,
+then the modal lines $\displaystyle x^2 + y^2 \leq r_{n,i}^2$ are
+regions of the membrane that not
 vibrate under the frequency $\displaystyle c\alpha_{n,0}/(2 \pi R)$.
 The frequencies obviously determine the sound of the drum.
 \end{rmk}

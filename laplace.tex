@@ -181,19 +181,19 @@ is a constant function for $0 \leq s \leq r$.  Thus,
 Theorem~\ref{laplace_MVT} has a converse.
 
 \begin{theorem} \label{laplace_MVT_conv}
-Let $\Omega$ be an open subset of $\RR^n$ and $u:\Omega \rightarrow \RR$
-be an harmonic function, then $u \in C^\infty(\Omega)$ and
-$\Delta u = 0$ on $\Omega$.
+Let $\Omega$ be an open subset of $\displaystyle \RR^n$ and
+$u:\Omega \rightarrow \RR$ be an harmonic function, then
+$\displaystyle u \in C^\infty(\Omega)$ and $\Delta u = 0$ on $\Omega$.
 \end{theorem}
 
 \begin{proof}
-\stage{i} We first prove that $u$ is of class $C^\infty(\Omega)$.
+\stage{i} We first prove that $u$ is of class $\displaystyle C^\infty(\Omega)$.
 
 Choose $\psi \in \DD(]-1,1[)$ such that
 \begin{equation} \label{laplace_int1}
 \int_{\RR^n} \phi(\VEC{x}) \dx{\VEC{x}} = 1 \ ,
 \end{equation}
-where $\phi(\VEC{x}) = \psi(\|\VEC{x}\|^2)$ for
+where $\displaystyle \phi(\VEC{x}) = \psi(\|\VEC{x}\|^2)$ for
 $\displaystyle \VEC{x} \in \RR^n$.
 We note that $\supp \phi \subset B_1(\VEC{0})$.
 
@@ -226,7 +226,7 @@ For $\VEC{x} \in \Omega_\epsilon$, we have
 \int_{\|\VEC{y}\|=1} u(\VEC{x}-\epsilon r \VEC{y}) \dss{S}{y} \right)
 \psi(r^2) r^{n-1} \dx{r} \ ,
 \end{align*}
-where we have use the fact that $\phi(r\VEC{y}) = \psi(r^2)$ for
+where we have use the fact that $\displaystyle \phi(r\VEC{y}) = \psi(r^2)$ for
 $\|\VEC{y}\| = 1$.  However, by hypothesis,
 \[
 \int_{\|\VEC{y}\|=1} u(\VEC{x}-\epsilon r\, \VEC{y}) \dss{S}{y}
@@ -281,7 +281,7 @@ for all $r$ such that $\overline{B_r(\VEC{x})} \subset \Omega$ by hypothesis,
 then the function defined by\\
 $\displaystyle r \mapsto \int_{\|\VEC{y}\|=1} u(\VEC{x}+r\VEC{y}) \dss{S}{y}$
 is constant on its domain.  Hence, using the substitution
-$\VEC{y} = r^{-1} (\VEC{z}-\VEC{x})$, we get
+$\displaystyle \VEC{y} = r^{-1} (\VEC{z}-\VEC{x})$, we get
 \begin{align*}
 0 &= \pdfdx{ \int_{\|\VEC{y}\|=1} u(\VEC{x}+r\VEC{y}) \dss{S}{y} }{r}
 = \int_{\|\VEC{y}\|=1} \nabla u(\VEC{x}+r\VEC{y}) \cdot \VEC{y}
@@ -393,7 +393,7 @@ where $D = \big(B_R(\VEC{x}) \setminus B_R(\VEC{0})\big) \cup
 \big(B_R(\VEC{0}) \setminus B_R(\VEC{x})\big)$ is the symmetric difference
 of the sets $B_R(\VEC{x})$ and $B_R(\VEC{0})$ (Figure~\ref{laplace_FIG5}).
 Since
-$D \subset D_R = \{ \VEC{y} \in \RR^n :
+$\displaystyle D \subset D_R = \{ \VEC{y} \in \RR^n :
 R-\|\VEC{x}\| \leq \|y\| \leq R+\|\VEC{x}\|\}$,
 we get
 \begin{align*}
@@ -527,7 +527,7 @@ union of two non-empty open sets in $\Omega$.
 \end{proof}
 
 \begin{cor} \label{laplace_cHMP}
-Let $\Omega$ be a bounded open subset of $\RR^n$.  If
+Let $\Omega$ be a bounded open subset of $\displaystyle \RR^n$.  If
 $u:\overline{\Omega} \rightarrow \RR$ is continuous and $u$ is
 harmonic in $\Omega$, then $u$ reaches its maximal (and minimal) value
 on $\partial \Omega$.
@@ -547,8 +547,8 @@ the previous reasoning to $-u$.
 \end{proof}
 
 \begin{theorem}[Uniqueness Theorem] \label{laplace_uniqu_th}
-Let $\Omega$ be an open subset of $\RR^n$ with compact closure.  If
-$u_1 : \overline{\Omega} \rightarrow \RR$ and
+Let $\Omega$ be an open subset of $\displaystyle \RR^n$ with compact
+closure.  If $u_1 : \overline{\Omega} \rightarrow \RR$ and
 $u_2 : \overline{\Omega} \rightarrow \RR$ are two continuous functions
 which are harmonic on $\Omega$ and satisfy $u_1 = u_2$ on $\partial \Omega$, 
 then $u_1 = u_2$ in $\Omega$.
@@ -633,10 +633,11 @@ N_\epsilon(\VEC{x}) =
 \text{if} \quad n=2
 \end{cases}
 \]
-Note that $N_\epsilon$ is of class $C^{\infty}$ on $\RR^n$.
+Note that $N_\epsilon$ is of class $\displaystyle C^{\infty}$ on
+$\displaystyle \RR^n$.
 
-We first prove that $N_\epsilon \rightarrow N$ in $L^1(K)$ as
-$\epsilon \rightarrow 0$ for any compact set $K \subset \RR^n$.
+We first prove that $N_\epsilon \rightarrow N$ in $\displaystyle L^1(K)$ as
+$\epsilon \rightarrow 0$ for any compact set $\displaystyle K \subset \RR^n$.
 It is obvious that
 $\displaystyle \lim_{\epsilon \rightarrow 0} N_\epsilon(\VEC{x}) = N(\VEC{x})$
 for $\VEC{x} \neq \VEC{0}$.  Moreover, for $\epsilon \leq 1$,
@@ -649,8 +650,8 @@ for $\VEC{x} \neq \VEC{0}$.  Moreover, for $\epsilon \leq 1$,
 \end{cases}
 \]
 for all $\VEC{x} \neq \VEC{0}$ \footnote{If
-$\|\VEC{x}\|^2+\epsilon^2 \leq 1$, then
-$(1/2) |\ln(\|\VEC{x}\|^2 + \epsilon^2)|  
+$\displaystyle \|\VEC{x}\|^2+\epsilon^2 \leq 1$, then
+$\displaystyle (1/2) |\ln(\|\VEC{x}\|^2 + \epsilon^2)|  
 \leq (1/2) |\ln(\|\VEC{x}\|^2)| = |\ln(\|\VEC{x}\|)|$.
 If $\|\VEC{x}\|+\epsilon > 1$ and $\epsilon\leq 1$, then
 \begin{align*}
@@ -674,9 +675,10 @@ It follows from the Lebesgue Dominate Convergence Theorem that
 \]
 as $\epsilon \rightarrow 0$.
 
-We now prove that $N_\epsilon \rightarrow N$ in $\DD'(\RR^n)$ as
-$\epsilon \rightarrow 0$.  If $\phi \in \DD(\RR^n)$, let $K = \supp \phi$.
-$K$ is a compact set by definition of $\DD(\RR^n)$.  Hence
+We now prove that $N_\epsilon \rightarrow N$ in $\displaystyle \DD'(\RR^n)$ as
+$\epsilon \rightarrow 0$.  If $\displaystyle \phi \in \DD(\RR^n)$,
+let $K = \supp \phi$.
+$K$ is a compact set by definition of $\displaystyle \DD(\RR^n)$.  Hence
 \begin{align*}
 \left| \ps{N_\epsilon}{\phi} - \ps{N}{\phi} \right|
 &= \left| \ps{N_\epsilon - N}{\phi} \right|
@@ -686,9 +688,9 @@ $K$ is a compact set by definition of $\DD(\RR^n)$.  Hence
 \int_K \left|N_\epsilon(\VEC{x}) - N(\VEC{x})\right| \dx{\VEC{x}}
 \rightarrow 0
 \end{align*}
-as $\epsilon \rightarrow 0$ because $N_\epsilon \rightarrow N$ in $L^1(K)$ as
-$\epsilon \rightarrow 0$ and $\displaystyle
-\sup_{\VEC{x}\in K} \left|\phi(\VEC{x})\right|$ is bounded.
+as $\epsilon \rightarrow 0$ because $N_\epsilon \rightarrow N$ in
+$\displaystyle L^1(K)$ as $\epsilon \rightarrow 0$ and
+$\displaystyle \sup_{\VEC{x}\in K} \left|\phi(\VEC{x})\right|$ is bounded.
 
 \stage{iii} We have
 \[
@@ -706,7 +708,7 @@ where
 \psi(\VEC{x}) = \Delta N_1(\VEC{x}) = \frac{n}{\omega_n}
 \left(\|\VEC{x}\|^2 + 1 \right)^{-(n+2)/2}
 \]
-for $\VEC{x} \in \RR^n$.
+for $\displaystyle \VEC{x} \in \RR^n$.
 
 Since $N_\epsilon(\VEC{x}) = N_\epsilon(-\VEC{x})$ for all
 $\VEC{x}$, we get
@@ -748,13 +750,15 @@ Finally, from (ii) and (\ref{laplace_pot1}), we have
 \lim_{e\rightarrow 0} \ps{\Delta N_\epsilon}{\phi} 
 = \phi(\VEC{0}) = \delta(\phi)
 \]
-for all $\phi\in \DD(\RR^n)$.
+for all $\displaystyle \phi\in \DD(\RR^n)$.
 \end{proof}
 
 \begin{cor} \label{lapl_anal_cond}
-If $u\in \DD'(\RR^n)$ satisfies $\Delta u = f \in C^\infty(\RR^n)$,
-then $u \in C^\infty(\RR^n)$.  In particular, we recover the
-result that harmonic functions on $\RR^n$ are of class $C^\infty(\RR^n)$.
+If $\displaystyle u\in \DD'(\RR^n)$ satisfies
+$\displaystyle \Delta u = f \in C^\infty(\RR^n)$,
+then $\displaystyle u \in C^\infty(\RR^n)$.  In particular, we recover the
+result that harmonic functions on $\displaystyle \RR^n$ are of class
+$\displaystyle C^\infty(\RR^n)$.
 \end{cor}
 
 \begin{proof}
@@ -763,12 +767,12 @@ the first sentence of the equivalence list of Theorem~\ref{distr_hypoTH} is
 satisfied.
 \end{proof}
 
-The distribution solution of $\Delta u = f \in \EE'(\RR^n)$ is given
-by $u = N \ast f$.  The same conclusion may sometime be drawn when
-$f \not\in \EE'(\RR^n)$.
+The distribution solution of $\displaystyle \Delta u = f \in \EE'(\RR^n)$
+is given by $u = N \ast f$.  The same conclusion may sometime be drawn when
+$\displaystyle f \not\in \EE'(\RR^n)$.
 
 \begin{theorem} \label{laplace_not_EEp}
-If $f \in L^1(\RR^n)$ for $n>2$ or
+If $\displaystyle f \in L^1(\RR^n)$ for $n>2$ or
 $\displaystyle \int_{\RR^n} \big|f(\VEC{y}) \ln(\|\VEC{y}\|)\big|
 \dx{\VEC{y}}<\infty$ for $n=2$, then $u= N\ast f$ is a locally
 integrable function satisfying $\Delta u = f$ in the sense of
@@ -900,7 +904,7 @@ $(u \ast \Delta N_\epsilon)(\VEC{x})$ since
 $\displaystyle \Delta_{\VEC{y}} N_{\epsilon}(\VEC{x},\VEC{y})
 = \Delta_{\VEC{y}} N_{\epsilon}(\VEC{x} - \VEC{y}) =
 (\Delta N_\epsilon)(\VEC{x}-\VEC{y})$ for
-$\VEC{y} \in \RR^n$.
+$\displaystyle \VEC{y} \in \RR^n$.
 
 Since $\displaystyle u \in L^\infty(\RR^n)$, $u$ is uniformly
 continuous on $\overline{\Omega}$, 
@@ -1173,8 +1177,8 @@ Then $v=\tilde{v}-w$ satisfies (\ref{laplace_pot7}).
 \section{Green's Functions}
 
 \begin{defn} \label{DefnGreenFunct}
-Let $\Omega$ be an open subset of $\RR^n$ with a boundary of class
-$\displaystyle C^2$.  Suppose that there exists a function
+Let $\Omega$ be an open subset of $\displaystyle \RR^n$ with a
+boundary of class $\displaystyle C^2$.  Suppose that there exists a function
 $U: \Omega \times \overline{\Omega} \to \RR$ such that
 \begin{enumerate}
 \item the function $\VEC{y} \mapsto U(\VEC{x},\VEC{y})$
@@ -1956,12 +1960,13 @@ u(\VEC{x}) = \int_\Omega u(\VEC{y})\,\Delta G_{\VEC{x}}(\VEC{y})
 for $\VEC{x} \in \Omega$ and $u \in C(\overline{\Omega})$
 because $\tilde{G}_{\VEC{x}} = G_{\VEC{x}}$
 on $\Omega \setminus \{\VEC{x}\}$.
-Suppose that $u \in C^1(\overline{\Omega}) \cap C^2(\Omega)$ is the
+Suppose that
+$\displaystyle u \in C^1(\overline{\Omega}) \cap C^2(\Omega)$ is the
 solution of $\Delta u = 0$ in $\Omega$ and $u=g$ on $\partial \Omega$.
 It is here that we are very formal and assume that
 the Green's identity (\ref{laplace_green2}) can be used with
 $G_{\VEC{x}}$ on $\Omega$ though we do not have that
-$G_{\VEC{x}} \in C^1(\overline{\Omega}) \cap C^2(\Omega)$.
+$\displaystyle G_{\VEC{x}} \in C^1(\overline{\Omega}) \cap C^2(\Omega)$.
 We get
 \[
 \int_{\partial \Omega} \left( G_{\VEC{x}}\,\pdydx{u}{\nu} 
@@ -2161,9 +2166,11 @@ function (see \cite{FoAC}).
 Suppose that $\displaystyle g \in L^p(\partial \RR^n_+)$ \footnotemark,
 for some integer $p\geq 1$.  Then
 $u(\VEC{x}) = (g \ast P_{x_n})(\breve{\VEC{x}})$ for
-$\VEC{x} \in \RR^n_+$ is well defined and harmonic in $\RR^n_+$.
+$\displaystyle \VEC{x} \in \RR^n_+$ is well defined and harmonic in
+$\displaystyle \RR^n_+$.
 Moreover, $u_{x_n}(\breve{\VEC{x}}) \equiv u(\breve{\VEC{x}}, x_n)$ for
-$\breve{\VEC{x}} \in \RR^{n-1}$ satisfies $u_{x_n} \rightarrow g$ in
+$\displaystyle \breve{\VEC{x}} \in \RR^{n-1}$ satisfies
+$u_{x_n} \rightarrow g$ in
 $\displaystyle L^p(\RR^{n-1})$ as $x_n \rightarrow 0$.
 
 If $\displaystyle g\in C(\partial \RR^n_+)$ is bounded, then $u$ can be
@@ -2876,7 +2883,7 @@ $\displaystyle \big|g(\VEC{y})\,
 D^{\VEC{\alpha}}_{\VEC{x}} P(\VEC{x},\VEC{y})\big|
 \leq |g(\VEC{y})|$ for $a \leq \|\VEC{x} \| \leq b$ and
 $\VEC{y} \in \partial B_1(\VEC{0})$, and any multi-index
-$\VEC{\alpha} \in \NN^n$ with $|\VEC{\alpha}|\leq 2$.  Thus,
+$\displaystyle \VEC{\alpha} \in \NN^n$ with $|\VEC{\alpha}|\leq 2$.  Thus,
 $\displaystyle \VEC{y} \mapsto g(\VEC{y})\, D^{\VEC{\alpha}}_{\VEC{x}}
 P(\VEC{x},\VEC{y})$
 is bounded in absolute value by a function in
@@ -3109,7 +3116,7 @@ We obtain the conclusion of the theorem by substituting
 \section{Harmonic Polynomials} \label{SectHramPoly}
 
 In this section, we study the harmonic polynomials on
-$\RR^n$.  They will be quite useful later.  In particular, in the
+$\displaystyle \RR^n$.  They will be quite useful later.  In particular, in the
 study of potential problem in the next chapter..
 
 Let $\displaystyle P_k
@@ -3118,7 +3125,7 @@ Let $\displaystyle P_k
 and $H_k = \{ p \in P_k : \Delta p = 0 \}$.
 
 \begin{prop} \label{PkHkrPkm2}
-$P_k = H_k \oplus \|\VEC{x}\|_2^2 P_{k-2}$ and thus
+$\displaystyle P_k = H_k \oplus \|\VEC{x}\|_2^2 P_{k-2}$ and thus
 $\displaystyle P_k = \bigoplus_{j=0}^{\intpt{k/2}} \|\VEC{x}\|^{2j} H_{k-2j}$.
 \end{prop}
 
@@ -4056,12 +4063,13 @@ $\VEC{x} \in \partial \Omega \setminus \{\VEC{z}\}$.
 \end{defn}
 
 We now show that a bounded open set $\Omega$ with a boundary of class
-$C^2$ satisfies the barrier condition.   For each
+$\displaystyle C^2$ satisfies the barrier condition.   For each
 $\VEC{z} \in \partial \Omega$, there exist $\VEC{w}$ on the line
 $\displaystyle \{ \VEC{z} + t\nu(\VEC{z})) : t > 0 \}$
 and $s>0$ small enough such that
 $\displaystyle \overline{B_s(\VEC{w})} \cap \overline{\Omega} = \{\VEC{z}\}$
-because $\partial \Omega$ is a $C^2$-manifold \footnote{This can be
+because $\partial \Omega$ is a
+$\displaystyle C^2$-manifold \footnote{This can be
 proved using Lemma~\ref{pot_inequ} in the next chapter.}
 (Figure~\ref{Barrier1}).  As usual, $\nu(\VEC{z})$ is the
 outward unit normal to $\partial \Omega$ at
@@ -4077,7 +4085,7 @@ g_{\VEC{z}}(\VEC{x})
 \end{cases}
 \]
 We have from Corollary~\ref{laplace_sharm} that
-$g_{\VEC{z}}$ is harmonic on $\RR^n\setminus \{\VEC{w}\}$.
+$g_{\VEC{z}}$ is harmonic on $\displaystyle \RR^n\setminus \{\VEC{w}\}$.
 We have also by construction that
 $\displaystyle |g_{\VEC{z}}(\VEC{x})| < 0$ for
 $\VEC{x} \not\in \overline{B_s(\VEC{w})}$ because
@@ -4093,19 +4101,20 @@ $\VEC{x} \not\in \overline{B_s(\VEC{w})}$.
 
 \pdfF{laplace/barrier1}{$C^2$ boundaries satisfy the barrier condition}
 {Figure associated to the construction of the function $g_{\VEC{z}}$
-used to demonstrate that $\partial \Omega$ of class $C^2$ satisfies the
-barrier condition.}{Barrier1}
+used to demonstrate that $\partial \Omega$ of class
+$\displaystyle C^2$ satisfies the barrier condition.}{Barrier1}
 
-There are sets $\Omega \subset \RR^n$ that do not have a boundary of
-class $C^2$ but satisfy the barrier condition.  The simplest examples
-that come to mind are the sets $\Omega$ which are strictly convex.
+There are sets $\displaystyle \Omega \subset \RR^n$ that do not have a
+boundary of class $\displaystyle C^2$ but satisfy the barrier
+condition.  The simplest examples that come to mind are the sets
+$\Omega$ which are strictly convex.
 Therefore, for each point $\VEC{z} \in \partial \Omega$, there exists an
 hyperplane
-$P_{\VEC{z}} = \left\{ \VEC{y} \in \RR^n : \ps{\VEC{y}}{\VEC{w}} = 0 \right\}$
-for some $\VEC{w}$ such that
+$\displaystyle P_{\VEC{z}} = \left\{ \VEC{y} \in \RR^n :
+\ps{\VEC{y}}{\VEC{w}} = 0 \right\}$ for some $\VEC{w}$ such that
 $(\VEC{z} + P_{\VEC{z}}) \cap \overline{\Omega} = \{\VEC{z}\}$.
 We may assume that $\VEC{w}$ is a unit vector pointing outside of $\Omega$.
-Then $g_{\VEC{z}}:\RR^n \to \RR$ defined by
+Then $\displaystyle g_{\VEC{z}}:\RR^n \to \RR$ defined by
 $g_{\VEC{z}}(\VEC{x}) = \ps{\VEC{x} - \VEC{z}}{\VEC{w}}$ is an
 harmonic function, since it is linear, such that
 $g_{\VEC{z}}(\VEC{z}) = 0$ and
@@ -4226,9 +4235,9 @@ because $\displaystyle \liminf_{\VEC{x} \to \VEC{z}} u_{-f}(\VEC{x})
 We have finally proved the following result.
 
 \begin{theorem} \label{PerronExistTh}
-If $\Omega \subset \RR^n$ is a bounded open set such that
+If $\displaystyle \Omega \subset \RR^n$ is a bounded open set such that
 $\partial \Omega$ satisfies the barrier condition, and if
-$f:\partial \Omega \to \RR$ is a continuous function, then there
+$\displaystyle f:\partial \Omega \to \RR$ is a continuous function, then there
 exists a unique function
 $\displaystyle u \in C(\overline{\Omega})$ which is
 harmonic on $\Omega$ and satisfies $u(\VEC{x}) = f(\VEC{x})$ for all
@@ -4309,7 +4318,7 @@ F''(x) + k F(x) = 0 \quad \text{with} \quad F(0)=F(a)=0  \ .
 \end{equation}
 The form of the general solution of the ordinary differential equation
 above is determined by the roots of the characteristic equation
-$\lambda^2+k=0$.
+$\displaystyle \lambda^2+k=0$.
 
 If $k<0$, the roots of the characteristic equation are $\pm \sqrt{-k}$.
 Since the roots are real, the solution of the ordinary differential
@@ -4452,10 +4461,11 @@ The simple solutions are of the form
 u(x,y) = (A\,e^{(k\,x)} + B\,e^{(-k\,x)})(C \cos(k\,y) + D \sin(k\,y)) \ .
 \]
 The boundary condition $u(x,0) =0$ gives
-$C\,(A\,e^{(k\,x)} + B\,e^{(-k\,x)})=0$ for $0<x<3$.  Thus $C=0$ because the
-expression between parentheses cannot be null for all $x$ if we want
-to get a non-null solution.  The boundary condition $u(x,7) = 0$ then
-gives $D (A\,e^{(k\,x)} + B\,e^{(-k\,x)})\sin(7k) = 0$.  Since $D$ and
+$\displaystyle C\,(A\,e^{(k\,x)} + B\,e^{(-k\,x)})=0$ for $0<x<3$.
+Thus $C=0$ because the expression between parentheses cannot be null
+for all $x$ if we want to get a non-null solution.  The boundary
+condition $u(x,7) = 0$ then gives
+$\displaystyle D (A\,e^{(k\,x)} + B\,e^{(-k\,x)})\sin(7k) = 0$.  Since $D$ and
 the expression between parentheses cannot be null for all $x$ if we
 want to get a non-null solution, we get $\sin(7k) = 0$ and therefore
 $k=k_n \equiv n\pi/7$ for $n >0$.
@@ -4584,12 +4594,13 @@ form
 u(x,y) = \left( A e^{kx} + B e^{-kx} \right)
 \left(C \cos(ky) + D \sin(ky)\right) \ .
 \]
-From $u(x,0) = 0$, we get $C\,\left(A e^{kx} + B e^{-kx}\right)=0$ for
+From $u(x,0) = 0$, we get
+$\displaystyle C\,\left(A e^{kx} + B e^{-kx}\right)=0$ for
 $-L<x<L$.  Since we are looking for non-null solutions, we must have
-$C=0$ because $A e^{kx} + B e^{-kx}$ cannot be equal to $0$ for all
-$x$.  From $u(x,L) = 0$, we then get 
-$D\sin(kL)\left(A e^{kx} + B e^{-kx}\right)=0$ for $-L<x<L$.  Hence,
-$D\neq 0$ and $\sin(kL)=0$ since we are looking for non-null
+$C=0$ because $\displaystyle A e^{kx} + B e^{-kx}$ cannot be equal to
+$0$ for all $x$.  From $u(x,L) = 0$, we then get 
+$\displaystyle D\sin(kL)\left(A e^{kx} + B e^{-kx}\right)=0$ for $-L<x<L$.
+Hence, $D\neq 0$ and $\sin(kL)=0$ since we are looking for non-null
 solutions.  This implies that $k = k_n \equiv n\pi/L$ for any integer $n>0$.
 
 We have found that the simple functions are of the form
@@ -4750,11 +4761,12 @@ form
 u(x,y) = \left( A \cos(kx) + B\sin(kx) \right)
 \left(C e^{ky} + D e^{-ky}\right) \ .
 \]
-From $u(0,y) = 0$, we get $A\left(C e^{ky} + D e^{-ky}\right)=0$ for
+From $u(0,y) = 0$, we get
+$\displaystyle A\left(C e^{ky} + D e^{-ky}\right)=0$ for
 $0<y<b$.  Thus $A=0$ because we are looking for non-null solutions.
 From $u(a,y) = 0$, we then get
-$B\sin(ka)\left(C e^{ky} + D e^{-ky}\right)=0$ for $0<y<b$.  Hence,
-$B \neq 0$ and $\sin(ka)=0$ because we are looking for non-null
+$\displaystyle B\sin(ka)\left(C e^{ky} + D e^{-ky}\right)=0$ for
+$0<y<b$.  Hence, $B \neq 0$ and $\sin(ka)=0$ because we are looking for non-null
 solutions.  therefore, $k = k_n \equiv n\pi/a$ for any integer $n>0$.
 
 We have found that the simple functions are of the form
@@ -4836,12 +4848,14 @@ form
 u(x,y) = \left( A e^{kx} + B e^{-kx} \right)
 \left(C \cos(ky) + D \sin(ky)\right) \  .
 \]
-From $u(x,0) = 0$, we get $C \left(A e^{kx} + B e^{-kx}\right)=0$ for
+From $u(x,0) = 0$, we get
+$\displaystyle C \left(A e^{kx} + B e^{-kx}\right)=0$ for
 $0<x<a$.  Thus $C=0$ because we are looking for non-null solutions.
 From $u(x,b) = 0$, we then get
-$D\sin(kb)\left(A e^{kx} + B e^{-kx}\right)=0$ for $0<x<a$.  Hence,
-$D \neq 0$ and $\sin(kb)=0$ because we are looking for non-null
-solutions.  Therefore, $k = k_n \equiv n\pi/b$ for any integer $n>0$.
+$\displaystyle D\sin(kb)\left(A e^{kx} + B e^{-kx}\right)=0$ for
+$0<x<a$.  Hence, $D \neq 0$ and $\sin(kb)=0$ because we are looking
+for non-null solutions.  Therefore, $k = k_n \equiv n\pi/b$ for any
+integer $n>0$.
 
 We have found that the simple functions are of the form
 \[
@@ -5037,7 +5051,8 @@ corners .  We may split this Dirichlet problem to find its solution
 $w$.  The final solution of (\ref{laplace_split_td_one}) is $u = w + p$.
 
 Because $\Delta p = 0$, the polynomial $p$ has to be of the form
-$p(x,y) = a_{2,2}(x^2-y^2) + a_{1,1}xy + a_{1,0}x + a_{0,1}y + a_{0,0}$.
+$\displaystyle p(x,y) = a_{2,2}(x^2-y^2) + a_{1,1}xy + a_{1,0}x
++ a_{0,1}y + a_{0,0}$.
 To satisfy the conditions
 $p(0,0) = f_1(0) = g_1(0)$, $p(a,0) = f_1(a) = g_2(0)$,
 $p(0,b) = f_2(0) = g_1(b)$ and $p(a,b) = f_2(a) = g_2(b)$, we find
@@ -5319,7 +5334,7 @@ the potential equation becomes
 
 \subI{Separation of Variables}
 If we substitute $u(r,\phi) = F(r)G(\phi)$ in (\ref{laplace_spv_pe_sphc}) and
-multiply by $r^2$, we get
+multiply by $\displaystyle r^2$, we get
 \[
 r^2 \dydxn{F}{r}{2}(r)G(\phi) + 2r \dydx{F}{r}(r)G(\phi) +
 F(r)\dydxn{G}{\phi}{2}(\phi) + \cot(\phi) F(r)\dydx{G}{\phi}(\phi) =0 \ .
@@ -5382,15 +5397,15 @@ $G(\phi) = G_n(\phi) \equiv P_n(\cos(\phi))$ for integers $n \geq 0$.
 We now turn our attention to (\ref{laplace_spv_pe_sphc1}) with $k=n(n+1)$.
 This is an Euler-Cauchy ordinary differential equation.  The method to
 solve this ordinary differential equation is well known.  If we
-substitute $F(r) = r^\alpha$ in
+substitute $\displaystyle F(r) = r^\alpha$ in
 (\ref{laplace_spv_pe_sphc1}), we get the characteristic equation
 $\alpha(\alpha-1) + 2 \alpha + k=0$.  If $\alpha_1$ and $\alpha_2$ are
 distinct roots of this equation, then the general solution of
 (\ref{laplace_spv_pe_sphc1}) is given by
-$F(r) = A r^{\alpha_1} + B r^{\alpha_2}$.  If there is only one root
-$\alpha$ of algebraic multiplicity two, then the general solution of
-(\ref{laplace_spv_pe_sphc1}) is given by
-$F(r) = A r^{\alpha} + B r^{\alpha}\ln(r)$.
+$\displaystyle F(r) = A r^{\alpha_1} + B r^{\alpha_2}$.  If there is
+only one root $\alpha$ of algebraic multiplicity two, then the general
+solution of (\ref{laplace_spv_pe_sphc1}) is given by
+$\displaystyle F(r) = A r^{\alpha} + B r^{\alpha}\ln(r)$.
 
 If we substitute $k=n(n+1)$ in (\ref{laplace_spv_pe_sphc1}), we get
 the characteristic equation
@@ -5568,7 +5583,7 @@ $\displaystyle u(r) = C/r + D$.
 Consider two concentric spheres $S_1$ and $S_2$ of radius $R_1=3$ and
 $R_2=4$ respectively.  The potential on the first sphere is given by
 $u(R_1,\phi) = \cos(\phi)$ and on the second sphere by
-$u(R_2,\phi)= 3 \cos^2(\phi) + \cos(\phi) -1$.  Find the potential
+$\displaystyle u(R_2,\phi)= 3 \cos^2(\phi) + \cos(\phi) -1$.  Find the potential
 $u(r,\phi)$:
 
 \subQ{a} inside the sphere $S_1$.\\
@@ -5638,7 +5653,7 @@ u(r,\phi) = \sum_{n=0}^\infty \left(A_n r^n + \frac{B_n}{r^{n+1}} \right)
 P_n(\cos(\phi))
 \quad , \quad 3 < r < 4 \ \text{and} \ 0 \leq \phi \leq \pi \ .
 \]
-From 
+From
 \[
 P_1(\cos(\phi)) = u(3,\phi)
 = \sum_{n=0}^\infty \left(A_n 3^n + \frac{B_n}{3^{n+1}} \right)
@@ -5694,10 +5709,10 @@ A_2 \\ B_2
 \end{pmatrix}
 \ .
 \]
-We find $A_2 = -2 (27(9/64-16/27))^{-1}= 128/781$ and\\
-$B_2 = 18 (9/64 - 16/27)^{-1}=-31104/781$.   For all the other values of $n$,
-$A_n = B_n = 0$.  The potential between the spheres $S_1$ and $S_2$ is
-given by
+We find $\displaystyle A_2 = -2 (27(9/64-16/27))^{-1}= 128/781$ and\\
+$\displaystyle B_2 = 18 (9/64 - 16/27)^{-1}=-31104/781$.   For all the
+other values of $n$, $A_n = B_n = 0$.  The potential between the
+spheres $S_1$ and $S_2$ is given by
 \[
 u(r,\phi) = \left(\frac{7r}{37} + \frac{144}{37r^2} \right)
 P_1(\cos(\phi)) +
@@ -5732,11 +5747,11 @@ $u(r) = C \ln r + D$.
 The concept of eigenvalues and eigenvectors is first introduced in
 Linear Algebra.  Namely, if $A$ is an \nn matrix, then 
 $\lambda$ is an eigenvalue of $A$ if there exists a non-null vector
-$\VEC{v}\in \RR^n$ such that $A\VEC{v} = \lambda \VEC{v}$.  The vector
-$\VEC{v}$ is called an eigenvector associated to $\lambda$.
+$\displaystyle \VEC{v}\in \RR^n$ such that $A\VEC{v} = \lambda \VEC{v}$.
+The vector $\VEC{v}$ is called an eigenvector associated to $\lambda$.
 
 The same concept may be applied to the linear differential operator
-$\Delta$.  Suppose that $\Omega$ is a open set in $\RR^n$ with a
+$\Delta$.  Suppose that $\Omega$ is a open set in $\displaystyle \RR^n$ with a
 sufficiently smooth boundary.  Let
 \[
   {\cal X} = \left\{ u \in C^2(\Omega) \cap C^1(\overline{\Omega}) :
@@ -5746,7 +5761,7 @@ We say that $\lambda \in \RR$ is an
 {\bfseries eigenvalue}\index{Laplacian!Eigenvalue} for the Laplacian 
 operator $-\Delta$ on $\cal X$ if there exists a non-null function
 $u \in \cal X$ solving the Laplace equation
-$- \Delta u = \lambda u$ on $\Omega$.
+$-\Delta u = \lambda u$ on $\Omega$.
 We then say that $u$ is en
 {\bfseries eigenvector}\index{Laplacian!Eigenvector} or
 {\bfseries eigenfunction}\index{Laplacian!Eigenfunction} associated to
@@ -5768,7 +5783,7 @@ $-\Delta$ on $\cal X$, where
   \Omega =\left\{ (x,y) : 0 < x < a\ ,\ 0 < y < b \right\} \ .
 \]
 Namely, we seek $\lambda$ and
-$u \in C^2(\Omega)\cap C(\overline{\Omega})$ such that
+$\displaystyle u \in C^2(\Omega)\cap C(\overline{\Omega})$ such that
 \begin{equation} \label{laplace_e_eigenC}
 -\Delta u = -\pdydxn{u}{x}{2} - \pdydxn{u}{y}{2} = \lambda u
 \quad , \quad (x,y) \in \Omega \ ,
@@ -5820,7 +5835,8 @@ We first consider the boundary value problem
 \dydxn{G}{y}{2}(y) + k G(y) = 0 \quad \text{with} \quad G(0)=G(b)=0 \ .
 \end{equation}
 The form of the general solution of the second order ordinary differential equation above is
-determined by the roots of the characteristic equation $\rho^2 + k=0$.
+determined by the roots of the characteristic equation
+$\displaystyle \rho^2 + k=0$.
 
 For $k>0$, we get
 $\displaystyle G(y) = C \cos(\sqrt{k}\,y) + D \sin(\sqrt{k} \,y)$.
@@ -5842,7 +5858,7 @@ We now consider the boundary value problems
 \end{equation}
 for $n>0$.  The form of the general solution
 of the second order ordinary differential equation above is determined by the roots of the
-characteristic equation $\rho^2 +(\lambda-k_n)=0$.
+characteristic equation $\displaystyle \rho^2 +(\lambda-k_n)=0$.
 
 For $\lambda-k_n>0$, we get
 $\displaystyle F(x) = A_n \cos(\sqrt{\lambda-k_n}\, x) + B_n
@@ -6003,8 +6019,8 @@ To get a non-null solution, we must have that $C_m \neq 0$.
 Hence, the condition $F(R) = 0$ implies that
 $\displaystyle J_n\left(\sqrt{\lambda}\, R\right)= 0$.  Thus,
 $\displaystyle \lambda = \lambda_{m.n} \equiv \left(\alpha_{m,n}/R\right)^2$,
-where $\alpha_{m,n}$ is the $m^{th}$ zero of the Bessel function $J_n$.
-We get the non-null solutions
+where $\alpha_{m,n}$ is the $\displaystyle m^{th}$ zero of the Bessel
+function $J_n$.  We get the non-null solutions
 \[
   F(r) = F_{m,n}(r) \equiv C_{m,n} J_n\left(\frac{\alpha_{m,n}\,r}{R}\right)
 \]
@@ -6026,7 +6042,7 @@ J_n\left(\frac{\alpha_{m,n}\,r}{R}\right) \  ,
 where $A_{m,n} = A_n C_{m,n}$ and $B_{m,n} = B_n C_{m,n}$ are constants.
 
 Hence, the eigenvalues are
-$\lambda_{m.n} = \left(\alpha_{m,n}/R\right)^2$ 
+$\displaystyle \lambda_{m.n} = \left(\alpha_{m,n}/R\right)^2$ 
 with $m>0$ for $n>0$ and $m\geq 0$ for $n=0$.
 The eigenspace associated to the eigenvalue $\lambda_{m,n}$ is
 generated by
@@ -6036,7 +6052,8 @@ generated by
 \sin\left(n\theta\right)J_n\left(\frac{\alpha_{m,n}\,r}{R}\right) \ .
 \]
 
-Note that for the smallest eigenvalue $\lambda_{0,0} = (\alpha_{0,0}/R)^2$,
+Note that for the smallest eigenvalue
+$\displaystyle \lambda_{0,0} = (\alpha_{0,0}/R)^2$,
 the eigenfunctions are multiple of
 $\displaystyle J_0\left(\alpha_{0,0}\,r/R\right)$.  Thus, the
 eigenspace associated to $\lambda_{0,0}$ is of dimension one as
@@ -6049,7 +6066,7 @@ $-\Delta$ on $\cal X$, where the region
 \[
   \Omega = \left\{ (x,y,z) :  \|(x,y,z)\| = 1 \right\} \ .
 \]
-We seek $\lambda$ and $u \in C^2(\Omega)$ such that
+We seek $\lambda$ and $\displaystyle u \in C^2(\Omega)$ such that
 \begin{equation} \label{laplace_e_eigenS}
 -\Delta u = -\pdydxn{u}{\phi}{2} - \cot(\phi)\pdydx{u}{\phi}
 - \frac{1}{\sin^2(\phi)}\pdydxn{u}{\theta}{2} 
@@ -6097,15 +6114,15 @@ and
 We first solve (\ref{laplace_e_eigenS1}).  Since $u$ is periodic of period
 $2\pi$ in $\theta$, the function $G$ must also be periodic of period
 $2\pi$.  As for the eigenvalue problem on a disk, we find that
-$k = k_m \equiv m^2$ and
+$\displaystyle k = k_m \equiv m^2$ and
 \[
 G(\theta) = G_m(\theta) \equiv A_m\cos(m\theta) + B_m\sin(m\theta)
 \]
 for all integers $m \geq 0$.  Since $G_0(\theta) = A_0$ for all
 $\theta$, the term $B_m\sin(m\theta)$ can be ignored when $m=0$.
 
-We now solve (\ref{laplace_e_eigenS2}) with $k=m^2$ for $m\geq 0$.
-Namely, we consider
+We now solve (\ref{laplace_e_eigenS2}) with $\displaystyle k=m^2$
+for $m\geq 0$.  Namely, we consider
 \begin{equation} \label{laplace_e_eigenS3}
 \sin(\phi)\,\dfdx{\left(\sin(\phi)\dydx{H}{\phi}(\phi)\right)}{\phi}
 +\left(\lambda\,\sin^2(\phi) - m^2\right)H(\phi) = 0
@@ -6183,7 +6200,7 @@ $-\Delta$ on $\cal X$, where
   \Omega = \left\{ (x,y,z) :  \|(x,y,z)\| < R \right\} \ .
 \]
 We seek $\lambda$ and
-$u \in C^2(\Omega)\cap C(\overline{\Omega})$ such that
+$\displaystyle u \in C^2(\Omega)\cap C(\overline{\Omega})$ such that
 \begin{equation} \label{laplace_e_eigenB}
 -\Delta u = -\pdydxn{u}{r}{2} - \frac{2}{r} \pdydx{u}{r}
 - \frac{1}{r^2} \pdydxn{u}{\phi}{2} - \frac{\cot(\phi)}{r^2}
@@ -6261,7 +6278,7 @@ in (\ref{laplace_e_eigenB1}) and simplify, we get
 r^2 \dydxn{\rho}{r}{2} + r \dydx{\rho}{r} + \left(\lambda r^2 -
   \left( n + \frac{1}{2}\right)^2\right)\rho = 0 \  .
 \]
-With $z = \lambda^{1/2} r$, we have
+With $\displaystyle z = \lambda^{1/2} r$, we have
 $\displaystyle
 \dydx{V}{r} = \dydx{V}{z} \, \dydx{z}{r} = \lambda^{1/2} \dydx{V}{z}$
 and \\
@@ -6269,7 +6286,8 @@ $\displaystyle \dydxn{V}{r}{2} = \dfdx{ \left( \dydx{V}{r}\right) }{r} =
 \lambda^{1/2} \dfdx{ \left(\lambda^{1/2} \dydx{V}{z} \right) }{z}
 = \lambda \dydxn{V}{z}{2}$
 for any twice differentiable function $V$.  Hence, with the
-substitution $z=\lambda^{1/2} r$, the previous ordinary differential equation becomes
+substitution $\displaystyle z=\lambda^{1/2} r$, the previous ordinary
+differential equation becomes
 \[
 z^2 \dydxn{\rho}{z}{2} + z \dydx{\rho}{z} + \left( z^2 - 
 \left( n + \frac{1}{2}\right)^2\right)\rho = 0 \  .
@@ -6288,7 +6306,8 @@ follows from the condition $F(R)=0$ that
 $\displaystyle 0 = F(R) = A R^{-1/2} J_{n+1/2}\left(\sqrt{\lambda}\, R\right)$.
 Thus, $\displaystyle \lambda = \lambda_{j,n} \equiv
 \left(\alpha_{j,n+1/2}/R\right)^2$ for $j \geq 1$, where
-$\alpha_{j,n+1/2}$ is the $j^{th}$ root of the Bessel function $J_{n+1/2}$.
+$\alpha_{j,n+1/2}$ is the $\displaystyle j^{th}$ root of the Bessel
+function $J_{n+1/2}$.
 
 We have shown that (\ref{laplace_e_eigenB}) has bounded solutions only when
 $\displaystyle \lambda = \lambda_{j,n} =

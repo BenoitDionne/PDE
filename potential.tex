@@ -97,7 +97,7 @@ G_{i,j}(\VEC{x}) = \sum_{k=1}^n \pdydx{g_i}{x_k}(\VEC{x})\,
 \pdydx{g_j}{x_k}(\VEC{x}) \quad , \quad
 1 \leq i,j \leq n \ .
 \]
-Let $h = g^{-1}$ and
+Let $\displaystyle h = g^{-1}$ and
 $\displaystyle H(\VEC{y}) = \big(\diff h(\VEC{y})\big)^\top
 \big(\diff h(\VEC{y})\big)$ for $\VEC{y} \in W$.  The components of
 $H(\VEC{y})$ are
@@ -283,7 +283,7 @@ We have proved that
 \bigg( \|\VEC{y}\|^{n+2} \Delta_{\VEC{y}} \tilde{u}(\VEC{y}) \bigg)
 \bigg|_{\VEC{y} = T(\VEC{x})}
 \]
-for $\VEC{x} \in \Omega^{\prime}$.
+for $\displaystyle \VEC{x} \in \Omega^{\prime}$.
 The following result follows from this relation.
 
 \begin{prop} \label{pot_u_ut_harm}
@@ -482,7 +482,7 @@ removable singularity at the origin in both cases.
 \end{proof}
 
 To prove the next proposition, we will use some of the results about the
-homogeneous polynomials of degree $k$ in $\RR^n$ presented in
+homogeneous polynomials of degree $k$ in $\displaystyle \RR^n$ presented in
 Section~\ref{SectHramPoly}.
 
 \begin{prop} \label{pot_infty_ddu}
@@ -523,8 +523,9 @@ $\displaystyle \overline{B_1(\VEC{0})} \subset T\left(B_R(\VEC{0})\right)$.
 Let $S = \partial B_1(\VEC{0})$ and consider the functions $f: S \to \RR$
 and $\displaystyle \phi_k \in H_k\big|_S$ defined by
 $f(\VEC{x}) = \tilde{u}(\VEC{x})$ and
-$\phi_k(\VEC{x}) = \ps{f}{p_{\VEC{x}}^{[k]}}$ for all $\VEC{x} \in S$
-respectively.  Recall that $\displaystyle p_{\VEC{x}}^{[k]}$ is the
+$\displaystyle \phi_k(\VEC{x}) = \ps{f}{p_{\VEC{x}}^{[k]}}$ for all
+$\VEC{x} \in S$ respectively.  Recall that
+$\displaystyle p_{\VEC{x}}^{[k]}$ is the
 homogeneous polynomial of degree $k$ defined in Section~\ref{SectHramPoly}.
 It follows from Corollary~\ref{L2AbsConvUrxCor} that
 \[
@@ -681,7 +682,7 @@ Convergence Theorem, we may conclude that
 = \int_\Omega \X_{\Omega_\epsilon} \| \graD u \|_2^2 \dx{\VEC{x}}
 \rightarrow \int_\Omega \| \graD u \|^2 \dx{\VEC{x}}
 \end{equation}
-as $\epsilon \rightarrow 0^-$,  where
+as $\displaystyle \epsilon \rightarrow 0^-$,  where
 \[
 \X_{\Omega_\epsilon}(\VEC{x}) =
 \begin{cases}
@@ -700,13 +701,12 @@ Moreover, we have that
 \dss{S}{x} = 0
 \end{split}
 \end{equation}
-as $\epsilon \rightarrow 0^-$ because
-$\displaystyle
-\graD u(\VEC{x} + \epsilon \nu(\VEC{x})) \cdot \nu(\VEC{x})
+as $\displaystyle \epsilon \rightarrow 0^-$ because
+$\displaystyle \graD u(\VEC{x} + \epsilon \nu(\VEC{x})) \cdot \nu(\VEC{x})
 \to \pdydx{u}{\nu^-}(\VEC{x})$ uniformly on $\partial \Omega$ as
-$\epsilon \to 0^-$ since $u \in C_{\nu}(\Omega)$, and
+$\displaystyle \epsilon \to 0^-$ since $u \in C_{\nu}(\Omega)$, and
 $\displaystyle u\big(\VEC{x} + \epsilon \nu(\VEC{x})\big) \to
-u(\VEC{x})$ uniformly on $\partial \Omega$ as $\epsilon \to 0^-$
+u(\VEC{x})$ uniformly on $\partial \Omega$ as $\displaystyle \epsilon \to 0^-$
 since $u$ is uniformly continuous on the compact set $\overline{\Omega}$.
 We have also used the fact that the outward unit normal to
 $\partial \Omega_\epsilon$ at
@@ -729,7 +729,7 @@ solution of (N2) with $\displaystyle \pdydx{u}{\nu^+} = f = 0$ on
 $\partial \Omega$.
 
 Let $\displaystyle \Omega^{\prime}_\epsilon \subset \Omega^{\prime}$
-be the set bounded by $\partial \Omega^{\prime}_\epsilon
+be the set bounded by $\displaystyle \partial \Omega^{\prime}_\epsilon
 = \{ \VEC{x} + \epsilon \nu(\VEC{x}) : \VEC{x}
 \in \partial \Omega \}$ for $\epsilon>0$ small enough
 so that
@@ -760,7 +760,7 @@ the uniqueness of the solution for the problem (N1), we have that
 \int_{B_r(\VEC{0})\cap\Omega^{\prime}_\epsilon} \| \graD u \|^2 \dx{\VEC{x}}
 \rightarrow \int_{B_r(\VEC{0})\cap\Omega^{\prime}} \| \graD u \|^2 \dx{\VEC{x}}
 \end{equation}
-as $\epsilon \rightarrow 0^+$.
+as $\displaystyle \epsilon \rightarrow 0^+$.
 Moreover, it follows from (\ref{pot_ddn_unif}) that
 \begin{equation} \label{potN2Eq3}
 \begin{split}
@@ -772,16 +772,15 @@ Moreover, it follows from (\ref{pot_ddn_unif}) that
 \dss{S}{x} = 0
 \end{split}
 \end{equation}
-as $\epsilon \rightarrow 0^+$ because
-$\displaystyle
-\graD u(\VEC{x} + \epsilon \nu(\VEC{x})) \cdot \nu(\VEC{x})
+as $\displaystyle \epsilon \rightarrow 0^+$ because
+$\displaystyle \graD u(\VEC{x} + \epsilon \nu(\VEC{x})) \cdot \nu(\VEC{x})
 \to \pdydx{u}{\nu^+}(\VEC{x})$ uniformly on $\partial \Omega$ as
-$\epsilon \to 0^+$ since
+$\displaystyle \epsilon \to 0^+$ since
 $\displaystyle u \in C_{\nu}(\Omega^{\prime})$, and
 $\displaystyle u\big(\VEC{x} + \epsilon \nu(\VEC{x})\big) \to
-u(\VEC{x})$ uniformly on $\partial \Omega$ as $\epsilon \to 0^-$
+u(\VEC{x})$ uniformly on $\partial \Omega$ as $\displaystyle \epsilon \to 0^-$
 since $u$ is uniformly continuous on the compact set
-$\displaystyle\overline{B_r(\VEC{0})\cap\Omega^{\prime}}$.
+$\displaystyle \overline{B_r(\VEC{0})\cap\Omega^{\prime}}$.
 It follows from (\ref{potN2Eq1}), (\ref{potN2Eq2}) and
 (\ref{potN2Eq3}) that 
 \begin{equation} \label{pot_N2_pequ}
@@ -814,7 +813,8 @@ Convergence Theorem that
 as $r \rightarrow \infty$.
 Since $\displaystyle u \in C^1(\Omega^{\prime})$, we find that
 $\graD u = \VEC{0}$ everywhere on $\displaystyle \Omega^{\prime}$.
-Thus $u$ is constant on each connected component of $\Omega^{\prime}$.
+Thus $u$ is constant on each connected component of
+$\displaystyle \Omega^{\prime}$.
 
 Moreover, $u=0$ on $\displaystyle \Omega_0^{\prime}$, the unbounded component
 of $\displaystyle \Omega^{\prime}$, because $u(\VEC{x}) \rightarrow 0$ as
@@ -910,11 +910,11 @@ because $\Delta u = 0$ on $\Omega_i$.  However, we have that
 \rightarrow \int_{\partial \Omega_i} \pdydx{u}{\nu^-} \dss{S}{x}
 = \int_{\partial \Omega_i} f \dss{S}{x}
 \]
-as $\epsilon \rightarrow 0^-$ because
+as $\displaystyle \epsilon \rightarrow 0^-$ because
 $\displaystyle
 \graD u(\VEC{x} + \epsilon \nu(\VEC{x})) \cdot \nu(\VEC{x})
 \to \pdydx{u}{\nu^-}(\VEC{x})$ uniformly on $\partial \Omega_i$ as
-$\epsilon \to 0^-$ since $u \in C_{\nu}(\Omega)$.  It follows
+$\displaystyle \epsilon \to 0^-$ since $u \in C_{\nu}(\Omega)$.  It follows
 from (\ref{potNecessEq1}) that
 $\displaystyle \int_{\partial \Omega_i} f \dss{S}{x} = 0$.
 
@@ -956,12 +956,12 @@ because $\displaystyle \Delta u = 0$ on $\Omega_0^{\prime}$.  We have that
 \pdydx{u}{\nu^+} \dss{S}{x}
 = \int_{\partial \Omega^{\prime}_0} f \dss{S}{x}
 \end{equation}
-as $\epsilon \rightarrow 0^+$ because
-$\displaystyle
-\graD u(\VEC{x} + \epsilon \nu(\VEC{x})) \cdot \nu(\VEC{x})
+as $\displaystyle \epsilon \rightarrow 0^+$ because
+$\displaystyle \graD u(\VEC{x} + \epsilon \nu(\VEC{x})) \cdot \nu(\VEC{x})
 \to \pdydx{u}{\nu^+}(\VEC{x})$ uniformly on
-$\partial \Omega^{\prime}_0$ as
-$\epsilon \to 0^+$ since $u \in C_{\nu}(\Omega^{\prime})$.
+$\displaystyle \partial \Omega^{\prime}_0$ as
+$\displaystyle \epsilon \to 0^+$ since
+$\displaystyle u \in C_{\nu}(\Omega^{\prime})$.
 Moreover, from Proposition~\ref{pot_infty_ddu}, we have that 
 $\displaystyle \left| \pdydx{u}{\nu}(\VEC{x})\right| =
 O(\|\VEC{x}\|^{-2})$ as $\|\VEC{x}\|\rightarrow \infty$.  Therefore,
@@ -1206,7 +1206,8 @@ r^{n-2} \dx{r} \dx{S}
 \end{align*}
 where we have use the change of variables
 $\VEC{w} = \psi_{\VEC{x}_j}(\VEC{x}) + r \VEC{z}$ for
-$0 \leq r < \eta$ and $\VEC{z} \in \partial B_1(\VEC{0}) \subset \RR^{n-1}$.
+$0 \leq r < \eta$ and
+$\displaystyle \VEC{z} \in \partial B_1(\VEC{0}) \subset \RR^{n-1}$.
 
 Similarly, we get
 \begin{align*}
@@ -1229,7 +1230,7 @@ Similarly, we get
 where again we have use the change of variables 
 $\VEC{w} = \psi_{\VEC{x}_j}(\VEC{x}) + r \VEC{z}$ for
 $0 \leq r < \eta <1$ and
-$\VEC{z} \in \partial B_1(\VEC{0}) \subset \RR^{n-1}$.
+$\displaystyle \VEC{z} \in \partial B_1(\VEC{0}) \subset \RR^{n-1}$.
 
 \stage{$\mathbf{n=2}$}
 The computations are very similar to those of the case $n>2$ with a
@@ -1805,11 +1806,12 @@ limit $f$ of the series is in $C(S)$.
 
 \begin{rmk}
 The results in this section are also valid if $S$
-is the closure of a bounded and open subset of $\RR^{n-1}$.
+is the closure of a bounded and open subset of $\displaystyle \RR^{n-1}$.
 The proofs are almost identical.  They are even simpler because
 the interior of the sets of the form
 $\displaystyle S_{\VEC{x},\epsilon} = \left\{\VEC{y} \in S :
-\|\VEC{y}-\VEC{x}\| < \epsilon \right\}$ are open subsets of $\RR^{n-1}$.
+\|\VEC{y}-\VEC{x}\| < \epsilon \right\}$ are open subsets of
+$\displaystyle \RR^{n-1}$.
 So, there is no need to refer to an atlas for $S$ and to use the
 relations (\ref{Sxepsint1}) and (\ref{Sxepsint1}).  Moreover, there is
 no restriction associated to the Lebesgue number of an atlas.
@@ -1874,7 +1876,7 @@ Let $\displaystyle M = \max_{\VEC{y} \in S} \|\VEC{y}\|$.
 For $\|\VEC{x}\| \geq M$, we have that
 $\|\VEC{x}-\VEC{y}\| \geq \|\VEC{x}\| - \|\VEC{y}\| \geq \|\VEC{x}\| - M$
 for all $\VEC{y} \in S$.  Thus, for all $\VEC{y} \in S$,
-we have that $\|\VEC{x} - \VEC{y}\|^{1-n}
+we have that $\displaystyle \|\VEC{x} - \VEC{y}\|^{1-n}
 \leq (\|\VEC{x}\| - M)^{1-n} < C \|\VEC{x}\|^{1-n}$ 
 for a constant $C$ and $\|\VEC{x}\| > M$.}, we have that
 $\displaystyle u(\VEC{x}) = O(\|\VEC{x}\|^{1-n})$
@@ -1929,15 +1931,16 @@ Thus, we only have to consider $\|\VEC{x}-\VEC{y}\| < \epsilon$.
 Given $\VEC{x} \in S$.  We have that
 $\displaystyle S_{\VEC{x},\epsilon} \subset U_{\VEC{x}_j}$ for some $j \in J$.
 Since we assume that
-$\displaystyle \psi_{\VEC{x}_j}^{-1}$ is of class $C^2$ on the compact set
-$\displaystyle \overline{W_j}$, we
+$\displaystyle \psi_{\VEC{x}_j}^{-1}$ is of class $\displaystyle C^2$
+on the compact set $\displaystyle \overline{W_j}$, we
 have that $\displaystyle C_j = \max_{\VEC{w} \in \overline{W_j}}
 \left\| \diff^2 \psi_j^{-1}(\VEC{w}) \right\| < \infty$
-\footnote{For a bounded bilinear mapping $B:\RR^n \times \RR^n \to \RR^m$,
+\footnote{For a bounded bilinear mapping
+$\displaystyle B:\RR^n \times \RR^n \to \RR^m$,
 $\displaystyle \|B\| = \max_{\|\VEC{x}\|= \|\VEC{y}\|=1}
 \|B(\VEC{x},\VEC{y})\|$.
 Hence, $\|B(\VEC{x},\VEC{y})\| \leq \|B\| \, \|\VEC{x}\|\, \|\VEC{y}\|$
-for all $\VEC{x}, \VEC{y} \in \RR^n$.}.
+for all $\displaystyle \VEC{x}, \VEC{y} \in \RR^n$.}.
 
 Let $\displaystyle \breve{\VEC{x}} = \psi_{\VEC{x}_j}(\VEC{x})$ and, given
 $\displaystyle \VEC{y} \in S_{\VEC{x},\epsilon}$,
@@ -2142,8 +2145,9 @@ is smaller than the portion
 $\displaystyle 4 \arctan(M_\epsilon/\sqrt{\epsilon^2 - M_\epsilon^2})$
 of the sphere $\partial B_\epsilon(\VEC{x})$ covered by $Q_\epsilon$. 
 However, we have from Lemma~\ref{pot_lem_dbl1} that
-$M_\epsilon \leq C \epsilon^2$ for some constant $C$.  Thus,
-$A_\epsilon \leq 4 \arctan(M_\epsilon/\sqrt{\epsilon^2 - M_\epsilon^2}) \to 0$ 
+$\displaystyle M_\epsilon \leq C \epsilon^2$ for some constant $C$.  Thus,
+$\displaystyle A_\epsilon \leq
+4 \arctan(M_\epsilon/\sqrt{\epsilon^2 - M_\epsilon^2}) \to 0$ 
 as $\epsilon \to 0$.  It follows that
 \begin{equation} \label{pot_lem_dbl3E5}
 \frac{1}{\omega_n \epsilon^{n-1}} \int_{D_\epsilon \setminus C_\epsilon} \dss{S}{y}
@@ -2170,8 +2174,9 @@ Looking at the proof of the previous lemma, it is clear that
 (\ref{pot_lem_dbl3E1}) and (\ref{pot_lem_dbl3E2}) are still true if
 $S$ is replaced by $\partial \Omega_j$ and $\Omega$ by $\Omega_j$,
 where $\Omega_j$ is one of the components of $\Omega$.  For
-(\ref{pot_lem_dbl3E2}), the set $\Omega^{\prime}$ is then replaced by
-the complement of $\overline{\Omega_j}$.     \label{pot_lem_dbl3_rmk}
+(\ref{pot_lem_dbl3E2}), the set $\displaystyle \Omega^{\prime}$ is
+then replaced by the complement of
+$\overline{\Omega_j}$.     \label{pot_lem_dbl3_rmk} 
 \end{rmk}
 
 \begin{lemma} \label{pot_lem_dbl4}
@@ -2180,7 +2185,7 @@ There exists $B \in ]0,\infty[$ such that
 \int_S \left| \pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y})
 \right| \dss{S}{y} \leq B
 \]
-for all $\VEC{x} \in \RR^n\setminus S$.
+for all $\displaystyle \VEC{x} \in \RR^n\setminus S$.
 \end{lemma}
 
 \begin{proof}
@@ -2359,8 +2364,8 @@ $\displaystyle \|\VEC{x}-\VEC{y}\|
 $\displaystyle \VEC{x},\VEC{y} \in U_{\VEC{x}_j}$ to obtain the
 inequality.  Using the change of variables
 $\VEC{w} = \psi_{\VEC{x}_j}(\VEC{x}_o) + r \VEC{z}$ with $0 \leq r < 2\delta$
-and $\VEC{z} \in \partial B_1(\VEC{0}) \subset \RR^{n-1}$, and posing
-$a = \|\VEC{x}-\VEC{x}_o\|$, we get
+and $\displaystyle \VEC{z} \in \partial B_1(\VEC{0}) \subset \RR^{n-1}$,
+and posing $a = \|\VEC{x}-\VEC{x}_o\|$, we get
 \begin{align}
 &\int_{S_{\VEC{x}_o,2\delta}}
 \frac{\left\|\VEC{x}-\VEC{x}_o\right\|}
@@ -2510,8 +2515,10 @@ K(\VEC{x},\VEC{y}) \, \phi(\VEC{y}) \dss{S}{y}
 for $\VEC{x} \in S$.
 In other words, $\displaystyle u^{[i]} = \frac{1}{2} \phi + T_K \phi$ and
 $\displaystyle u^{[o]} = -\frac{1}{2} \phi + T_K \phi$ respectively on $S$.
-Then $u_t \rightarrow u^{[i]}$ uniformly on $S$ as $t\rightarrow 0^-$ and
-$u_t \rightarrow u^{[o]}$ uniformly on $S$ as $t\rightarrow 0^+$.
+Then $\displaystyle u_t \rightarrow u^{[i]}$ uniformly on $S$ as
+$\displaystyle t\rightarrow 0^-$ and
+$\displaystyle u_t \rightarrow u^{[o]}$ uniformly on $S$ as
+$\displaystyle t\rightarrow 0^+$.
 \end{theorem}
 
 \begin{proof}
@@ -2586,9 +2593,9 @@ From here, the proof that
 is very similar to the proof in (i).
 
 \stage{iii}
-We prove that the convergence $u_t \rightarrow u^{[i]}$ (resp.
-$u_t \rightarrow u^{[o]}$) is uniform on $S$ as
-$t\rightarrow 0^-$ (resp. $t\rightarrow 0^+$).
+We prove that the convergence $\displaystyle u_t \rightarrow u^{[i]}$ (resp.
+$\displaystyle u_t \rightarrow u^{[o]}$) is uniform on $S$ as
+$\displaystyle t\rightarrow 0^-$ (resp. $\displaystyle t\rightarrow 0^+$).
 
 Let $B$ be the constant from Lemma~\ref{pot_lem_dbl4} and let $A$
 be a constant such that \\
@@ -2971,7 +2978,7 @@ real valued functions, we have
 \right) \overline{\phi(\VEC{y})} \dss{S}{y} \\
 &= \ps{T_{K^\ast} \psi}{\phi}_2
 \end{align*}
-for $\phi,\psi \in L^2(S)$.
+for $\displaystyle \phi,\psi \in L^2(S)$.
 Thus $\displaystyle T_{K^\ast} = T_K^\ast$, the adjoint operator to $T_K$ on
 $\displaystyle L^2(S)$.
 
@@ -3353,9 +3360,9 @@ that (\ref{pot_unif_ddn}) is satisfied and thus completes the proof that
 $u \in C_{\nu}(\Omega)$.
 
 The proof that $\displaystyle w_t \rightarrow \pdydx{u}{\nu^+}$
-uniformly on $S$ as $t\rightarrow 0^+$ is similar.  We then also get
-that (\ref{pot_ddn_unif}) is satisfied and thus complete the proof
-that $u \in C_{\nu}(\Omega^{\prime})$.
+uniformly on $S$ as $\displaystyle t\rightarrow 0^+$ is similar.  We
+then also get that (\ref{pot_ddn_unif}) is satisfied and thus complete
+the proof that $\displaystyle u \in C_{\nu}(\Omega^{\prime})$.
 \end{proof}
 
 \begin{cor} \label{pot_cor_pdpdm}
@@ -3627,8 +3634,9 @@ $\Omega$.  Thus, $u = 0$ on $\overline{\Omega}$.  By uniqueness of
 solution for the exterior Dirichlet problem (D2) given by
 $\Delta v = 0$ on $\displaystyle \Omega^{\prime} \cup \{\infty\}$ 
 with $\displaystyle v\big|_{\partial \Omega^{\prime}}=0$,
-we have that $u=0$ on $\Omega^{\prime}$ because $v \equiv 0$ is a
-solution of this problem.  Hence, $u=0$ on $\displaystyle \RR^n$.
+we have that $u=0$ on $\displaystyle \Omega^{\prime}$ because
+$v \equiv 0$ is a solution of this problem.  Hence, $u=0$ on
+$\displaystyle \RR^n$.
 We have seen in item (2) following Definition~\ref{pot_spl_def} that
 $u$ is harmonic at infinity.
 It follows from Corollary~\ref{pot_cor_pdpdm} that $\phi =0$ on
@@ -3828,7 +3836,8 @@ to $0$ as $r \to \infty$.  We get from item (2) following
 Definition~\ref{pot_spl_def} that $u$ is harmonic at infinity for
 $n>2$.  To prove that $u$ is harmonic at infinity for $n=2$ requires a
 little bit more work.  Since
-$\Omega^{\prime} \cap B_r(\VEC{0})\phi \in V_+^\perp$, we have that
+$\displaystyle \Omega^{\prime} \cap B_r(\VEC{0})\phi \in V_+^\perp$,
+we have that
 \[
 \int_{\partial \Omega} \phi \dx{S}
 = \int_{\partial \Omega} \phi \left( \sum_{i=0}^m \phi_i\right) \dx{S}
@@ -3842,7 +3851,8 @@ Lemma~\ref{pot_1to1n2} that $u$ is harmonica at infinity.
 
 If $n>2$, we have from Proposition~\ref{pot_infty_u} and
 Proposition~\ref{pot_infty_ddu} that
-$\Omega^{\prime} \cap B_r(\VEC{0})|u(\VEC{x})| \leq C_1\|\VEC{x}\|^{2-n}$ and
+$\displaystyle \Omega^{\prime} \cap B_r(\VEC{0})|u(\VEC{x})|
+\leq C_1\|\VEC{x}\|^{2-n}$ and
 $\displaystyle \left| \pdydx{u}{\nu}(\VEC{x})\right| \leq
 C_2 \|\VEC{x}\|^{1-n}$ as $\|\VEC{x}\| \rightarrow \infty$ for some
 constants $C_1$ and $C_2$.  Hence,
@@ -3877,7 +3887,8 @@ this, we get that $\displaystyle \phi = \pdydx{u}{\nu^+} = 0$.
 \stage{ii} The proof that
 $\displaystyle L^2(\partial \Omega) = V_-^\perp \oplus W_-$ is very
 similar to the proof given in (i). It
-follows from Proposition~\ref{pot_split_prop} that $V_-^\perp$ is a
+follows from Proposition~\ref{pot_split_prop} that
+$\displaystyle V_-^\perp$ is a
 closed subspace of codimension $\displaystyle m^{\prime}$ in
 $\displaystyle L^2(\partial \Omega)$ and $W_-$
 is a subspace of dimension $\displaystyle m^{\prime}$ in
@@ -4121,7 +4132,6 @@ with moment $\phi$ defined by
 \boxed{
 u(\VEC{x}) = \int_{\partial \Omega} N(\VEC{x},\VEC{y})
 \phi(\VEC{y}) \dss{S}{y} \quad , \quad \VEC{x} \in \overline{\Omega^{\prime}}
-\ ,
 }
 \]
 is the solution of (N2).  If $n>2$, we showed in item (2) following
@@ -4174,7 +4184,7 @@ Since $\displaystyle w \in C(\RR^n)$ by
 Proposition~\ref{pot_slp_cont}, we have that
 $\displaystyle 
 w\big|_{\partial \Omega} = \sum_{j=1}^{m^{\prime}} a_j \phi_j^{\prime}$.
-Hence,
+Hence
 \[
 \boxed{
 u(\VEC{x}) = v(\VEC{x}) + w(\VEC{x}) \quad , \quad \VEC{x} \in
@@ -4258,8 +4268,9 @@ w(\VEC{x}) = \int_{\partial \Omega} N(\VEC{x},\VEC{y})
 satisfies $\displaystyle w\big|_{\Omega_i} = b_i$ for
 $1\leq i \leq m$.  Since
 $\displaystyle \int_{\partial \Omega} \psi(\VEC{y}) \dss{S}{y} = 0$
-because $\psi\in W_+^0$, we also have from Lemma~\ref{pot_1to1n2} that
-$w$ is harmonic at infinity.  Since $w \in C(\RR^n)$ by
+because $\displaystyle \psi\in W_+^0$, we also have from
+Lemma~\ref{pot_1to1n2} that $w$ is harmonic at infinity.  Since
+$\displaystyle w \in C(\RR^n)$ by 
 Proposition~\ref{pot_slp_cont},
 $\displaystyle 
 w\big|_{\partial \Omega^{\prime}} = \sum_{i=1}^m b_i \phi_i$.

@@ -189,7 +189,8 @@ for $0<t<\delta$.  Hence,
 for $|z-x| < \delta$ and $0<t<\delta$.
 
 \begin{rmk}
-If $f$ is differentiable and $f' \in L^1(\RR)$, there is an easy to prove that
+If $f$ is differentiable and $\displaystyle f' \in L^1(\RR)$, there is
+an easy to prove that
 $\displaystyle \lim_{t\to 0^+} u(x,t) = f(x)$.  Note that this is not
 enough to prove the continuity of $u$ at $(x,0)$ as a function from
 $\RR \times [0,\infty[$ to $\RR$ because we approach $(x,0)$ in only
@@ -320,14 +321,14 @@ Consider the Cauchy problem
 u(\VEC{x},0) &= f(\VEC{x}) \quad , \quad \VEC{x} \in \RR^n \ ,
 \label{heat_cauchyB} 
 \end{align}
-where $f:\RR^n\rightarrow \RR$ is a function to be specified later.
+where $\displaystyle f:\RR^n\rightarrow \RR$ is a function to be
+specified later.
 
 \begin{rmk}
 The hyperplane $t=0$ is a characteristic surface because the outward
 unit normal to this hyperplane is $\nu(\VEC{x},0) = (\VEC{0},-1)$ for
 all $\displaystyle \VEC{x} \in \RR^n$, where $\VEC{0}$ is the origin
-in $\displaystyle \RR^n$, and 
-the principal symbol for the heat equation is
+in $\displaystyle \RR^n$, and the principal symbol for the heat equation is
 \[
 Q((\VEC{x},t), (\VEC{y},s)) = \sum_{j=1}^n y_j^2 \ .
 \]
@@ -409,12 +410,12 @@ u(\VEC{x},t) = (f \ast K_t)(\VEC{x}) \quad , \quad
 is a solution of (\ref{heat_cauchyA}).
 
 If $f$ is bounded and continuous, then $u$ can be extended
-continuously to $\RR^n \times [0,\infty[$ with
+continuously to $\displaystyle \RR^n \times [0,\infty[$ with
 $u(\VEC{x},0) = f(\VEC{x})$ for $\VEC{x} \in \RR^n$.
 
-If $f \in L^p(\RR^n)$, where $1\leq p < \infty$, then
-$v_t(\VEC{x}) = u(\VEC{x},t)$ for $\VEC{x} \in \RR^n$ satisfies
-$v_t \rightarrow f$ in $L^p(\RR^n)$ as $t\rightarrow 0$.
+If $\displaystyle f \in L^p(\RR^n)$, where $1\leq p < \infty$, then
+$v_t(\VEC{x}) = u(\VEC{x},t)$ for $\displaystyle \VEC{x} \in \RR^n$ satisfies
+$v_t \rightarrow f$ in $\displaystyle L^p(\RR^n)$ as $t\rightarrow 0$.
 \end{theorem}
 
 \begin{proof}
@@ -542,7 +543,7 @@ $\displaystyle \sum_{k=0}^\infty \frac{g^{(k+1)}(t)}{(2k)!}\,x^{2k}$
 and $\displaystyle \sum_{k=1}^\infty \frac{g^{(k)}(t)}{(2k-2)!}\,x^{2k-2}$
 converge uniformly on compact sets.  Hence, we may interchange
 summation and partial derivatives in (\ref{heat_not_uno}). 
-Since $g^{(k)}(0)=0$ for all $k$, $u(x,0)=0$ for all
+Since $\displaystyle g^{(k)}(0)=0$ for all $k$, $u(x,0)=0$ for all
 $x\in \RR$ but $u$ is not the trivial solution of the heat equation.
 \end{enumerate}
 \end{rmkList}
@@ -556,7 +557,8 @@ Suppose that
 $\displaystyle u \in C(\RR^n \times [0,\infty[) \cap
 C^2(\RR^n \times ]0,\infty[)$
 is a solution of
-$\displaystyle \pdydx{u}{t} - \Delta u = 0$ on $\RR^n \times ]0,\infty[$
+$\displaystyle \pdydx{u}{t} - \Delta u = 0$ on
+$\displaystyle \RR^n \times ]0,\infty[$
 and $u(\VEC{x},0)=0$ for $\displaystyle \VEC{x} \in \RR^n$.  If, for every
 $\epsilon >0$, there exists $C>0$ such that
 $\displaystyle |u(\VEC{x},t)| \leq C e^{\epsilon \|\VEC{x}\|^2}$
@@ -583,8 +585,8 @@ $\displaystyle \pdydx{g}{t} + \Delta g = 0$ on $\RR^n \times ]-\infty,t_0[$.
 Given $0< a < b < t_0$ and $r>0$, let
 $\displaystyle \Omega =
 \left\{ (\VEC{x},t) : \|\VEC{x}\| < r, \ a<t<b \right\}$.
-Moreover, let $F:\RR^n \times ]0,t_0[ \to \RR^{n+1}$ be the vector
-field defined by
+Moreover, let $\displaystyle F:\RR^n \times ]0,t_0[ \to \RR^{n+1}$ be
+the vector field defined by
 \[
 F(\VEC{x},t) = \sum_{j=1}^n
 \left( f(\VEC{x},t) \pdydx{g}{x_j}(\VEC{x},t) - g(\VEC{x},t)
@@ -649,7 +651,7 @@ $g(\VEC{x},t) = K(\VEC{x}-\VEC{x}_0, t_0-t) = K(\VEC{x}_0-\VEC{x}, t_0-t)$.
 
 \stage{i} We claim that
 $\displaystyle \big(u(\cdot, a) \ast K_{t_0-a}(\cdot)\big)(\VEC{x}_0) \to 0$
-as $a \to 0^+$.  We have that
+as $\displaystyle a \to 0^+$.  We have that
 \[
 \lim_{a\to 0^+} u(\VEC{x},a) K(\VEC{x}-\VEC{x}_0, t_0 - a) =
 u(\VEC{x},0) K(\VEC{x}-\VEC{x}_0, t_0) = 0
@@ -671,7 +673,7 @@ Lebesgue Dominated Convergence Theorem that
 
 \stage{ii} Our second claim is that
 $\displaystyle \big(u(\cdot, b) \ast K_{t_0-b}(\cdot)\big)(\VEC{x}_0) \to
-u(\VEC{x}_0,t_0)$ as $b \to t_0^-$.
+u(\VEC{x}_0,t_0)$ as $\displaystyle b \to t_0^-$.
 
 We have that
 \begin{equation} \label{heat_unicD}
@@ -743,7 +745,8 @@ It follows from (\ref{heat_unicD}), (\ref{heat_unicE}) and
 \end{equation}
 This complete the prove of the second claim.
 
-\stage{iii} If we let $a\to 0^+$ and $b\to t_0^-$ in (\ref{heat_unicB}), we get
+\stage{iii} If we let $\displaystyle a\to 0^+$ and
+$\displaystyle b\to t_0^-$ in (\ref{heat_unicB}), we get
 from (\ref{heat_unicC}) and (\ref{heat_unicG}) that
 $u(\VEC{x}_0, t_0) = 0$.
 \end{proof}
@@ -797,7 +800,8 @@ $\displaystyle K^{[\epsilon]}\in \DD'(\RR^n\times \RR)$.
 Given $\displaystyle \phi \in \DD(\RR^n \times \RR)$,
 we have that $\displaystyle K^{[\epsilon]}(\VEC{x},t) \phi(\VEC{x},t)
 \rightarrow K(\VEC{x},t) \phi(\VEC{x},t)$ as
-$\epsilon \rightarrow 0^+$ for all $(\VEC{x},t) \in \RR^n\times \RR$.
+$\displaystyle \epsilon \rightarrow 0^+$ for all
+$\displaystyle (\VEC{x},t) \in \RR^n\times \RR$.
 Moreover, since $\phi$ has a compact support,
 $\displaystyle M = \sup_{(\VEC{x},t) \in \RR^n \times \RR} |\phi(\VEC{x},t)|
 < \infty$ and there exists $I \subset \RR$ such that
@@ -807,7 +811,7 @@ Since
 \left| K^{[\epsilon]}(\VEC{x},t) \phi(\VEC{x},t) \right|
 \leq M \Chi_{\RR^n \times I}(\VEC{x},t) K(\VEC{x},t)
 \]
-for all $(\VEC{x},t) \in \RR^n\times \RR$ and
+for all $\displaystyle (\VEC{x},t) \in \RR^n\times \RR$ and
 $\displaystyle M \Chi_{\RR^n \times I} K \in L^1(\RR^n \times \RR)$,
 we get from the Lebesgue Dominate Convergence Theorem that
 \[
@@ -823,7 +827,7 @@ $\displaystyle \DD'(\RR^n\times \RR)$ as $\epsilon \rightarrow 0^+$.
 To complete the proof, we only have to show that
 $\displaystyle \pdfdx{K^{[\epsilon]}}{t} - \Delta_{\VEC{x}} K^{[\epsilon]}
 \rightarrow \delta$ in $\displaystyle \DD'(\RR^n\times \RR)$ as
-$\epsilon \to 0^+$.
+$\displaystyle \epsilon \to 0^+$.
 Namely, for $\displaystyle \phi \in \DD(\RR^n\times \RR)$,
 we have to show that
 \[
@@ -1112,7 +1116,7 @@ We first consider the boundary value problem
 \end{equation}
 with $F(0)=F(\pi)=0$.  The form of the general solution of this
 ordinary differential equation is determined by the roots of the
-characteristic equation $\lambda^2-k=0$.
+characteristic equation $\displaystyle \lambda^2-k=0$.
 
 If $k>0$, the roots of the characteristic equation are $\pm \sqrt{k}$.
 Since the roots are real, the solution of the ordinary differential
@@ -1158,8 +1162,9 @@ The condition $F(0)=0$ implies that $A=0$.  Hence, $F(\pi)=0$ implies that
 $B \sin\left(\pi\sqrt{-k}\right) = 0$.  If we take
 $B=0$, we get the null solution.  We must therefore have
 $\sin\left(\pi\sqrt{-k}\right) = 0$.  This implies that
-$k = k_n \equiv -n^2$ for $n>0$.  The boundary value problem
-(\ref{heat_spv_bvp}) has non-null solutions only for $k=k_n=-n^2<0$
+$\displaystyle k = k_n \equiv -n^2$ for $n>0$.  The boundary value problem
+(\ref{heat_spv_bvp}) has non-null solutions only for
+$\displaystyle k=k_n=-n^2<0$
 with $n$ a positive integer, and the solutions associated to $k_n$ are of
 the form $F(x)=F_n(x) \equiv B_n \sin(n\,x)$.
 
@@ -1480,7 +1485,7 @@ u(x,t) = 8 \sin\left(\frac{13 \pi x}{10}\right)
 \[
 x(5-x)^2 = \sum_{n=1}^\infty b_n\,\sin\left(\frac{(2n-1)\pi x}{10}\right)
 \]
-for $0\leq x\leq 5$.  Expanding $f(x) = x(5-x)^2$ on the interval
+for $0\leq x\leq 5$.  Expanding $\displaystyle f(x) = x(5-x)^2$ on the interval
 $[0,5]$ to a odd function of period $20$ as suggested in
 Section~\ref{period4L}, we find that
 \[
@@ -1515,7 +1520,7 @@ simple functions.
 u(x,y,t) = e^{-c^2 k^2 t}(A \cos (\mu x) +B \sin (\mu x))
 (C \cos (\eta y) + D \sin (\eta y))
 \]
-with $k^2 = \mu^2 + \eta^2$.
+with $\displaystyle k^2 = \mu^2 + \eta^2$.
 \end{rmk}
 
 \begin{egg}
@@ -1544,7 +1549,7 @@ The simple functions are of the form
 u(x,y,t) = e^{-c^2 k^2 t}(A \cos (\mu x) + B \sin (\mu x))
 (C \cos (\eta y) + D \sin (\eta y)) \ ,
 \]
-where $k^2 = \mu^2 + \eta^2$.
+where $\displaystyle k^2 = \mu^2 + \eta^2$.
 From $u(0,y,t) = 0$, we get
 $\displaystyle A e^{-c^2 k^2 t} (C \cos (\eta y) + D \sin (\eta y)) = 0$.
 Since the expression between parentheses cannot be zero
@@ -1611,8 +1616,9 @@ A_{n,m} =
 0 & \quad \text{otherwise}
 \end{cases}
 \]
-Since $k_{n.m} = 9 \pi^2/25$ for $m=3$ and $n=0$, and
-$k_{n.m} = 149 \pi^2/25$ for $m=10$ and $n=7$, we get the solution
+Since $\displaystyle k_{n.m} = 9 \pi^2/25$ for $m=3$ and $n=0$, and
+$\displaystyle k_{n.m} = 149 \pi^2/25$ for $m=10$ and $n=7$, we get
+the solution
 \[
 u(x,y,t) = 11 e^{-81 \pi^2 t/25} \sin\left(\frac{3\pi x}{5}\right)
 + 17 e^{-1341 \pi^2 t/25} \sin\left(\frac{10\pi x}{5}\right)
@@ -1626,7 +1632,7 @@ Find the solution of the heat equation
 \pdydx{u}{t} - c^2 \pdydxn{u}{x}{2} = 0 \quad , \quad 0 < x < L
   \ \text{and} \ t > 0 \ ,
 \end{equation}
-with the boundary conditions $u(0,t) = t^2$ and $u(L,t) = 1$ for
+with the boundary conditions $\displaystyle u(0,t) = t^2$ and $u(L,t) = 1$ for
 $t>0$, and the initial condition $\displaystyle u(x,0) = x/L$
 for $0 \leq x \leq L$.
 
@@ -1634,9 +1640,9 @@ We cannot readily use our formulae for the simple functions because
 the boundary conditions are not null.  We have first to transform the
 problem into one where the formulae can be used.
 
-Let $\phi(x,t) = (1-t^2)x/L + t^2 = (x+(L-x)t^2)/L$.
+Let $\displaystyle \phi(x,t) = (1-t^2)x/L + t^2 = (x+(L-x)t^2)/L$.
 This is the equation of the line in the $x,u$-plane that contains the
-points $(0,t^2)$ and $(L,1)$.  The substitution
+points $\displaystyle (0,t^2)$ and $(L,1)$.  The substitution
 $u(x,t) = w(x,t) + \phi(x,t)$ in (\ref{heat_he_egg_nhc}) yields
 \begin{equation} \label{heat_he_idx3}
 \pdydx{w}{t} - c^2 \pdydxn{w}{x}{2} = \frac{2(x-L)t}{L} \quad ,
@@ -1771,7 +1777,7 @@ If the problem is independent of $\theta$ only
 u(r,z,t) = e^{-c^2 k^2 t}
 \left(A \cos (\eta z) + B \sin (\eta z)\right)J_0(\mu r)\
 \]
-with $k^2 = \mu^2 + \eta^2$.
+with $\displaystyle k^2 = \mu^2 + \eta^2$.
 \end{rmk}
 
 \begin{rmk}
