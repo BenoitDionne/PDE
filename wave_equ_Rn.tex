@@ -525,7 +525,7 @@ $n>0$.  It is a nice calculus exercise whose solution can be found in
 This remark is for those familiar with the theory to measure and
 integration.
 For any $\displaystyle \VEC{y} \in \RR^n$ such that
-$\|\VEC{y}\| = r> 0$, we have that
+$\|\VEC{y}\| = r> 0$, we have
 \[
 M_h(\VEC{x},r) =
 \frac{1}{\omega_n} \int_{T\in O(n)} h(\VEC{x}+\,T(\VEC{y}))
@@ -562,7 +562,7 @@ Proposition~\ref{laplace_spheric} that
 = \pdydxn{g}{r}{2} + \left(\frac{n-1}{r}\right) \pdydx{g}{r} \ .
 \]
 If we apply this result to $g(r) = M_h(\VEC{x},r)$, 
-we get from (\ref{HaarDeltaInv}) that
+then we get from (\ref{HaarDeltaInv}) that
 \[
 \Delta_{\VEC{x}} M_h(\VEC{x},r) = \Delta_{\VEC{y}} M_h(\VEC{x},r)
 = \left( \pdydxn{}{r}{2} + \left(\frac{n-1}{r}\right) \pdydx{}{r} \right)
@@ -612,7 +612,7 @@ r^{n-1} \pdydx{M_h}{r}(\VEC{x},r) =
 \frac{1}{\omega_n} \int_0^r \left( \int_{\|\VEC{y}\|= 1}
 \Delta h(\VEC{x} + \rho \VEC{y})\, \rho^{n-1} \dss{S}{y} \right) \dx{\rho}
 \]
-with respect to $r$, we get
+with respect to $r$, then we get
 \[
 (n-1) r^{n-2} \pdydx{M_h}{r}(\VEC{x},r) 
 + r^{n-1} \pdydxn{M_h}{r}{2}(\VEC{x},r) 
@@ -1476,12 +1476,12 @@ c^2 \left( \pdydxn{u}{r}{2} + \frac{1}{r} \pdydx{u}{r}\right) \ .
 \end{equation}
 
 \subI{Separation of Variables}
-If we substitute $u(r,t) = F(r)G(t)$ in (\ref{wave_spv_we_pc}), we get
+If we substitute $u(r,t) = F(r)G(t)$ in (\ref{wave_spv_we_pc}), then we get
 \[
 F(r)\dydxn{G}{t}{2}(t) = c^2 \left( \dydxn{F}{r}{2}(r)G(t) +
   \frac{1}{r} \dydx{F}{r}(r)G(t) \right) \ .
 \]
-If we divide both side by $\displaystyle c^2F(r)G(t)$, we get
+If we divide both side by $\displaystyle c^2F(r)G(t)$, then we get
 \[
 \frac{1}{c^2G(t)} \dydxn{G}{t}{2}(t) = \frac{1}{F(r)}
 \left(\dydxn{F}{r}{2}(r) + \frac{1}{r} \dydx{F}{r}(r)\right) \ .
@@ -1520,7 +1520,7 @@ k^2\dydxn{F}{s}{2}(s) + \frac{k^2}{s} \dydx{F}{s}(s) + k^2 F(s) = 0 \ .
 \]
 As usual, we keep the same name for $F$ as a function of $r$ or $s$.
 If we multiply both sides of the previous ordinary differential
-equation by $\displaystyle s^2/k^2$, we get
+equation by $\displaystyle s^2/k^2$, then we get
 \[
 s^2\dydxn{F}{s}{2}(s) + s \dydx{F}{s}(s) + s^2 F(s) = 0 \ .
 \]

@@ -126,7 +126,7 @@ G(h(\VEC{y})) = \big(\diff g(h(\VEC{y}))\big)
 for all $\VEC{y} \in W$
 
 Let $d_h(\VEC{y}) = \left|\det \big(\diff h(\VEC{y})\big)\right|$
-for $\VEC{y} \in W$.  We have that
+for $\VEC{y} \in W$.  We have
 \[
 d_h(g(\VEC{x})) = \left|\det \big(\diff h(g(\VEC{x}))\big)\right|
 = \left|\det \big(\diff g(\VEC{x})\big)^{-1} \right|
@@ -208,7 +208,7 @@ $\displaystyle T(\Omega^{\prime})$ and
 the set $V$ is now $\displaystyle \Omega^{\prime}$.  As before,
 $\breve{u}(\VEC{y}) = u(h(\VEC{y})) = u(T(\VEC{u}))$.
 
-We have that
+We have
 \[
 \pdydx{h_k}{y_i} = \pdfdx{\left( y_k \left( \sum_{j=1}^n y_j^2
 \right)^{-1} \right)}{y_i}
@@ -272,10 +272,9 @@ $\displaystyle u\in C^2(\Omega^{\prime})$ that
 \pdfdxn{ \left( \frac{1}{\|\VEC{y}\|_2^{n-2}}
 \, \breve{u}(\VEC{y}) \right)}{y_i}{2}
 \end{align*}
-for $\VEC{y} = T(\VEC{x})$, we here we have used
+for $\VEC{y} = T(\VEC{x})$, where we have used
 $\displaystyle \Delta \|\VEC{y}\|_2^{2-n} = 0$ for
-$\VEC{y} \neq \VEC{0}$ for the
-second to last equality.
+$\VEC{y} \neq \VEC{0}$ for the second to last equality.
 
 We have proved that
 \[
@@ -437,7 +436,7 @@ Let
 $\displaystyle M = \max_{\VEC{x} \in \overline{B_{\delta/2}(\VEC{0})}}
 |w(\VEC{x})|$.
 
-We get that
+We get
 \[
 u(\VEC{x}) = \|\VEC{x}\|_2^{2-n} w\left(T(\VEC{x})\right)
 \]
@@ -534,14 +533,14 @@ It follows from Corollary~\ref{L2AbsConvUrxCor} that
 \]
 for $\VEC{x} \in B_1(\VEC{0})$.  We also have that the
 series converges absolutely and uniformly on $B_R(\VEC{0})$ for every
-$0 \leq R <1$.   We get that
+$0 \leq R <1$.   We get
 \[
 u(\VEC{x}) = \|T(\VEC{x})\|^{n-2} \tilde{u}(T(\VEC{x}))  
 = \sum_{k=0}^\infty \|\VEC{x}\|^{2-n-k}
 \phi_k\left(\|\VEC{x}\|^{-1} \VEC{x}\right)
 \]
 for $\|\VEC{x}\| > 1$.  If
-$\VEC{x} = r \VEC{y}$ with $r > 1$ and $\|\VEC{y}\|=1$, we have that
+$\VEC{x} = r \VEC{y}$ with $r > 1$ and $\|\VEC{y}\|=1$, then we have
 \[
 u(r\VEC{y}) = \sum_{k=0}^\infty r^{2-n-k} \phi_k\left(\VEC{y}\right) \ ,
 \]
@@ -556,7 +555,7 @@ the derivative with respect to $r$ with the summation to get
 for $r>1$.
 
 \stage{i} We consider first the case $n>2$.  For $r>3$ and $p$ large
-enough such that $\displaystyle (n+p-2) < 2^p$, we have that
+enough such that $\displaystyle (n+p-2) < 2^p$, we have
 \[
 \left| \sum_{k=p}^{\infty} (2-n-k) r^{-k} \phi_k\left(\VEC{y}\right) \right|
 \leq \sum_{k=p}^{\infty} (n+k-2) 3^{-k}
@@ -581,7 +580,7 @@ for $n>2$ as $r \to \infty$.
 = r^{-2} \sum_{k=1}^\infty (-k) r^{-k-1} \phi_k\left(\VEC{y}\right) \ .
 \]
 For $r>3$ and $p$ large enough such that $\displaystyle p < 2^{p+1}$,
-we have that
+we have
 \[
 \left| \sum_{k=p}^{\infty} (-k) r^{-k-1} p_k\left(\VEC{y}\right) \right|
 \leq \sum_{k=p}^{\infty} k\, 3^{-k-1} \left| p_k\left(\VEC{y}\right) \right| \\
@@ -755,7 +754,7 @@ From the Green's identity (\ref{laplace_green1}) with $v=u$, we have
 because $\Delta u =0$ in $\displaystyle \Omega^{\prime}$.
 
 Using the Lebesgue's Monotone Convergence Theorem as we did to prove
-the uniqueness of the solution for the problem (N1), we have that
+the uniqueness of the solution for the problem (N1), we have
 \begin{equation} \label{potN2Eq2}
 \int_{B_r(\VEC{0})\cap\Omega^{\prime}_\epsilon} \| \graD u \|^2 \dx{\VEC{x}}
 \rightarrow \int_{B_r(\VEC{0})\cap\Omega^{\prime}} \| \graD u \|^2 \dx{\VEC{x}}
@@ -902,7 +901,7 @@ From the Green's identity (\ref{laplace_green1}) with $v=1$, we have
 \int_{\partial \Omega_{i,\epsilon}} \pdydx{u}{\nu} \dss{S}{x}
 = \int_{\Omega_{i,\epsilon}} \Delta u \dx{\VEC{x}} = 0
 \end{equation}
-because $\Delta u = 0$ on $\Omega_i$.  However, we have that
+because $\Delta u = 0$ on $\Omega_i$.  However, we have
 \[
 \int_{\partial \Omega_{i,\epsilon}} \pdydx{u}{\nu} \dss{S}{x}
 = \int_{\partial \Omega_i} \graD u(\VEC{x} + \epsilon \nu(\VEC{x}))
@@ -946,7 +945,7 @@ From the Green's identity (\ref{laplace_green1}) with $v=1$, we have
 - \int_{B_r(\VEC{0}) \cap \Omega^{\prime}_{0,\epsilon}} \Delta u \dx{\VEC{x}} =
 \int_{\partial B_r(\VEC{0})} \pdydx{u}{\nu} \dss{S}{x}
 \end{equation}
-because $\displaystyle \Delta u = 0$ on $\Omega_0^{\prime}$.  We have that
+because $\displaystyle \Delta u = 0$ on $\Omega_0^{\prime}$.  We have
 \begin{equation} \label{pot_ness_idx2}
 \int_{\partial \Omega^{\prime}_{0,\epsilon}} \pdydx{u}{\nu} \dss{S}{x}
 = \int_{\partial \Omega^{\prime}_0} \graD u(\VEC{x}
@@ -1187,7 +1186,7 @@ Since $\displaystyle \|\VEC{x}-\VEC{y}\|
 \geq \|\psi_{\VEC{x}_j}(\VEC{x}) - \psi_{\VEC{x}_j}(\VEC{y})\|$ for all
 $\displaystyle \VEC{x},\VEC{y} \in U_{\VEC{x}_j}$ and
 $\displaystyle \psi_{\VEC{x}_j}(S_{\VEC{x},\eta}) \subset
-B_{\eta}(\psi_{\VEC{x}_j}(\VEC{x}))$, we get that
+B_{\eta}(\psi_{\VEC{x}_j}(\VEC{x}))$, we get
 \begin{align*}
 &\int_{S_{\VEC{x},\eta}} \|\VEC{x}-\VEC{y}\|^{-\alpha} \dss{S}{y}
 = \int_{\psi_{\VEC{x}_j}(S_{\VEC{x},\eta})}
@@ -1339,7 +1338,7 @@ let $\displaystyle \{ \phi_{\VEC{x}_j} \}_{j\in J}$ be a partition of unity
 for $S$ subordinated to $\BB$.
 
 \stage{$\mathbf{\alpha>0}$}
-We have that
+We have
 \begin{align*}
 &\int_S \left| K(\VEC{x},\VEC{y}) \right| \dss{S}{y}
 = \int_{S\cap B_\epsilon(\VEC{x})} \left| A(\VEC{x},\VEC{y}) \right| \,
@@ -1449,7 +1448,7 @@ B(\VEC{x},\VEC{y}) \right| \dss{S}{y} \\
 + \frac{\|B\|_\infty Q \omega_{n-1} |J|\, \epsilon^{n-1}}{n-1}
 < \infty
 \end{align*}
-for all $\VEC{x} \in S$.  To obtain the fourth inequality, we have
+for all $\VEC{x} \in S$.  To obtain the fourth inequality, we use
 the fact that the diameter of $V_{\VEC{x}_j}$ is less than $1$ to get
 $\displaystyle
 \ln\left(\left\| \VEC{x} - \psi_{\VEC{x}_j}^{-1}(\VEC{w}) \right\|\right)
@@ -1625,7 +1624,7 @@ continuous at $\VEC{x}$.  For $r>0$ and $\VEC{w} \in S$, let
 S_{\VEC{w},r} = \{ \VEC{z}\in S : \|\VEC{w}-\VEC{z}\| < r \}
 = S \cap B_r(\VEC{w}) \ .
 \]
-Given $\delta > 0$ and $\VEC{y} \in S_{\VEC{x},\delta}$, we have that
+Given $\delta > 0$ and $\VEC{y} \in S_{\VEC{x},\delta}$, we have
 \begin{align*}
 \left| (T_K f)(\VEC{x}) - (T_K f)(\VEC{y}) \right|
 &= \left| \int_S \left(K(\VEC{x},\VEC{z}) - K(\VEC{y},\VEC{z})\right)
@@ -1646,7 +1645,7 @@ I_2(\VEC{x},\VEC{y}) &= \int_{S\setminus S_{\VEC{x},2\delta}}
 \end{align*}
 
 \stage{i}
-We have that
+We have
 \[
 I_1(\VEC{x},\VEC{y})
 \leq \|A\|_\infty \|f\|_\infty \int_{S_{2\delta}} \left(
@@ -1663,7 +1662,7 @@ Section~\ref{pot_int_man}, then we get from (\ref{Sxepsint1}) that
 \frac{ Q \omega_{n-1} (2\delta)^{n-\alpha-1}}{n-\alpha -1} \ .
 \]
 Moreover, since $S_{\VEC{x},2\delta} \subset S_{\VEC{y},3\delta}$, we
-get that
+get
 \[
 \int_{S_{\VEC{x},2\delta}} \|\VEC{y}-\VEC{z}\|^{-\alpha} \dss{S}{z}
 \leq \int_{S_{\VEC{y},3\delta}}\|\VEC{y}-\VEC{z}\|^{-\alpha} \dss{S}{z}
@@ -1737,7 +1736,7 @@ From Schwarz inequality, we have
 K_2(\VEC{y},\VEC{z}) \right|^2 \dss{S}{z} \right)^{1/2}
 \end{align*}
 for $\VEC{y} \in S$.  Moreover, since $K_2 =0$ in an neighbourhood of
-the diagonal $\{(\VEC{z},\VEC{z}) : \VEC{z} \in S\}$, we have the
+the diagonal $\{(\VEC{z},\VEC{z}) : \VEC{z} \in S\}$, we have that
 $K_2$ is continuous on $S\times S$.
 
 Let
@@ -1839,7 +1838,7 @@ the Laplace operator defined in (\ref{laplace_NXY}) and
 Theorem~\ref{laplace_fund_sol}.
 \end{defn}
 
-We have that
+We have
 \[
 \pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y}) =
 \graD_{\VEC{y}} N(\VEC{x},\VEC{y}) \cdot \nu(\VEC{y}) =
@@ -2114,7 +2113,7 @@ Thus
 = \lim_{\epsilon \to 0}
 \int_{C_\epsilon} \pdydx{N}{\nu_\VEC{y}}(\VEC{x},\VEC{y}) \dss{S}{y} \ .
 \end{equation}
-We have that
+We have
 \begin{align}
 \int_{C_\epsilon} \pdydx{N}{\nu_\VEC{y}}(\VEC{x},\VEC{y}) \dss{S}{y}
 &= \frac{1}{\omega_n \epsilon^{n-1}} \int_{C_\epsilon} \dss{S}{y} \nonumber \\
@@ -2225,7 +2224,7 @@ $\displaystyle \VEC{x} = \VEC{x}_o + t_o\nu(\VEC{x}_o)$.
 Let $\displaystyle S_{\VEC{x}_o,2\delta} = 
 \left\{ \VEC{y} \in S : \|\VEC{y} - \VEC{x}_0\| < 2\delta \right\}$.
 
-We have that
+We have
 \[
 \int_S \left| \pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y}) \right|
 \dss{S}{y}
@@ -2236,7 +2235,7 @@ We have that
 \dss{S}{y} \ .
 \]
 
-For $\VEC{y} \in S \setminus S_{\VEC{x}_o,2\delta}$, we have that
+For $\VEC{y} \in S \setminus S_{\VEC{x}_o,2\delta}$, we have
 \[
 \|\VEC{x} - \VEC{y} \|
 \geq \|\VEC{x}_o-\VEC{y}\| - \|\VEC{x}-\VEC{x}_o\|
@@ -2274,13 +2273,13 @@ Lemma~\ref{pot_lem_dbl1} that
 \end{align}
 because $\VEC{x}_o, \VEC{y} \in S$.  We now find a lower bound for
 $\displaystyle \|\VEC{x}-\VEC{y}\|^n$ with $\VEC{y} \in S_{\VEC{x}_o,2\delta}$.
-We have that
+We have
 \[
 \|\VEC{x}-\VEC{y}\|^2 = \| (\VEC{x}-\VEC{x}_o) + (\VEC{x}_o-\VEC{y})\|^2
 = \|\VEC{x}-\VEC{x}_o\|^2 + 2 (\VEC{x}-\VEC{x}_o) \cdot (\VEC{x}_o-\VEC{y})
 + \|\VEC{x}_o-\VEC{y}\|^2 \ .
 \]
-We also have that
+We also have
 \begin{align*}
 2\left| (\VEC{x} - \VEC{x}_o) \cdot (\VEC{x}_o - \VEC{y}) \right|
 &= 2\left|\, \|\VEC{x} - \VEC{x}_o\| \nu(\VEC{x}_o)
@@ -2291,7 +2290,7 @@ We also have that
 \end{align*}
 where again we have used Lemma~\ref{pot_lem_dbl1} with
 $\VEC{x}_o, \VEC{y} \in S$.  Since
-$\|\VEC{x}_o - \VEC{y}\| < 2\delta < 1/(2C)$, we get that
+$\|\VEC{x}_o - \VEC{y}\| < 2\delta < 1/(2C)$, we get
 \[
 2\left| (\VEC{x} - \VEC{x}_o) \cdot (\VEC{x}_o - \VEC{y}) \right|
 \leq \|\VEC{x} - \VEC{x}_o\| \, \|\VEC{x}_o - \VEC{y}\| \ .
@@ -2303,7 +2302,7 @@ Hence,
 \geq \frac{1}{2} \left( \|\VEC{x}-\VEC{x}_o\|^2
 + \|\VEC{x}_o-\VEC{y}\|^2 \right) \ .
 \]
-If we substitute this expression in (\ref{Bounddny3}), we get
+If we substitute this expression in (\ref{Bounddny3}), then we get
 \begin{align*}
 \left| \pdydx{N}{\nu_{\VEC{y}}}(\VEC{x},\VEC{y})\right| 
 &\leq \frac{2^{n/2}}{\omega_n \left(\|\VEC{x}-\VEC{x}_o\|^2 +
@@ -2356,7 +2355,7 @@ Thus
 {\left(\|\VEC{x}-\VEC{x}_o\|^2
 + \|\psi_{\VEC{x}_j}(\VEC{x}_o) -\VEC{w}\|^2\right)^{n/2}} \dx{\VEC{z}} \ ,
 \end{align*}
-where we have use (\ref{defnQdetpsim1}),
+where we have used (\ref{defnQdetpsim1}),
 $\displaystyle \psi_{\VEC{x}_j}(S_{\VEC{x}_o,2\delta}) \subset
 B_{2\delta}(\psi_{\VEC{x}_j}(\VEC{x}_o))$, and
 $\displaystyle \|\VEC{x}-\VEC{y}\| 
@@ -2427,7 +2426,7 @@ $\displaystyle |\phi(\VEC{x})| < \frac{\epsilon}{3(A+B)}$
 for $\VEC{x} \in S_{\VEC{z},\eta} = S \cap B_{\eta}(\VEC{z})$, where $B$ is
 given in Lemma~\ref{pot_lem_dbl4}.
 
-We have that
+We have
 \begin{equation} \label{potLemDbl5equ1}
 \begin{split}
 |u(\VEC{x}) - u(\VEC{z})|
@@ -2533,7 +2532,7 @@ u_t(\VEC{x}) = \int_S \phi(\VEC{y})
 \pdydx{N}{\nu_{\VEC{y}}}(\VEC{x} +t \nu(\VEC{x}),\VEC{y})
 \dss{S}{y} \ .
 \]
-From Lemma~\ref{pot_lem_dbl3}, we get that
+From Lemma~\ref{pot_lem_dbl3}, we get
 \begin{align*}
 u_t(\VEC{x}) &= \phi(\VEC{x}) \int_S \pdydx{N}{\nu_{\VEC{y}}}
 (\VEC{x} +t \nu(\VEC{x}),\VEC{y}) \dss{S}{y}
@@ -2574,7 +2573,7 @@ u_t(\VEC{x}) = \int_S \phi(\VEC{y})
 \pdydx{N}{\nu_{\VEC{y}}}(\VEC{x} +t \nu(\VEC{x}),\VEC{y})
 \dss{S}{y} \ .
 \]
-From Lemma~\ref{pot_lem_dbl3}, we get that
+From Lemma~\ref{pot_lem_dbl3}, we get
 \begin{align*}
 u_t(\VEC{x}) &= \phi(\VEC{x}) \int_S \pdydx{N}{\nu_{\VEC{y}}}
 (\VEC{x} +t \nu(\VEC{x}),\VEC{y}) \dss{S}{y}
@@ -2636,7 +2635,7 @@ there exists $\delta < \eta/2$ such that
 for $(\VEC{z}_1,\VEC{y}) , (\VEC{z}_2,\VEC{y}) \in P$ with
 $\|\VEC{z}_1-\VEC{z}_2\| < \delta$ and $\VEC{z}_2 \in S$.
 
-Hence, for all $\VEC{x} \in S$ and $|t|<\delta$, we have that
+Hence, for all $\VEC{x} \in S$ and $|t|<\delta$, we have
 \begin{align*}
 &\left| u_t(\VEC{x}) - u^{[i]}(\VEC{x}) \right| \\
 &\quad = \left| \int_S \left( \phi(\VEC{y}) - \phi(\VEC{x}) \right) 
@@ -2707,7 +2706,7 @@ $S$ described in Section~\ref{pot_int_man}, and
 $\displaystyle \{ \phi_{\VEC{x}_j} \}_{j\in J}$ be a partition of unity 
 for $S$ subordinated to $\BB$.
 
-For $n>2$, we have that  
+For $n>2$, we have
 \begin{align*}
 &\int_S \left| N(\VEC{x},\VEC{y}) \right|\, |\phi(\VEC{y})| \dss{S}{y}
 \leq \frac{1}{(n-2)\omega_n} \, \|\phi\|_\infty
@@ -2733,7 +2732,7 @@ $\displaystyle \VEC{x},\VEC{y} \in U_{\VEC{x}_j}$ and
 $\displaystyle W_{\VEC{x}_j} = \psi_{\VEC{x}_j}(U_{\VEC{x}_j}) \subset
 B_R(\psi_{\VEC{x}_j}(\VEC{x})) \subset \RR^{n-1}$.
 
-For $n=2$, we have that
+For $n=2$, we have
 \begin{align*}
 &\int_S \left| N(\VEC{x},\VEC{y}) \right|\, |\phi(\VEC{y})| \dss{S}{y}
 \leq \frac{1}{\omega_2} \, \|\phi\|_\infty
@@ -2925,7 +2924,7 @@ $\VEC{y}$ is constant.
 
 Let $\displaystyle K^\ast(\VEC{x},\VEC{y}) = K(\VEC{y},\VEC{x})$
 for $\VEC{x},\VEC{y} \in S$,  where $K$ is defined in
-(\ref{pot_K_defn}).  We have that
+(\ref{pot_K_defn}).  We have
 \[
 K(\VEC{p},\VEC{q}) = \pdydx{N}{\nu_{\VEC{y}}}(\VEC{p},\VEC{q})
 = - \frac{1}{\omega_n \|\VEC{p}-\VEC{q}\|^n}\,(\VEC{p}-\VEC{q})\cdot
@@ -3013,7 +3012,7 @@ $\displaystyle \nu \circ \psi_{\VEC{x}_j}^{-1}:
 is of class $\displaystyle C^1$ since we assume
 $\displaystyle \psi_{\VEC{x}_j}^{-1} \in
 C^2\left(\overline{W_{\VEC{x}_j}}\right)$
-\footnote{If $\VEC{z} \in S \subset \RR^3$, we have that
+\footnote{If $\VEC{z} \in S \subset \RR^3$, then we have that
 $\displaystyle \nu(\VEC{z})
 = \nu\left(\psi_{\VEC{x}_j}^{-1}(\breve{\VEC{z}})\right)
 = (1/\|\VEC{v}\|) \VEC{v}$, where
@@ -3025,7 +3024,7 @@ the vector product}.
 Let $M_j$ be the maximum of
 $\displaystyle \left\| \diff \left(\nu \circ \psi_j^{-1}\right)\right\|$
 on the compact set $\displaystyle \overline{W_j}$.  For all
-$\VEC{y} \in S_{\VEC{x},\epsilon/2}$, we have that
+$\VEC{y} \in S_{\VEC{x},\epsilon/2}$, we have
 \[
   \left\| \nu(\VEC{y}) - \nu(\VEC{x}) \right\|
 = \left\| \nu\left(\psi_{\VEC{x}_j}^{-1}(\breve{\VEC{y}})\right) -
@@ -3154,7 +3153,7 @@ $\eta < \mu$ given in Lemma~\ref{pot_inequ}.  Recall from the proof of
 Lemma~\ref{pot_inequ} that $2\eta$ is smaller than the Lebesgue number
 associated to the atlas $\BB$ defined in Section~\ref{pot_int_man}.
 Thus, for each $\VEC{x}$, there exists $j$ such that
-$S_{\VEC{x},\eta} \subset U_{\VEC{x}_j}$.  we have that
+$S_{\VEC{x},\eta} \subset U_{\VEC{x}_j}$.  we have
 \begin{align*}
 &\left|f(\VEC{z_t}) - f(\VEC{x})\right|\\
 &\qquad = \left| \int_S \phi(\VEC{y}) \left(
@@ -3199,7 +3198,7 @@ I_3(\VEC{x},t,\eta)
 \left| \pdydx{N}{\nu_{\VEC{y}}}(\VEC{z}_t,\VEC{y}) +
 \pdydxS{N}{\nu_{\VEC{x}}}(\VEC{z}_t,\VEC{y})\right| \dss{S}{y} \  .
 \]
-Using Lemma~\ref{pot_inequ}, we have that
+Using Lemma~\ref{pot_inequ}, we have
 \begin{align*}
 &\left| \pdydx{N}{\nu_{\VEC{y}}}(\VEC{z}_t,\VEC{y}) +
 \pdydxS{N}{\nu_{\VEC{x}}}(\VEC{z}_t,\VEC{y})\right|
@@ -3326,7 +3325,7 @@ $\displaystyle \pdydx{u}{\nu^+}$.  Thus,
 for all $\VEC{x} \in S$.
 
 \stage{iii}
-From Theorem~\ref{pot_double_layer}, we have that
+From Theorem~\ref{pot_double_layer}, we have
 \[
 \sup_{\VEC{x}\in S}
 \left|v\big(\VEC{x}+t\nu(\VEC{x})\big) - v^{[i]}(\VEC{x})\right|
@@ -3335,7 +3334,7 @@ From Theorem~\ref{pot_double_layer}, we have that
 \frac{1}{2} \phi(\VEC{x}) - (T_K \phi)(\VEC{x}) \right|
 \rightarrow 0 \quad \text{as} \quad t\rightarrow 0^-\ .
 \]
-From the claim in (i) above, we have that
+From the claim in (i) above, we have
 \begin{align*}
 &\sup_{\VEC{x}\in S}
 \left| \left(v\big(\VEC{x}+t\nu(\VEC{x})\big)
@@ -3435,7 +3434,7 @@ Hence,
 \lim_{\|\VEC{x}\|\to 0} \int_S \left( \ln(\|\VEC{x}-\VEC{y}\|) - \ln(\|\VEC{x}\|)
 \right) \phi(\VEC{y}) \dss{S}{y} = 0 \ .
 \]
-We get that
+We get
 \begin{align*}
 \frac{u(\VEC{x})}{\ln(\|\VEC{x}\|)}
 &= \frac{1}{\omega_2 \ln(\|\VEC{x}\|)}
@@ -3561,7 +3560,7 @@ for all $\VEC{x} \in \partial \Omega$.
 Thus $\phi_i \in V_+$ for $1 \leq i \leq m$.  Since the $\phi_i$
 are linearly independent, $\dim V_+ \geq m$.
 
-\stage{ii} We have that
+\stage{ii} We have
 \[
 (T_K \phi_j^{\prime})(\VEC{x})
 = \int_{\partial \Omega_j^{\prime}} K(\VEC{x},\VEC{y}) \dss{S}{y}
@@ -3786,8 +3785,7 @@ Let $u$ and $v$ be the simple layer potentials with moments $\phi$ and
 $\psi$ respectively.  We have that $\displaystyle u,v \in C(\RR^n)$
 according to Proposition~\ref{pot_slp_cont}.
 
-From Theorem~\ref{pot_slp_exist}, we have
-that
+From Theorem~\ref{pot_slp_exist}, we have that
 $\displaystyle \pdydx{u}{\nu^-} = T^\ast_K \phi - \frac{1}{2} \phi = 0$
 and
 $\displaystyle \pdydx{v}{\nu^-} = T^\ast_K \psi - \frac{1}{2} \psi
@@ -3837,7 +3835,7 @@ Definition~\ref{pot_spl_def} that $u$ is harmonic at infinity for
 $n>2$.  To prove that $u$ is harmonic at infinity for $n=2$ requires a
 little bit more work.  Since
 $\displaystyle \Omega^{\prime} \cap B_r(\VEC{0})\phi \in V_+^\perp$,
-we have that
+we have
 \[
 \int_{\partial \Omega} \phi \dx{S}
 = \int_{\partial \Omega} \phi \left( \sum_{i=0}^m \phi_i\right) \dx{S}
@@ -3849,7 +3847,7 @@ $\displaystyle \sum_{i=0}^m \phi_i(\VEC{x}) = 1$ for all
 $\VEC{x} \in \partial \Omega$.  It follows from
 Lemma~\ref{pot_1to1n2} that $u$ is harmonica at infinity.
 
-If $n>2$, we have from Proposition~\ref{pot_infty_u} and
+If $n>2$, then we have from Proposition~\ref{pot_infty_u} and
 Proposition~\ref{pot_infty_ddu} that
 $\displaystyle \Omega^{\prime} \cap B_r(\VEC{0})|u(\VEC{x})|
 \leq C_1\|\VEC{x}\|^{2-n}$ and
@@ -3863,7 +3861,7 @@ constants $C_1$ and $C_2$.  Hence,
 = C_1C_2 \omega_n r^{2-n}  \to 0 
 \]
 as $r \to \infty$.
-If $n=2$, we have from Proposition~\ref{pot_infty_u} and
+If $n=2$, then we have from Proposition~\ref{pot_infty_u} and
 Proposition~\ref{pot_infty_ddu} that
 $|u(\VEC{x})| \leq C_3|\ln(\|\VEC{x}\|)|$ and
 $\displaystyle \left| \pdydx{u}{\nu}(\VEC{x})\right| \leq
@@ -3918,7 +3916,7 @@ Let $u$ and $v$ be the simple layer potentials with moments $\phi$ and
 $\psi$ respectively.    We have that $\displaystyle u,v \in C(\RR^n)$
 according to Proposition~\ref{pot_slp_cont}.
 
-From Theorem~\ref{pot_slp_exist}, we have that
+From Theorem~\ref{pot_slp_exist}, we have
 \[
   \pdydx{u}{\nu^+} = T^\ast_K \phi + \frac{1}{2} \phi = 0
 \quad \text{and} \quad
@@ -3936,7 +3934,7 @@ where the positive direction on $\partial \Omega$ is such that the
 normal to $\partial \Omega$ points outside
 $\displaystyle \Omega^{\prime}$, so inside $\Omega$.
 
-From the Green's identity (\ref{laplace_green1}), we get that
+From the Green's identity (\ref{laplace_green1}), we get
 \begin{equation} \label{pot_L2_split1_E5}
 \int_{\partial \Omega} u \pdydx{u}{\nu^-} \dx{S} 
 = -\int_{\Omega} \left( u \Delta u + \graD u \cdot \graD u \right)
@@ -3982,8 +3980,8 @@ and
 $\displaystyle \int_{\partial B_r(\VEC{0})} v \pdydx{u}{\nu}  \dx{S}$
 converge to $0$ as $r \to \infty$.
 
-Therefore, if we let $r \to \infty$ in (\ref{pot_L2_split1_E6}), we
-get from (\ref{pot_L2_split1_E4}) and (\ref{pot_L2_split1_E5}) that\\
+Therefore, if we let $r \to \infty$ in (\ref{pot_L2_split1_E6}), then we
+get from (\ref{pot_L2_split1_E4}) and (\ref{pot_L2_split1_E5}) that
 $\displaystyle \int_{\Omega} \|\graD u\|_2^2 \dx{\VEC{x}} = 0$.
 Thus $\graD u = 0$ on $\Omega$.  This shows that $u$ is
 constant on each component of $\Omega$.  From this, we

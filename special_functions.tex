@@ -33,7 +33,7 @@ $\displaystyle y = \sum_{n=0}^\infty a_n x^n$ with a positive radius
 of convergence.  Then
 $\displaystyle y' = \sum_{n=1}^\infty n a_n x^{n-1}$ on the interval
 of convergence.  If we substitute these series for $y$ and $y'$ in
-(\ref{series_fails}), we get
+(\ref{series_fails}), then we get
 \begin{align*}
 0 &= \sum_{n=1}^\infty n a_n x^{n+1} +(x-1) \sum_{n=0}^\infty a_n x^n + 1
 = \sum_{n=1}^\infty n a_n x^{n+1} + \sum_{n=0}^\infty a_n x^{n+1} -
@@ -129,13 +129,13 @@ $\displaystyle F(\lambda) = (\lambda-\lambda_1)^2$.  If we substitute
 \[
 c_n = \frac{G(\lambda,c_{n-p},c_{n-p+1},\ldots,c_{n-1})}{F(n+\lambda)}
 \]
-for $n \geq 1$ in (\ref{spv_frobenius}), we get from
+for $n \geq 1$ in (\ref{spv_frobenius}), then we get from
 (\ref{spv_frobenius3}) that
 \[
 \dydxn{y}{x}{2}(x,\lambda) + P(x) \dydx{y}{x}(x,\lambda)
 + Q(x) y(x,\lambda) = c_0(\lambda-\lambda_1)^2x^{\lambda} \ .
 \]
-If we derive this relation with respect to $\lambda$, we get
+If we derive this relation with respect to $\lambda$, then we get
 \begin{align*}
 & \dfdxn{\left( \pdydx{y}{\lambda}(x,\lambda) \right)}{x}{2}
 + P(x) \dfdx{\left( \pdydx{y}{\lambda}(x,\lambda) \right)}{x}
@@ -169,7 +169,7 @@ $\displaystyle y_1 = x^{\lambda_1} \sum_{n=0}^\infty a_n x^n$
 and $\displaystyle y_2 = x^{\lambda_2} \sum_{n=0}^\infty b_n x^n$.
 
 If we substitute $\displaystyle y = x^\lambda \sum_{n=0}^\infty c_n x^n$ into
-$\displaystyle 4xy''+ 2 y' + y = 0$, we get
+$\displaystyle 4xy''+ 2 y' + y = 0$, then we get
 \begin{align*}
 0 & = 4xy''+ 2 y' + y
 = 4 \sum_{n=0}^\infty (\lambda+n)(\lambda+n-1) c_n
@@ -250,7 +250,7 @@ $\displaystyle y_1 = x^{\lambda_1} \sum_{n=0}^\infty a_n x^n$
 and $\displaystyle y_2 = x^{\lambda_2} \sum_{n=0}^\infty b_n x^n$.
 
 If we substitute $\displaystyle y = x^\lambda \sum_{n=0}^\infty c_n x^n$ into
-$\displaystyle 2xy''+  y' + xy = 0$, we get
+$\displaystyle 2xy''+  y' + xy = 0$, then we get
 \begin{align*}
 0 & = 2xy''+ y' + xy \\
 &= 2 \sum_{n=0}^\infty (\lambda+n)(\lambda+n-1) c_n x^{\lambda+n-1}
@@ -354,7 +354,7 @@ seek solutions of the form
 $\displaystyle y = \sum_{n=0}^\infty c_n x^n$.
 This will give us two linearly independent solutions.
 If we substitute this expression of $y$ into $\displaystyle y''- y = 0$,
-we get 
+then we get 
 \begin{align*}
 y''- y & = \sum_{n=2}^\infty n(n-1) c_n x^{n-2} - \sum_{n=0}^\infty c_n x^n
 = \sum_{n=0}^\infty (n+1)(n+2) c_{n+2} x^n - \sum_{n=0}^\infty c_n x^n \\
@@ -362,7 +362,7 @@ y''- y & = \sum_{n=2}^\infty n(n-1) c_n x^{n-2} - \sum_{n=0}^\infty c_n x^n
 \end{align*}
 We get the recursion relation
 $\displaystyle c_{n+2} = \frac{c_n}{(n+1)(n+2)}$
-for $n \geq 0$, where $b_0$ and $b_1$ are free.  We have
+for $n \geq 0$, where $b_0$ and $b_1$ are free.  We have that
 $\displaystyle c_2 = \frac{c_0}{2} = \frac{c_0}{2!}$,
 $\displaystyle c_4 = \frac{c_2}{3\times 4} = \frac{c_0}{2\times 3 \times 4} 
 = \frac{c_0}{4!}$,
@@ -425,8 +425,8 @@ we are in the situation where we may take $k=0$ in $y_2$ given by
 We seek solutions of the form
 $\displaystyle y = \sum_{n=0}^\infty c_n x^n$.  This will give us
 two linearly independent solutions.  If we substitute this
-expression for $y$ into $\displaystyle (1-x^2)y''- 2x y' + 2y = 0$, we
-get
+expression for $y$ into $\displaystyle (1-x^2)y''- 2x y' + 2y = 0$,
+then we get
 \begin{align*}
 0 & = (1-x^2)y''- 2x y' + 2y
 = (1-x^2) \sum_{n=2}^\infty n(n-1) c_n
@@ -485,7 +485,7 @@ linearly independent of the first one is of the form
 $\displaystyle y_2 = \ln(x) y_1(x) + \sum_{n=1}^\infty b_n x^n$.
 
 If we substitute $\displaystyle y = \sum_{n=0}^\infty a_n x^n$ into
-$\displaystyle xy''+ y' + xy = 0$, we get
+$\displaystyle xy''+ y' + xy = 0$, then we get
 \begin{align*}
 0 & = xy''+ y' + xy
 = \sum_{n=2}^\infty n(n-1) a_n x^{n-1}
@@ -514,7 +514,7 @@ y_1 = \sum_{n=0}^\infty (-1)^n \frac{1}{ (2^n n!)^2}x^{2n} \ .
 
 If we substitute
 $\displaystyle y = \ln(x)y_1(x) + \sum_{n=1}^\infty b_n x^n$ into
-$\displaystyle xy''+ y' + xy = 0$, we get
+$\displaystyle xy''+ y' + xy = 0$, then we get
 \begin{align*}
 0 & = xy''+ y' + xy
 = x\left( \ln(x) y_1''(x) + \frac{2y_1'(x)}{x}- \frac{y_1(x)}{x^2}\right)
@@ -530,7 +530,7 @@ $\displaystyle xy''+ y' + xy = 0$, we get
 + \sum_{n=1}^\infty \big( (n+2)^2 b_{n+2} + b_n\big) x^{n+1} \ .
 \end{align*}
 If we collect the terms in $\displaystyle x^n$ with $n$ even, and
-those in $\displaystyle x^n$ with $n$ odd, we get
+those in $\displaystyle x^n$ with $n$ odd, then we get
 \begin{align*}
 0 &= b_1 + \sum_{n=1}^\infty \left((2n+1)^2 b_{2n+1}+b_{2n-1}\right) x^{2n}
 \end{align*}
@@ -603,7 +603,7 @@ the beginning of the section.
 We seek a solution of the form
 $\displaystyle y = \sum_{n=0}^\infty c_n x^{n+\lambda}$.
 If we substitute this expression into
-$\displaystyle xy''+ y' + 2y = 0$, we get
+$\displaystyle xy''+ y' + 2y = 0$, then we get
 \begin{align*}
 0 & = xy''+ y' + 2y
 = \sum_{n=0}^\infty (\lambda +n)(\lambda + n-1) c_n x^{\lambda + n-1}
@@ -630,7 +630,7 @@ y(x) = c_0 x^\lambda + \sum_{n=1}^\infty
 x^{n+\lambda}
 \]
 satisfies $\displaystyle xy''+ y' + 2y = \lambda^2 c_0 x^{\lambda -1}$.
-If $\lambda = 0$, we get the solution
+If $\lambda = 0$, then we get the solution
 \[
 y_1(x) = c_0 + \sum_{n=1}^\infty
 \frac{(-2)^n c_0} {n^2 (n-1)^2 \cdots 1^2}x^n
@@ -684,7 +684,7 @@ All linear second order ordinary differential equation can be written as
 \]
 If we consider this ordinary differential equation on an interval
 $]a,b[$ and add some conditions on $y$ or $y'$ at the end points $a$
-and $b$, we get a
+and $b$, then we get a
 {\bfseries Sturm-Liouville problem}\index{Sturm-Liouville Problem}.
 
 The {\bfseries regular Sturm Liouville problem}\index{Sturm-Liouville
@@ -1154,7 +1154,7 @@ singular Sturm-Liouville problem.  More precisely, (\ref{spv_leg_equ}) is
 This is (\ref{spv_sturm_liou_equ}) with
 $\displaystyle r(x) = 1 -x^2$, $q(x)=0$,
 $p(x) =1$, $a=-1$ and $b=1$.  If we require that $y$ be bounded on the
-interval $]-1,1[$, we get a regular singular Sturm-Liouville problem
+interval $]-1,1[$, then we get a regular singular Sturm-Liouville problem
 whose eigenvalues are $\lambda_n = n(n+1)$ for $n \geq 0$, and where
 the Legendre polynomial $P_n$ is an eigenfunction associated to the
 eigenvalue $\lambda_n$.
@@ -1243,7 +1243,7 @@ Repeating this procedure $n-1$ times yields
 = \frac{(2n)(2n-2)\cdots 2}{(2n+1)(2n-1)\cdots 3}
 \underbrace{\int_0^{\pi/2} \cos\dx{t}}_{=1} = \frac{(2^n n!)^2}{(2n+1)!} \ .
 \]
-Finally, we have that
+Finally, we have
 \[
 I = \frac{2(2n)!}{(2^n n!)^2} \left( \frac{(2^n n!)^2}{(2n+1)!} \right)
 = \frac{2}{2n+1} \ .    \qedhere
@@ -1304,7 +1304,7 @@ a_{2m} = \frac{(-1)^{2m}(4m+1)}{2^{2m+1} (2m)!}
 \int_{-1}^{1} |x| \dfdxn{(1-x^2)^{2m}}{x}{2m} \dx{x}
 = \frac{(4m+1)}{2^{2m} (2m)!} \int_0^{1} x \dfdxn{(1-x^2)^{2m}}{x}{2m} \dx{x}
 \]
-for $m \ge 0$.  If we assume that $m>0$, we may use integration by
+for $m \ge 0$.  If we assume that $m>0$, then we may use integration by
 parts with $f(x) = x$ and
 $\displaystyle g'(x) = \dfdxn{(1-x^2)^{2m}}{x}{2m}$, so 
 $f'(x) = 1$ and $\displaystyle g(x) = \dfdxn{(1-x^2)^{2m}}{x}{2m-1}$, to
@@ -1352,7 +1352,7 @@ the Legendre equation
 \begin{equation} \label{SLformLegEqu}
 \dfdx{ \left( (1-x^2) \dydx{z}{x}\right)}{x} + \lambda z = 0
 \end{equation}
-for $-1<x<1$, we get the differential equation
+for $-1<x<1$, then we get the differential equation
 \[
 (1-x^2) \dydxn{z}{x}{m+2} - 2(m+1)x \dydxn{z}{x}{m+1} +
 \left( \lambda - m(m+1)\right) \dydxn{z}{x}{m} = 0
@@ -1361,7 +1361,7 @@ for $-1<x<1$.  If we substitute
 $\displaystyle y = (1-x^2)^{m/2}\dydxn{z}{x}{m}$,
 or equivalently $\displaystyle \dydxn{z}{x}{m} = (1-x^2)^{-m/2} y$,
 in the previous equation and multiply by
-$\displaystyle (1-x^2)^{-m/2 +1}$, we get
+$\displaystyle (1-x^2)^{-m/2 +1}$, then we get
 (\ref{spv_ass_leg_equ}).  Solutions of (\ref{spv_ass_leg_equ}) are
 therefore of the form $\displaystyle y = (1-x^2)^{m/2}\dydxn{z}{x}{m}$,
 where $z$ is a solution of the Legendre equation (\ref{SLformLegEqu}).
@@ -1652,7 +1652,7 @@ and
 = \sum_{k=1}^{\infty} \frac{(-1)^k (2k) x^{2k-1}}
 {k! \Gamma(n+k+1) 2^{n+2k}} .
 \]
-If we substitute $k=s+1$ in the last equation, we get
+If we substitute $k=s+1$ in the last equation, then we get
 \begin{align*}
 \dfdx{(x^{-n} J_n(x))}{x} 
 &= \sum_{s=0}^{\infty} \frac{(-1)^{s+1} x^{2s+1}(2s+2)}
@@ -1779,7 +1779,7 @@ for $0 < t < R$, where $R$ is determined by the problem under
 consideration.  This is (\ref{spv_sturm_liou_equ}) with $r(t) = t$,
 $\displaystyle q(t)= -k^2/t$,
 $p(t)=t$. $a=0$ and $b=R$.  If we require that $y$ be bounded near
-$0$ and $y(R)=0$, we get a regular singular Sturm-Liouville problem
+$0$ and $y(R)=0$, then we get a regular singular Sturm-Liouville problem
 whose eigenvalues are
 $\displaystyle \lambda = \lambda_{n,k} = \left(\alpha_{n,k}/R\right)^2$,
 where $n > 0$ and $\alpha_{n,k}$ is the $\displaystyle n^{th}$ zero of $J_k(x)$.

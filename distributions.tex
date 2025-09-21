@@ -15,7 +15,7 @@ multi-indices involved in the sum.
 If we multiply both sides of the equation in (\ref{distr_lPDE}) by a
 function $\displaystyle \phi \in C_c^\infty(\RR^n)$
 (functions in $\displaystyle C^\infty(\RR^n)$ with compact supports) and
-use integration by parts, we get
+use integration by parts, then we get
 \begin{align*}
 \int_{\RR^n} f(\VEC{x})\phi(\VEC{x}) \dx{\VEC{x}}
 &= \sum_{|\VEC{\alpha}|\leq m} \int_{\RR^n} a_{\VEC{\alpha}}(\VEC{x})
@@ -64,7 +64,7 @@ for all $\displaystyle \phi \in C_c^\infty(\RR^n)$.  The
 operator $\displaystyle L^\ast(\VEC{x}, \diff)$ is called the
 {\bfseries adjoint}\index{Linear Partial Differential Operator!Adjoint} of
 $L(\VEC{x}, \diff)$.  Hence, if $u \in C^m(\RR^n)$ is a solution of
-(\ref{distr_lPDE}), we have
+(\ref{distr_lPDE}), then we have
 \[
 \int_{\RR^n} \big( L(\VEC{x}, \diff)u(\VEC{x}) \big) \phi(\VEC{x}) \dx{\VEC{x}}
 = \int_{\RR^n} u(\VEC{x}) \big( L^\ast(\VEC{x}, \diff)\phi(\VEC{x})
@@ -390,7 +390,7 @@ converges to $\delta$ as $ a \to 0$.
 
 Given $\phi \in \DD(\RR)$, let
 $\displaystyle \Phi(x) = \int_0^x \phi(x) \dx{x}$.
-We have that
+We have
 \[
 \lim_{a\to 0} \chi_a(\phi)
 = \lim_{a\to 0}\frac{1}{2a} \int_{-a}^a \phi(x) \dx{x} 
@@ -525,7 +525,7 @@ partial derivatives.
 Let $\displaystyle k(x_1,x_2) = \frac{1}{2\pi(x_1 + i x_2)}$ and
 $L = \diff_{x_1} + i \diff_{x_2}$.
 
-Given $\displaystyle \phi \in \DD(\RR^2)$, we have that
+Given $\displaystyle \phi \in \DD(\RR^2)$, we have
 \begin{align*}
 \ps{L k}{\phi} &= - \ps{k}{L\phi}
 = \frac{-1}{2\pi} \int_{\RR^2} \left( \pdydx{\phi}{x_1} + i
@@ -551,7 +551,7 @@ where the orientation of the circle $\|\VEC{x}\|_2 = r$
 is clockwise.  If we use the parametric representation
 $(x_1,x_2) = (r\cos(\theta),r\sin(\theta)$ for
 $0 \leq \theta \leq 2\pi$, a parametric representation associated to
-the counterclockwise orientation of the circle, we get
+the counterclockwise orientation of the circle, then we get
 \begin{align*}
 &\int_{\|\VEC{x}\|_2\geq r}
 \left( \pdydx{\phi}{x_1} + i \pdydx{\phi}{x_2} \right)
@@ -935,7 +935,7 @@ Using Jensen's Inequality (Theorem 3.3 in \cite{Ru}), we get
 \end{align*}
 If we define $\displaystyle f_{\VEC{z}} \in L^p(\RR^n)$ by
 $f_{\VEC{z}}(\VEC{x}) = f(\VEC{x}-\VEC{z})$ for
-$\VEC{x}, \VEC{z}\in \RR^n$, we then have that
+$\VEC{x}, \VEC{z}\in \RR^n$, then we have
 \[
 \| f\ast \phi_\epsilon -a f \|_p^p
 \leq \int_{\RR^n} \int_{\RR^n} \left| f(\VEC{x}-\epsilon \VEC{z})
@@ -1268,7 +1268,7 @@ Since $g$ is continuous we have that
 \frac{1}{2\pi} \sum_{n\in \ZZ} \hat{f}(n) e^{n x i}
 = \sum_{n\in \ZZ} a_n e^{n x i} = g(x) =  \sum_{n\in\ZZ} f(x+n)
 \]
-for all $x$.  If $x = 0$, we get (\ref{eggPoissonSF}).  The formula 
+for all $x$.  If $x = 0$, then we get (\ref{eggPoissonSF}).  The formula 
 (\ref{eggPoissonSF}) is known as the
 {\bfseries Poisson summation formula}\index{Poisson Summation Formula}.
 \end{egg}
@@ -1289,7 +1289,7 @@ it suffices to compute
 \[
 \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty  e^{-i x y - x^2} \dx{x} \ .
 \]
-If we use the substitution $x = r/2$, we get
+If we use the substitution $x = r/2$, then we get
 \[
 \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty  e^{-i x y - x^2} \dx{x}
 = \frac{1}{2\sqrt{2\pi}} \int_{-\infty}^\infty  e^{-(2 i r y + r^2)/4} \dx{r}
@@ -1346,12 +1346,13 @@ We finally get that
 More generally, we can compute the Fourier transform of
 $\displaystyle f(x) = e^{-a \|\VEC{x}\|^2}$ for
 $\displaystyle \VEC{x} \in \RR^n$
-and $a$ a positive constant.  We have that
+and $a$ a positive constant.  We have
 \[
 \hat{g}(\VEC{y}) = \int_{\RR^n} e^{-i \VEC{x}\cdot\VEC{y}}
 e^{-a\|\VEC{x}\|^2} \dx{\mu(\VEC{x})} \ .
 \]
-If we use the change of variables $\VEC{w} = \sqrt{a}\, \VEC{x}$, we get
+If we use the change of variables $\VEC{w} = \sqrt{a}\, \VEC{x}$, then
+we get
 \begin{equation} \label{FTexpx2eq1}
 \hat{g}(\VEC{y}) = \frac{1}{a^{n/2}}
 \int_{\RR^n} e^{-i \VEC{w}\cdot (a^{-1/2}\VEC{y})}
@@ -1469,7 +1470,7 @@ defined by
 for $k \geq 0$.  We will not elaborate on this subject but the
 interested reader may consult \cite{RuFA,ReeSim} for more information.
 
-If $\displaystyle f \in \SS(\RR^n)$, we have that
+If $\displaystyle f \in \SS(\RR^n)$, then we have that
 $\displaystyle \VEC{x}^{\VEC{\alpha}} \diff^{\VEC{\beta}} f$ itself
 vanishes at infinity for all multi-indices $\VEC{\alpha}$ and $\VEC{\beta}$.
 Moreover,
@@ -1823,7 +1824,7 @@ generality, we may even assume that $a_{(0,0,\ldots,0,m)} = 1$.
 We show that there exists a solution $\displaystyle u \in C^\infty(\RR^n)$ for
 (\ref{distr_lPDE3}).
 
-We have that $\displaystyle L(\VEC{x},\diff)\hat{u} = (p\, u)^\wedge$, where
+We have that $\displaystyle L(\VEC{x},\diff)\hat{u} = (p\, u)^\wedge$ where
 \begin{equation} \label{distr_lPDE3_ex1}
 p(\VEC{y}) = \sum_{|\VEC{\alpha}|\leq m} a_{\VEC{\alpha}}
 (-i\VEC{y})^{\VEC{\alpha}} \ .
@@ -1946,7 +1947,7 @@ Let $q(z) = p(\breve{\VEC{y}}, y_n+z)$.
 From Lemma~\ref{distr_lPDE3_ex3}, we have that
 \[
 \left| p(\VEC{y}) \right| = \left| q(0) \right| \geq
-\left(\frac{\lambda}{2}\right)^m \ ,
+\left(\frac{\lambda}{2}\right)^m
 \]
 where
 $\displaystyle

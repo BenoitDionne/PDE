@@ -419,7 +419,7 @@ If the norm on $P$ is defined by
 \[
 \|f\|_2 = \left(\int_{-\pi}^\pi |f|^2 \dx{\mu}\right)^{1/2} \ ,
 \]
-we have an isometry between $\displaystyle L^2(T,\nu)$ and $P$ defined by
+then we have an isometry between $\displaystyle L^2(T,\nu)$ and $P$ defined by
 \begin{align*}
 Q: L^2(T,\nu) & \rightarrow P \\
   f & \mapsto f(e^{x\,i})
@@ -610,7 +610,7 @@ From Riemann-Lebesgue's Lemma, we can find $N_0>0$ such that
 \left( \frac{f(x+t)- f(x^+)}{\sin(t/2)} \right) 
 \sin((N+1/2)t) \dx{t} \right| < \frac{\epsilon}{2}
 \]
-for $N > N_0$.  Hence, for $N> N_0$, we have $|I_2(N)| < \epsilon$.
+for $N > N_0$.  Hence, we have $|I_2(N)| < \epsilon$ for $N> N_0$.
 
 We had to split the integral $I_2(N)$ because
 $\displaystyle (f(x+t) - f(x^+))/\sin(t/2)$ or is derivative may not
@@ -1159,7 +1159,7 @@ functionals on $X$.
 \end{defn}
 
 \begin{egg}
-If $H$ is an Hilbert space, we have from the Riesz Representation
+If $H$ is an Hilbert space, then we have from the Riesz Representation
 Theorem, Theorem~\ref{fu_an_RieszRT}, that there exists a mapping
 $\displaystyle T:H^\ast \to H$ such that $u(x) = \ps{x}{T(u)}$ for all
 $x \in H$.  It follows from Schwarz inequality that
@@ -1562,7 +1562,7 @@ to itself such that $\DO(A)$ is dense in $H$.  We have
 \item Eigenvectors associated to distinct eigenvalues are orthogonal.
 \item The continuous spectrum of $A$ is a subset of $\RR$.
 \end{enumerate}
-If $(\DO(A),A)$ is also self-adjoint, we have
+If $(\DO(A),A)$ is also self-adjoint, then we have
 \begin{enumerate}
 \item The spectrum of $A$ is a subset of $\RR$.
 \item The residual spectrum of $A$ is empty.
@@ -1580,7 +1580,7 @@ $\lambda_n \rightarrow 0$ as $n\rightarrow \infty$.
 
 If we choose for each eigenspace $\KE(A-\lambda\Id)$, where
 $\lambda \in \sigma(A)$ with $\lambda \neq 0$, an orthonormal
-basis and do the union of these basis, we get an orthonormal set
+basis and do the union of these basis, then we get an orthonormal set
 $\displaystyle \{ \phi_j \}_{j=1}^\infty$ such that $\phi_j \neq 0$
 for only a finite number of $j$ when $\sigma(A)$ is finite.
 For each eigenvector $\phi_j$, we denote the eigenvalue associate to
@@ -1793,13 +1793,13 @@ $u= w - \breve{u}$.
 
 \stage{ii}
 Suppose that $u$ satisfies (\ref{fu_an_lax3}) and take $v \in K$.  Let
-$\displaystyle v_t = (1-t)u+t v$ for $0\leq t \leq 1$.  we have that
+$\displaystyle v_t = (1-t)u+t v$ for $0\leq t \leq 1$.  We have that
 $v_t \in K$ for all $t \in [0,1]$ because $K$ is convex.  Thus
 \begin{align*}
 \| w-u\|^2 &\leq \| w - v_t\|^2 = \|(w-u) -t(v-u)\|^2 \\
 &= \|w-u\|^2 - 2t \RE \ps{w-u}{v-u} + t^2 \|u-v\|^2 \ .
 \end{align*}
-We get that
+We get
 \[
 2\RE \ps{w-u}{v-u} \leq t \|u-v\|^2
 \]
@@ -1893,7 +1893,7 @@ one-to-one.  In fact, we have that
 \end{equation}
 for any $u_1, u_2 \in H$, where $c$ is the constant given in the
 definition of a coercive bounded sequilinear form.
-If $A u_1 = A u_2$, we then get
+If $A u_1 = A u_2$, then we get
 \[
 0 = \RE \ps{u_1-u_2}{A(u_1-u_2)} \geq c \|u_1-u_2\|^2 \ .
 \]
@@ -1938,7 +1938,7 @@ $\displaystyle \RE \ps{w_1- P(w_1)}{v- P(w_1)} \leq 0$ and
 $\displaystyle \RE \ps{w_2- P(w_2)}{v- P(w_2)} \leq 0$
 for all $v \in K$ respectively.  If we substitute $v=P(w_2)$ in the
 first inequality, $v=P(w_1)$ in the second inequality and add the
-resulting inequalities, we get
+resulting inequalities, then we get
 \begin{align*}
 &\RE \ps{w_1- P(w_1)}{P(w_2)- P(w_1)} + \RE \ps{w_2- P(w_2)}{P(w_1)- P(w_2)} \\
 &\qquad \qquad = \RE \ps{-w_1 + w_2 + P(w_1) - P(w_2)}{P(w_1)- P(w_2)} \leq 0 \\
@@ -1968,7 +1968,7 @@ P(p\breve{u}-p Av_2 +v_2) \|^2 \\
 for all $v_1, v_2 \in K$, where we have used
 (\ref{fu_an_lax6}) and (\ref{fu_an_lax7}) for the last
 inequality.  If we take $p$ such that
-$\displaystyle 0< p^2 C^2 - 2pc +1 <1$, we
+$\displaystyle 0< p^2 C^2 - 2pc +1 <1$, then we
 get that $F$ is a strict contraction on $K$.  Such a $p$ exists
 because
 \[
@@ -2049,11 +2049,11 @@ there exists a unique $u\in H$ such that
 \end{equation}
 for all $v\in H$.
  
-If $v = w$ in (\ref{fu_an_lax11}), we get
+If $v = w$ in (\ref{fu_an_lax11}), then we get
 \begin{equation}\label{fu_an_lax14}
 \RE B(w,u) \geq \RE \tilde{u}(w) \ .
 \end{equation}
-If $v = -w$ in (\ref{fu_an_lax11}), we get
+If $v = -w$ in (\ref{fu_an_lax11}), then we get
 $\RE B(-w,u) \geq \RE \tilde{u}(-w)$.
 Therefore,
 \begin{equation}\label{fu_an_lax15}
@@ -2103,7 +2103,7 @@ linear mapping is given in the first part of the proof of
 Theorem~\ref{fu_an_stamp}.  The coercive nature of $B$ implies that
 $A(H)$ is closed as we now explain.  If
 $\displaystyle \left\{A u_j\right\}_{j=1}^\infty$ converges to
-$w\in H$, we have that
+$w\in H$, then we have
 \[
 \|A(u_j)\|\,\|u_j\| \geq |\ps{u_j}{A(u_j)}| = |B(u_j,u_j)| \geq c
 \|u_j\|^2

@@ -427,7 +427,7 @@ $1\leq q \leq \infty$ and $t>0$.
 Hence,  $\displaystyle \VEC{y} \mapsto f(\VEC{y})\,K_t(\VEC{x}-\VEC{y})$
 for $\displaystyle \VEC{y} \in \RR^n$ is in
 $\displaystyle L^1(\RR^n)$.  For instance, if
-$1<p<\infty$ we have
+$1<p<\infty$, then we have
 \[
 \int_{\RR^n} \left| f(\VEC{y})\, K_t\left(\VEC{x} - \VEC{y}\right) \right|
 \dx{\VEC{y}}
@@ -651,14 +651,14 @@ $g(\VEC{x},t) = K(\VEC{x}-\VEC{x}_0, t_0-t) = K(\VEC{x}_0-\VEC{x}, t_0-t)$.
 
 \stage{i} We claim that
 $\displaystyle \big(u(\cdot, a) \ast K_{t_0-a}(\cdot)\big)(\VEC{x}_0) \to 0$
-as $\displaystyle a \to 0^+$.  We have that
+as $\displaystyle a \to 0^+$.  We have
 \[
 \lim_{a\to 0^+} u(\VEC{x},a) K(\VEC{x}-\VEC{x}_0, t_0 - a) =
 u(\VEC{x},0) K(\VEC{x}-\VEC{x}_0, t_0) = 0
 \]
 for all $\displaystyle \VEC{x} \in \RR^n$ because $u(\VEC{x},0) = 0$
 for all $\VEC{x} \in \RR^n$.  Moreover, given
-$\epsilon < 1/(4t_0)$, there exist $C>0$ such that
+$\epsilon < 1/(4t_0)$, there exists $C>0$ such that
 \[
 \left| u(\VEC{x},a) K(\VEC{x}-\VEC{x}_0, t_0 - a) \right|
 < C e^{\epsilon \|\VEC{x}\|^2}
@@ -675,7 +675,7 @@ Lebesgue Dominated Convergence Theorem that
 $\displaystyle \big(u(\cdot, b) \ast K_{t_0-b}(\cdot)\big)(\VEC{x}_0) \to
 u(\VEC{x}_0,t_0)$ as $\displaystyle b \to t_0^-$.
 
-We have that
+We have
 \begin{equation} \label{heat_unicD}
 \begin{split}
 \left| u(\cdot, b) \ast K_{t_0-b}(\cdot)\big)(\VEC{x}_0)
@@ -746,7 +746,7 @@ It follows from (\ref{heat_unicD}), (\ref{heat_unicE}) and
 This complete the prove of the second claim.
 
 \stage{iii} If we let $\displaystyle a\to 0^+$ and
-$\displaystyle b\to t_0^-$ in (\ref{heat_unicB}), we get
+$\displaystyle b\to t_0^-$ in (\ref{heat_unicB}), then we get
 from (\ref{heat_unicC}) and (\ref{heat_unicG}) that
 $u(\VEC{x}_0, t_0) = 0$.
 \end{proof}
@@ -1023,7 +1023,7 @@ We have found that
 (\partial \Omega \times [0,T'])\,\} + \epsilon
 \max \{ \|\VEC{x}\|^2 : \VEC{x}\in \overline{\Omega} \} \  .
 \end{align*}
-If $\epsilon \rightarrow 0$, we get
+If $\epsilon \rightarrow 0$, then we get
 \[
 \max \{ u(\VEC{x},t) : (\VEC{x},t)\in \overline{\Omega}\times [0,T'] \}
 \leq \max \{ u(\VEC{x},t) : (\VEC{x},t)\in (\Omega\times \{0\}) \cup
@@ -1079,7 +1079,7 @@ x & \quad 0 < x \leq \pi/2 \\
 \end{equation}
 
 \subI{Separation of Variables}
-If we substitute $u(x,t) = F(x)G(t)$ in (\ref{heat_spv_he}), we get
+If we substitute $u(x,t) = F(x)G(t)$ in (\ref{heat_spv_he}), then we get
 \[
 F(x)\,\dydx{G}{t}(t) = 4 \dydxn{F}{x}{2}(x)\, G(t)
 \quad , \quad t>0 \ \text{and} \ 0<x<\pi \ .
@@ -1160,7 +1160,7 @@ equation is of the form $\displaystyle
 F(x) = A \cos\left(\sqrt{-k}\,x\right) + B \sin\left(\sqrt{-k}\,x\right)$.
 The condition $F(0)=0$ implies that $A=0$.  Hence, $F(\pi)=0$ implies that
 $B \sin\left(\pi\sqrt{-k}\right) = 0$.  If we take
-$B=0$, we get the null solution.  We must therefore have
+$B=0$, then we get the null solution.  We must therefore have
 $\sin\left(\pi\sqrt{-k}\right) = 0$.  This implies that
 $\displaystyle k = k_n \equiv -n^2$ for $n>0$.  The boundary value problem
 (\ref{heat_spv_bvp}) has non-null solutions only for
@@ -1287,7 +1287,7 @@ convergence of these series, it suffices to prove that the series
 converges uniformly for $t\geq \epsilon$ whatever the value of
 $k\geq -2$.  Since
 $\displaystyle e^{-4(2m-1)^2\,t} \leq e^{-4(2m-1)^2\epsilon}$
-for $t\geq \epsilon$,  we get as a consequence of the comparison test that
+for $t\geq \epsilon$, we get as a consequence of the comparison test that
 (\ref{heat_series_solB}) converges uniformly because
 \[
 \sum_{m=1}^\infty (2m-1)^{k} e^{-4(2m-1)^2\epsilon}
@@ -1345,7 +1345,7 @@ the following initial condition.
 \end{center}
 
 \subI{Separation of Variables}
-If we substitute $u(x,t) = F(x)G(t)$ in (\ref{heat_spv_diffa}), we get
+If we substitute $u(x,t) = F(x)G(t)$ in (\ref{heat_spv_diffa}), then we get
 \[
 F(x)\,\dydx{G}{t}(t) = 4 \dydxn{F}{x}{2}(x)\, G(t)
 \quad , \quad t>0 \ \text{and} \ 0<x<5 \ . 
@@ -1681,7 +1681,7 @@ Thus,
 h(x,t) = -\sum_{n=1}^\infty \frac{4t}{n\pi} \sin\left(\frac{n\pi x}{L}\right) \ .
 \end{equation}
 If we substitute (\ref{heat_he_idx1}) and (\ref{heat_he_idx2}) into
-(\ref{heat_he_idx3}), we get
+(\ref{heat_he_idx3}), then we get
 \[
 \sum_{n=1}^\infty \left( T_n'(t) + \left(\frac{c n\pi}{L}\right)^2
 T_n(t) \right) \sin\left(\frac{n\pi x}{L}\right) =

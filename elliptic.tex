@@ -133,7 +133,7 @@ converges to $\displaystyle v \in H^1_0(]a,b[)$ with respect to the norm
 $\|\cdot\|_{1,2,]a,b[}$, then
 $\displaystyle \|v_i - v\|_{2,]a,b[} \to 0$ and
 $\displaystyle \|\diff_x v_i - \diff_x v\|_{2,]a,b[} \to 0$ as $i \to 0$.
-Hence, from Schwarz inequality, we get that
+Hence, from Schwarz inequality, we get
 \begin{align*}
 &\left|\int_a^b \diff_x u \, \diff_x v_i \dx{x} - 
 \int_a^b \diff_x u\, \diff_x v \dx{x} \right|
@@ -1585,7 +1585,7 @@ for $\displaystyle u \in H^{k,2}_0(\Omega)$.
 
 If we substitute $a= \sqrt{C_1C_2} \|u\|_{k,2,\Omega}$ and
 $\displaystyle b = \frac{C_1C_3 + C_4}{\sqrt{C_1C_2}}\|u\|_{k-1,2,\Omega}$ in
-$\displaystyle ab \leq \frac{1}{2}(a^2+b^2)$, we get
+$\displaystyle ab \leq \frac{1}{2}(a^2+b^2)$, then we get
 \[
 \left( C_1C_3 + C_4\right) \|u\|_{k,2,\Omega} \|u\|_{k-1,2,\Omega}
 \leq \frac{C_1C_2}{2} \|u\|_{k,2,\Omega}^2 +
@@ -1719,7 +1719,7 @@ and $|\VEC{\alpha}|+|\VEC{\beta}|<2k$.
 
 If we substitute $a= \sqrt{C_1} \|u\|_{k,2,\Omega}$ and
 $\displaystyle b = \frac{C_2}{\sqrt{C_1}}\|u\|_{k-1,2,\Omega}$ in
-$\displaystyle ab \leq \frac{1}{2}(a^2+b^2)$, we get
+$\displaystyle ab \leq \frac{1}{2}(a^2+b^2)$, then we get
 \[
 C_2\|u\|_{k,2,\Omega} \|u\|_{k-1,2,\Omega}
 \leq \frac{C_1}{2} \|u\|_{k,2,\Omega}^2 + \frac{C_2^2}{2C_1}\|u\|_{k-1,2,\Omega}^2
@@ -2228,7 +2228,7 @@ v \dx{\VEC{x}} = 0
 for all $\displaystyle v \in C^1_c(\Omega)$.
 Since $\displaystyle C^1_c(\Omega)$ is dense in $C_c(\Omega)$, we
 get that $\displaystyle \Delta u + u - f = 0$ almost
-everywhere.  If $f \in C(\Omega)$, we have
+everywhere.  If $f \in C(\Omega)$, then we have
 $\displaystyle -\Delta u + u -f = 0$ everywhere on $\Omega$ since
 $\displaystyle u\in C^2(\Omega)$.  Thus $u$ is the classical solution of
 (\ref{ell_example2_eq1}).
@@ -2319,8 +2319,8 @@ As a consequence of Theorem~\ref{ell_regular}, $\displaystyle u\in H^2(\Omega)$.
 
 \subI{Classical solution}
 If the weak solution $u$ is in $\displaystyle C^2(\overline{\Omega})$,
-we get from (\ref{ell_example4_eq2}) and Green's identity (\ref{laplace_green1})
-that
+then we get from (\ref{ell_example4_eq2}) and Green's identity
+(\ref{laplace_green1}) that
 \begin{equation} \label{ell_GW_classic}
 \int_{\partial \Omega} v\,\pdydx{u}{\nu} \dss{S}{x}
 + \int_\Omega \left( - v\, \Delta u + u\, v - f\, v \right) \dx{\VEC{x}} = 0
@@ -2338,7 +2338,7 @@ $\overline{\Omega}$).  Since $\displaystyle C^1_c(\Omega)
 \supset \DD(\Omega)$ is dense in
 $\displaystyle L^2(\Omega)$, we get that
 $\displaystyle -\Delta u + u - f = 0$ almost
-everywhere.  If $f \in C(\Omega)$, we have
+everywhere.  If $f \in C(\Omega)$, then we have
 $\displaystyle -\Delta u + u -f = 0$ everywhere on $\Omega$ since
 $\displaystyle u\in C^2(\Omega)$.  Back to (\ref{ell_GW_classic}),
 this implies that
@@ -2433,11 +2433,11 @@ B(v-u,u) = \int_\Omega \left( \graD (v-u) \cdot \graD u
 \geq \int_\Omega f\,(v-u) \dx{\VEC{x}} = \ps{v-u}{f}_2
 \end{equation}
 for all $v \in K$.
-If $u$ is a weak solution, we get from (\ref{ell_example3_eq2})
+If $u$ is a weak solution, then we get from (\ref{ell_example3_eq2})
 that (\ref{ell_example3_eq3}) is true because
 $\displaystyle u-v\in H^1_0(\Omega)$ for all $v\in K$.  In fact we have equality
 in (\ref{ell_example3_eq3}).  Conversely, if $u\in K$ satisfies
-(\ref{ell_example3_eq3}), we substitute $v=u\pm w$ with
+(\ref{ell_example3_eq3}), then we substitute $v=u\pm w$ with
 $\displaystyle w\in H^1_0(\Omega)$ in (\ref{ell_example3_eq3}) to get
 respectively
 \begin{align*}
@@ -2478,7 +2478,7 @@ $\displaystyle u- \tilde{g} \in H^{1,2}_0(\Omega)\cap C(\overline{\Omega})$.
 \end{egg}
 
 If the sequilinear form in (\ref{ell_exist_1}) is weakly coercive and
-symmetric, we get the following additional properties.
+symmetric, then we get the following additional properties.
 
 \begin{theorem} \label{ell_exist_th3}
 Let $\Omega$ be an open subset of $\displaystyle \RR^n$ and let $X$ be a closed
@@ -2553,7 +2553,7 @@ From
 \tilde{B}(v, \beta_j u_j) = \tilde{B}(v, (i \circ K_1)(u_j))
 = \tilde{B}(v, F_{\tilde{B}}(u_j)) = \ps{v}{u_j}_2
 \]
-for all $v \in X$, we get
+for all $v \in X$, we get that
 $\displaystyle \tilde{B}(v, u_j) = \ps{v}{\beta_j^{-1}u_j}_2$ for all
 $v \in X$.
 
@@ -2594,7 +2594,7 @@ Let $\Omega$ be a bounded open subset of $\displaystyle \RR^n$ with a
 boundary of class $\displaystyle C^2$.  If the operator
 $L(\VEC{x},\diff)$ in the Dirichlet problem
 (\ref{ell_PDE1}) is strongly elliptic on $\overline{\Omega}$, and
-$\displaystyle L(\VEC{x},\diff)=L^\ast(\VEC{x},\diff)$, we get the
+$\displaystyle L(\VEC{x},\diff)=L^\ast(\VEC{x},\diff)$, then we get the
 following results.
 \begin{enumerate}
 \item There exists an orthonormal basis $\displaystyle \{u_j\}_{j=1}^\infty$ of
@@ -2609,7 +2609,7 @@ increasing sequence in absolute value that converges to $+\infty$.
 \end{enumerate}
 Moreover, if the sequilinear form $B$ of the variational formulation
 (\ref{ell_PDE2}) of the Dirichlet problem (\ref{ell_PDE1}) is
-also coercive, we get the following result.
+also coercive, then we get the following result.
 \begin{enumerate}
 \setcounter{enumi}{4}
 \item The eigenvalues of $L(\VEC{x},\diff)$ are positive.
@@ -2809,7 +2809,7 @@ such that $|\mu_j| \geq |\mu_{j+1}|$, and we have $|\mu_j|\to 0$ as
 $j \to \infty$.
 
 If we take a basis of eigenfunctions for each eigenspace and combine
-them, we get a basis of eigenfunctions
+them, then we get a basis of eigenfunctions
 $\displaystyle \left\{u_j\right\}_{j=1}^\infty$ for $\displaystyle L^2(I)$
 (see Theorem~\ref{fu_an_HStheorem} and the paragraphs before this theorem).
 We assume that $\mu_{j} = \mu_{j+1} = \ldots = \mu_{j+k}$ if
@@ -2828,7 +2828,7 @@ for all $\displaystyle f \in L^2(I)$.  Thus
 \mu_j \int_I u_j^2 \dx{x}
 = \int_I T(u_j)\, u_j \dx{x} \geq 0
 \]
-implies that $\mu_j\geq 0$ for all $j$.  Hence, we have
+implies that $\mu_j\geq 0$ for all $j$.  Hence, we have that
 $\mu_j \geq \mu_{j+1} > 0$ for all $j$ and $\mu_j \to 0$ as
 $j \to \infty$.
 
@@ -2987,7 +2987,7 @@ If we expand
 L(\VEC{x}, \diff)u = -\sum_{i,j=1}^n
 \pdfdx{\left( b_{i,j}(\VEC{x}) \pdydx{u}{x_j} \right)}{x_i} + b_0(\VEC{x})u \ ,
 \]
-we get
+then we get
 \[
 L(\VEC{x}, \diff)u = -\sum_{i,j=1}^n b_{i,j}(\VEC{x})
 \pdydxnm{u}{x_i}{x_j}{2}{}{}
@@ -3000,7 +3000,7 @@ L(\VEC{x}, \diff)u = -\sum_{i,j=1}^n a_{i,j}(\VEC{x})
 \pdydxnm{u}{x_i}{x_j}{2}{}{}
 + \sum_{i=1}^n a_i(\VEC{x}) \pdydx{u}{x_i} + a_0(\VEC{x})u \ ,
 \]
-we get $a_{i,j} = b_{i,j}$, 
+then we get $a_{i,j} = b_{i,j}$, 
 $\displaystyle a_i = - \sum_{j=1}^n \pdydx{b_{j,i}}{x_j}$ and
 $b_0 = a_0$.  The condition
 $\displaystyle a_i = - \sum_{j=1}^n \pdydx{a_{j,i}}{x_j}$ for
@@ -3288,7 +3288,7 @@ by definition.  We may restate (\ref{RWS_lem1E1}) as
 for all $\displaystyle \phi \in \SS(\RR^n)$ and
 $\displaystyle v \in H^{0,2}(\RR^n) = L^2(\RR^n)$.
 
-We have that
+We have
 \begin{align*}
 &\int_{\RR^n} \left( (1+\|\VEC{x}\|_2^2)^{s/2} - (1+\|\VEC{y}\|_2^2)^{s/2}\right)
 \left( 1 + \|\VEC{y}\|_2^2\right)^{(1-s)/2} \hat{\phi}(\VEC{x}-\VEC{y}) \,
@@ -3340,11 +3340,11 @@ for some $w$ between $\|\VEC{x}\|_2$ and $\|\VEC{y}\|_2$.  Hence,
 where the supremum is taken over all $w$ between $\|\VEC{x}\|_2$ and
 $\|\VEC{y}\|_2$.  Since $\displaystyle w \to (1+w^2)^{(s-1)/2}$ is increasing on
 $[0,\infty[$ for $s > 1$ or decreasing on $[0,\infty[$ for $s<1$, we
-get that
+get
 \[
 \left| (1+\|\VEC{x}\|_2^2)^{s/2} - (1+\|\VEC{y}\|_2^2)^{s/2} \right|
 \leq |s| \left( (1+\|\VEC{x}\|_2^2)^{(s-1)/2} + (1+\|\VEC{y}\|_2^2)^{(s-1)/2}
-\right) \, \|\VEC{x} - \VEC{y}\|_2 \ ,
+\right) \, \|\VEC{x} - \VEC{y}\|_2 \ .
 \]
 It follows from this relation and Lemma~\ref{sob_tri_equ} that
 \begin{align*}
@@ -3414,7 +3414,7 @@ $\displaystyle \hat{g} = (1 + \|\VEC{y}\|_2^2)^{s/2} \hat{f}$.  Such a
 $g$ exists according to Plancherel theorem, Theorem~\ref{distr_plancherel},
 because $\displaystyle f \in H^{s,2}(\RR^n)$ implies that
 $\displaystyle (1 + \|\VEC{y}\|_2^2)^{s/2} \hat{f} \in L^2(\RR^n)$ by
-definition.  We have that
+definition.  We have
 \begin{align*}
 &\left( \int_{\RR^n} \left(
 \int_{\RR^n} (1 + \|\VEC{y}\|_2^2)^{s/2} \hat{\phi}(\VEC{x}-\VEC{y})
@@ -3502,7 +3502,7 @@ $\displaystyle \VEC{h} \in \RR^n$ such that $\|\VEC{h}\|<\delta$.
 
 \begin{proof}
 \stage{i} We first consider $\VEC{\alpha} = \alpha_j \VEC{e}_j$ with
-$\alpha_j \leq k$ and $\|\VEC{y}\|< \delta$.  We have that
+$\alpha_j \leq k$ and $\|\VEC{y}\|< \delta$.  We have
 \begin{align*}
 \int_{\Omega} \left(\Delta^{\VEC{\alpha}}_{\VEC{h}} f (\VEC{x})\right)
 g(\VEC{x}) \dx{\VEC{x}}
@@ -3577,7 +3577,7 @@ proposition are satisfied for all $\delta>0$ and $k \in \NN$.
 
 \begin{prop} \label{ell_reg_prop3}
 Given $\displaystyle f\in H^{s,2}(\RR^n)$ and
-$\displaystyle \VEC{\alpha} \in \NN^n$, we have that
+$\displaystyle \VEC{\alpha} \in \NN^n$, we have
 \begin{equation} \label{ellRegProp3Eq1}
 \big\|\diff^{\VEC{\alpha}} f\big\|_{s,\rho} = \limsup_{\VEC{h}\rightarrow \VEC{0}}
 \big\|\Delta^{\VEC{\alpha}}_{\VEC{h}} f\big\|_{s,\rho} \ ,
@@ -3614,7 +3614,7 @@ for $\VEC{h} = (h_1,\ldots,h_m,0,\ldots,0)$ and
 $\VEC{\alpha} = (\alpha_1,\ldots,\alpha_m,0,\ldots,0)$.
 
 For $\VEC{h} = (h_1,0,\ldots,0$ and $\VEC{\alpha} = (\alpha_1,0,\ldots,0)$,
-we have that
+we have
 \begin{align*}
 \left(\Delta^{\VEC{\alpha}}_{\VEC{h}} f \right)^\wedge(\VEC{y})
 &= \left(\Delta^{\alpha_1}_{h_1 \VEC{e}_1} f \right)^\wedge(\VEC{y})
@@ -3836,7 +3836,7 @@ is a bounded operator and the bound is independent of $\VEC{h}$.
 \begin{proof}
 The case $|\VEC{\alpha}|=0$ is trivial.
   
-\stage{i} We consider the case $|\VEC{\alpha}|=1$.  We have that
+\stage{i} We consider the case $|\VEC{\alpha}|=1$.  We have
 \begin{align*}
 [\Delta_{h_j\VEC{e}_j},\phi] f
 &= \Delta_{h_j\VEC{e}_j} \left( \phi\, f \right) -
@@ -3893,7 +3893,7 @@ As we have shown in the proof of Proposition~\ref{ell_reg_prop3},
 \end{align*}
 for all $\displaystyle \VEC{z} \in \RR^n$, $h_j \in \RR$ and $j$.
 Following the steps of the proof of Proposition~\ref{sob_T_dd_wk2}, we
-have that
+have
 \begin{align*}
 \int_{\RR^n}|K_{j,h_j}(\VEC{y},\VEC{z})| \dx{\rho(\VEC{y})}
 &= (2\pi)^{-n/2} \int_{\RR^n} \left(1+\|\VEC{z}\|^2\right)^{-s}
@@ -4020,7 +4020,7 @@ independent of $h$.
 
 \begin{proof}
 Since $\displaystyle \diff^{\VEC{\alpha}}$ commutes with
-$\displaystyle \Delta_{\VEC{h}}^{\VEC{\beta}}$, we get that
+$\displaystyle \Delta_{\VEC{h}}^{\VEC{\beta}}$, we get
 \begin{align*}
 [\Delta^{\VEC{\beta}}_{\VEC{h}}, L] f(\VEC{x}) &=
 \Delta^{\VEC{\beta}}_{\VEC{h}}\bigg(\sum_{|\VEC{\alpha}|\leq k}
@@ -4237,7 +4237,7 @@ for all $t\in \RR$, $\displaystyle g \in H^{t,2}(\RR^n)$,
 $\displaystyle \VEC{h} \in \RR^n$ and $\displaystyle \VEC{\beta} \in \NN^n$
 with $h_j \neq 0$ for $\beta_j \neq 0$.
 
-We also have that
+We also have
 \begin{align*}
 &\diff^{\VEC{\eta}}\left[ \Delta^{\VEC{\beta}}_{\VEC{y}}, \phi\right| g
 = \diff^{\VEC{\eta}} \left( \Delta^{\VEC{\beta}}_{\VEC{y}} (\phi g) - \phi
@@ -4297,7 +4297,7 @@ R_{\diff^{\VEC{\zeta}} \phi,s}
 \Big\| \left(\diff^{\VEC{\xi}+\VEC{\mu}} f\right) \Big\|_{s,\rho} \ ,
 \end{align*}
 where the last inequality comes from Proposition~\ref{ell_reg_prop3}.
-We then get that
+We then get
 \begin{align*}
 \left\| \left[ \Delta_{h_j\VEC{e}_j} ,\psi \right] f \right\|_{s,\rho}
 &\leq \sum_{j=1}^n \, \sum_{\VEC{\eta}+\VEC{\mu}+\VEC{e}_j \leq \VEC{\alpha}}
@@ -4386,7 +4386,7 @@ $\displaystyle \diff^{\VEC{\beta}} f \in H^{k,2}(\Omega_r)$ for all
 $\VEC{\beta} < \VEC{\alpha}$.
 Since $\supp f$ is a compact subset of the bounded set
 $\Omega_{\delta r,0}$,
-we have that
+we have
 \[
 \left\|E(\diff^{\VEC{\beta}} f)\right\|_{k,\rho}
 \leq C_2 \left\|E(\diff^{\VEC{\beta}} f)\right\|_{k,2,\RR^n}
@@ -4408,7 +4408,7 @@ that $\alpha_n = 0$.  Hence,
 $\displaystyle \supp [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f
 \subset \Omega_{r,0}$.
 
-Hence, for $\|\VEC{h}\| < (1-\delta)r$, we have that
+Hence, for $\|\VEC{h}\| < (1-\delta)r$, we have
 \begin{align*}
 \| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f \|_{k,2,\Omega_r}
 &= \| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] E(f) \|_{k,2,\RR^n_+}
@@ -4543,7 +4543,7 @@ for $\displaystyle u \in H^{s,2}_0(\Omega)$.
 $\displaystyle L_1(\VEC{x},\diff) = \sum_{|\VEC{\alpha}|= k}
 a_{\VEC{\alpha}} \diff^{\VEC{\alpha}}$,
 where we assume that the coefficients $a_{\VEC{\alpha}}$ are constant.  We
-have that
+have
 \[
  \left(L_1(\VEC{x},\diff) u \right)^\wedge(\VEC{y})
 = (-i)^k \sum_{|\VEC{\alpha}|= k} a_{\VEC{\alpha}} \VEC{y}^{\VEC{\alpha}} \,
@@ -4574,7 +4574,7 @@ and so
 + \frac{2^k}{C_0^2} \left(1 + \|\VEC{y}\|_2^2\right)^{s-k}
 \left| \left(L_1(\VEC{x},\diff) u\right)^\wedge(\VEC{y})\right|^2 \ .
 \end{align*}
-We get that
+We get
 \begin{align*}
 \|u\|_{s,\rho}^2
 &= \int_{\RR^n}\left(1 + \|\VEC{y}\|_2^2\right)^s
@@ -4592,7 +4592,7 @@ We get that
 &\leq C_1^2 \left( \|u\|_{s-1,\rho} +
 \big\|L_1(\VEC{x},\diff)u\big\|_{s-k,\rho}\right)^2 \ ,
 \end{align*}
-where $\displaystyle C_1^2 = 2^k \max\{1,1/C_0^2\}$.  We get
+where $\displaystyle C_1^2 = 2^k \max\{1,1/C_0^2\}$.  We then get
 \begin{equation} \label{ellRegInEq1}
 \|u\|_{s,\rho} \leq C_1 \left( \|u\|_{s-1,\rho} +
 \big\|L_1(\VEC{x},\diff)u\big\|_{s-k,\rho}\right) \ .
@@ -4623,11 +4623,11 @@ coefficients $\tilde{a}_\alpha$.
 This is what we do.  From now on, we drop the tilde to simplify the notation.
 
 Since $\graD a_{\VEC{\alpha}}$ is continuous and has a compact support,
-we have that
+we have
 \[
 K = \sup_{\VEC{x} \in \RR^n} \|\graD a_{\VEC{\alpha}} (\VEC{x}) \|_2 < \infty \ .
 \]
-Therefore, from the Mean Value Theorem, we get that
+Therefore, from the Mean Value Theorem, we get
 \begin{equation} \label{ellRegInEq2}
 \left| a_{\VEC{\alpha}}(\VEC{x}_1) - a_{\VEC{\alpha}}(\VEC{x}_2) \right| \leq K
 \|\VEC{x}_1 - \VEC{x}_2 \|_2
@@ -4677,7 +4677,7 @@ $\psi_{\VEC{x}_0}(\VEC{x}) = \psi(\VEC{x} - \VEC{x}_0)$ for all
 $\displaystyle \VEC{x} \in \RR^n$.
 Hence, $C_4$ is independent of $\VEC{x}_0 \in \overline{\Omega}$.
 
-We then have that
+We then have
 \begin{align*}
 \left\| L_2(\VEC{x},\diff) u - L_2(\VEC{x}_0,\diff) u\right\|_{s-k,\rho}
 &\leq \sum_{|\VEC{\alpha}|=k} \left\| \big(a_{\VEC{\alpha}}
@@ -4703,7 +4703,7 @@ $L_2(\VEC{x}_0,\diff)$ which has constant coefficients, we get
 C_1 \big\|L_2(\VEC{x},\diff)u\big\|_{s-k,\rho}
 + C_1 C_2 \delta N \| u \|_{s,\rho} \ .
 \end{align*}
-If we choose $0<\delta < 1/(2C_1C_2 N)$, we get
+If we choose $0<\delta < 1/(2C_1C_2 N)$, then we get
 \[
 \|u\|_{s,\rho}
 \leq C_1 (1+C_4 N) \|u\|_{s-1,\rho} +
@@ -4794,7 +4794,7 @@ As we did before, since there are a finite number of $\phi_i$, we may
 assume that the $R_{\VEC{\alpha},s-k}>0$ are large
 enough for (\ref{ellRegInEq7}) to be true for all $i$.
 If $\displaystyle C_8 = \sum_{|\VEC{\alpha}|\leq k-1} R_{\VEC{\alpha},s-k}$,
-we get that
+then we get
 \begin{equation} \label{ellRegInEq8}
 \big\|L_2(\VEC{x},\diff)(\phi_i\,\underline{u})
 - \phi_i\, L_2(\VEC{x},\diff)\underline{u} \big\|_{s-k,\rho}
@@ -4819,7 +4819,7 @@ $L(\VEC{x},\diff)$ given in (\ref{ell_reg_in_eqt}).  We have that
 $L(\VEC{x},\diff) = L_2(\VEC{x},\diff) + L_3(\VEC{x},\diff)$, where
 $\displaystyle L_3(\VEC{x},\diff)
 = \sum_{|\alpha|< k} a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}}$.
-We have that
+We have
 \begin{equation} \label{ellRegInEq10}
 \big\|\underline{u}\big\|_{s,\rho} \leq C_9
 \left( \big\|\underline{u}\big\|_{s-1,\rho} +
@@ -4902,7 +4902,7 @@ $\big\|\underline{f}\big\|_{k,2,\RR^n} = \big\|f\big\|_{k,2,\Omega}$
 for all $\displaystyle f \in H^{k,2}_0(\Omega)$
 to get (\ref{ellCorConvexEq1}).
 
-If we substitute in (\ref{ell_reg_in_eqtV2}), we get
+If we substitute in (\ref{ell_reg_in_eqtV2}), then we get
 \begin{align*}
 \|u \|_{s,2} &\leq C \left( \| L(\VEC{x},\diff)u \|_{s-k,2}
 + \|u\|_{s-1,2} \right)
@@ -4941,7 +4941,7 @@ a beautiful unified theory.  We just did not want to introduce more
 abstraction than we have already introduce.}
 
 \begin{proof}
-We have that
+We have
 \begin{align*}
 &\left[ L(\VEC{x},\diff), \phi\right] v
 = L(\VEC{x},\diff) (\phi\, v) - \phi\, L(\VEC{x},\diff) v
@@ -5733,7 +5733,7 @@ definition of a weakly coercive form applied to $B$; namely,
 \end{equation}
 for all $v \in X_r$.  If we substitute
 $\displaystyle v = \Delta^{\VEC{\alpha}}_{\VEC{h}} (\psi u)$ in
-(\ref{ell_wcREG}) and use (\ref{ell_reg_B3}), we get that
+(\ref{ell_wcREG}) and use (\ref{ell_reg_B3}), then we get
 \begin{align*}
 \left\| \Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u) \right\|_{1,2,\Omega_{r_2}}^2
 &\leq \frac{1}{C_0} \left( \left| B\left(\Delta^{\VEC{\gamma}}_{\VEC{h}} (\psi u),
@@ -5811,7 +5811,7 @@ and there exists a constant $C_6$ such that
 \end{equation}
 for some (in fact infinitely many) values of $\VEC{h}$ such that
 $\|\VEC{h}\| < (r_2-r_1)/(j+1)$.  Since $\psi = 1$ on $\Omega_\rho$, we
-have that
+have
 \begin{equation} \label{ell_reg_fn3}
 \left\| \diff^{\VEC{\gamma}} u \right\|_{1,2,\Omega_{\rho}} \leq
 \left\| \diff^{\VEC{\gamma}} (\psi u) \right\|_{1,2,\Omega_{r_2}} \ .
@@ -5842,7 +5842,7 @@ $\tilde{\VEC{\gamma}} = \VEC{\gamma} - \VEC{e}_i$ for one index $0\leq i <n$
 such that $\alpha_i>0$.  If $\gamma_n=1$, let
 $\tilde{\VEC{\gamma}} = \VEC{\gamma} - \VEC{e}_n$.
 Then $|\tilde{\VEC{\gamma}}|<q+2$ with $\tilde{\gamma}_n =0$.  Hence, from
-claim A, we have that
+claim A, we have
 \[
 \left\|\diff^{\VEC{\gamma}} u \right\|_{2,\Omega_\rho}
 \leq \left\|\diff^{\tilde{\VEC{\gamma}}} u \right\|_{1,2,\Omega_\rho}
@@ -6089,7 +6089,7 @@ where $K_q = C_{1,q} C_{2,q} + C_{1,q}$.  Suppose that
 where we have used the hypothesis of induction for the second
 inequality.  If
 $\displaystyle K_{j-1} = C_{1,j-1} + C_{1,j-1} C_{2,j-1} K_j$,
-we get (\ref{ell_ind_RT2}) for $i$ replaced by $i-1$.  This complete
+then we get (\ref{ell_ind_RT2}) for $i$ replaced by $i-1$.  This complete
 the proof by induction.
 Hence, with $j=0$ in (\ref{ell_ind_RT2}), we get
 \begin{equation} \label{ell_ind_RT3}
@@ -6145,7 +6145,7 @@ $\displaystyle
 \leq C_2 \|v\|_{q,2,\psi^{-1}_{\VEC{z}}(\Omega_{r_\VEC{z}})}$ and
 for $\displaystyle v \in
 H^{q,2}\big(\psi_{\VEC{z}}^{-1}\big(\Omega_{r_{\VEC{z}}})\big)$.
-We then get that
+We then get
 \[
   \frac{1}{C_2} \|\tilde{v}\|_{q,2,\Omega_{r_\VEC{z}}}
 \leq \|T_{\VEC{z}}(\tilde{v})\|_{q,2,\psi^{-1}_{\VEC{z}}(\Omega_{r_\VEC{z}})}
@@ -6202,7 +6202,7 @@ Hence,
   +\lambda \|u\|_{2,\Omega} \right)
 \leq \frac{1}{C_0} \left( \|f\|_{q,2,\Omega} +\lambda \|u\|_{2,\Omega} \right) \ .
 \]
-If we combine this inequality with (\ref{ell_ind_RT5}), we get
+If we combine this inequality with (\ref{ell_ind_RT5}), then we get
 \begin{align*}
 \|u\|_{q+2.2,\Omega} &\leq 
 K \left( \|f\|_{q,2,\Omega} + \|u\|_{1,2,\Omega} \right)
@@ -6485,7 +6485,7 @@ particular, a non-constant function $u$ may only reach its minimum in
 \end{theorem}
 
 \begin{proof}
-We have that
+We have
 \begin{equation} \label{strongMaxAEq3}
 L(\VEC{x},\diff)u = - \sum_{i,j=1}^n
 \diff_{x_i} \left( b_{i,j}(\VEC{x}) \diff_{x_j} u \right)
@@ -6510,7 +6510,7 @@ Choose $\VEC{q} \in \Omega \setminus M$.  Since $\Omega$ is connected,
 we can select a continuous path $\gamma:[0,1] \to \Omega$ from
 $\VEC{q}$ to $\VEC{p}$; in particular, $\gamma(0) = \VEC{q}$ and
 $\gamma(1) = \VEC{p}$. 
-Since $\gamma([0,1])$ is a compact subset of $\Omega$, we have that
+Since $\gamma([0,1])$ is a compact subset of $\Omega$, we have
 \[
   \delta = \dist{\partial \Omega}{\gamma([0,1])}
 = \sup\left\{ \|\VEC{x} - \gamma(t)\| : \VEC{x} \in \partial \Omega \
@@ -6542,7 +6542,7 @@ Let
 \begin{equation} \label{strongMaxEq4}
   h(\VEC{x}) = e^{-\alpha \|\VEC{x} - \VEC{r}\|^2} - e^{-\alpha \delta_2^2} \ ,
 \end{equation}
-where $\alpha>0$ will be selected later.  We have that
+where $\alpha>0$ will be selected later.  We have
 \begin{equation} \label{strongMaxEq1}
 \begin{split}
 &e^{-\alpha \|\VEC{x} - \VEC{r}\|^2} L(\VEC{x},\diff) h (\VEC{x}) \\
@@ -6568,7 +6568,7 @@ enough.  Suppose that this has been done.
 Let $\displaystyle m = \max_{\VEC{x} \in S_1} h(\VEC{x})$.  Note that
 $m>0$ because $S_1 \cap B_2 \neq \emptyset$.
 Choose $\eta < \epsilon/m$ and let $v = u + \eta h$.
-We get that
+We get
 \[
 v(\VEC{x}) = u(\VEC{x}) + \eta h(\VEC{x})
 < u(\VEC{p}) - \epsilon + \eta\, m < u(\VEC{p})
@@ -6576,7 +6576,7 @@ v(\VEC{x}) = u(\VEC{x}) + \eta h(\VEC{x})
 for all $\VEC{x} \in S_1$.  Since $S_2 \cap \overline{B}_2 = \emptyset$,
 we have that $\|\VEC{x} - \VEC{r}\|>\delta_2$ for all
 $\VEC{x} \in S_2$.  Thus, $h(\VEC{x}) < 0$ for all $\VEC{x} \in S_2$ and
-we get that
+we get
 \[
 v(\VEC{x}) = u(\VEC{x}) + \eta h(\VEC{x}) < u(\VEC{x}) \leq u(\VEC{p})
 \]
@@ -6589,7 +6589,7 @@ the gradient of $v$ is null and its Hessian matrix is negative
 semi-definite at $\VEC{q}_2$; namely, $\nabla v(\VEC{q}_2) = \VEC{0}$ and 
 $\displaystyle \sum_{i,j=1}^n \diff_{x_i x_j} v(\VEC{q}_2) y_i y_j \leq 0$
 for all $\displaystyle \VEC{y} \in \RR^n$.  Moreover, since
-$L(\VEC{x},\diff)$ is elliptic on $\Omega$, we also get
+$L(\VEC{x},\diff)$ is elliptic on $\Omega$, we also get that
 $\displaystyle \sum_{i,j=1}^n b_{i,j}(\VEC{q}_2) y_i y_j \geq 0$
 for all $\displaystyle \VEC{y} \in \RR^n$.
 
@@ -6898,7 +6898,7 @@ v: \overline{\Omega} & \rightarrow \RR \\
 Suppose that $\Omega$ is bounded.  Then
 $\displaystyle v \in L^2(\Omega) \cap L^1(\Omega)$ because
 $v$ is continuous on the compact set $\overline{\Omega}$.  Moreover,
-for any multi-index $\VEC{\alpha}$ with $|\VEC{\alpha}|=1$, we have
+for any multi-index $\VEC{\alpha}$ with $|\VEC{\alpha}|=1$, we have that
 $\displaystyle \diff^{\VEC{\alpha}} v = g'(u-K) \diff^{\VEC{\alpha}} u$
 in the sense of distributions with $|g'|\leq 1$ and
 $\displaystyle \diff^{\VEC{\alpha}} u\in L^2(\Omega)$
@@ -6941,7 +6941,7 @@ continuous on $\Omega$.
 Thus $u(\VEC{x}) \leq K$ for all $\VEC{x}\in \Omega$.
 
 \stage{i.b}
-If $\Omega$ is not bounded, we must have $K\geq 0$ because
+If $\Omega$ is not bounded, then we must have $K\geq 0$ because
 $f(\VEC{x}) \leq K<0$ for almost all $\VEC{x}$ and
 $\Omega$ not bounded implies that $\displaystyle f \not\in L^2(\Omega)$.
 Choose $K_0 > K$ and let
@@ -6974,7 +6974,7 @@ With this choice of $v$ in (\ref{ell_max_eq1}), we get
 Moreover, it follows from $|g(u-K_0)| \leq |u|$ that
 $\displaystyle v \in L^1(\Omega)$ as we now prove.  Let
 $\displaystyle S = \left\{ \VEC{x} : u(\VEC{x}) > K_0 \right\}$.  We
-have that
+have
 \[
 \int_\Omega \left|g(u-K_0)\right| \dx{\VEC{x}}
 = \int_S \left|g(u-K_0)\right| \dx{\VEC{x}}
@@ -7067,7 +7067,7 @@ in the proof of Proposition~\ref{ell_max_DP}.  We define
 $\displaystyle h\in C^1(\RR)$ by $h(x) = -g(-x)$
 for $x\in \RR$.  As in the proof of Proposition~\ref{ell_max_DP}, we have
 that $\displaystyle v=h(u) \in H^{1,2}_0(\Omega)$.  If we substitute
-$v=h(u)$ in (\ref{ell_max_eq3}), we get
+$v=h(u)$ in (\ref{ell_max_eq3}), then we get
 \[
 \sum_{i,j=1}^n
 \int_\Omega b_{i,j} \, \diff_{x_j} u \, \diff_{x_i} u \,
@@ -7165,7 +7165,7 @@ The proof is similar to the proof of Proposition~\ref{ell_max_DP}.
 We have present some examples of the variational method to solve
 elliptic partial differential equations in the previous sections.
 More examples can be found in \cite{Br,Sal}.  The presentation of the
-variational method in \cite{Sal} is slightly different the our
+variational method in \cite{Sal} is slightly different than our
 presentation.  In particular, they do not use Stampacchia's theorem,
 Theorem~\ref{fu_an_stamp}.  Nevertheless, they have many interesting
 examples with their physical motivation and interpretation.  This is

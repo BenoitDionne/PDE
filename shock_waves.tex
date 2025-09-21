@@ -251,7 +251,7 @@ Therefore,
 \left( \pdydx{u}{y} + \pdfdx{G(u)}{x}\right) \psi \dx{x}\dx{y} 
 + \int_{-a}^a \left( u(x,0) - h(x) \right) \psi(x,0) \dx{x} = 0
 \]
-for all $\psi \in \DD(B)$.  We get that
+for all $\psi \in \DD(B)$.  We get
 \[
 \int_0^b \int_{-a}^a \left(\pdydx{u}{y} + \pdfdx{G(u)}{x} \right)
 \mu \dx{x}\dx{y}  = 0
@@ -481,7 +481,7 @@ $u$ is discontinuous at $(1,1)$.
 
 The graph of $u(x,y)$ for some fixed values of $y$ can be found in
 Figure~\ref{shock_fig5}.  The shock wave travels at a speed of $1/2$.
-For the Burgers' equation, we have that
+For the Burgers' equation, we have
 \[
 \pdydx{x}{y}(x_l,y) = u(x_l,y) = \dydx{G}{u}(u(x_l,y))
 > \gamma'(y) > \dydx{G}{u}(u(x_r,y)) = u(x_r,y) = \pdydx{x}{y}(x_r,y) 
@@ -584,7 +584,7 @@ $y_0 \geq 0$, then (\ref{BERankHugForm}) yields
 $\displaystyle \gamma'(y) = (u^+(\VEC{p})+u^-(\VEC{p}))/2$
 for all $\VEC{p}=(\gamma(y),y) \in \Gamma$.  If we set $u(x,y) = 0$
 for $(x,y)$ on the left side of $\Gamma$ and $1$ on the right side
-of $\Gamma$, we get $\displaystyle \gamma'(y) = 1/2$ and the solution
+of $\Gamma$, then we get $\displaystyle \gamma'(y) = 1/2$ and the solution
 $u_0$.  As we will see shortly, this type of ``shock waves'' is not
 physically acceptable.
 
@@ -634,7 +634,7 @@ solution of (\ref{shock_burgers_g}) for all $\mu \in \RR$ but the
 initial condition will not be satisfied for $\mu \leq 0$.}.
 Therefore, we seek a solution of the form $u(x,y) = w(x/y)$ where
 $\displaystyle w \in C^1(\RR)$.  If we set $z = x/y$ and
-substitute $u(x,y) = w(z)$ in (\ref{shock_burgers_g}), we get
+substitute $u(x,y) = w(z)$ in (\ref{shock_burgers_g}), then we get
 \begin{align*}
 0 &= \pdydx{u}{y}(x,y) + \pdfdx{G(u(x,y))}{x}
 = -\frac{x}{y^2}\, \dydx{w}{z}(z) + \frac{1}{y}\,\dydx{G}{w}(w(z))
@@ -649,7 +649,7 @@ If $\displaystyle \dydx{w}{z}(z) \neq 0$ for all $z$ in an open
 subset $V$ of $\RR$, then
 $\displaystyle \dydx{G}{w}(w(z)) = z$ for all $z\in V$.  In fact, the
 converse is also true.  If we derive $\displaystyle \dydx{G}{w}(w(z)) = z$
-with respect to $z$, we get
+with respect to $z$, then we get
 $\displaystyle \dydxn{G}{w}{2}(w(z))\dydx{w}{z}(z) = 1$ for $z\in V$.  Since
 $\displaystyle \dydxn{G}{w}{2}(w) > 0$, we get that 
 $\displaystyle \dydx{w}{z}(z) \neq 0$ for $z \in V$.
@@ -840,7 +840,7 @@ interesting proof.
 
 Suppose that $u_1$ and $u_2$ are the two strong solutions of
 (\ref{shock_burgers_g}) mentioned in the statement of the theorem.  We
-then have that
+then have
 \begin{equation} \label{shock_uniqueEq1}
 \int_{[0,\infty[} \int_{\RR}
 \left(u_i\,\pdydx{\psi}{y} + G(u_i)\,\pdydx{\psi}{x} \right) \dx{x}\dx{y}
@@ -848,7 +848,7 @@ then have that
 \end{equation}
 for $i \in \{1,2\}$, and all $\psi \in \DD(\RR\times [0,\infty[)$.
 If we subtract (\ref{shock_uniqueEq1}) with $i=1$
-from (\ref{shock_uniqueEq1}) with $i=2$, we get
+from (\ref{shock_uniqueEq1}) with $i=2$, then we get
 \begin{equation} \label{shock_uniqueEq2}
 \begin{split}
 0&= \int_{[0,\infty[} \int_{\RR}
@@ -901,7 +901,7 @@ $\displaystyle {\cal G}^{[j]}(x,y) \equiv
 for $(x,y) \in \RR \times [0,\infty[$.
 
 Given $\phi \in \DD(\RR\times ]0,\infty[)$ and $\displaystyle \psi^{[j]}$
-satisfying (\ref{shock_uniqueEq3}), we have that
+satisfying (\ref{shock_uniqueEq3}), we have
 \begin{align}
 &\int_{[0,\infty[} \int_{\RR}
 \left(u_2 - u_1 \right) \phi \dx{y} \dx{x} \nonumber \\
@@ -1082,7 +1082,7 @@ y/M + a < x < -y/M + b \right\} \ .
 \]
 To prove that $\displaystyle \supp \psi^{[j]} \subset R$, we prove
 that $\displaystyle \psi^{[j]}(x,y) = 0$ for all $(x,y) \not\in R$.
-If $y \geq Y$, we have from (\ref{shock_uniqueEq5}) that
+If $y \geq Y$, then we have from (\ref{shock_uniqueEq5}) that
 $\displaystyle \psi^{[j]}(x,y) = 0$ for all $x \in \RR$
 because $\phi(x,y) =0$ for all $x\in \RR$ and $y \geq Y$.  We only have
 to consider $y<Y$.  It follows from (\ref{shock_uniqueEq7}) that
@@ -1117,7 +1117,7 @@ $\displaystyle \psi^{[j]}\left(x^{[j]}(y,x,y),y\right) =
 converges to ${\cal G}$ in $\displaystyle L^1(K)$ for all compact
 sets $K \subset \RR \times [0,\infty[$.
 
-We have that
+We have
 \begin{equation} \label{shock_uniqueEq9}
 {\cal G}(p,q) = \int_0^1 G'(t q + (1-t) p) \dx{t}
 \end{equation}
@@ -1273,7 +1273,7 @@ We get from (\ref{shock_uniqueEq5}) that
 \pdydx{x^{[j]}}{x}(s,x,y) \dx{s}
 =\int_Y^y \pdydx{\phi}{x}(x^{[j]}(s,x,y),s)\, w_j(s,x,y) \dx{s} \ .
 \]
-Thus, for $\alpha \leq y \leq Y$, we have that
+Thus, for $\alpha \leq y \leq Y$, we have
 \begin{equation} \label{shock_uniqueEq10}
 \left| \pdydx{\psi^{[j]}}{x}(x,y) \right| \leq (Y-\alpha) P 
 e^{C\tilde{M}(Y-\alpha)/\alpha}
@@ -1319,14 +1319,14 @@ Theorem~\ref{Shock_EUth}.}{shock_fig22}
 
 We now show that $\displaystyle V(\psi^{[j]}_y) = V(\psi^{[j]}_{1/N})$ for all
 $0 < y < 1/N$.   Given any sequence
-$x_1 < x_2 < \ldots < x_n$ in $\RR$, we have that
+$x_1 < x_2 < \ldots < x_n$ in $\RR$, we have
 \[
 \sum_{i=1}^{n-1} \left|\psi^{[j]}_y(x_{i+1}) - \psi^{[j]}_y(x_i)\right|
 = \sum_{i=1}^{n-1} \left|\pdydx{\psi^{[j]}}{x}(z_i,y)\right|
 (x_{i+1}- x_i)
 \]
 for some $z_i \in ]x_i,x_{i+1}[$ for $1\leq i < N$.
-We also have that
+We also have
 \begin{align*}
 \sum_{i=1}^{n-1} \left|\psi^{[j]}_y(x_{i+1}) - \psi^{[j]}_y(x_i)\right|
 &= \sum_{i=1}^{n-1} \left|\psi^{[j]}_y(x^{[j]}(1/N,x_{i+1},y))
@@ -1416,7 +1416,7 @@ given implicitly by (\ref{shock_burgers_sol}) as long as no $x$,$y$
 characteristics intersect.  If we assume that
 $\displaystyle u \in C^1(\RR\times]0,\infty[)$ and
 $\displaystyle g,h \in C^1(\RR)$ and derive both sides of
-(\ref{shock_burgers_sol}) with respect to $x$, we get
+(\ref{shock_burgers_sol}) with respect to $x$, then we get
 \[
 \pdydx{u}{x} = h'(x-g(u)\,y) \left( 1 - y\,g'(u) \pdydx{u}{x}\right) \ .
 \]
@@ -1479,7 +1479,7 @@ a constant as $y \to \infty$
 \end{theorem}
 
 If $u$ is a periodic solution of (\ref{shock_burgers_g}) of period
-$P$, we have that $\displaystyle \int_0^P u(x,y) \dx{x}$ is constant
+$P$, then we have that $\displaystyle \int_0^P u(x,y) \dx{x}$ is constant
 with respect to $y$ because the total variation of $x \mapsto u(x,y)$
 is constant on intervals of same length \footnote{In fact, this is the
 fundamental principle used to deduce the conservation law
@@ -1548,7 +1548,8 @@ rewrite (\ref{psystEq1}) as a second order partial differential
 equation.  If we derive $\displaystyle \pdydx{u_2}{x} = \pdydx{u_1}{y}$
 with respect to $y$ and
 $\displaystyle \pdydx{u_2}{y} + \pdfdx{p(u_1)}{x} = 0$ with respect to
-$x$, we get $\displaystyle \pdydxnm{u_2}{x}{y}{2}{}{} = \pdydxn{u_1}{y}{2}$
+$x$, then we get
+$\displaystyle \pdydxnm{u_2}{x}{y}{2}{}{} = \pdydxn{u_1}{y}{2}$
 and
 $\displaystyle \pdydxnm{u_2}{y}{x}{2}{}{} + \pdfdxn{p(u_1)}{x}{2} = 0$
 respectively.  Thus
@@ -1561,7 +1562,7 @@ equation is to realize that the equation
 $\displaystyle \pdydx{u_1}{y} = \pdydx{u_2}{x}$ implies that
 $\displaystyle u_2 = \pdydx{w}{y}$ and
 $\displaystyle u_1 = \pdydx{w}{x}$ for some function $w:\RR\times [0,\infty[$.
-If we substitute these expressions in (\ref{psystEq1}), we get
+If we substitute these expressions in (\ref{psystEq1}), then we get
 $\displaystyle \pdydxn{w}{y}{2} +
 \pdfdx{p\left(\pdydx{w}{x}\right)}{x}
 = \pdydxn{w}{y}{2} + \dydx{p}{v}\left(\pdydx{w}{x}\right)
@@ -1837,7 +1838,7 @@ u_2 - u^-_2 = ( u_1 - u^-_1)
 \left(\frac{p(u_1) - p(u^-_1)}{u^-_1 - u_1}\right)^{1/2}
 = -\big( (u^-_1 - u_1) (p(u_1) - p(u^-_1)) \big)^{1/2}
 \]
-for $\displaystyle u_1 < u^-_1$.  We have that
+for $\displaystyle u_1 < u^-_1$.  We have
 \[
 \pdydx{u_2}{u_1} = \frac{p(u_1) - p(u^-_1) - (u^-_1 - u_1)p'(u_1)}
 {2\big( (u^-_1 - u_1) (p(u_1) - p(u^-_1)) \big)^{1/2}} > 0
@@ -1907,7 +1908,7 @@ u_2 - u^-_2 = -( u_1 - u^-_1)
 \left(\frac{p(u_1) - p(u^-_1)}{u^-_1 - u_1}\right)^{1/2}
 = - \big( (u^-_1 - u_1) (p(u_1) - p(u^-_1)) \big)^{1/2}
 \]
-for $\displaystyle u_1 > u^-_1$.  We have that
+for $\displaystyle u_1 > u^-_1$.  We have
 \[
 \pdydx{u_2}{u_1} = \frac{p(u_1) - p(u^-_1) - (u^-_1 - u_1)p'(u_1)}
 {2\big( (u^-_1 - u_1) (p(u_1) - p(u^-_1)) \big)^{1/2}} < 0
@@ -1984,7 +1985,7 @@ $\displaystyle \dydx{w}{z} \neq \VEC{0}$ for an eigenvector, we get
 \dydx{w_2}{w_1} = \dydx{w_2}{z} \left(  \dydx{w_1}{z} \right)^{-1}
 = \sqrt{-p'(w_1)} \ .
 \]
-If we integrate from $\displaystyle u_1^-$ to $u_1$, we get
+If we integrate from $\displaystyle u_1^-$ to $u_1$, then we get
 \begin{equation} \label{psystEq5}
 u_2 - u_2^- = \int_{u_1^-}^{u_1} \sqrt{-p'(v)} \dx{v}
 \end{equation}
@@ -2034,7 +2035,7 @@ $\displaystyle \dydx{w}{z} \neq \VEC{0}$ for an eigenvector, we get
 \dydx{w_2}{w_1} = \dydx{w_2}{z} \left(  \dydx{w_1}{z} \right)^{-1}
 = -\sqrt{-p'(w_1)} \ .
 \]
-If we integrate from $\displaystyle u_1^-$ to $u_1$, we get
+If we integrate from $\displaystyle u_1^-$ to $u_1$, then we get
 \begin{equation} \label{psystEq6}
 u_2 - u_2^- = -\int_{u_1^-}^{u_1} \sqrt{-p'(v)} \dx{v}
 \end{equation}
@@ -2159,7 +2160,7 @@ $\Sigma = \{ (\rho(y),y) : y \geq 0 \}$ such that
   \dfdx{u(\rho(y),y)}{y} = \VEC{0}
 \]
 for a solution $u$ of (\ref{systConLawEq1}).  If $\Sigma$ is a $x$,$y$
-characteristic, we therefore have that
+characteristic, then we have
 \begin{align*}
 \VEC{0} &= \pdydx{u(\rho(y),y)}{y} + \rho'(y)\, \pdydx{u(\rho(y),y)}{x} 
 = -(\diff G)(u(\rho(y),y))\, \pdydx{u(\rho(y),y)}{x}
@@ -2238,7 +2239,7 @@ $\lambda_2(\VEC{u})$ is
 $\displaystyle q_2(\VEC{u}) = \begin{pmatrix} -1 \\ \sqrt{-p'(u_1)}
 \end{pmatrix}$.
 
-We have that 
+We have
 \[
 \graD \lambda_1(\VEC{u}) \cdot q_1(\VEC{u}) =
 \left( \frac{p''(u_1)}{2 \sqrt{-p'(u_1)}} , 0 \right)
@@ -2499,7 +2500,7 @@ This does not need to be.}.
 
 Since
 $\displaystyle \pdydx{u}{y} + \diff G(u) \, \pdydx{u}{x} = \VEC{0}$
-for $u \in U$, we have that
+for $u \in U$, we have
 \[
   \pdydx{u}{y}(\rho(y),y) + (\diff G)(u(\rho(y),y))
   \, \pdydx{u}{x}(\rho(y),y) = \VEC{0}
@@ -2518,7 +2519,7 @@ for $y \in I$.  Hence,
 \end{align*}
 for $y \in I$.
 
-Moreover, since $w_j$ is constant on $U$, we have that
+Moreover, since $w_j$ is constant on $U$, we have
 \[
 (\diff w_j)(u(\rho(y),y)) \, \pdfdx{u(\rho(y),y)}{y}
   = \pdfdx{w_j(u(\rho(y),y))}{y} = 0
@@ -2882,7 +2883,7 @@ for all $\VEC{u}$.
 \end{egg}
 
 If $u:\RR\times ]0,\infty[ \to U$ is a classical solution of
-(\ref{systConLawEq1}), we have that
+(\ref{systConLawEq1}), then we have
 \begin{align*}
 &\pdfdx{E(u(x,y))}{y} + \pdfdx{F(u(x,y))}{x}
 = (\diff E)(u(x,y)) \pdydx{u}{y}(x,y) + (\diff F)(u(x,y)) \pdydx{u}{x}(x,y)  \\
@@ -3094,7 +3095,7 @@ $\displaystyle s^3$.
 We obviously have that $H(0) = 0$.
 
 If we differentiate $\displaystyle G(S_i(s))-G(S_i(0))
-= \eta(s) \left(S_i(s) - S_i(0)\right)$ with respect to $s$, we get
+= \eta(s) \left(S_i(s) - S_i(0)\right)$ with respect to $s$, then we get
 \[
   (\diff G)(S_i(s)) \dydx{S_i}{s}(s) = 
 \eta'(s) \left(S_i(s) - S_i(0)\right)
@@ -3116,7 +3117,7 @@ Hence
 + \eta'(s) (\diff E)(S_i(s)) \left(S_i(s) - S_i(0)\right) \ .
 \end{align*}
 It follows that $\displaystyle \dydx{E}{s}(0) = 0$.  Moreover, after
-some computations, we get that
+some computations, then we get
 \begin{align*}
 \dydxn{H}{s}{2}(s)
 % &= \eta''(s) \big( E(S_i(0)) - E(S_i(s)) \big)
@@ -3134,7 +3135,7 @@ some computations, we get that
 \end{align*}
 Again, it is easy to see that 
 $\displaystyle \dydxn{E}{s}{2}(0) = 0$.  Finally, after a bit more
-computations, we get that
+computations, we get
 % \begin{align*}
 % \dydxn{H}{s}{3}(s)
 % &= \gamma^{(4)}(s) \big( E(S_i(0)) - E(S_i(s)) \big)
@@ -3200,7 +3201,7 @@ $\displaystyle U \subset \RR^n$
 and that $\displaystyle u^{[\epsilon]}$ is a classical solution of
 (\ref{systConLawEq1Pert}).  If we multiply both sides of
 (\ref{systConLawEq1Pert}) by
-$\displaystyle (\diff E)(u^{[\epsilon]})$, we get
+$\displaystyle (\diff E)(u^{[\epsilon]})$, then we get
 \begin{align*}
 &(\diff E)(u^{[\epsilon]})\, \pdydx{u^{[\epsilon]}}{y}
 + (\diff E)(u^{[\epsilon]})\, \pdydx{G(u^{[\epsilon]})}{x}

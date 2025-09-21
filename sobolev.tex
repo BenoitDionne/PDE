@@ -208,7 +208,7 @@ $\displaystyle \sum_{|\VEC{\alpha}|= k} \left|\VEC{y}^{2\VEC{\alpha}}\right|
 \geq C_1' \|\VEC{y}\|_2^{2k}$
 because $\displaystyle \sum_{|\VEC{\alpha}|= k}
 \left|\VEC{z}^{2\VEC{\alpha}}\right|$
-is an homogeneous function of degree $2k$.  We have that
+is an homogeneous function of degree $2k$.  We have
 \begin{align*}
 \left(1+\|\VEC{y}\|_2^2\right)^k &\leq
 2^k \max\left\{1, \|\VEC{y}\|_2^{2k}\right\}
@@ -229,7 +229,7 @@ C_1 \left(1+\|\VEC{y}\|^2\right)^k
 for $\displaystyle \VEC{y} \in \RR^n$, where
 $\displaystyle C_1 = 1/(2^k C_1'')$.
 
-\stage{ii}  We have that
+\stage{ii}  We have
 \begin{align*}
 \|f\|_{k,\rho} < \infty
 &\Leftrightarrow \int_{\RR^n} \left| \hat{f}(\VEC{y})\right|^2
@@ -331,7 +331,7 @@ $\displaystyle \|\diff^{\VEC{\alpha}} f\|_{s-|\VEC{\alpha}|,2} \leq
 by definition of the norm $\|\cdot\|_{s,2}$.
 
 For $\displaystyle f \in W^{s,2}(\RR^n)$ and a multi-index $\VEC{\alpha}$
-such that $|\VEC{\alpha}| \leq s$, we have that
+such that $|\VEC{\alpha}| \leq s$, we have
 \begin{align}
 \|\diff^{\VEC{\alpha}} f\|_{s-|\VEC{\alpha}|,\rho}^2 &= \int_{\RR^n}
 \left| (\diff^{\VEC{\alpha}} f)^\wedge(\VEC{y}) \right|^2
@@ -512,7 +512,7 @@ $\psi(\VEC{x}) = 0$ for
 $\displaystyle \VEC{x} \in \RR^n \setminus U$ \footnote{See
 footnote on page~\pageref{FOOTNOTE1}}.
 
-We have that
+We have
 \begin{align*}
 (\diff^{\VEC{\alpha}} \underline{f})(\phi)
 &= (-1)^{|\VEC{\alpha}|} \int_V \underline{f}(\VEC{x})
@@ -528,7 +528,7 @@ The second and fourth equality are a
 consequence of $\phi \psi = \phi$ in $K$.  The third equality comes
 from $\displaystyle f \in W^{k,p}(\Omega)$ and $\psi \phi \in \DD(\Omega)$.
 Since $\phi \in \DD(V)$ and $|\alpha|\leq k$ are arbitrary,
-we get $\displaystyle \diff^{\VEC{\alpha}} \underline{f}
+we get that $\displaystyle \diff^{\VEC{\alpha}} \underline{f}
 = \underline{\diff^{\VEC{\alpha}} f}$
 almost everywhere in $V$.
 \end{proof}
@@ -596,7 +596,7 @@ $\displaystyle \underline{\diff^{\VEC{\alpha}} f} \ast
 \psi_\epsilon \in L^p(\RR^n)$.
 
 For $\epsilon < \dist{\partial \Omega}{U}$, $\phi \in \DD(U)$ and
-$|\VEC{\alpha}|\leq k$, we have that
+$|\VEC{\alpha}|\leq k$, we have
 \begin{align*}
 \diff^{\VEC{\alpha}}(\underline{f} \ast \psi_\epsilon)(\phi)
 &= (-1)^{|\VEC{\alpha}|} \int_{\RR^n}
@@ -631,7 +631,7 @@ $\displaystyle \underline{\diff^{\VEC{\alpha}} f}(\VEC{y} - \VEC{x})
 = \diff^{\VEC{\alpha}} f(\VEC{y}-\VEC{x})$ respectively 
 for $\VEC{x} \in U$ and $\VEC{y} \in B_\epsilon(\VEC{0})$ because
 $U + B_\epsilon(\VEC{0}) \subset \Omega$ for our choice of $\epsilon$.
-We have use integration by parts for the fifth equality with
+We have used integration by parts for the fifth equality with
 $\supp \phi \subset U$.
 
 Since the previous relation is true for all $\phi \in \DD(U)$, we get that
@@ -808,7 +808,7 @@ where $\VEC{\beta} \leq \VEC{\alpha}$ means $\beta_j \leq \alpha_j$ for all $j$
 and $\displaystyle \binom{\VEC{\alpha}}{\VEC{\beta}} = 
 \prod_{j=1}^n \binom{\alpha_j}{\beta_j}$.  We are obviously talking
 about derivative in the sense of distributions.
-In particular, we have that
+In particular, we have
 \[
 \left\| \diff^{\VEC{\alpha}} f_\delta \right\|_p
 \leq M \sum_{\VEC{\beta}\leq \VEC{\alpha}} \binom{\VEC{\alpha}}{\VEC{\beta}}
@@ -888,7 +888,7 @@ $\displaystyle \underline{f}_i \ast \psi_\epsilon \in \DD(\RR^n)$ and
 \quad \text{as} \quad \epsilon \to 0^+ \ .
 \]
 We choose $\xi_i$ to be $\underline{f}_i \ast \psi_\epsilon$
-for $\epsilon$ small enough to get
+for $\epsilon$ small enough to get that
 $\displaystyle \left\|\xi_i - f_i\right\|_{k,p,\Omega}
 = \left\| \underline{f}_i \ast \psi_\epsilon - f_i \right\|_{k,p,\Omega}
 < \epsilon/I$.
@@ -932,7 +932,7 @@ $\displaystyle \underline{f}_{i,\delta_i} \ast \psi_\epsilon \to
 \underline{f}_{i,\delta_i}$ in $\displaystyle W^{k,p}(\Omega)$ 
 as $\epsilon \to 0$.  Choose $\xi_i$ to be
 $\underline{f}_{i,\delta_i} \ast \psi_\epsilon$
-for $\epsilon$ small enough to get
+for $\epsilon$ small enough to get that
 $\displaystyle \left\|\underline{f}_{i,\delta_i} - \xi_i\right\|_{k,p,\Omega}
 < \epsilon/(2I)$.
 Then
@@ -1015,7 +1015,7 @@ $\displaystyle \diff^{\VEC{\alpha}} f \ast \psi_\epsilon \in L^p(\RR^n)$ for all
 $|\VEC{\alpha}|\leq k$ because $\displaystyle f \in W^{k,p}(\RR^n)$ implies that
 $\displaystyle \diff^{\VEC{\alpha}} f \in L^p(\RR^n)$ for all
 $|\VEC{\alpha}|\leq k$.
-Moreover, from Proposition~\ref{distr_comm_der}, we have
+Moreover, from Proposition~\ref{distr_comm_der}, we have that
 $\displaystyle \diff^{\VEC{\alpha}}(f \ast \psi_\epsilon) = \diff^{\VEC{\alpha}} f
 \ast \psi_\epsilon$ in the sense of distributions.  Thus
 $\displaystyle f \ast \psi_\epsilon \in W^{k,p}(\RR^n)$.
@@ -1065,7 +1065,7 @@ $\displaystyle \phi_\epsilon(\VEC{x}) = \epsilon^{-n}\phi(\epsilon^{-1} \VEC{x})
 for all $\displaystyle \VEC{x} \in \RR^n$.
 It follows from Proposition~\ref{distr_smooth_convol} that
 $\displaystyle f \ast \phi_{\epsilon} \in C^\infty(\RR^n)$ for all $\epsilon>0$.
-Since both $f$ and $\phi_\epsilon$ have compact support, 
+Since both $f$ and $\phi_\epsilon$ have compact supports, 
 $f \ast \phi_{\epsilon}$ has compact support.  Thus,
 $\displaystyle f \ast \phi_{\epsilon} \in \DD(\RR^n)$.  Moreover, from 
 Proposition~\ref{distr_limit_convol}, we have that
@@ -1191,7 +1191,7 @@ for all $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq k$.  In
 particular, this implies that 
 $\displaystyle f\big|_{\Omega_1}$ defines a proper distribution on $\Omega_1$.
 
-Moreover, for $|\VEC{\alpha}| \leq k$, we have that
+Moreover, for $|\VEC{\alpha}| \leq k$, we have
 \begin{align*}
 \diff^{\VEC{\alpha}} \left(f\big|_{\Omega_1}\right)(\phi)
 &= (-1)^{|\VEC{\alpha}|} \int_{\Omega_1} f\big|_{\Omega_1}(\VEC{x})
@@ -1393,6 +1393,7 @@ following technical lemma is needed first.
 
 \begin{lemma} \label{sob_tri_equ}
 For all $\displaystyle \VEC{x}, \VEC{y} \in \RR^n$ and $m \in \RR$, we have
+that
 $\displaystyle \left(\frac{1+\|\VEC{y}\|^2}{1+\|\VEC{x}\|^2} \right)^m
 \leq 2^{|m|} \left(1+\|\VEC{y}-\VEC{x}\|^2\right)^{|m|}$.
 \end{lemma}
@@ -1406,7 +1407,7 @@ $\displaystyle \left(\|\VEC{y} - \VEC{x}\| - \|\VEC{x}\|\right)^2 \geq 0$
 that $\displaystyle 2\|\VEC{x}\|\,\|\VEC{y}-\VEC{x}\|
 \leq \|\VEC{y} - \VEC{x}\|^2 + \|\VEC{x}\|^2$.  Hence, from
 $\displaystyle \|\VEC{y}\| \leq \|\VEC{y}-\VEC{x}\| +\|\VEC{x}\|$, we
-get that
+get
 \[
 \|\VEC{y}\|^2 \leq \left( \|\VEC{y}-\VEC{x}\| +\|\VEC{x}\| \right)^2
 = \|\VEC{y}-\VEC{x}\|^2 +\|\VEC{x}\|^2 +2 \|\VEC{y}-\VEC{x}\|\,\|\VEC{x}\|
@@ -1466,7 +1467,7 @@ Theorem~\ref{distr_GyoungI}, we only have to prove that
 \sup_{\VEC{y}\in\RR^n}
 \int_{\RR^n} |K(\VEC{y},\VEC{z})|\dx{\rho(\VEC{z})} < C
 \]
-for some constant $C$ to get
+for some constant $C$ to get that
 $\displaystyle \|T(h) \|_{2,\rho} \leq C \|h\|_{2,\rho}$ for
 $\displaystyle h \in L^2(\RR^n,\rho)$.  From
 Lemma~\ref{sob_tri_equ}, we get
@@ -1495,7 +1496,7 @@ $\displaystyle \hat{\phi} \in \SS(\RR^n)$ by
 Proposition~\ref{distr_frr_tempT}.  It suffices to take
 $C = \max\{C_1,C_2\}$ to reach the conclusion.
 
-However, We have that 
+However, We have
 \begin{align*}
 (\phi\,f)^\wedge(\VEC{y}) &= (\hat{\phi}\ast \hat{f})(\VEC{y})
 = \int_{\RR^n} \hat{\phi}(\VEC{y} - \VEC{z}) \hat{f}(\VEC{z})
@@ -1740,7 +1741,7 @@ $\displaystyle W^{k,p}(\RR^n)$ as $i \to \infty$.
 
 Since $1/i \to 0$ as $i\to \infty$, there exists $J>0$ such that $1/i<d$
 for $i > J$.  Let $\psi_i = \underline{f} \ast \phi_{i+J}$ for $i>0$.
-We have that
+We have
 \[
   \supp \psi_i \subset \supp f + \supp\, \phi_{i+J}
   \subset K + \overline{B_{1/(i+j)}(\VEC{0})}
@@ -2264,7 +2265,7 @@ $\displaystyle \DD'(\RR^n)$ is the space of continuous linear
 functionals on $\displaystyle \DD(\RR^n)$.
 
 For $\displaystyle \phi \in \SS(\RR^n) \subset H^{s,2}(\RR^n)$ and
-$\psi \in \SS(\RR^n) \subset (L^2(\RR^n))^\ast = L^2(\RR^n)$, we have that
+$\psi \in \SS(\RR^n) \subset (L^2(\RR^n))^\ast = L^2(\RR^n)$, we have
 \begin{align*}
 \psi\left(T^{[s]}(\phi)\right)
 &= \int_{\RR^n}  \left( \int_{\RR^n} e^{i\VEC{z}\cdot \VEC{y}} \left(
@@ -2297,11 +2298,12 @@ surjective isometry is a surjective isometry.}.  So,
 $\displaystyle T^{[s]} = (T^{[s]})^\ast$ is an isometry of 
 $\displaystyle L^2(\RR^n)$ onto $\displaystyle \big((H^{s,2}(\RR^n)\big)^\ast$.
 
-For $\displaystyle \phi \in \SS(\RR^n)$, we have that
+For $\displaystyle \phi \in \SS(\RR^n)$, we have
 \begin{align*}
 \left\| T^{[s]}(\phi)\right\|_{-s,\rho}^2
 &= \int_{\RR^n} (1+\|\VEC{z}\|_2^2)^{-s}
-\left| \F\left( \F^{-1}\left( (1+\|\VEC{y}\|_2^2)^{s/2} \F(\phi)\right)\right)(\VEC{z})
+\left| \F\left( \F^{-1}\left(
+(1+\|\VEC{y}\|_2^2)^{s/2} \F(\phi)\right)\right)(\VEC{z})
 \right|^2 \dx{\VEC{z}} \\
 &= \int_{\RR^n} \left| \F(\phi) (\VEC{z}) \right|^2 \dx{\VEC{z}}
 = \left\| \F(\phi) \right\|_2^2 = \|\phi\|_2^2 \ ,
@@ -2317,7 +2319,7 @@ $\displaystyle L^2(\RR^n)$ onto $\displaystyle H^{-s,2}(\RR^n)$.
 To be thorough, we shall probably prove our previous claim that
 $\displaystyle H^{-s,2}(\RR^n) \subset \big(H^{s,2}(\RR^n)\big)^\ast$.
 This is a consequence of the following observation.
-Given $\displaystyle f \in H^{-s,2}(\RR^n)$, we have that
+Given $\displaystyle f \in H^{-s,2}(\RR^n)$, we have
 \begin{align*}
 |f(g)| &= \left| \int_{\RR^n} f(\VEC{x}) g(\VEC{x}) \dx{\VEC{x}} \right|
 = \left| \int_{\RR^n} \hat{f}(\VEC{y}) \hat{g}(\VEC{x}) \dx{\VEC{x}} \right| \\
@@ -2413,7 +2415,7 @@ Let $\Omega$ be an open subset of $\displaystyle \RR^n$.  The space
 $\displaystyle W_0^{k,2}(\Omega)$ can always be extended to
 $\displaystyle W^{k,2}(\RR^n)$.  If 
 $\displaystyle f\in W_0^{k,2}(\Omega)$, we define $f(\VEC{x}) =0$ for
-$\displaystyle \VEC{x} \in \RR^n\setminus \Omega$ to get
+$\displaystyle \VEC{x} \in \RR^n\setminus \Omega$ to get that
  $\displaystyle f \in W^{k,2}(\RR)$.
 The element of $\displaystyle W_0^{k,2}(\Omega)$ are the elements of
 $\displaystyle W^{k,2}(\RR)$
@@ -2560,7 +2562,7 @@ and obviously
 (\diff^{\VEC{\alpha}} \phi)(\VEC{x})) = \diff^{\VEC{\alpha}} \phi (\VEC{x})
 \]
 for $|\VEC{\alpha}| \leq m$ and $\displaystyle \VEC{x} \in \RR^n_+$.
-Moreover, we have that
+Moreover, we have
 \[
 \lim_{\substack{\VEC{x}\to (\breve{\VEC{z}},0)\\x_n<0}}
 \diff^{\VEC{\alpha}} (E(\phi))(\VEC{x}) 
@@ -2572,8 +2574,8 @@ Moreover, we have that
 \]
 for $|\VEC{\alpha}| \leq m$
 because $\displaystyle \sum_{j=1}^{k+1} (-j)^{\alpha_n}a_j = 1$ for
-$0 \leq \alpha_n \leq m \leq k$.  Thus, $E(\phi) \in C^m(\RR^n)$ for
-$\phi \in S$.
+$0 \leq \alpha_n \leq m \leq k$.  Thus,
+$\displaystyle E(\phi) \in C^m(\RR^n)$ for $\phi \in S$.
 
 To prove that $E$ is a bounded linear operator, we note that
 \begin{align*}
@@ -2749,7 +2751,7 @@ of any $J+1$ sets $U_j$ is empty.
 \dist{\VEC{x}}{\partial \Omega}  < \delta \right\}
 \subset \bigcup_{j=0}^\infty \psi_j^{-1}\big(B_{1/2}(\VEC{0})\big) \ .
 \]
-\item For each $j$, we have
+\item For each $j$, we have that
 $\displaystyle \psi_j(U_j\cap \Omega) = B_{1}(\VEC{0}) \cap \RR^n_+$.
 \item There exists $C>0$ such that
 \[
@@ -3004,7 +3006,7 @@ $\displaystyle u' \in L^p(I) \subset L^p(J)$
 where $J$ is the bounded interval with endpoints $x_0$ and
 $x$.  Moreover, $\displaystyle L^p(J) \subset L^1(J)$ because $J$ is bounded.
 
-From Lemma~\ref{sob_ftc}, we have that
+From Lemma~\ref{sob_ftc}, we have
 \[
 \int_I \tilde{w}(x) \phi'(x) \dx{x} = - \int_I u'(x) \phi(x) \dx{x}
 = \int_I u(x) \phi'(x) \dx{x}
@@ -3444,7 +3446,8 @@ bounded and $F$ is a bounded linear mapping.
 
 \stage{i}
 Choose $\displaystyle \phi \in \DD(\RR^n)$ such that $\phi(\VEC{x})=1$ for all
-$\VEC{x}\in K$.  For all $i$, we have $\hat{g}_i = \hat{g}_i \ast \hat{\phi}$
+$\VEC{x}\in K$.  For all $i$, we have that
+$\hat{g}_i = \hat{g}_i \ast \hat{\phi}$
 because $g_i = g_i \, \phi$.  Note that $\hat{g}_i \ast \hat{\phi}$ is
 defined by the standard integration formula because
 $\displaystyle g_i \in H^{k_2,2}(\RR^n) \subset L^2(\RR^n)$ implies
@@ -3681,7 +3684,7 @@ for $|\VEC{\alpha}|=j$ and $\phi \in \DD(\Omega)$.  But
 \sum_{|\VEC{\alpha}|=j+1} \| \diff^{\VEC{\alpha}} \phi \|_{2,\Omega}^2
 = \|\phi\|_{j+1,2,\ast}^2
 \]
-for all $\phi \in \DD(\Omega)$.  Thus, with $C_2=b-a$, we have
+for all $\phi \in \DD(\Omega)$.  Thus, with $C_2=b-a$, we have that
 $\displaystyle \| \diff^{\VEC{\alpha}} \phi \|_{2,\Omega}
 \leq C_2 \|\phi\|_{j+1,2,\ast}$ for
 $|\VEC{\alpha}|=j$ and $\phi \in \DD(\Omega)$.
@@ -3884,7 +3887,7 @@ $\phi_{\breve{\VEC{x}}}(x) = \phi(\breve{\VEC{x}},x) = \phi(\VEC{x})$ for
 $\displaystyle \phi \in \SS(\RR^n)$.  We use a similar notation for
 $\displaystyle \VEC{y} \in \RR^n$.
 
-Given $\displaystyle \phi \in \SS(\RR^n)$, we have that
+Given $\displaystyle \phi \in \SS(\RR^n)$, we have
 \[
 (\phi_{\breve{\VEC{x}}})^\wedge(y) = \int_{-\infty}^\infty \phi(\breve{\VEC{x}},x)
 e^{-ixy} \dx{\mu(x)}
@@ -3898,7 +3901,7 @@ of $\displaystyle (\phi_{\breve{\VEC{x}}})^\wedge$ is
 $\phi_{\breve{\VEC{x}}}$.  If we assume that $T(\phi)$ for
 $\displaystyle \phi \in \SS(\RR^n)$ satisfies
 $T(\phi)(\VEC{z}) = \phi(\VEC{z},0)$ for all
-$\displaystyle \VEC{z} \in \RR^{n-1}$, we have that
+$\displaystyle \VEC{z} \in \RR^{n-1}$, then we have
 \[
 g(\VEC{z}) \equiv T(\phi)(\VEC{z}) = \phi_{\VEC{z}}(0)
 = \F^{-1}\left( (\phi_{\VEC{z}})^\wedge\right)(0)
@@ -4017,7 +4020,7 @@ inverse to $T_0$; namely a continuous mapping
 $\displaystyle S_0:H^{k-1/2}(\RR^{n-1}) \to H^k(\RR^n_+)$.
 Since $\displaystyle \SS(\RR^{n-1})$ is dense in
 $\displaystyle H^{k-1/2}(\RR^{n-1})$,
-we only have to defined the mapping $S_0$ on $\SS(\RR^{n-1})$.
+we only have to defined the mapping $S_0$ on $\displaystyle \SS(\RR^{n-1})$.
 
 We consider the mapping $\displaystyle S:\SS(\RR^{n-1}) \to \SS(\RR^n)$
 defined by
@@ -4036,7 +4039,7 @@ of $S$ are rapidly decreasing functions.
 
 We prove that $S$ is a continuous mapping from
 $\displaystyle H^{k-1/2}(\RR^{n-1})$ to $\displaystyle H^k(\RR^n)$.
-We have that
+We have
 \begin{align*}
 \|S(\phi)\|_{k,\rho}^2
 &= \int_{\RR^n} \left| \F(S(\phi))(\VEC{y}) \right|^2
@@ -4072,7 +4075,7 @@ for all $\displaystyle \phi \in \SS(\RR^{n-1})$.
 Since $\displaystyle \SS(\RR^{n-1})$ is dense in
 $\displaystyle H^{k-1/2}(\RR^{n-1})$.  We can
 extend $S$ to $\displaystyle H^{k-1/2}(\RR^{n-1})$ and still
-have\\
+have that
 $\displaystyle \|S(f)\|_{k,\rho} = (2\pi)^{1/4} C^{-1/2} \|f\|_{k-1/2,\rho}$
 for all $\displaystyle f \in H^{k-1/2}(\RR^{n-1})$.
 
@@ -4089,7 +4092,7 @@ $\displaystyle f \in H^{k-1/2}(\RR^{n-1})$.
 
 The only piece missing to complete the proof of the theorem is to show
 that $S_0$ is really the right inverse of $T_0$.  Using
-(\ref{TraceT0Eq1}), we get that
+(\ref{TraceT0Eq1}), we get
 \begin{align*}
 S(\phi)(\VEC{z},0)
 &= \F^{-1}\left(
@@ -4252,7 +4255,7 @@ Hence,
 \dx{\breve{\VEC{y}}} = \F^{-1}\left(\F(\phi)\right)(\VEC{z})
 = \phi(\VEC{z})
 \end{align*}
-for all $\displaystyle \VEC{z} \in \RR^{n-1}$, we get that
+for all $\displaystyle \VEC{z} \in \RR^{n-1}$, we get
 \[
   T_j(S_j(\phi))(\VEC{z}) = T \left( \pdfdxn{S(\phi)}{x_n}{j} \right)
   = \pdfdxn{S(\phi)}{x_n}{j}(\VEC{z},0) = \phi(\VEC{z})
@@ -4658,7 +4661,7 @@ $\displaystyle g \in H^{k-j -1/2}(\RR^{n-1})$, we have that
 $\displaystyle \pdfdxn{\diff^{\VEC{\alpha}'}
 \tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \to 0$
 in $\displaystyle H^0(\RR^{n-1})$ as $i \to \infty$ for $0 \leq j <m$.
-From Plancherel theorem, we get
+From Plancherel theorem, we get that
 $\displaystyle \pdfdxn{\diff^{\VEC{\alpha}'}
 \tilde{\xi}_i}{x_n}{j}(\VEC{z},0) \to 0$
 in $\displaystyle L^2(\RR^{n-1})$ as $i \to \infty$ for $0 \leq j <m$.
@@ -4684,8 +4687,7 @@ $\displaystyle \int_{\RR^n_+} \left(\diff^{\VEC{\alpha}}
 \to \int_{\RR^n_+} \left(\diff^{\VEC{\alpha}} f\right) \, \phi \dx{\VEC{x}}$
 as $i \to \infty$.
 
-If $i \to \infty$ in (\ref{H0TraceEq1}), we then
-get that
+If $i \to \infty$ in (\ref{H0TraceEq1}), then we get
 \[
 \diff^{\VEC{\alpha}} \underline{f} (\phi)
 = (-1)^{|\VEC{\alpha}|} \int_{\RR^n}
@@ -4937,7 +4939,7 @@ $\VEC{x} \in \Omega$, we have
 \leq \left| f_j(\VEC{x}) \right|^2
 \]
 because $|\xi(x)|\leq |x|$ for all $x \in \RR$.  For $|\VEC{\alpha}|=1$,
-$m \geq 1$ and $\VEC{x}\in \Omega$, we have that
+$m \geq 1$ and $\VEC{x}\in \Omega$, we have
 \[
 \left| \diff^{\VEC{\alpha}} g_m(\VEC{x}) \right|^2 =
 \left| \xi'(mf_j(\VEC{x})) \diff^{\VEC{\alpha}} f_j(\VEC{x}) \right|^2
@@ -4959,8 +4961,8 @@ $\displaystyle K (\diff^{\VEC{\alpha}} f_j)^2$ on $\Omega$, we get from
 the Lebesgue Dominated Convergence Theorem that
 $\displaystyle \left\{ \diff^{\VEC{\alpha}} g_m \right\}_{m=1}^\infty$ converges
 to $\displaystyle \diff^{\VEC{\alpha}} f_j$ in $\displaystyle L^2(\Omega)$.
-Since $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq 1$ is arbitrary, we have
-$\|g_m - f_j\|_{1,2,\Omega} \rightarrow 0$ as $m\rightarrow \infty$.
+Since $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq 1$ is arbitrary, we
+have that $\|g_m - f_j\|_{1,2,\Omega} \rightarrow 0$ as $m\rightarrow \infty$.
 
 \stage{$\mathbf{\Rightarrow}$}
 Using the expansion

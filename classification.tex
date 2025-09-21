@@ -101,7 +101,7 @@ u(\eta,\xi) & = u(x,y) \ , \quad
 \pdydx{u}{\xi} \pdydxnm{\xi}{y}{x}{2}{}{}
 + \pdydx{u}{\eta}\pdydxnm{\eta}{y}{x}{2}{}{}
 \end{align*}
-in (\ref{classif_PDE1}), we get
+in (\ref{classif_PDE1}), then we get
 \begin{equation} \label{classif_PDE3}
 A_{2,0} \pdydxn{u}{\eta}{2}
 + 2A_{1,1}\pdydxnm{u}{\eta}{\xi}{2}{}{}
@@ -432,7 +432,7 @@ root for this polynomial but there are two distinct complex roots:
 \phi_{\pm}(x,y) = \frac{a_{1,1}(x,y) \pm i
 \sqrt{ a_{2,0}(x,y)a_{0,2}(x,y)-a_{1,1}^2(x,y)}}{a_{2,0}(x,y)} \ .
 \]
-If we solve $\displaystyle \dydx{y}{x} = \phi_{+}(x,y)$, we get a family
+If we solve $\displaystyle \dydx{y}{x} = \phi_{+}(x,y)$, then we get a family
 of curves $\displaystyle \psi(x,y) = c \in \CC$.
 Since
 \[
@@ -509,8 +509,8 @@ a_{2,0}(x,y)\,\pdydx{\eta}{x}\pdydx{\xi}{x}
 \]
 With this change of coordinates, (\ref{classif_PDE1}) becomes
 (\ref{classif_PDE3}) with $A_{2,0} = A_{0,2} \neq 0$ (since $Q$ is
-positively defined) and $A_{1,1} = 0$.  If we divide by $A_{2,0}$, we
-get an equation of the form
+positively defined) and $A_{1,1} = 0$.  If we divide by $A_{2,0}$,
+then we get an equation of the form
 \begin{equation} \label{classif_StandEll}
 \pdydxn{u}{\eta}{2} + \pdydxn{u}{\xi}{2}
 + \alpha_{1,0}(\eta,\xi) \pdydx{u}{\eta}
@@ -533,7 +533,7 @@ is an example of an elliptic equation on all $\displaystyle \RR^2$.
 \subsection{Hyperbolic Equations} \label{classif_class_planeHyper}
 
 Suppose that (\ref{classif_PDE1}) is hyperbolic on an open set of
-$\displaystyle \RR^2$, then we have
+$\displaystyle \RR^2$.  Then
 \[
 \det \begin{pmatrix}
 a_{2,0}(x,y) & a_{1,1}(x,y) \\
@@ -571,7 +571,7 @@ The relation in (\ref{classif_PDE2}) is satisfied because
 = - \phi_{+}(x,y) \neq -\phi_{-}(x,y) = \pdydx{\xi}{x}\bigg/ \pdydx{\xi}{y} \ ,
 \]
 
-If we substitute $\phi_{\pm}$ in (\ref{classif_PDE6}), we get
+If we substitute $\phi_{\pm}$ in (\ref{classif_PDE6}), then we get
 \begin{align*}
 a_{2,0}(x,y) \,\left(\pdydx{\eta}{x}\right)^2 + 2a_{1,1}(x,y)\,
 \pdydx{\eta}{x} \pdydx{\eta}{y}  +
@@ -593,7 +593,7 @@ characteristic curves.
 With the change of coordinates $(x,y)=(x(\eta,\xi),y(\eta,\xi))$,
 equation (\ref{classif_PDE1}) is reduced to
 (\ref{classif_PDE3}) with $A_{2,0} = A_{0,2} = 0$ and $A_{1,1} \neq 0$.
-If we divide by $A_{1,1}$, we get an equation of the form
+If we divide by $A_{1,1}$, then we get an equation of the form
 \begin{equation} \label{classif_StandHyp}
 \pdydxnm{u}{\eta}{\xi}{2}{}{}
 + \alpha_{1,0}(\eta,\xi) \pdydx{u}{\eta}
@@ -689,7 +689,7 @@ we get
 = \pdydxn{u}{\eta}{2} + \pdydxnm{u}{\xi}{\eta}{2}{}{} \  .
 \end{align*}
 If we substitute these expressions for the derivatives in
-(\ref{classif_egg_hypk1}), we get
+(\ref{classif_egg_hypk1}), then we get
 $\displaystyle \pdydxnm{u}{\xi}{\eta}{2}{}{} = 0$.
 We integrate with respect to $\xi$ to get
 $\displaystyle \pdydx{u}{\eta} = H(\eta)$ for some function
@@ -757,7 +757,7 @@ we get
 + \pdydx{u}{\eta} + \xi \pdydxnm{u}{\xi}{\eta}{2}{}{} \  .
 \end{align*}
 If we substitute these expressions for the derivatives in
-(\ref{classif_egg_hypk2}), we get
+(\ref{classif_egg_hypk2}), then we get
 \[
 0 = \frac{\eta}{\xi} \left( \xi^2 \pdydxn{u}{\eta}{2} \right)
 - \xi \left( \eta \pdydxn{u}{\eta}{2}
@@ -846,7 +846,7 @@ we get
 \pdydxnm{u}{\eta}{\xi}{2}{}{} \right) \ .
 \end{align*}
 If we substitute these expressions for the derivatives in
-(\ref{classif_egg_hypb}), we get
+(\ref{classif_egg_hypb}), then we get
 \begin{align*}
 0 &= \sqrt{\xi-\eta} \left(-2\,\pdydx{u}{\eta}
 + 4 (\xi -\eta)\,\pdydxn{u}{\eta}{2} \right)
@@ -873,7 +873,7 @@ u(x,y) = -x + P(y) + Q(y-x^2) \  .
 \subsection{Parabolic Equations}
 
 Suppose that (\ref{classif_PDE1}) is parabolic on an open set of
-$\displaystyle \RR^2$, then we have
+$\displaystyle \RR^2$.  Then
 \begin{equation}\label{pe_cond}
 \det \begin{pmatrix}
 a_{2,0}(x,y) & a_{1,1}(x,y) \\
@@ -933,7 +933,7 @@ $A_{1,1}=0$.
 Therefore, with the change of coordinates $(x,y)=(x(\eta,\xi),y(\eta,\xi))$,
 equation (\ref{classif_PDE1}) is reduced to
 (\ref{classif_PDE3}) with $A_{2,0} = A_{1,1} = 0$ and $A_{0,2} \neq 0$.
-If we divide by $A_{0,2}$, we get an equation of the form
+If we divide by $A_{0,2}$, then we get an equation of the form
 \begin{equation} \label{classif_StandPar}
 \pdydxn{u}{\xi}{2}
 + \alpha_{1,0}(\eta,\xi) \pdydx{u}{\eta}

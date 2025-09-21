@@ -1547,7 +1547,6 @@ $\VEC{x} \in \partial B_\epsilon(\VEC{x})$, then
 = \dydx{g}{\epsilon}(\epsilon) \ .
 \]
 Therefore, for $\VEC{x} \in \partial B_\epsilon(\VEC{0})$, we have
-that
 \[
 \pdydx{N}{\nu}(\VEC{x})
 = \begin{cases}
@@ -1819,7 +1818,7 @@ are bounded on a bounded open neighbourhood $V \subset \Omega$ of
 $\VEC{x}$.  Suppose that $|u_{\VEC{x}}| < M_1$ and
 $\displaystyle \left| \pdydx{u}{\nu} \right| < M_2$ on $V$.
 If $\epsilon$ is small enough to have $B_\epsilon(\VEC{x}) \subset V$,
-we get for $n>2$ that
+then we get for $n>2$ that
 \begin{align*}
 &\left|\int_{\partial B_{\epsilon}(\VEC{x})}
 G_{\VEC{x}}\,\pdydx{u}{\nu} \dx{S}\right|
@@ -1868,7 +1867,7 @@ u_{\VEC{x}}(\VEC{x} + \epsilon \VEC{z}) \right)
 \right|\, \epsilon \dss{S}{z}
 \leq \left( \epsilon |\ln(\epsilon)| + \epsilon \omega_2 M_1 \right) M_2 \ . 
 \end{align*}
-We therefore have that
+We therefore have
 \[
 \int_{\partial B_{\epsilon}(\VEC{x})}
 G_{\VEC{x}}\,\pdydx{u}{\nu} \dx{S} \to 0
@@ -2438,7 +2437,7 @@ $\displaystyle \|\VEC{x}-\VEC{y}\|
 \end{lemma}
 
 \begin{proof}
-We have that
+We have
 \begin{align*}
 \|\VEC{x}-\VEC{y}\|^2 &= \ps{\VEC{x}-\VEC{y}}{\VEC{x}-\VEC{y}}
 = \|\VEC{x}\|^2 - 2 \ps{\VEC{x}}{\VEC{y}} + 1 \\
@@ -2740,7 +2739,7 @@ P(\tilde{\VEC{x}},\tilde{\VEC{y}}) \dx{\VEC{S}_{\tilde{\VEC{y}}}}
 \dx{\VEC{S}_{\tilde{\VEC{y}}}}
 \]
 for $\tilde{\VEC{x}} \in B_1(\VEC{0})$.
-If we restate this formula in terms of $u$ and $g$, we get
+If we restate this formula in terms of $u$ and $g$, then we get
 \[
 u(\rho \tilde{\VEC{x}} +\VEC{x}_0) = \int_{\partial B_1(\VEC{0})}
 g(\rho\tilde{\VEC{y}}+\VEC{x}_0) \, P(\tilde{\VEC{x}},\tilde{\VEC{y}})
@@ -2916,7 +2915,7 @@ V_{\VEC{x}} = \partial B_1(\VEC{0}) \cap B_\delta(\VEC{x})
 = \left\{ \VEC{y} \in \partial B_1(\VEC{0})
 : \|\VEC{x} - \VEC{y} \| < \delta \right\}
 \]
-for all $\VEC{x} \in \partial B_1(\VEC{0})$.  We have
+for all $\VEC{x} \in \partial B_1(\VEC{0})$.  We have that
 $\displaystyle |g(\VEC{y}) - g(\VEC{x})| < \epsilon/2$ for all
 $\VEC{y} \in V_{\VEC{x}}$.
 According to Lemma~\ref{laplaceLexistBall}, there exists $r_0<1$
@@ -2993,7 +2992,7 @@ Then
 where $v_r$ is defined by $v_r(\VEC{x}) = v(r\VEC{x})$ for all
 $\VEC{x} \in \partial B_1(\VEC{0})$ and $0 \leq r < 1$.
 
-As seen in (iii), for $r$ closed enough to $1$, we have
+As seen in (iii), for $r$ closed enough to $1$, we have that
 $\displaystyle \| f - v_r \|_\infty < \frac{\epsilon}{3 B}$, where
 $\displaystyle B^p = \int_{\partial B_1(\VEC{0})} \dx{S}$.  Hence
 \begin{equation} \label{laplace_ident3}
@@ -3205,7 +3204,7 @@ is a direct sum, we have to show that $H_i \perp H_j$ if $i \neq j$.  Before
 proving this result, we need to make the following observation.
 
 Given $\displaystyle p = \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k}
-a_{\VEC{\alpha}} \VEC{x}^{\VEC{\alpha}} \in P_k$, we have that
+a_{\VEC{\alpha}} \VEC{x}^{\VEC{\alpha}} \in P_k$, we have
 \begin{align*}
 \sum_{s=1}^n x_s \pdfdx{p}{x_s}(\VEC{x})
 & = \sum_{\VEC{\alpha} \in \NN^n,\ |\VEC{\alpha}| = k} a_{\VEC{\alpha}}
@@ -4277,7 +4276,7 @@ with the boundary conditions $u(0,y) = 0$, $u(a,y)=0$, $u(x,0)=0$
 and $u(x,b) = f(x)$ for $0<x<a$
 
 \subI{Separation of Variables}
-If we substitute $u(x,y) = F(x)G(y)$ in (\ref{laplace_spv_A}), we get
+If we substitute $u(x,y) = F(x)G(y)$ in (\ref{laplace_spv_A}), then we get
 \[
 F''(x)G(y) + F(x)G''(y) = 0 \quad , \quad  0 < x < a \ \text{and}
 \ 0 < y < b \ ,
@@ -4366,7 +4365,7 @@ equation is of the form
 F(x) = A \cos\left(\sqrt{k}\,x\right) + B \sin\left(\sqrt{k}\,x\right) \ .
 \]
 Moreover, $F(0)=0$ implies that $A=0$ and thus $F(a)=0$ implies that
-$B \sin\left(a\sqrt{k}\right) = 0$.  If we take $B=0$, we get the
+$B \sin\left(a\sqrt{k}\right) = 0$.  If we take $B=0$, then we get the
 null solution.  We must therefore have
 $\sin\left(a\sqrt{k}\right) = 0$.  This implies that
 $\displaystyle k = k_n \equiv \left(n\pi/a\right)^2$ for any integer $n>0$.
@@ -4634,7 +4633,7 @@ a_n e^{-n\pi} + b_n e^{n\pi} =
 If we use the trigonometric identity
 $\displaystyle \sin(\theta_1)\sin(\theta_2) = 
 \left(\cos(\theta_1-\theta_2) -\cos(\theta_1+\theta_2)\right)/2$,
-we get
+then we get
 \begin{align}
 a_n e^{-n\pi} + b_n e^{n\pi} &=
 \frac{50}{L} \int_0^L \left( \cos\left(\frac{n\pi y}{L}-\frac{\pi y}{2L}\right)
@@ -5091,7 +5090,7 @@ and $\nu(x,y)$ is the outward unit normal to the surface $\partial R$
 at the point $(x,y) \in \partial R$ (except at the corners of the domain).
 
 \subI{Separation of Variables}
-If we substitute $u(x,y) = F(x)G(y)$ in $\Delta u = 0$, we get
+If we substitute $u(x,y) = F(x)G(y)$ in $\Delta u = 0$, then we get
 \[
 \dydxn{F}{x}{2}(x)\,G(y) + F(x)\,\dydxn{G}{y}{2}(y) = 0 \quad ,
 \quad 0 < y < \pi \ \text{and} \ 0 < x < \pi \ .
@@ -5187,7 +5186,7 @@ F(x) = A \cos\left(\sqrt{-k}\,x\right)
 However, we get $B =0$ from $\displaystyle \dydx{F}{x}(0)=0$.  It then
 follows from $\displaystyle \dydx{F}{x}(\pi)=0$ that\\
 $-A \sqrt{-k} \sin\left(\pi\sqrt{-k}\right) = 0$.  If we take $A=0$,
-we get the null solution.  We must therefore have
+then we get the null solution.  We must therefore have
 $\sin\left(\pi\sqrt{-k}\right) = 0$ with $k>0$.  This implies
 that $k = k_n \equiv -n^2$ for $n>0$.  The boundary value
 problem (\ref{laplace_spv_egg1_bvpX}) has non-null 
@@ -5335,7 +5334,7 @@ the potential equation becomes
 
 \subI{Separation of Variables}
 If we substitute $u(r,\phi) = F(r)G(\phi)$ in (\ref{laplace_spv_pe_sphc}) and
-multiply by $\displaystyle r^2$, we get
+multiply by $\displaystyle r^2$, then we get
 \[
 r^2 \dydxn{F}{r}{2}(r)G(\phi) + 2r \dydx{F}{r}(r)G(\phi) +
 F(r)\dydxn{G}{\phi}{2}(\phi) + \cot(\phi) F(r)\dydx{G}{\phi}(\phi) =0 \ .
@@ -5384,7 +5383,7 @@ With the change of variable $w = \cos(\phi)$, the equation
 \[
 - \dfdx{ \left( (w^2-1) \dydx{G}{w}(w) \right) }{w} + k G(w) = 0 \ .
 \]
-If we expand this equation, we get the Legendre equation
+If we expand this equation, then we get the Legendre equation
 \[
 (1-w^2) \dydxn{G}{w}{2}(w) -2 w \dydx{G}{w}(w) + k G(w) = 0
 \]
@@ -5399,7 +5398,7 @@ We now turn our attention to (\ref{laplace_spv_pe_sphc1}) with $k=n(n+1)$.
 This is an Euler-Cauchy ordinary differential equation.  The method to
 solve this ordinary differential equation is well known.  If we
 substitute $\displaystyle F(r) = r^\alpha$ in
-(\ref{laplace_spv_pe_sphc1}), we get the characteristic equation
+(\ref{laplace_spv_pe_sphc1}), then we get the characteristic equation
 $\alpha(\alpha-1) + 2 \alpha + k=0$.  If $\alpha_1$ and $\alpha_2$ are
 distinct roots of this equation, then the general solution of
 (\ref{laplace_spv_pe_sphc1}) is given by
@@ -5408,7 +5407,7 @@ only one root $\alpha$ of algebraic multiplicity two, then the general
 solution of (\ref{laplace_spv_pe_sphc1}) is given by
 $\displaystyle F(r) = A r^{\alpha} + B r^{\alpha}\ln(r)$.
 
-If we substitute $k=n(n+1)$ in (\ref{laplace_spv_pe_sphc1}), we get
+If we substitute $k=n(n+1)$ in (\ref{laplace_spv_pe_sphc1}), then we get
 the characteristic equation
 \[
 \alpha(\alpha+1) - n(n+1) = (\alpha-n)(\alpha+n+1) = 0 \ .
@@ -5793,7 +5792,8 @@ with the boundary conditions $u(x,0) = u(x,b) = 0$ for $0<x<a$ and
 $u(0,y) = u(a,y) = 0$ for $0<y<b$.
 
 \subI{Separation of Variables}
-If we substitute $u(x,y) = F(x)G(y)$ in (\ref{laplace_e_eigenC}), we get
+If we substitute $u(x,y) = F(x)G(y)$ in (\ref{laplace_e_eigenC}), then
+we get
 \[
 -\dydxn{F}{x}{2}(x)\, G(y) - F(x)\,\dydxn{G}{y}{2}(y) = \lambda
 F(x)G(y) \quad , \quad (x,y) \in \Omega \ .
@@ -5911,7 +5911,7 @@ $0\leq \theta < 2\pi$.
 
 \subI{Separation of Variables}
 If we substitute $u(r,\theta) = F(r)G(\theta)$ in
-(\ref{laplace_e_eigenP}), we get
+(\ref{laplace_e_eigenP}), then we get
 \[
 -\dydxn{F}{r}{2}(r)\, G(\theta) - \frac{1}{r} \pdydx{F}{r}(r) G(\theta)
 - \frac{1}{r^2} F(r)\dydxn{G}{\theta}{2}(\theta) = \lambda F(r)G(\theta) \ .
@@ -6079,7 +6079,7 @@ the poles.
 
 \subI{Separation of Variables}
 If we substitute $u(\theta, \phi) = G(\theta)H(\phi)$ in
-(\ref{laplace_e_eigenS}), we get 
+(\ref{laplace_e_eigenS}), then we get 
 \begin{equation} \label{laplace_e_eigenSB}
 -G(\theta)\,\dydxn{H}{\phi}{2}(\phi) -\cot(\phi) G(\theta)\dydx{H}{\phi}(\phi)
 - \frac{1}{\sin^2(\phi)} \dydxn{G}{\theta}{2}\,H(\phi)
@@ -6274,7 +6274,7 @@ r^{-1/2}\,\dydx{\rho}{r}(r)$ and\\
 $\displaystyle \dydxn{F}{r}{2} = \frac{3}{4}\,r^{-5/2} \, \rho(r) -
 r^{-3/2}\,\dydx{\rho}{r}(r) + r^{-1/2}\,\dydxn{\rho}{r}{2}$.
 So, If we substitute $\displaystyle F(r) = r^{-1/2}\,\rho(r)$
-in (\ref{laplace_e_eigenB1}) and simplify, we get
+in (\ref{laplace_e_eigenB1}) and simplify, then we get
 \[
 r^2 \dydxn{\rho}{r}{2} + r \dydx{\rho}{r} + \left(\lambda r^2 -
   \left( n + \frac{1}{2}\right)^2\right)\rho = 0 \  .
