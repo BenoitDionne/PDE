@@ -196,7 +196,7 @@ C_1' = \min_{\|\VEC{y}\|=1} \sum_{|\VEC{\alpha}|= k}
 Since $\displaystyle \sum_{|\VEC{\alpha}|= k}
 \left|\VEC{y}^{2\VEC{\alpha}}\right|$ is 
 continuous on the compact set $\{\VEC{y} : \|\VEC{y}\|_2=1\}$, the
-minimum is reached at a point $\VEC{w} \neq \VEC{0}$ in $\RR^n$.
+minimum is reached at a point $\VEC{w} \neq \VEC{0}$ in $\displaystyle \RR^n$.
 If $w_j \neq 0$, then $\displaystyle \left| w_j^{2k}\right| >0$ and thus
 $\displaystyle C_1' = \sum_{|\VEC{\alpha}|= k}
 \left|\VEC{w}^{2\VEC{\alpha}}\right| >0$.
@@ -656,7 +656,7 @@ We get from Proposition~\ref{distr_limit_convol} that
 \end{align*}
 Since this is true for all $|\VEC{\alpha}| \leq k$, we get that
 $\displaystyle \left\| \underline{f} \ast \psi_\epsilon - f \right\|_{p,k,U}$
-as $\epsilon \to 0^+$.
+as $\displaystyle \epsilon \to 0^+$.
 
 If $f$ has a compact support, then
 $\displaystyle \underline{f} \ast \psi_\epsilon$ has a compact support
@@ -1000,7 +1000,7 @@ Then
 $\displaystyle f\ast \psi_{\epsilon} \in W^{k,p}(\RR^n) \cap C^\infty(\RR^n)$
 for all
 $\epsilon$ and $\displaystyle \| \left( f \ast \psi_{\epsilon} \right)
-- f\|_{k,p} \rightarrow 0$ as $\epsilon \rightarrow 0^+$.
+- f\|_{k,p} \rightarrow 0$ as $\displaystyle \epsilon \rightarrow 0^+$.
 
 If $f$ has a compact support, then
 $\displaystyle f \ast \psi_{\epsilon} \in \DD(\RR^n)$ for all $\epsilon$;
@@ -1131,10 +1131,11 @@ $\displaystyle \phi_\delta(\VEC{x}) = \phi\left(\delta \VEC{x}\right)$
 for all $\displaystyle \VEC{x} \in \RR^n$ and $\delta >0$.  If
 $\displaystyle \psi \in \SS(\RR^n)$, then
 $\displaystyle \psi_\delta = \psi \phi_\delta \in \DD(\RR^n)$ and
-$\psi_\delta - \psi \to 0$ as $\delta \to 0^+$ in $\displaystyle L^2(\RR^n)$
+$\psi_\delta - \psi \to 0$ as $\displaystyle \delta \to 0^+$ in
+$\displaystyle L^2(\RR^n)$
 follows from the Lebesgue Dominate Convergence Theorem
 since $\psi_{\delta}(\VEC{x}) \to \psi(\VEC{x})$ for all
-$\displaystyle \VEC{x} \in \RR^n$ as $\delta \to 0^+$ and
+$\displaystyle \VEC{x} \in \RR^n$ as $\displaystyle \delta \to 0^+$ and
 $\|\psi_{\delta}\|_2 \leq \|\psi\|_2 < \infty$ for all $\delta$.
 Since
 \begin{align*}
@@ -2175,7 +2176,7 @@ and $\displaystyle v \in W^{k,p}_0(\Omega_2)$.
 \footnotetext{Namely, $\chi:\Omega_1 \to \Omega_2$ is an homeomorphism,
 and $\chi:\Omega_1 \to \Omega_2$ and
 $\displaystyle \chi^{-1}:\Omega_2 \to \Omega_1$
-are of class $C^k$.}
+are of class $\displaystyle C^k$.}
 
 \begin{proof}
 A proof of the first item is given in Proposition~25.8 of \cite{Tr}.
@@ -3939,7 +3940,8 @@ Hence, using Schwarz inequality, we get
 &\qquad \qquad \qquad \left. \left( 1 + \|\VEC{w}\|^2\right)^{k-1/2}\right]
 \dx{\VEC{w}}
 \end{align*}
-However, with the substitution $y = \sqrt{1+\|\VEC{w}\|^2}\, z$, we get
+However, with the substitution
+$\displaystyle y = \sqrt{1+\|\VEC{w}\|^2}\, z$, we get
 \[
 \int_{-\infty}^\infty \left( 1 + \|\VEC{w}\|^2 + y^2\right)^{-k}
 \dx{\mu(y)}
@@ -4169,9 +4171,8 @@ To prove that $S$ is a continuous mapping from
 $\displaystyle H^{k-j-1/2}(\RR^{n-1})$ to $\displaystyle H^k(\RR^n)$, we
 note that
 \begin{align*}
-&\|S(\phi)\|_{k,\rho}^2
-= \int_{\RR^n} \left| \F(S(\phi))(\VEC{y}) \right|^2 \left( 1 + \|\VEC{y}\|^2\right)^k
-\dx{\VEC{y}} \\
+&\|S(\phi)\|_{k,\rho}^2 = \int_{\RR^n} \left| \F(S(\phi))(\VEC{y}) \right|^2
+\left( 1 + \|\VEC{y}\|^2\right)^k \dx{\VEC{y}} \\
 & = \int_{\RR^n} \left|\pdfdxn{\left(
 \frac{(1+\|\breve{\VEC{y}}\|^2)^{k-j-1/2}}{C (1+ \|\VEC{y}\|^2)^{k-j}}
 \F(\phi)(\breve{\VEC{y}}) \right)}{y_n}{j} \right|^2
@@ -4361,7 +4362,7 @@ method to find $f$, we need to look at the operator $S$ defined in the
 context of the proof of Theorem~\ref{TraceTj}.  We can easily see that
 $\displaystyle \pdfdxn{S(f)}{x_n}{m}(\VEC{z},0) = 0$ for $0 \leq m < j$
 and $\displaystyle f \in H^{k-j-1/2}(\RR^{n-1})$ because it is true
-for $\phi \in \SS(\RR^{n-1})$.
+for $\displaystyle \phi \in \SS(\RR^{n-1})$.
 Thus, $T_{m_1}(S_{m_2}(f)) = 0$ for $m_1 < m_2$.  To find $f$, we
 proceed as follows. If $f_0 = S_0(g_0)$ and
 $f_m = S_m\big(g_m - T_m(f_{m-1})\big) + f_{m-1}$ for $0 < m \leq j$,
@@ -4813,8 +4814,9 @@ without the use of trace operators.  First, we need a lemma.
 Suppose $\displaystyle f \in W^{k,p}(\Omega)$ with $k\in \NN$ and let
 $U$ be an open subset of $\RR$ such that
 $\displaystyle \overline{ f(\Omega)} \subset U$.  If
-$\psi \in C^k(U)$ is such that the derivatives $\displaystyle \psi^{(j)}$ for
-$0\leq j \leq k$ are bounded on $\displaystyle \overline{ f(\Omega)}$,
+$\displaystyle \psi \in C^k(U)$ is such that the derivatives
+$\displaystyle \psi^{(j)}$ for $0\leq j \leq k$ are bounded on
+$\displaystyle \overline{ f(\Omega)}$,
 then $\displaystyle \psi \circ f \in W^{k,p}(\Omega)$.
 \end{lemma}
 
@@ -5092,7 +5094,7 @@ calculus is used to compute the limit on the left hand side of
 (\ref{sob_Wz_Cz_one}) and the Lebesgue Dominate Convergence Theorem
 is used to compute the limit on the right hand side.
 
-Since $\tilde{f}_j \in C(\overline{\RR^n_+})$, we get from
+Since $\displaystyle \tilde{f}_j \in C(\overline{\RR^n_+})$, we get from
 (\ref{sob_Wz_Cz_two}) that $\displaystyle \tilde{f}_j\big|_{\RR^n_0} = 0$.
 \end{proof}
 

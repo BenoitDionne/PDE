@@ -308,10 +308,10 @@ $\Delta u = 0$ on $\Omega$.
 
 \begin{cor} \label{UnifConvHarm}
 Let $\displaystyle \left\{ u_j \right\}_{j=1}^\infty$ be a sequence of
-harmonic functions on an open set $\Omega \subset \RR^n$.  If the sequence
-$\displaystyle \left\{ u_j \right\}_{j=1}^\infty$ converges uniformly
-on compact subsets of $\Omega$ to a function $u$, then $u$ is harmonic
-in $\Omega$.
+harmonic functions on an open set $\displaystyle \Omega \subset \RR^n$.
+If the sequence $\displaystyle \left\{ u_j \right\}_{j=1}^\infty$
+converges uniformly on compact subsets of $\Omega$ to a function $u$,
+then $u$ is harmonic in $\Omega$.
 \end{cor}
 
 \begin{proof}
@@ -2808,7 +2808,7 @@ P(r\VEC{x},\VEC{y}) \dss{S}{x}
 \]
 for $\VEC{y} \in \partial B_1(\VEC{0})$ and $0<r<1$.
 From Lemma~\ref{laplace_diric_ball}, we have that
-$\|r\VEC{x} - \VEC{y}\| = \|r^{-1}(r\VEC{x})- r \VEC{y}\|
+$\displaystyle \|r\VEC{x} - \VEC{y}\| = \|r^{-1}(r\VEC{x})- r \VEC{y}\|
 = \|\VEC{x} - r \VEC{y}\|$ for $\VEC{y} \in \partial B_1(\VEC{0})$. 
 Therefore, $\displaystyle P(r\VEC{x},\VEC{y}) = P(r\VEC{y},\VEC{x})$ for
 $\VEC{x}$ and $\VEC{y}$ in $\partial B_1(\VEC{0})$.  It follows that
@@ -3035,10 +3035,10 @@ Some results about harmonic functions, which are given in a course on
 complex analysis, generalize to dimensions higher than two.
 
 \begin{theorem}[Harnack's Inequality]
-Suppose that $\Omega \subset \RR^n$ is an open set and that
-$u \in C^2(\Omega)\cap C^1(\overline{\Omega})$ is an harmonic function
-in $\Omega$ such that $u(\VEC{x}) \geq 0$ for all $\VEC{x} \in \Omega$.
-Then, given $\VEC{x}_0 \in \Omega$ and $\rho>0$ such that
+Suppose that $\displaystyle \Omega \subset \RR^n$ is an open set and that
+$\displaystyle u \in C^2(\Omega)\cap C^1(\overline{\Omega})$ is an
+harmonic function in $\Omega$ such that $u(\VEC{x}) \geq 0$ for all
+$\VEC{x} \in \Omega$.  Then, given $\VEC{x}_0 \in \Omega$ and $\rho>0$ such that
 $B_{\rho}(\VEC{x}_0) \subset \Omega$, we have
 \[
 \frac{\rho^{n-2}(\rho-r)}{(\rho+r)^{n-1}}\, u(\VEC{x}_0) \leq u(\VEC{x}) \leq
@@ -4048,12 +4048,13 @@ and all $\eta < \rho$ such that $\overline{B_\rho(\VEC{z})} \subset
 \end{proof}
 
 Since the beginning, we have assumed that the boundary of $\Omega$ was
-a manifold of class $C^2$.  Using Perron's method to solve the Dirichlet
-problem, we may impose less restrictive conditions on the boundary of
-$\Omega$.
+a manifold of class $\displaystyle C^2$.  Using Perron's method to
+solve the Dirichlet problem, we may impose less restrictive conditions
+on the boundary of $\Omega$.
 
 \begin{defn}[Barrier Condition]
-The boundary $\partial \Omega$ of an open subset $\Omega \subset \RR^n$
+The boundary $\partial \Omega$ of an open subset
+$\displaystyle \Omega \subset \RR^n$
 satisfies the {\bfseries barrier condition}\index{Barrier Condition}
 if, for every $\VEC{z} \in \partial \Omega$, there exists a function
 $g_{\VEC{z}} \in C(\overline{\Omega})$ such that

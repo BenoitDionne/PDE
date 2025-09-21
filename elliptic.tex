@@ -6,8 +6,8 @@ differential equations in this chapter, we introduce a new notation
 for the derivatives in the sense of distributions. Let $\Omega$ be an
 open subset of $\displaystyle \RR^n$ and $u$ be a distribution on $\Omega$.  If
 $\VEC{\alpha} = \VEC{e}_j$, then we denote the derivative
-$\diff^{\VEC{\alpha}} u$ in the sense of distribution by $\diff_{x_j} u$.  If
-$\VEC{\alpha} = \VEC{e}_{j_1} + 3 \VEC{e}_{j_2}$,
+$\displaystyle \diff^{\VEC{\alpha}} u$ in the sense of distribution by
+$\diff_{x_j} u$.  If $\VEC{\alpha} = \VEC{e}_{j_1} + 3 \VEC{e}_{j_2}$,
 then we denote the derivative $\displaystyle \diff^{\VEC{\alpha}} u$ in the
 sense of distribution by $\diff_{x_{j_1}x_{j_2}x_{j_2}x_{j_2}} u$.  And so on.
 Obviously, if $u$ is sufficiently differentiable with locally
@@ -2779,7 +2779,7 @@ We finally get from (\ref{ell_px_evp}) that
 \|f\|_2 \ .
 \]
 Since the injection of $\displaystyle H^1(I)$ into
-$C(\overline{I}) \subset L^2(I)$
+$\displaystyle C(\overline{I}) \subset L^2(I)$
 is compact according to Corollary~\ref{sob_cor_sob_lem} to the Sobolev Lemma,
 we get that $\displaystyle T:L^2(I) \to L^2(I)$ is compact because the
 composition of a continuous operator with a compact operator is a
@@ -3338,7 +3338,7 @@ for some $w$ between $\|\VEC{x}\|_2$ and $\|\VEC{y}\|_2$.  Hence,
 \, \|\VEC{x} - \VEC{y}\|_2 \ ,
 \end{align*}
 where the supremum is taken over all $w$ between $\|\VEC{x}\|_2$ and
-$\|\VEC{y}\|_2$.  Since $w \to (1+w^2)^{(s-1)/2}$ is increasing on
+$\|\VEC{y}\|_2$.  Since $\displaystyle w \to (1+w^2)^{(s-1)/2}$ is increasing on
 $[0,\infty[$ for $s > 1$ or decreasing on $[0,\infty[$ for $s<1$, we
 get that
 \[
@@ -4062,7 +4062,7 @@ Let $\displaystyle \Omega_r = \RR^n_+ \cap B_r(\VEC{0})$ for some $r>0$.
 If the support of $\displaystyle f\in H^{k,2}(\RR^n)$ is a subset of
 $\displaystyle \Omega_{r,0} = (\RR^n \setminus \RR^n_-) \cap
 B_r(\VEC{0})$ (Figure~\ref{ellOmegaR}) and
-$\VEC{\alpha} \in \NN^n$ is a multi-index with $\alpha_n=0$, then
+$\displaystyle \VEC{\alpha} \in \NN^n$ is a multi-index with $\alpha_n=0$, then
 $\displaystyle \diff^{\VEC{\alpha}} f \in H^{k,2}(\Omega_r)$ if and only if
 \[
 A_{f,\VEC{\alpha}} \equiv \limsup_{\VEC{h}\rightarrow \VEC{0}}
@@ -4425,7 +4425,7 @@ E(\diff^{\VEC{\beta}} f) \|_{k,2,\RR^n}
 &=  C_0 C_1 C_2 C_3^{-1} \sum_{\VEC{\beta}<\VEC{\alpha}}
 \| \diff^{\VEC{\beta}} f \|_{k,2,\Omega_r} \ .
 \end{align*}
-This gives (\ref{ellRegCor2Eq1}) with $C = C_0 C_1 C_2 C_3^{-1}$.
+This gives (\ref{ellRegCor2Eq1}) with $\displaystyle C = C_0 C_1 C_2 C_3^{-1}$.
 \end{proof}
 
 \begin{rmk}
@@ -4435,7 +4435,7 @@ to show that there exists a constant $C$ such that, for all $0 < \delta <1$,
   \| [\Delta^{\VEC{\alpha}}_{\VEC{h}}, \phi] f \|_{k,\Omega_r}
 \leq C \| f \|_{k+|\VEC{\alpha}|-1,\Omega_r}
 \]
-for $f \in H^{k+|\VEC{\alpha}|-1,2}(\Omega_r)$ with
+for $\displaystyle f \in H^{k+|\VEC{\alpha}|-1,2}(\Omega_r)$ with
 $\displaystyle \supp f \subset \Omega_{\delta r,0}
 = (\RR^n \setminus \RR^n_-) \cap B_{\delta r}(\VEC{0})$ and
 $\|\VEC{h}\|<(1-\delta)r$.
@@ -4605,7 +4605,7 @@ where we assume that $\displaystyle a_{\VEC{\alpha}} \in \DD(\RR^n)$.
 We may make this assumption because we assume that the $a_{\VEC{\alpha}}$ are
 of class $\displaystyle C^\infty$ in an open neighbourhood $U$ of
 $\overline{\Omega}$.
-Therefore, we may choose $\phi \in \DD(\RR^n)$ such that
+Therefore, we may choose $\displaystyle \phi \in \DD(\RR^n)$ such that
 $\supp \phi \subset U$ and $\phi(\VEC{x}) = 1$ for all
 $\VEC{x} \in \overline{\Omega}$, and set
 \[
@@ -4641,7 +4641,7 @@ Given $\VEC{x}_0 \in \overline{\Omega}$ and $\delta >0$,
 choose $\displaystyle \psi \in \DD(\RR^n)$ such that
 $\supp \psi \subset B_{2\delta}(\VEC{0})$, $|\psi(\VEC{x})|\leq 1$ for
 all $\VEC{x}$, and $\psi(\VEC{x}) = 1$ for all $\VEC{x} \in B_\delta(\VEC{0})$.
-Suppose that $u \in H^{s,2}(\RR^n)$ is such that
+Suppose that $\displaystyle u \in H^{s,2}(\RR^n)$ is such that
 $\displaystyle \supp u \subset B_\delta(\VEC{x}_0)$.
 Then it follows from Lemma~\ref{ell_reg_lemma1} that there exists a
 constant $C_3$ such that
@@ -5635,7 +5635,7 @@ b_{\VEC{\alpha},\VEC{\beta}}(\VEC{x}) \diff^{\VEC{\beta}} u \,
 \end{align*}
 for all $v \in X_{r_2}$.
 
-It follows from Schwarz inequality in $L^2(\Omega_r)$ that
+It follows from Schwarz inequality in $\displaystyle L^2(\Omega_r)$ that
 \begin{align*}
 &\left| E_3(v,u) \right| \leq \sum_{|\VEC{\alpha}|= 1,\,|\VEC{\beta}|\leq 1}
 \left\| \Delta_{-h_i \VEC{e}_i} v \right\|_{2,\Omega_{r_2}}
@@ -5937,7 +5937,7 @@ $\displaystyle \diff^{\VEC{\alpha}} u \in L^2(\Omega_\rho)$ and
 \]
 for all multi-indices $\VEC{\alpha}$ such that
 $|\VEC{\alpha}|\leq q+2$.  It follows
-that $u \in H^{k+2,2}(\Omega_\rho)$ and
+that $\displaystyle u \in H^{k+2,2}(\Omega_\rho)$ and
 \[
 \left\|u \right\|_{q+2,2,\Omega_\rho} \leq C \left(
 \left\|f\right\|_{q,2,\Omega_r} + \left\|u\right\|_{1,2,\Omega_r}
@@ -6772,7 +6772,8 @@ is not constant on $B_1 \cap B_2$.  Therefore
 = \pdydx{u}{\mu}(\VEC{p}) + \eta \pdydx{h}{\mu}(\VEC{p}) \ .
 \end{equation}
 However, if
-$\mu(\VEC{p}) = \nu(\VEC{p}) = \|\VEC{p}-\VEC{r}\|^{-1} (\VEC{p} - \VEC{r})$,
+$\displaystyle \mu(\VEC{p}) = \nu(\VEC{p})
+= \|\VEC{p}-\VEC{r}\|^{-1} (\VEC{p} - \VEC{r})$,
 the outward unit normal to $\partial (B_1 \cap B_2)$ at $\VEC{p}$, then
 \begin{align*}
 \pdydx{h}{\mu}(\VEC{p}) &= \nabla h(\VEC{p}) \cdot \nu(\VEC{p})
@@ -7095,7 +7096,7 @@ Hence,
 \[
 \int_\Omega \|\graD u\|_2^2\, h'(u) \dx{\VEC{x}} \leq 0 \ .
 \]
-We get $\|\graD u\|_2^2\, h'(u) =0$ almost everywhere on $\Omega$.
+We get $\displaystyle \|\graD u\|_2^2\, h'(u) =0$ almost everywhere on $\Omega$.
 
 Let
 \begin{equation} \label{ell_max_thPr}

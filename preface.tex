@@ -132,11 +132,12 @@ $T(x_2,t) \cos(\theta_2) - T(x_1,t) \cos(\theta_1) = 0$.  Since
 $\displaystyle \cos(\theta_1) = \frac{1}{\sqrt{1+u_x^2(x_1,t)}}$ and
 $\displaystyle \cos(\theta_2) = \frac{1}{\sqrt{1+u_x^2(x_2,t)}}$, we
 get
-\begin{equation} \label{prefaceEq1}
+\[
+% \begin{equation} \label{prefaceEq1}
 \frac{T(x_1,t)}{\sqrt{1+u_x^2(x_1,t)}}
-= \frac{T(x_2,t)}{\sqrt{1+u_x^2(x_2,t)}} \ .  \tag{$1$}
-\end{equation}
-
+= \frac{T(x_2,t)}{\sqrt{1+u_x^2(x_2,t)}} \ .  \tag{1} \label{prefaceEq1}
+% \end{equation}
+\]
 For the vertical motion, the difference between
 the vertical component of the force at the end points is equal to the
 mass of the section of the string time its acceleration; namely,
@@ -146,11 +147,13 @@ $\displaystyle \sin(\theta_1) = \frac{u_x(x_1,t)}{\sqrt{1+u_x^2(x_1,t)}}$
 and
 $\displaystyle \sin(\theta_2) = \frac{u_x(x_2,t)}{\sqrt{1+u_x^2(x_2,t)}}$,
 we get
-\begin{equation} \label{prefaceEq2}
+\[
+% \begin{equation} \label{prefaceEq2}
 \frac{T(x_2,t) u_x(x_2,t)}{\sqrt{1+u_x^2(x_2,t)}} -
 \frac{T(x_1,t) u_x(x_1,t)}{\sqrt{1+u_x^2(x_1,t)}} = 
-\int_{x_1}^{x_2} \rho u_{tt}(x,t) \dx{x} \ . \tag{$2$}
-\end{equation}
+\int_{x_1}^{x_2} \rho u_{tt}(x,t) \dx{x} \ . \tag{2}  \label{prefaceEq2}
+% \end{equation}
+\]
 
 Since we assume that the vertical motion is really small, we may
 assume that $u_x(x,t) \approx 0$ for all $x$ and $t$.  Hence, (\ref{prefaceEq1})
@@ -160,17 +163,21 @@ the tension is constant along the sting; namely, $T(x,t) \equiv T$, a constant,
 for all $x$ and $t$.
 
 With all our assumption, we may rewrite (\ref{prefaceEq2}) as
-\begin{equation} \label{prefaceEq3}
+\[
+% \begin{equation} \label{prefaceEq3}
 T \big( u_x(x_2,t) - u_x(x_1,t) \big) = \rho \int_{x_1}^{x_2}
-u_{tt}(x,t) \dx{x} \ .  \tag{$3$}
-\end{equation}
+u_{tt}(x,t) \dx{x} \ .  \tag{3}  \label{prefaceEq3}
+% \end{equation}
+\]
 If we divide both sides of (\ref{prefaceEq3}) by $x_2-x_1$ and let
 $x_2 \to x_1$, we get from the definition of the derivative that
 $T u_{xx}(x_1,t) = \rho u_{tt}(x_1,t)$.  Since $x_1$ is arbitrary, we
 get the famous wave equation
-\begin{equation} \label{prefaceEq4}
-  u_{tt} = c^2 u_{xx} \tag{$4$}
-\end{equation}
+\[
+% \begin{equation} \label{prefaceEq4}
+  u_{tt} = c^2 u_{xx} \tag{4}  \label{prefaceEq4}
+% \end{equation}
+\]
 for $0 < x < L$ and $t > 0$, where $c = \sqrt{T/\rho}$.  This partial
 differential equation is normally accompanied by initial and boundary
 conditions.  For instance, the initial position of the string at time
@@ -222,9 +229,11 @@ where $k$ is a constant.  If we divide both sides of this equation by
 $x_2-x_1$ and let $x_2 \to x_1$, we get from the definition of the
 derivative that $\displaystyle u_t(x_1,t) = k u_{xx}(x_1,t)$.
 Since $x_1$ is arbitrary, we get the heat equation
-\begin{equation} \label{prefaceEq5}
-  u_t = k u_{xx} \tag{$5$}
-\end{equation}
+\[
+% \begin{equation} \label{prefaceEq5}
+  u_t = k u_{xx} \tag{5} \label{prefaceEq5}
+% \end{equation}
+\]
 for $0 < x < L$ and $t > 0$.  It is called the heat equation because
 $u(x,t)$ traditionally represent the temperature in a thin and long
 rod at position $x$ and time $t$.  But, as we have just seen and as it
