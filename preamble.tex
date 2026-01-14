@@ -364,13 +364,18 @@
   {\bfseries Question \arabic{chapter}.\arabic{questNBR}}%
   \ifthenelse{\equal{TTT}{#1}}{}{\ ({\bfseries #1})} \\ \noindent}{}
 
-\newenvironment{SOLUTION}{}{}
-\newcommand{\solution}[3]{%
-  \ifthenelse{\equal{#1}{show}}{%
-    \begin{SOLUTION}%
-      {\bfseries\noindent Question~#2}\\ #3%
-    \end{SOLUTION}%
-  }{}}
+\newenvironment{SOLUTION}{\noindent{\bfseries Solution}:\\%
+\noindent \normalfont}{\hspace*{\fill} $\heartsuit$}
+\newcommand{\sol}[2]{\ifthenelse{\equal{#1}{show}}{%
+\begin{SOLUTION} #2 \end{SOLUTION}}{}}
+
+% \newenvironment{SOLUTION}{}{}
+% \newcommand{\solution}[3]{%
+%   \ifthenelse{\equal{#1}{show}}{%
+%     \begin{SOLUTION}%
+%       {\bfseries\noindent Question~#2}\\ #3%
+%     \end{SOLUTION}%
+%   }{}}
 
 \newcommand{\SOL}{hide}
 \newcommand{\setSOL}{\renewcommand{\SOL}{show}}
@@ -456,12 +461,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % For tables that extent over the next page.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{longtable}
+% \usepackage{longtable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % For (horizontal and more) lists inside a paragraph
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{paralist}
+% \usepackage{paralist}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Important variables supplied by the user
@@ -807,6 +812,11 @@
 
 \newcommand{\NNN}{\mathcal{N}}
 \newcommand{\GL}[1]{\mathrm{GL}(#1)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Extra
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DS}{\displaystyle}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Trouble

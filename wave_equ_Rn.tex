@@ -1,4 +1,4 @@
-\chapter{Wave Equation in $\displaystyle \mathbf{\RR^n}$} \label{ChapWaveEqunD}
+\chapter{Wave Equation in $\DS \mathbf{\RR^n}$} \label{ChapWaveEqunD}
 
 \section{The Cauchy Problem}
 
@@ -35,22 +35,22 @@ Q((\VEC{x},t), (\VEC{\xi},r)) = r^2 - c^2 \sum_{i=1}^n \xi_i^2 =
 \ ,
 \]
 where the matrix has all eigenvalues but one equal to
-$\displaystyle -c^2 <0$.  The other eigenvalue is $1>0$.
+$\DS -c^2 <0$.  The other eigenvalue is $1>0$.
 \begin{defn}
-An hyper-surface $\displaystyle S \subset \RR^n \times \RR$ is called
+An hyper-surface $\DS S \subset \RR^n \times \RR$ is called
 {\bfseries space-like}\index{Wave Equation!Space-Like} if its normal vector
 \[
 \nu(\VEC{x},t) = (v(\VEC{x},t),w(\VEC{x},t) ) \ ,
 \]
-where $\displaystyle v:S \to \RR^n$ and $w:S \to \RR$,
+where $\DS v:S \to \RR^n$ and $w:S \to \RR$,
 satisfies $|w(\VEC{x},t)| > \|v(\VEC{x},t) \|$ for all
 $(\VEC{x},t) \in S$.
 \end{defn}
 
 As in Figure~\ref{wave_FIG6}, if the surface is
-$\displaystyle S = \left\{ (\VEC{x},t) : t=\phi(\VEC{x}) \ \text{and}
+$\DS S = \left\{ (\VEC{x},t) : t=\phi(\VEC{x}) \ \text{and}
 \ \VEC{x} \in \RR^n \right\}$
-for some smooth function $\displaystyle \phi:\RR^n \to \RR$,
+for some smooth function $\DS \phi:\RR^n \to \RR$,
 then $S$ is space-like if the normal to $S$ at a point
 $(\VEC{x}_0,t_0) \in S$ is inside the cone $\|\VEC{x}\| = |t|$.  In
 particular, if $S$ is the hyperplane $t=0$, then $S$ is space-like
@@ -71,8 +71,8 @@ $S$ to the surface $t=0$.
 
 \begin{rmk}
 The hyperplane $t=0$ is not a characteristic surface because
-$\displaystyle Q(\,(\VEC{x},0), \nu(\VEC{x},0)\,) = 1$ for all
-$\displaystyle \VEC{x} \in \RR^n$.
+$\DS Q(\,(\VEC{x},0), \nu(\VEC{x},0)\,) = 1$ for all
+$\DS \VEC{x} \in \RR^n$.
 \end{rmk}
 
 Since $L(\VEC{x},t,\diff)$ commutes with the application
@@ -98,9 +98,9 @@ c|t_0| \right\}
 \end{align*}
 for some point $(\VEC{x}_0,t_0)$ with $t_0<T$
 (Figure~\ref{wave_FIG7}). Suppose that
-$\displaystyle u \in C^2(R)$ satisfies\\
+$\DS u \in C^2(R)$ satisfies\\
 $L(\VEC{x},t,\diff)u = 0$ on $R$,  $u=0$ on $B$ and 
-$\displaystyle \pdydx{u}{t} = 0$ on $B$.  Then $u=0$ on
+$\DS \pdydx{u}{t} = 0$ on $B$.  Then $u=0$ on
 \[
 \Omega = \left\{ (\VEC{x},t) \in \RR^n\times \RR : \|\VEC{x}-\VEC{x}_0\| <
 c|t-t_0| , \  0 \leq t \leq t_0 \right\} \ .
@@ -114,9 +114,9 @@ solution for the wave equation.}{wave_FIG7}
 
 \begin{proof}
 With the substitution $t = s/\sqrt{c}$, we get
-$\displaystyle \pdydxn{u}{s}{2} - \Delta_{\VEC{x}} u = 0$.  Thus, we
+$\DS \pdydxn{u}{s}{2} - \Delta_{\VEC{x}} u = 0$.  Thus, we
 may assume that
-$\displaystyle L(\VEC{x},t,\diff) =
+$\DS L(\VEC{x},t,\diff) =
 \pdydxn{u}{t}{2} - \Delta_{\VEC{x}} u = 0$.  In
 other words, we may assume that $c=1$.  In this proof, we refer to
 Figure~\ref{wave_FIG7}. Let
@@ -139,7 +139,7 @@ of the wave in $B_t$ at time $t$.  We have
 \|\graD_{\VEC{x}} u \|^2 \right) \dss{S}{x} \ ,
 \]
 where we have used Remark~\ref{wave_nrgy} below with
-$\displaystyle F(\VEC{x},t) = \left(\pdydx{u}{t}\right)^2 +
+$\DS F(\VEC{x},t) = \left(\pdydx{u}{t}\right)^2 +
 \sum_{j=1}^n \left(\pdydx{u}{x_j}\right)^2$.
 
 Since
@@ -178,7 +178,7 @@ Moreover,
 \sum_{j=1}^n \pdydxn{u}{x_j}{2} \right) \pdydx{u}{t} \dx{\VEC{x}} = 0
 \]
 because
-$\displaystyle L(\VEC{x},t,\diff) u = \pdydxn{u}{t}{2} -
+$\DS L(\VEC{x},t,\diff) u = \pdydxn{u}{t}{2} -
 \Delta_{\VEC{x}} u = 0$.
 Thus
 \[
@@ -203,17 +203,17 @@ for $0 <t < t_0$.  From Schwarz inequality, we get
 \leq \frac{1}{2} \left( \left(\pdydx{u}{t}\right)^2 +
 \|\graD_{\VEC{x}} u \|^2 \right) \ ,
 \]
-where we have use the inequality $\displaystyle 2ab \leq a^2 + b^2$ for the last
+where we have use the inequality $\DS 2ab \leq a^2 + b^2$ for the last
 inequality.  Therefore,
-$\displaystyle \dydx{E}{t} \leq 0$ for $0 <t < t_0$.
+$\DS \dydx{E}{t} \leq 0$ for $0 <t < t_0$.
 
 Since $u(\VEC{x},0)=0$ for all $\VEC{x} \in B$ by hypothesis, we get
-$\displaystyle \pdydx{u}{x_j}(\VEC{x},0) = 0$ for all $\VEC{x} \in B$.
-Moreover, since $\displaystyle \pdydx{u}{t}(\VEC{x},0)=0$ for all
+$\DS \pdydx{u}{x_j}(\VEC{x},0) = 0$ for all $\VEC{x} \in B$.
+Moreover, since $\DS \pdydx{u}{t}(\VEC{x},0)=0$ for all
 $\VEC{x} \in B$ by hypothesis, we get $E(0)=0$.
 
 Finally, since $E(t) \geq 0$ for $0 \leq t \leq t_0$ by definition,
-$E(0) = 0$, and $\displaystyle \dydx{E}{t} \leq 0$ for $0 <t < t_0$,
+$E(0) = 0$, and $\DS \dydx{E}{t} \leq 0$ for $0 <t < t_0$,
 we get that $E(t) = 0$ for $0 \leq t \leq t_0$.  This implies that
 $\graD_{\VEC{x},t} u = 0$ on $\Omega$.  Therefore $u$ is constant on
 $\Omega$.  Since $u(\VEC{x},0)=0$ for all $\VEC{x} \in B$, we get that
@@ -221,8 +221,8 @@ $u=0$ on $\Omega$.
 \end{proof}
 
 \begin{rmk}
-Suppose that $\displaystyle F:\RR^n\times \RR\rightarrow \RR$ is a
-function of class $\displaystyle C^1$ and
+Suppose that $\DS F:\RR^n\times \RR\rightarrow \RR$ is a
+function of class $\DS C^1$ and
 \[
 G(t) = \int_{B_t} F(\VEC{x},t) \dx{\VEC{x}} \  ,
 \]
@@ -245,7 +245,7 @@ and
 \end{rmk}
 
 \begin{cor}
-If $u$ and $v$ in $\displaystyle C^2(\RR^n\times \RR)$ are two solutions of
+If $u$ and $v$ in $\DS C^2(\RR^n\times \RR)$ are two solutions of
 (\ref{wave_nD}) satisfying the Cauchy (or initial) conditions
 (\ref{wave_nD_cond}), then $u=v$.
 \end{cor}
@@ -275,15 +275,15 @@ L(\VEC{x},\diff) = \sum_{|\VEC{\alpha}|\leq k}
 a_{\VEC{\alpha}}(\VEC{x}) D^{\VEC{\alpha}}
 \]
 for some positive integer $k$, where
-$\displaystyle \diff^{\VEC{\alpha}}
+$\DS \diff^{\VEC{\alpha}}
 = \frac{\partial^{|\VEC{\alpha}|}}{\partial x_1^{\alpha_1}
 \partial x_2^{\alpha_2} \ldots \partial x_n^{\alpha_n}}$ for all
 multi-indices $\VEC{\alpha}$ as usual.
 
 $L(\VEC{x},\diff)$ commutes with translations means that
-$\displaystyle \big(L(\VEC{x},\diff)u\big)(\VEC{x}+\VEC{y}) =
+$\DS \big(L(\VEC{x},\diff)u\big)(\VEC{x}+\VEC{y}) =
 L(\VEC{x},\diff)\big( u(\VEC{x}+\VEC{y}) \big)$ for all
-$\displaystyle u\in C^k(\RR^n)$, and for
+$\DS u\in C^k(\RR^n)$, and for
 all $\VEC{x}$ and $\VEC{y}$ in $\RR^n$.  Namely,
 \begin{align} \label{laplace_op1}
 \sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}(\VEC{x}+\VEC{y})
@@ -291,15 +291,15 @@ all $\VEC{x}$ and $\VEC{y}$ in $\RR^n$.  Namely,
 = \sum_{|\VEC{\alpha}|\leq k} a_{\VEC{\alpha}}(\VEC{x})
 \diff^{\VEC{\alpha}} u(\VEC{x}+\VEC{y})
 \end{align}
-for all $\displaystyle u\in C^k(\RR^n)$, and for all $\VEC{x}$ and
-$\VEC{y}$ in $\displaystyle \RR^n$.  If
-$\displaystyle u(\VEC{x}) = \VEC{x}^{\VEC{\alpha}}$ for some multi-indices
+for all $\DS u\in C^k(\RR^n)$, and for all $\VEC{x}$ and
+$\VEC{y}$ in $\DS \RR^n$.  If
+$\DS u(\VEC{x}) = \VEC{x}^{\VEC{\alpha}}$ for some multi-indices
 $\VEC{\alpha}$ such that $|\VEC{\alpha}|\leq k$, then
-$\displaystyle \diff^{\VEC{\beta}} u(\VEC{x})
+$\DS \diff^{\VEC{\beta}} u(\VEC{x})
 = \frac{\VEC{\alpha}!}{(\VEC{\alpha}-\VEC{\beta})!}
 \VEC{x}^{\VEC{\alpha}-\VEC{\beta}}$
 for $\VEC{\beta} \leq \VEC{\alpha}$ and $0$ otherwise.  In particular,
-$\displaystyle \diff^{\VEC{\alpha}} u(\VEC{x}) = \VEC{\alpha}!$.  With
+$\DS \diff^{\VEC{\alpha}} u(\VEC{x}) = \VEC{\alpha}!$.  With
 $\VEC{y} = - \VEC{x}$, (\ref{laplace_op1}) becomes
 \[
 \VEC{\alpha}! a_{\VEC{\alpha}}(\VEC{0})
@@ -311,7 +311,7 @@ coefficients.  Since $L(D)$ obviously commutes with translations when
 the coefficients are constant, we have shown that $L(D)$ commutes with
 translations if and only if the coefficients $a_{\VEC{\alpha}}$ are constant.
 
-We have for all $\displaystyle u\in C^k(\RR^n)$ that
+We have for all $\DS u\in C^k(\RR^n)$ that
 \[
 (L(\VEC{x},\diff)u)^\wedge(\VEC{y}) = p(\VEC{y}) \hat{u}(\VEC{y}) \ ,
 \]
@@ -345,15 +345,15 @@ if $p$ is radial; namely, $p(\VEC{y}) = p(R\VEC{y})$ for all $\VEC{y}$
 and all rotation $R$ or, in other words, $p$ depends only of the radius
 $r=\|\VEC{y}\|_2$.
 
-If $\displaystyle p(\VEC{y}) = \sum_{|\VEC{\alpha}|\leq k}
+If $\DS p(\VEC{y}) = \sum_{|\VEC{\alpha}|\leq k}
 a_{\VEC{\alpha}} (i\VEC{y})^{\VEC{\alpha}}$
-is radial, then $\displaystyle
+is radial, then $\DS
 p_j(\VEC{y}) = \sum_{|\VEC{\alpha}|=j} a_{\VEC{\alpha}}
 (i\VEC{y})^{\VEC{\alpha}}$ is
 radial for $0\leq j \leq k$ by homogeneity because rotations preserve the
 degree of $p_j$.  Thus $p_j$ is an homogeneous polynomial of degree
-$j$ in $\displaystyle \|\VEC{y}\|_2$;
-namely, $\displaystyle p_j(\VEC{y}) = b_j (i\|\VEC{y}\|_2)^j$ for some
+$j$ in $\DS \|\VEC{y}\|_2$;
+namely, $\DS p_j(\VEC{y}) = b_j (i\|\VEC{y}\|_2)^j$ for some
 constant $b_j$.  However, since $p$ is a polynomial, $b_j=0$ for $j$ odd.
 
 We have found that
@@ -368,17 +368,17 @@ L(\VEC{x},\diff) = \sum_{j\leq k/2} b_{2j} \Delta^j \ .
 \]
 
 \stage{$\Leftarrow$}
-If $\displaystyle L(\VEC{x},\diff) = \sum_{j=0}^k a_j \Delta^j$, than
+If $\DS L(\VEC{x},\diff) = \sum_{j=0}^k a_j \Delta^j$, than
 $L(\VEC{x},\diff)$ commutes with translations because it has constant
 coefficients.
-Since $\displaystyle p(\VEC{y}) = \sum_{j=0}^k a_j (i \|\VEC{y}\|_2^2)^j$ 
+Since $\DS p(\VEC{y}) = \sum_{j=0}^k a_j (i \|\VEC{y}\|_2^2)^j$ 
 is radial, then $L(\VEC{x},\diff)$ commutes with rotations.
 \end{proof}
 
 \begin{prop} \label{laplace_spheric}
-Consider $\displaystyle \phi \in C^2(\RR)$.
+Consider $\DS \phi \in C^2(\RR)$.
 If $f(\VEC{x}) = \phi(\|\VEC{x}\|_2)$ for
-$\displaystyle \VEC{x}\in \RR^n\setminus \{\VEC{0}\}$, then
+$\DS \VEC{x}\in \RR^n\setminus \{\VEC{0}\}$, then
 \[
 \Delta f(\VEC{x}) = \phi''(r) + \frac{n-1}{r} \phi'(r)
 \]
@@ -387,7 +387,7 @@ for $r = \|\VEC{x}\|_2$.
 
 \begin{proof}
 Let $r = \|\VEC{x}\|_2$.  Since
-$\displaystyle \pdydx{r}{x_j} = \frac{x_j}{r}$ for $1 \leq j \leq n$, we get
+$\DS \pdydx{r}{x_j} = \frac{x_j}{r}$ for $1 \leq j \leq n$, we get
 \begin{align*}
 &\Delta_{\VEC{x}} f(\VEC{x})
 = \sum_{j=1}^n \pdfdx{\left(\pdfdx{\phi(r)}{x_j}\right)}{x_j}
@@ -406,7 +406,7 @@ $\displaystyle \pdydx{r}{x_j} = \frac{x_j}{r}$ for $1 \leq j \leq n$, we get
 
 \begin{cor} \label{laplace_sharm}
 Suppose that $f(\VEC{x}) = \phi(\|\VEC{x}\|)$ satisfies
-$\Delta f = 0$ on $\displaystyle \RR^n \setminus \{\VEC{0}\}$.  Then
+$\Delta f = 0$ on $\DS \RR^n \setminus \{\VEC{0}\}$.  Then
 \[
 \phi(r) =
 \begin{cases}
@@ -419,14 +419,14 @@ for $r = \|\VEC{x}\|$.
 
 \begin{proof}
 From $\Delta f = 0$, we get
-$\displaystyle \phi''(r) + \frac{n-1}{r} \phi'(r) = 0$.
+$\DS \phi''(r) + \frac{n-1}{r} \phi'(r) = 0$.
 With $w(r) = \phi'(r)$, this last equation becomes the separable first
 order ordinary differential equation
-$\displaystyle w'(r) + \frac{n-1}{r} w(r) = 0$
-whose solution is $\displaystyle w(r) = C r^{1-n}$ if $n\neq 1$, where $C$
+$\DS w'(r) + \frac{n-1}{r} w(r) = 0$
+whose solution is $\DS w(r) = C r^{1-n}$ if $n\neq 1$, where $C$
 is an arbitrary constant.
 
-For $n\neq 2$, we get $\displaystyle \phi(r) = b r^{2-n} + a$,
+For $n\neq 2$, we get $\DS \phi(r) = b r^{2-n} + a$,
 where $b=C/(2-n)$ and $a$ is a constant.  For $n=2$, we get
 $\phi(r) = b\ln(r) + a$, where $b=C$ and $a$ is a constant.
 \end{proof}
@@ -446,7 +446,7 @@ Cauchy problem (\ref{wave_nD}) with the initial conditions
 u(x,t) = \frac{1}{2} \left(f(x-ct) + f(x+ct)\right)
 + \frac{1}{2c} \int_{x-ct}^{x+ct} g(s)\dx{s}
 \]
-if $\displaystyle f \in C^2(\RR)$ and $\displaystyle g \in C^1(\RR)$.
+if $\DS f \in C^2(\RR)$ and $\DS g \in C^1(\RR)$.
 This solution can be written as
 \begin{equation} \label{wave_sol_oneD_conv}
 u(x,t) = \frac{1}{2} \left( f_{ct}(x) + f_{-ct}(x) \right) +
@@ -466,22 +466,22 @@ If $f$ and $g$ are locally integrable functions, then
 \subsection{Higher Odd Dimensional Spaces} \label{wave_HODS}
 
 The {\bfseries spherical mean}\index{Spherical Mean} of a continuous function
-$\displaystyle h:\RR^n\rightarrow \RR$ is defined by the surface integral
+$\DS h:\RR^n\rightarrow \RR$ is defined by the surface integral
 \begin{equation} \label{wave_nD_idx1}
 M_h(\VEC{x},r) = \frac{1}{\omega_n} \int_{\|\VEC{y}\|=1} h(\VEC{x} + r \VEC{y}) 
 \dss{S}{y} \ ,
 \end{equation}
-where $\omega_n$ is the area of a sphere of radius $1$ in $\displaystyle \RR^n$.
+where $\omega_n$ is the area of a sphere of radius $1$ in $\DS \RR^n$.
 For now, we do not need to assume that $n$ is odd.
 
 The spherical mean of $h$ has the following properties.
 \begin{enumerate}
 \item $M_h(\VEC{x},r) = M_h(\VEC{x},-r)$ for $r\in \RR$ and
-$\displaystyle \VEC{x} \in \RR^n$.
-\item $\displaystyle M_h \in C^k(\RR^n\times \RR)$ if
-$\displaystyle h \in C^k(\RR^n)$.
-\item $M_h(\VEC{x},0) = h(\VEC{x})$ for $\displaystyle \VEC{x} \in \RR^n$ if
-$\displaystyle h \in C(\RR^n)$.
+$\DS \VEC{x} \in \RR^n$.
+\item $\DS M_h \in C^k(\RR^n\times \RR)$ if
+$\DS h \in C^k(\RR^n)$.
+\item $M_h(\VEC{x},0) = h(\VEC{x})$ for $\DS \VEC{x} \in \RR^n$ if
+$\DS h \in C(\RR^n)$.
 \end{enumerate}
 
 For $r\neq 0$, the change of variables $\VEC{z} = \VEC{x} + r \VEC{y}$
@@ -491,51 +491,51 @@ M_h(\VEC{x},r) = \frac{1}{r^{n-1} \omega_n}
 \int_{\|\VEC{x}-\VEC{z}\|=r} h(\VEC{z}) \dx{S} \ .
 \end{equation}
 
-In $\displaystyle \RR^2$, the surface integrals above are computed using polar
+In $\DS \RR^2$, the surface integrals above are computed using polar
 coordinates.  For (\ref{wave_nD_idx1}), we use
-$\displaystyle \VEC{y} = \left( \cos(\theta), \sin(\theta) \right)$
+$\DS \VEC{y} = \left( \cos(\theta), \sin(\theta) \right)$
 with $0\leq \theta < 2\pi$.  Thus
-$\displaystyle \dss{S}{y} = \dx{\theta}$.  For
+$\DS \dss{S}{y} = \dx{\theta}$.  For
 (\ref{wave_nD_idx1_r}), we use 
-$\displaystyle \VEC{z} = \VEC{x} + r\left(\cos(\theta),\sin(\theta) \right)$
+$\DS \VEC{z} = \VEC{x} + r\left(\cos(\theta),\sin(\theta) \right)$
 with $0\leq \theta < 2\pi$.  Thus
-$\displaystyle \dx{S} = r \dx{\theta}$.
+$\DS \dx{S} = r \dx{\theta}$.
 
-In $\displaystyle \RR^3$, the surface integrals above are computed using
+In $\DS \RR^3$, the surface integrals above are computed using
 spherical coordinates.  For (\ref{wave_nD_idx1}), we use
-$\displaystyle \VEC{y} = \left( \cos(\theta)\sin(\phi) ,
+$\DS \VEC{y} = \left( \cos(\theta)\sin(\phi) ,
 \sin(\theta)\sin(\phi) , \cos(\phi) \right)$
 with $0\leq \theta < 2\pi$ and $0\leq \phi < \pi$.  Thus
-$\displaystyle \dss{S}{y} = \sin(\phi) \dx{\phi}\dx{\theta}$.  For
+$\DS \dss{S}{y} = \sin(\phi) \dx{\phi}\dx{\theta}$.  For
 (\ref{wave_nD_idx1_r}), we use
-$\displaystyle \VEC{z} = \VEC{x} + r\left(\cos(\theta)\sin(\phi) ,
+$\DS \VEC{z} = \VEC{x} + r\left(\cos(\theta)\sin(\phi) ,
 \sin(\theta)\sin(\phi) , \cos(\phi) \right)$
 with $0\leq \theta < 2\pi$ and $0\leq \phi < \pi$.  Thus
-$\displaystyle \dx{S} = r^2 \sin(\phi) \dx{\phi}\dx{\theta}$.
+$\DS \dx{S} = r^2 \sin(\phi) \dx{\phi}\dx{\theta}$.
 
-Integrating $\displaystyle e^{-\pi \|\VEC{x}\|_2^2}$ over
-$\displaystyle \RR^n$ using spherical coordinates \footnote{We call
-spherical coordinates in $\displaystyle \RR^n$ any coordinates of the
+Integrating $\DS e^{-\pi \|\VEC{x}\|_2^2}$ over
+$\DS \RR^n$ using spherical coordinates \footnote{We call
+spherical coordinates in $\DS \RR^n$ any coordinates of the
 form $\VEC{x} = r \VEC{y}$ with $\|\VEC{y}\|=1$.}, the reader can verify that
-$\displaystyle \omega_n = 2 \pi^{n/2}/\Gamma(n/2)$ for
+$\DS \omega_n = 2 \pi^{n/2}/\Gamma(n/2)$ for
 $n>0$.  It is a nice calculus exercise whose solution can be found in
 \cite{FoPDE}.  In particular, $\omega_2 = 2\pi$ and $\omega_3 = 4\pi$. 
 
 \begin{rmk}
 This remark is for those familiar with the theory to measure and
 integration.
-For any $\displaystyle \VEC{y} \in \RR^n$ such that
+For any $\DS \VEC{y} \in \RR^n$ such that
 $\|\VEC{y}\| = r> 0$, we have
 \[
 M_h(\VEC{x},r) =
 \frac{1}{\omega_n} \int_{T\in O(n)} h(\VEC{x}+\,T(\VEC{y}))
 \dx{\mu(T)}
 \]
-for $\displaystyle \VEC{x}\in\RR^n$,
+for $\DS \VEC{x}\in\RR^n$,
 where $\mu(T)$ is the Haar measure on the group $O(n)$ of orthogonal
-transformations on $\displaystyle \RR^n$.
+transformations on $\DS \RR^n$.
 
-Hence, if $\displaystyle h \in C^2(\RR^n)$,
+Hence, if $\DS h \in C^2(\RR^n)$,
 \begin{align}
 \Delta_{\VEC{x}} M_h(\VEC{x},r)
 &= \frac{1}{\omega_n} \int_{T\in O(n)} \Delta_{\VEC{x}} h(\VEC{x}+\,T(\VEC{y}))
@@ -552,8 +552,8 @@ translations; so
 = \Delta_{\VEC{y}} h(\VEC{x}+T(\VEC{y})) \ .
 \]
 
-Suppose that $\displaystyle f \in C^2(\RR^n)$ satisfies $f(\VEC{x}) = g(r)$ with
-$r=\|\VEC{x}\|$ for all $\displaystyle \VEC{x} \in \RR^n$.
+Suppose that $\DS f \in C^2(\RR^n)$ satisfies $f(\VEC{x}) = g(r)$ with
+$r=\|\VEC{x}\|$ for all $\DS \VEC{x} \in \RR^n$.
 Using the spherical coordinates $\VEC{x} = r \VEC{u}$ with
 $\|\VEC{u}\|= 1$ and $r>0$, it follows from
 Proposition~\ref{laplace_spheric} that
@@ -573,7 +573,7 @@ calculus as it is shown in the next proposition.
 \end{rmk}
 
 \begin{prop} \label{wave_sol_pr1}
-If $\displaystyle h \in C^2(\RR^n)$, then
+If $\DS h \in C^2(\RR^n)$, then
 \[
 \Delta_{\VEC{x}} M_h(\VEC{x},r)
 = \left( \pdydxn{}{r}{2} + \left(\frac{n-1}{r}\right) \pdydx{}{r} \right)
@@ -604,7 +604,7 @@ the divergence theorem (in $\VEC{y}$ coordinates) to conclude that
 \Delta h(\VEC{x} + \rho \VEC{y}) \, \rho^{n-1} \dss{S}{y} \right) \dx{\rho}
 \end{align*}
 because
-$\displaystyle \diV_{\VEC{y}} \left( \graD h(\VEC{x} + r \VEC{y}) \right)
+$\DS \diV_{\VEC{y}} \left( \graD h(\VEC{x} + r \VEC{y}) \right)
 = r \Delta h(\VEC{x} + r \VEC{y})$.
 If we derive both sides of the equality
 \[
@@ -621,12 +621,12 @@ with respect to $r$, then we get
 = r^{n-1} \Delta_{\VEC{x}} M_h(\VEC{x},r) \ .
 \]
 We get the conclusion of the proposition by dividing both side of the
-previous equality by $\displaystyle r^{n-1}$.
+previous equality by $\DS r^{n-1}$.
 \end{proof}
 
 \begin{cor} % If the label is defined here before the first sentence
   % of the corollary, TeX does not register it.  Why?
-If $\displaystyle u \in C^2(\RR^n \times \RR)$, let  \label{wave_sol_oaCOR}
+If $\DS u \in C^2(\RR^n \times \RR)$, let  \label{wave_sol_oaCOR}
 \[
 M_u( (\VEC{x},t), r) =
 \frac{1}{\omega_n} \int_{\|\VEC{y}\|=1} u(\VEC{x} + r \VEC{y},t) 
@@ -634,18 +634,18 @@ M_u( (\VEC{x},t), r) =
 = \frac{1}{r^{n-1} \omega_n}
 \int_{\|\VEC{y}-\VEC{x}\|=r} u(\VEC{y},t) \dss{S}{y}
 \]
-for $\displaystyle (\VEC{x},t) \in \RR^n \times \RR$.  This is the
+for $\DS (\VEC{x},t) \in \RR^n \times \RR$.  This is the
 spherical mean of the function $h(\VEC{x}) = u(\VEC{x},t)$ for
 $t\in \RR$ fixed.  Then 
-$u$ satisfies $\displaystyle L(\VEC{x},t,\diff)u=0$ on
-$\displaystyle \RR^n$ if and only if
+$u$ satisfies $\DS L(\VEC{x},t,\diff)u=0$ on
+$\DS \RR^n$ if and only if
 \begin{equation} \label{wave_sol_oa}
 \pdfdxn{ \left(
 M_u((\VEC{x},t),r)\right) }{t}{2} \\
 - c^2 \left( \pdydxn{}{r}{2} + \left(\frac{n-1}{r}\right) \pdydx{}{r} \right)
 M_u((\VEC{x},t),r) = 0
 \end{equation}
-for $\displaystyle (\VEC{x},t) \in \RR^n \times \RR$ and $r>0$.
+for $\DS (\VEC{x},t) \in \RR^n \times \RR$ and $r>0$.
 \end{cor}
 
 \begin{proof}
@@ -659,10 +659,10 @@ M_{\pdydxn{u}{t}{2}}\left((\VEC{x},t), r\right)
 M_u\left((\VEC{x},t), r\right)
 \end{align*}
 and the fact that, for a continuous function
-$\displaystyle h:\RR^n\rightarrow \RR$,
-$\displaystyle M_h\left(\VEC{x}, r\right) = 0$ for all
-$\displaystyle \VEC{x}\in\RR^n$ and $r \in \RR$ if and only if
-$h(\VEC{x}) = 0$ for all $\displaystyle \VEC{x}\in\RR^n$.
+$\DS h:\RR^n\rightarrow \RR$,
+$\DS M_h\left(\VEC{x}, r\right) = 0$ for all
+$\DS \VEC{x}\in\RR^n$ and $r \in \RR$ if and only if
+$h(\VEC{x}) = 0$ for all $\DS \VEC{x}\in\RR^n$.
 \end{proof}
 
 \begin{rmk}
@@ -670,16 +670,16 @@ We could use the previous Corollary to find a solution $u$ of
 (\ref{wave_nD}) and (\ref{wave_nD_cond}).  We first find
 $M_u$ satisfying (\ref{wave_sol_oa}) and the initial
 conditions $M_u( (\VEC{x},0), r) = M_f(\VEC{x},r)$ and
-$\displaystyle \pdydx{M_u}{t}((\VEC{x},0), r) = M_g(\VEC{x},r)$.
+$\DS \pdydx{M_u}{t}((\VEC{x},0), r) = M_g(\VEC{x},r)$.
 Then
-$\displaystyle u(\VEC{x},t) = \lim_{r\rightarrow 0} M_u( (\VEC{x},t), r)$.
+$\DS u(\VEC{x},t) = \lim_{r\rightarrow 0} M_u( (\VEC{x},t), r)$.
 We will not proceed this way to find the solution of (\ref{wave_nD})
 and (\ref{wave_nD_cond}).
 \label{wave_sol_limit}
 \end{rmk}
 
 \begin{lemma}
-If $\displaystyle h \in C^{k+2}(\RR)$ with $k>0$, then
+If $\DS h \in C^{k+2}(\RR)$ with $k>0$, then
 \begin{equation} \label{wave_sol_nD_idx2}
 \pdfdxn{\left( \frac{1}{r} \pdydx{}{r}\right)^{k-1}}{r}{2}
 \left(r^{2k-1} h(r)\right) = \left(\frac{1}{r} \pdydx{}{r}\right)^k
@@ -689,15 +689,15 @@ If $\displaystyle h \in C^{k+2}(\RR)$ with $k>0$, then
 
 \begin{proof}
 A proof by induction on $k$ shows that (\ref{wave_sol_nD_idx2}) is true for
-$\displaystyle h(r) = r^m$.  By linearity, (\ref{wave_sol_nD_idx2}) is true for
+$\DS h(r) = r^m$.  By linearity, (\ref{wave_sol_nD_idx2}) is true for
 any polynomial.  We also have that (\ref{wave_sol_nD_idx2}) is
 true at $r=r_0$ if $h$ is such that
-$\displaystyle \pdydxn{h}{r}{j}(r_0) = 0$ for $0\leq j \leq k+1$ because
+$\DS \pdydxn{h}{r}{j}(r_0) = 0$ for $0\leq j \leq k+1$ because
 both sides of (\ref{wave_sol_nD_idx2}) are then null.
 
-For $\displaystyle h \in C^{k+2}(\RR)$ given, choose $r_0 \in \RR$.
+For $\DS h \in C^{k+2}(\RR)$ given, choose $r_0 \in \RR$.
 The Taylor's expansion of $h$ about $r_0$ of order $k+1$ is of
-the form $\displaystyle h(r) = p(r) + q(r)$, where
+the form $\DS h(r) = p(r) + q(r)$, where
 \[
 p(r) = \sum_{j=0}^{k+1} \frac{1}{j!}\pdydxn{h}{r}{j}(r_0) \, (r-r_0)^j
 \]
@@ -719,7 +719,7 @@ for $0\leq j \leq k+1$.  Since $r_0$ is arbitrary,
 \end{proof}
 
 \begin{lemma} \label{wave_sol_pr2}
-Given $\displaystyle h \in C^{k+2}(\RR)$ with $k>0$, let
+Given $\DS h \in C^{k+2}(\RR)$ with $k>0$, let
 $T_{h,k}:\RR \rightarrow \RR$ be the function defined by
 \[
 T_{h,k}(r) = \left(\frac{1}{r}\pdydx{}{r}\right)^{k-1}
@@ -730,14 +730,14 @@ Then,
 \pdfdxn{ T_{h,(n-1)/2} }{r}{2}(r) = T_{h'' +(n-1)/r\,h',(n-1)/2}(r)
 \]
 for $r > 0$ and $n>1$ odd.
-In other words, $\displaystyle \pdydxn{}{r}{2}$ is ``conjugate'' to
-$\displaystyle \left(\pdydxn{}{r}{2}
+In other words, $\DS \pdydxn{}{r}{2}$ is ``conjugate'' to
+$\DS \left(\pdydxn{}{r}{2}
 + \left(\frac{n-1}{r}\right)\pdydx{}{r}\right)$.
 Moreover,
-$\displaystyle
+$\DS
 T_{h,k}(r) = \sum_{j=0}^{k-1} c_j r^{j+1} \pdydxn{h}{r}{j}(r)$
 for some constants $c_0$, $c_1$, \ldots, $c_{k-1}$.  In particular,
-$\displaystyle c_0 = 1 \cdot 3 \cdot 5 \cdot \ldots \cdot (2k-1)$.
+$\DS c_0 = 1 \cdot 3 \cdot 5 \cdot \ldots \cdot (2k-1)$.
 \end{lemma}
 
 \begin{proof}
@@ -757,7 +757,7 @@ From the previous lemma, we have
 
 The second conclusion of the lemma can be proved by induction on $k$
 and is left to the reader.  Note that
-$\displaystyle c_0 r = \left(\frac{1}{r}\pdydx{}{r}\right)^{k-1}
+$\DS c_0 r = \left(\frac{1}{r}\pdydx{}{r}\right)^{k-1}
 \left(r^{2k-1}\right)$ is the coefficient of $h(r)$ in the series
 expansion of $T_{h,k}(r)$ given in the statement of the lemma. 
 \end{proof}
@@ -765,8 +765,8 @@ expansion of $T_{h,k}(r)$ given in the statement of the lemma.
 \begin{theorem} \label{wave_sol_nD_odd}
 If $n > 1$ is odd, then a solution of
 (\ref{wave_nD}) with the initial conditions given in
-(\ref{wave_nD_cond}), where $\displaystyle f\in C^{(n+3)/2}(\RR^n)$ and
-$\displaystyle g\in C^{(n+1)/2}(\RR^n)$, is given by
+(\ref{wave_nD_cond}), where $\DS f\in C^{(n+3)/2}(\RR^n)$ and
+$\DS g\in C^{(n+1)/2}(\RR^n)$, is given by
 \begin{equation} \label{wave_sol_nD_oddEQ}
 \begin{split} 
 u(\VEC{x},t) &= \frac{1}{1\cdot 3 \cdot 5 \cdot \ldots \cdot (n-2)
@@ -787,17 +787,17 @@ yields the equation
 \begin{equation} \label{wave_nD_pr}
 L(\VEC{x},s,\diff) = \pdydxn{u}{s}{2} - \Delta u = 0
 \end{equation}
-for $\displaystyle (\VEC{x},s) \in \RR^n \times \RR$,
+for $\DS (\VEC{x},s) \in \RR^n \times \RR$,
 and the initial conditions
 \begin{equation} \label{wave_nD_cond_pr}
 u(\VEC{x}, 0) = f(\VEC{x}) \quad \text{and} \quad
 \pdydx{u}{s}(\VEC{x},0) = \tilde{g}(\VEC{x}) \equiv \frac{1}{c}
 g(\VEC{x})
 \end{equation}
-for $\displaystyle \VEC{x} \in \RR^n$.
+for $\DS \VEC{x} \in \RR^n$.
 
 We solve (\ref{wave_nD_pr}) with the initial conditions
-(\ref{wave_nD_cond_pr}).  For $\displaystyle h\in C^{(n+1)/2}(\RR^n)$, let
+(\ref{wave_nD_cond_pr}).  For $\DS h\in C^{(n+1)/2}(\RR^n)$, let
 \[
 v_h(\VEC{x},s) = T_{M_h(\VEC{x},\cdot), (n-1)/2}(s) \ .
 \]
@@ -815,14 +815,14 @@ Proposition~\ref{wave_sol_pr1} and the last equality is a consequence
 of Lemma~\ref{wave_sol_pr2}.
 
 So $v_{\tilde{g}}$ is a solution of (\ref{wave_nD_pr}).  We also have that
-$\displaystyle \pdydx{v_f}{s}$ is a solution (\ref{wave_nD_pr})
-because $v_f$ is a solution and $\displaystyle \pdydx{}{s}$ commutes
-with $\displaystyle \pdydxn{}{s}{2} - \Delta_{\VEC{x}}$.
+$\DS \pdydx{v_f}{s}$ is a solution (\ref{wave_nD_pr})
+because $v_f$ is a solution and $\DS \pdydx{}{s}$ commutes
+with $\DS \pdydxn{}{s}{2} - \Delta_{\VEC{x}}$.
 
 Thus
 \begin{equation} \label{wave_sol_nD_pr}
 u(\VEC{x},s) = \frac{1}{1\cdot 3 \cdot 5 \cdot \ldots \cdot (n-2)}
-\left( \displaystyle \pdydx{v_f}{s} + v_{\tilde{g}} \right)(\VEC{x},s)
+\left( \DS \pdydx{v_f}{s} + v_{\tilde{g}} \right)(\VEC{x},s)
 \end{equation}
 is a solution of (\ref{wave_nD_pr}).
 
@@ -852,8 +852,8 @@ and
 \pdydx{u}{s}(\VEC{x},0) = \frac{2(c_0+c_1)}{c_0}
 \pdydx{M_f}{s}(\VEC{x},0) + M_{\tilde{g}}(\VEC{x},0) = \tilde{g}(\VEC{x})
 \]
-because $\displaystyle \pdydx{M_f}{s}(\VEC{x},0)$ is even with respect
-to $s$, and so $\displaystyle \pdydx{M_f}{s}(\VEC{x},0) = 0$.
+because $\DS \pdydx{M_f}{s}(\VEC{x},0)$ is even with respect
+to $s$, and so $\DS \pdydx{M_f}{s}(\VEC{x},0) = 0$.
 
 The conclusion of the theorem is obtained after substituting $s=ct$
 and $\tilde{g} = g/c$ into (\ref{wave_sol_nD_pr}).
@@ -878,26 +878,26 @@ that has been given above.  For $n=3$, (\ref{wave_sol_oa}) becomes
 - c^2 \left( \pdydxn{}{r}{2} + \frac{2}{r} \pdydx{}{r} \right)
 M_u((\VEC{x},t),r) = 0
 \]
-for $\displaystyle (\VEC{x},t) \in \RR^3 \times \RR$ and $r > 0$.
+for $\DS (\VEC{x},t) \in \RR^3 \times \RR$ and $r > 0$.
 This can be rewritten as
 \[
 \pdfdxn{ \big(rM_u((\VEC{x},t),r)\big) }{t}{2} \\
 - c^2 \pdfdxn{ \big(rM_u((\VEC{x},t),r)\big)}{r}{2} = 0
 \]
-for $\displaystyle (\VEC{x},t) \in \RR^3 \times \RR$ and $r > 0$.
+for $\DS (\VEC{x},t) \in \RR^3 \times \RR$ and $r > 0$.
 
 It follows from Corollary~\ref{wave_sol_oaCOR} that
 $u$ is a solution of (\ref{wave_nD}) with the
 initial conditions (\ref{wave_nD_cond}) if and only if
 $v(r,t) = rM_u((\VEC{x},t),r)$ is a solution of the wave
-equation $\displaystyle \pdydxn{v}{t}{2} - c^2\, \pdydxn{v}{r}{2} = 0$ with
+equation $\DS \pdydxn{v}{t}{2} - c^2\, \pdydxn{v}{r}{2} = 0$ with
 the initial conditions
-$\displaystyle v(r,0) = rM_u((\VEC{x},0),r) = rM_f(\VEC{x},r)$
-and $\displaystyle
+$\DS v(r,0) = rM_u((\VEC{x},0),r) = rM_f(\VEC{x},r)$
+and $\DS
 \pdydx{v}{t}(r,0) = rM_{\pdydx{u}{t}}((\VEC{x},0),r) = rM_g(\VEC{x},r)$,
 and the boundary condition
-$\displaystyle v(0,t) = \lim_{r\rightarrow 0} rM_u((\VEC{x},t),r) = 0$
-because $\displaystyle \lim_{r\rightarrow 0} M_u((\VEC{x},t),r) =
+$\DS v(0,t) = \lim_{r\rightarrow 0} rM_u((\VEC{x},t),r) = 0$
+because $\DS \lim_{r\rightarrow 0} M_u((\VEC{x},t),r) =
 u(\VEC{x},t) \in \RR$ as we have seen in Remark~\ref{wave_sol_limit}.
 The boundary condition is required because the origin is not uniquely
 represented in spherical coordinates.
@@ -909,10 +909,10 @@ v(r,t) = \frac{1}{2}\left(v(r+ct,0)+v(r-ct,0)\right)
 +\frac{1}{2c} \int_{r-ct}^{r+ct} \pdydx{v}{t}(s,0)\dx{s}
 \]
 for $r,t \geq 0$.  Moreover, $v(r-ct,0) = -v(ct-r,0)$
-and $\displaystyle \int_{r-ct}^0 \pdydx{v}{t}(s,0)\dx{s} =
+and $\DS \int_{r-ct}^0 \pdydx{v}{t}(s,0)\dx{s} =
 \int_{ct-r}^{0} \pdydx{v}{t}(s,0)\dx{s}$ because
 $v(r,0) = rM_f(\VEC{x},r)$ and
-$\displaystyle \pdydx{v}{t}(r,0) = rM_g(\VEC{x},r)$ are odd functions
+$\DS \pdydx{v}{t}(r,0) = rM_g(\VEC{x},r)$ are odd functions
 with respect to $r$.  Recall that $M_f(\VEC{x},r)$ and $M_g(\VEC{x},r)$
 are even with respect to $r$.  Hence
 \begin{align*}
@@ -928,7 +928,7 @@ We have
 - (ct-r)M_f(\VEC{x},ct-r) \right) + \frac{1}{2cr}
 \int_{ct-r}^{ct+r} s M_g(\VEC{x},s) \dx{s}\right)
 \end{align*}
-for $\displaystyle \VEC{x} \in \RR^3$ and $t\geq 0$.   However,
+for $\DS \VEC{x} \in \RR^3$ and $t\geq 0$.   However,
 \begin{align*}
 &\lim_{r\rightarrow 0} \frac{1}{2r}\left( r M_f(\VEC{x},ct+r)
 +rM_f(\VEC{x},ct-r) \right)
@@ -955,7 +955,7 @@ u(\VEC{x},t) = M_f(\VEC{x},ct) + t \pdfdx{ M_f(\VEC{x},ct) }{t} +
 tM_g(\VEC{x},ct)
 = \pdfdx{ \left(t M_f(\VEC{x},ct)\right) }{t} + tM_g(\VEC{x},ct)
 \]
-for $\displaystyle \VEC{x}\in \RR^3$ and $t \geq 0$, which is
+for $\DS \VEC{x}\in \RR^3$ and $t \geq 0$, which is
 (\ref{wave_sol_3d}).
 \end{rmk}
 
@@ -965,14 +965,14 @@ The solution of (\ref{wave_nD}) with the initial conditions
 (\ref{wave_nD_cond}) when $n$ is even is given by the
 {\bfseries method of descent}\index{Method of Descent}.
 Namely, if $u$ is a solution on
-$\displaystyle \RR^{n+1}\times \RR$ which is independent of
-$x_{n+1}$, then $u$ is a solution on $\displaystyle \RR^n\times \RR$.
+$\DS \RR^{n+1}\times \RR$ which is independent of
+$x_{n+1}$, then $u$ is a solution on $\DS \RR^n\times \RR$.
 
 \begin{theorem} \label{wave_sol_nD_even}
 If $n >0$ is even, then a solution of
 (\ref{wave_nD}) with the initial conditions (\ref{wave_nD_cond}), where
-$\displaystyle f\in C^{(n+4)/2}(\RR^n)$ and
-$\displaystyle g\in C^{(n+2)/2}(\RR^n)$, is given by
+$\DS f\in C^{(n+4)/2}(\RR^n)$ and
+$\DS g\in C^{(n+2)/2}(\RR^n)$, is given by
 \begin{align}
 u(\VEC{x},t) &= \frac{2}{1\cdot 3 \cdot 5 \cdot \ldots \cdot (n-1)
 \,\omega_{n+1}}
@@ -988,7 +988,7 @@ u(\VEC{x},t) &= \frac{2}{1\cdot 3 \cdot 5 \cdot \ldots \cdot (n-1)
 \end{theorem}
 
 \begin{proof}
-If we consider $f$ and $g$ as functions in $\displaystyle \RR^{n+1}$ which are
+If we consider $f$ and $g$ as functions in $\DS \RR^{n+1}$ which are
 independent of $x_{n+1}$, then the solution of (\ref{wave_nD}) with
 the initial conditions (\ref{wave_nD_cond}) is 
 \begin{equation} \label{WS_nD_even_Eq1}
@@ -1003,7 +1003,7 @@ u(\VEC{x},t) &= \frac{1}{1\cdot 3 \cdot 5 \cdot \ldots \cdot (n-1)
 \dss{S}{y} \right) \right) \ ,
 \end{split}
 \end{equation}
-where $\VEC{x}$ and $\VEC{y}$ are in $\displaystyle \RR^{n+1}$.
+where $\VEC{x}$ and $\VEC{y}$ are in $\DS \RR^{n+1}$.
 
 If we write $\VEC{y} = (\tilde{\VEC{y}}, y_{n+1})$ and
 $\VEC{x} = (\tilde{\VEC{x}}, x_{n+1})$, then
@@ -1014,7 +1014,7 @@ f(\tilde{\VEC{x}}+ ct \tilde{\VEC{y}}) \dss{S}{y} \ .
 \]
 If we parameterize the upper part (i.e.\ $y_{n+1}>0$) and lower part
 (i.e.\ $y_{n+1}<0$) of the sphere of radius $1$ centred at the origin
-in $\RR^{n+1}$ with $\displaystyle y_{n+1} = \phi_{\pm}(\tilde{\VEC{y}}) =
+in $\RR^{n+1}$ with $\DS y_{n+1} = \phi_{\pm}(\tilde{\VEC{y}}) =
 \pm \sqrt{1-\|\tilde{\VEC{y}}\|^2}$ for $\|\tilde{\VEC{y}}\|\leq 1$
 (Figure~\ref{wave_FIG8}), then the previous integral becomes
 \[
@@ -1084,7 +1084,7 @@ because $[x-ct, x+ct] \cap \supp g$ will be non-empty for $t>\tilde{t}$.
 When $n=2$ (or $n$ even), we can draw the same conclusion than with
 $n=1$.  The value of $u$ at $(\VEC{x},t)$ is determined by the value
 of $f$ and $g$ in the disk of radius $ct$ centred at $\VEC{x}$.  If
-$f$ and $g$ are not null on $\displaystyle \RR^2$, then $u$ will
+$f$ and $g$ are not null on $\DS \RR^2$, then $u$ will
 generally be non-null at $(\VEC{x},t)$ such that
 $\left\{ \VEC{y} : \|\VEC{y}-\VEC{x}\| \leq ct\right\}
 \cap (\supp f \cup \supp g) \neq \emptyset$.
@@ -1101,7 +1101,7 @@ Finally, when $n=3$ (or $n$ odd and greater than $1$, the value $u$ at
 $(\VEC{x},t)$ is determined by the value of $f$ and $g$ on the surface
 of the ball of radius $ct$ centres at $\VEC{x}$; namely,
 $\left\{\VEC{y} : \|\VEC{y}-\VEC{x}\| = ct\right\}$.  If $f$ and $g$ are
-not null on $\displaystyle \RR^3$, then $u$ will generally be non-null at
+not null on $\DS \RR^3$, then $u$ will generally be non-null at
 $(\VEC{x},t)$ such that
 $\left\{ \VEC{y} : \|\VEC{y}-\VEC{x}\| = ct \right\} \cap
 ( \supp f \cup \supp g) \neq \emptyset$.
@@ -1166,7 +1166,7 @@ Theorem~\ref{wave_sol_nD_even} according to the value of $n$.
 We now show how to find $u_2$.
 
 \begin{theorem}[Duhamel's Principle]
-Suppose that $\displaystyle w\in C^{\intpt{n/2}+1}(\RR^n\times \RR)$.
+Suppose that $\DS w\in C^{\intpt{n/2}+1}(\RR^n\times \RR)$.
 For $s\in \RR$, let $v(\VEC{x},t,s)$ be the solution of
 \begin{equation} \label{wave_nD_inh1}
 L(\VEC{x},t,\diff) = \pdydxn{v}{t}{2} - c^2 \Delta v = 0 \quad ,
@@ -1197,15 +1197,15 @@ in (\ref{wave_sol_oneD_conv}), (\ref{wave_sol_nD_oddEQ}) and
 
 \begin{proof}
 The initial conditions (\ref{wave_nD_inh_cond}) are satisfied.  We
-have $u(\VEC{x},0) = 0$ for all $\displaystyle \VEC{x} \in \RR^n$.  Moreover,
+have $u(\VEC{x},0) = 0$ for all $\DS \VEC{x} \in \RR^n$.  Moreover,
 \[
 \pdydx{u}{t}(\VEC{x},t) = v(\VEC{x}, 0, t) +
 \int_0^t \pdydx{v}{t}(\VEC{x}, t-s,s)\dx{s} =
 \int_0^t \pdydx{v}{t}(\VEC{x}, t-s,s)\dx{s}
 \]
 because $v(\VEC{x},0,t) = 0$ is one of the initial conditions that $v$
-must satisfy.  Hence $\displaystyle \pdydx{u}{t}(\VEC{x},0) = 0$
-for all $\displaystyle \VEC{x} \in \RR^n$.
+must satisfy.  Hence $\DS \pdydx{u}{t}(\VEC{x},0) = 0$
+for all $\DS \VEC{x} \in \RR^n$.
 
 The function $u$ satisfies (\ref{wave_nD_inh}) because
 \begin{align*}
@@ -1216,9 +1216,9 @@ The function $u$ satisfies (\ref{wave_nD_inh}) because
 =  w(\VEC{x},t) + c^2 \Delta_{\VEC{x}} u(\VEC{x},t) \  .
 \end{align*}
 We may interchange integration and partial derivatives with respect to
-$x_j$ , $1\leq j \leq n$, because $v$ is at least of class $\displaystyle C^2$.
+$x_j$ , $1\leq j \leq n$, because $v$ is at least of class $\DS C^2$.
 
-The condition $\displaystyle w\in C^{\intpt{n/2}+1}(\RR^n\times \RR)$
+The condition $\DS w\in C^{\intpt{n/2}+1}(\RR^n\times \RR)$
 is required to ensure that Theorems~\ref{wave_sol_nD_odd}
 and \ref{wave_sol_nD_even} could be used to find $v$.
 \end{proof}
@@ -1241,7 +1241,7 @@ simple functions of the form
 u(x,y,t) = (A \cos (ckt) + B \sin (ckt))(C \cos (\mu x) +
 D \sin (\mu x))(E \cos (\nu y) + F \sin (\nu y))
 \]
-with $\displaystyle k^2 = \mu^2 + \nu^2$.
+with $\DS k^2 = \mu^2 + \nu^2$.
 
 \begin{egg}
 Let $D =\left\{ (x,y) : 0 < x < 4 \ ,\ 0 < y < 2 \right\}$ and
@@ -1254,8 +1254,8 @@ with the boundary conditions
 $u(x,0,t) = u(x,2,t) = 0$ for $0<x<4$ and
 $u(0,y,t) = u(4,y,t) = 0$ for $0<y<2$,
 and the initial conditions
-$\displaystyle u(x,y,0) = (4x-x^2)(2y-y^2)$ and
-$\displaystyle \pdydx{u}{t}(x,y,0) = 5\sin\left(\frac{3\pi x}{4}\right)
+$\DS u(x,y,0) = (4x-x^2)(2y-y^2)$ and
+$\DS \pdydx{u}{t}(x,y,0) = 5\sin\left(\frac{3\pi x}{4}\right)
 \sin\left(\frac{7\pi y}{2}\right)$ for $(x,y) \in D$.
 
 The simple functions are of the form
@@ -1264,10 +1264,10 @@ u(x,y,t) = \left(A \cos (ckt) + B \sin (ckt)\right)
 \left(C \cos (\mu x) + D \sin (\mu x)\right)
 \left(E \cos (\nu y) + F \sin (\nu y)\right)
 \]
-with $\displaystyle k^2 = \nu^2 + \mu^2$.
+with $\DS k^2 = \nu^2 + \mu^2$.
 
 We get from $u(x,0,t) = 0$ that
-$\displaystyle E\left(A \cos (ckt) + B \sin (ckt)\right)\left(C \cos (\mu x)
+$\DS E\left(A \cos (ckt) + B \sin (ckt)\right)\left(C \cos (\mu x)
 + D \sin (\mu x)\right)=0$ for $0<x<4$ and $t>0$.
 Thus, $E=0$.  We then get from $u(x,2,t) =0$ that\\
 $F\sin(2\nu) \left(A \cos (ckt) + B \sin (ckt)\right)
@@ -1292,7 +1292,7 @@ u_{n,m}(x,y,t) = \left(A_{n,m} \cos (3 k_{n.m} t) +
 B_{n,m} \sin (3 k_{n,m} t)\right)\sin\left(\frac{m\pi x}{4}\right)
 \sin\left(\frac{n\pi y}{2}\right) \  ,
 \]
-where $\displaystyle k_{n.m} =
+where $\DS k_{n.m} =
 \sqrt{\left(\frac{m\pi}{4}\right)^2 + \left(\frac{n\pi}{2}\right)^2}$
 and $n,m >0$.
 
@@ -1304,17 +1304,17 @@ B_{n,m} \sin (3 k_{n,m} t)\right)\sin\left(\frac{m\pi x}{4}\right)
 \sin\left(\frac{n\pi y}{2}\right) \ .
 \end{align*}
 
-From $\displaystyle u(x,y,0) = (4x-x^2)(2y-y^2)$, we get
+From $\DS u(x,y,0) = (4x-x^2)(2y-y^2)$, we get
 \[
 \sum_{n,m=1}^\infty A_{n,m}\sin\left(\frac{m\pi x}{4}\right)
 \sin\left(\frac{n\pi y}{2}\right) = (4x-x^2)(2y-y^2) \ .
 \]
-This is the Fourier sine series in $\displaystyle L^2(D)$ of
-$\displaystyle (4x-x^2)(2y-y^2)$
+This is the Fourier sine series in $\DS L^2(D)$ of
+$\DS (4x-x^2)(2y-y^2)$
 \footnote{We leave it to the reader to generalize the concept of
-classical Fourier series in $\displaystyle L^2(I)$, where $I$ is an interval in
-$\RR$, to $\displaystyle L^2(D)$, where $D$ is a rectangle in
-$\displaystyle \RR^2$, using Theorem~\ref{fu_an_complset}.}.  Thus
+classical Fourier series in $\DS L^2(I)$, where $I$ is an interval in
+$\RR$, to $\DS L^2(D)$, where $D$ is a rectangle in
+$\DS \RR^2$, using Theorem~\ref{fu_an_complset}.}.  Thus
 \begin{align*}
 A_{n,m} &= \frac{4}{2\cdot 4} \int_0^4 \int_0^2 (4x-x^2)(2y-y^2)
 \sin\left(\frac{m\pi x}{4}\right)
@@ -1334,7 +1334,7 @@ Since
 \cos(3 k_{n,m} t)\right)\sin\left(\frac{m\pi x}{4}\right)
 \sin\left(\frac{n\pi y}{2}\right) \ ,
 \]
-we get from $\displaystyle
+we get from $\DS
 \pdydx{u}{t}(x,y,0) = 5\sin\left(\frac{3\pi x}{4}\right)
 \sin\left(\frac{7\pi y}{2}\right)$ that
 \[
@@ -1370,10 +1370,10 @@ u(x,y,t) &= \sum_{n,m=1}^\infty \frac{1024}{n^3 m^3 \pi^6} (1-(-1)^m)(1-(-1)^n)
 \begin{rmk}
 If we consider that the wave equation in the previous example describes the
 membrane of a square drum, the function
-$\displaystyle u_{n,m}(x,y)$ is the $n,m$-harmonic.  The
+$\DS u_{n,m}(x,y)$ is the $n,m$-harmonic.  The
 first-harmonic is given by $n=m=1$.  The frequency of the
 first-harmonic is $3\sqrt{3}/4$.  However, the frequencies of the
-other harmonics are $\displaystyle 3\sqrt{m^2/4 + n^2/2}\,/2$ with $n+m >2$ and
+other harmonics are $\DS 3\sqrt{m^2/4 + n^2/2}\,/2$ with $n+m >2$ and
 $n.m>0$.  Hence, most of the other harmonics do not have frequencies
 which are integer multiples of $3\sqrt{3}/4$.  This is the reason why
 we cannot get an harmonious square drum.
@@ -1400,11 +1400,11 @@ results about partial differential equations in polar coordinates will
 apply to partial differential equations in 
 cylindrical coordinates which are independent of $z$ and vice-versa.
 
-The mappings above are not bijections from $\displaystyle \RR^2$ (or
-$\displaystyle \RR^3$) to itself.  They are periodic of period $2\pi$
+The mappings above are not bijections from $\DS \RR^2$ (or
+$\DS \RR^3$) to itself.  They are periodic of period $2\pi$
 in $\theta$, $(0,\theta)$ is mapped to $(0,0)$ whatever the value of $\theta$,
 $(r,\theta)$ and $(-r, \theta+\pi)$ are mapped to the same point
-of $\displaystyle \RR^2$, and so on.
+of $\DS \RR^2$, and so on.
 
 The spherical coordinates are related to the Cartesian coordinates by
 the transformation
@@ -1414,12 +1414,12 @@ the transformation
 (r \cos(\theta)\sin(\phi), r\sin(\theta)\sin(\phi), r \cos(\phi))
 \end{align*}
 As for the previous change of coordinates, this is not a bijection
-from $\displaystyle \RR^3$ to itself.  It is periodic of period $2\pi$
+from $\DS \RR^3$ to itself.  It is periodic of period $2\pi$
 in $\theta$ and $\phi$, $(0,\theta, \phi)$ is mapped to $(0,0,0)$ whatever the
 value of the $\theta$ and $\phi$, $(r,\theta, 0)$ is mapped to
 $(r,0,0)$ whatever the value of $\theta$, $(r,\theta, \phi)$ and $(-r,
 \theta, \phi+\pi)$ are mapped to the same point of
-$\displaystyle \RR^3$, and so on.
+$\DS \RR^3$, and so on.
 
 Nevertheless, locally and away from the origin, these transformations
 are bijections.
@@ -1450,13 +1450,13 @@ Solve the wave equation
 \ \text{and} \ t > 0 \ , 
 \]
 with the boundary condition $u(x,y,t)=0$ for
-$\displaystyle x^2 + y^2 = R^2$ and $t>0$, and the initial conditions
-$\displaystyle u(x,y, 0) = f\left(\sqrt{x^2+y^2}\right)$ and
-$\displaystyle \pdydx{u}{t}(x,y,0) = g\left(\sqrt{x^2+y^2}\right)$ for
-$\displaystyle x^2 + y^2 \leq R^2$.
+$\DS x^2 + y^2 = R^2$ and $t>0$, and the initial conditions
+$\DS u(x,y, 0) = f\left(\sqrt{x^2+y^2}\right)$ and
+$\DS \pdydx{u}{t}(x,y,0) = g\left(\sqrt{x^2+y^2}\right)$ for
+$\DS x^2 + y^2 \leq R^2$.
 
 Since the boundary and initial conditions are functions of
-the distance $\displaystyle r = \sqrt{x^2+y^2}$ between $(x,y)$ and
+the distance $\DS r = \sqrt{x^2+y^2}$ between $(x,y)$ and
 the origin, we may use polar coordinates and assume that $u$ is a
 function of $r$ and $\theta$.  As is traditional, we keep the same
 notation for $u$ as a function of $(x,y)$ and $u$ as a function of
@@ -1465,8 +1465,8 @@ So $u(x,y) = u(r,\theta)$ where $x = r\cos(\theta)$ and $y = r\sin(\theta)$.
 
 In polar coordinates, the boundary condition is
 $u(R,\theta,t)=0$ for $0 \leq \theta < 2\pi$ and $t >0$, and the
-initial conditions are $\displaystyle u(r,\theta, 0) = f(r)$ and
-$\displaystyle \pdydx{u}{t}(r,\theta,0) = g(r)$ for
+initial conditions are $\DS u(r,\theta, 0) = f(r)$ and
+$\DS \pdydx{u}{t}(r,\theta,0) = g(r)$ for
 $0 \leq r \leq R$ and $0\leq \theta < 2\pi$.
 
 The wave equation in polar coordinates is
@@ -1481,7 +1481,7 @@ If we substitute $u(r,t) = F(r)G(t)$ in (\ref{wave_spv_we_pc}), then we get
 F(r)\dydxn{G}{t}{2}(t) = c^2 \left( \dydxn{F}{r}{2}(r)G(t) +
   \frac{1}{r} \dydx{F}{r}(r)G(t) \right) \ .
 \]
-If we divide both side by $\displaystyle c^2F(r)G(t)$, then we get
+If we divide both side by $\DS c^2F(r)G(t)$, then we get
 \[
 \frac{1}{c^2G(t)} \dydxn{G}{t}{2}(t) = \frac{1}{F(r)}
 \left(\dydxn{F}{r}{2}(r) + \frac{1}{r} \dydx{F}{r}(r)\right) \ .
@@ -1505,13 +1505,13 @@ $F(R)=0$.
 
 \subI{Simple Functions}
 To get a bounded solution of (\ref{wave_spv_we_pcODE1}) for all $t$, we
-must have $q\leq 0$.  Let $\displaystyle q= -k^2$.
+must have $q\leq 0$.  Let $\DS q= -k^2$.
 
-We consider (\ref{wave_spv_we_pcODE2}) with $\displaystyle q= -k^2$
+We consider (\ref{wave_spv_we_pcODE2}) with $\DS q= -k^2$
 and the condition $F(R)=0$.  Let $s = kr$.  Since
-$\displaystyle \dydx{F}{r} = \dydx{F}{s} \dydx{s}{r} = k\dydx{F}{s}$
+$\DS \dydx{F}{r} = \dydx{F}{s} \dydx{s}{r} = k\dydx{F}{s}$
 and
-$\displaystyle \dydxn{F}{r}{2} = \dfdx{\left(\dydx{F}{r}\right)}{r}
+$\DS \dydxn{F}{r}{2} = \dfdx{\left(\dydx{F}{r}\right)}{r}
 = \dfdx{\left(k\dydx{H}{s}\right)}{s} \dydx{s}{r}
 = k^2 \dydxn{H}{s}{2}$,
 The differential equation in (\ref{wave_spv_we_pcODE2}) becomes
@@ -1520,7 +1520,7 @@ k^2\dydxn{F}{s}{2}(s) + \frac{k^2}{s} \dydx{F}{s}(s) + k^2 F(s) = 0 \ .
 \]
 As usual, we keep the same name for $F$ as a function of $r$ or $s$.
 If we multiply both sides of the previous ordinary differential
-equation by $\displaystyle s^2/k^2$, then we get
+equation by $\DS s^2/k^2$, then we get
 \[
 s^2\dydxn{F}{s}{2}(s) + s \dydx{F}{s}(s) + s^2 F(s) = 0 \ .
 \]
@@ -1533,20 +1533,20 @@ $D = 0$ because the Bessel functions of the second kind are
 not bounded at the origin.
 
 The bounded solutions of (\ref{wave_spv_we_pcODE2}) with
-$\displaystyle q= -k^2$ are
+$\DS q= -k^2$ are
 therefore of the form $F(r) = C J_0\left(kr\right)$.  To determine
 $k$, we use the boundary condition $F(R)=0$.  From
 $F(R) = C\,J_0(kR)=0$, we get
-$k = \displaystyle k_n \equiv \alpha_{n,0}/R$ for $n>0$,
+$k = \DS k_n \equiv \alpha_{n,0}/R$ for $n>0$,
 where $\alpha_{n,0}$ for $n>0$ are the non-null zeros of $J_0$.
 We have shown that the bounded solutions of (\ref{wave_spv_we_pcODE2}) with
-$\displaystyle q= -k^2$ and satisfying $F(R)=0$ exist only for
+$\DS q= -k^2$ and satisfying $F(R)=0$ exist only for
 $k=k_n = \alpha_{n,o}/R$ and are multiples of
-$\displaystyle F_n(r) \equiv J_0\left(\alpha_{n,0}r/R\right)$
+$\DS F_n(r) \equiv J_0\left(\alpha_{n,0}r/R\right)$
 for $n>0$.
 
 For $n>0$ fix, the general solution of (\ref{wave_spv_we_pcODE1})
-with $\displaystyle q=-k_n^2 = -(\alpha_{n,0}/R)^2$ is
+with $\DS q=-k_n^2 = -(\alpha_{n,0}/R)^2$ is
 \[
 G(t) = G_n(t) \equiv A_n \cos\left(\frac{c \alpha_{n,0} t}{R}\right)
 + B_n \sin\left(\frac{c \alpha_{n,0} t}{R}\right) \ .
@@ -1579,7 +1579,7 @@ Thus
 A_n = \frac{2}{R^2 J_1^2\left(\alpha_{n,0}\right)} \,
 \int_0^R r f(r) J_0\left(\frac{\alpha_{n,0} r}{R}\right) \dx{r}
 \]
-for $n>0$.  From $\displaystyle \pdydx{u}{t}(r,0) = g(r)$, we get
+for $n>0$.  From $\DS \pdydx{u}{t}(r,0) = g(r)$, we get
 \[
 g(r) = \sum_{n=1}^\infty \frac{c \alpha_{n,0} B_n}{R}
 J_0\left(\frac{\alpha_{n,0}r}{R}\right) \  .
@@ -1600,25 +1600,25 @@ for $n > 0$.
 
 \begin{rmk}
 The simple function $u_n(r,t)$ of the previous example is called the
-{\bfseries $\displaystyle \mathbf{n^{th}}$-normal
+{\bfseries $\DS \mathbf{n^{th}}$-normal
 mode}\index{Wave Equation!$n^{th}$-Normal
-Mode} or {\bfseries $\displaystyle \mathbf{n^{th}}$-harmonic}\index{Wave
+Mode} or {\bfseries $\DS \mathbf{n^{th}}$-harmonic}\index{Wave
 Equation!$n^{th}$-Harmonic}.
 The first-harmonic is called the
 {\bfseries fundamental harmonic}\index{Wave Equation!Fundamental Harmonic}.
-Its frequency is $\displaystyle c\alpha_{n,0}/(2\pi R)$.
+Its frequency is $\DS c\alpha_{n,0}/(2\pi R)$.
 The circles associated to the values of $r$ for which
 $u_n(r,\theta)=0$ are called the
 {\bfseries modal lines}\index{Wave Equation!Modal Lines} of $u_n$.
 For $n$ fixed, there are $n-1$ modal lines given by
-$\displaystyle r_{n,i} = \alpha_{i,0}R/\alpha_{n,0}$
+$\DS r_{n,i} = \alpha_{i,0}R/\alpha_{n,0}$
 for $0<i<n$.  The modal lines are not evenly distributed.
 
 If we imagine that the domain of $u$ defined by
-$\displaystyle x^2 + y^2 \leq R^2$ is the membrane of a circular drum,
-then the modal lines $\displaystyle x^2 + y^2 \leq r_{n,i}^2$ are
+$\DS x^2 + y^2 \leq R^2$ is the membrane of a circular drum,
+then the modal lines $\DS x^2 + y^2 \leq r_{n,i}^2$ are
 regions of the membrane that not
-vibrate under the frequency $\displaystyle c\alpha_{n,0}/(2 \pi R)$.
+vibrate under the frequency $\DS c\alpha_{n,0}/(2 \pi R)$.
 The frequencies obviously determine the sound of the drum.
 \end{rmk}
 

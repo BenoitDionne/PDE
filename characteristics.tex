@@ -8,10 +8,10 @@ Consider the {\bfseries partial differential equation}
 \begin{equation}\label{char_QLPDE}
 a(x,y,u)\,\pdydx{u}{x} + b(x,y,u)\,\pdydx{u}{y} = c(x,y,u) \ ,
 \end{equation}
-where $\displaystyle a:\RR^3\rightarrow \RR$ and
-$\displaystyle b:\RR^3\rightarrow \RR$ are
+where $\DS a:\RR^3\rightarrow \RR$ and
+$\DS b:\RR^3\rightarrow \RR$ are
 two given differentiable functions, and
-$\displaystyle u:\RR^2\rightarrow \RR$ is an
+$\DS u:\RR^2\rightarrow \RR$ is an
 unknown differentiable function.
 
 Equations of the form (\ref{char_QLPDE}) are called
@@ -19,8 +19,8 @@ Equations of the form (\ref{char_QLPDE}) are called
 \index{First Order Partial Differential Equation!Quasi-Linear}.
 If $a$ and $b$ are independent of $u$, and
 $c(x,y,u) = p(x,y) u + q(x,y)$ for some differentiable functions
-$\displaystyle p:\RR^2\rightarrow \RR$ and
-$\displaystyle q:\RR^2\rightarrow \RR$, then the
+$\DS p:\RR^2\rightarrow \RR$ and
+$\DS q:\RR^2\rightarrow \RR$, then the
 partial differential equation is called
 {\bfseries linear}\index{First Order Partial Differential Equation!Linear}.
 
@@ -46,14 +46,14 @@ given curve $\Gamma$ is called an
 \end{defn}
 
 We may rewrite (\ref{char_QLPDE}) as
-$\displaystyle (a,b,c) \cdot \left(\pdydx{u}{x}, \pdydx{u}{y}, -1 \right) = 0$.
-The vector $\displaystyle \left(\pdydx{u}{x}, \pdydx{u}{y}, -1 \right)$
+$\DS (a,b,c) \cdot \left(\pdydx{u}{x}, \pdydx{u}{y}, -1 \right) = 0$.
+The vector $\DS \left(\pdydx{u}{x}, \pdydx{u}{y}, -1 \right)$
 evaluated at $(x,y)$ is perpendicular to the surface $u=u(x,y)$ at
-$\displaystyle \left(x,y,u(x,y)\right)$.  Hence, the vector
+$\DS \left(x,y,u(x,y)\right)$.  Hence, the vector
 $(a,b,c)$ evaluated at $(x,y,u(x,y))$ is in the tangent plan to the integral
-surface $u=u(x,y)$ at the point $\displaystyle \left(x,y,u(x,y)\right)$.
+surface $u=u(x,y)$ at the point $\DS \left(x,y,u(x,y)\right)$.
 
-If $\displaystyle \gamma = \left\{ (x(t),y(t),u(t)) : t \in \RR \right\}$
+If $\DS \gamma = \left\{ (x(t),y(t),u(t)) : t \in \RR \right\}$
 is a curve on the integral surface $u=u(x,y)$ then
 $\left(x'(t),y'(t),u'(t)\right)$ is in the tangent
 plane (more precisely, parallel to the tangent plane) to the integral
@@ -84,8 +84,8 @@ differential equations}\index{Ordinary Differential Equation}
 depending on a parameter $s$ and satisfying the initial condition
 (\ref{char_CE_init}).  For this reason, in the literature, the partial
 derivatives are often replaced by the derivatives
-$\displaystyle \dydx{x}{t}$, $\displaystyle \dydx{y}{t}$ and
-$\displaystyle \dydx{u}{t}$.
+$\DS \dydx{x}{t}$, $\DS \dydx{y}{t}$ and
+$\DS \dydx{u}{t}$.
 
 \begin{defn}
 The equations in (\ref{char_CE}) are called
@@ -97,12 +97,12 @@ and, for each $s$, the curve $\gamma_s$ is called a
 \end{defn}
 
 We end up with a family of curves
-$\displaystyle \left\{ \gamma_s \right\}_{s\in I}$.  If we assume that
+$\DS \left\{ \gamma_s \right\}_{s\in I}$.  If we assume that
 \begin{equation} \label{char_IFTQL_cond}
 \frac{\partial(x,y)}{\partial(t,s)}\bigg|_{(t,s)} = \det
 \begin{pmatrix}
-\displaystyle \pdydx{x}{t} & \displaystyle \pdydx{x}{s} \\[0.7em]
-\displaystyle \pdydx{y}{t} & \displaystyle \pdydx{y}{s}
+\DS \pdydx{x}{t} & \DS \pdydx{x}{s} \\[0.7em]
+\DS \pdydx{y}{t} & \DS \pdydx{y}{s}
 \end{pmatrix}\bigg|_{(t,s)} \neq 0 \ ,
 \end{equation}
 then it follows from the Inverse Mapping Theorem that $s$ and $t$ may
@@ -125,7 +125,7 @@ Let $\Gamma$ be a curve defined by
 \Gamma = \left\{ (x,y,u) = \left(x_0(s), y_0(s),u_0(s)\right) : s \in I
 \right\} \ ,
 \]
-where $I$ is an open interval and $\displaystyle x_0, y_0, u_0 \in C_b^1(I)$.
+where $I$ is an open interval and $\DS x_0, y_0, u_0 \in C_b^1(I)$.
 For $s \in I$, let
 \[
 \gamma_s = \left\{ \left(x(t,s), y(t,s), u(t,s) \right) : t \in J_s \right\}
@@ -137,12 +137,12 @@ of (\ref{char_CE}) with the initial condition
 solution.  If
 \[
 \det \begin{pmatrix}
-a\left(x(t,s),y(t,s),u(t,s)\right) & \displaystyle \pdydx{x}{s}(t,s) \\[0.7em]
-b\left(x(t,s),y(t,s),u(t,s)\right) & \displaystyle \pdydx{y}{s}(t,s)
+a\left(x(t,s),y(t,s),u(t,s)\right) & \DS \pdydx{x}{s}(t,s) \\[0.7em]
+b\left(x(t,s),y(t,s),u(t,s)\right) & \DS \pdydx{y}{s}(t,s)
 \end{pmatrix} \neq 0
 \]
 for all $(t,s)$ \footnotemark, then the surface $S$ given by the
-family of curves $\displaystyle \left\{ \gamma_s \right\}_{s\in I}$ is the
+family of curves $\DS \left\{ \gamma_s \right\}_{s\in I}$ is the
 integral surface of (\ref{char_QLPDE}) containing the curve $\Gamma$.
 There is only one integral surface containing $\Gamma$.
 \label{qlfoPDEintsurf}
@@ -175,16 +175,16 @@ surface $u=u(x,y)$ comes from the Inverse Mapping Theorem because
 \[
 \frac{\partial(x,y)}{\partial(t,s)}\bigg|_{(\tilde{t},\tilde{s})} = \det
 \begin{pmatrix}
-\displaystyle \pdydx{x}{t} & \displaystyle \pdydx{x}{s} \\[0.7em]
-\displaystyle \pdydx{y}{t} & \displaystyle \pdydx{y}{s}
+\DS \pdydx{x}{t} & \DS \pdydx{x}{s} \\[0.7em]
+\DS \pdydx{y}{t} & \DS \pdydx{y}{s}
 \end{pmatrix}\bigg|_{(\tilde{t},\tilde{s})}
 = \det \begin{pmatrix}
 a\left(x(\tilde{t},\tilde{s}),y(\tilde{t},\tilde{s}),
  u(\tilde{t},\tilde{s})\right) &
-\displaystyle \pdydx{x}{s}(\tilde{t},\tilde{s}) \\[0.7em]
+\DS \pdydx{x}{s}(\tilde{t},\tilde{s}) \\[0.7em]
 b\left(x(\tilde{t},\tilde{s}),y(\tilde{t},\tilde{s}),
  u(\tilde{t},\tilde{s})\right) &
-\displaystyle \pdydx{y}{s}(\tilde{t},\tilde{s})
+\DS \pdydx{y}{s}(\tilde{t},\tilde{s})
 \end{pmatrix} \neq 0
 \]
 by hypothesis.  We can write $s$ and $t$ in a neighbourhood of
@@ -262,10 +262,10 @@ since $s$ is arbitrary; namely, $v = u$.
 
 \begin{rmk}
 It is important to remember that, for each characteristic curve\\
-$\displaystyle
+$\DS
 \gamma_s =  \left\{ \left(x(t,s),y(t,s),u(t,s)\right) : t \in J_s\right\}$,
 the vector
-$\displaystyle
+$\DS
 \left(\pdydx{x}{t}(t,s), \pdydx{y}{t}(t,s), \pdydx{u}{t}(t,s)\right) $
 is in the tangent plane of the integral surface $u=u(x,y)$ (more
 precisely, parallel to the tangent plane) at
@@ -277,20 +277,20 @@ If (\ref{char_IFTQL_cond}) is not satisfied at $(t,s) = (0,\tilde{s})$, then
 \begin{align}
 0 &= \frac{\partial(x,y)}{\partial(t,s)}\bigg|_{(0,\tilde{s})}
 = \det \begin{pmatrix}
-\displaystyle \pdydx{x}{t} & \displaystyle \pdydx{x}{s} \\[0.7em]
-\displaystyle \pdydx{y}{t} & \displaystyle \pdydx{y}{s}
+\DS \pdydx{x}{t} & \DS \pdydx{x}{s} \\[0.7em]
+\DS \pdydx{y}{t} & \DS \pdydx{y}{s}
 \end{pmatrix}\bigg|_{(0,\tilde{s})}
 = \det \begin{pmatrix}
 a(x(0,\tilde{s}), y(0,\tilde{s}), u(0,\tilde{s}))
-& \displaystyle \pdydx{x}{s}(0,\tilde{s}) \\[0.7em]
+& \DS \pdydx{x}{s}(0,\tilde{s}) \\[0.7em]
 b(x(0,\tilde{s}), y(0,\tilde{s}), u(0,\tilde{s}))
-& \displaystyle \pdydx{y}{s}(0,\tilde{s})
+& \DS \pdydx{y}{s}(0,\tilde{s})
 \end{pmatrix} \nonumber \\
 &= \det \begin{pmatrix}
 a(x_0(\tilde{s}), y_0(\tilde{s}), u_0(\tilde{s}))
-& \displaystyle x_0'(\tilde{s}) \\
+& \DS x_0'(\tilde{s}) \\
 b(x_0(\tilde{s}), y_0(\tilde{s}), u_0(\tilde{s}))
-& \displaystyle y_0'(\tilde{s})
+& \DS y_0'(\tilde{s})
 \end{pmatrix} \nonumber \\
 &= a(x_0(\tilde{s}), y_0(\tilde{s}), u_0(\tilde{s}))y_0'(\tilde{s})
 - b(x_0(\tilde{s}), y_0(\tilde{s}),u_0(\tilde{s})) x_0'(\tilde{s})
@@ -352,7 +352,7 @@ and thus these two vectors are parallel.
 
 If (\ref{char_IFTQL_cond}) is not satisfied at $(t,s) = (0,\tilde{s})$
 and $\Gamma$ is a characteristic curve, then there may be infinitely
-integral surfaces, one for each initial curve $\displaystyle \Gamma^\ast$
+integral surfaces, one for each initial curve $\DS \Gamma^\ast$
 intersecting $\Gamma$ transversely that we chose.
 However, if (\ref{char_IFTQL_cond}) is not satisfied at
 $(t,s) = (0,\tilde{s})$ and $\Gamma$ is not a characteristic, then there is
@@ -364,20 +364,20 @@ Solve the partial differential equation
 \[
 \pdydx{u}{x} + \pdydx{u}{y} = 2
 \]
-with the condition $\displaystyle u(x,0)=x^2$.
+with the condition $\DS u(x,0)=x^2$.
 
 The characteristic equations are $x'(t) = 1$, $y'(t) = 1$ and $u'(t) = 2$.
 The initial curve is given by $x(0) = s$, $y(0) = 0$ and
-$\displaystyle u(0) = s^2$.
+$\DS u(0) = s^2$.
 
 The equation $x'(t) = 1$ with $x(0)=s$ gives $x = x(t,s) = t + s$,
 the equation $y'(t) = 1$ with $y(0)=0$ gives $y = y(t,s) = t$, and
-the equation $u'(t) = 2$ with $\displaystyle u(0)=s^2$ gives
-$\displaystyle u = u(t,s) = 2t+s^2$.
+the equation $u'(t) = 2$ with $\DS u(0)=s^2$ gives
+$\DS u = u(t,s) = 2t+s^2$.
 We can solve $x = t+s$ and $y=t$ in terms of $s$ and $t$ to get
 $t=y$ and $s= x-y$.  If we substitute these values of $s$ and $t$ in the
 expression for $u$, we get the integral surface
-$\displaystyle u= u(x,y) = 2y + (x-y)^2$.
+$\DS u= u(x,y) = 2y + (x-y)^2$.
 \end{egg}
 
 \begin{egg}
@@ -392,12 +392,12 @@ $u'(t) = u(t)$.  The initial curve is given by are
 $x(0) = s$, $y(0) = 0$ and $u(0) = \ln(s)$.
 
 The equation $x'(t) = x(t)$ with $x(0)=s$ gives
-$\displaystyle x = x(t,s) = s e^t$,
+$\DS x = x(t,s) = s e^t$,
 the equation $y'(t) = 1$ with $y(0)=0$ gives $y = y(t,s) = t$, and
 the equation $u'(t) = u(t)$ with $u(0)=\ln(s)$ gives
-$\displaystyle u = u(t,s) = \ln(s)e^t$.
-We can solve $\displaystyle x = se^t$ and $y=t$ in terms of $s$ and $t$ to get
-$t=y$ and $\displaystyle s= xe^{-y}$.  If we substitute these values
+$\DS u = u(t,s) = \ln(s)e^t$.
+We can solve $\DS x = se^t$ and $y=t$ in terms of $s$ and $t$ to get
+$t=y$ and $\DS s= xe^{-y}$.  If we substitute these values
 of $s$ and $t$ in the expression for $u$, we get the integral surface
 \[
 u= u(x,y) = \ln(xe^{-y}) e^y = \ln(x) e^y -y e^y \ .
@@ -417,11 +417,11 @@ The initial curve is given by $x(0) = s$, $y(0) = 0$ and $u(0) = \cos(s)$.
 The equation $x'(t) = 1$ with $x(0)=s$ gives $x = x(t,s) = t + s$,
 the equation $y'(t) = 1$ with $y(0)=0$ gives $y = y(t,s) = t$, and
 the equation $u'(t) = u(t)$ with $u(0)=\cos(s)$ gives
-$\displaystyle u = u(t,s) = \cos(s)e^t$.
+$\DS u = u(t,s) = \cos(s)e^t$.
 We can solve $x = t+s$ and $y=t$ in terms of $s$ and $t$ to get
 $t=y$ and $s= x-y$.  If we substitute these values of $s$ and $t$ in the
 expression for $u$, we get the integral surface
-$\displaystyle u= u(x,y) = \cos(x-y) e^y$.
+$\DS u= u(x,y) = \cos(x-y) e^y$.
 \end{egg}
 
 \begin{egg}
@@ -432,24 +432,24 @@ x^2 \pdydx{u}{x} + y^2 \pdydx{u}{y} = u^2
 with the condition $u(x,2x)=1$.
 
 The characteristic equations are
-$\displaystyle x'(t) = x^2(t)$, $\displaystyle y'(t) = y^2(t)$ and
-$\displaystyle u'(t) = u^2(t)$.
+$\DS x'(t) = x^2(t)$, $\DS y'(t) = y^2(t)$ and
+$\DS u'(t) = u^2(t)$.
 The initial curve is given by $x(0) = s$, $y(0) = 2s$ and $u(0) = 1$.
 
-The equation $\displaystyle x'(t) = x^2(t)$ with $x(0)=s$ gives
+The equation $\DS x'(t) = x^2(t)$ with $x(0)=s$ gives
 \begin{equation} \label{char_idt4}
 x = x(t,s) = \frac{s}{1-st} \ .
 \end{equation}
-Similarly, the equation $\displaystyle y'(t) = y^2(t)$ with $y(0)=2s$ gives
+Similarly, the equation $\DS y'(t) = y^2(t)$ with $y(0)=2s$ gives
 \begin{equation} \label{char_idt5}
 y = y(t,s) = \frac{2s}{1-2st} \ .
 \end{equation}
-Finally, the equation $\displaystyle u'(t) = u^2(t)$ with $u(0)=1$ gives
-$\displaystyle u = u(t,s) = \frac{1}{1-t}$.
+Finally, the equation $\DS u'(t) = u^2(t)$ with $u(0)=1$ gives
+$\DS u = u(t,s) = \frac{1}{1-t}$.
 We can solve (\ref{char_idt4}) and (\ref{char_idt5}) for $s$ and $t$
 in terms of $x$ and $y$ to get
-$\displaystyle t = \frac{1}{x} - \frac{2}{y}$ and
-$\displaystyle s = \frac{xy}{2y-2x}$.
+$\DS t = \frac{1}{x} - \frac{2}{y}$ and
+$\DS s = \frac{xy}{2y-2x}$.
 If we substitute these values of $s$ and $t$ in the
 expression for $u$, we get the integral surface
 \[
@@ -482,7 +482,7 @@ $\psi(x,y,u)=\beta_s$ is the characteristic curve $\gamma_s$
 corresponding to the initial condition $(x_0(s),y_0(s),u_0(s))$.
 We have $F(\alpha_s,\beta_s) = 0$.}{lagrange_fig1}
 
-The set $\displaystyle \left\{ (\alpha_s,\beta_s) : s \in I \right\}$
+The set $\DS \left\{ (\alpha_s,\beta_s) : s \in I \right\}$
 is a curve in the $\alpha$,$\beta$ plane.  If this curve is given by
 $F(\alpha,\beta)=0$, the integral surface of the quasi-linear equation
 containing $\Gamma$ is given by
@@ -491,14 +491,14 @@ F(\phi(x,y,u), \psi(x,y,u)) = 0 \ .
 \]
 The problem is to find $\phi$ and $\psi$.  In some rare cases, we can
 find two linearly independent vector valued functions
-$\displaystyle v_1:\RR^3\rightarrow \RR^3$ and
-$\displaystyle v_2:\RR^3\rightarrow \RR^3$ such that
+$\DS v_1:\RR^3\rightarrow \RR^3$ and
+$\DS v_2:\RR^3\rightarrow \RR^3$ such that
 $v_1(x,y,u)$ and $v_1(x,y,u)$ are orthogonal to
 $\big(a(x,y,u),b(x,y,u),c(x,y,u)\big)$ for all $(x,y,u)$, and
 $\curL(v_1) = \curL(v_2)=0$.  Since $v_1$ and $v_2$ are curl free,
 there exist differentiable functions
-$\displaystyle \phi:\RR^3\rightarrow \RR$ and
-$\displaystyle \psi:\RR^3\rightarrow \RR$ such that $\graD \phi = v_1$ and
+$\DS \phi:\RR^3\rightarrow \RR$ and
+$\DS \psi:\RR^3\rightarrow \RR$ such that $\graD \phi = v_1$ and
 $\graD \psi = v_2$.  We have that $\phi$ and $\psi$ are constant along
 the characteristic curves because
 \begin{multline*}
@@ -519,7 +519,7 @@ Find the integral surface of the partial differential equation
 \[
 -y \pdydx{u}{x} + x \pdydx{u}{y} = 0
 \]
-with the condition $\displaystyle u(x,x)=e^x$.
+with the condition $\DS u(x,x)=e^x$.
 
 We have
 \[
@@ -529,25 +529,25 @@ The vectors $v_1(x,y,u)=(x,y,0)$ and $v_2(x,y,u)=(0,0,1)$ are two
 linearly independent vector valued functions satisfying
 $\curL(v_1) = \curL(v_2) = 0$ and orthogonal to\\
 $(a(x,y,u),b(x,y,u),c(x,y,u))$ for all $(x,y,u)$.
-We have that $\displaystyle \phi(x,y,u)=(x^2+y^2)/2$
+We have that $\DS \phi(x,y,u)=(x^2+y^2)/2$
 satisfies $\graD \phi = v_1$ and $\psi(x,y,u)=u$ satisfies
 $\graD \psi = v_2$.  The integral surfaces of the partial differential
 equation are of the form
 \begin{equation} \label{LagrMegg}
 F(x^2+y^2, u) = 0
 \end{equation}
-for functions $\displaystyle F:\RR^2 \rightarrow \RR$.  
+for functions $\DS F:\RR^2 \rightarrow \RR$.  
 
-Suppose that $\displaystyle \pdydx{F}{\beta}(\alpha,\beta) \neq 0$,
+Suppose that $\DS \pdydx{F}{\beta}(\alpha,\beta) \neq 0$,
 then we can solve $F(\alpha,\beta)=0$ for $\beta$ as a function of
 $\alpha$.  Namely, there exists a function $f:\RR\rightarrow \RR$
 such that $F(\alpha,f(\alpha))=0$.  It then follows from (\ref{LagrMegg})
-that $\displaystyle u(x,y) =f(x^2+y^2)$.  From the initial condition
-$\displaystyle u(x,x)= e^x$, we
-get $\displaystyle e^x = f(2x^2)$.  With $\displaystyle z = 2x^2$, we get
-$\displaystyle f(z) = e^{\sqrt{z/2}}$ for $z \geq 0$. 
+that $\DS u(x,y) =f(x^2+y^2)$.  From the initial condition
+$\DS u(x,x)= e^x$, we
+get $\DS e^x = f(2x^2)$.  With $\DS z = 2x^2$, we get
+$\DS f(z) = e^{\sqrt{z/2}}$ for $z \geq 0$. 
 We finally get the integral surface
-$\displaystyle u(x,y) = e^{\sqrt{(x^2+y^2)/2}}$.
+$\DS u(x,y) = e^{\sqrt{(x^2+y^2)/2}}$.
 \end{egg}
 
 \section{Envelope of a Family of Surfaces}
@@ -576,15 +576,15 @@ Equation!Envelope}
 of the family of surfaces is the union of these curves.  The word
 ``envelope'' refers generally to a surface that wrap up something.
 Is our definition of the envelope of a family of surfaces a real surface
-in $\displaystyle \RR^3$?
+in $\DS \RR^3$?
 
 Suppose that
-$\displaystyle \pdydx{G}{\lambda}(x_1,y_1,\lambda_1) = 0$
+$\DS \pdydx{G}{\lambda}(x_1,y_1,\lambda_1) = 0$
 and
-$\displaystyle \pdydxn{G}{\lambda}{2}(x_1,y_1,\lambda_1) \neq 0$, then
+$\DS \pdydxn{G}{\lambda}{2}(x_1,y_1,\lambda_1) \neq 0$, then
 we may use the Implicit Function Theorem to find open neighbourhoods
-$\displaystyle V \subset \RR^2$ of $(x_1,y_1)$ and
-$\displaystyle W \subset \RR^3$ of
+$\DS V \subset \RR^2$ of $(x_1,y_1)$ and
+$\DS W \subset \RR^3$ of
 $(x_1,y_1,\lambda_1)$, and a unique continuously
 differentiable function $\lambda:V\to \RR$ such that
 $\lambda(x_1,y_1) = \lambda_1$,
@@ -662,7 +662,7 @@ family of spheres as
 \begin{equation} \label{char_env4}
 F(x,y,x,\lambda) = z - \sqrt{4-x^2-(y-\lambda)^2} = 0 \ .
 \end{equation}
-Thus $\displaystyle G(x,y,\lambda) = \sqrt{4-x^2-(y-\lambda)^2}$ in
+Thus $\DS G(x,y,\lambda) = \sqrt{4-x^2-(y-\lambda)^2}$ in
 (\ref{char_env1}).  To find the envelope, we need to consider
 (\ref{char_env2}) for this function $G$; namely,
 \[
@@ -670,9 +670,9 @@ Thus $\displaystyle G(x,y,\lambda) = \sqrt{4-x^2-(y-\lambda)^2}$ in
 \frac{(y-\lambda)}{\sqrt{4-x^2-(y-\lambda)^2}} = 0 \ .
 \]
 Thus $\lambda = y$.  If we substitute $\lambda = y$ in
-(\ref{char_env4}), we get $\displaystyle z = \sqrt{4-x^2}$.
-Similarly, for $z<0$, we get $\displaystyle z = -\sqrt{4-x^2}$.
-Therefore, the envelope is the surface $\displaystyle x^2 + z^2 = 4$.
+(\ref{char_env4}), we get $\DS z = \sqrt{4-x^2}$.
+Similarly, for $z<0$, we get $\DS z = -\sqrt{4-x^2}$.
+Therefore, the envelope is the surface $\DS x^2 + z^2 = 4$.
 It is the cylinder of radius $2$ whose axis is the $y$-axis.
 \end{egg}
 
@@ -682,7 +682,7 @@ We consider partial differential equation of the form
 \begin{equation} \label{char_GPDE}
 F\left(x,y,u,\pdydx{u}{x}, \pdydx{u}{y}\right) = 0 \ ,
 \end{equation}
-where $\displaystyle F:\RR^5 \rightarrow \RR$ is sufficiently differentiable.
+where $\DS F:\RR^5 \rightarrow \RR$ is sufficiently differentiable.
 
 The goal is to find a differentiable surface $u=u(x,y)$ that satisfies
 (\ref{char_GPDE}) and contains a given curve $\Gamma$ defined by
@@ -705,7 +705,7 @@ for (\ref{char_GPDE}).
 \end{defn}
 
 As for the quasi-linear partial differential equation, we will find a family of curves
-$\displaystyle \left\{ \gamma_s \right\}_{s\in I}$ that
+$\DS \left\{ \gamma_s \right\}_{s\in I}$ that
 generates an integral surface $u=u(x,y)$ for (\ref{char_GPDE}) and
 where each curve $\gamma_s$ intersects transversely $\Gamma$ at
 $(x_0(s),y_0(s),u_0(s))$.
@@ -728,8 +728,8 @@ integral surface at $(\tilde{x},\tilde{y},\tilde{u})$ is
 + \pdydx{u}{y}(\tilde{x},\tilde{y}) (y-\tilde{y}) - (u-\tilde{u}) = 0 \ .
 \end{equation}
 (\ref{char_GPDE}) gives a relation between
-$\displaystyle \pdydx{u}{x}(\tilde{x},\tilde{y})$ and
-$\displaystyle \pdydx{u}{y}(\tilde{x},\tilde{y})$; namely,
+$\DS \pdydx{u}{x}(\tilde{x},\tilde{y})$ and
+$\DS \pdydx{u}{y}(\tilde{x},\tilde{y})$; namely,
 \[
 F\left( \tilde{x}, \tilde{y}, \tilde{u}, \pdydx{u}{x}(\tilde{x},\tilde{y}),
 \pdydx{u}{y}(\tilde{x},\tilde{y}) \right) = 0 \ .
@@ -790,25 +790,25 @@ of the tangent plane at $(\tilde{x},\tilde{y},\tilde{u})$, we get
 (x-\tilde{x}) + \dydx{q}{p}(y-\tilde{y}) = 0 \ .
 \]
 By the Implicit Function Theorem, since we assume that
-$\displaystyle \pdydx{F}{q}(\tilde{x},\tilde{y},\tilde{u},p,q) \neq 0$,
+$\DS \pdydx{F}{q}(\tilde{x},\tilde{y},\tilde{u},p,q) \neq 0$,
 we have 
 \[
 \dydx{q}{p} =
-- \frac{\displaystyle \pdydx{F}{p}(\tilde{x},\tilde{y},\tilde{u},p,q)}
-{\displaystyle \pdydx{F}{q}(\tilde{x},\tilde{y},\tilde{u},p,q)} \ .
+- \frac{\DS \pdydx{F}{p}(\tilde{x},\tilde{y},\tilde{u},p,q)}
+{\DS \pdydx{F}{q}(\tilde{x},\tilde{y},\tilde{u},p,q)} \ .
 \]
 Hence,
 \begin{equation} \label{char_tp2}
-\frac{(x-\tilde{x})}{\displaystyle \pdydx{F}{p}
+\frac{(x-\tilde{x})}{\DS \pdydx{F}{p}
 (\tilde{x},\tilde{y},\tilde{u},p,q)} = 
-\frac{(y-\tilde{x})}{\displaystyle \pdydx{F}{q}
+\frac{(y-\tilde{x})}{\DS \pdydx{F}{q}
 (\tilde{x},\tilde{y},\tilde{u},p,q)} \ .
 \end{equation}
 Moreover, if we divide (\ref{char_tp1}) by $(y-\tilde{y})$, then we get
 \[
 \frac{u-\tilde{u}}{y-\tilde{y}} = p\frac{x-\tilde{x}}{y-\tilde{y}} + q = 
-p\, \frac{\displaystyle \pdydx{F}{p}(\tilde{x},\tilde{y},\tilde{u},p,q)}
-{\displaystyle \pdydx{F}{q}(\tilde{x},\tilde{y},\tilde{u},p,q)} + q \ .
+p\, \frac{\DS \pdydx{F}{p}(\tilde{x},\tilde{y},\tilde{u},p,q)}
+{\DS \pdydx{F}{q}(\tilde{x},\tilde{y},\tilde{u},p,q)} + q \ .
 \]
 Thus
 \[
@@ -819,11 +819,11 @@ p\, \pdydx{F}{p}(\tilde{x},\tilde{y},\tilde{u},p,q)
 \]
 This finally gives
 \begin{equation} \label{char_tp3}
-\frac{u-\tilde{u}}{\displaystyle p\,
+\frac{u-\tilde{u}}{\DS p\,
 \pdydx{F}{p}(\tilde{x},\tilde{y},\tilde{u},p,q) +
 q\, \pdydx{F}{q}(\tilde{x},\tilde{y},\tilde{u},p,q)}
 = \frac{y-\tilde{y}}
-{\displaystyle \pdydx{F}{q}(\tilde{x},\tilde{y},\tilde{u},p,q)} \ .
+{\DS \pdydx{F}{q}(\tilde{x},\tilde{y},\tilde{u},p,q)} \ .
 \end{equation}
 
 Equations (\ref{char_tp2}) and (\ref{char_tp3}) yield the
@@ -844,7 +844,7 @@ p\, \pdydx{F}{p}(\tilde{x},\tilde{y},\tilde{u},p,q)
 
 As for the quasi-linear first order partial differential equation,
 this suggests that the integral surface is the union of the family of curves
-$\displaystyle \left\{\gamma_s\right\}_{s\in I}$, where
+$\DS \left\{\gamma_s\right\}_{s\in I}$, where
 each curve $\gamma_s$ is defined by
 \[
 \gamma_s = \left\{ (x,y,u) = (x(t,s) , y(t,s) , u(t,s)) : t \in J_s \right\}
@@ -873,8 +873,8 @@ that
 \begin{equation} \label{char_IFTG_cond}
 \frac{\partial(x,y)}{\partial(t,s)}\bigg|_{(t,s)} = \det
 \begin{pmatrix}
-\displaystyle \pdydx{x}{t} & \displaystyle \pdydx{x}{s} \\[0.7em]
-\displaystyle \pdydx{y}{t} & \displaystyle \pdydx{y}{s}
+\DS \pdydx{x}{t} & \DS \pdydx{x}{s} \\[0.7em]
+\DS \pdydx{y}{t} & \DS \pdydx{y}{s}
 \end{pmatrix}\bigg|_{(t,s)} \neq 0 \ ,
 \end{equation}
 then we can use the Inverse Mapping Theorem to express locally $s$ and
@@ -921,10 +921,10 @@ and
 \end{align}
 
 Moreover, if $u$ is an integral surface, then we have
-$\displaystyle F\left(x,y,u(x,y),p(x,y),q(x,y)\right) = 0$ with
-$\displaystyle p(x,y) = \pdydx{u}{x}(x,y)$ and
-$\displaystyle q(x,y) = \pdydx{u}{y}(x,y)$.  If we derive
-$\displaystyle F\left(x,y,u(x,y),p(x,y),q(x,y)\right) = 0$ 
+$\DS F\left(x,y,u(x,y),p(x,y),q(x,y)\right) = 0$ with
+$\DS p(x,y) = \pdydx{u}{x}(x,y)$ and
+$\DS q(x,y) = \pdydx{u}{y}(x,y)$.  If we derive
+$\DS F\left(x,y,u(x,y),p(x,y),q(x,y)\right) = 0$ 
 with respect to $x$, then we get
 \[
 \pdydx{F}{x} + \pdydx{F}{u}\pdydx{u}{x} + \pdydx{F}{p}\pdydx{p}{x}
@@ -937,7 +937,7 @@ at $(x,y,u(x,y),p(x,y),q(x,y))$.  Hence,
 = \pdydxn{u}{x}{2} \pdydx{F}{p} + \pdydxnm{u}{y}{x}{2}{}{} \pdydx{F}{q}
 \end{equation}
 at $(x,y,u(x,y),p(x,y),q(x,y))$.  Similarly, if we derive
-$\displaystyle F\left(x,y,u(x,y),p(x,y),q(x,y)\right) = 0$
+$\DS F\left(x,y,u(x,y),p(x,y),q(x,y)\right) = 0$
 with respect to $y$, then we get
 \[
 \pdydx{F}{y} + \pdydx{F}{u}\pdydx{u}{y} + \pdydx{F}{p}\pdydx{p}{y}
@@ -1050,7 +1050,7 @@ Let $\Gamma$ be a curve defined by
 \[
 \left\{ (x,y,u) = \left(x_0(s), y_0(s),u_0(s)\right) : s\in I \right\} \ ,
 \]
-where $I$ is an open interval and $\displaystyle x_0, y_0, u_0 \in C_b^1(I)$.
+where $I$ is an open interval and $\DS x_0, y_0, u_0 \in C_b^1(I)$.
 Let $p_0(s)$ and $q_0(s)$ be the solutions, if any, of
 \begin{equation} \label{char_idxIN1}
 F\left( x_0(s), y_0(s), u_0(s), p_0(s), q_0(s)\right) = 0
@@ -1078,14 +1078,14 @@ where $J_s \subset \RR$ is the domain of the solution.  If
 \begin{equation} \label{char_GPDE_cond}
 \det
 \begin{pmatrix}
-\displaystyle \pdydx{F}{p}(x(t,s),y(t,s),u(t,s),p(t,s),q(t,s)) &
-\displaystyle \pdydx{x}{s}(t,s) \\[0.7em]
-\displaystyle \pdydx{F}{q}(x(t,s),y(t,s),u(t,s),p(t,s),q(t,s)) &
-\displaystyle \dydx{y}{s}(t,s)
+\DS \pdydx{F}{p}(x(t,s),y(t,s),u(t,s),p(t,s),q(t,s)) &
+\DS \pdydx{x}{s}(t,s) \\[0.7em]
+\DS \pdydx{F}{q}(x(t,s),y(t,s),u(t,s),p(t,s),q(t,s)) &
+\DS \dydx{y}{s}(t,s)
 \end{pmatrix} \neq 0
 \end{equation}
 for all $(t,s)$, then the surface $S$ given by the union of the family
-of curves $\displaystyle \left\{ \gamma_s \right\}_{s\in I}$ is the
+of curves $\DS \left\{ \gamma_s \right\}_{s\in I}$ is the
 integral surface for (\ref{char_GPDE}) containing the curve
 $\Gamma$.  There is only one integral surface containing $\Gamma$.
 \end{theorem}
@@ -1099,17 +1099,17 @@ $u=u(x,y)$ comes from the Inverse Mapping Theorem because
 \begin{align*}
 \frac{\partial(x,y)}{\partial(t,s)}\bigg|_{(\tilde{t},\tilde{s})} &= \det
 \begin{pmatrix}
-\displaystyle \pdydx{x}{t} & \displaystyle \pdydx{x}{s} \\[0.7em]
-\displaystyle \pdydx{y}{t} & \displaystyle \pdydx{y}{s}
+\DS \pdydx{x}{t} & \DS \pdydx{x}{s} \\[0.7em]
+\DS \pdydx{y}{t} & \DS \pdydx{y}{s}
 \end{pmatrix}\bigg|_{(\tilde{t},\tilde{s})} \\
 &= \det \begin{pmatrix}
-\displaystyle
+\DS
 \pdydx{F}{p}(x(\tilde{t},\tilde{s}),y(\tilde{t},\tilde{s}),
 u(\tilde{t},\tilde{s}),p(\tilde{t},\tilde{s}),q(\tilde{t},\tilde{s})) &
-\displaystyle \pdydx{x}{s}(\tilde{t},\tilde{s}) \\[0.7em]
-\displaystyle \pdydx{F}{q}(x(\tilde{t},\tilde{s}),y(\tilde{t},\tilde{s}),
+\DS \pdydx{x}{s}(\tilde{t},\tilde{s}) \\[0.7em]
+\DS \pdydx{F}{q}(x(\tilde{t},\tilde{s}),y(\tilde{t},\tilde{s}),
 u(\tilde{t},\tilde{s}),p(\tilde{t},\tilde{s}),q(\tilde{t},\tilde{s})) &
-\displaystyle \pdydx{y}{s}(\tilde{t},\tilde{s})
+\DS \pdydx{y}{s}(\tilde{t},\tilde{s})
 \end{pmatrix} \neq 0
 \end{align*}
 by hypothesis. We can write $s$ and $t$ in a neighbourhood of
@@ -1178,7 +1178,7 @@ A(t,s) &= \pdydx{u}{x}(x(t,s),y(t,s)) \\
 B(t,s) &= \pdydx{u}{x}(x(t,s),y(t,s))
 \end{align*}
 according the Chain Rule, and the solution is (locally) unique since
-$\displaystyle \frac{\partial(x,y)}{\partial(t,s)}\bigg|_{(t,s)} \neq 0$.
+$\DS \frac{\partial(x,y)}{\partial(t,s)}\bigg|_{(t,s)} \neq 0$.
 
 (\ref{char_idxCON2}) is a direct consequence of the three equations in
 (\ref{char_CE_GPDE1}).  To prove (\ref{char_idxCON1}), let
@@ -1235,7 +1235,7 @@ for all $(t,s)$.  Thus, we get the separable ordinary differential equation
 \pdydx{R}{t}(t,s) =
 -\pdydx{F}{u}\left(x(t,s),y(t,s),u(t,s),p(t,s),q(t,s)\right) \,R(t,s) \ .
 \]
-Its solutions is $\displaystyle R(t,s) = C e^{H(t,s)}$, where $C$ is a
+Its solutions is $\DS R(t,s) = C e^{H(t,s)}$, where $C$ is a
 constant and
 \[
 H(t,s) = -\int_0^t
@@ -1249,8 +1249,8 @@ $s\in I$.  This proves (\ref{char_idxCON1}).
 \stage{v} The surface $u=u(x,y)$ contains $\Gamma$ by construction.
 Moreover, (\ref{char_GPDE}) is satisfied by $u=u(x,y)$ because
 (\ref{char_idxCON3}) is true, and
-$u(t,s) = u(x,y)$, $\displaystyle p(t,s) = p(x,y) = \pdydx{u}{x}(x,y)$
-and $\displaystyle q(t,s) = q(x,y) = \pdydx{u}{y}(x,y)$
+$u(t,s) = u(x,y)$, $\DS p(t,s) = p(x,y) = \pdydx{u}{x}(x,y)$
+and $\DS q(t,s) = q(x,y) = \pdydx{u}{y}(x,y)$
 for $x=x(t,s)$ and $y=y(t,s)$.
 \end{proof}
 
@@ -1276,10 +1276,10 @@ Since
 \bigg|_{(p,q,s)=(p_0(\tilde{s}),q_0(\tilde{s}),\tilde{s})} \\
 &\quad = \left. \det
 \begin{pmatrix}
-\displaystyle -\dydx{x_0}{s}(s) &
-\displaystyle -\dydx{y_0}{s}(s) \\[0.7em]
-\displaystyle \pdydx{F}{p}(x_0(s),y_0(s),u_0(s),p,q) &
-\displaystyle \pdydx{F}{q}(x_0(s),y_0(s),u_0(s),p,q) \\
+\DS -\dydx{x_0}{s}(s) &
+\DS -\dydx{y_0}{s}(s) \\[0.7em]
+\DS \pdydx{F}{p}(x_0(s),y_0(s),u_0(s),p,q) &
+\DS \pdydx{F}{q}(x_0(s),y_0(s),u_0(s),p,q) \\
 \end{pmatrix} \right|_{(p,q,s)=(p_0(\tilde{s}),q_0(\tilde{s}),\tilde{s})}\\
 &\quad \neq 0
 \end{align*}
@@ -1311,7 +1311,7 @@ Solve the first order non-linear partial differential equation
 with the condition $u(x,0)=x$.
 
 This is a partial differential equation of the form (\ref{char_GPDE})
-with $\displaystyle F(x,y,u,p,q)=p^2+q$.  Hence, the characteristic
+with $\DS F(x,y,u,p,q)=p^2+q$.  Hence, the characteristic
 equations are
 \begin{align*}
 \pdydx{x}{t} &= \pdydx{F}{p} = 2p \\
@@ -1337,8 +1337,8 @@ $q(t,s) = -1$, $p(t,s) = 1$, $u(t,s) = t + s$, $y(t,s) = t$ and
 $x(t,s) = 2t + s$.  Solving the equations for $x$ and $y$, we get
 $t=y$ and $s=x-2y$.  Substituting these expressions of $s$ and $t$ in
 $u$, $p$ and $q$, we find $u(x,y) = x -y$, $p(x,y) = 1$ and $q(x,y) = -1$.
-Note that $\displaystyle \pdydx{u}{x}(x,y) = p(x,y) = 1$ and 
-$\displaystyle \pdydx{u}{y}(x,y) = q(x,y) = -1$ for all $x$ and $y$ as
+Note that $\DS \pdydx{u}{x}(x,y) = p(x,y) = 1$ and 
+$\DS \pdydx{u}{y}(x,y) = q(x,y) = -1$ for all $x$ and $y$ as
 expected.
 \end{egg}
 
@@ -1350,7 +1350,7 @@ Consider the wave equation                   \label{char_egg_eikonal}
 where $c(x,y)$ is the speed of a wave at the point $(x,y)$ in the
 plane.  As we will see, solutions of the wave equations are linear
 combinations of terms of the form
-$\displaystyle u_\omega = e^{i\omega t} \psi(x,y)$.
+$\DS u_\omega = e^{i\omega t} \psi(x,y)$.
 If $\omega = k c_0$ and $c(x,y) = c_0/n(x,y)$, where $c_0$ is the
 average speed of a wave in the medium, then the wave equation gives
 \begin{equation} \label{char_eikon1}
@@ -1367,9 +1367,9 @@ length in the system, we may assume that $k$ is very large compared to
 the other lengths in the system.
 
 We seek solutions of (\ref{char_eikon1}) of the form
-$\displaystyle \psi(x,y) = \rho(x,y,k) e^{ik\phi(x,y)}$.
+$\DS \psi(x,y) = \rho(x,y,k) e^{ik\phi(x,y)}$.
 If we substitute this expression of $\psi$ in (\ref{char_eikon1}) and
-divide the result by $\displaystyle e^{ik\phi(x,y)}$, then we get
+divide the result by $\DS e^{ik\phi(x,y)}$, then we get
 \[
 \rho_{xx}+\rho_{yy} + 2ik\left(\rho_x\phi_x+\rho_y\phi_y\right)
 + ik\rho \left(\phi_{xx} + \phi_{yy}\right)
@@ -1402,7 +1402,7 @@ speed $c(x,y)$ of a wave is independent of the position in the medium)
 and under the initial conditions $\phi(x,2x)=1$.
 
 The eikonal equation is of the form
-$\displaystyle F(x,y,u,p,q) = p^2 + q^2 - n^2=0$ for $u=\phi$.  Hence, the
+$\DS F(x,y,u,p,q) = p^2 + q^2 - n^2=0$ for $u=\phi$.  Hence, the
 characteristic equations are
 \begin{equation} \label{char_eik_charEQU}
 \begin{split}
@@ -1446,14 +1446,14 @@ u(t,s) = 2n^2t + 1 \ .
 \end{align*}                   
 We solve $x = -4nt/\sqrt{5} + s$ and $y=2nt/\sqrt{5} + 2s$ in
 terms of $s$ and $t$ to get
-$\displaystyle t = (y-2x)/(2n\sqrt{5})$ and
-$\displaystyle s = (x+2y)/5$.
+$\DS t = (y-2x)/(2n\sqrt{5})$ and
+$\DS s = (x+2y)/5$.
 If we substitute these values of $s$ and $t$ in the
 expression for $u$, we get the integral surface
-$\displaystyle u(x,y) = (n(y-2x))/\sqrt{5} +1$.
+$\DS u(x,y) = (n(y-2x))/\sqrt{5} +1$.
 A similar reasoning with $p_0(s) = 2n/\sqrt{5}$ and
 $q_0(s) = -n/\sqrt{5}$ gives
-$\displaystyle u(x,y) = -(n(y-2x))/\sqrt{5} +1$.
+$\DS u(x,y) = -(n(y-2x))/\sqrt{5} +1$.
 
 \stage{b}  The possible values of $p_0(s)$, $q_0(s)$ on the curve
 $\Gamma = \left\{ (x_0(s), y_0(s), u_0(s) : s \in \RR\right\}$ 
@@ -1467,7 +1467,7 @@ and
 u_0'(s) = \dydx{u_0}{s}(s) = p_0(s)\dydx{x_0}{s}(s)+ q_0(s)\dydx{y_0}{s}(s)
 = x_0'(s) p_0(s) + y_0'(s) q_0(s) \ .
 \]
-The first equation says that $\displaystyle \|(p_0(s),q_0(s))\|_2 = n$
+The first equation says that $\DS \|(p_0(s),q_0(s))\|_2 = n$
 and the second says that the projection of
 $(x_0'(s),y_0'(s))$ on $(p_0(s),q_0(s))$ is
 \[
@@ -1540,10 +1540,10 @@ terms of $s$ and $t$ to get
 t = \frac{\sqrt{x^2+y^2}}{2n} - \frac{1}{2n} \quad \text{and} \quad
 s =
 \begin{cases}
-\displaystyle \arctan\left(\frac{y}{x}\right) & \quad x>0 \\
-\displaystyle \frac{\pi}{2} & \quad x=0, y>0 \\
-\displaystyle \arctan\left(\frac{y}{x}\right) + \pi & \quad x<0 \\
-\displaystyle \frac{3\pi}{2} & \quad x=0, y<0
+\DS \arctan\left(\frac{y}{x}\right) & \quad x>0 \\
+\DS \frac{\pi}{2} & \quad x=0, y>0 \\
+\DS \arctan\left(\frac{y}{x}\right) + \pi & \quad x<0 \\
+\DS \frac{3\pi}{2} & \quad x=0, y<0
 \end{cases}
 \]
 If we substitute these values of $s$ and $t$ in the
@@ -1558,30 +1558,30 @@ yields
 u(x,y) = -n\sqrt{x^2+y^2} + n \ .
 \]
 
-We have that $\displaystyle x^2+y^2 = (1 \pm 2nt)^2$ represents the
+We have that $\DS x^2+y^2 = (1 \pm 2nt)^2$ represents the
 wavefront because $u$ is constant on these circles.
-$\displaystyle x^2+y^2 = (1 + 2nt)^2$ is the wavefront moving away of
+$\DS x^2+y^2 = (1 + 2nt)^2$ is the wavefront moving away of
 the origin as $t$ increases while
-$\displaystyle x^2+y^2 = (1 - 2nt)^2$ is the wavefront moving toward
+$\DS x^2+y^2 = (1 - 2nt)^2$ is the wavefront moving toward
 the origin to reach it at $t= 1/2n$.
 \end{egg}
 
 \begin{rmk}
 The eikonal equation is of the form
-$\displaystyle F(x,y,u,p,q) = p^2 + q^2 - n^2=0$.  Because of the
+$\DS F(x,y,u,p,q) = p^2 + q^2 - n^2=0$.  Because of the
 special form of this equation, we can describe the Monge Cones for
 this problem.  They are cones with an axis parallel to the $u$ axis
 and such that the angle $\theta$ between the axis and the side of the
 cone satisfies $\cot(\theta)=n$ (Figure~\ref{char_DIR_DER}).
-Effectively, each vector $(p,q,-1)$ with $\displaystyle p^2+q^2=n^2$ is
+Effectively, each vector $(p,q,-1)$ with $\DS p^2+q^2=n^2$ is
 perpendicular to a tangent plane enveloping the Monge Cone.
 Moreover, the angle $\psi$ between the vectors $(p,q,-1)$ and the
-vertical axis satisfies $\displaystyle \tan(\psi) = \sqrt{p^2+q^2}$.  Since a
+vertical axis satisfies $\DS \tan(\psi) = \sqrt{p^2+q^2}$.  Since a
 rotation by $\pi/2$ in the vertical plane containing the vector
 $(p,q,-1)$ and the vertical axis transforms this vector into a vector
 in the direction of the line of intersection between the Monge Cone
 and the tangent plane perpendicular to $(p,q,-1)$, the angle $\theta$
-satisfies $\displaystyle \cot(\theta) = \sqrt{p^2 + q^2} = n$.
+satisfies $\DS \cot(\theta) = \sqrt{p^2 + q^2} = n$.
 \end{rmk}
 
 \pdfF{characteristics/char_dir_der}{The Monge Cones for the eikonal
@@ -1599,19 +1599,19 @@ u = f(x,y,\lambda) \quad , \quad \lambda \in \RR \ ,
 describes a one-parameter family of integral surfaces for
 \ref{char_GPDE}.  Moreover, we assume that its envelope $E$ is given
 by $u = f(x,y,\lambda(x,y))$ for some function
-$\displaystyle \lambda: \RR^2 \to \RR$.
+$\DS \lambda: \RR^2 \to \RR$.
 
 For each point
-$\displaystyle \left(\tilde{x},\tilde{y},\tilde{u}\right) \in E$, we have from
+$\DS \left(\tilde{x},\tilde{y},\tilde{u}\right) \in E$, we have from
 Remark~\ref{char_env_tgp} that the tangent plane to the envelope $E$
-at $\displaystyle \left(\tilde{x},\tilde{y},\tilde{u}\right)$ is also
+at $\DS \left(\tilde{x},\tilde{y},\tilde{u}\right)$ is also
 the tangent plane of the integral surface given by
 $u= f(x,y,\tilde{\lambda})$ at 
-$\displaystyle \left(\tilde{x},\tilde{y},\tilde{u}\right)$, where
-$\displaystyle \tilde{\lambda} = \lambda\left(\tilde{x},\tilde{y}\right)$.
+$\DS \left(\tilde{x},\tilde{y},\tilde{u}\right)$, where
+$\DS \tilde{\lambda} = \lambda\left(\tilde{x},\tilde{y}\right)$.
 
 Moreover, if
-$\displaystyle h(x,y) = f\left(x,y,\lambda(x,y)\right)$, then
+$\DS h(x,y) = f\left(x,y,\lambda(x,y)\right)$, then
 \[
 \pdydx{h}{x}\left(\tilde{x},\tilde{y}\right) =
 \pdydx{f}{x}\left(\tilde{x},\tilde{y},\tilde{\lambda}\right) \quad
@@ -1665,10 +1665,10 @@ one-parameter sub-families of integral surfaces.  Suppose that
 for $\alpha, \beta : I \to \RR$ describes a one-parameter
 sub-family of integral surfaces.  We obviously have that
 $F(x,y,u,p,q) = 0$ if $u = f(x,y,s)$,
-$\displaystyle
+$\DS
 p = \pdydx{f}{x}(x,y,s) = \pdydx{G}{x}\left(x,y,\alpha(s), \beta(s)\right)$
 and
-$\displaystyle
+$\DS
 q = \pdydx{f}{y}(x,y,s) = \pdydx{G}{y}\left(x,y,\alpha(s), \beta(s)\right)$
 for all $s \in I$.  The envelope of this sub-family of integral
 surfaces is deduced from
@@ -1682,10 +1682,10 @@ u &= f(x,y,s) = G\left(x,y,\alpha(s),\beta(s)\right)
 by solving for $s$ as a function of $x$ and $y$.
 
 The complete integral can be used to find an integral surface
-containing a curve $\displaystyle \Gamma = \{x_0(s),y_0(s),u_0(s) : s \in I\}$
+containing a curve $\DS \Gamma = \{x_0(s),y_0(s),u_0(s) : s \in I\}$
 for some open interval $I$.  The first step is to extract from the
 complete integral a one-parameter family of integral surfaces
-defined by $\displaystyle u = G\left(x,y,\alpha(s), \beta(s)\right)$
+defined by $\DS u = G\left(x,y,\alpha(s), \beta(s)\right)$
 such that $u_0(s) = G\left(x_0(s),y_0(s), \alpha(s), \beta(s)\right)$
 for $s \in I$.
 The envelope of this one-parameter family of integral surface is the
@@ -1716,11 +1716,11 @@ u &= G(x,y,\alpha(s),\beta(s)) \label{char_compl3}
 \label{char_compl4}
 \end{align}
 to find the envelope of the sub-family of surfaces described by
-$\displaystyle u = G\left(x, y, \alpha(s), \beta(s)\right)$
+$\DS u = G\left(x, y, \alpha(s), \beta(s)\right)$
 that will contains $\Gamma$.
 
 To prove that each point
-$\displaystyle \left(\tilde{x},\tilde{y},\tilde{u}\right) \in \Gamma$
+$\DS \left(\tilde{x},\tilde{y},\tilde{u}\right) \in \Gamma$
 is on the envelope of the family of integral surfaces given by
 $u = G(x,y,\alpha(s),\beta(s))$ for $s \in I$, we note that
 \[
@@ -1737,7 +1737,7 @@ G\left(\tilde{x},\tilde{y},\alpha\left(\tilde{s}\right),
 \beta\left(\tilde{s}\right)\right) \ .
 \]
 Hence, (\ref{char_compl3}) is satisfied by
-$\displaystyle \left(\tilde{x},\tilde{y},\tilde{u}\right)$
+$\DS \left(\tilde{x},\tilde{y},\tilde{u}\right)$
 and $s=\tilde{s}$.
 
 If we derive (\ref{char_compl1}) with respect to $s$, then we get
@@ -1773,7 +1773,7 @@ y_0\left(\tilde{s}\right), \alpha\left(\tilde{s}\right),
 \beta\left(\tilde{s}\right)\right) \ .
 \end{align*}
 Thus, (\ref{char_compl4}) is satisfied by
-$\displaystyle \left(\tilde{x},\tilde{y},\tilde{u}\right)$
+$\DS \left(\tilde{x},\tilde{y},\tilde{u}\right)$
 and $s=\tilde{s}$.
 
 \begin{rmk}
@@ -1792,9 +1792,9 @@ and
 \pdydx{G}{y}\left(x_0(s),y_0(s),\alpha(s),\beta(s)\right),-1\right) = 0
 \end{align*}
 for $s\in I$.  In particular, if
-$\displaystyle p_0(s) = \pdydx{G}{x}(x_0(s),y_0(s),u_0(s),\alpha(s),\beta(s))$
+$\DS p_0(s) = \pdydx{G}{x}(x_0(s),y_0(s),u_0(s),\alpha(s),\beta(s))$
 and \\
-$\displaystyle q_0(s) = \pdydx{G}{y}(x_0(s),y_0(s),u_0(s),\alpha(s),\beta(s))$,
+$\DS q_0(s) = \pdydx{G}{y}(x_0(s),y_0(s),u_0(s),\alpha(s),\beta(s))$,
 then
 \begin{align*}
 F\left(x_0(s),y_0(s),u_0(s),p_0(s),q_0(s)\right) &= 0
@@ -1803,16 +1803,16 @@ F\left(x_0(s),y_0(s),u_0(s),p_0(s),q_0(s)\right) &= 0
 \cdot\left(p_0(s), q_0(s),-1\right) & = 0 \ .
 \end{align*}
 The last equation says that the normal direction
-$\displaystyle \left(p_0(s), q_0(s),-1\right)$ of the
+$\DS \left(p_0(s), q_0(s),-1\right)$ of the
 tangent plane to the integral surface of (\ref{char_GPDE}) along the
 curve $\Gamma$ is perpendicular to the tangential direction
-$\displaystyle
+$\DS
 \left(\dydx{x_0}{s}(s),\dydx{y_0}{s}(s),\dydx{u_0}{s}(s)\right)$ along
 $\Gamma$.
 
 The possible values for $p_0(s)$ and $q_0(s)$ are therefore given by
 the intersection of the perpendicular plane to 
-$\displaystyle
+$\DS
 \left(\dydx{x_0}{s}(s),\dydx{y_0}{s}(s),\dydx{u_0}{s}(s)\right)$
 with the ``cone'' produced by the vector $(p.q.-1)$ satisfying
 \[
@@ -1846,13 +1846,13 @@ s \\
 &\mapsto
 \begin{pmatrix}
 u_0(s) - G(x_0(s), y_0(s), \alpha, \beta) \\[0.7em]
-\displaystyle  \dydx{u_0}{s}(s) - \pdydx{G}{x}(x_0(s),y_0(s), \alpha, \beta)\,
+\DS  \dydx{u_0}{s}(s) - \pdydx{G}{x}(x_0(s),y_0(s), \alpha, \beta)\,
 \dydx{x_0}{s}(s) + \pdydx{G}{y}(x_0(s),y_0(s), \alpha, \beta)\,
 \dydx{y_0}{s}(s)
 \end{pmatrix} \ .
 \end{align*}
 Suppose that
-$\displaystyle \left(\tilde{s}, \tilde{\alpha}, \tilde{\beta}\right)
+$\DS \left(\tilde{s}, \tilde{\alpha}, \tilde{\beta}\right)
 \in I \times \RR^2$ is a solution of
 \begin{equation} \label{char_impl_f_th}
 H\begin{pmatrix} s \\ \alpha \\ \beta \end{pmatrix} =
@@ -1864,7 +1864,7 @@ equations in (\ref{char_compl1}) and (\ref{char_compl2}).
 We now prove that there exists a differentiable curve
 $s\mapsto (\alpha(s),\beta(s))$ defined for $s$ in a neighbourhood
 $J \subset I$ of $\tilde{s}$ such that
-$\displaystyle \left(\alpha\left(\tilde{s}\right),
+$\DS \left(\alpha\left(\tilde{s}\right),
 \beta\left(\tilde{s}\right)\right)
 = (\tilde{\alpha},\tilde{\beta})$ and
 \begin{equation} \label{char_impl_f_thLocal}
@@ -1880,10 +1880,10 @@ Since the mapping defined in (\ref{char_ci_rank}) is of rank $2$, we
 &\det \diff_{\alpha,\beta} H(\tilde{s},\alpha,\beta)
 \bigg|_{(\alpha,\beta) = (\tilde{\alpha},\tilde{\beta})}
 = \det \begin{pmatrix}
-\displaystyle \pdydx{G}{\alpha} & \displaystyle \pdydx{G}{\beta} \\[0.7em]
-\displaystyle \pdydxnm{G}{x}{\alpha}{2}{}{}\, \dydx{x_0}{s}
+\DS \pdydx{G}{\alpha} & \DS \pdydx{G}{\beta} \\[0.7em]
+\DS \pdydxnm{G}{x}{\alpha}{2}{}{}\, \dydx{x_0}{s}
 + \pdydxnm{G}{y}{\alpha}{2}{}{}\, \dydx{y_0}{s} &
-\displaystyle \pdydxnm{G}{x}{\beta}{2}{}{}\, \dydx{x_0}{s}
+\DS \pdydxnm{G}{x}{\beta}{2}{}{}\, \dydx{x_0}{s}
 + \pdydxnm{G}{y}{\beta}{2}{}{}\, \dydx{y_0}{s} &
 \end{pmatrix} \\
 &\qquad \qquad = \left( \pdydx{G}{\alpha} \pdydxnm{G}{x}{\beta}{2}{}{}
@@ -1893,10 +1893,10 @@ Since the mapping defined in (\ref{char_ci_rank}) is of rank $2$, we
 \dydx{y_0}{s} \neq 0 \ ,
 \end{align*}
 where $G$ and its derivatives are evaluated at
-$\displaystyle (x,y,\alpha,\beta)
+$\DS (x,y,\alpha,\beta)
 = \left(x_0\left(\tilde{s}\right), y_0\left(\tilde{s}\right),
 \tilde{\alpha}, \tilde{\beta} \right)$,
-and $\displaystyle \dydx{y_0}{s}$ and $\displaystyle \dydx{y_0}{s}$
+and $\DS \dydx{y_0}{s}$ and $\DS \dydx{y_0}{s}$
 are evaluated at $s = \tilde{s}$.  The content of at
 least one of the two parentheses in the expression above is non-null
 because the mapping defined in (\ref{char_ci_rank}) is of rank $2$.
@@ -1904,7 +1904,7 @@ It then follows from the implicit function theorem that there exists a
 unique differentiable curve $s\mapsto (\alpha(s),\beta(s))$, defined
 in an open neighbourhood $J$ of $\tilde{s}$, such that
 (\ref{char_impl_f_thLocal}) is satisfied.
-and $\displaystyle \left(\alpha\left(\tilde{s}\right)
+and $\DS \left(\alpha\left(\tilde{s}\right)
 \beta\left(\tilde{s}\right)\right)
 = (\tilde{\alpha},\tilde{\beta})$ as expected.
 \end{rmk}
@@ -1924,9 +1924,9 @@ To find the complete integral, we use the method of separation of
 variables.  If we substitute $u(x,y) = F(x)G(y)$ in
 (\ref{char_egg_ms}), we get $F'(x)G(y)\, F(x)G'(y) = F(x)G(y)$.  If
 we divide both sides by $F(x)G(y)$, we get $F'(x) \, G'(y) = 1$. Thus
-$\displaystyle F'(x) = \frac{1}{G'(y)}$.  Since the right hand side is
+$\DS F'(x) = \frac{1}{G'(y)}$.  Since the right hand side is
 independent of $x$ and the left hand side is independent of $y$, we
-must have $\displaystyle F'(x) = \frac{1}{G'(y)} = a$, where $a$ is a
+must have $\DS F'(x) = \frac{1}{G'(y)} = a$, where $a$ is a
 constant.  We get two first order ordinary differential equation:
 $F'(x)= a$ and $G'(y) = 1/a$.
 Their general solutions are $F(x) = ax+b$ and $G(y) = y/a + c$.  Hence,
@@ -1943,10 +1943,10 @@ is a complete integral because
 \[
 \det
 \begin{pmatrix}
-\displaystyle \pdydxnm{G}{x}{\alpha}{2}{}{} &
-\displaystyle \pdydxnm{G}{x}{\beta}{2}{}{} \\[0.7em]
-\displaystyle \pdydxnm{G}{y}{\alpha}{2}{}{} &
-\displaystyle \pdydxnm{G}{y}{\beta}{2}{}{}
+\DS \pdydxnm{G}{x}{\alpha}{2}{}{} &
+\DS \pdydxnm{G}{x}{\beta}{2}{}{} \\[0.7em]
+\DS \pdydxnm{G}{y}{\alpha}{2}{}{} &
+\DS \pdydxnm{G}{y}{\beta}{2}{}{}
 \end{pmatrix}
 = \det
 \begin{pmatrix}
@@ -2013,19 +2013,19 @@ independent of $y$, we must have
 where $\alpha$ is a constant.  We get two first order ordinary
 differential equations, $F'(x) -\alpha F(x) = 0$ and
 $G'(y) + \alpha G(y) = 0$,
-whose general solutions are $\displaystyle F(x) = \beta_1 e^{\alpha x}$ and
-$\displaystyle G(y) = \beta_2 e^{-\alpha y}$ respectively.  A solution is
-$\displaystyle u(x,y) = F(x)G(y) = \beta e^{\alpha(x-y)}$, where
+whose general solutions are $\DS F(x) = \beta_1 e^{\alpha x}$ and
+$\DS G(y) = \beta_2 e^{-\alpha y}$ respectively.  A solution is
+$\DS u(x,y) = F(x)G(y) = \beta e^{\alpha(x-y)}$, where
 $\beta = \beta_1 \beta_2$.
 
 However, we have
 \[
 \det
 \begin{pmatrix}
-\displaystyle \pdydxnm{u}{x}{\alpha}{2}{}{} &
-\displaystyle \pdydxnm{u}{x}{\beta}{2}{}{} \\[0.7em]
-\displaystyle \pdydxnm{u}{y}{\alpha}{2}{}{} &
-\displaystyle \pdydxnm{u}{y}{\beta}{2}{}{}
+\DS \pdydxnm{u}{x}{\alpha}{2}{}{} &
+\DS \pdydxnm{u}{x}{\beta}{2}{}{} \\[0.7em]
+\DS \pdydxnm{u}{y}{\alpha}{2}{}{} &
+\DS \pdydxnm{u}{y}{\beta}{2}{}{}
 \end{pmatrix}
 = \det
 \begin{pmatrix}
@@ -2066,11 +2066,11 @@ If we consider the first differential equation, we may write
 Integrating both sides with respect to $x$ gives
 $\ln|F(x)| = \alpha \ln|x| + \gamma_1$
 for some constant $\gamma_1$.  Thus
-$\displaystyle F(x) = \beta_1 |x|^\alpha$, where
-$\displaystyle \beta_1 = \pm e^{\gamma_1}$.  We may also accept
+$\DS F(x) = \beta_1 |x|^\alpha$, where
+$\DS \beta_1 = \pm e^{\gamma_1}$.  We may also accept
 $\beta_1 = 0$ to get
 the trivial solution $u(x,y)=0$ for all $x$ and $y$.  Similarly,
-$\displaystyle G(y) = \beta_2 |y|^\alpha$.   A solution is
+$\DS G(y) = \beta_2 |y|^\alpha$.   A solution is
 $u(x,y) = F(x)G(y) = \beta |xy|^{\alpha}$, where
 $\beta = \beta_1 \beta_2$.
 
@@ -2078,10 +2078,10 @@ However, we have
 \[
 \det
 \begin{pmatrix}
-\displaystyle \pdydxnm{u}{x}{\alpha}{2}{}{} &
-\displaystyle \pdydxnm{u}{x}{\beta}{2}{}{} \\[0.7em]
-\displaystyle \pdydxnm{u}{y}{\alpha}{2}{}{} &
-\displaystyle \pdydxnm{u}{y}{\beta}{2}{}{}
+\DS \pdydxnm{u}{x}{\alpha}{2}{}{} &
+\DS \pdydxnm{u}{x}{\beta}{2}{}{} \\[0.7em]
+\DS \pdydxnm{u}{y}{\alpha}{2}{}{} &
+\DS \pdydxnm{u}{y}{\beta}{2}{}{}
 \end{pmatrix}
 = \det
 \begin{pmatrix}
@@ -2115,11 +2115,11 @@ is a complete integral because
 is a mapping of rank $2$ for all $(x,y)$.  Effectively, the matrix
 \[
 \begin{pmatrix}
-\displaystyle \pdydx{G}{\alpha} & \displaystyle \pdydx{G}{\beta} \\
-\displaystyle \pdydxnm{G}{x}{\alpha}{2}{}{} &
-\displaystyle \pdydxnm{G}{x}{\beta}{2}{}{} \\
-\displaystyle \pdydxnm{G}{y}{\alpha}{2}{}{} &
-\displaystyle \pdydxnm{G}{y}{\beta}{2}{}{} \\
+\DS \pdydx{G}{\alpha} & \DS \pdydx{G}{\beta} \\
+\DS \pdydxnm{G}{x}{\alpha}{2}{}{} &
+\DS \pdydxnm{G}{x}{\beta}{2}{}{} \\
+\DS \pdydxnm{G}{y}{\alpha}{2}{}{} &
+\DS \pdydxnm{G}{y}{\beta}{2}{}{} \\
 \end{pmatrix}
 =
 \begin{pmatrix}
@@ -2129,18 +2129,18 @@ n\cos(\alpha) & 0
 \end{pmatrix}
 \]
 is of rank $2$ because at least one of the determinants
-$\displaystyle \det
+$\DS \det
 \begin{pmatrix} n(- x\sin(\alpha) + y \cos(\alpha)) & 1 \\ -n\sin(\alpha) & 0
 \end{pmatrix}$
 and
-$\displaystyle \det
+$\DS \det
 \begin{pmatrix} n(- x\sin(\alpha) + y \cos(\alpha)) & 1 \\ n\cos(\alpha) & 0
 \end{pmatrix}$
 is non null for all $(x,y)$.
 
 As in Example~\ref{char_egg_eikonal}, we consider the Cauchy problem
 with the curve \\
-$\displaystyle \Gamma = \left\{ (x_0(s), y_0(s), u_0(s) : s \in I\right\}$,
+$\DS \Gamma = \left\{ (x_0(s), y_0(s), u_0(s) : s \in I\right\}$,
 where $x_0(s)= \cos(s)$, $y_0(s) = \sin(s)$ and $u_0(s)=0$ for $s \in I = \RR$.
 
 The sub-family of surfaces obtained from the complete integral above
@@ -2169,8 +2169,8 @@ u &= G(x,y,\alpha(s),\beta(s)) = n(x\cos(s) + y \sin(s)) - n \label{char_Eik1}
 \ . \label{char_Eik2}
 \end{align}
 (\ref{char_Eik2}) gives $\tan(s) = y/x$.  Thus
-$\displaystyle \cos(s) = x/\sqrt{x^2+y^2}$ and
-$\displaystyle \sin(s) = y/\sqrt{x^2+y^2}$.
+$\DS \cos(s) = x/\sqrt{x^2+y^2}$ and
+$\DS \sin(s) = y/\sqrt{x^2+y^2}$.
 If we substitute these values of $\cos(s)$ and $\sin(s)$ in
 (\ref{char_Eik1}), then we get
 \[

@@ -4,7 +4,7 @@ Equations} \label{ChapClassifPDE}
 \section{Linear Second Order Partial Differential Equation in
 the Plane} \label{classif_reduction_lsoPDE}
 
-Let $\Gamma$ be a curve in $\displaystyle \RR^2$, and let
+Let $\Gamma$ be a curve in $\DS \RR^2$, and let
 $f:\Gamma\rightarrow \RR$ and $g:\Gamma\rightarrow \RR$ be two
 analytic functions.  We consider the Cauchy Problem of the form
 \begin{equation} \label{classif_PDE1}
@@ -19,7 +19,7 @@ with the conditions
 \begin{equation} \label{classif_PDE1_cond}
 u\big|_\Gamma = f \quad \text{and} \quad \pdydx{u}{\nu}\bigg|_\Gamma = g \ ,
 \end{equation}
-where $\displaystyle \nu\left(\VEC{p}\right)$ for $\VEC{p} \in \Gamma$
+where $\DS \nu\left(\VEC{p}\right)$ for $\VEC{p} \in \Gamma$
 is a normal unit vector to $\Gamma$ at $\VEC{p}$.
 Equation (\ref{classif_PDE1}) is a
 {\bfseries linear second order partial differential equation}%
@@ -44,8 +44,8 @@ neighbourhood of $\VEC{p}$ is that
 \begin{equation} \label{classif_PDE2}
 \frac{\partial (\eta, \xi)}{\partial (x,y)} =
 \begin{pmatrix}
-\displaystyle \pdydx{\eta}{x} & \displaystyle \pdydx{\eta}{y} \\[0.7em]
-\displaystyle \pdydx{\xi}{x} & \displaystyle \pdydx{\xi}{y}
+\DS \pdydx{\eta}{x} & \DS \pdydx{\eta}{y} \\[0.7em]
+\DS \pdydx{\xi}{x} & \DS \pdydx{\xi}{y}
 \end{pmatrix} \neq 0
 \end{equation}
 in the neighbourhood of $\VEC{p}$.  Effectively, for $\VEC{q}$ near
@@ -65,9 +65,9 @@ $\VEC{p}$,
 \left(\pdydx{\xi}{x}(\VEC{q}),\pdydx{\xi}{y}(\VEC{q})\right)
 \end{align*}
 because
-$\displaystyle \left(-\pdydx{\xi}{y}(\VEC{q}), \pdydx{\xi}{x}(\VEC{q})\right)$
+$\DS \left(-\pdydx{\xi}{y}(\VEC{q}), \pdydx{\xi}{x}(\VEC{q})\right)$
 is also orthogonal to
-$\displaystyle \left(\pdydx{\xi}{x}(\VEC{q}),\pdydx{\xi}{y}(\VEC{q})\right)$,
+$\DS \left(\pdydx{\xi}{x}(\VEC{q}),\pdydx{\xi}{y}(\VEC{q})\right)$,
 This shows that the curves $\xi(x,y)=k$ and $\eta(x,y)=h$ have the
 same perpendicular line at $\VEC{q}$, therefore the two curves are
 tangent at $\VEC{q}$.
@@ -142,9 +142,9 @@ As we will see in Chapter~\ref{ChapterCauchyP}, to find the series
 expansion of the solution $u$ of (\ref{classif_PDE3}) and
 (\ref{classif_PDE3_cond}) in a neighbourhood of the origin in the
 $\eta$,$\xi$ plane (so near $\VEC{p}$ in the $x$,$y$ plane), we need to compute
-$\displaystyle \pdydxn{u}{\xi}{j}$ for $j\geq 2$ at the origin.  For 
+$\DS \pdydxn{u}{\xi}{j}$ for $j\geq 2$ at the origin.  For 
 that, we assume that (\ref{classif_PDE3}) can be solved for
-$\displaystyle \pdydxn{u}{\xi}{2}$ at $(\eta,\xi)=(0,0)$.  This is
+$\DS \pdydxn{u}{\xi}{2}$ at $(\eta,\xi)=(0,0)$.  This is
 possible only if
 \begin{equation} \label{classif_PDE9}
 A_{0,2}(0,0) = a_{2,0}(\VEC{p})\, \left(\pdydx{\xi}{x}(\VEC{p})\right)^2
@@ -205,8 +205,8 @@ Moreover,
 \label{classif_class2}
 \end{align}
 The system of equations (\ref{classif_class1}) and
-(\ref{classif_class2}) determine $\displaystyle \pdydx{u}{x}$ and 
-$\displaystyle \pdydx{u}{y}$ uniquely along $\Gamma$ because
+(\ref{classif_class2}) determine $\DS \pdydx{u}{x}$ and 
+$\DS \pdydx{u}{y}$ uniquely along $\Gamma$ because
 \begin{align*}
 &\det
 \begin{pmatrix}
@@ -224,7 +224,7 @@ $(x_0(s),y_0(s))$ and so parallel to the unit vector
 $\nu(x_0(s),y_0(s))$.
 
 We may therefore assume that, instead of
-$\displaystyle \pdydx{u}{\nu}\bigg|_\Gamma = g$, we are given
+$\DS \pdydx{u}{\nu}\bigg|_\Gamma = g$, we are given
 \begin{equation} \label{classif_class3}
 \pdydx{u}{x}\bigg|_\Gamma = g_1 \quad \text{and} \quad 
 \pdydx{u}{y}\bigg|_\Gamma = g_2 \ .
@@ -235,9 +235,9 @@ For consistency, we have from (\ref{classif_class1}) that
 g_1((x_0(s),y_0(s)))\,x_0'(s) + g_2(x_0(s),y_0(s))\, y_0'(s) \ .
 \]
 
-The derivatives $\displaystyle \pdydxn{u}{x}{2}$,
-$\displaystyle \pdydxnm{u}{x}{y}{2}{}{}$ and
-$\displaystyle \pdydxn{u}{y}{2}$ along $\Gamma$ are the solutions (if
+The derivatives $\DS \pdydxn{u}{x}{2}$,
+$\DS \pdydxnm{u}{x}{y}{2}{}{}$ and
+$\DS \pdydxn{u}{y}{2}$ along $\Gamma$ are the solutions (if
 there are solutions) of the linear system of equation formed of
 (\ref{classif_PDE1}) and the derivatives with respect to $s$ of the 
 equations in (\ref{classif_class3}); namely,
@@ -289,7 +289,7 @@ a_{1,1}(x,y) & a_{0,2}(x,y)
 \zeta_1 \\ \zeta_2
 \end{pmatrix} \ .
 \end{align*}
-for $(x,y)$ and $(\zeta_1,\zeta_2)$ in $\displaystyle \RR^2$.
+for $(x,y)$ and $(\zeta_1,\zeta_2)$ in $\DS \RR^2$.
 \end{defn}
 
 We have proved the following proposition.
@@ -297,12 +297,12 @@ We have proved the following proposition.
 \begin{prop}
 A curve $\Gamma$ given by (\ref{classif_GammaEq1}) is a characteristic
 curve if and only if
-$\displaystyle Q(x_0(s),y_0(s), -y_0'(s) , x_0'(s)) = 0$
+$\DS Q(x_0(s),y_0(s), -y_0'(s) , x_0'(s)) = 0$
 for all $s \in I$.
 \end{prop}
 
-Since $\displaystyle \left(-y_0'(s) , x_0'(s)\right)$ is orthogonal
-to the curve $\Gamma$ at $\displaystyle \left(x_0(s), y_0(s)\right)$.
+Since $\DS \left(-y_0'(s) , x_0'(s)\right)$ is orthogonal
+to the curve $\Gamma$ at $\DS \left(x_0(s), y_0(s)\right)$.
 The condition above can be restated as follows.
 A curve $\Gamma$ is a characteristic curve if and only if
 at each point $(x,y)$ of $\Gamma$ we have that
@@ -379,9 +379,9 @@ the families.  The only requirement is that the curves of one family
 intersect the curves of the other family transversely.  Obviously, we
 lose control of the transformations on $\Gamma$ and the conditions
 on $\Gamma$.  In particular,
-the condition $\displaystyle \pdydx{u}{\nu}\bigg|_\Gamma = g$ may not
+the condition $\DS \pdydx{u}{\nu}\bigg|_\Gamma = g$ may not
 be reduced to the simple expression
-$\displaystyle \pdydx{u}{\xi}(\eta,0) = g\left(x(\eta,0),y(\eta,0)\right)$.
+$\DS \pdydx{u}{\xi}(\eta,0) = g\left(x(\eta,0),y(\eta,0)\right)$.
 The derivative with respect to $\xi$ may no longer correspond to a
 directional derivative perpendicular to $\Gamma$.
 
@@ -398,7 +398,7 @@ even chose families of characteristic curves.
 \subsection{Elliptic Equations}
 
 If (\ref{classif_PDE1}) is elliptic on an open set
-$\displaystyle U \subset \RR^2$, then we have
+$\DS U \subset \RR^2$, then we have
 \[
 \det \begin{pmatrix}
 a_{2,0}(x,y) & a_{1,1}(x,y) \\
@@ -411,9 +411,9 @@ for $(x,y) \in U$.  Thus, the principal symbol is either
 for all $(x,y) \in U$ or
 {\bfseries negative definite}\index{Negative Definite}
 for all $(x,y) \in U$; namely, $Q(x,y,\zeta_1,\zeta_2) > 0$ for all
-$\displaystyle (\zeta_1,\zeta_2) \in \RR^2 \setminus \{(0,0)\}$ or
+$\DS (\zeta_1,\zeta_2) \in \RR^2 \setminus \{(0,0)\}$ or
 $Q(x,y,\zeta_1,\zeta_2) < 0$ for all
-$\displaystyle (\zeta_1,\zeta_2) \in \RR^2 \setminus \{ (0,0)\}$
+$\DS (\zeta_1,\zeta_2) \in \RR^2 \setminus \{ (0,0)\}$
 respectively.  There is no point other than the origin where the
 principal symbol is null. Therefore, there are not characteristic
 curves and, in particular, any curve $\Gamma$ can be used for the conditions
@@ -432,8 +432,8 @@ root for this polynomial but there are two distinct complex roots:
 \phi_{\pm}(x,y) = \frac{a_{1,1}(x,y) \pm i
 \sqrt{ a_{2,0}(x,y)a_{0,2}(x,y)-a_{1,1}^2(x,y)}}{a_{2,0}(x,y)} \ .
 \]
-If we solve $\displaystyle \dydx{y}{x} = \phi_{+}(x,y)$, then we get a family
-of curves $\displaystyle \psi(x,y) = c \in \CC$.
+If we solve $\DS \dydx{y}{x} = \phi_{+}(x,y)$, then we get a family
+of curves $\DS \psi(x,y) = c \in \CC$.
 Since
 \[
 \dydx{y}{x} = \phi_{+}(x,y) = -\pdydx{\psi}{x} \bigg/ \pdydx{\psi}{y} \ ,
@@ -445,10 +445,10 @@ a_{2,0}(x,y) \left(\pdydx{\psi}{x}\right)^2 +
 \left(\pdydx{\psi}{y}\right)^2 = 0 \ .
 \end{equation}
 
-Let $\displaystyle
+Let $\DS
 \eta(x,y) = \RE \psi(x,y) = \frac{ \psi(x,y)+ \overline{\psi(x,y)}}{2}$
 and
-$\displaystyle \xi(x,y) = \IM \psi(x,y)
+$\DS \xi(x,y) = \IM \psi(x,y)
 = \frac{ \psi(x,y) -\overline{\psi(x,y)}}{2i}$.
 We consider the families of curves
 \[
@@ -517,7 +517,7 @@ then we get an equation of the form
 + \alpha_{0,1}(\eta,\xi) \pdydx{u}{\xi} + \alpha_{0,0}(\eta,\xi)u +
 \beta (\eta,\xi) = 0 \ , 
 \end{equation}
-where $\displaystyle \alpha_{1,0} = A_{1,0}/A_{2,0}$, etc.
+where $\DS \alpha_{1,0} = A_{1,0}/A_{2,0}$, etc.
 (\ref{classif_StandEll}) is the
 {\bfseries standard form}\index{Elliptic Partial Differential
 Equation!Standard Form} of an elliptic equation.
@@ -527,13 +527,13 @@ The Laplace Equation
 \[
 \pdydxn{u}{x}{2} + \pdydxn{u}{y}{2} = 0
 \]
-is an example of an elliptic equation on all $\displaystyle \RR^2$.
+is an example of an elliptic equation on all $\DS \RR^2$.
 \end{egg}
 
 \subsection{Hyperbolic Equations} \label{classif_class_planeHyper}
 
 Suppose that (\ref{classif_PDE1}) is hyperbolic on an open set of
-$\displaystyle \RR^2$.  Then
+$\DS \RR^2$.  Then
 \[
 \det \begin{pmatrix}
 a_{2,0}(x,y) & a_{1,1}(x,y) \\
@@ -543,7 +543,7 @@ a_{1,1}(x,y) & a_{0,2}(x,y)
 \]
 for $(x,y)$ in this set.  Thus, the principal symbol represents
 a saddle point in $(\zeta_1,\zeta_2)$.  There are two lines in
-$\displaystyle \RR^2$ along which the principal symbol is null.
+$\DS \RR^2$ along which the principal symbol is null.
 Therefore, there are characteristic curves and not all curves $\Gamma$
 can be used for the conditions (\ref{classif_PDE1_cond}).
 
@@ -561,9 +561,9 @@ The two real roots of this polynomial are
 
 Consider the two families of curves $\eta(x,y)=h$ and $\xi(x,y)=k$
 where the first family of curve is given by the implicit solution of
-$\displaystyle \dydx{y}{x} = \phi_{+}(x,y)$ and the second family of
+$\DS \dydx{y}{x} = \phi_{+}(x,y)$ and the second family of
 curves is given by the implicit solution of
-$\displaystyle \dydx{y}{x} = \phi_{-}(x,y)$.
+$\DS \dydx{y}{x} = \phi_{-}(x,y)$.
 
 The relation in (\ref{classif_PDE2}) is satisfied because
 \[
@@ -600,7 +600,7 @@ If we divide by $A_{1,1}$, then we get an equation of the form
 + \alpha_{0,1}(\eta,\xi) \pdydx{u}{\xi} + \alpha_{0,0}(\eta,\xi)u +
 \beta (\eta,\xi) = 0 \  , 
 \end{equation}
-where $\displaystyle \alpha_{1,0} = A_{1,0}/A_{1,1}$, etc.
+where $\DS \alpha_{1,0} = A_{1,0}/A_{1,1}$, etc.
 (\ref{classif_StandHyp}) is the
 {\bfseries standard form}\index{Hyperbolic Partial Differential
 Equation!Standard Form} of an hyperbolic equation.
@@ -610,7 +610,7 @@ The wave equation
 \[
 \pdydxn{u}{t}{2} = c^2 \pdydxn{u}{x}{2}
 \]
-is an example of an hyperbolic equation on all $\displaystyle \RR^2$.
+is an example of an hyperbolic equation on all $\DS \RR^2$.
 We will study it extensively later.
 \end{egg}
 
@@ -620,12 +620,12 @@ Consider the partial differential equation
 \pdydxnm{u}{x}{y}{2}{}{} + 2 \pdydx{u}{x} = 0 \ .
 \end{equation}
 This is an hyperbolic equation already in its standard form.  With
-$\displaystyle p = \pdydx{u}{x}$, (\ref{classif_k3}) becomes
+$\DS p = \pdydx{u}{x}$, (\ref{classif_k3}) becomes
 \[
 \pdydx{u}{y} + 2 p = 0 \ .
 \]
 For $x$ fixed, this is a separable ordinary differential equation
-whose solution is $\displaystyle p = A(x) e^{-2y}$, where $A$ is an
+whose solution is $\DS p = A(x) e^{-2y}$, where $A$ is an
 arbitrary function.  We now consider
 \[
 \pdydx{u}{x} = A(x) e^{-2y} \ .
@@ -667,13 +667,13 @@ the previous discussion.  We use
 \sqrt{a_{1,1}^2(x,y)-a_{2,0}(x,y)a_{0,2}(x,y)}}{a_{0,2}(x,y)} = -1/2 \mp 1/2 \ .
 \]
 We get a family of curves $\eta(x,y) = h$ from the implicit
-solution of $\displaystyle \dydx{x}{y} = -1$ and another family of curves
+solution of $\DS \dydx{x}{y} = -1$ and another family of curves
 $\xi(x,y) = k$ from the implicit solution of
-$\displaystyle \dydx{x}{y} = 0$.  We respectively get
+$\DS \dydx{x}{y} = 0$.  We respectively get
 $x = -y + \eta$ and $x=\xi$.  Hence $\eta(x,y)=x+y$ and $\xi(x,y) = x$.
 
-Since $\displaystyle \pdydx{\eta}{x} = 1$, $\displaystyle \pdydx{\eta}{y} = 1$,
-$\displaystyle \pdydx{\xi}{x} = 1$ and $\displaystyle \pdydx{\xi}{y} = 0$,
+Since $\DS \pdydx{\eta}{x} = 1$, $\DS \pdydx{\eta}{y} = 1$,
+$\DS \pdydx{\xi}{x} = 1$ and $\DS \pdydx{\xi}{y} = 0$,
 we get
 \begin{align*}
 \pdydx{u}{y} &= \pdydx{u}{\eta} \pdydx{\eta}{y} +
@@ -690,9 +690,9 @@ we get
 \end{align*}
 If we substitute these expressions for the derivatives in
 (\ref{classif_egg_hypk1}), then we get
-$\displaystyle \pdydxnm{u}{\xi}{\eta}{2}{}{} = 0$.
+$\DS \pdydxnm{u}{\xi}{\eta}{2}{}{} = 0$.
 We integrate with respect to $\xi$ to get
-$\displaystyle \pdydx{u}{\eta} = H(\eta)$ for some function
+$\DS \pdydx{u}{\eta} = H(\eta)$ for some function
 $H$, and with respect to $\eta$ to get
 \[
 u = \underbrace{\int H(\eta) \dx{\eta}}_{\equiv F(\eta)} + G(\xi)
@@ -733,14 +733,14 @@ only the region $y > 0$.  We have
 = (-1/2 \pm 1/2)\frac{y}{x} \ .
 \]
 We get a family of curves $\eta(x,y) = h$ from the implicit
-solution of $\displaystyle \dydx{y}{x} = -\frac{y}{x}$ and another family
+solution of $\DS \dydx{y}{x} = -\frac{y}{x}$ and another family
 of curves $\xi(x,y) = k$ from the implicit solution of
-$\displaystyle \dydx{y}{x} = 0$.  From
-$\displaystyle \dydx{y}{x} = -\frac{y}{x}$, we get $\eta = xy$.  We get
-$\xi = y$ from $\displaystyle \dydx{y}{x} = 0$.
-Since $\displaystyle \pdydx{\eta}{x} = y = \xi$,
-$\displaystyle \pdydx{\eta}{y} = x = \frac{\eta}{\xi}$,
-$\displaystyle \pdydx{\xi}{x} = 0$ and $\displaystyle \pdydx{\xi}{y} = 1$,
+$\DS \dydx{y}{x} = 0$.  From
+$\DS \dydx{y}{x} = -\frac{y}{x}$, we get $\eta = xy$.  We get
+$\xi = y$ from $\DS \dydx{y}{x} = 0$.
+Since $\DS \pdydx{\eta}{x} = y = \xi$,
+$\DS \pdydx{\eta}{y} = x = \frac{\eta}{\xi}$,
+$\DS \pdydx{\xi}{x} = 0$ and $\DS \pdydx{\xi}{y} = 1$,
 we get
 \begin{align*}
 \pdydx{u}{x} &= \pdydx{u}{\eta} \pdydx{\eta}{x} +
@@ -766,7 +766,7 @@ If we substitute these expressions for the derivatives in
 = - \xi^2 \pdydxnm{u}{\xi}{\eta}{2}{}{} \ .
 \]
 Since $\xi = y \neq 0$, we get
-$\displaystyle \pdydxnm{u}{\xi}{\eta}{2}{}{} = 0$.
+$\DS \pdydxnm{u}{\xi}{\eta}{2}{}{} = 0$.
 As we have seen before, its solution is
 $u(\xi,\eta) = F(\eta) + G(\xi)$ for some functions $F$ and $G$.
 Therefore, the final solution is
@@ -782,7 +782,7 @@ x \pdydxn{u}{x}{2} + 2 x^2 \pdydxnm{u}{x}{y}{2}{}{} - \pdydx{u}{x} - 1
 = 0
 \end{equation}
 It is a partial differential equation of the form (\ref{classif_PDE1}) with
-$a_{2,0}(x,y) = x$, $\displaystyle a_{1,1}(x,y) = x^2$ and $a_{0,2}(x,y) = 0$.
+$a_{2,0}(x,y) = x$, $\DS a_{1,1}(x,y) = x^2$ and $a_{0,2}(x,y) = 0$.
 Hence
 \[
 \det \begin{pmatrix}
@@ -806,19 +806,19 @@ work for $x<0$ and $x>0$.  Since
 = \frac{x^2 \pm x^2}{x} = x \pm x \ ,
 \]
 we get a family of curves $\eta(x,y) = h$ from the implicit
-solution of $\displaystyle \dydx{y}{x} = 2x$ and another family of curves
+solution of $\DS \dydx{y}{x} = 2x$ and another family of curves
 $\xi(x,y) = k$ from the implicit solution of
-$\displaystyle \dydx{y}{x} = 0$.  The solution of the first equation
-is $\displaystyle y = x^2 + \eta$ and the solution of the second is
-$y=\xi$.  Hence, $\displaystyle \eta(x,y)=y-x^2$ and $\xi(x,y) = y$.
+$\DS \dydx{y}{x} = 0$.  The solution of the first equation
+is $\DS y = x^2 + \eta$ and the solution of the second is
+$y=\xi$.  Hence, $\DS \eta(x,y)=y-x^2$ and $\xi(x,y) = y$.
 
 To complete the example, we assumed that $x>0$ and thus
 $x=\sqrt{\xi-\eta}$.  The solution below does not change if we assume
 that $x<0$ and $x= -\sqrt{\xi-\eta}$.
 
-Since $\displaystyle \pdydx{\eta}{x} = -2x = -2\sqrt{\xi-\eta}$,
-$\displaystyle \pdydx{\eta}{y} = 1$,
-$\displaystyle \pdydx{\xi}{x} = 0$ and $\displaystyle \pdydx{\xi}{y} = 1$,
+Since $\DS \pdydx{\eta}{x} = -2x = -2\sqrt{\xi-\eta}$,
+$\DS \pdydx{\eta}{y} = 1$,
+$\DS \pdydx{\xi}{x} = 0$ and $\DS \pdydx{\xi}{y} = 1$,
 we get
 \begin{align*}
 \pdydx{u}{x} &= \pdydx{u}{\eta} \pdydx{\eta}{x} +
@@ -873,7 +873,7 @@ u(x,y) = -x + P(y) + Q(y-x^2) \  .
 \subsection{Parabolic Equations}
 
 Suppose that (\ref{classif_PDE1}) is parabolic on an open set of
-$\displaystyle \RR^2$.  Then
+$\DS \RR^2$.  Then
 \begin{equation}\label{pe_cond}
 \det \begin{pmatrix}
 a_{2,0}(x,y) & a_{1,1}(x,y) \\
@@ -905,7 +905,7 @@ There is only one non-zero root of this polynomial, it is
 \]
 
 Consider a family of curve $\eta(x,y)=h$ given by the
-implicit solution of $\displaystyle \dydx{y}{x} = \phi(x,y)$.
+implicit solution of $\DS \dydx{y}{x} = \phi(x,y)$.
 Choose any other family of curves $\xi(x,y)=k$ such that
 (\ref{classif_PDE2}) is satisfied.  As we have shown before, it is
 always possible to find such a family at least locally near a point
@@ -923,7 +923,7 @@ a_{2,0}(x,y) \,\left(\pdydx{\eta}{x}\right)^2 + 2a_{1,1}(x,y)\,
 a_{0,2}(x,y)\,\left(\pdydx{\eta}{y}\right)^2 = 0 \ .
 \end{equation}
 This equation is
-$\displaystyle Q\left(x,y,\pdydx{\eta}{x}(x,y),\pdydx{\eta}{y}(x,y)\right) = 0$.
+$\DS Q\left(x,y,\pdydx{\eta}{x}(x,y),\pdydx{\eta}{y}(x,y)\right) = 0$.
 Hence, the curves of this family are characteristic curves.
 
 It follows (\ref{classif_ParEq1}) that $A_{2,0}=0$ in
@@ -940,7 +940,7 @@ If we divide by $A_{0,2}$, then we get an equation of the form
 + \alpha_{0,1}(\eta,\xi) \pdydx{u}{\xi} + \alpha_{0,0}(\eta,\xi)u +
 \beta (\eta,\xi) = 0 \  , 
 \end{equation}
-where $\displaystyle \alpha_{1,0} = A_{1,0}/A_{0,2}$, etc.
+where $\DS \alpha_{1,0} = A_{1,0}/A_{0,2}$, etc.
 (\ref{classif_StandPar}) is the
 {\bfseries standard form}\index{Parabolic Partial Differential
 Equation!Standard Form} of a parabolic equation.
@@ -950,7 +950,7 @@ The heat equation
 \[
 \pdydx{u}{t} = c^2 \pdydxn{u}{x}{2}
 \]
-is an example of a parabolic equation on all $\displaystyle \RR^2$.
+is an example of a parabolic equation on all $\DS \RR^2$.
 \end{egg}
 
 \section{More on the Classification of Partial Differential
@@ -1020,8 +1020,8 @@ x \pdydxn{u}{x}{2} + 2 x^2 \pdydxnm{u}{x}{y}{2}{}{} - \pdydx{u}{x} - 1
 of Example~\ref{classif_egg_hyperb1} can be reduced to a system of
 first order partial differential equations.
 
-Let $\displaystyle v_1 = \pdydx{u}{x}$ and
-$\displaystyle v_2 = \pdydx{u}{y}$.  Then,
+Let $\DS v_1 = \pdydx{u}{x}$ and
+$\DS v_2 = \pdydx{u}{y}$.  Then,
 \[
 \pdydx{v_1}{y} = \pdydxnm{u}{x}{y}{2}{}{} = \pdydx{v_2}{x}
 \]
@@ -1056,7 +1056,7 @@ given by integrating $v_1$ with respect of $x$ or $v_2$ with
 respect to $y$.
 \end{egg}
 
-Let $\displaystyle \LL(\RR^n)$ be the space of \nn matrices.  A
+Let $\DS \LL(\RR^n)$ be the space of \nn matrices.  A
 {\bfseries system of linear first order Partial Differential Equations}%
 \index{System of Linear First Order Partial Differential Equations} is
 a system of the form
@@ -1064,15 +1064,15 @@ a system of the form
 A(x,y) \pdydx{v}{x}(x,y) + B(x,y) \pdydx{v}{y}(x,y) =
 c\left(x,y,v(x,y)\right) \ ,
 \end{equation}
-where $\displaystyle A:\RR^2\rightarrow \LL(\RR^n)$,
-$\displaystyle B:\RR^2\rightarrow \LL(\RR^n)$ and
-$\displaystyle c:\RR^{2+n}\rightarrow \RR^n$ are continuous functions.
+where $\DS A:\RR^2\rightarrow \LL(\RR^n)$,
+$\DS B:\RR^2\rightarrow \LL(\RR^n)$ and
+$\DS c:\RR^{2+n}\rightarrow \RR^n$ are continuous functions.
 If we combine the condition
 \begin{equation} \label{classif_SPDE1_cond}
 v\big|_\Gamma = f
 \end{equation}
 for some curve $\Gamma$ in the plane and some function
-$\displaystyle f:\Gamma \rightarrow \RR^n$ with
+$\DS f:\Gamma \rightarrow \RR^n$ with
 (\ref{classif_SPDE1}), then we get the general form of the
 {\bfseries Cauchy Problem}\index{Cauchy Problem} for systems of first
 order partial differential equation. 
@@ -1139,8 +1139,8 @@ left) yields
 - A(x_0(s),y_0(s))\,\dfdx{f}{s}(s)\right) \ .
 \end{align*}
 The first system can be solved for
-$\displaystyle \pdydx{v}{x}(x_0(s),y_0(s))$ and the second for
-$\displaystyle \pdydx{v}{y}(x_0(s),y_0(s))$ if the matrix
+$\DS \pdydx{v}{x}(x_0(s),y_0(s))$ and the second for
+$\DS \pdydx{v}{y}(x_0(s),y_0(s))$ if the matrix
 \begin{equation} \label{classif_SPDE1_c4}
 \left( x_0'(s)B(x_0(s),y_0(s)) - y_0'(s)A(x_0(s),y_0(s)) \right)
 \end{equation}
@@ -1149,9 +1149,9 @@ is invertible.
 \begin{defn}
 The {\bfseries principal symbol}\index{Principal Symbol} for
 (\ref{classif_SPDE1}) is defined by
-$\displaystyle
+$\DS
 Q\left(x,y,\xi_1, \xi_2\right) = \xi_1 A(x,y) + \xi_2 B(x,y)$
-for $(x,y)$ and $\displaystyle \xi_1,\xi_2)$ in $\RR^2$.
+for $(x,y)$ and $\DS \xi_1,\xi_2)$ in $\RR^2$.
 \end{defn}
 
 The following proposition is a consequence of (\ref{classif_SPDE1_c4}).
@@ -1180,7 +1180,7 @@ Q\left(x,y, \pdydx{\mu}{x}(x,y), \pdydx{\mu}{y}(x,y) \right)
 is singular for all $(x,y) \in \Gamma$.
 
 \subsection{Classification of Linear Partial Differential Equations in
-$\displaystyle \mathbf{\RR^n}$}
+$\DS \mathbf{\RR^n}$}
 
 Though it is possible to reduce a linear partial differential equation
 of order greater than one to a system of linear first order partial
@@ -1195,27 +1195,27 @@ classification of general linear partial differential equations of the form
 L(\VEC{x}, \diff)u = \sum_{|\VEC{\alpha}|\leq m} a_{\VEC{\alpha}}(\VEC{x})
 \diff^{\VEC{\alpha}} u = f \ ,
 \end{equation}
-where $\displaystyle u:\RR^n \rightarrow \RR$ is at least of class
-$\displaystyle C^m$, $\displaystyle f:\RR^n \rightarrow \RR$ is continuous and
-$\displaystyle a_{\VEC{\alpha}}:\RR^n \rightarrow \RR$ is of class
-$\displaystyle C^\infty$ for all multi-indices involved in the sum.
+where $\DS u:\RR^n \rightarrow \RR$ is at least of class
+$\DS C^m$, $\DS f:\RR^n \rightarrow \RR$ is continuous and
+$\DS a_{\VEC{\alpha}}:\RR^n \rightarrow \RR$ is of class
+$\DS C^\infty$ for all multi-indices involved in the sum.
 We will relax the conditions on $f$
 and $a_{\VEC{\alpha}}$ starting in Chapter~\ref{elliptic_PDEs}.
 
 \begin{defn}
-A subset $S$ of $\displaystyle \RR^n$ is an
+A subset $S$ of $\DS \RR^n$ is an
 {\bfseries hyper-surface}\index{Hyper-Surface} 
 if $S$ is an orientable manifold of dimension $n-1$.  We will say that
-$S$ is an hyper-surface of class $\displaystyle C^k$ (resp.\ an analytic
-hyper-surface) if $S$ is a manifold of class $\displaystyle C^k$
+$S$ is an hyper-surface of class $\DS C^k$ (resp.\ an analytic
+hyper-surface) if $S$ is a manifold of class $\DS C^k$
 (resp. an analytic manifold).
 \end{defn}
 
 If $S$ be a hyper-surface, then we may express $S$ locally as the
 solution of an equation $\phi(\VEC{x}) = 0$ for some function
-$\displaystyle \phi:\RR^n \to \RR$.  If $S$ is of class
-$\displaystyle C^k$ (resp. analytic), we may assume that
-$\phi$ is of class $\displaystyle C^k$ (resp. analytic).  We will
+$\DS \phi:\RR^n \to \RR$.  If $S$ is of class
+$\DS C^k$ (resp. analytic), we may assume that
+$\phi$ is of class $\DS C^k$ (resp. analytic).  We will
 assume from now on that the hyper-surfaces that we consider are
 sufficiently smooth.
 
@@ -1237,22 +1237,22 @@ order $m$ of $u$ in the neighbourhood of $S$.
 The {\bfseries principal symbol}\index{Principal Symbol} (also called the
 {\bfseries characteristic form}\index{Characteristic Form})
 associated to the linear partial differential operator
-$\displaystyle L(\VEC{x}, \diff)$ defined in
+$\DS L(\VEC{x}, \diff)$ defined in
 (\ref{classif_gen_class}) is
 \begin{equation} \label{classif_gen_princ_symb}
 Q(\VEC{x}, \VEC{\xi}) = \sum_{|\VEC{\alpha}|=m}
 a_{\VEC{\alpha}}(\VEC{x}) \VEC{\xi}^\alpha
 \end{equation}
-for $\VEC{x}$ and $\VEC{\xi}$ in $\displaystyle \RR^n$.
+for $\VEC{x}$ and $\VEC{\xi}$ in $\DS \RR^n$.
 \end{defn}
 
 We have the following result.
 
 \begin{prop}
 An hyper-surface $S$ is a characteristic surface if and only if
-$\displaystyle Q\left(\VEC{x}, \VEC{\nu}(\VEC{x}) \right) = 0$ for all
+$\DS Q\left(\VEC{x}, \VEC{\nu}(\VEC{x}) \right) = 0$ for all
 $\VEC{x} \in S$,
-where $\displaystyle \VEC{\nu}(\VEC{x})$ is any orthogonal vector to $S$
+where $\DS \VEC{\nu}(\VEC{x})$ is any orthogonal vector to $S$
 at $\VEC{x}$.
 \end{prop}
 
@@ -1260,7 +1260,7 @@ Before giving a classification of the linear partial differential
 equations of order greater than $2$, we expand the classification of
 the linear partial differential equations of order 
 $2$ given in Section~\ref{classif_class_plane} to
-$\displaystyle \RR^n$ with $n>2$.
+$\DS \RR^n$ with $n>2$.
 
 Consider the linear second order partial differential equation
 \begin{equation} \label{classif_class_n}
@@ -1268,9 +1268,9 @@ L(\VEC{x}, \diff)u = \sum_{i,j=1}^n a_{i,j}(\VEC{x})
 \pdydxnm{u}{x_i}{x_j}{2}{}{} + \sum_{i=1}^n b_i(\VEC{x})
 \pdydx{u}{x_i} + c(\VEC{x})u = 0 \ ,
 \end{equation}
-where $\displaystyle u:\RR^n \rightarrow \RR$,
-$\displaystyle a_{i,j} \in C^2(\RR^n)$,
-$\displaystyle b_i \in C^1(\RR^n)$ and $\displaystyle c \in C(\RR^n)$.
+where $\DS u:\RR^n \rightarrow \RR$,
+$\DS a_{i,j} \in C^2(\RR^n)$,
+$\DS b_i \in C^1(\RR^n)$ and $\DS c \in C(\RR^n)$.
 Its principal symbol takes the form
 \begin{equation} \label{classif_princ_symb_n}
 Q(\VEC{x}, \VEC{\xi}) = \sum_{i,j=1}^n a_{i,j}(\VEC{x})\xi_i \xi_j
@@ -1302,7 +1302,7 @@ eigenvalue.
 \end{enumerate}
 \end{defn}
 
-In $\displaystyle \RR^2$, this definition is equivalent to
+In $\DS \RR^2$, this definition is equivalent to
 Definition~\ref{classif_EHP}.  Recall that all the eigenvalues of a
 symmetric matrix are real.
 
@@ -1317,8 +1317,8 @@ defined in (\ref{classif_gen_class}) and $Q$ be the associated principal
 symbol defined in (\ref{classif_gen_princ_symb}).
 $L(\VEC{x}, \diff)$ is
 {\bfseries elliptic}\index{Linear Partial Differential Operator!Elliptic}
-at $\VEC{x}$ if $\displaystyle Q(\VEC{x}, \VEC{\xi}) \neq 0$ for all
-$\displaystyle \VEC{\xi} \in \RR^n\setminus \{\VEC{0}\}$.
+at $\VEC{x}$ if $\DS Q(\VEC{x}, \VEC{\xi}) \neq 0$ for all
+$\DS \VEC{\xi} \in \RR^n\setminus \{\VEC{0}\}$.
 \end{defn}
 
 In the case where $m=2$ in (\ref{classif_gen_class}), the definition of
@@ -1331,29 +1331,29 @@ partial differential operator must be even.
 
 \begin{prop} \label{classif_ell_even}
 Let $L(\VEC{x}, \diff)$ be an elliptic linear partial differential
-operator of order $m$ at $\displaystyle \VEC{x} \in \RR^n$, $n>1$.
+operator of order $m$ at $\DS \VEC{x} \in \RR^n$, $n>1$.
 \begin{enumerate}
-\item If $\displaystyle a_{\VEC{\alpha}}:\RR^n \rightarrow \RR$ for all
+\item If $\DS a_{\VEC{\alpha}}:\RR^n \rightarrow \RR$ for all
 multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|=m$, then $m$ is even.
 Moreover, the associated principal symbol $Q(\VEC{x}, \VEC{\xi})$ is
 either positive for all $\VEC{\xi} \neq \VEC{0}$ or negative for all
 $\VEC{\xi} \neq \VEC{0}$.
-\item If $\displaystyle a_{\VEC{\alpha}}:\RR^n \rightarrow \CC$ for
+\item If $\DS a_{\VEC{\alpha}}:\RR^n \rightarrow \CC$ for
 some multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|=m$ and
 $n>2$, then $m$ is even.
 \end{enumerate}
 \end{prop}
 
 \begin{proof}
-\stage{i} Suppose that $\displaystyle a_{\VEC{\alpha}}:\RR^n\rightarrow \RR$
+\stage{i} Suppose that $\DS a_{\VEC{\alpha}}:\RR^n\rightarrow \RR$
 for all multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|=m$.
 
 Moreover, suppose that their exist $\VEC{\xi}_1$ and $\VEC{\xi}_2$ in
-$\displaystyle \RR^n$ such that
-$\displaystyle Q\left(\VEC{x}, \VEC{\xi}_1\right) < 0 <
+$\DS \RR^n$ such that
+$\DS Q\left(\VEC{x}, \VEC{\xi}_1\right) < 0 <
 Q\left(\VEC{x}, \VEC{\xi}_2\right)$.  Since $Q$ is continuous, we may
 assume that the line
-$\displaystyle \left\{ (1-s)\VEC{\xi}_1 + s\VEC{\xi}_2 : s \in [0,1] \right\}$
+$\DS \left\{ (1-s)\VEC{\xi}_1 + s\VEC{\xi}_2 : s \in [0,1] \right\}$
 does not contain the origin.  If the origin is on this line, we
 replace $\VEC{\xi}_1$ by another point $\VEC{\xi}_1'$ near
 $\VEC{\xi}_1$ where we still have
@@ -1365,22 +1365,22 @@ s &\mapsto Q\left(\VEC{x}, (1-s)\VEC{\xi}_1 + s\VEC{\xi}_2\right)
 Since $Q$ is continuous, $g$ is a continuous function such that
 $g(0)<0<g(1)$.  By the Intermediate Value Theorem, there exists
 $s_0 \in ]0,1[$ such that $g(s_0)=0$.  Thus\\
-$\displaystyle
+$\DS
 Q\left(\VEC{x}, (1-s_0)\VEC{\xi}_1 + s_0\VEC{\xi}_2\right) = 0$
-with $\displaystyle (1-s_0)\VEC{\xi}_1 + s_0\VEC{\xi}_2 \neq \VEC{0}$.
+with $\DS (1-s_0)\VEC{\xi}_1 + s_0\VEC{\xi}_2 \neq \VEC{0}$.
 This is a contradiction that $L(\VEC{x}, \diff)$ is elliptic.
 
 Therefore, for
-$\displaystyle \VEC{\xi} \in \RR^n \setminus \{\VEC{0}\}$, we have
-that $\displaystyle Q(\VEC{x}, -\VEC{\xi}) = (-1)^mQ(\VEC{x}, \VEC{\xi})$
-and $\displaystyle Q(\VEC{x}, \VEC{\xi})$ are of the same sign.  This
+$\DS \VEC{\xi} \in \RR^n \setminus \{\VEC{0}\}$, we have
+that $\DS Q(\VEC{x}, -\VEC{\xi}) = (-1)^mQ(\VEC{x}, \VEC{\xi})$
+and $\DS Q(\VEC{x}, \VEC{\xi})$ are of the same sign.  This
 is possible only if $m$ is even.
 
 \stage{ii} Suppose that
-$\displaystyle a_{\VEC{\alpha}}:\RR^n\rightarrow \CC$ for some
+$\DS a_{\VEC{\alpha}}:\RR^n\rightarrow \CC$ for some
 multi-indices $\VEC{\alpha}$ such that $|\VEC{\alpha}|=m$ and $n>2$.
 
-For each $\displaystyle \VEC{y} \in \RR^{n-1}$, let
+For each $\DS \VEC{y} \in \RR^{n-1}$, let
 \[
 p_{\VEC{y}}(z) = Q(\VEC{x}, \,(\VEC{y},z)\,) \quad , \quad z \in \CC \ .
 \]
@@ -1390,25 +1390,25 @@ the number of roots (counted with multiplicity) of $p_{\VEC{y}}$ with
 a negative imaginary part.
 
 Since $p_{\VEC{y}}(z) \neq 0$ for all $z\in \RR$ and
-$\displaystyle \VEC{y} \in \RR^{n-1}\setminus \{\VEC{0}\}$ because
+$\DS \VEC{y} \in \RR^{n-1}\setminus \{\VEC{0}\}$ because
 $L(\VEC{x},\diff)$ is elliptic, we have $n_+(\VEC{y})+n_-(\VEC{y})=m$
-for $\displaystyle \VEC{y} \in \RR^{n-1}\setminus \{\VEC{0}\}$.
+for $\DS \VEC{y} \in \RR^{n-1}\setminus \{\VEC{0}\}$.
 
 Moreover, it follows from Rounch\'e's theorem (see \cite{Co}) that
 $n_+$ and $n_-$ are locally constant.  So, they are constant on the
-largest connected component of $\displaystyle \RR^{n-1}$ that does not
+largest connected component of $\DS \RR^{n-1}$ that does not
 contain the origin (the only value of $\VEC{y}$ for which
 $p_{\VEC{y}}$ may have real roots).  Since
-$\displaystyle \RR^{n-1}\setminus\{\VEC{0}\}$ is connected for
+$\DS \RR^{n-1}\setminus\{\VEC{0}\}$ is connected for
 $n>2$,  $n_+$ and $n_-$ are constant on
-$\displaystyle \RR^{n-1}\setminus\{\VEC{0}\}$.
+$\DS \RR^{n-1}\setminus\{\VEC{0}\}$.
 
 Finally, $n_+(-\VEC{y}) = n_-(\VEC{y})$ for
-$\displaystyle \RR^{n-1}\setminus\{\VEC{0}\}$ because
-$\displaystyle p_{-\VEC{y}}(-z) = (-1)^m p_{\VEC{y}}(z)$.  Since $n_+$
-and $n_-$ are constant on $\displaystyle \RR^{n-1}\setminus\{\VEC{0}\}$, we get
+$\DS \RR^{n-1}\setminus\{\VEC{0}\}$ because
+$\DS p_{-\VEC{y}}(-z) = (-1)^m p_{\VEC{y}}(z)$.  Since $n_+$
+and $n_-$ are constant on $\DS \RR^{n-1}\setminus\{\VEC{0}\}$, we get
 $n_-(\VEC{y}) = n_+(-\VEC{y}) = n_+(\VEC{y})$ for
-$\displaystyle \VEC{y} \in \RR^{n-1}\setminus\{\VEC{0}\}$.
+$\DS \VEC{y} \in \RR^{n-1}\setminus\{\VEC{0}\}$.
 
 Hence, $m = n_+(\VEC{y})+n_-(\VEC{y}) = 2n_+(\VEC{y})$ and it follows
 that $m$ is even.
@@ -1436,12 +1436,12 @@ The operator $L(\VEC{x}, \diff)$ is
 {\bfseries strongly or uniformly elliptic}%
 \index{Linear Partial Differential Operator!Uniformly Elliptic}%
 \index{Linear Partial Differential Operator!Strongly Elliptic} 
-on an open subset $\displaystyle \Omega \subset \RR^n$ if there exists
+on an open subset $\DS \Omega \subset \RR^n$ if there exists
 a constant $C>0$ such that
 \begin{equation} \label{strong_ell_formEq1}
 (-1)^{m/2} \RE Q(\VEC{x}, \VEC{\xi}) \geq C \|\VEC{\xi}\|^m
 \end{equation}
-for all $\displaystyle \VEC{\xi} \in \RR^n$ and $\VEC{x}\in \Omega$.
+for all $\DS \VEC{\xi} \in \RR^n$ and $\VEC{x}\in \Omega$.
 \end{defn}
 
 Note that original partial differential equation may have to be
@@ -1456,7 +1456,7 @@ is elliptic at $\VEC{x}$, then         \label{ell_implies_strong_ell}
 = \inf_{\|\VEC{\xi}\|_2 = 1} \left| Q(\VEC{x}, \VEC{\xi}) \right| < \infty
 \]
 because $\VEC{\xi} \to |Q(\VEC{x},\VEC{\xi})|$ is continuous on the
-compact set $\displaystyle B= \{\VEC{\xi}\in \RR^n : \|\VEC{\xi}\| = 1\}$
+compact set $\DS B= \{\VEC{\xi}\in \RR^n : \|\VEC{\xi}\| = 1\}$
 and so reaches its minimum at a point of $B$.  If furthermore we
 assume that the linear partial differential equation is paused on a
 bounded open set $\Omega$ with coefficients continuous on
@@ -1471,9 +1471,9 @@ for all $\VEC{x} \in \Omega$.  It follows that
 \[
   \left| Q(\VEC{x}, \VEC{\xi}) \right| \geq  C \|\VEC{\xi}\|^m
 \]
-for all $\displaystyle \VEC{\xi} \in \RR^n$ and $\VEC{x} \in \Omega$.
+for all $\DS \VEC{\xi} \in \RR^n$ and $\VEC{x} \in \Omega$.
 If we also assume that all the coefficients $a_{\VEC{\alpha}}$ in
-$L(\VEC{x},\diff)$ are functions from $\displaystyle \RR^n$ to $\RR$, then
+$L(\VEC{x},\diff)$ are functions from $\DS \RR^n$ to $\RR$, then
 $\RE\, Q(\VEC{x}, \VEC{\xi}) = Q(\VEC{x}, \VEC{\xi})$ and thus
 $L(\VEC{x}, \diff)$ is strongly elliptic on $\Omega$
 because we can always multiply the $a_{\VEC{\alpha}}$ by $1$ or $-1$ to get
@@ -1485,23 +1485,23 @@ The definition of a strongly elliptic linear differential operator
 $L(\VEC{x}, \diff)$ as defined in (\ref{classif_gen_class}) is
 sometime stated as follows.  A linear differential operator
 $L(\VEC{x}, \diff)$ is strongly elliptic on a open
-set $\displaystyle \Omega \subset \RR^n$ if there exist a complex
+set $\DS \Omega \subset \RR^n$ if there exist a complex
 valued function
-$\displaystyle \gamma \in C^\infty(\overline{\Omega})$ and a constant $C>0$ such
+$\DS \gamma \in C^\infty(\overline{\Omega})$ and a constant $C>0$ such
 that $|\gamma(\VEC{x})|=1$ for all $\VEC{x} \in \overline{\Omega}$ and
 \begin{equation} \label{strong_ell_formEq2}
 \RE\left(\gamma(\VEC{x})\, Q(\VEC{x},\VEC{\xi})\right) \geq C
 \|\VEC{\xi}\|^m
 \end{equation}
-for all $\displaystyle \VEC{\xi} \in \RR^n$ and
+for all $\DS \VEC{\xi} \in \RR^n$ and
 $\VEC{x} \in \overline{\Omega}$.
 This is not a more general definition than Definition~\ref{strong_ell_form}
 because we can always multiply the linear partial differential
-equation by $\displaystyle (-1)^{m/2}/\gamma$ to obtain a linear partial
+equation by $\DS (-1)^{m/2}/\gamma$ to obtain a linear partial
 differential equation equivalent to the original one.  The
 coefficients $a_{\VEC{\alpha}}$ of the original linear partial differential
 equation are replaced by the coefficients
-$\displaystyle (-1)^{m/2} a_{\VEC{\alpha}}/\gamma$ in the new linear partial
+$\DS (-1)^{m/2} a_{\VEC{\alpha}}/\gamma$ in the new linear partial
 differential equation and thus
 (\ref{strong_ell_formEq2}) is reduced to (\ref{strong_ell_formEq1}).
 \end{rmk}

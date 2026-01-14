@@ -2,22 +2,22 @@
 
 \section{Cauchy-Kovalevski's Theorem}
 
-Let $S$ be an hyper-surface in $\displaystyle \RR^n$ and
+Let $S$ be an hyper-surface in $\DS \RR^n$ and
 $g_j:S\rightarrow \RR$ for $0\leq j \leq m-1$ be continuous functions.
 The {\bfseries Cauchy Problem}\index{Cauchy Problem} is to find a function
-$\displaystyle u: \RR^n \rightarrow \RR$ such that
+$\DS u: \RR^n \rightarrow \RR$ such that
 \begin{equation}\label{cp_GPDE}
 G\left(\VEC{x},
 \left\{ \diff^{\VEC{\alpha}} u\left(\VEC{x}\right) : \VEC{\alpha} \in \NN^n \ , \
   |\VEC{\alpha}|\leq m \right\} \right) = 0
 \end{equation}
-for $\displaystyle \VEC{x} \in \RR^n$,
+for $\DS \VEC{x} \in \RR^n$,
 \begin{equation}\label{cp_GPDE_cond}
 u\big|_S = g_0 \ , \quad \pdydx{u}{\nu}\bigg|_S = g_1 \ ,
 \ \ldots\ ,\quad \pdydxn{u}{\nu}{m-2}\bigg|_S = g_{m-2} \ 
 \text{and} \ \pdydxn{u}{\nu}{m-1}\bigg|_S = g_{m-1} \ ,
 \end{equation}
-where $\displaystyle \nu:S \rightarrow \RR^n$ is a differentiable
+where $\DS \nu:S \rightarrow \RR^n$ is a differentiable
 function such that $\nu\left(\VEC{x}\right)$ is a unit normal vector
 to the hyper-surface $S$ at $\VEC{x} \in S$.  Recall that
 \[
@@ -44,7 +44,7 @@ F\left(\VEC{x},
 \left\{ \diff^{\VEC{\alpha}} u\left(\VEC{x}\right) :
 \VEC{\alpha} \in \NN^n \ , \  |\VEC{\alpha}| \leq m \right\} \right) = 0
 \end{equation}
-for $\displaystyle \VEC{x} \in \RR^n$,
+for $\DS \VEC{x} \in \RR^n$,
 \[
 u\big|_S = f_0 \ , \quad \pdydx{u}{x_n}\bigg|_S = f_1 \ , \ 
 \ldots \ , \quad \pdydxn{u}{x_n}{m-2}\bigg|_S = f_{m-2} \ \text{and}
@@ -59,34 +59,34 @@ we can compute
 \diff^{\VEC{\alpha}} u(x_1, x_2, \ldots, x_{n-1}, 0) =
 \diff^{\VEC{\alpha}} f_0(x_1, x_2, \ldots, x_{n-1})
 \]
-for all $\displaystyle \VEC{\alpha} \in \NN^n$ with $\alpha_n = 0$.
-From $\displaystyle \pdydx{u}{x_n}(x_1,x_2, \ldots, x_{n-1},0)
+for all $\DS \VEC{\alpha} \in \NN^n$ with $\alpha_n = 0$.
+From $\DS \pdydx{u}{x_n}(x_1,x_2, \ldots, x_{n-1},0)
 = f_1(x_1,x_2, \ldots, x_{n-1})$,
 we can compute
 \[
 \diff^{\VEC{\alpha}} u(x_1, x_2, \ldots, x_{n-1}, 0) =
 \diff^{\VEC{\alpha}} f_1(x_1, x_2, \ldots, x_{n-1})
 \]
-for all $\displaystyle \VEC{\alpha} \in \NN^n$ with $\alpha_n = 1$.
+for all $\DS \VEC{\alpha} \in \NN^n$ with $\alpha_n = 1$.
 Proceeding like this for the derivative of $u$ up to order $m-1$, we
 can compute
-$\displaystyle \diff^{\VEC{\alpha}} u(x_1, x_2, \ldots, x_{n-1}, 0)$ for
-all $\displaystyle \VEC{\alpha} \in \NN^n$ with $\alpha_n < m$.
+$\DS \diff^{\VEC{\alpha}} u(x_1, x_2, \ldots, x_{n-1}, 0)$ for
+all $\DS \VEC{\alpha} \in \NN^n$ with $\alpha_n < m$.
 
 The problem is to compute
-$\displaystyle \pdydxn{u}{x_n}{j}(x_1,x_2,\ldots,x_{n-1},0)$ for $j\geq m$.
+$\DS \pdydxn{u}{x_n}{j}(x_1,x_2,\ldots,x_{n-1},0)$ for $j\geq m$.
 For this, we assume that (\ref{cauchy_GPDE}) can be solved for
-$\displaystyle \pdydxn{u}{x_n}{m}$ for $\VEC{x}$ near the hyper-surface $S$.
+$\DS \pdydxn{u}{x_n}{m}$ for $\VEC{x}$ near the hyper-surface $S$.
 Namely, we assume that we can write
 \begin{equation} \label{cauchy_CK_cond}
-\displaystyle \pdydxn{u}{x_n}{m} = H\left(\VEC{x},
+\DS \pdydxn{u}{x_n}{m} = H\left(\VEC{x},
 \left\{ \diff^{\VEC{\alpha}} u\left(\VEC{x}\right) :
 \VEC{\alpha} \in \NN^n \ , \ 
 |\VEC{\alpha}| \leq m \ , \, \VEC{\alpha} \neq m \VEC{e}_n \right\} \right)
 \end{equation}
-for $\displaystyle \VEC{x} \in \RR^n$ near $S$, where, as usual,
-$\displaystyle \left\{ \VEC{e}_1, \VEC{e}_2, \ldots, \VEC{e}_n\right\}$ 
-is the canonical basis of $\displaystyle \RR^n$.  Not all
+for $\DS \VEC{x} \in \RR^n$ near $S$, where, as usual,
+$\DS \left\{ \VEC{e}_1, \VEC{e}_2, \ldots, \VEC{e}_n\right\}$ 
+is the canonical basis of $\DS \RR^n$.  Not all
 hyper-surfaces $S$ will meet this requirement.   This is the basis for
 the classification of partial differential equations given in
 Chapter~\ref{ChapClassifPDE}.
@@ -117,7 +117,7 @@ and
 This is the essence of the following theorem that we will not prove.
 
 \begin{theorem}[Cauchy-Kovalevski] \label{cauchyKovalTh}
-Let $\displaystyle S \subset \RR^n$ be a analytic hyper-surface.  Assume that
+Let $\DS S \subset \RR^n$ be a analytic hyper-surface.  Assume that
 $G$ is an analytic function in a neighbourhood of $S$, and
 $g_0:S\rightarrow \RR$, $g_1:S\rightarrow \RR$, \ldots, 
 $g_{m-1}:S\rightarrow \RR$ are analytic functions on $S$.
@@ -137,17 +137,17 @@ will also not be proved.  A proof can be found in \cite{Smo} for
 instance.
 
 \begin{theorem}[Holmgren] \label{HolmgrenTheo}
-Consider the $\displaystyle m^{th}$ order linear partial differential equation
+Consider the $\DS m^{th}$ order linear partial differential equation
 \[
 L(\VEC{x}, \diff)u = \sum_{|\VEC{\alpha}|\leq m}
 a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}} u = 0
 \]
-on $\displaystyle \RR^n$, where the functions
-$\displaystyle a_{\VEC{\alpha}}:\RR^n \rightarrow \RR$
+on $\DS \RR^n$, where the functions
+$\DS a_{\VEC{\alpha}}:\RR^n \rightarrow \RR$
 are real analytic. Suppose that $S$ is an analytic non-characteristic
-hyper-surface.  Then, the unique solution of class $\displaystyle C^m(\RR^n)$
+hyper-surface.  Then, the unique solution of class $\DS C^m(\RR^n)$
 which satisfy the Cauchy conditions
-$\displaystyle \diff^{\VEC{\alpha}} u = 0$
+$\DS \diff^{\VEC{\alpha}} u = 0$
 on $S$ for all multi-indices $\VEC{\alpha}$ with
 $|\VEC{\alpha}|<m$ is $u=0$ on $R$.
 \end{theorem}
@@ -157,54 +157,54 @@ The proof of Holmgren's theorem is not easy.
 Before stating this version, we need a little definition.
 
 \begin{defn}
-Let $\displaystyle \Omega \subset \RR^n$ be an open set.  Suppose that
+Let $\DS \Omega \subset \RR^n$ be an open set.  Suppose that
 \begin{enumerate}
 \item there exists a real analytic bijection
 $F:B \times ]a,b[ \rightarrow \Omega$, where $B$ is an open ball in
-$\displaystyle \RR^{n-1}$ and $a<b$,
+$\DS \RR^{n-1}$ and $a<b$,
 \item the Jacobian of $F$ is different from $0$ everywhere on
 $B\times ]a,b[$, and
-\item $\displaystyle \Omega = \bigcup_{\lambda \in ]a,b[} S_\lambda$, 
-where $\displaystyle S_\lambda = \left\{ \VEC{x} : \VEC{x} = F(\VEC{y},\lambda)
+\item $\DS \Omega = \bigcup_{\lambda \in ]a,b[} S_\lambda$, 
+where $\DS S_\lambda = \left\{ \VEC{x} : \VEC{x} = F(\VEC{y},\lambda)
 \ \text{for} \ \VEC{y} \in B \right\}$.
 \end{enumerate}
 Then the family of hyper-surfaces
-$\displaystyle \left\{ S_\lambda \right\}_{\lambda \in ]a,b[}$ is an
+$\DS \left\{ S_\lambda \right\}_{\lambda \in ]a,b[}$ is an
 {\bfseries analytic field}\index{Analytic Field} for $\Omega$.
 \end{defn}
 
 \begin{theorem}[Holmgren]
-Consider the $\displaystyle m^{th}$ order linear partial differential equation
+Consider the $\DS m^{th}$ order linear partial differential equation
 \[
 L(\VEC{x}, \diff)u = \sum_{|\VEC{\alpha}|\leq m}
 a_{\VEC{\alpha}}(\VEC{x}) \diff^{\VEC{\alpha}} u = 0
 \]
-on an open set $\Omega$ of $\displaystyle \RR^n$, where the functions
+on an open set $\Omega$ of $\DS \RR^n$, where the functions
 $a_{\VEC{\alpha}}:\Omega\rightarrow \RR$ are real analytic. Suppose that
-$\displaystyle \left\{ S_\lambda \right\}_{\lambda \in ]a,b[}$ is an
+$\DS \left\{ S_\lambda \right\}_{\lambda \in ]a,b[}$ is an
 analytic field for $\Omega$.\\
 Let
-$\displaystyle
+$\DS
 R = \left\{ \VEC{x} : \VEC{x} \in \Omega \ \text{with} \ x_n\geq 0 \right\}$,
-$\displaystyle
+$\DS
 Z = \left\{ \VEC{x} : \VEC{x} \in \Omega \ \text{with} \ x_n = 0 \right\}$
 and
-$\displaystyle \Omega_\mu = \bigcup_{a<\lambda \leq \mu} S_\lambda$.
+$\DS \Omega_\mu = \bigcup_{a<\lambda \leq \mu} S_\lambda$.
 
 If $Z \neq \emptyset$, $Z$ and the $S_\lambda$ are not characteristic
 hyper-surfaces, and
 $\Omega_\mu \cap R$ is a closed subset of $\Omega$ (with
 the induced topology on $\Omega$) for all $\mu \in ]a,b[$, then the
-unique solution of class $\displaystyle C^m(\overline{R})$ which
-satisfy the Cauchy conditions $\displaystyle \diff^{\VEC{\alpha}} u = 0$ on
+unique solution of class $\DS C^m(\overline{R})$ which
+satisfy the Cauchy conditions $\DS \diff^{\VEC{\alpha}} u = 0$ on
 $Z$ for all multi-indices $\VEC{\alpha}$ with $|\VEC{\alpha}|<m$
 is $u=0$ on $R$.
 \end{theorem}
 
-If $\displaystyle R\subset \RR^n$, recall that
-$\displaystyle f \in C^m(\overline{R})$ means that
-$\displaystyle f\in C(\overline{R}) \cap C^m(R)$ and
-$\displaystyle \diff^{\VEC{\alpha}} f$ can be extended
+If $\DS R\subset \RR^n$, recall that
+$\DS f \in C^m(\overline{R})$ means that
+$\DS f\in C(\overline{R}) \cap C^m(R)$ and
+$\DS \diff^{\VEC{\alpha}} f$ can be extended
 continuously to $\overline{R}$ for all multi-indices $\VEC{\alpha}$ with
 $|\VEC{\alpha}|\leq m$.
 
@@ -225,8 +225,8 @@ Let
 L(x,y,\diff) = \pdydx{}{x} + i \pdydx{}{y} - 2i(x+iy)\pdydx{}{t}
 \]
 and $f:\RR\to \RR$ be a continuous function.  If
-$\displaystyle u:\RR^3\to \CC$ is a
-solution of $L(x,y,\diff)u = f$ of class $\displaystyle C^1$ in the
+$\DS u:\RR^3\to \CC$ is a
+solution of $L(x,y,\diff)u = f$ of class $\DS C^1$ in the
 neighbourhood of the origin, then $f$ is analytic at $t=0$.
 \end{theorem}
 
@@ -239,7 +239,7 @@ v(r,\theta,t) = - e^{i\theta} \sqrt{r}
 for
 $(r,\theta,t) \in \Omega_1 = ]0,k[\times \RR \times ]-k,k[$,
 where $k$ is small enough to have $L(x,y,\diff)u = f$ in $\Omega_1$.
-Then $\displaystyle v \in C^1(\Omega_1)$ and
+Then $\DS v \in C^1(\Omega_1)$ and
 \[
 L(x,y,\diff)u = -2 \pdydx{v}{r} - \frac{i}{r} \pdydx{v}{\theta}
 + 2i \pdydx{v}{t}
@@ -260,7 +260,7 @@ Let
 V(t,r) = \int_0^{2\pi} v(r,\theta, t) \dx{\theta}
 \]
 for $(t,r) \in \Omega_2 = ]-k,k[\times ]0,k[$.  Then
-$\displaystyle V\in C^1(\Omega_2)$ and
+$\DS V\in C^1(\Omega_2)$ and
 \begin{align*}
 \pdydx{V}{t}(t,r) + i \pdydx{V}{r}(t,r) 
 &= \int_0^{2\pi} \left( i\pdydx{v}{r}(r,\theta,t)
@@ -269,11 +269,11 @@ $\displaystyle V\in C^1(\Omega_2)$ and
 &= \frac{1}{2i} \int_0^{2\pi} f(t) \dx{\theta} = -\pi i f(t) \ ,
 \end{align*}
 where we have use the fact that
-$\displaystyle \int_0^{2\pi} \pdydx{v}{\theta}(r,\theta,t) \dx{\theta}
+$\DS \int_0^{2\pi} \pdydx{v}{\theta}(r,\theta,t) \dx{\theta}
 = v(r,\theta,t) \Big|_0^{2\pi} = 0 $ because $v$ is $2\pi$-periodic.
 
 Let
-$\displaystyle F(t) = \int_0^t f(s)\dx{s}$ and $W(t,r) = V(t,r) + \pi\, i F(t)$
+$\DS F(t) = \int_0^t f(s)\dx{s}$ and $W(t,r) = V(t,r) + \pi\, i F(t)$
 for $(t,r) \in \Omega_2$.  The function $W$ satisfies the
 Cauchy-Riemann Equation
 \[
@@ -298,34 +298,34 @@ i W(t,r) & \quad \text{if} \ r \geq 0 \\[0.5em]
 \]
 defines an holomorphic extension on $]-k,k[\times ]-k,k[$
 of $i W$.  Thus $\tilde{W}(t,0) = - \pi F(t)$ is real analytic at $t = 0$.
-It follows that $\displaystyle f = \dydx{F}{t}$ is real
+It follows that $\DS f = \dydx{F}{t}$ is real
 analytic at $t=0$.
 \end{proof}
 
 \begin{rmk}
-Given $\displaystyle (x_0,y_0,t_0) \in \RR^3$, we define a translation
-in $\displaystyle \RR^3$ by
+Given $\DS (x_0,y_0,t_0) \in \RR^3$, we define a translation
+in $\DS \RR^3$ by
 \begin{align*}
 T:\RR^3 &\to \RR^3 \\
  (x,y,t) &\mapsto (x+x_0,y+y_0, t+t_0 +2y_0x - 2x_0 y)
 \end{align*}
 If $L(x,y,\diff)$ is the Lewy operator defined in Theorem~\ref{Lewy},
 then we have
-$\displaystyle L(x,y,\diff)(u \circ T) = \left(L(x,y,\diff)u\right) \circ T$
-for any function $\displaystyle u \in C^1(\RR^3)$.
+$\DS L(x,y,\diff)(u \circ T) = \left(L(x,y,\diff)u\right) \circ T$
+for any function $\DS u \in C^1(\RR^3)$.
 Thus, solving $L(x,y,\diff)u = f(t)$ near $(x_0,y_0,t_0)$ is
 equivalent to solving $L(s,y,\diff)(u\circ T) = f(t+t_0+2y_0x - 2x_0y)$
 near the origin.  It follows from Lewy's Theorem that there is no solution of
-class $\displaystyle C^1$ of $L(x,y,\diff)u = f(t)$ near
+class $\DS C^1$ of $L(x,y,\diff)u = f(t)$ near
 $(x_0,y_0,t_0)$ unless $f$ is
 analytic at $t=-t_0-2y_0x + 2x_0y$.
 
 H. Lewy has also shown that there are functions
-$\displaystyle f \in C^{\infty}(\RR^3)$
+$\DS f \in C^{\infty}(\RR^3)$
 such that $L(x,y,\diff)u = f$ has no solution $u$ of class
-$\displaystyle C^{1,\mu}(\RR^n)$ for $\mu > 0$ in a neighborhood of
-the origin and by extension anywhere in $\displaystyle \RR^3$.  The spaces
-$\displaystyle C^{k,\mu}(\RR^n)$ of Hölder continuous functions are
+$\DS C^{1,\mu}(\RR^n)$ for $\mu > 0$ in a neighborhood of
+the origin and by extension anywhere in $\DS \RR^3$.  The spaces
+$\DS C^{k,\mu}(\RR^n)$ of Hölder continuous functions are
 defined later in Definition~\ref{defnHolderContFunct}.  A proof of
 this result can be found in \cite{Smo}.
 \end{rmk}

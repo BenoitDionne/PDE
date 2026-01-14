@@ -18,7 +18,7 @@ We begin by presenting the Frobenius method.
 
 Under what conditions is the solution $y$ of an ordinary differential
 equation analytic about a point $a$?  Namely, under what conditions do
-we have $\displaystyle y = \sum_{n=0}^\infty  a_n (x-a)^n$, a series
+we have $\DS y = \sum_{n=0}^\infty  a_n (x-a)^n$, a series
 with a positive radius of convergence, as a solution of an ordinary
 differential equation?  The following example shows that we cannot
 always assume that this is possible.
@@ -29,9 +29,9 @@ Consider the ordinary differential equation
 x^2 y' + (x-1)y + 1 = 0 \ .
 \end{equation}
 Suppose that we have a solution of the form
-$\displaystyle y = \sum_{n=0}^\infty a_n x^n$ with a positive radius
+$\DS y = \sum_{n=0}^\infty a_n x^n$ with a positive radius
 of convergence.  Then
-$\displaystyle y' = \sum_{n=1}^\infty n a_n x^{n-1}$ on the interval
+$\DS y' = \sum_{n=1}^\infty n a_n x^{n-1}$ on the interval
 of convergence.  If we substitute these series for $y$ and $y'$ in
 (\ref{series_fails}), then we get
 \begin{align*}
@@ -50,7 +50,7 @@ $a_3 = 3a_2 = 3\cdot 2 = 3!$ from $3 a_2 - a_3 = 0$, and so on.
 If we assume that $a_{n-1} = (n-1)!$, then we get $a_n = n!$ from
 $n a_{n-1} - a_n = 0$.  By induction, we have that $a_n = n!$ for all
 non-negative integers.  We find that
-$\displaystyle y = \sum_{n=0}^\infty n! x^n$.  The ratio test
+$\DS y = \sum_{n=0}^\infty n! x^n$.  The ratio test
 shows that this series diverges for $x\neq 0$.  Therefore, we cannot
 assume that there is an analytic solution of (\ref{series_fails}) in
 the neighbourhood of the origin.
@@ -62,13 +62,13 @@ y'' + P(x) y' + Q(x) y = 0 \ .
 \end{equation}
 If $P(x)$ and $Q(x)$ are analytic functions at $x=0$, we say that
 $0$ is a {\bfseries regular point}\index{Regular Point}.
-If $x P(x)$ and $\displaystyle x^2 Q(x)$ are analytic functions at
+If $x P(x)$ and $\DS x^2 Q(x)$ are analytic functions at
 $x=0$, we say that $0$ is a
 {\bfseries regular singular point}\index{Regular Singular Point}.
 
 Suppose that $0$ is a regular singular point; say
-$\displaystyle x P(x) = \sum_{j=0}^\infty \alpha_j x^j$ and
-$\displaystyle x^2 Q(x) = \sum_{j=0}^\infty \beta_j x^j$ for $|x| < R$.
+$\DS x P(x) = \sum_{j=0}^\infty \alpha_j x^j$ and
+$\DS x^2 Q(x) = \sum_{j=0}^\infty \beta_j x^j$ for $|x| < R$.
 Moreover, suppose $\lambda_1$ and $\lambda_2$ are the roots of the
 {\bfseries indicial equation}\index{Indicial Equation}
 $F(\lambda) = \lambda^2 + (\alpha_0 - 1) \lambda + \beta_0 = 0$
@@ -124,7 +124,7 @@ c_n = \frac{G(\lambda_1,c_{n-p},c_{n-p+1},\ldots,c_{n-1})}
 \]
 for $n\geq 1$ gives all the other coefficients of the solution.  When
 $\lambda_1=\lambda_2$, the indicial equation is
-$\displaystyle F(\lambda) = (\lambda-\lambda_1)^2$.  If we substitute
+$\DS F(\lambda) = (\lambda-\lambda_1)^2$.  If we substitute
 (\ref{spv_frobenius2}) with
 \[
 c_n = \frac{G(\lambda,c_{n-p},c_{n-p+1},\ldots,c_{n-1})}{F(n+\lambda)}
@@ -143,7 +143,7 @@ If we derive this relation with respect to $\lambda$, then we get
 &\qquad = c_0\left(2(\lambda-\lambda_1) + (\lambda-\lambda_1)^2\ln(x)\right)
 x^{\lambda} \ .
 \end{align*}
-Hence $\displaystyle \pdydx{y}{\lambda}(x,\lambda)\big|_{\lambda=\lambda_1}$
+Hence $\DS \pdydx{y}{\lambda}(x,\lambda)\big|_{\lambda=\lambda_1}$
 is another solution of (\ref{spv_frobenius}) which is linearly
 independent of $y_1$.
 
@@ -154,22 +154,22 @@ Solve the ordinary differential equation
 \]
 
 We have an equation of the form
-$\displaystyle y'' + P(x)\, y' + Q(x) y = 0$, where
-$\displaystyle P(x) = \frac{1}{2x}$ and
-$\displaystyle Q(x) = \frac{1}{4x}$.
-Thus $\displaystyle x P(x) = \frac{1}{2}$ and
-$\displaystyle x^2 Q(x) = \frac{x}{4}$.  We find
+$\DS y'' + P(x)\, y' + Q(x) y = 0$, where
+$\DS P(x) = \frac{1}{2x}$ and
+$\DS Q(x) = \frac{1}{4x}$.
+Thus $\DS x P(x) = \frac{1}{2}$ and
+$\DS x^2 Q(x) = \frac{x}{4}$.  We find
 $\alpha_0 = 1/2$ and $\beta_0= 0$.  The indicial equation is
-$\displaystyle \lambda^2 + (\alpha_0 - 1)\lambda + \beta_0 = \lambda^2
+$\DS \lambda^2 + (\alpha_0 - 1)\lambda + \beta_0 = \lambda^2
 -\frac{1}{2}\,\lambda  = \lambda \left(\lambda -\frac{1}{2}\right) = 0$.
-Its roots are $\displaystyle \lambda_1 = \frac{1}{2}$ and $\lambda_2=0$.
+Its roots are $\DS \lambda_1 = \frac{1}{2}$ and $\lambda_2=0$.
 Since $\lambda_1-\lambda_2$ is not an integer, we get two linearly
 independent solutions
-$\displaystyle y_1 = x^{\lambda_1} \sum_{n=0}^\infty a_n x^n$
-and $\displaystyle y_2 = x^{\lambda_2} \sum_{n=0}^\infty b_n x^n$.
+$\DS y_1 = x^{\lambda_1} \sum_{n=0}^\infty a_n x^n$
+and $\DS y_2 = x^{\lambda_2} \sum_{n=0}^\infty b_n x^n$.
 
-If we substitute $\displaystyle y = x^\lambda \sum_{n=0}^\infty c_n x^n$ into
-$\displaystyle 4xy''+ 2 y' + y = 0$, then we get
+If we substitute $\DS y = x^\lambda \sum_{n=0}^\infty c_n x^n$ into
+$\DS 4xy''+ 2 y' + y = 0$, then we get
 \begin{align*}
 0 & = 4xy''+ 2 y' + y
 = 4 \sum_{n=0}^\infty (\lambda+n)(\lambda+n-1) c_n
@@ -182,21 +182,21 @@ x^{\lambda+n} + 2 \sum_{n=-1}^\infty (\lambda + n+1 )c_{n+1} x^{\lambda+n}
 2(\lambda+n+1)(2\lambda+2n +1)c_{n+1} +c_n\big) x^{\lambda+n} \ .
 \end{align*}
 We get $2\lambda( 2\lambda -1)c_0 = 0$ and the recursion relation
-$\displaystyle c_{n+1} = \frac{-1}{2(\lambda+n+1)(2\lambda+2n+1)} c_n$
+$\DS c_{n+1} = \frac{-1}{2(\lambda+n+1)(2\lambda+2n+1)} c_n$
 for $n\geq 0$.
 
 For $\lambda = 1/2$, we have that
-$\displaystyle 2\lambda( 2\lambda -1)c_0 = 0 c_0 = 0$ whatever the
+$\DS 2\lambda( 2\lambda -1)c_0 = 0 c_0 = 0$ whatever the
 value of $c_0$.  Thus, $c_0$ is free.  The recursion relation becomes
-$\displaystyle c_{n+1} = \frac{-1}{(2n+3)(2n+2)} c_n$
+$\DS c_{n+1} = \frac{-1}{(2n+3)(2n+2)} c_n$
 for $n \geq 0$.  We find
-$\displaystyle c_1 = -\frac{c_0}{3\times 2} = - \frac{c_0}{3!}$,
-$\displaystyle c_2 = - \frac{c_1}{5\times 4}
+$\DS c_1 = -\frac{c_0}{3\times 2} = - \frac{c_0}{3!}$,
+$\DS c_2 = - \frac{c_1}{5\times 4}
 = \frac{c_0}{5\times 4 \times 3 \times 2} = \frac{c_0}{5!}$,
-$\displaystyle c_3 = - \frac{c_2}{7\times 6}
+$\DS c_3 = - \frac{c_2}{7\times 6}
 = -\frac{c_0}{7\times 6\times 5\times 4 \times 3 \times 2} = - \frac{c_0}{7!}$,
 and so on.  By induction, we find that
-$\displaystyle c_n = (-1)^n \frac{c_0}{(2n+1)!}$ for $n \geq 0$.
+$\DS c_n = (-1)^n \frac{c_0}{(2n+1)!}$ for $n \geq 0$.
 The first solution is
 \[
 y_1 = c_0 \, x^{1/2} \sum_{n=0}^\infty (-1)^n \frac{x^n}{(2n+1)!}
@@ -205,17 +205,17 @@ y_1 = c_0 \, x^{1/2} \sum_{n=0}^\infty (-1)^n \frac{x^n}{(2n+1)!}
 \]
 
 For $\lambda = 0$, we have that
-$\displaystyle 2\lambda( 2\lambda -1)c_0 = 0 c_0 = 0$ whatever the
+$\DS 2\lambda( 2\lambda -1)c_0 = 0 c_0 = 0$ whatever the
 value of $c_0$.  Thus, $c_0$ is also free.  The recursion relation becomes
-$\displaystyle c_{n+1} = \frac{-1}{(2n+2)(2n+1)} c_n$
+$\DS c_{n+1} = \frac{-1}{(2n+2)(2n+1)} c_n$
 for $n \geq 0$.  We find
-$\displaystyle c_1 = - \frac{c_0}{2\times 1} = - \frac{c_0}{2!}$,
-$\displaystyle c_2 = - \frac{c_1}{4\times 3}
+$\DS c_1 = - \frac{c_0}{2\times 1} = - \frac{c_0}{2!}$,
+$\DS c_2 = - \frac{c_1}{4\times 3}
 = \frac{c_0}{4 \times 3 \times 2} = \frac{c_0}{4!}$,
-$\displaystyle c_3 = - \frac{c_2}{6\times 5}
+$\DS c_3 = - \frac{c_2}{6\times 5}
 = -\frac{c_0}{6\times 5\times 4 \times 3 \times 2} = - \frac{c_0}{6!}$,
 and so on.  By induction, we find that
-$\displaystyle c_n = (-1)^n \frac{c_0}{(2n)!}$ for $n\geq 0$.
+$\DS c_n = (-1)^n \frac{c_0}{(2n)!}$ for $n\geq 0$.
 A second solution linearly independent from the first one is
 \[
 y_2 = c_0 \, \sum_{n=0}^\infty (-1)^n \frac{x^n}{(2n)!}
@@ -224,7 +224,7 @@ y_2 = c_0 \, \sum_{n=0}^\infty (-1)^n \frac{x^n}{(2n)!}
 \]
 
 The general solution is
-$\displaystyle y = C\, \sin(\sqrt{x}) + D\, \cos(\sqrt{x})$ for
+$\DS y = C\, \sin(\sqrt{x}) + D\, \cos(\sqrt{x})$ for
 arbitrary constants $C$ and $D$.
 \end{egg}
 
@@ -235,22 +235,22 @@ Solve the ordinary differential equation
 \]
 
 We have an equation of the form
-$\displaystyle y'' + P(x)\, y' + Q(x) y = 0$, where
-$\displaystyle P(x) = \frac{1}{2x}$ and
-$\displaystyle Q(x) = 2$.
-Thus $\displaystyle x P(x) = \frac{1}{2}$ and
-$\displaystyle x^2 Q(x) = 2x^2$.  We find
+$\DS y'' + P(x)\, y' + Q(x) y = 0$, where
+$\DS P(x) = \frac{1}{2x}$ and
+$\DS Q(x) = 2$.
+Thus $\DS x P(x) = \frac{1}{2}$ and
+$\DS x^2 Q(x) = 2x^2$.  We find
 $\alpha_0 = 1/2$ and $\beta_0= 0$.  The indicial equation is
-$\displaystyle \lambda^2 + (\alpha_0 - 1)\lambda + \beta_0 = \lambda^2
+$\DS \lambda^2 + (\alpha_0 - 1)\lambda + \beta_0 = \lambda^2
 -\frac{1}{2}\,\lambda  = \lambda \left(\lambda -\frac{1}{2}\right) = 0$.
-Its roots are $\displaystyle \lambda_1 = 1/2$ and $\lambda_2=0$.
+Its roots are $\DS \lambda_1 = 1/2$ and $\lambda_2=0$.
 Since $\lambda_1-\lambda_2$ is not an integer, we have two linearly
 independent solutions
-$\displaystyle y_1 = x^{\lambda_1} \sum_{n=0}^\infty a_n x^n$
-and $\displaystyle y_2 = x^{\lambda_2} \sum_{n=0}^\infty b_n x^n$.
+$\DS y_1 = x^{\lambda_1} \sum_{n=0}^\infty a_n x^n$
+and $\DS y_2 = x^{\lambda_2} \sum_{n=0}^\infty b_n x^n$.
 
-If we substitute $\displaystyle y = x^\lambda \sum_{n=0}^\infty c_n x^n$ into
-$\displaystyle 2xy''+  y' + xy = 0$, then we get
+If we substitute $\DS y = x^\lambda \sum_{n=0}^\infty c_n x^n$ into
+$\DS 2xy''+  y' + xy = 0$, then we get
 \begin{align*}
 0 & = 2xy''+ y' + xy \\
 &= 2 \sum_{n=0}^\infty (\lambda+n)(\lambda+n-1) c_n x^{\lambda+n-1}
@@ -275,16 +275,16 @@ For $\lambda = 1/2$, we have that
 $\lambda( 2\lambda -1)c_0 = 0 c_0 = 0$ and
 $(2\lambda+1)(\lambda+1) c_1 = 3 c_1 = 0$.
 Thus, $c_0$ is free and $c_1=0$. The recursion relation becomes
-$\displaystyle c_{n+2} = -\frac{1}{(n+2)(2n+5)} c_n$
+$\DS c_{n+2} = -\frac{1}{(n+2)(2n+5)} c_n$
 for $n \geq 0$.  We find that
-$\displaystyle c_3 = \frac{-1}{3\times 7} c_1 = 0$,
-$\displaystyle c_5 = \frac{-1}{5\times 11} c_3 = 0$, and so on.
+$\DS c_3 = \frac{-1}{3\times 7} c_1 = 0$,
+$\DS c_5 = \frac{-1}{5\times 11} c_3 = 0$, and so on.
 Thus, we get $c_{2n-1} = 0$ for $n>0$ by induction.
 We also find that 
-$\displaystyle c_2 = -\frac{1}{2\times 5}c_0$,
-$\displaystyle c_4 = - \frac{1}{4\times 9}c_2
+$\DS c_2 = -\frac{1}{2\times 5}c_0$,
+$\DS c_4 = - \frac{1}{4\times 9}c_2
 = \frac{c_0}{2\times 4 \times 5 \times 9}$,
-$\displaystyle c_6 = - \frac{1}{6\times 13}c_4
+$\DS c_6 = - \frac{1}{6\times 13}c_4
 = -\frac{c_0}{2\times 4\times 6\times 5 \times 9 \times 13}$, and so
 on.  By induction, we get
 \[
@@ -303,15 +303,15 @@ For $\lambda = 0$, we have that
 $\lambda( 2\lambda -1)c_0 = 0 c_0 = 0$ and
 $(2\lambda+1)(\lambda+1) c_1 = c_1 = 0$.
 Thus, $c_0$ is free and $c_1=0$. The recursion relation becomes
-$\displaystyle c_{n+2} = -\frac{1}{(n+2)(2n+3)} c_n$
+$\DS c_{n+2} = -\frac{1}{(n+2)(2n+3)} c_n$
 for $n \geq 0$.  We find that
-$\displaystyle c_3 = \frac{-1}{3\times 5} c_1 = 0$,
-$\displaystyle c_5 = \frac{-1}{5\times 9} c_3 = 0$, and so on.
+$\DS c_3 = \frac{-1}{3\times 5} c_1 = 0$,
+$\DS c_5 = \frac{-1}{5\times 9} c_3 = 0$, and so on.
 Thus, we get $c_{2n-1} = 0$ for $n>0$ by induction.  We also find that
-$\displaystyle c_2 = - \frac{c_0}{2\times 3}$,
-$\displaystyle c_4 = - \frac{1}{4\times 7}c_2
+$\DS c_2 = - \frac{c_0}{2\times 3}$,
+$\DS c_4 = - \frac{1}{4\times 7}c_2
 = \frac{c_0}{2\times 4 \times 3 \times 7}$,
-$\displaystyle c_6 = - \frac{1}{6\times 11}c_4
+$\DS c_6 = - \frac{1}{6\times 11}c_4
 = -\frac{c_0}{2\times 4\times 6\times 3 \times 7 \times 11}$, and so on.
 By induction, we get
 \[
@@ -327,33 +327,33 @@ y_1 = 1+ \sum_{n=1}^\infty
 \]
 
 The general solution is
-$\displaystyle y = C\, y_1(x) + D\, y_2(x)$ for arbitrary constants
+$\DS y = C\, y_1(x) + D\, y_2(x)$ for arbitrary constants
 $C$ and $D$.
 \end{egg}
 
 \begin{egg}
-Solve the ordinary differential equation $\displaystyle y''- y = 0$.
+Solve the ordinary differential equation $\DS y''- y = 0$.
 
 We have an equation of the form
-$\displaystyle y'' + P(x)\, y' + Q(x) y = 0$, where
-$\displaystyle P(x) = 0$ and $\displaystyle Q(x) = -1$.
-Thus $\displaystyle x P(x) = 0$ and
-$\displaystyle x^2 Q(x) = -x^2$.  We find $\alpha_0 = \beta_0= 0$.
+$\DS y'' + P(x)\, y' + Q(x) y = 0$, where
+$\DS P(x) = 0$ and $\DS Q(x) = -1$.
+Thus $\DS x P(x) = 0$ and
+$\DS x^2 Q(x) = -x^2$.  We find $\alpha_0 = \beta_0= 0$.
 The indicial equation is
-$\displaystyle \lambda^2 + (\alpha_0 - 1) \lambda + \beta_0 =
+$\DS \lambda^2 + (\alpha_0 - 1) \lambda + \beta_0 =
 \lambda^2 - \lambda = \lambda(\lambda -1) = 0$.
-Its roots are $\displaystyle \lambda_1 = 1$ and $\lambda_2=0$.
+Its roots are $\DS \lambda_1 = 1$ and $\lambda_2=0$.
 
 Since $\lambda_1-\lambda_2$ is an integer, one solution is of the form
-$\displaystyle y_1 = x \sum_{n=0}^\infty a_n x^n = \sum_{n=0}^\infty a_n x^{n+1}$
+$\DS y_1 = x \sum_{n=0}^\infty a_n x^n = \sum_{n=0}^\infty a_n x^{n+1}$
 and another solution linearly independent of $y_1$ is of the form
-$\displaystyle y_2 = k y_1 \ln(x) + \sum_{n=0}^\infty b_n x^n$.
+$\DS y_2 = k y_1 \ln(x) + \sum_{n=0}^\infty b_n x^n$.
 However, as we will see, we are in the situation where we may take
 $k=0$ in $y_2$ because $b_0$ and $b_1$ are free.  In this case, we
 seek solutions of the form
-$\displaystyle y = \sum_{n=0}^\infty c_n x^n$.
+$\DS y = \sum_{n=0}^\infty c_n x^n$.
 This will give us two linearly independent solutions.
-If we substitute this expression of $y$ into $\displaystyle y''- y = 0$,
+If we substitute this expression of $y$ into $\DS y''- y = 0$,
 then we get 
 \begin{align*}
 y''- y & = \sum_{n=2}^\infty n(n-1) c_n x^{n-2} - \sum_{n=0}^\infty c_n x^n
@@ -361,22 +361,22 @@ y''- y & = \sum_{n=2}^\infty n(n-1) c_n x^{n-2} - \sum_{n=0}^\infty c_n x^n
 &= \sum_{n=0}^\infty \left( (n+1)(n+2)c_{n+2} + c_n\right) x^n = 0 \  .
 \end{align*}
 We get the recursion relation
-$\displaystyle c_{n+2} = \frac{c_n}{(n+1)(n+2)}$
+$\DS c_{n+2} = \frac{c_n}{(n+1)(n+2)}$
 for $n \geq 0$, where $b_0$ and $b_1$ are free.  We have that
-$\displaystyle c_2 = \frac{c_0}{2} = \frac{c_0}{2!}$,
-$\displaystyle c_4 = \frac{c_2}{3\times 4} = \frac{c_0}{2\times 3 \times 4} 
+$\DS c_2 = \frac{c_0}{2} = \frac{c_0}{2!}$,
+$\DS c_4 = \frac{c_2}{3\times 4} = \frac{c_0}{2\times 3 \times 4} 
 = \frac{c_0}{4!}$,
-$\displaystyle c_6 = \frac{c_4}{5\times 6} = \frac{c_0}{2\times 3
+$\DS c_6 = \frac{c_4}{5\times 6} = \frac{c_0}{2\times 3
 \times 4 \times 5 \times 6} = \frac{c_0}{6!}$, and so on.
-By induction, we get $\displaystyle c_n = \frac{c_0}{n!}$ for $n$ even.
+By induction, we get $\DS c_n = \frac{c_0}{n!}$ for $n$ even.
 Moreover,
-$\displaystyle c_3 = \frac{c_1}{2\times 3} = \frac{c_1}{3!}$,
-$\displaystyle c_5 = \frac{c_3}{4\times 5} = \frac{c_1}{2\times
+$\DS c_3 = \frac{c_1}{2\times 3} = \frac{c_1}{3!}$,
+$\DS c_5 = \frac{c_3}{4\times 5} = \frac{c_1}{2\times
 3\times 4 \times 5} = \frac{c_1}{5!}$,
-$\displaystyle c_7 = \frac{c_5}{6\times 7} = \frac{c_1}{2\times
+$\DS c_7 = \frac{c_5}{6\times 7} = \frac{c_1}{2\times
 3\times 4 \times 5 \times 6 \times 7} = \frac{c_1}{7!}$, and so on.
 By induction, we get
-$\displaystyle c_n = \frac{b_1}{n!}$ for $n$ odd.
+$\DS c_n = \frac{b_1}{n!}$ for $n$ odd.
 
 By selecting two linearly independent pairs $(c_0,c_1)$, we get two
 linearly independent solutions.  The choice $(c_0,c_1) = (0,1)$ yields
@@ -397,7 +397,7 @@ y_2 = \sum_{n=0}^\infty \frac{x^{2n}}{(2n)!}
 Those are the two solutions normally found using the standard method
 to solve second order differential equation with constant
 coefficients.  The general solution is
-$\displaystyle y(x) = A e^x + B e^{-x}$ for arbitrary constants $A$
+$\DS y(x) = A e^x + B e^{-x}$ for arbitrary constants $A$
 and $B$.
 \end{egg}
 
@@ -408,24 +408,24 @@ Solve the ordinary differential equation
 \]
 
 We have an equation of the form
-$\displaystyle y'' + P(x)\, y' + Q(x) y = 0$, where
-$\displaystyle P(x) = \frac{-2x}{1-x^2} = -2x \sum_{n=0}^\infty x^{2n}$
+$\DS y'' + P(x)\, y' + Q(x) y = 0$, where
+$\DS P(x) = \frac{-2x}{1-x^2} = -2x \sum_{n=0}^\infty x^{2n}$
 and
-$\displaystyle Q(x) = \frac{2}{1-x^2} = 2 \sum_{n=0}^\infty x^{2n}$
+$\DS Q(x) = \frac{2}{1-x^2} = 2 \sum_{n=0}^\infty x^{2n}$
 for $|x|<1$.  Thus
-$\displaystyle x\,P(x) = -2 \sum_{n=0}^\infty x^{2n+2}$ and
-$\displaystyle x^2\,Q(x) = 2\sum_{n=0}^\infty x^{2n+2}$
+$\DS x\,P(x) = -2 \sum_{n=0}^\infty x^{2n+2}$ and
+$\DS x^2\,Q(x) = 2\sum_{n=0}^\infty x^{2n+2}$
 for $|x|<1$.  We find $\alpha_0 = \beta_0= 0$.  The indicial equation is
-$\displaystyle \lambda^2 + (\alpha_0 - 1)\lambda + \beta_0 = \lambda^2
+$\DS \lambda^2 + (\alpha_0 - 1)\lambda + \beta_0 = \lambda^2
 - \lambda  = \lambda (\lambda -1) = 0$.
-Its roots are $\displaystyle \lambda_1 = 1$ and $\lambda_2=0$.
+Its roots are $\DS \lambda_1 = 1$ and $\lambda_2=0$.
 As for the previous example, $\lambda_1-\lambda_2$ is an integer and
 we are in the situation where we may take $k=0$ in $y_2$ given by
 (\ref{spv_FMchoices}) because $b_0$ and $b_1$ are free as we will see.
 We seek solutions of the form
-$\displaystyle y = \sum_{n=0}^\infty c_n x^n$.  This will give us
+$\DS y = \sum_{n=0}^\infty c_n x^n$.  This will give us
 two linearly independent solutions.  If we substitute this
-expression for $y$ into $\displaystyle (1-x^2)y''- 2x y' + 2y = 0$,
+expression for $y$ into $\DS (1-x^2)y''- 2x y' + 2y = 0$,
 then we get
 \begin{align*}
 0 & = (1-x^2)y''- 2x y' + 2y
@@ -447,20 +447,20 @@ find the recursion relation
 c_{n+2}  = \frac{(n+2)(n-1)}{(n+2)(n+1)} c_n = \frac{n-1}{n+1} c_n
 \]
 for $n\geq 2$.  Hence
-$\displaystyle c_5 = \frac{c_3}{2} = 0$,
-$\displaystyle c_7 = \frac{2c_5}{3} = 0$, and so on.
+$\DS c_5 = \frac{c_3}{2} = 0$,
+$\DS c_7 = \frac{2c_5}{3} = 0$, and so on.
 Thus $c_n = 0$ for $n>2$ and odd.  Moreover,
-$\displaystyle c_4 = \frac{1}{3} c_2 = - \frac{1}{3} c_0$,
-$\displaystyle c_6 = \frac{3}{5} c_4 = - \frac{1}{5} c_0$,
-$\displaystyle c_8 = \frac{5}{7} c_6 = - \frac{1}{7} c_0$, and so on.
+$\DS c_4 = \frac{1}{3} c_2 = - \frac{1}{3} c_0$,
+$\DS c_6 = \frac{3}{5} c_4 = - \frac{1}{5} c_0$,
+$\DS c_8 = \frac{5}{7} c_6 = - \frac{1}{7} c_0$, and so on.
 By induction, we find that
-$\displaystyle c_n = - \frac{c_0}{n-1}$ for $n>1$ and even.
+$\DS c_n = - \frac{c_0}{n-1}$ for $n>1$ and even.
 A first solution is given by $c_1=1$ and $c_0=0$.  We get
 $y_1(x) = x$.  A second solution linearly independent of the first one
 is given by $c_1=0$ and $c_0=1$.  We get
-$\displaystyle y_2 = \sum_{n=0}^\infty \frac{-x^{2n}}{2n-1}$
+$\DS y_2 = \sum_{n=0}^\infty \frac{-x^{2n}}{2n-1}$
 for $|x|<1$.  The general solution is
-$\displaystyle y = C\, x + D\,\sum_{n=0}^\infty \frac{-x^{2n}}{2n-1}$
+$\DS y = C\, x + D\,\sum_{n=0}^\infty \frac{-x^{2n}}{2n-1}$
 for $|x|<1$ and arbitrary constants $C$ and $D$.
 \end{egg}
 
@@ -471,21 +471,21 @@ xy''+  y' + x y = 0 \ .
 \]
 
 We have an equation of the form
-$\displaystyle y'' + P(x)\, y' + Q(x) y = 0$, where
-$\displaystyle P(x) = \frac{1}{x}$ and
-$\displaystyle Q(x) = 1$.
-Thus $\displaystyle x P(x) = 1$ and
-$\displaystyle x^2 Q(x) = x^2$.  We find
+$\DS y'' + P(x)\, y' + Q(x) y = 0$, where
+$\DS P(x) = \frac{1}{x}$ and
+$\DS Q(x) = 1$.
+Thus $\DS x P(x) = 1$ and
+$\DS x^2 Q(x) = x^2$.  We find
 $\alpha_0 = 1$ and $\beta_0= 0$.  The indicial equation is
-$\displaystyle \lambda^2 + (\alpha_0 - 1)\lambda + \beta_0 = \lambda^2 = 0$.
+$\DS \lambda^2 + (\alpha_0 - 1)\lambda + \beta_0 = \lambda^2 = 0$.
 There is only one root of algebraic multiplicity $2$; namely, $\lambda=0$.
 One solution is of the form
-$\displaystyle y_1 = \sum_{n=0}^\infty a_n x^n$ and another solution
+$\DS y_1 = \sum_{n=0}^\infty a_n x^n$ and another solution
 linearly independent of the first one is of the form
-$\displaystyle y_2 = \ln(x) y_1(x) + \sum_{n=1}^\infty b_n x^n$.
+$\DS y_2 = \ln(x) y_1(x) + \sum_{n=1}^\infty b_n x^n$.
 
-If we substitute $\displaystyle y = \sum_{n=0}^\infty a_n x^n$ into
-$\displaystyle xy''+ y' + xy = 0$, then we get
+If we substitute $\DS y = \sum_{n=0}^\infty a_n x^n$ into
+$\DS xy''+ y' + xy = 0$, then we get
 \begin{align*}
 0 & = xy''+ y' + xy
 = \sum_{n=2}^\infty n(n-1) a_n x^{n-1}
@@ -496,25 +496,25 @@ $\displaystyle xy''+ y' + xy = 0$, then we get
 &= a_1 + \sum_{n=0}^\infty \left( (n+2)^2 a_{n+2} +a_n\right) x^{n+1} \  .
 \end{align*}
 We have that $a_0$ is free and $a_1=0$.  The recursion relation becomes
-$\displaystyle a_{n+2} = -\frac{1}{(n+2)^2} a_n$
+$\DS a_{n+2} = -\frac{1}{(n+2)^2} a_n$
 for $n \geq 0$.  We find that
-$\displaystyle a_3 = \frac{-1}{3^2} a_1 = 0$,
-$\displaystyle a_5 = \frac{-1}{5^2} a_3 = 0$, and so on.
+$\DS a_3 = \frac{-1}{3^2} a_1 = 0$,
+$\DS a_5 = \frac{-1}{5^2} a_3 = 0$, and so on.
 Thus $a_{2n-1} = 0 $ for $n>0$ by induction.  We also have that
-$\displaystyle a_2 = \frac{-a_0}{2^2}$,
-$\displaystyle a_4 = -\frac{1}{4^2}a_2 = \frac{a_0}{2^2\times 4^2}$,
-$\displaystyle a_6 = -\frac{1}{6^2}a_4
+$\DS a_2 = \frac{-a_0}{2^2}$,
+$\DS a_4 = -\frac{1}{4^2}a_2 = \frac{a_0}{2^2\times 4^2}$,
+$\DS a_6 = -\frac{1}{6^2}a_4
 = \frac{-a_0}{2^2\times 4^2\times 6^2}$, and so on.
 By induction, we get that
-$\displaystyle a_{2n} = (-1)^n \frac{a_0}{(2^n n!)^2}$
+$\DS a_{2n} = (-1)^n \frac{a_0}{(2^n n!)^2}$
 for $n>0$.   With $a_0=1$, we get a first solution
 \[
 y_1 = \sum_{n=0}^\infty (-1)^n \frac{1}{ (2^n n!)^2}x^{2n} \ .
 \]
 
 If we substitute
-$\displaystyle y = \ln(x)y_1(x) + \sum_{n=1}^\infty b_n x^n$ into
-$\displaystyle xy''+ y' + xy = 0$, then we get
+$\DS y = \ln(x)y_1(x) + \sum_{n=1}^\infty b_n x^n$ into
+$\DS xy''+ y' + xy = 0$, then we get
 \begin{align*}
 0 & = xy''+ y' + xy
 = x\left( \ln(x) y_1''(x) + \frac{2y_1'(x)}{x}- \frac{y_1(x)}{x^2}\right)
@@ -529,8 +529,8 @@ $\displaystyle xy''+ y' + xy = 0$, then we get
 &=4\sum_{n=1}^\infty (-1)^n \frac{n}{ (2^n n!)^2}x^{2n-1} + b_1 + 4 b_2x
 + \sum_{n=1}^\infty \big( (n+2)^2 b_{n+2} + b_n\big) x^{n+1} \ .
 \end{align*}
-If we collect the terms in $\displaystyle x^n$ with $n$ even, and
-those in $\displaystyle x^n$ with $n$ odd, then we get
+If we collect the terms in $\DS x^n$ with $n$ even, and
+those in $\DS x^n$ with $n$ odd, then we get
 \begin{align*}
 0 &= b_1 + \sum_{n=1}^\infty \left((2n+1)^2 b_{2n+1}+b_{2n-1}\right) x^{2n}
 \end{align*}
@@ -542,10 +542,10 @@ and
 + (2n)^2 b_{2n} + b_{2n-2}\right) x^{2n-1} \  .
 \end{align*}
 Thus, $b_1=0$ and
-$\displaystyle b_{2n+1} = - \frac{1}{(2n+1)^2}b_{2n-1}$
+$\DS b_{2n+1} = - \frac{1}{(2n+1)^2}b_{2n-1}$
 for $n >0$.  By induction, we get $b_{2n+1} = 0$ for $n \geq 0$.
 Moreover, $b_2 = 1/4$ and
-$\displaystyle b_{2n} = -\frac{1}{(2n)^2} \left( b_{2n-2} +
+$\DS b_{2n} = -\frac{1}{(2n)^2} \left( b_{2n-2} +
  (-1)^n \frac{4n}{(2^n n!)^2}\right)$
 for $n>1$.  Hence,
 \begin{align*}
@@ -559,7 +559,7 @@ b_6 &= -\frac{1}{6^2} \left( b_4 - \frac{12}{(2^3 3!)^2}\right)
 = \frac{1}{2^6 (3!)^2} \left( 1 + \frac{1}{2} + \frac{1}{3}\right) \ ,
 \end{align*}
 and so on.  By induction, we find that
-$\displaystyle b_{2n} = \frac{(-1)^{n-1}}{2^{2n}(n!)^2}\left(1+\frac{1}{2}
+$\DS b_{2n} = \frac{(-1)^{n-1}}{2^{2n}(n!)^2}\left(1+\frac{1}{2}
   +\frac{1}{3} + \ldots + \frac{1}{n}\right)$
 for $n > 0$.
 
@@ -571,7 +571,7 @@ y_2 = \ln(x) y_1(x) + \sum_{n=1}^\infty
 \]
 
 The general solution is
-$\displaystyle y = C\, y_1(x) + D\, y_2(x)$ for arbitrary constants
+$\DS y = C\, y_1(x) + D\, y_2(x)$ for arbitrary constants
 $C$ and $D$.
 
 In fact, we have that $y_1(x) = J_0(x)$, the ``Bessel function of
@@ -586,13 +586,13 @@ Solve the ordinary differential equation
 xy''+  y' + 2 y = 0 \ .
 \]
 We have an equation of the form
-$\displaystyle y'' + P(x)\, y' + Q(x) y = 0$, where
-$\displaystyle P(x) = \frac{1}{x}$ and
-$\displaystyle Q(x) = \frac{2}{x}$.
-Thus $\displaystyle x P(x) = 1$ and
-$\displaystyle x^2 Q(x) = 2x$.  We find
+$\DS y'' + P(x)\, y' + Q(x) y = 0$, where
+$\DS P(x) = \frac{1}{x}$ and
+$\DS Q(x) = \frac{2}{x}$.
+Thus $\DS x P(x) = 1$ and
+$\DS x^2 Q(x) = 2x$.  We find
 $\alpha_0 = 1$ and $\beta_0= 0$.  The indicial equation is
-$\displaystyle \lambda^2 + (\alpha_0 - 1)\lambda + \beta_0 = \lambda^2 = 0$.
+$\DS \lambda^2 + (\alpha_0 - 1)\lambda + \beta_0 = \lambda^2 = 0$.
 There is only one root of algebraic multiplicity $2$; namely, $\lambda=0$.
 
 This time, we will not use the second formula in (\ref{spv_FMchoices})
@@ -601,9 +601,9 @@ method involving the derivative with respect to $\lambda$ mentioned at
 the beginning of the section.
 
 We seek a solution of the form
-$\displaystyle y = \sum_{n=0}^\infty c_n x^{n+\lambda}$.
+$\DS y = \sum_{n=0}^\infty c_n x^{n+\lambda}$.
 If we substitute this expression into
-$\displaystyle xy''+ y' + 2y = 0$, then we get
+$\DS xy''+ y' + 2y = 0$, then we get
 \begin{align*}
 0 & = xy''+ y' + 2y
 = \sum_{n=0}^\infty (\lambda +n)(\lambda + n-1) c_n x^{\lambda + n-1}
@@ -617,7 +617,7 @@ $\displaystyle xy''+ y' + 2y = 0$, then we get
 2c_n\right) x^{\lambda +n} \ .
 \end{align*}
 From the recurrence relation
-$\displaystyle c_{n+1} = - \frac{2c_n}{(\lambda +n+1)^2}$
+$\DS c_{n+1} = - \frac{2c_n}{(\lambda +n+1)^2}$
 for $n \geq 0$, we find by induction that
 \[
 c_n = \frac{(-2)^n c_0}
@@ -629,14 +629,14 @@ y(x) = c_0 x^\lambda + \sum_{n=1}^\infty
 \frac{(-2)^n c_0} {(\lambda +n)^2(\lambda +n-1)^2\cdots (\lambda + 1)^2}
 x^{n+\lambda}
 \]
-satisfies $\displaystyle xy''+ y' + 2y = \lambda^2 c_0 x^{\lambda -1}$.
+satisfies $\DS xy''+ y' + 2y = \lambda^2 c_0 x^{\lambda -1}$.
 If $\lambda = 0$, then we get the solution
 \[
 y_1(x) = c_0 + \sum_{n=1}^\infty
 \frac{(-2)^n c_0} {n^2 (n-1)^2 \cdots 1^2}x^n
 = c_0 \sum_{n=0}^\infty \frac{(-2)^n} {(n!)^2} x^n \  .
 \]
-Note that we may have $\displaystyle \lambda^2 c_0 = 0$ with $c_0 \neq 0$
+Note that we may have $\DS \lambda^2 c_0 = 0$ with $c_0 \neq 0$
 because $\lambda =0$; namely, $c_0$ is free.
 
 To get a second solution linearly independent of the first, we
@@ -667,7 +667,7 @@ x^n\right)\right)\bigg|_{\lambda=0} \\
 \end{align*}
 
 The general solution is
-$\displaystyle y = C\, y_1(x) + D\, y_2(x)$ for arbitrary constants
+$\DS y = C\, y_1(x) + D\, y_2(x)$ for arbitrary constants
 $C$ and $D$.
 \end{egg}
 
@@ -747,8 +747,8 @@ associate to $\lambda_m$ with $n \neq m$, then
 Let $y_n$ be a solution of (\ref{spv_sturm_liou_equ}) with
 $\lambda=\lambda_n$ and $y_m$ be a solution of (\ref{spv_sturm_liou_equ})
 with $\lambda=\lambda_n$.  We have
-$\displaystyle (r(x) y_n')' + q(x)y_n = - \lambda_n p(x) y_n$ and
-$\displaystyle (r(x) y_m')' + q(x)y_m = - \lambda_m p(x) y_m$.
+$\DS (r(x) y_n')' + q(x)y_n = - \lambda_n p(x) y_n$ and
+$\DS (r(x) y_m')' + q(x)y_m = - \lambda_m p(x) y_m$.
 If we multiply the first equation by $y_m$ and the second by $y_n$, and
 subtract the resulting second equation from the resulting first
 equation, then we get
@@ -777,9 +777,9 @@ If we integrate both sides with respect to $x$ for $a< x < b$, then we get
 \end{equation}
 
 \stage{i} Suppose that $y_n$ and $y_m$ satisfy the boundary conditions
-$\displaystyle \alpha_1 y(a) + \alpha_2 y'(a) = 0$
+$\DS \alpha_1 y(a) + \alpha_2 y'(a) = 0$
 with $(\alpha_1,\alpha_2)\neq (0,0)$ and
-$\displaystyle \beta_1 y'(b) + \beta_2 y(b) = 0$ with
+$\DS \beta_1 y'(b) + \beta_2 y(b) = 0$ with
 $(\beta_1,\beta_2) \neq (0,0)$.
 
 The boundary condition
@@ -793,16 +793,16 @@ $(\alpha_1,\alpha_1)\neq (0,0)$ implies that
 \]
 has a non-trivial solution; namely $(u,v) = (\alpha_1, \alpha_2)$.  This is
 possible (if and) only if\\
-$\displaystyle 
+$\DS 
 \det \begin{pmatrix} y_m(a) & y_m'(a) \\ y_n(a) & y_n'(a) \end{pmatrix} = 0$.
 Similarly,
-$\displaystyle
+$\DS
 \det \begin{pmatrix} y_m(b) & y_m'(b) \\ y_n(b) & y_n'(b) \end{pmatrix} = 0$.
 
 It follows from (\ref{SL_orth_proof}) that
-$\displaystyle (\lambda_m - \lambda_n) \int_a^b p(x) y_n(x) y_m(x) \dx{x} = 0$.
+$\DS (\lambda_m - \lambda_n) \int_a^b p(x) y_n(x) y_m(x) \dx{x} = 0$.
 Thus,\\
-$\displaystyle \int_a^b p(x) y_n(x) y_m(x) \dx{x} = 0$ for
+$\DS \int_a^b p(x) y_n(x) y_m(x) \dx{x} = 0$ for
 $\lambda_m \neq \lambda_n$.
 
 \stage{ii} Suppose that $r(a)=0$; that $y_n$, $y_m$, $y_n'$ and $y_m'$ are
@@ -813,8 +813,8 @@ $(\beta_1,\beta_2) \neq (0,0)$.
 The right hand side of (\ref{SL_orth_proof}) is null at $x=a$ because
 $r(a)=0$, and $y_n$, $y_m$, $y_n'$, $y_m'$ are bounded at $x=a$.
 The boundary condition
-$\displaystyle \beta_1 y_n(b) + \beta_2 y_n'(b) = 0$ and
-$\displaystyle \beta_1 y_m(b) + \beta_2 y_m'(b) = 0$
+$\DS \beta_1 y_n(b) + \beta_2 y_n'(b) = 0$ and
+$\DS \beta_1 y_m(b) + \beta_2 y_m'(b) = 0$
 with $(\beta_1,\beta_2)\neq (0,0)$ implies that
 \[
 \begin{pmatrix} y_m(b) & y_m'(b) \\ y_n(b) & y_n'(b) \end{pmatrix}
@@ -823,15 +823,15 @@ with $(\beta_1,\beta_2)\neq (0,0)$ implies that
 \]
 has a non-trivial solution; namely, $(u,v) = (\beta_1,\beta_2)$.  This is
 possible (if and) only if\\
-$\displaystyle
+$\DS
 \det \begin{pmatrix} y_m(b) & y_m'(b) \\ y_n(b) & y_n'(b) \end{pmatrix} = 0$.
 Therefore, the right hand side of (\ref{SL_orth_proof}) is also null at
 $x=b$.
 
 It follows from (\ref{SL_orth_proof}) that
-$\displaystyle (\lambda_m - \lambda_n) \int_a^b p(x) y_n(x) y_m(x) \dx{x} = 0$.
+$\DS (\lambda_m - \lambda_n) \int_a^b p(x) y_n(x) y_m(x) \dx{x} = 0$.
 Thus,\\
-$\displaystyle \int_a^b p(x) y_n(x) y_m(x) \dx{x} = 0$ for
+$\DS \int_a^b p(x) y_n(x) y_m(x) \dx{x} = 0$ for
 $\lambda_m \neq \lambda_n$.
 
 \stage{iii} Suppose that $r(b)=0$; that $y_n$, $y_m$, $y_n'$ and $y_m'$
@@ -839,7 +839,7 @@ are bounded at $x=b$; and that $y_n$ and $y_m$ satisfy the boundary
 condition $\alpha_1 y'(a) + \alpha_2 y(a) = 0$ with
 $(\alpha_1,\alpha_2) \neq (0,0)$.
 
-The proof that $\displaystyle \int_a^b p(x) y_n(x) y_m(x) \dx{x} = 0$ for
+The proof that $\DS \int_a^b p(x) y_n(x) y_m(x) \dx{x} = 0$ for
 $\lambda_m \neq \lambda_n$ is similar to the proof given in (ii).
 
 \stage{iv} Suppose that $r(a) = r(b)$ and that the periodic
@@ -851,7 +851,7 @@ It follows that
 \big(r(x) y_n'(x)y_m(x) - r(x) y_m'(x)y_n(x)\big)\Big|_a^b = 0 \ .
 \]
 Hence, (\ref{SL_orth_proof}) yields again
-$\displaystyle \int_a^b p(x) y_n(x) y_m(x) \dx{x} = 0$ for
+$\DS \int_a^b p(x) y_n(x) y_m(x) \dx{x} = 0$ for
 $\lambda_m \neq \lambda_n$.
 \end{proof}
 
@@ -861,25 +861,25 @@ $\lambda_0 < \lambda_1 < \lambda_2 < \ldots$ converging to $+\infty$.
 The subspace of all eigenfunctions associated to an eigenvalue $\lambda_n$
 is one-dimensional.  If we select an eigenfunction $\phi_n$ associated
 to the eigenvalue $\lambda_n$ for each $n$, then we get a complete
-orthogonal set $\displaystyle \left\{\phi_n\right\}_{n=0}^\infty$ in
-$\displaystyle L^2[a,b]$ with respect to the scalar product defined by
+orthogonal set $\DS \left\{\phi_n\right\}_{n=0}^\infty$ in
+$\DS L^2[a,b]$ with respect to the scalar product defined by
 \[
   \ps{f}{g} = \int_a^b f(x) g(x) p(x) \dx{x}
 \]
-for $\displaystyle f, g \in L^2[a,b]$.  All these results are proved by first
+for $\DS f, g \in L^2[a,b]$.  All these results are proved by first
 expressing the Sturm-Liouville problem into an integral equation of
 the form
 \[
   (T_K y)(x) = \int_a^b K(x,t) y(t) \dx{t} = \frac{1}{\lambda} y(x)
 \]
-for $\displaystyle y \in L^2[a,b]$, where
-$\displaystyle K \in L^2([a,b]\times[a,b])$ is a
+for $\DS y \in L^2[a,b]$, where
+$\DS K \in L^2([a,b]\times[a,b])$ is a
 Hilbert-Schmidt kernel satisfying $K(x,t) = K(t,x)$ for almost all $x$
 and $t$.  The function $K$ is given by a ``Green function''.
 Details of this proof can found in \cite{RenRog}.  Because of
 this symmetry, we get from Theorem~\ref{fu_an_HSKern} that
-$T_K$ is a self-adjoint, compact operator on $\displaystyle L^2[a,b]$.  The
-results about $\displaystyle \{\phi_n\}_{n=0}^\infty$ stated above are
+$T_K$ is a self-adjoint, compact operator on $\DS L^2[a,b]$.  The
+results about $\DS \{\phi_n\}_{n=0}^\infty$ stated above are
 consequences of the Hilbert-Schmidt Theorem,
 Theorem~\ref{fu_an_HStheorem}.  Note that the eigenvalues of the
 operator $T_K$ are of the form $1/\lambda$ where $\lambda$ is what we
@@ -896,27 +896,27 @@ y''+ \lambda y = 0 \quad \text{with} \quad y'(0)= y'(5) = 0 \  .
 There are three cases to consider.
 
 \stage{i} For $\lambda < 0$, the solutions are of the form
-$\displaystyle y = A\, e^{\sqrt{-\lambda}\,x}+
+$\DS y = A\, e^{\sqrt{-\lambda}\,x}+
 B\, e^{-\sqrt{-\lambda}\,x}$.
 
 \stage{ii} For $\lambda = 0$, the solutions are of the form
-$\displaystyle y = A\,x + B$.
+$\DS y = A\,x + B$.
 
 \stage{iii} For $\lambda > 0$, the solutions are of the form
-$\displaystyle y = A\, \cos\left(\sqrt{\lambda}\,x\right)+
+$\DS y = A\, \cos\left(\sqrt{\lambda}\,x\right)+
 B\, \sin\left(\sqrt{\lambda}\,x\right)$.
 
 \stage{i} For $\lambda < 0$, we have
-$\displaystyle y' = A\,\sqrt{-\lambda}\, e^{\sqrt{-\lambda}\,x} -
+$\DS y' = A\,\sqrt{-\lambda}\, e^{\sqrt{-\lambda}\,x} -
 B\, \sqrt{-\lambda}\, e^{-\sqrt{-\lambda}\,x}$.
 The boundary condition $y'(0)=0$ yields
 $A\,\sqrt{-\lambda} - B\, \sqrt{-\lambda} = 0$ and, after a division
 by $\sqrt{-\lambda}$, we get $A-B=0$.  The boundary condition
 $y'(5) = 0$ yields
-$\displaystyle A\,\sqrt{-\lambda}\, e^{5\sqrt{-\lambda}} -
+$\DS A\,\sqrt{-\lambda}\, e^{5\sqrt{-\lambda}} -
 B\, \sqrt{-\lambda}\, e^{-5\sqrt{-\lambda}} =0$ and, after a division
 by $\sqrt{-\lambda}$, we get
-$\displaystyle A\, e^{5\sqrt{-\lambda}} - B\, e^{-5\sqrt{-\lambda}} =0$.
+$\DS A\, e^{5\sqrt{-\lambda}} - B\, e^{-5\sqrt{-\lambda}} =0$.
 We seek the solutions of the linear system
 \[
 \begin{pmatrix}
@@ -941,7 +941,7 @@ for $\lambda < 0$, the only solution of the linear system is
 $A=B=0$; namely, we get the trivial solution.  Therefore, there is no eigenvalue
 and eigenfunction for $\lambda <0$.
 
-\stage{ii} For $\lambda = 0$, we have $\displaystyle y' = A$.
+\stage{ii} For $\lambda = 0$, we have $\DS y' = A$.
 The boundary conditions $y'(0)=0$ and $y'(5) = 0$ give $A=0$.
 There is no constrain on $B$.  We get a family of non-trivial
 solutions.
@@ -951,24 +951,24 @@ eigenfunction associated to this eigenvalue is $y_0(x)=1$ for all $x$
 if we take $B=1$.
 
 \stage{iii} For $\lambda > 0$, we have
-$\displaystyle y' = -A\,\sqrt{\lambda}\, \sin\left(\sqrt{\lambda}\,x\right) +
+$\DS y' = -A\,\sqrt{\lambda}\, \sin\left(\sqrt{\lambda}\,x\right) +
 B\, \sqrt{\lambda}\, \cos\left(\sqrt{\lambda}\,x\right)$.
 The boundary condition $y'(0)=0$ gives
 $B\, \sqrt{\lambda} = 0$.  Thus $B=0$.  The boundary condition
 $y'(5) = 0$ gives
-$\displaystyle -A\,\sqrt{\lambda}\,\sin\left(5\sqrt{\lambda}\right)=0$,
+$\DS -A\,\sqrt{\lambda}\,\sin\left(5\sqrt{\lambda}\right)=0$,
 where we have used $B=0$.  After a division by $-\sqrt{\lambda}$, we
-get $\displaystyle A\, \sin\left( 5\sqrt{\lambda}\right) =0$.
+get $\DS A\, \sin\left( 5\sqrt{\lambda}\right) =0$.
 Since we are looking for non-trivial solutions, we must assume that
 $A\neq 0$.  We obtain
-$\displaystyle \sin\left( 5\sqrt{\lambda}\right) = 0$.  Thus,
-$\displaystyle 5\sqrt{\lambda} = n\pi$ for $n \geq 1$.
+$\DS \sin\left( 5\sqrt{\lambda}\right) = 0$.  Thus,
+$\DS 5\sqrt{\lambda} = n\pi$ for $n \geq 1$.
 
 We have found the eigenvalues
-$\displaystyle \lambda = \lambda_n = \left(n\pi / 5\right)^2$
+$\DS \lambda = \lambda_n = \left(n\pi / 5\right)^2$
 for $n \geq 1$.  The eigenfunctions associated to the 
 eigenvalue $\lambda_n$ are real multiples of
-$\displaystyle y_n = \cos\left( n\pi x / 5 \right)$.
+$\DS y_n = \cos\left( n\pi x / 5 \right)$.
 
 We have that $y''+ \lambda y = 0$ is of the form
 (\ref{spv_sturm_liou_equ}) with $r(x) = q(x) = p(x) = 1$ for all $x$.
@@ -977,8 +977,8 @@ Thus, from Proposition~\ref{SL_orthog}, we get
 \int_0^5 y_n(x) y_m(x) \dx{x} = 0
 \]
 for $n \neq m$ as it can easily be verified directly.  Moreover,
-$\displaystyle \left\{ \cos(n\pi x/5\right\}_{n=0}^\infty$ is a
-complete orthogonal set in $\displaystyle L^2[0,5]$.  This is something that we
+$\DS \left\{ \cos(n\pi x/5\right\}_{n=0}^\infty$ is a
+complete orthogonal set in $\DS L^2[0,5]$.  This is something that we
 have used when studying Fourier cosine series.
 \end{egg}
 
@@ -993,24 +993,24 @@ y''+ \lambda y = 0 \quad \text{with} \quad y'(0)=0 \quad \text{and}
 As in the previous example, there are three cases to consider.
 
 \stage{i} For $\lambda < 0$, the solutions are of the form
-$\displaystyle y = A\, e^{\sqrt{-\lambda}\,x}+
+$\DS y = A\, e^{\sqrt{-\lambda}\,x}+
 B\, e^{-\sqrt{-\lambda}\,x}$.
 
 \stage{ii} For $\lambda = 0$, the solutions are of the form
-$\displaystyle y = A\,x + B$.
+$\DS y = A\,x + B$.
 
 \stage{iii} For $\lambda > 0$, the solutions are of the form
-$\displaystyle y = A\, \cos\left(\sqrt{\lambda}\,x\right)+
+$\DS y = A\, \cos\left(\sqrt{\lambda}\,x\right)+
 B\, \sin\left(\sqrt{\lambda}\,x\right)$.
 
 \stage{i} For $\lambda < 0$, we have
-$\displaystyle y' = A\,\sqrt{-\lambda}\, e^{\sqrt{-\lambda}\,x} -
+$\DS y' = A\,\sqrt{-\lambda}\, e^{\sqrt{-\lambda}\,x} -
 B\, \sqrt{-\lambda}\, e^{-\sqrt{-\lambda}\,x}$.
 The boundary condition $y'(0)=0$ yields
 $A\,\sqrt{-\lambda} - B\, \sqrt{-\lambda} = 0$ and, after a division
 by $\sqrt{-\lambda}$, we get $A-B=0$.  The boundary condition
 $y(L) = 0$ yields
-$\displaystyle A\, e^{L\sqrt{-\lambda}} + B\, e^{-L\sqrt{-\lambda}} =0$.
+$\DS A\, e^{L\sqrt{-\lambda}} + B\, e^{-L\sqrt{-\lambda}} =0$.
 
 We seek the solutions of the linear system
 \[
@@ -1035,28 +1035,28 @@ for $\lambda < 0$, the only solution of the linear system is $A=B=0$;
 namely, we get the trivial solution.  There is no eigenvalue and
 eigenfunction for $\lambda <0$.
 
-\stage{ii} For $\lambda = 0$, we have $\displaystyle y' = A$.
+\stage{ii} For $\lambda = 0$, we have $\DS y' = A$.
 The boundary conditions $y'(0)= A= 0$ and $y(L) = AL +B = 0$ yields
 $A=B=0$.  Again, there is no non-trivial solution.  Hence, $0$ is
 not an eigenvalue.
 
 \stage{iii} For $\lambda > 0$, we have
-$\displaystyle y' = -A\,\sqrt{\lambda}\, \sin\left(\sqrt{\lambda}\,x\right) +
+$\DS y' = -A\,\sqrt{\lambda}\, \sin\left(\sqrt{\lambda}\,x\right) +
 B\, \sqrt{\lambda}\, \cos\left(\sqrt{\lambda}\,x\right)$.
 The boundary condition $y'(0)=0$ gives
 $B\, \sqrt{\lambda} = 0$.  Thus $B=0$.  The boundary condition
 $y(L) = 0$ gives
-$\displaystyle A\,\cos\left(L\sqrt{\lambda}\right)=0$,
+$\DS A\,\cos\left(L\sqrt{\lambda}\right)=0$,
 where we have used $B=0$. Since we are looking for non-trivial
 solutions, we must assume that $A\neq 0$.  Hence
-$\displaystyle \cos\left( L\sqrt{\lambda}\right) = 0$.  Thus,
-$\displaystyle L\sqrt{\lambda} = n\pi + \pi/2$ for $n \geq 0$.
+$\DS \cos\left( L\sqrt{\lambda}\right) = 0$.  Thus,
+$\DS L\sqrt{\lambda} = n\pi + \pi/2$ for $n \geq 0$.
 
 We have found the eigenvalues
-$\displaystyle \lambda = \lambda_n = \big( (2n+1)\pi/(2L) \big)^2$
+$\DS \lambda = \lambda_n = \big( (2n+1)\pi/(2L) \big)^2$
 for $n \geq 0$.  The eigenfunctions associated to the
 eigenvalue $\lambda_n$ are of the form
-$\displaystyle y = A \, \cos\big((2n+1)\pi x/ (2L) \big)$
+$\DS y = A \, \cos\big((2n+1)\pi x/ (2L) \big)$
 for $n \geq 0$, where $A$ is a non-zero constant.
 \end{egg}
 
@@ -1113,7 +1113,7 @@ we have
 &= \frac{1}{2^n}\sum_{k=0}^{\intpt{n/2}} \frac{(-1)^k}{(n-k)!k!}
 \left( \dfdxn{x^{2n-2k}}{x}{n} \right)
 \end{align*}
-because the derivative of order $n$ of $\displaystyle x^{2n-2k}$ is zero for 
+because the derivative of order $n$ of $\DS x^{2n-2k}$ is zero for 
 $2n-2k<n$; namely, $k > n/2$.  Since
 \[
 \dfdxn{\left(x^{2n-2k}\right)}{x}{n} =
@@ -1140,11 +1140,11 @@ namely,
 \quad -1 < x,t < 1 \ .
 \]
 The first six Legendre polynomials are
-$\displaystyle P_0(x) = 1$, $\displaystyle P_1(x) = x$,
-$\displaystyle P_2(x) = \frac{1}{2}(3x^2-1)$,
-$\displaystyle P_3(x) = \frac{1}{2} (5x^3 - 3 x)$,
-$\displaystyle P_4(x) = \frac{1}{8}(35x^4 - 30x^2 + 3)$ and
-$\displaystyle P_5(x) = \frac{1}{8} (63x^5 -70x^3 + 15x)$.
+$\DS P_0(x) = 1$, $\DS P_1(x) = x$,
+$\DS P_2(x) = \frac{1}{2}(3x^2-1)$,
+$\DS P_3(x) = \frac{1}{2} (5x^3 - 3 x)$,
+$\DS P_4(x) = \frac{1}{8}(35x^4 - 30x^2 + 3)$ and
+$\DS P_5(x) = \frac{1}{8} (63x^5 -70x^3 + 15x)$.
 
 The Legendre equation (\ref{spv_leg_equ}) can be written as a regular
 singular Sturm-Liouville problem.  More precisely, (\ref{spv_leg_equ}) is 
@@ -1152,7 +1152,7 @@ singular Sturm-Liouville problem.  More precisely, (\ref{spv_leg_equ}) is
 \dfdx{ \left( (1-x^2) \dydx{y}{x}\right)}{x} + \lambda y = 0 \ .
 \]
 This is (\ref{spv_sturm_liou_equ}) with
-$\displaystyle r(x) = 1 -x^2$, $q(x)=0$,
+$\DS r(x) = 1 -x^2$, $q(x)=0$,
 $p(x) =1$, $a=-1$ and $b=1$.  If we require that $y$ be bounded on the
 interval $]-1,1[$, then we get a regular singular Sturm-Liouville problem
 whose eigenvalues are $\lambda_n = n(n+1)$ for $n \geq 0$, and where
@@ -1165,19 +1165,19 @@ Legendre Polynomials are orthogonal with respect to the scalar product
 \ps{f}{g} = \int_{-1}^1 f(x)g(x) \dx{x}
 \]
 and the set $\left\{ P_n : n \geq 0\right\}$ is complete in
-$\displaystyle L^2[-1,1]$.  More precisely, the Legendre polynomials
+$\DS L^2[-1,1]$.  More precisely, the Legendre polynomials
 satisfy the orthogonality relations
 \[
 \int_{-1}^{1} \: P_n(x) P_m(x) \dx{x} =
 \begin{cases}
 0 & \mbox{ if } n \neq n \\
-\displaystyle \frac{2}{2n+1} & \mbox{ if } n = m
+\DS \frac{2}{2n+1} & \mbox{ if } n = m
 \end{cases}
 \]
 We also have the following result.
 
 \begin{prop}
-The $\displaystyle L^2$-norm of $P_n$ is
+The $\DS L^2$-norm of $P_n$ is
 \[
 \parallel P_n \parallel = \left( \int_{-1}^{1} (P_n(x))^2 \dx{x}
 \right)^{1/2} = \left( \frac{2}{2n+1} \right)^{1/2} \ .  \qedhere
@@ -1185,21 +1185,21 @@ The $\displaystyle L^2$-norm of $P_n$ is
 \end{prop}
 
 \begin{proof}
-Let $\displaystyle I = \| P_n\|^2$.  Using Rodrique's formula, we have
+Let $\DS I = \| P_n\|^2$.  Using Rodrique's formula, we have
 \[
 I = \frac{(-1)^n}{2^n n!} \int_{-1}^1 P_n(x) \dfdxn{(1-x^2)^n}{x}{n} \dx{x} \ .
 \]
 Using integration by parts with $f(x) = P_n(x)$ and
-$\displaystyle g'(x) = \dfdxn{(1-x^2)^n}{x}{n}$, so
+$\DS g'(x) = \dfdxn{(1-x^2)^n}{x}{n}$, so
 $f'(x) = P_n'(x)$ and
-$\displaystyle g(x) = \dfdxn{(1-x^2)^n}{x}{n-1}$, we get
+$\DS g(x) = \dfdxn{(1-x^2)^n}{x}{n-1}$, we get
 \begin{align*}
 I &= \frac{(-1)^n}{2^n n!} \left( P_n(x) \dfdxn{(1-x^2)^n}{x}{n-1}\bigg|_{-1}^1 
 - \int_{-1}^1 P_n'(x) \dfdxn{(1-x^2)^n}{x}{n-1} \dx{x} \right) \\
 &= \frac{(-1)^{n+1}}{2^n n!}
  \int_{-1}^1 P_n'(x) \dfdxn{(1-x^2)^n}{x}{n-1} \dx{x}
 \end{align*}
-because $\displaystyle \dfdxn{(1-x^2)^n}{x}{k} = 0$ at $x=1$ and
+because $\DS \dfdxn{(1-x^2)^n}{x}{k} = 0$ at $x=1$ and
 $x=-1$ for $k<n$.  Using integration by parts as above, the reader
 can easily show by induction that
 \[
@@ -1216,15 +1216,15 @@ we get
 I = \frac{(2n)!}{(2^n n!)^2} \int_{-1}^1 (1-x^2) \dx{x}
 = \frac{2(2n)!}{(2^n n!)^2} \int_0^1 (1-x^2) \dx{x} \ .
 \]
-To compute the integral $\displaystyle \int_0^1 (1-x^2)^n \dx{x}$, we
+To compute the integral $\DS \int_0^1 (1-x^2)^n \dx{x}$, we
 use the trigonometric substitution $x=\sin(t)$ for
 $0 \leq t \leq \pi/2$.
 \[
 \int_0^1 (1-x^2)^n \dx{x} = \int_0^{\pi/2} \cos^{2n+1}(t) \dx{t} \ .
 \]
-Using integration by parts with $\displaystyle f(t) = \cos^{2n}(t)$ and
+Using integration by parts with $\DS f(t) = \cos^{2n}(t)$ and
 $g'(t) = \cos(t)$, so\\
-$\displaystyle f'(t) = -2n \cos^{2n-1}(t)\sin(t)$ and
+$\DS f'(t) = -2n \cos^{2n-1}(t)\sin(t)$ and
 $g(t) = \sin(t)$, we get
 \begin{align*}
 \int_0^{\pi/2} \cos^{2n+1}(t) \dx{t} &= \cos^{2n}(t)\sin(t)\bigg|_0^{\pi/2}
@@ -1255,14 +1255,14 @@ The Fourier-Legendre expansion of $f$ on $[-1,1]$ is
 f = \sum_{n=0}^{\infty}  a_n  P_n
 \end{equation}
 where
-$\displaystyle a_n  =  \frac{2n+1}{2} \int_{-1}^{1} f(x) P_n(x)\dx{x}$
+$\DS a_n  =  \frac{2n+1}{2} \int_{-1}^{1} f(x) P_n(x)\dx{x}$
 for $n \geq 0$.  The series in (\ref{SF_FL1}) converges in
-$\displaystyle L^2[-1,1]$.
+$\DS L^2[-1,1]$.
 
 With the substitution $x=\cos(\phi)$ for
 $0\leq \phi \leq \pi$, we get the complete orthogonal set of functions
-$\displaystyle \left\{P_n(\cos(\phi)) : n \geq 0 \right\}$
-in $\displaystyle L^2[0.\pi]$, where the scalar product is given by
+$\DS \left\{P_n(\cos(\phi)) : n \geq 0 \right\}$
+in $\DS L^2[0.\pi]$, where the scalar product is given by
 \[
 \ps{f}{g} = \int_0^\pi f(\phi) g(\phi) \sin(\phi) \dx{\phi} \ .
 \]
@@ -1278,14 +1278,14 @@ a_n = \frac{2n+1}{2} \int_{0}^{\pi} \tilde{f}(\phi) P_n(\cos(\phi))
 = \frac{2n+1}{2} \int_{-1}^{1} f(x)\, P_n(x) \dx{x}
 \]
 for $n \geq 0$.  The series in (\ref{SF_FL2}) converges in
-$\displaystyle L^2[0,\pi]$.
+$\DS L^2[0,\pi]$.
 
 \begin{egg}
 Express in terms of the Legendre polynomials the function
 $f(x) = |x|$ for $-1\leq x \leq 1$.
 
 The coefficient are given by
-$\displaystyle a_n  =  \frac{2n+1}{2} \int_{-1}^{1} |x| P_n(x)\dx{x}$
+$\DS a_n  =  \frac{2n+1}{2} \int_{-1}^{1} |x| P_n(x)\dx{x}$
 for $n \geq 0$.  Since $P_n(x)$ is an odd function when $n$ is odd, we
 have that $|x| P_n(x)$ is odd when $n$ is odd and so $a_n =0$ for $n$
 odd.  It is a little bit harder to find a general formulae for the
@@ -1306,8 +1306,8 @@ a_{2m} = \frac{(-1)^{2m}(4m+1)}{2^{2m+1} (2m)!}
 \]
 for $m \ge 0$.  If we assume that $m>0$, then we may use integration by
 parts with $f(x) = x$ and
-$\displaystyle g'(x) = \dfdxn{(1-x^2)^{2m}}{x}{2m}$, so 
-$f'(x) = 1$ and $\displaystyle g(x) = \dfdxn{(1-x^2)^{2m}}{x}{2m-1}$, to
+$\DS g'(x) = \dfdxn{(1-x^2)^{2m}}{x}{2m}$, so 
+$f'(x) = 1$ and $\DS g(x) = \dfdxn{(1-x^2)^{2m}}{x}{2m-1}$, to
 get
 \begin{align*}
 a_{2m} &= \frac{(4m+1)}{2^{2m} (2m)!}\left(
@@ -1317,9 +1317,9 @@ x \dfdxn{(1-x^2)^{2m}}{x}{2m-1}\bigg|_0^1
 = \frac{(4m+1)}{2^{2m} (2m)!} \dfdxn{(1-x^2)^{2m}}{x}{2m-2}\bigg|_{x=0} \ ,
 \end{align*}
 where the second and third equality come from
-$\displaystyle \dfdxn{(1-x^2)^{2m}}{x}{k}\Big|_{x=1} = 0$ for $k<2m$.
-The value of $\displaystyle \dfdxn{(1-x^2)^{2m}}{x}{2m-2}$ at $x=0$ is
-given by $(2m-2)!$ times the coefficient of $\displaystyle x^{2m-2}$ in
+$\DS \dfdxn{(1-x^2)^{2m}}{x}{k}\Big|_{x=1} = 0$ for $k<2m$.
+The value of $\DS \dfdxn{(1-x^2)^{2m}}{x}{2m-2}$ at $x=0$ is
+given by $(2m-2)!$ times the coefficient of $\DS x^{2m-2}$ in
 \[
 (1-x^2)^{2m} = \sum_{k=0}^{2m} \frac{(2m)!}{(2m-k)!k!} (-x^2)^k \ .
 \]
@@ -1339,7 +1339,7 @@ for $m>0$.  Hence
 \end{egg}
 
 \section{Associated Legendre Polynomials
-$\displaystyle P_n^m(x)$ on $]-1,1[$}
+$\DS P_n^m(x)$ on $]-1,1[$}
 
 The {\bfseries associated Legendre equation}\index{Associated Legendre
 Equation} is the ordinary differential equation
@@ -1358,12 +1358,12 @@ for $-1<x<1$, then we get the differential equation
 \left( \lambda - m(m+1)\right) \dydxn{z}{x}{m} = 0
 \]
 for $-1<x<1$.  If we substitute
-$\displaystyle y = (1-x^2)^{m/2}\dydxn{z}{x}{m}$,
-or equivalently $\displaystyle \dydxn{z}{x}{m} = (1-x^2)^{-m/2} y$,
+$\DS y = (1-x^2)^{m/2}\dydxn{z}{x}{m}$,
+or equivalently $\DS \dydxn{z}{x}{m} = (1-x^2)^{-m/2} y$,
 in the previous equation and multiply by
-$\displaystyle (1-x^2)^{-m/2 +1}$, then we get
+$\DS (1-x^2)^{-m/2 +1}$, then we get
 (\ref{spv_ass_leg_equ}).  Solutions of (\ref{spv_ass_leg_equ}) are
-therefore of the form $\displaystyle y = (1-x^2)^{m/2}\dydxn{z}{x}{m}$,
+therefore of the form $\DS y = (1-x^2)^{m/2}\dydxn{z}{x}{m}$,
 where $z$ is a solution of the Legendre equation (\ref{SLformLegEqu}).
 
 It can be shown that (\ref{spv_ass_leg_equ}) has non-trivial bounded
@@ -1396,19 +1396,19 @@ The {\bfseries gamma function}\index{Gamma Function} $\Gamma$ is defined by
 \Gamma(\nu) = \int_0^\infty e^{-t} t^{\nu-1} \dx{t}
 \]
 for $\nu > 0$ and recursively by
-$\displaystyle \Gamma(\nu) = \Gamma(\nu + 1)/\nu$
+$\DS \Gamma(\nu) = \Gamma(\nu + 1)/\nu$
 for $\nu < 0$, $\nu$ not a negative integer.  The graph of the gamma
 function between $-3$ and $3$ is given in Figure~\ref{gamma_fig}.
 
 Some of the properties of the gamma function are
-$\displaystyle \Gamma(\nu+1) = \nu \Gamma(\nu)$ and
-$\displaystyle \Gamma(n+1) = n!$ for $n \geq 0$.
+$\DS \Gamma(\nu+1) = \nu \Gamma(\nu)$ and
+$\DS \Gamma(n+1) = n!$ for $n \geq 0$.
 
 \pdfF{special_functions/gamma}{Graph of the gamma function}{The
 graph of the gamma function $y = \Gamma(\nu)$}{gamma_fig}
 
 We note that $\Gamma(1/2) = \sqrt{\pi}$.  This can easily be proved
-with a double integral.  With the substitution $\displaystyle t = s^2$ in
+with a double integral.  With the substitution $\DS t = s^2$ in
 \[
 \Gamma\left(\frac{1}{2}\right) = \int_0^\infty e^{-t} t^{-1/2} \dx{t} \ ,
 \]
@@ -1483,7 +1483,7 @@ x^2 y'' + xy' + (\lambda^2 x^2 - \nu^2)y = 0
 by reducing it to a Bessel equation.
 
 Let $z=\lambda x$ and
-$\displaystyle \tilde{y}(z) = y(x) = y\left(\frac{z}{\lambda}\right)$,
+$\DS \tilde{y}(z) = y(x) = y\left(\frac{z}{\lambda}\right)$,
 then
 \[
 \dydx{y}{x} = \dydx{\tilde{y}}{z}\,\dydx{z}{x}
@@ -1504,7 +1504,7 @@ $\tilde{y}(z)$.  Hence, (\ref{BesselEX1}) becomes
 This is a Bessel equation with the general solution
 $y(z) = A J_\nu(z) + B\,Y_\nu(z)$.  Hence,
 the general solution of (\ref{BesselEX1}) is
-$\displaystyle y(x) = A J_\nu(\lambda x) + B\,Y_\nu(\lambda x)$
+$\DS y(x) = A J_\nu(\lambda x) + B\,Y_\nu(\lambda x)$
 for arbitrary constants $A$ and $B$.
 \end{egg}
 
@@ -1516,8 +1516,8 @@ x^2 y''+ \left( 9x^2 + \frac{5}{36}\right) y = 0 \ .
 \end{equation}
 
 Since
-$\displaystyle y'= u' x^{1/2}+ u  x^{-1/2}/2$ and
-$\displaystyle y''= u'' x^{1/2}+ u' x^{-1/2} - u x^{-3/2}/4$,
+$\DS y'= u' x^{1/2}+ u  x^{-1/2}/2$ and
+$\DS y''= u'' x^{1/2}+ u' x^{-1/2} - u x^{-3/2}/4$,
 (\ref{BesselEX2}) becomes
 \begin{align*}
 0 &= x^2 \left(u'' x^{1/2}+ u' x^{-1/2} - \frac{1}{4} u x^{-3/2}\right)
@@ -1525,12 +1525,12 @@ $\displaystyle y''= u'' x^{1/2}+ u' x^{-1/2} - u x^{-3/2}/4$,
 &= x^{5/2} u'' + x^{3/2} u' + \left( 9  x^2 - \frac{1}{9}\right) u x^{1/2} \ .
 \end{align*}
 Hence, after multiplying both sides of the previous equality by
-$\displaystyle x^{1/2}$, we get
+$\DS x^{1/2}$, we get
 \[
 x^2 u'' + x u' + \left( 9  x^2 - \frac{1}{9}\right) u =0 \ .
 \]
 This is almost a Bessel equation but for the coefficient $9$ in front
-of $\displaystyle x^2$ in the parenthesis.  Let $z=3x$,  We have
+of $\DS x^2$ in the parenthesis.  Let $z=3x$,  We have
 \[
 \dydx{u}{x} = \dydx{u}{z}\,\dydx{z}{x} = 3 \dydx{u}{z}
 \quad \text{and} \quad
@@ -1548,9 +1548,9 @@ x^2 u'' + x u' + \left( 9 x^2 - \frac{1}{9}\right) u
 \end{align*}
 This is the Bessel equation with $\nu = 1/3$.
 The general solution of this Bessel equation is
-$\displaystyle u(z) = A J_{1/3}(z) + B J_{-1/3}(z)$.  Therefore, the
+$\DS u(z) = A J_{1/3}(z) + B J_{-1/3}(z)$.  Therefore, the
 general solution of (\ref{BesselEX2}) is
-$\displaystyle y(x) = \sqrt{x} \, u(x) =
+$\DS y(x) = \sqrt{x} \, u(x) =
 A \sqrt{x}\, J_{1/3}(3x)+ B \sqrt{x}\, J_{-1/3}(3x)$
 for arbitrary constants $A$ and $B$.
 \end{egg}
@@ -1562,10 +1562,10 @@ y''+ k^2 x^2 y = 0
 \end{equation}
 for $x >0$.
 
-We use the substitution $y(x)=u(x) \sqrt{x}$ and $\displaystyle z= kx^2/2$.
-Since $\displaystyle y'= u' x^{1/2}+ u x^{-1/2}/2$
+We use the substitution $y(x)=u(x) \sqrt{x}$ and $\DS z= kx^2/2$.
+Since $\DS y'= u' x^{1/2}+ u x^{-1/2}/2$
 and
-$\displaystyle y''= u'' x^{1/2}+ u' x^{-1/2} - u x^{-3/2}/4$,
+$\DS y''= u'' x^{1/2}+ u' x^{-1/2} - u x^{-3/2}/4$,
 we get
 \[
 0 = \left(u'' x^{1/2}+ u' x^{-1/2} - \frac{1}{4} u x^{-3/2}\right)
@@ -1603,9 +1603,9 @@ z^2 \dydxn{u}{z}{2} + z \dydx{u}{z}
 + \left(z^2 - \frac{1}{16}\right)u = 0 \ .
 \]
 This is a Bessel equation with $\nu = 1/4$.  Its general solution is
-$\displaystyle u = A J_{1/4}(z) + B J_{-1/4}(z)$.  
+$\DS u = A J_{1/4}(z) + B J_{-1/4}(z)$.  
 Hence, the general solution of (\ref{BesselEX3}) is \\
-$\displaystyle y(x) = \sqrt{x}\, u(x)
+$\DS y(x) = \sqrt{x}\, u(x)
 = A \sqrt{x} J_{1/4}\left(kx^2/2\right)
 + B \sqrt{x}\, J_{-1/4}\left(kx^2/2\right)$
 for arbitrary constants $A$ and $B$.
@@ -1667,9 +1667,9 @@ If we substitute $k=s+1$ in the last equation, then we get
 Compute the following integrals.               \label{ExBesselInt}
 \[
 \begin{array}{*{3}{l@{\hspace{0.5em}}l@{\hspace*{4em}}}}
-\text{\bfseries a}) & \displaystyle \int x^4 J_1(x) \dx{x} 
-& \text{\bfseries b}) & \displaystyle \int x^3 J_0(x) \dx{x}
-& \text{\bfseries c}) & \displaystyle \int x J_2(x) \dx{x}
+\text{\bfseries a}) & \DS \int x^4 J_1(x) \dx{x} 
+& \text{\bfseries b}) & \DS \int x^3 J_0(x) \dx{x}
+& \text{\bfseries c}) & \DS \int x J_2(x) \dx{x}
 \end{array}
 \]
 
@@ -1743,8 +1743,8 @@ J_{n-1}(x) - J_{n+1}(x) &= 2 J_n'(x) \label{brr6} \ .
 and (\ref{brr5}) yields (\ref{brr6}).
 
 Two special Bessel functions of the first kind are
-$\displaystyle J_{1/2}(x) = \sqrt{2/(\pi x)}\, \sin(x)$ and
-$\displaystyle J_{-1/2}(x) = \sqrt{2/(\pi x)}\, \cos(x)$.
+$\DS J_{1/2}(x) = \sqrt{2/(\pi x)}\, \sin(x)$ and
+$\DS J_{-1/2}(x) = \sqrt{2/(\pi x)}\, \cos(x)$.
 
 Some of the zeros $\alpha_{n,0}$ of $J_0$ with the value of
 $J_1$ at these points, and some of the zeros $\alpha_{n,1}$ of $J_1$
@@ -1777,23 +1777,23 @@ substitution $x= \sqrt{\lambda}\, t$ and $\nu = k \in \NN$, transforms
 \end{equation}
 for $0 < t < R$, where $R$ is determined by the problem under
 consideration.  This is (\ref{spv_sturm_liou_equ}) with $r(t) = t$,
-$\displaystyle q(t)= -k^2/t$,
+$\DS q(t)= -k^2/t$,
 $p(t)=t$. $a=0$ and $b=R$.  If we require that $y$ be bounded near
 $0$ and $y(R)=0$, then we get a regular singular Sturm-Liouville problem
 whose eigenvalues are
-$\displaystyle \lambda = \lambda_{n,k} = \left(\alpha_{n,k}/R\right)^2$,
-where $n > 0$ and $\alpha_{n,k}$ is the $\displaystyle n^{th}$ zero of $J_k(x)$.
+$\DS \lambda = \lambda_{n,k} = \left(\alpha_{n,k}/R\right)^2$,
+where $n > 0$ and $\alpha_{n,k}$ is the $\DS n^{th}$ zero of $J_k(x)$.
 The eigenfunctions associated to $\lambda_{n,k}$ are multiple of
-$\displaystyle J_k\left(\alpha_{n,k} t/R\right)$.
+$\DS J_k\left(\alpha_{n,k} t/R\right)$.
 This comes from the fact that the bounded solution of
 (\ref{spv_BesselSLF}) on $[0,R]$ are scalar multiple of
-$\displaystyle y(t) = J_k\big(\sqrt{\lambda} t\big)$ and
+$\DS y(t) = J_k\big(\sqrt{\lambda} t\big)$ and
 $y(R) = 0$ implies that $\sqrt{\lambda}\, R = \alpha_{n,k}$.
 We ignore $n=0$ for $k>0$ because
-$\displaystyle J_k\left(\alpha_{0,k} t/R\right) = J_k\left(0\right) = 0$
+$\DS J_k\left(\alpha_{0,k} t/R\right) = J_k\left(0\right) = 0$
 for all $t$ cannot be an eigenfunction.  The set
-$\displaystyle \left\{ J_k\left(\alpha_{n,k} t/R\right) : n \geq 1 \right\}$
-is complete and orthogonal in $\displaystyle L^2[0,R]$, where the
+$\DS \left\{ J_k\left(\alpha_{n,k} t/R\right) : n \geq 1 \right\}$
+is complete and orthogonal in $\DS L^2[0,R]$, where the
 scalar product is defined by
 \[
 \ps{f}{g} = \int_0^R f(t)g(t) \, t \dx{t} \ .
@@ -1808,7 +1808,7 @@ first kind satisfy the following orthogonality relations.
 J_k\left(\frac{\alpha_{j,k} t}{R}\right)\, t \dx{t} =
 \begin{cases}
 0 & \mbox{ if } i \neq j \\
-\displaystyle \frac{R^2}{2} J_{k+1}^2(\alpha_{i,k}) & \mbox{ if } i = j
+\DS \frac{R^2}{2} J_{k+1}^2(\alpha_{i,k}) & \mbox{ if } i = j
 \end{cases}
 \]
 \end{prop}
@@ -1821,7 +1821,7 @@ We only need to prove that
 \frac{R^2}{2} J_{k+1}^2(\alpha_{n,k}) \ .
 \end{equation}
 
-We use the fact that $\displaystyle y(t) = J_k(\gamma_{n,k}t)$ with
+We use the fact that $\DS y(t) = J_k(\gamma_{n,k}t)$ with
 $\gamma_{n,k} = \alpha_{n,k}/R$ is a solution of
 (\ref{spv_BesselSLF}), the Bessel equation in the Sturm-Liouville
 form with the conditions $y$ bounded at the origin and $y(R)=0$.
@@ -1831,7 +1831,7 @@ More specifically, we have
 + \left( -\frac{k^2}{t} + \gamma_{n,k}^2 t\right) J_k(\gamma_{n,k}t) = 0 \ .
 \]
 Multiplying both sides by
-$\displaystyle 2 t \dfdx{\left( J_k(\gamma_{n,k}t)\right)}{t}$, we get
+$\DS 2 t \dfdx{\left( J_k(\gamma_{n,k}t)\right)}{t}$, we get
 \[
 2 t \dfdx{\left( J_k(\gamma_{n,k}t) \right)}{t}
 \dfdx{\left( t \dfdx{\left(J_k(\gamma_{n,k}t)\right)}{t}\right)}{t}
@@ -1874,10 +1874,10 @@ all $n$, and $J_k(0) = 0$ for $k>0$.
 
 We now turn our attention on the right hand side of (\ref{spv_neb}).
 Using integration by parts with
-$\displaystyle f(t) = \left(k^2 - \gamma_{n,k}^2 t^2\right)$
-and $\displaystyle g'(t) = \dfdx{\left( J_k^2(\gamma_{n,k}t)\right)}{t}$,
-so $\displaystyle f'(t) = - 2\gamma_{n,k}^2 t$ and
-$\displaystyle g(t) = J_k^2(\gamma_{n,k}t)$, we get
+$\DS f(t) = \left(k^2 - \gamma_{n,k}^2 t^2\right)$
+and $\DS g'(t) = \dfdx{\left( J_k^2(\gamma_{n,k}t)\right)}{t}$,
+so $\DS f'(t) = - 2\gamma_{n,k}^2 t$ and
+$\DS g(t) = J_k^2(\gamma_{n,k}t)$, we get
 \begin{align*}
 \int_0^R \left(k^2 - \gamma_{n,k}^2 t^2\right)
 \dfdx{\left( J_k^2(\gamma_{n,k}t)\right)}{t} \dx{t} 
@@ -1898,7 +1898,7 @@ and this gives (\ref{spv_nebi}) after simplification.
 \end{proof}
 
 Hence, the norm of
-$\displaystyle J_k\left(\alpha_{n,k} t / R\right)$ on $[0,R]$ is
+$\DS J_k\left(\alpha_{n,k} t / R\right)$ on $[0,R]$ is
 given by
 \[
 \left\| J_k\left(\frac{\alpha_{n,k} t}{R}\right) \right\|^2
@@ -1907,7 +1907,7 @@ given by
 \]
 For $k$ fix, the Fourier-Bessel expansion of $f$ on $]0,R[$ with
 respect to the functions
-$\displaystyle J_k\left(\alpha_{n,k} t/R\right)$ for $n \geq 1$ is
+$\DS J_k\left(\alpha_{n,k} t/R\right)$ for $n \geq 1$ is
 \[
 f = \sum_{n=1}^{\infty}\, a_{n}
 J_k\left(\frac{\alpha_{n,k} t}{R}\right)
@@ -1917,11 +1917,11 @@ for $0 < t < R$, where
 a_n = \frac{2}{R^2 J_{k+1}^2(\alpha_{n,k})} \int_0^R f(t)
 J_k\left(\frac{\alpha_{n,k} t}{R}\right) \, t \dx{t}
 \]
-for $n \geq 1$.  The convergence of the series is in $\displaystyle L^2[0,R]$.
+for $n \geq 1$.  The convergence of the series is in $\DS L^2[0,R]$.
 
 \begin{egg}
-Express $\displaystyle f(x) = x^2$ for $0<x<R$ in terms of the Bessel functions
-$\displaystyle \left\{ J_0(\gamma_{n,0}x)\right\}_{n=0}^\infty$, where
+Express $\DS f(x) = x^2$ for $0<x<R$ in terms of the Bessel functions
+$\DS \left\{ J_0(\gamma_{n,0}x)\right\}_{n=0}^\infty$, where
 $\gamma_{n,0} = \alpha_{n,0}/R$.
 
 The coefficient of the Fourier-Bessel series are

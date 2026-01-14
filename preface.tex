@@ -74,10 +74,10 @@ equation in Section~\ref{SectHeatEqCauchyPr} and Section~\ref{SectHeatFundSol}.
 }
 
 For the more advanced topics, the readers are expected to be familiar
-with all the concept of vector calculus in $\displaystyle \RR^n$.
+with all the concept of vector calculus in $\DS \RR^n$.
 These topics are still accessible to readers with a more standard
-vector calculus course in $\displaystyle \RR^2$ and
-$\displaystyle \RR^3$ if they assume that $n$ is $2$ or
+vector calculus course in $\DS \RR^2$ and
+$\DS \RR^3$ if they assume that $n$ is $2$ or
 $3$ when reading the sections covering these advanced topics.
 The readers may however find the presentation very technical in
 comparison to the simpler presentation which is limited to $n=2$ or
@@ -129,8 +129,8 @@ $T(x,t)$ is the magnitude of the tension at position $x$ and time $t$.
 Since there is no horizontal motion, we get that the difference between
 the horizontal component of the force at the end points is null; namely,
 $T(x_2,t) \cos(\theta_2) - T(x_1,t) \cos(\theta_1) = 0$.  Since
-$\displaystyle \cos(\theta_1) = \frac{1}{\sqrt{1+u_x^2(x_1,t)}}$ and
-$\displaystyle \cos(\theta_2) = \frac{1}{\sqrt{1+u_x^2(x_2,t)}}$, we
+$\DS \cos(\theta_1) = \frac{1}{\sqrt{1+u_x^2(x_1,t)}}$ and
+$\DS \cos(\theta_2) = \frac{1}{\sqrt{1+u_x^2(x_2,t)}}$, we
 get
 \[
 % \begin{equation} \label{prefaceEq1}
@@ -141,11 +141,11 @@ get
 For the vertical motion, the difference between
 the vertical component of the force at the end points is equal to the
 mass of the section of the string time its acceleration; namely,
-$\displaystyle T(x_2,t) \sin(\theta_2) - T(x_1,t) \sin(\theta_1) =
+$\DS T(x_2,t) \sin(\theta_2) - T(x_1,t) \sin(\theta_1) =
 \int_{x_1}^{x_2} \rho u_{tt}(x,t) \dx{x}$.  Since
-$\displaystyle \sin(\theta_1) = \frac{u_x(x_1,t)}{\sqrt{1+u_x^2(x_1,t)}}$ 
+$\DS \sin(\theta_1) = \frac{u_x(x_1,t)}{\sqrt{1+u_x^2(x_1,t)}}$ 
 and
-$\displaystyle \sin(\theta_2) = \frac{u_x(x_2,t)}{\sqrt{1+u_x^2(x_2,t)}}$,
+$\DS \sin(\theta_2) = \frac{u_x(x_2,t)}{\sqrt{1+u_x^2(x_2,t)}}$,
 we get
 \[
 % \begin{equation} \label{prefaceEq2}
@@ -194,7 +194,7 @@ vibrating membrane of a drum; namely,
 u_{tt} = c^2 \big( u_{xx} + u_{yy} \big)
 \]
 for $(x,y) \in D$ and $t > 0$,  where $c = \sqrt{T/\rho}$ and $D$ is
-the region representing the membrane in $\displaystyle \RR^2$.
+the region representing the membrane in $\DS \RR^2$.
 
 \section*{Heat Equation}
 
@@ -217,7 +217,7 @@ length $L$.
 
 Let $u(x,t)$ be the density of dye at the position $x$ and time $t$,
 the mass of dye in the little section is given by
-$\displaystyle M(x_1,x_2,t) = \int_{x_1}^{x_2} u(x,t) \dx{x}$.
+$\DS M(x_1,x_2,t) = \int_{x_1}^{x_2} u(x,t) \dx{x}$.
 The variation of the mass of dye in the little section is
 due to dye flowing in or out at the ends of the section.  Therefore,
 \[
@@ -227,7 +227,7 @@ due to dye flowing in or out at the ends of the section.  Therefore,
 \]
 where $k$ is a constant.  If we divide both sides of this equation by
 $x_2-x_1$ and let $x_2 \to x_1$, we get from the definition of the
-derivative that $\displaystyle u_t(x_1,t) = k u_{xx}(x_1,t)$.
+derivative that $\DS u_t(x_1,t) = k u_{xx}(x_1,t)$.
 Since $x_1$ is arbitrary, we get the heat equation
 \[
 % \begin{equation} \label{prefaceEq5}
@@ -262,7 +262,7 @@ u_t = k \big( u_{xx} + u_{yy} \big)
 \]
 for $(x,y) \in D$ and $t > 0$, where $k$ is the constant of
 proportionality and $D$ is the region representing the thin plate in
-$\displaystyle \RR^2$.
+$\DS \RR^2$.
 
 \section*{Laplace Equation}
 
@@ -273,7 +273,7 @@ $u$ does not depend on time.  We get
   u_{xx} + u_{yy} = 0
 \]
 for $(x,y) \in D$, where $D$ is an open subset of
-$\displaystyle \RR^2$.  The solutions of this
+$\DS \RR^2$.  The solutions of this
 equation are called ``harmonic functions.''\  We will study these
 functions intensively in these lecture notes.  The Laplace equation is
 usually accompanied of boundary conditions.  For instance, $u=0$ on the
@@ -321,34 +321,34 @@ subject.  We had to make a personal choice.
 \section*{Some Terminology}
 
 The {\bfseries $\mathbf{k}$-norm}\index{$k$-norm} of
-$\displaystyle \VEC{x} \in \RR^n$ is defined by
+$\DS \VEC{x} \in \RR^n$ is defined by
 \[
 \|\VEC{x}\|_k =
 \begin{cases}
-\displaystyle \left(\sum_{i=1}^n |x_i|^k\right)^{1/k} & \quad \text{if}\ k > 0 \\
-\displaystyle \max_{1\leq i \leq n} |x_i| & \quad \text{if} \ k = \infty  
+\DS \left(\sum_{i=1}^n |x_i|^k\right)^{1/k} & \quad \text{if}\ k > 0 \\
+\DS \max_{1\leq i \leq n} |x_i| & \quad \text{if} \ k = \infty  
 \end{cases}
 \]
 We adopt the convention that $\|\cdot\|$ will denote the
 {\bfseries $\mathbf{2}$-norm}\index{$2$-norm} or
 {\bfseries Euclidean norm}\index{Euclidean Norm} $\|\cdot\|_2$.
 
-The open ball of radius $r$ centred at $\displaystyle \VEC{y} \in \RR^n$
-is denoted $\displaystyle B_r(\VEC{y})$; namely,\\
-$\displaystyle B_r(\VEC{y}) = \left\{ \VEC{x} \in \RR^n :
+The open ball of radius $r$ centred at $\DS \VEC{y} \in \RR^n$
+is denoted $\DS B_r(\VEC{y})$; namely,\\
+$\DS B_r(\VEC{y}) = \left\{ \VEC{x} \in \RR^n :
 \left\|\VEC{x}-\VEC{y} \right\| < r \right\}$.  We will also use this
 notation to denote open balls in any metric spaces.
 
-Let $V$ be a subset of $\displaystyle \RR^n$ and $f:V \to \RR$.  The
+Let $V$ be a subset of $\DS \RR^n$ and $f:V \to \RR$.  The
 {\bfseries supremum norm}\index{Supremum Norm of a Function}
 of $f$ on $V$ is defined by
-$\displaystyle \|f\|_{\infty,V} = \sup_{\VEC{x}\in V} |f(\VEC{x})|$.
+$\DS \|f\|_{\infty,V} = \sup_{\VEC{x}\in V} |f(\VEC{x})|$.
 We will simply write $\|f\|_\infty$ when it is clear from the context
 what is the set $V$ used in the definition of the supremum.
 
-If $V$ be an open subset of $\displaystyle \RR^n$ and $f:V \to \RR$ is
+If $V$ be an open subset of $\DS \RR^n$ and $f:V \to \RR$ is
 sufficiently differentiable, we define the differential operator
-$\displaystyle \diff^{\VEC{\alpha}}$ for $\displaystyle \VEC{\alpha} \in \NN^n$
+$\DS \diff^{\VEC{\alpha}}$ for $\DS \VEC{\alpha} \in \NN^n$
 by
 \[
 \diff^{\VEC{\alpha}} f\left(\VEC{x}\right)
@@ -356,29 +356,29 @@ by
 \partial x_2^{\alpha_2} \ldots \partial x_n^{\alpha_n}}\left(\VEC{x}\right)
 \]
 for $\VEC{x} \in V$, where
-$\displaystyle |\VEC{\alpha}| = \sum_{j=1}^n \alpha_j$.
+$\DS |\VEC{\alpha}| = \sum_{j=1}^n \alpha_j$.
 
 \begin{defn*}
-Let $V$ be an open subset of $\displaystyle \RR^n$.  For $m\in \NN$,
-$\displaystyle C^m(\overline{V})$ is the space of all
-$\displaystyle f \in C^m(V) \cap C(\overline{V})$ such that
-$\displaystyle \diff^{\VEC{\alpha}} f$ can be continuously extended
+Let $V$ be an open subset of $\DS \RR^n$.  For $m\in \NN$,
+$\DS C^m(\overline{V})$ is the space of all
+$\DS f \in C^m(V) \cap C(\overline{V})$ such that
+$\DS \diff^{\VEC{\alpha}} f$ can be continuously extended
 to $\overline{V}$ for
-all multi-index $\displaystyle \VEC{\alpha} \in \NN^n$ such that
+all multi-index $\DS \VEC{\alpha} \in \NN^n$ such that
 $|\VEC{\alpha}|\leq m$.
 
-$\displaystyle C^\infty(\overline{V})$ is the space of all
-$\displaystyle f \in C^\infty(V) \cap C(\overline{V})$ such that
-$\displaystyle \diff^{\VEC{\alpha}} f$ can be continuously extended to
-$\overline{V}$ for all multi-index $\displaystyle \VEC{\alpha} \in \NN^n$.
+$\DS C^\infty(\overline{V})$ is the space of all
+$\DS f \in C^\infty(V) \cap C(\overline{V})$ such that
+$\DS \diff^{\VEC{\alpha}} f$ can be continuously extended to
+$\overline{V}$ for all multi-index $\DS \VEC{\alpha} \in \NN^n$.
 \end{defn*}
 
 \begin{defn*}
-Let $V$ be an open subset of $\displaystyle \RR^n$ and $k$ be a
+Let $V$ be an open subset of $\DS \RR^n$ and $k$ be a
 positive integer.  The space of {\bfseries bounded continuous
 functions}\index{Bounded Continuous Functions}, denoted
-$\displaystyle C_b^k(\overline{V})$, is the set of all functions
-$\displaystyle f\in C^k\left(\overline{V}\right)$ such that
+$\DS C_b^k(\overline{V})$, is the set of all functions
+$\DS f\in C^k\left(\overline{V}\right)$ such that
 \[
 \|f\|_{k,\infty,V} \equiv \max_{|\VEC{\alpha}|\leq k}
 \|\diff^{\VEC{\alpha}} f\|_{\infty,\overline{V}} < \infty \ .
@@ -386,39 +386,39 @@ $\displaystyle f\in C^k\left(\overline{V}\right)$ such that
 \end{defn*}
 
 It is not hard to prove that the space
-$\displaystyle C^k_b(\overline{V})$ is a Banach space
-with respect to the norm $\displaystyle \|f\|_{k,\infty,V}$.
+$\DS C^k_b(\overline{V})$ is a Banach space
+with respect to the norm $\DS \|f\|_{k,\infty,V}$.
 
 \begin{defn*}
-Let $V$ be an open subset of $\displaystyle \RR^n$ and $k$ be a
+Let $V$ be an open subset of $\DS \RR^n$ and $k$ be a
 positive integer.  The space of {\bfseries bounded uniformly continuous
 functions}\index{Bounded Uniformly Continuous Functions}, denoted
-$\displaystyle C_{bu}^k(\overline{V})$, is the set of all functions
-$\displaystyle f\in C_b^k\left(\overline{V}\right)$ such that
-$\displaystyle \diff^{\VEC{\alpha}} f:\overline{V} \to \RR$ is uniformly
+$\DS C_{bu}^k(\overline{V})$, is the set of all functions
+$\DS f\in C_b^k\left(\overline{V}\right)$ such that
+$\DS \diff^{\VEC{\alpha}} f:\overline{V} \to \RR$ is uniformly
 continuous for $|\VEC{\alpha}| \leq k$.
 \end{defn*}
 
 It is also not hard to prove that
-$\displaystyle C_{bu}^k(\overline{V})$ is a closed subset of
-$\displaystyle C_b^k\left(\overline{V}\right)$ with respect to the
+$\DS C_{bu}^k(\overline{V})$ is a closed subset of
+$\DS C_b^k\left(\overline{V}\right)$ with respect to the
 norm $\|\cdot\|_{k,\infty,V}$.
 
 \begin{defn}
-If $V$ is an open subset of $\displaystyle \RR^n$ and $f:V \to \RR$ is a
+If $V$ is an open subset of $\DS \RR^n$ and $f:V \to \RR$ is a
 sufficiently differentiable function, then the
 {\bfseries gradient}\index{Gradient} of $u$ is defined by
-$\displaystyle \graD f(\VEC{x})
+$\DS \graD f(\VEC{x})
 = \left( \pdydx{f}{x_1}(\VEC{x}) , \pdydx{f}{x_2}(\VEC{x}) ,
 \ldots, \pdydx{f}{x_n}(\VEC{x}) \right)$ and the
 {\bfseries Laplacian}\index{Laplacian} of $f$ is defined by
-$\displaystyle \Delta f(\VEC{x})
+$\DS \Delta f(\VEC{x})
 = \pdydxn{f}{x_1}{2}(\VEC{x}) + \pdydxn{f}{x_2}{2}(\VEC{x}) +
 \ldots + \pdydxn{f}{x_n}{2}(\VEC{x})$ for all $\VEC{x} \in V$.
 
-If $\displaystyle F:V \to \RR^n$ is a sufficiently differentiable
+If $\DS F:V \to \RR^n$ is a sufficiently differentiable
 function, then the {\bfseries divergence}\index{Divergence} of $F$ is
-defined by $\displaystyle \diV F(\VEC{x}) = \nabla \cdot F(\VEC{x})
+defined by $\DS \diV F(\VEC{x}) = \nabla \cdot F(\VEC{x})
 = \pdydx{F_1}{x_1}(\VEC{x}) + \pdydx{F_2}{x_2}(\VEC{x}) +
 \ldots + \pdydx{F_n}{x_n}(\VEC{x})$ for all $\VEC{x} \in V$..
 \end{defn}
